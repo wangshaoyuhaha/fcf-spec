@@ -4,7 +4,7 @@
 
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
-last_commit: b6f2cf1
+last_commit: 4ac7281
 
 ## 当前状态
 
@@ -37,7 +37,7 @@ D4：标准事件契约与数据结构，正式草稿已完成。
 
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
-last_commit: b6f2cf1
+last_commit: 4ac7281
 
 ## 当前状态
 
@@ -83,6 +83,6 @@ D5 需要定义：
 
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
-last_commit: b6f2cf1
+last_commit: 4ac7281
 current_stage: Phase 1 Build Spine；D1/D2 已补齐；D3 已完成；D4 正式草稿已完成，准备进入 D5：模块契约定义。
 next_action: 读取 PROJECT_STATE.md、docs/01_vision.md、docs/02_constitution.md、docs/03_architecture.md、docs/04_event_contracts.md，然后创建 docs/05_module_contracts.md。
