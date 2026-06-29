@@ -246,3 +246,147 @@ D4 第一版把事件分为六类：
 
 - fcf.decision.proposed
 
+
+## 16. 风控治理事件字段要求
+
+风控治理事件用于记录系统如何审核一个决策提案。
+
+风控治理层拥有最终否决权。
+
+风控治理事件 payload 至少应包含：
+
+- proposal_id：被审核的提案编号
+- review_result：审核结果
+- risk_level：风险等级
+- reject_reasons：拒绝原因
+- approved_stake：批准仓位
+- policy_refs：触发的规则引用
+- reviewer_module：审核模块
+
+review_result 可以是：
+
+- approved：通过
+- rejected：拒绝
+- shadow_only：只允许影子执行
+- reduced：降低仓位后通过
+- circuit_breaker：触发硬熔断
+
+适用事件：
+
+- fcf.policy.reviewed
+- fcf.risk.rejected
+- fcf.circuit_breaker.triggered
+
+## 17. 执行事件字段要求
+
+执行事件用于记录订单从批准到执行完成的过程。
+
+执行层不能读取策略内部逻辑。
+
+执行层只接收已经批准的标准订单。
+
+执行事件 payload 至少应包含：
+
+- order_id：订单编号
+- proposal_id：来源提案编号
+- execution_mode：执行模式
+- target_id：执行目标
+- stake：执行仓位
+- expected_price：预期价格
+- executed_price：实际成交价格
+- executed_stake：实际成交仓位
+- slippage：滑点
+- execution_status：执行状态
+
+execution_mode 可以是：
+
+- live：真实执行
+- shadow：影子执行
+- replay：回放执行
+
+execution_status 可以是：
+
+- pending：等待执行
+- filled：全部成交
+- partial：部分成交
+- rejected：执行拒绝
+- failed：执行失败
+
+适用事件：
+
+- fcf.order.approved
+- fcf.order.executed
+
+## 18. 影子模拟事件字段要求
+
+影子模拟事件用于记录不影响真实资金的模拟执行。
+
+影子模式必须尽量接近真实交易环境，不能假设理想成交。
+
+影子模拟事件 payload 至少应包含：
+
+- proposal_id：来源提案编号
+- target_id：模拟目标
+- simulated_price：模拟成交价格
+- simulated_stake：模拟仓位
+- simulated_slippage：模拟滑点
+- liquidity_assumption：流动性假设
+- simulation_result：模拟结果
+- reason_summary：模拟说明
+
+适用事件：
+
+- fcf.shadow.simulated
+
+## 19. 回放事件字段要求
+
+回放事件用于记录一次历史事件重建过程。
+
+回放系统必须能够根据事件序列重建当时的系统状态。
+
+回放事件 payload 至少应包含：
+
+- replay_id：回放编号
+- from_sequence_id：起始事件序号
+- to_sequence_id：结束事件序号
+- replay_mode：回放模式
+- event_count：回放事件数量
+- replay_status：回放状态
+- mismatch_count：不一致数量
+- result_summary：回放结果摘要
+
+replay_status 可以是：
+
+- started：已开始
+- completed：已完成
+- failed：失败
+- mismatch：存在不一致
+
+适用事件：
+
+- fcf.replay.started
+- fcf.replay.completed
+
+## 20. D4 正式验收标准
+
+D4 完成需要满足：
+
+- 标准事件命名规则清楚
+- 通用事件结构清楚
+- payload 设计原则清楚
+- 数据事件字段要求清楚
+- 智能分析事件字段要求清楚
+- 决策提案事件字段要求清楚
+- 风控治理事件字段要求清楚
+- 执行事件字段要求清楚
+- 影子模拟事件字段要求清楚
+- 回放事件字段要求清楚
+- 最小可回放字段已经定义
+- 文档已经提交并推送到 GitHub
+
+## 21. 当前状态
+
+本文档是 D4 正式草稿。
+
+后续 D5 将进入模块契约定义，明确各模块的输入、输出、责任边界和替换规则。
+
