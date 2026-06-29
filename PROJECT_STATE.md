@@ -4,7 +4,7 @@
 
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
-last_commit: 920d6fd
+last_commit: a9161f8
 
 ## 当前状态
 
@@ -12,15 +12,15 @@ FCF Phase 1 骨架已经创建，并成功推送到 GitHub。
 
 PROJECT_STATE.md 已添加并清理完成。
 
-D3 第一版文档已经创建：
+D3 正式草稿已经完成并推送：
 
 - docs/03_architecture.md
 
 ## 当前阶段
 
-D3：总体架构图与数据流，第一版草稿已完成。
+D3：总体架构图与数据流，正式草稿已完成。
 
-下一步需要继续完善 D3，使它从“短草稿”升级为“可作为系统设计基准的正式草稿”。
+下一步进入 D4：标准事件契约与数据结构定义。
 
 ## 已完成
 
@@ -32,18 +32,25 @@ D3：总体架构图与数据流，第一版草稿已完成。
 - 添加 PROJECT_STATE.md
 - 清理 PROJECT_STATE.md
 - 创建 docs/03_architecture.md
-- 推送 D3 第一版架构草稿
+- 扩展 D3 正式架构文档
+- 推送 D3 正式草稿
 
 ## 下一步任务
 
-继续完善 docs/03_architecture.md，补充：
+创建 docs/04_event_contracts.md。
 
-- Mermaid 总体架构图
-- 模块职责表
-- 标准事件流
-- 决策生命周期状态机
-- 实盘、影子、回放之间的关系
-- D3 验收标准
+D4 需要定义：
+
+- 标准事件命名规则
+- 事件基础字段
+- 数据接入事件
+- 标准化事件
+- 决策提案事件
+- 风控审核事件
+- 执行结果事件
+- 影子模拟事件
+- 回放事件
+- 最小可回放字段
 
 ## 新聊天启动信息
 
@@ -51,6 +58,6 @@ D3：总体架构图与数据流，第一版草稿已完成。
 
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
-last_commit: 920d6fd
-current_stage: D3 第一版 docs/03_architecture.md 已创建并推送，准备继续完善总体架构图与数据流。
-next_action: 读取 PROJECT_STATE.md 和 docs/03_architecture.md，继续完善 D3。
+last_commit: a9161f8
+current_stage: D3 正式草稿 docs/03_architecture.md 已完成并推送，准备进入 D4：标准事件契约与数据结构定义。
+next_action: 读取 PROJECT_STATE.md 和 docs/03_architecture.md，然后创建 docs/04_event_contracts.md。
