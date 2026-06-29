@@ -97,3 +97,45 @@ D4 第一版先定义以下事件：
 - 影子模拟结构
 - 回放结构
 
+
+## 7. 通用事件结构
+
+所有 FCF 事件都必须遵守统一外壳结构。
+
+事件外壳用于保证事件可以被追踪、审计、排序和回放。
+
+| 字段 | 是否必填 | 说明 |
+|---|---|---|
+| event_id | 必填 | 当前事件的唯一编号 |
+| event_name | 必填 | 标准事件名称 |
+| event_version | 必填 | 事件契约版本 |
+| event_time | 必填 | 事件发生时间 |
+| sequence_id | 必填 | 单调递增事件序号 |
+| source_module | 必填 | 产生事件的模块 |
+| correlation_id | 必填 | 同一决策链路的编号 |
+| causation_id | 必填 | 触发当前事件的上游事件编号 |
+| payload | 必填 | 事件主体内容 |
+| metadata | 必填 | 审计、环境、追踪信息 |
+
+## 8. 字段解释
+
+event_id 用来唯一标识一个事件。
+
+event_name 用来说明事件类型。
+
+event_version 用来保证以后事件格式升级时仍然可以兼容旧事件。
+
+event_time 记录事件发生时间。
+
+sequence_id 用来保证回放顺序。
+
+source_module 记录事件来源模块。
+
+correlation_id 用来把同一次决策链路中的多个事件串起来。
+
+causation_id 用来记录当前事件由哪个上游事件触发。
+
+payload 保存业务数据。
+
+metadata 保存审计信息、运行环境和追踪信息。
+
