@@ -4,7 +4,7 @@
 
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
-last_commit: 153522c
+last_commit: dbd7f20
 
 ## 当前状态
 
@@ -12,45 +12,26 @@ FCF Phase 1 骨架已经创建，并成功推送到 GitHub。
 
 PROJECT_STATE.md 已添加并持续更新。
 
-D3 正式草稿已经完成：
+当前文档顺序已经补齐：
 
+- docs/01_vision.md
+- docs/02_constitution.md
 - docs/03_architecture.md
-
-D4 第一版短草稿已经创建并推送：
-
 - docs/04_event_contracts.md
 
 ## 当前阶段
 
 当前处于 Phase 1：Build Spine。
 
+D1：项目愿景，已补齐。
+
+D2：系统宪法，已补齐。
+
 D3：总体架构图与数据流，已完成。
 
 D4：标准事件契约与数据结构，已开始。
 
-下一步需要继续完善 D4，把短草稿升级为正式草稿。
-
-## 已完成
-
-- 创建本地项目文件夹：fcf_phase1_spine
-- 初始化 Git 仓库
-- 配置 Git 用户名和邮箱
-- 连接 GitHub 远程仓库
-- 推送 initial commit
-- 添加 PROJECT_STATE.md
-- 清理 PROJECT_STATE.md
-- 创建并完善 docs/03_architecture.md
-- 完成 D3 正式草稿
-- 创建 docs/04_event_contracts.md
-- 推送 D4 第一版短草稿
-
-## 待补充
-
-需要补回 D2：
-
-- docs/02_constitution.md
-
-旧聊天中已有 D2 Constitution 内容，但当前 GitHub 仓库中还没有正式补成独立文件。
+下一步继续完善 D4，把短草稿升级为正式草稿。
 
 ## 下一步任务
 
@@ -74,6 +55,6 @@ D4 正式草稿需要补充：
 
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
-last_commit: 153522c
-current_stage: Phase 1 Build Spine；D3 已完成；D4 第一版短草稿 docs/04_event_contracts.md 已创建并推送；D2 Constitution 旧聊天有内容但还需要补回仓库。
-next_action: 读取 PROJECT_STATE.md、docs/03_architecture.md、docs/04_event_contracts.md，然后继续完善 D4；之后补 docs/02_constitution.md。
+last_commit: dbd7f20
+current_stage: Phase 1 Build Spine；D1/D2 已补齐；D3 已完成；D4 第一版短草稿已创建，准备继续完善 D4。
+next_action: 读取 PROJECT_STATE.md、docs/01_vision.md、docs/02_constitution.md、docs/03_architecture.md、docs/04_event_contracts.md，然后继续完善 D4。
