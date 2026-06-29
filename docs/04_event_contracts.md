@@ -139,3 +139,42 @@ payload 保存业务数据。
 
 metadata 保存审计信息、运行环境和追踪信息。
 
+
+## 9. payload 设计原则
+
+payload 是事件的业务主体数据。
+
+不同事件可以有不同 payload，但必须遵守以下原则：
+
+- payload 只保存当前事件真正需要的数据
+- payload 不能保存无法解释的临时对象
+- payload 不能依赖某个模块的私有内部结构
+- payload 必须可以被序列化保存
+- payload 必须可以被回放系统重新读取
+- payload 中的关键字段必须有明确含义
+
+## 10. payload 类型分类
+
+D4 第一版把 payload 分为以下几类：
+
+| 类型 | 说明 |
+|---|---|
+| data_payload | 数据接入和标准化事件使用 |
+| market_payload | 市场快照和盘口状态事件使用 |
+| model_payload | 特征和模型评估事件使用 |
+| decision_payload | 决策提案事件使用 |
+| policy_payload | 风控审核事件使用 |
+| order_payload | 订单批准和执行事件使用 |
+| shadow_payload | 影子模拟事件使用 |
+| replay_payload | 回放事件使用 |
+
+## 11. payload 最低要求
+
+每个 payload 至少要满足：
+
+- 能说明当前事件发生了什么
+- 能支持后续模块继续处理
+- 能支持审计人员理解事件
+- 能支持回放系统重建过程
+- 不能只保存一句自然语言解释
+
