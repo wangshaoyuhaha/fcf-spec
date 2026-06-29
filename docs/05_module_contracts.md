@@ -179,3 +179,156 @@ event_bus 禁止：
 
 如果事件顺序无法保证，系统不能进入 LIVE。
 
+
+## 8. regime_radar 状态雷达
+
+### 职责
+
+regime_radar 负责识别当前系统、市场或比赛所处的状态。
+
+它的任务是先判断环境，再决定后续是否允许预测或提案。
+
+### 输入事件
+
+regime_radar 输入：
+
+- fcf.data.normalized
+- fcf.market.snapshot_created
+
+### 输出事件
+
+regime_radar 输出：
+
+- fcf.regime.detected
+
+### 禁止行为
+
+regime_radar 禁止：
+
+- 直接生成订单
+- 直接调用执行器
+- 修改资金参数
+- 绕过风控治理层
+- 把状态识别结果当成最终决策
+
+### 失败处理
+
+如果状态无法识别，系统应降低置信度。
+
+如果状态识别模块不可用，系统不能进入激进执行状态。
+
+## 9. feature_engine 特征引擎
+
+### 职责
+
+feature_engine 负责把标准化数据转换成模型和策略可使用的特征。
+
+特征必须可以追踪来源，不能只生成无法解释的黑箱结果。
+
+### 输入事件
+
+feature_engine 输入：
+
+- fcf.data.normalized
+- fcf.market.snapshot_created
+- fcf.regime.detected
+
+### 输出事件
+
+feature_engine 输出：
+
+- fcf.feature.generated
+
+### 禁止行为
+
+feature_engine 禁止：
+
+- 直接生成决策提案
+- 直接判断下注方向
+- 调用执行器
+- 修改风控规则
+- 使用不可回放的临时数据
+
+### 失败处理
+
+如果特征生成失败，应记录失败原因。
+
+如果关键特征缺失，后续模型必须降低置信度或停止提案。
+
+## 10. model_engine 模型引擎
+
+### 职责
+
+model_engine 负责运行统计模型、预测模型或评分模型。
+
+它输出模型评估结果，但不直接产生真实订单。
+
+### 输入事件
+
+model_engine 输入：
+
+- fcf.feature.generated
+- fcf.regime.detected
+
+### 输出事件
+
+model_engine 输出：
+
+- fcf.model.evaluated
+
+### 禁止行为
+
+model_engine 禁止：
+
+- 直接执行交易
+- 绕过策略提案层
+- 绕过风控治理层
+- 私自修改训练数据
+- 把模型分数直接当成订单
+
+### 失败处理
+
+如果模型不可用，系统应进入降级模式。
+
+如果模型输出异常，必须记录异常并阻止自动提案。
+
+## 11. strategy_proposer 策略提案器
+
+### 职责
+
+strategy_proposer 负责把状态、特征和模型结果组合成标准决策提案。
+
+决策提案不是订单。
+
+提案必须经过风控治理层审核后，才能变成可执行订单。
+
+### 输入事件
+
+strategy_proposer 输入：
+
+- fcf.regime.detected
+- fcf.feature.generated
+- fcf.model.evaluated
+
+### 输出事件
+
+strategy_proposer 输出：
+
+- fcf.decision.proposed
+
+### 禁止行为
+
+strategy_proposer 禁止：
+
+- 直接调用 executor
+- 直接影响真实资金
+- 绕过 policy_engine
+- 绕过 risk_guardian
+- 修改已生成的历史提案
+
+### 失败处理
+
+如果提案生成失败，应记录失败原因。
+
+如果输入信息不足，应拒绝生成提案，而不是强行输出低质量提案。
+
