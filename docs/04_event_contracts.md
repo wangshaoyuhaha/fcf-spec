@@ -178,3 +178,71 @@ D4 第一版把 payload 分为以下几类：
 - 能支持回放系统重建过程
 - 不能只保存一句自然语言解释
 
+
+## 12. 事件分类与字段要求
+
+D4 第一版把事件分为六类：
+
+- 数据事件
+- 智能分析事件
+- 决策提案事件
+- 风控治理事件
+- 执行事件
+- 影子与回放事件
+
+## 13. 数据事件字段要求
+
+数据事件用于记录外部数据进入系统，以及被标准化后的结果。
+
+数据事件 payload 至少应包含：
+
+- data_type：数据类型
+- source：数据来源
+- received_at：接收时间
+- quality_score：数据质量评分
+- data_body：数据主体
+
+适用事件：
+
+- fcf.data.raw_received
+- fcf.data.normalized
+- fcf.market.snapshot_created
+
+## 14. 智能分析事件字段要求
+
+智能分析事件用于记录状态识别、特征生成和模型评估结果。
+
+智能分析事件 payload 至少应包含：
+
+- target_id：分析对象编号
+- analysis_type：分析类型
+- input_refs：输入事件引用
+- output_summary：输出摘要
+- confidence：置信度
+
+适用事件：
+
+- fcf.regime.detected
+- fcf.feature.generated
+- fcf.model.evaluated
+
+## 15. 决策提案事件字段要求
+
+决策提案事件用于记录系统提出的操作建议。
+
+决策提案不是订单，不能直接执行。
+
+决策提案 payload 至少应包含：
+
+- proposal_id：提案编号
+- target_id：目标对象编号
+- direction：方向
+- confidence：置信度
+- suggested_stake：建议仓位
+- reason_summary：提案理由摘要
+- input_refs：输入事件引用
+
+适用事件：
+
+- fcf.decision.proposed
+
