@@ -3,9 +3,46 @@
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
 
+## 当前项目定位
+
+FCF Spec 当前定位为：
+
+BTC / 加密货币交易系统的事件驱动最小骨架。
+
+不是足球系统。
+
+cat > PROJECT_STATE.md <<'EOF'
+# FCF Project State
+
+repo: https://github.com/wangshaoyuhaha/fcf-spec.git
+branch: main
+
+## 当前项目定位
+
+FCF Spec 当前定位为：
+
+BTC / 加密货币交易系统的事件驱动最小骨架。
+
+不是足球系统。
+
+系统核心目标是：
+
+- 用统一事件契约记录交易链路
+- 用 EventStore 保存事件
+- 用 ReplayEngine 回放验证
+- 用 risk_guardian 控制风险
+- 用 executor / shadow_simulator 区分执行与影子模拟
+- 为后续 BTC 市场上下文、策略候选、风控审计打基础
+
 ## 当前阶段
 
-Phase 1 Build Spine
+Phase 1 Build Spine 已完成稳定收尾。
+
+Phase 2 已启动。
+
+当前完成到：
+
+P2-D1：BTC Market Context 规划已完成。
 
 ## 已完成进度
 
@@ -19,7 +56,9 @@ D7: 最小测试与回放验证，已完成。
 D8: 模块代码最小落地，已完成。
 D9: 风控、执行、影子模式最小闭环，已完成。
 D10: 审计日志、JSONL 事件持久化与回放一致性加强，已完成。
-D11: Phase 1 骨架验收与收尾，进行中。
+D11: Phase 1 骨架验收与收尾，已完成。
+
+P2-D1: BTC Market Context 规划，已完成。
 
 ## 当前验证结果
 
@@ -40,33 +79,50 @@ python -m pytest -q:
 
 - 8 passed
 
-## D11 当前任务
+## 当前关键提交
 
-D11 用于完成 Phase 1 Build Spine 的验收与收尾。
+- 94f9d23 add D11 phase1 acceptance summary
+- 197c893 add P2 BTC market context plan
 
-当前需要完成：
+纠偏记录：
 
-- docs/11_phase1_acceptance.md 已创建
-- README.md 已更新
-- PROJECT_STATE.md 已更新
-- python main.py 验证通过
-- python -m pytest -q 验证通过
-- 所有变更提交并 push 到 GitHub
+- a4bca33 add D10 event store persistence foundation 是错误方向提交
+- a8d4bd6 Revert "add D10 event store persistence foundation" 已安全撤销该错误提交
+
+## Phase 2 当前边界
+
+Phase 2 初期暂不做：
+
+- 不接真实交易所 API 密钥
+- 不真实下单
+- 不做高杠杆实盘
+- 不做自动重仓策略
+- 不做不可解释黑箱模型
+- 不绕过 policy_engine
+- 不绕过 risk_guardian
+- 不绕过 EventStore
+- 不破坏 Phase 1 已经稳定的 8 事件链
 
 ## 下一步任务
 
-完成 D11 后，Phase 1 Build Spine 进入稳定收尾状态。
+进入 P2-D2：创建 BTCMarketContext 契约。
 
-下一阶段进入 Phase 2 规划。
+建议新增文件：
 
-Phase 2 暂不直接做复杂投注策略，优先规划：
+- fcf/contracts/market_context.py
+- tests/test_market_context.py
 
-- 数据输入结构
-- 真实比赛上下文
-- 市场赔率接入边界
-- 风控阈值
-- 策略候选生成逻辑
-- 回放审计标准
+P2-D2 目标：
+
+- 定义 BTCMarketContext 数据结构
+- 支持 to_dict
+- 支持 market_context_from_dict
+- 增加最小测试
+- 不接真实交易所 API
+- 不真实下单
+- 不修改 main.py 事件链
+- 保持 python main.py 输出 events_recorded: 8
+- 保持 python -m pytest -q 通过
 
 ## 新聊天启动信息
 
@@ -74,7 +130,6 @@ Phase 2 暂不直接做复杂投注策略，优先规划：
 
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
-last_commit: 4ec026c
-current_stage: Phase 1 Build Spine；D1-D10 已完成，D11 正在进行 Phase 1 骨架验收与收尾。D9 风控、执行、影子模式最小闭环已跑通。D10 审计日志、JSONL 事件持久化与回放一致性加强已完成。python main.py 输出 events_recorded: 8，python -m pytest -q 显示 8 passed。D10 正确完成提交为 1cbb143，D10 文档提交为 ef8f6ae。错误提交 a4bca33 已通过 a8d4bd6 安全 revert。最新 PROJECT_STATE 更新提交为 4ec026c。
-next_action: 完成 D11：Phase 1 骨架验收与收尾。检查 docs/11_phase1_acceptance.md、README.md、PROJECT_STATE.md，运行 python main.py 和 python -m pytest -q，通过后提交并 push。
+current_stage: BTC / 加密货币交易系统；Phase 1 Build Spine 已完成稳定收尾；D1-D11 已完成。Phase 2 已启动，P2-D1 BTC Market Context 规划已完成，新增 docs/12_phase2_btc_market_context.md。当前系统已有 8 个最小事件链，python main.py 输出 events_recorded: 8，python -m pytest -q 显示 8 passed。P2-D1 提交为 197c893 add P2 BTC market context plan。
+next_action: 进入 P2-D2：创建 BTCMarketContext 契约文件 fcf/contracts/market_context.py，并增加 tests/test_market_context.py。只定义数据结构和测试，不接真实交易所 API，不真实下单，不修改 main.py 事件链。
 要求：全程用中文一步步指挥我操作，每次重要更新都提交并 push 到 GitHub，并更新新的续聊话术。
