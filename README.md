@@ -14,16 +14,7 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 
 BaseMarketContext 是当前新增的通用多资产上下文契约。
 
-当前已新增 BTCMarketContext 到 BaseMarketContext 的轻量兼容桥。
-
-未来需要逐步适配：
-
-- crypto: BTC, ETH, SOL 等
-- FX: EURUSD, USDJPY 等
-- equities: AAPL, TSLA, SPY 等
-- futures: ES, NQ, CL, GC 等
-- commodities: oil, gold 等
-- rates / bonds: 利率、国债、收益率相关市场
+market_constants 是当前新增的多资产 asset_class / market_type 标准常量与验证工具。
 
 ## 当前阶段
 
@@ -37,6 +28,7 @@ BaseMarketContext 是当前新增的通用多资产上下文契约。
 - P2-D5：多资产 MarketContext / AssetMarketContext 泛化层规划已完成
 - P2-D6：通用 BaseMarketContext 最小契约已完成
 - P2-D7：BTCMarketContext 到 BaseMarketContext 轻量兼容桥已完成
+- P2-D8：多资产 asset_class / market_type 标准常量与验证工具已完成
 
 ## 当前能力
 
@@ -76,6 +68,7 @@ BaseMarketContext 是当前新增的通用多资产上下文契约。
 - 多资产 MarketContext 泛化层规划
 - BaseMarketContext 通用契约
 - BTCMarketContext 到 BaseMarketContext 兼容桥
+- 多资产 asset_class / market_type 标准常量与验证工具
 
 ## 当前验证方式
 
@@ -94,27 +87,9 @@ python -m pytest -q
 
 预期输出：
 
-- 27 passed
+- 34 passed
 
 ## 当前新增代码与文档
-
-P2-D2 新增：
-
-- fcf/contracts/market_context.py
-- tests/test_market_context.py
-
-P2-D3 新增：
-
-- fcf/modules/market_context_builder.py
-- tests/test_market_context_builder.py
-
-P2-D4 新增：
-
-- tests/test_market_context_event_flow.py
-
-P2-D5 新增：
-
-- docs/13_multi_asset_market_context.md
 
 P2-D6 新增：
 
@@ -125,6 +100,48 @@ P2-D7 新增：
 
 - fcf/modules/market_context_adapter.py
 - tests/test_market_context_adapter.py
+
+P2-D8 新增：
+
+- fcf/contracts/market_constants.py
+- tests/test_market_constants.py
+
+## P2-D8 能力
+
+market_constants 当前支持：
+
+- asset_class 常量
+- market_type 常量
+- normalize_asset_class
+- normalize_market_type
+- is_supported_asset_class
+- is_supported_market_type
+- validate_asset_class
+- validate_market_type
+
+当前支持的 asset_class：
+
+- crypto
+- fx
+- equity
+- futures
+- commodity
+- rates
+- bond
+- index
+- unknown
+
+当前支持的 market_type：
+
+- spot
+- perpetual
+- future
+- option
+- cash
+- forward
+- swap
+- cfd
+- unknown
 
 ## 架构方向
 
@@ -146,23 +163,18 @@ P2-D7 新增：
 
 ## 下一步
 
-进入 P2-D8：
+进入 P2-D9：
 
-多资产 asset_class / market_type 标准常量与验证工具。
+让 BaseMarketContext 使用 market_constants 标准化。
 
-建议新增：
+P2-D9 目标：
 
-- fcf/contracts/market_constants.py
-- tests/test_market_constants.py
-
-P2-D8 目标：
-
-- 定义统一 asset_class 常量
-- 定义统一 market_type 常量
-- 定义 normalize / validate 工具
-- 为 crypto、fx、equity、futures、commodity、rates、bond、index 建立基础标准
+- 保持 BaseMarketContext 现有接口兼容
+- 让 BaseMarketContext 使用 market_constants.normalize_asset_class
+- 让 BaseMarketContext 支持 market_type 标准化
+- 增加对应测试
 - 不迁移 BTCMarketContext
 - 不删除 BTCMarketContext
-- 不破坏现有测试
+- 不破坏现有 34 个测试
 - 不接真实交易所 API
 - 不真实下单
