@@ -14,7 +14,7 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 
 BaseMarketContext 是当前新增的通用多资产上下文契约。
 
-market_constants 是当前新增的多资产 asset_class / market_type 标准常量与验证工具。
+market_constants 是多资产 asset_class / market_type 标准常量与验证工具。
 
 ## 当前阶段
 
@@ -29,6 +29,7 @@ market_constants 是当前新增的多资产 asset_class / market_type 标准常
 - P2-D6：通用 BaseMarketContext 最小契约已完成
 - P2-D7：BTCMarketContext 到 BaseMarketContext 轻量兼容桥已完成
 - P2-D8：多资产 asset_class / market_type 标准常量与验证工具已完成
+- P2-D9：BaseMarketContext 使用 market_constants 标准化已完成
 
 ## 当前能力
 
@@ -69,6 +70,7 @@ market_constants 是当前新增的多资产 asset_class / market_type 标准常
 - BaseMarketContext 通用契约
 - BTCMarketContext 到 BaseMarketContext 兼容桥
 - 多资产 asset_class / market_type 标准常量与验证工具
+- BaseMarketContext 使用 market_constants 标准化
 
 ## 当前验证方式
 
@@ -87,7 +89,7 @@ python -m pytest -q
 
 预期输出：
 
-- 34 passed
+- 37 passed
 
 ## 当前新增代码与文档
 
@@ -106,42 +108,23 @@ P2-D8 新增：
 - fcf/contracts/market_constants.py
 - tests/test_market_constants.py
 
-## P2-D8 能力
+P2-D9 修改：
 
-market_constants 当前支持：
+- fcf/contracts/base_market_context.py
+- tests/test_base_market_context.py
 
-- asset_class 常量
-- market_type 常量
-- normalize_asset_class
-- normalize_market_type
-- is_supported_asset_class
-- is_supported_market_type
-- validate_asset_class
-- validate_market_type
+## P2-D9 能力
 
-当前支持的 asset_class：
+BaseMarketContext 当前支持：
 
-- crypto
-- fx
-- equity
-- futures
-- commodity
-- rates
-- bond
-- index
-- unknown
-
-当前支持的 market_type：
-
-- spot
-- perpetual
-- future
-- option
-- cash
-- forward
-- swap
-- cfd
-- unknown
+- 使用 market_constants.normalize_asset_class
+- 使用 market_constants.normalize_market_type
+- normalized_asset_class
+- normalized_market_type
+- to_dict 输出标准化 asset_class
+- to_dict 输出标准化 market_type
+- base_market_context_from_dict 标准化 asset_class
+- base_market_context_from_dict 标准化 market_type
 
 ## 架构方向
 
@@ -163,18 +146,21 @@ market_constants 当前支持：
 
 ## 下一步
 
-进入 P2-D9：
+进入 P2-D10：
 
-让 BaseMarketContext 使用 market_constants 标准化。
+Phase 2 多资产市场上下文阶段验收与收尾。
 
-P2-D9 目标：
+建议新增：
 
-- 保持 BaseMarketContext 现有接口兼容
-- 让 BaseMarketContext 使用 market_constants.normalize_asset_class
-- 让 BaseMarketContext 支持 market_type 标准化
-- 增加对应测试
-- 不迁移 BTCMarketContext
-- 不删除 BTCMarketContext
-- 不破坏现有 34 个测试
-- 不接真实交易所 API
-- 不真实下单
+- docs/14_phase2_market_context_acceptance.md
+
+P2-D10 目标：
+
+- 不继续无限加功能
+- 总结 P2-D1 到 P2-D9 已完成内容
+- 固化当前多资产 MarketContext 基础层
+- 确认 main.py 仍稳定输出 events_recorded: 8
+- 确认 python -m pytest -q 仍稳定通过
+- 更新 README.md
+- 更新 PROJECT_STATE.md
+- 生成新的续聊话术
