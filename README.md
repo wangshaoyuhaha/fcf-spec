@@ -14,7 +14,7 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 
 Phase 2 多资产市场上下文基础层已完成阶段验收。
 
-Phase 3 已启动，当前重点是数据接入边界、mock 数据接入、可回放输入、本地外部调用边界和 Dify workflow 接入规划。
+Phase 3 已启动，当前重点是数据接入边界、mock 数据接入、可回放输入、本地外部调用边界、Dify workflow 接入规划和本地 API wrapper。
 
 Dify 后续会作为上层 workflow / 对话入口 / 编排层接入，不作为底层交易内核。
 
@@ -30,6 +30,7 @@ Dify 后续会作为上层 workflow / 对话入口 / 编排层接入，不作为
 - P3-D3：replayable raw market fixture 已完成
 - P3-D4：本地 system input pipeline / 外部调用边界已完成
 - P3-D5：Dify workflow 接入规划已完成
+- P3-D6：本地 API wrapper 已完成
 
 ## 当前能力
 
@@ -68,6 +69,7 @@ Dify 后续会作为上层 workflow / 对话入口 / 编排层接入，不作为
 - market input pipeline
 - 外部调用 summary dict
 - Dify workflow 接入规划
+- local_market_input_api wrapper
 
 ## 当前验证方式
 
@@ -86,15 +88,17 @@ python -m pytest -q
 
 预期输出：
 
-- 52 passed
+- 58 passed
 
 ## 当前关键代码
 
 - fcf/modules/mock_market_data_adapter.py
 - fcf/pipelines/market_input_pipeline.py
+- fcf/api/local_market_input_api.py
 - tests/test_mock_market_data_adapter.py
 - tests/test_raw_market_fixture_replay.py
 - tests/test_market_input_pipeline.py
+- tests/test_local_market_input_api.py
 
 ## 当前关键数据
 
@@ -114,28 +118,24 @@ Dify 不直接接真实交易所 API。
 
 Dify 不真实下单。
 
-Dify 只调用 FCF 暴露的受控 pipeline，并接收 summary dict 作为输出。
+Dify 只调用 FCF 暴露的受控 API wrapper / pipeline，并接收 summary dict 作为输出。
 
 ## 下一步
 
-进入 P3-D6：
+进入 P3-D7：
 
-本地 API wrapper，为 Dify 后续调用做准备。
+Dify API contract / example payload 文档。
 
 建议新增：
 
-- fcf/api/local_market_input_api.py
-- tests/test_local_market_input_api.py
+- docs/17_dify_api_contract_examples.md
 
-P3-D6 目标：
+P3-D7 目标：
 
-- 新增本地 API wrapper
-- 包装 process_raw_market_input
-- 包装 process_raw_market_batch
-- 输出稳定 response dict
-- 为 Dify HTTP/API 节点做准备
-- 不直接接 Dify
-- 不接真实交易所 API
-- 不保存密钥
-- 不真实下单
+- 明确 Dify 调用 local_market_input_api 的输入 JSON
+- 明确 Dify 收到的输出 JSON
+- 明确错误响应格式
+- 明确 workflow 节点怎么传字段
+- 明确不能真实下单
+- 明确不能接真实交易所 API key
 - 保持当前测试通过
