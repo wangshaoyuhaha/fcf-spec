@@ -30,6 +30,7 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 - P2-D2：BTCMarketContext 契约已完成
 - P2-D3：BTCMarketContext 最小标准化模块已完成
 - P2-D4：market context 事件化测试已完成
+- P2-D5：多资产 MarketContext / AssetMarketContext 泛化层规划已完成
 
 ## 当前能力
 
@@ -66,6 +67,7 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 - BTCMarketContext 单元测试
 - BTCMarketContext 最小标准化 builder
 - Market context 事件化测试
+- 多资产 MarketContext 泛化层规划
 
 ## 当前验证方式
 
@@ -86,7 +88,7 @@ python -m pytest -q
 
 - 18 passed
 
-## 当前新增代码
+## 当前新增代码与文档
 
 P2-D2 新增：
 
@@ -102,35 +104,9 @@ P2-D4 新增：
 
 - tests/test_market_context_event_flow.py
 
-当前 BTCMarketContext 支持：
+P2-D5 新增：
 
-- BTC 市场基础信息
-- 价格信息
-- 成交量信息
-- 订单簿信息
-- 衍生品信息
-- 波动率信息
-- 市场状态信息
-- 风险信息
-- to_dict
-- market_context_from_dict
-
-当前 market_context_builder 支持：
-
-- 输入原始 BTC market dict
-- 输出 BTCMarketContext
-- 自动计算 spread
-- 自动计算 orderbook_imbalance
-- 自动标记 data_quality_level
-- 字符串数值转 float
-- 必填数字字段校验
-
-当前 market context 事件化测试已验证：
-
-- BTCMarketContext 可以放进 FCFEvent payload
-- EventStore 可以保存包含 MarketContext 的事件
-- EventStore 可以从 JSONL 读取相关事件
-- ReplayEngine 可以回放相关事件
+- docs/13_multi_asset_market_context.md
 
 ## 架构方向
 
@@ -150,39 +126,30 @@ P2-D4 新增：
 -> ReplayEngine
 -> Audit / Replay / Test
 
-## Phase 2 边界
-
-Phase 2 不直接接真实交易所 API，不真实下单，不做复杂黑箱策略。
-
-Phase 2 当前目标是先建立市场上下文结构，后续逐步支持：
-
-- 多资产 MarketContext
-- crypto market context
-- FX market context
-- equity market context
-- futures market context
-- spread / slippage
-- volatility
-- market regime
-- risk context
-- position context
-- shadow trading 审计
-- replay 验证
-
 ## 下一步
 
-进入 P2-D5：
+进入 P2-D6：
 
-通用 MarketContext / AssetMarketContext 泛化层规划。
+创建通用 BaseMarketContext 最小契约。
 
-P2-D5 目标：
+建议新增：
 
-- 明确 BTCMarketContext 是 crypto/BTC 第一实现
-- 规划通用 MarketContext 基类或协议
-- 规划 asset_class 字段标准
-- 规划 symbol / venue / market_type 通用字段
-- 规划 crypto、equity、futures、FX 的扩展边界
-- 不急着重命名已通过的 BTCMarketContext
+- fcf/contracts/base_market_context.py
+- tests/test_base_market_context.py
+
+P2-D6 目标：
+
+- 定义 BaseMarketContext 数据结构
+- 支持 asset_class
+- 支持 symbol
+- 支持 venue
+- 支持 market_type
+- 支持 timestamp
+- 支持 timeframe
+- 支持 to_dict
+- 支持 base_market_context_from_dict
+- 不迁移 BTCMarketContext
+- 不删除 BTCMarketContext
 - 不破坏现有 18 个测试
 - 不接真实交易所 API
 - 不真实下单
