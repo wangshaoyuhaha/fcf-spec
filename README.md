@@ -14,9 +14,9 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 
 Phase 2 多资产市场上下文基础层已完成阶段验收。
 
-Phase 3 已启动，当前重点是数据接入边界、mock 数据接入、可回放输入和本地外部调用边界。
+Phase 3 已启动，当前重点是数据接入边界、mock 数据接入、可回放输入、本地外部调用边界和 Dify workflow 接入规划。
 
-Dify 后续会作为上层工作流 / 对话入口 / 编排层接入，不作为底层交易内核。
+Dify 后续会作为上层 workflow / 对话入口 / 编排层接入，不作为底层交易内核。
 
 ## 当前阶段
 
@@ -29,6 +29,7 @@ Dify 后续会作为上层工作流 / 对话入口 / 编排层接入，不作为
 - P3-D2：mock market data adapter 已完成
 - P3-D3：replayable raw market fixture 已完成
 - P3-D4：本地 system input pipeline / 外部调用边界已完成
+- P3-D5：Dify workflow 接入规划已完成
 
 ## 当前能力
 
@@ -66,6 +67,7 @@ Dify 后续会作为上层工作流 / 对话入口 / 编排层接入，不作为
 - replayable raw market fixture
 - market input pipeline
 - 外部调用 summary dict
+- Dify workflow 接入规划
 
 ## 当前验证方式
 
@@ -102,51 +104,38 @@ python -m pytest -q
 
 - docs/14_phase2_market_context_acceptance.md
 - docs/15_phase3_data_ingestion_boundary.md
+- docs/16_dify_workflow_integration_plan.md
 
-## Phase 3 边界
+## Dify 接入边界
 
-Phase 3 初期不接真实交易所 API 密钥。
+Dify 不是底层交易内核。
 
-Phase 3 初期不真实下单。
+Dify 不直接接真实交易所 API。
 
-Phase 3 初期只做：
+Dify 不真实下单。
 
-- 数据源边界文档
-- mock data adapter
-- raw market data schema
-- replayable input fixture
-- 数据接入安全边界
-- 真实 API 接入前的隔离层
-- 本地 pipeline / 外部调用边界
-
-## Dify 接入路线
-
-Dify 预计在 P3-D5 开始正式规划。
-
-当前已经完成 Dify 接入前的准备：
-
-- mock market data adapter
-- replayable raw market fixture
-- market input pipeline
-- 可供外部系统调用的 summary dict
+Dify 只调用 FCF 暴露的受控 pipeline，并接收 summary dict 作为输出。
 
 ## 下一步
 
-进入 P3-D5：
+进入 P3-D6：
 
-Dify workflow 接入规划。
+本地 API wrapper，为 Dify 后续调用做准备。
 
 建议新增：
 
-- docs/16_dify_workflow_integration_plan.md
+- fcf/api/local_market_input_api.py
+- tests/test_local_market_input_api.py
 
-P3-D5 目标：
+P3-D6 目标：
 
-- 明确 Dify 不直接接交易所 API
-- 明确 Dify 不真实下单
-- 明确 Dify 只调用受控 pipeline
-- 明确 Dify 输入字段
-- 明确 Dify 输出 summary
-- 明确 Dify workflow 节点结构
-- 明确 Dify 与 FCF 本地系统的边界
+- 新增本地 API wrapper
+- 包装 process_raw_market_input
+- 包装 process_raw_market_batch
+- 输出稳定 response dict
+- 为 Dify HTTP/API 节点做准备
+- 不直接接 Dify
+- 不接真实交易所 API
+- 不保存密钥
+- 不真实下单
 - 保持当前测试通过
