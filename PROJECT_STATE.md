@@ -153,3 +153,42 @@ P3-D7：Dify API contract / example payload 文档已完成。
 进入 P3-D8：Dify workflow HTTP/API node mapping 文档。
 建议继续先做文档，不接真实交易所，不真实下单，不破坏现有测试。
 
+
+## P3-D8 完成记录
+
+P3-D8：Dify workflow HTTP/API node mapping 文档已完成。
+
+新增文件：
+
+- docs/18_dify_workflow_http_api_node_mapping.md
+
+完成内容：
+
+- 明确 Dify workflow 推荐节点顺序
+- 明确 Start Node
+- 明确 User Intent Node
+- 明确 Market Input Parser Node
+- 明确 Required Field Check Node
+- 明确 Market Type Normalization Node
+- 明确 Build FCF Request Node
+- 明确 FCF API Call Node
+- 明确 IF Response OK Node
+- 明确 Success Summary Node
+- 明确 Error Summary Node
+- 明确字段映射
+- 明确多资产扩展方向
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不绕过 FCF policy / risk / EventStore / ReplayEngine
+
+下一步：
+
+进入 P3-D9：Dify local HTTP adapter 规划或最小 FastAPI wrapper。
+建议先做规划文档，再决定是否实现本地 HTTP adapter。
+任何实现都只能调用受控 local_market_input_api，不接真实交易所，不真实下单。
+

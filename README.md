@@ -160,3 +160,26 @@ Dify 不直接接真实交易所 API。
 Dify 不真实下单。
 Dify 只调用受控 API wrapper / pipeline。
 
+
+## P3-D8：Dify Workflow HTTP/API Node Mapping
+
+P3-D8 已新增：
+
+- docs/18_dify_workflow_http_api_node_mapping.md
+
+该文档明确：
+
+- Dify workflow 推荐节点顺序
+- 每个节点职责
+- 字段如何从 Dify 传给 FCF
+- FCF API Call Node 的边界
+- response.ok 分支处理方式
+- success summary 输出方式
+- error summary 输出方式
+- 禁止真实交易所 API
+- 禁止真实下单
+
+P3-D8 仍然只做文档和边界设计。
+不接真实交易所 API。
+不真实下单。
+
