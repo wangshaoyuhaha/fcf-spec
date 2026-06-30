@@ -292,3 +292,44 @@ Phase 3 Dify integration 当前仍然保持安全边界：
 - 不真实下单
 - 不让 Dify 成为底层交易内核
 
+
+## P3-D14：Phase 3 Closeout
+
+P3-D14 新增：
+
+- docs/24_phase3_closeout_project_state.md
+
+Phase 3 当前已完成阶段收尾。
+
+当前完成范围：
+
+- 数据接入边界
+- mock market data adapter
+- replayable raw market fixture
+- local system input pipeline
+- Dify workflow integration plan
+- local API wrapper
+- Dify API contract examples
+- Dify workflow node mapping
+- Dify local HTTP adapter
+- Dify smoke runner
+- Dify user-facing response templates
+- Dify integration smoke
+- Phase 3 Dify integration acceptance
+- Phase 3 closeout / project state consolidation
+
+当前验证：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 73 passed
+
+安全边界继续保持：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不让 Dify 成为底层交易内核
+
