@@ -62,3 +62,31 @@ def test_d9_policy_and_execution_events_exist():
     assert "fcf.order.approved" in event_names
     assert "fcf.order.executed" in event_names
     assert "fcf.shadow.simulated" in event_names
+
+
+def test_event_store_save_and_load_jsonl(tmp_path):
+    store = run_minimal_spine()
+    file_path = tmp_path / "events.jsonl"
+
+    store.save_jsonl(str(file_path))
+    loaded_store = type(store).load_jsonl(str(file_path))
+
+    assert loaded_store.count() == 8
+    assert [event.event_name for event in loaded_store.all_events()] == EXPECTED_EVENT_NAMES
+
+
+def test_replay_engine_replays_loaded_jsonl_events(tmp_path):
+    store = run_minimal_spine()
+    file_path = tmp_path / "events.jsonl"
+
+    store.save_jsonl(str(file_path))
+    loaded_store = type(store).load_jsonl(str(file_path))
+
+    replay_engine = ReplayEngine()
+    result = replay_engine.replay(loaded_store.all_events())
+
+    assert result["status"] == "completed"
+    assert result["event_count"] == 8
+    assert result["event_names"] == EXPECTED_EVENT_NAMES
+    assert result["is_sequence_ordered"] is True
+    assert result["mismatch_count"] == 0

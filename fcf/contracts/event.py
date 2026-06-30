@@ -36,6 +36,21 @@ class FCFEvent:
         }
 
 
+def event_from_dict(data: Dict[str, Any]) -> FCFEvent:
+    return FCFEvent(
+        event_id=data["event_id"],
+        event_name=data["event_name"],
+        event_version=data["event_version"],
+        event_time=data["event_time"],
+        sequence_id=data["sequence_id"],
+        source_module=data["source_module"],
+        correlation_id=data["correlation_id"],
+        causation_id=data.get("causation_id"),
+        payload=data.get("payload", {}),
+        metadata=data.get("metadata", {}),
+    )
+
+
 def create_event(
     event_name: str,
     source_module: str,
