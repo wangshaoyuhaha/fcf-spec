@@ -339,3 +339,42 @@ P3-D12：Dify adapter + response templates integration smoke 已完成。
 进入 P3-D13：Phase 3 Dify integration acceptance document。
 建议新增阶段验收文档，汇总 P3-D5 到 P3-D12 的 Dify 接入边界、API wrapper、HTTP adapter、smoke runner、response templates 和 integration smoke。
 
+
+## P3-D13 完成记录
+
+P3-D13：Phase 3 Dify integration acceptance document 已完成。
+
+新增文件：
+
+- docs/23_phase3_dify_integration_acceptance.md
+
+完成内容：
+
+- 汇总 P3-D5 到 P3-D12 的 Dify integration 成果
+- 汇总已完成文档
+- 汇总已完成代码
+- 汇总已完成测试
+- 汇总当前 API wrapper 能力
+- 汇总 local HTTP adapter 能力
+- 汇总 smoke runner 能力
+- 汇总 response templates 能力
+- 明确安全边界
+- 明确当前验收命令
+- 明确下一步 P3-D14 closeout
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 73 passed
+
+新聊天启动信息：
+
+repo: https://github.com/wangshaoyuhaha/fcf-spec.git
+branch: main
+last_commit: 待执行 git rev-parse --short HEAD 后更新
+current_stage: 全金融市场 / 多资产交易事件系统。Phase 1 Build Spine 已完成，D1-D11 已完成。Phase 2 多资产 MarketContext 基础层已完成，P2-D1 到 P2-D10 已完成。Phase 3 Dify integration 已完成到 P3-D13。当前不是足球系统，也不是 BTC-only。Dify 不作为底层交易内核，不直接接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，只调用受控 API wrapper / pipeline。
+next_action: 进入 P3-D14：Phase 3 closeout / project state consolidation。更新 README 和 PROJECT_STATE，明确 Phase 3 已完成范围和 Phase 4 候选方向，不接真实交易所 API，不真实下单，不破坏测试。
+要求：全程中文一步步指挥；命令必须是可直接复制的 Git Bash 格式；多行 cat 必须包含完整 EOF；每次重要更新都 commit 并 push，并更新新的续聊话术。
+

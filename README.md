@@ -266,3 +266,29 @@ P3-D12 不接真实 Dify。
 P3-D12 不接真实交易所 API。
 P3-D12 不真实下单。
 
+
+## P3-D13：Phase 3 Dify Integration Acceptance
+
+P3-D13 新增：
+
+- docs/23_phase3_dify_integration_acceptance.md
+
+该文档汇总验收 P3-D5 到 P3-D12 的 Dify integration 工作：
+
+- workflow integration plan
+- local API wrapper
+- API contract examples
+- workflow HTTP/API node mapping
+- local HTTP adapter
+- HTTP adapter smoke runner
+- user-facing response templates
+- adapter + response templates integration smoke
+
+Phase 3 Dify integration 当前仍然保持安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不让 Dify 成为底层交易内核
+
