@@ -1,5 +1,11 @@
 import json
+import sys
+from pathlib import Path
 from typing import Any, Dict, List, Optional
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from fcf.api.dify_http_adapter import ROUTE_SINGLE, route_dify_http_request
 from fcf.api.dify_response_templates import render_dify_user_response

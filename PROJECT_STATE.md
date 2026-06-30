@@ -378,3 +378,25 @@ current_stage: 全金融市场 / 多资产交易事件系统。Phase 1 Build Spi
 next_action: 进入 P3-D14：Phase 3 closeout / project state consolidation。更新 README 和 PROJECT_STATE，明确 Phase 3 已完成范围和 Phase 4 候选方向，不接真实交易所 API，不真实下单，不破坏测试。
 要求：全程中文一步步指挥；命令必须是可直接复制的 Git Bash 格式；多行 cat 必须包含完整 EOF；每次重要更新都 commit 并 push，并更新新的续聊话术。
 
+
+## P3-D13 smoke runner import fix
+
+修复内容：
+
+- scripts/run_dify_http_adapter_smoke.py
+- scripts/run_dify_integration_smoke.py
+
+修复原因：
+
+直接运行 python scripts/*.py 时，Python 默认路径可能只包含 scripts 目录，导致无法导入 fcf 包。
+
+修复方式：
+
+在 smoke runner 顶部加入 PROJECT_ROOT 到 sys.path。
+
+验收要求：
+
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 仍显示 73 passed
+

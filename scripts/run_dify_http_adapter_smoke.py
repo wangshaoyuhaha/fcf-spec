@@ -1,5 +1,11 @@
 import json
+import sys
+from pathlib import Path
 from typing import Any, Dict, List
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from fcf.api.dify_http_adapter import (
     ROUTE_BATCH,
@@ -72,10 +78,7 @@ def run_smoke() -> Dict[str, Any]:
     bad_raw["last_price"] = "bad-number"
 
     responses = [
-        (
-            "contract",
-            route_dify_http_request("GET", ROUTE_CONTRACT),
-        ),
+        ("contract", route_dify_http_request("GET", ROUTE_CONTRACT)),
         (
             "single_success",
             route_dify_http_request(
@@ -109,10 +112,7 @@ def run_smoke() -> Dict[str, Any]:
                 },
             ),
         ),
-        (
-            "unknown_route",
-            route_dify_http_request("GET", "/api/v1/not-real"),
-        ),
+        ("unknown_route", route_dify_http_request("GET", "/api/v1/not-real")),
     ]
 
     cases = [_case_summary(name, response) for name, response in responses]
