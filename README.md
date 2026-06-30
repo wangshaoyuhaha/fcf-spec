@@ -29,6 +29,7 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 - P2-D1：BTC Market Context 规划已完成
 - P2-D2：BTCMarketContext 契约已完成
 - P2-D3：BTCMarketContext 最小标准化模块已完成
+- P2-D4：market context 事件化测试已完成
 
 ## 当前能力
 
@@ -64,6 +65,7 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 - BTCMarketContext 契约文件
 - BTCMarketContext 单元测试
 - BTCMarketContext 最小标准化 builder
+- Market context 事件化测试
 
 ## 当前验证方式
 
@@ -82,7 +84,7 @@ python -m pytest -q
 
 预期输出：
 
-- 15 passed
+- 18 passed
 
 ## 当前新增代码
 
@@ -95,6 +97,10 @@ P2-D3 新增：
 
 - fcf/modules/market_context_builder.py
 - tests/test_market_context_builder.py
+
+P2-D4 新增：
+
+- tests/test_market_context_event_flow.py
 
 当前 BTCMarketContext 支持：
 
@@ -118,6 +124,13 @@ P2-D3 新增：
 - 自动标记 data_quality_level
 - 字符串数值转 float
 - 必填数字字段校验
+
+当前 market context 事件化测试已验证：
+
+- BTCMarketContext 可以放进 FCFEvent payload
+- EventStore 可以保存包含 MarketContext 的事件
+- EventStore 可以从 JSONL 读取相关事件
+- ReplayEngine 可以回放相关事件
 
 ## 架构方向
 
@@ -158,18 +171,18 @@ Phase 2 当前目标是先建立市场上下文结构，后续逐步支持：
 
 ## 下一步
 
-进入 P2-D4：
+进入 P2-D5：
 
-market context 事件化。
+通用 MarketContext / AssetMarketContext 泛化层规划。
 
-P2-D4 目标：
+P2-D5 目标：
 
-- 把 BTCMarketContext 放进 FCFEvent payload
-- 增加最小事件测试
-- 验证 BTCMarketContext 可以被 FCFEvent 记录
-- 验证 EventStore 可以保存包含 MarketContext 的事件
-- 验证 ReplayEngine 可以回放相关事件
-- 为后续多资产 MarketContext 泛化做准备
+- 明确 BTCMarketContext 是 crypto/BTC 第一实现
+- 规划通用 MarketContext 基类或协议
+- 规划 asset_class 字段标准
+- 规划 symbol / venue / market_type 通用字段
+- 规划 crypto、equity、futures、FX 的扩展边界
+- 不急着重命名已通过的 BTCMarketContext
+- 不破坏现有 18 个测试
 - 不接真实交易所 API
 - 不真实下单
-- 不破坏 main.py
