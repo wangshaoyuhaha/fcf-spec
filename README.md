@@ -1,27 +1,93 @@
-# FCF Phase 1 Spine MVP
+# FCF Spec
 
-Financial Cognitive Framework Phase 1 reference implementation.
+FCF Spec 是一个足球交易 / 决策系统的最小事件骨架项目。
 
-This version does **not** connect real exchanges, does **not** place real orders, and does **not** use LLMs.
-It only verifies the golden spine:
+当前阶段：
 
-Mock Market → Perception → Regime Detection → Cognitive Unit → Governor → Decision Proposal → Simulation → Meta → Shadow Execution → SQLite Audit.
+- Phase 1 Build Spine
+- D1-D10 已完成
+- D11 正在进行 Phase 1 骨架验收与收尾
 
-## Run
+## 当前能力
+
+当前系统已经具备一条最小事件链：
+
+1. fcf.data.raw_received
+2. fcf.data.normalized
+3. fcf.regime.detected
+4. fcf.decision.proposed
+5. fcf.policy.reviewed
+6. fcf.order.approved
+7. fcf.order.executed
+8. fcf.shadow.simulated
+
+当前已经完成：
+
+- FCFEvent 事件契约
+- EventBus
+- EventStore
+- ReplayEngine
+- 数据标准化模块
+- regime 检测模块
+- decision proposer
+- policy engine
+- risk guardian
+- executor
+- shadow simulator
+- JSONL 事件持久化
+- JSONL 事件读取
+- ReplayEngine 回放一致性测试
+
+## 当前验证方式
+
+运行最小主流程：
 
 ```bash
 python main.py
-```
+cat > README.md <<'EOF'
+# FCF Spec
 
-The script creates:
+FCF Spec 是一个足球交易 / 决策系统的最小事件骨架项目。
 
-```text
-fcf_events.db
-```
+当前阶段：
 
-and writes the full event chain with one shared `correlation_id`.
+- Phase 1 Build Spine
+- D1-D10 已完成
+- D11 正在进行 Phase 1 骨架验收与收尾
 
-## Safety
+## 当前能力
 
-Default execution mode is `SHADOW`.
-No real capital is touched.
+当前系统已经具备一条最小事件链：
+
+1. fcf.data.raw_received
+2. fcf.data.normalized
+3. fcf.regime.detected
+4. fcf.decision.proposed
+5. fcf.policy.reviewed
+6. fcf.order.approved
+7. fcf.order.executed
+8. fcf.shadow.simulated
+
+当前已经完成：
+
+- FCFEvent 事件契约
+- EventBus
+- EventStore
+- ReplayEngine
+- 数据标准化模块
+- regime 检测模块
+- decision proposer
+- policy engine
+- risk guardian
+- executor
+- shadow simulator
+- JSONL 事件持久化
+- JSONL 事件读取
+- ReplayEngine 回放一致性测试
+
+## 当前验证方式
+
+运行最小主流程：
+
+```bash
+python main.py
