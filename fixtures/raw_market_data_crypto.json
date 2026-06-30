@@ -1,0 +1,52 @@
+[
+  {
+    "asset_class": "crypto",
+    "symbol": "BTCUSDT",
+    "venue": "binance",
+    "market_type": "perp",
+    "timestamp": "2026-06-30T00:00:00Z",
+    "timeframe": "1m",
+    "source": "fixture_crypto_mock",
+    "source_type": "fixture",
+    "open": "60000",
+    "high": "60100",
+    "low": "59900",
+    "close": "60050",
+    "last_price": "60050",
+    "volume": "120.5",
+    "quote_volume": "7230000",
+    "best_bid": "60049.5",
+    "best_ask": "60050.5",
+    "bid_depth": "100",
+    "ask_depth": "80",
+    "metadata": {
+      "fixture_name": "raw_market_data_crypto",
+      "row": 1
+    }
+  },
+  {
+    "asset_class": "crypto",
+    "symbol": "ETHUSDT",
+    "venue": "binance",
+    "market_type": "spot",
+    "timestamp": "2026-06-30T00:01:00Z",
+    "timeframe": "1m",
+    "source": "fixture_crypto_mock",
+    "source_type": "fixture",
+    "open": "3500",
+    "high": "3510",
+    "low": "3490",
+    "close": "3505",
+    "last_price": "3505",
+    "volume": "850.25",
+    "quote_volume": "2979250",
+    "best_bid": "3504.9",
+    "best_ask": "3505.1",
+    "bid_depth": "500",
+    "ask_depth": "450",
+    "metadata": {
+      "fixture_name": "raw_market_data_crypto",
+      "row": 2
+    }
+  }
+]
