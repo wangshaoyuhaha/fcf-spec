@@ -204,3 +204,25 @@ P3-D9 不保存真实 API key。
 P3-D9 不真实下单。
 P3-D9 只把 Dify HTTP/API 节点请求映射到受控 local_market_input_api wrapper。
 
+
+## P3-D10：Dify HTTP Adapter Smoke Runner
+
+P3-D10 新增：
+
+- docs/20_dify_http_adapter_smoke_runner.md
+- scripts/run_dify_http_adapter_smoke.py
+- tests/test_dify_http_adapter_smoke_runner.py
+
+当前 smoke runner 用本地样例请求调用：
+
+- GET /api/v1/contract
+- POST /api/v1/market-input/single
+- POST /api/v1/market-input/batch
+- bad input example
+- unknown route example
+
+P3-D10 不启动真实 HTTP server。
+P3-D10 不接真实 Dify。
+P3-D10 不接真实交易所 API。
+P3-D10 不真实下单。
+

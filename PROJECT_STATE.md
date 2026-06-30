@@ -231,3 +231,40 @@ P3-D9：Dify local HTTP adapter 最小路由层已完成。
 建议新增一个 scripts 或 examples 层，用本地样例请求调用 route_dify_http_request，输出稳定 response dict。
 仍然不接真实交易所 API，不真实下单。
 
+
+## P3-D10 完成记录
+
+P3-D10：Dify local HTTP adapter smoke runner 已完成。
+
+新增文件：
+
+- docs/20_dify_http_adapter_smoke_runner.md
+- scripts/__init__.py
+- scripts/run_dify_http_adapter_smoke.py
+- tests/test_dify_http_adapter_smoke_runner.py
+
+完成内容：
+
+- 新增 run_smoke
+- 新增本地 contract 调用样例
+- 新增本地 single success 调用样例
+- 新增本地 batch success 调用样例
+- 新增本地 bad input 调用样例
+- 新增本地 unknown route 调用样例
+- 输出稳定 JSON summary
+- 增加 pytest 覆盖
+
+安全边界：
+
+- 不启动真实 HTTP server
+- 不接真实 Dify
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不真实下单
+- 只调用受控 local HTTP adapter / API wrapper
+
+下一步：
+
+进入 P3-D11：Dify workflow user-facing response templates。
+建议新增文档和测试，固化 success / error / safety refusal 的用户可见输出模板。
+
