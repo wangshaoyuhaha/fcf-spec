@@ -192,3 +192,42 @@ P3-D8：Dify workflow HTTP/API node mapping 文档已完成。
 建议先做规划文档，再决定是否实现本地 HTTP adapter。
 任何实现都只能调用受控 local_market_input_api，不接真实交易所，不真实下单。
 
+
+## P3-D9 完成记录
+
+P3-D9：Dify local HTTP adapter 最小路由层已完成。
+
+新增文件：
+
+- docs/19_dify_local_http_adapter.md
+- fcf/api/dify_http_adapter.py
+- tests/test_dify_http_adapter.py
+
+完成内容：
+
+- 新增 route_dify_http_request
+- 新增 describe_routes
+- 支持 GET /api/v1/contract
+- 支持 POST /api/v1/market-input/single
+- 支持 POST /api/v1/market-input/batch
+- 支持 404 unknown route
+- 支持 405 method not allowed
+- 支持 400 bad request
+- 支持 wrapper validation error 映射为 422
+- 保持只调用受控 local_market_input_api wrapper
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不引入外部 Web 框架依赖
+- 不绕过 FCF policy / risk / EventStore / ReplayEngine
+
+下一步：
+
+进入 P3-D10：Dify local HTTP adapter examples / CLI smoke runner。
+建议新增一个 scripts 或 examples 层，用本地样例请求调用 route_dify_http_request，输出稳定 response dict。
+仍然不接真实交易所 API，不真实下单。
+

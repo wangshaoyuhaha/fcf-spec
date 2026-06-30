@@ -183,3 +183,24 @@ P3-D8 仍然只做文档和边界设计。
 不接真实交易所 API。
 不真实下单。
 
+
+## P3-D9：Dify Local HTTP Adapter
+
+P3-D9 新增：
+
+- docs/19_dify_local_http_adapter.md
+- fcf/api/dify_http_adapter.py
+- tests/test_dify_http_adapter.py
+
+当前 adapter 提供本地 HTTP 风格路由函数：
+
+- GET /api/v1/contract
+- POST /api/v1/market-input/single
+- POST /api/v1/market-input/batch
+
+P3-D9 不引入外部 Web 框架。
+P3-D9 不接真实交易所 API。
+P3-D9 不保存真实 API key。
+P3-D9 不真实下单。
+P3-D9 只把 Dify HTTP/API 节点请求映射到受控 local_market_input_api wrapper。
+
