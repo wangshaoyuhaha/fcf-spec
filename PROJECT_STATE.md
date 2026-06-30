@@ -32,7 +32,8 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 - 用 risk_guardian 控制风险
 - 用 executor / shadow_simulator 区分执行与影子模拟
 - 先用 BTCMarketContext 跑通第一个市场上下文
-- 后续逐步抽象为通用 MarketContext / AssetMarketContext
+- 已新增 BaseMarketContext 作为通用多资产上下文契约
+- 后续逐步形成 AssetMarketContext / CryptoMarketContext / FXMarketContext / EquityMarketContext 等扩展层
 
 ## 当前阶段
 
@@ -42,7 +43,7 @@ Phase 2 已启动。
 
 当前完成到：
 
-P2-D5：多资产 MarketContext / AssetMarketContext 泛化层规划已完成。
+P2-D6：通用 BaseMarketContext 最小契约已完成。
 
 ## 已完成进度
 
@@ -58,6 +59,8 @@ P2-D4: market context 事件化测试，已完成。
 
 P2-D5: 多资产 MarketContext / AssetMarketContext 泛化层规划，已完成。
 
+P2-D6: 通用 BaseMarketContext 最小契约，已完成。
+
 ## 当前验证结果
 
 python main.py:
@@ -66,43 +69,22 @@ python main.py:
 
 python -m pytest -q:
 
-- 18 passed
+- 24 passed
 
 ## 当前关键提交
 
-- e720d47 add P2 market context event flow tests
-- be4ca7b update state after P2 market context event flow
 - 0eb07a9 add P2 multi asset market context plan
+- 2638670 update state after P2 multi asset context plan
+- 7d28195 add P2 base market context contract
 
-## P2-D5 完成内容
+## P2-D6 完成内容
 
 新增文件：
-
-- docs/13_multi_asset_market_context.md
-
-完成内容：
-
-- 明确项目是全金融市场 / 多资产交易事件系统
-- 明确 BTCMarketContext 是 crypto/BTC 第一实现，不是终点
-- 规划通用 MarketContext 字段
-- 规划 AssetMarketContext 泛化方向
-- 规划 crypto、FX、equities、futures、commodities、rates / bonds 的扩展边界
-- 明确当前不急着重命名 BTCMarketContext
-- 不接真实交易所 API
-- 不真实下单
-- 不修改 main.py
-- 不破坏当前 18 个测试
-
-## 下一步任务
-
-进入 P2-D6：创建通用 BaseMarketContext 最小契约。
-
-建议新增：
 
 - fcf/contracts/base_market_context.py
 - tests/test_base_market_context.py
 
-P2-D6 目标：
+完成能力：
 
 - 定义 BaseMarketContext 数据结构
 - 支持 asset_class
@@ -111,13 +93,39 @@ P2-D6 目标：
 - 支持 market_type
 - 支持 timestamp
 - 支持 timeframe
+- 支持 currency / quote_currency
+- 支持价格、流动性、波动率、市场状态、风险字段
 - 支持 to_dict
 - 支持 base_market_context_from_dict
+- 支持 normalize_asset_class
+- 增加 6 个最小测试
 - 不迁移 BTCMarketContext
 - 不删除 BTCMarketContext
-- 不破坏现有 18 个测试
 - 不接真实交易所 API
 - 不真实下单
+- 不修改 main.py
+- 不破坏当前 24 个测试
+
+## 下一步任务
+
+进入 P2-D7：asset_class 标准化与 BTCMarketContext 轻量兼容桥。
+
+P2-D7 目标：
+
+- 不迁移 BTCMarketContext
+- 不删除 BTCMarketContext
+- 不破坏现有测试
+- 增加 BTCMarketContext 到 BaseMarketContext 的轻量转换能力
+- 验证 BTCMarketContext 可以转换为 BaseMarketContext
+- 验证转换后仍可进入 FCFEvent payload
+- 验证 EventStore / ReplayEngine 仍可处理
+- 不接真实交易所 API
+- 不真实下单
+
+建议新增：
+
+- fcf/modules/market_context_adapter.py
+- tests/test_market_context_adapter.py
 
 ## 新聊天启动信息
 
@@ -125,6 +133,6 @@ P2-D6 目标：
 
 repo: https://github.com/wangshaoyuhaha/fcf-spec.git
 branch: main
-current_stage: 全金融市场 / 多资产交易事件系统；Phase 1 Build Spine 已完成稳定收尾；D1-D11 已完成。Phase 2 已启动。BTCMarketContext 是第一个 crypto/BTC 市场样板，不是项目终点。P2-D1 BTC Market Context 规划已完成，P2-D2 BTCMarketContext 契约已完成，P2-D3 BTCMarketContext 最小标准化模块已完成，P2-D4 market context 事件化测试已完成，P2-D5 多资产 MarketContext / AssetMarketContext 泛化层规划已完成。当前系统已有 8 个最小主事件链，python main.py 输出 events_recorded: 8，python -m pytest -q 显示 18 passed。最新规划提交为 0eb07a9 add P2 multi asset market context plan。
-next_action: 先更新 README.md 和 PROJECT_STATE.md，提交 P2-D5 状态收尾。然后进入 P2-D6：创建通用 BaseMarketContext 最小契约 fcf/contracts/base_market_context.py，并增加 tests/test_base_market_context.py。不迁移、不删除、不破坏 BTCMarketContext，不接真实交易所 API，不真实下单，不破坏现有测试。
+current_stage: 全金融市场 / 多资产交易事件系统；Phase 1 Build Spine 已完成稳定收尾；D1-D11 已完成。Phase 2 已启动。BTCMarketContext 是第一个 crypto/BTC 市场样板，不是项目终点。P2-D1 到 P2-D6 已完成。当前已新增 BaseMarketContext 通用契约。当前系统已有 8 个最小主事件链，python main.py 输出 events_recorded: 8，python -m pytest -q 显示 24 passed。最新代码提交为 7d28195 add P2 base market context contract。
+next_action: 先更新 README.md 和 PROJECT_STATE.md，提交 P2-D6 状态收尾。然后进入 P2-D7：asset_class 标准化与 BTCMarketContext 轻量兼容桥，新增 fcf/modules/market_context_adapter.py 和 tests/test_market_context_adapter.py。不迁移、不删除、不破坏 BTCMarketContext，不接真实交易所 API，不真实下单，不破坏现有测试。
 要求：全程用中文一步步指挥我操作，每次重要更新都提交并 push 到 GitHub，并更新新的续聊话术。
