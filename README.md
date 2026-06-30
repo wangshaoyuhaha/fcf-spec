@@ -14,7 +14,9 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 
 Phase 2 多资产市场上下文基础层已完成阶段验收。
 
-Phase 3 已启动，当前重点是数据接入边界规划。
+Phase 3 已启动，当前重点是数据接入边界和 mock 数据接入。
+
+Dify 后续会作为上层工作流 / 对话入口 / 编排层接入，不作为底层交易内核。
 
 ## 当前阶段
 
@@ -24,6 +26,7 @@ Phase 3 已启动，当前重点是数据接入边界规划。
 - P2-D1 到 P2-D10 已完成
 - Phase 3 已启动
 - P3-D1：真实数据接入边界规划已完成
+- P3-D2：mock market data adapter 已完成
 
 ## 当前能力
 
@@ -57,6 +60,7 @@ Phase 3 已启动，当前重点是数据接入边界规划。
 - Phase 1 骨架验收
 - Phase 2 多资产市场上下文基础层
 - Phase 3 数据接入边界规划
+- mock market data adapter
 
 ## 当前验证方式
 
@@ -75,7 +79,12 @@ python -m pytest -q
 
 预期输出：
 
-- 37 passed
+- 45 passed
+
+## 当前关键代码
+
+- fcf/modules/mock_market_data_adapter.py
+- tests/test_mock_market_data_adapter.py
 
 ## 当前关键文档
 
@@ -97,23 +106,34 @@ Phase 3 初期只做：
 - 数据接入安全边界
 - 真实 API 接入前的隔离层
 
+## Dify 接入路线
+
+Dify 预计在 P3-D5 开始正式规划。
+
+建议路线：
+
+- P3-D3：replayable raw market fixture
+- P3-D4：本地 system input pipeline / 外部调用边界
+- P3-D5：Dify workflow 接入规划
+
 ## 下一步
 
-进入 P3-D2：
+进入 P3-D3：
 
-mock market data adapter。
+replayable raw market fixture。
 
 建议新增：
 
-- fcf/modules/mock_market_data_adapter.py
-- tests/test_mock_market_data_adapter.py
+- fixtures/raw_market_data_crypto.json
+- tests/test_raw_market_fixture_replay.py
 
-P3-D2 目标：
+P3-D3 目标：
 
-- 输入本地 raw market dict
-- 校验必要字段
-- 输出统一 raw market event payload
-- 不调用外部 API
-- 不保存密钥
+- 新增本地 fixture 样本数据
+- 用 fixture 驱动 mock_market_data_adapter
+- 生成 raw market event
+- 保存到 EventStore
+- ReplayEngine 可回放
+- 不接真实交易所 API
 - 不真实下单
 - 保持当前测试通过
