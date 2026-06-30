@@ -14,6 +14,8 @@ BTCMarketContext 是 Phase 2 的第一个 crypto/BTC 市场样板实现，不是
 
 BaseMarketContext 是当前新增的通用多资产上下文契约。
 
+当前已新增 BTCMarketContext 到 BaseMarketContext 的轻量兼容桥。
+
 未来需要逐步适配：
 
 - crypto: BTC, ETH, SOL 等
@@ -34,6 +36,7 @@ BaseMarketContext 是当前新增的通用多资产上下文契约。
 - P2-D4：market context 事件化测试已完成
 - P2-D5：多资产 MarketContext / AssetMarketContext 泛化层规划已完成
 - P2-D6：通用 BaseMarketContext 最小契约已完成
+- P2-D7：BTCMarketContext 到 BaseMarketContext 轻量兼容桥已完成
 
 ## 当前能力
 
@@ -72,6 +75,7 @@ BaseMarketContext 是当前新增的通用多资产上下文契约。
 - Market context 事件化测试
 - 多资产 MarketContext 泛化层规划
 - BaseMarketContext 通用契约
+- BTCMarketContext 到 BaseMarketContext 兼容桥
 
 ## 当前验证方式
 
@@ -90,7 +94,7 @@ python -m pytest -q
 
 预期输出：
 
-- 24 passed
+- 27 passed
 
 ## 当前新增代码与文档
 
@@ -117,6 +121,11 @@ P2-D6 新增：
 - fcf/contracts/base_market_context.py
 - tests/test_base_market_context.py
 
+P2-D7 新增：
+
+- fcf/modules/market_context_adapter.py
+- tests/test_market_context_adapter.py
+
 ## 架构方向
 
 底层架构保持事件驱动：
@@ -137,23 +146,23 @@ P2-D6 新增：
 
 ## 下一步
 
-进入 P2-D7：
+进入 P2-D8：
 
-asset_class 标准化与 BTCMarketContext 轻量兼容桥。
+多资产 asset_class / market_type 标准常量与验证工具。
 
 建议新增：
 
-- fcf/modules/market_context_adapter.py
-- tests/test_market_context_adapter.py
+- fcf/contracts/market_constants.py
+- tests/test_market_constants.py
 
-P2-D7 目标：
+P2-D8 目标：
 
+- 定义统一 asset_class 常量
+- 定义统一 market_type 常量
+- 定义 normalize / validate 工具
+- 为 crypto、fx、equity、futures、commodity、rates、bond、index 建立基础标准
 - 不迁移 BTCMarketContext
 - 不删除 BTCMarketContext
 - 不破坏现有测试
-- 增加 BTCMarketContext 到 BaseMarketContext 的轻量转换能力
-- 验证 BTCMarketContext 可以转换为 BaseMarketContext
-- 验证转换后仍可进入 FCFEvent payload
-- 验证 EventStore / ReplayEngine 仍可处理
 - 不接真实交易所 API
 - 不真实下单
