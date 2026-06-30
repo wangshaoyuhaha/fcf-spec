@@ -143,3 +143,49 @@ def test_base_market_context_defaults_are_safe():
     assert context.data_quality_level == "unknown"
     assert context.abnormal_move_detected is False
     assert context.metadata == {}
+
+
+def test_base_market_context_uses_market_constants_for_asset_class():
+    context = BaseMarketContext(
+        asset_class="forex",
+        symbol="EURUSD",
+        venue="oanda",
+        market_type="spot",
+        timestamp="2026-06-30T00:00:00Z",
+        timeframe="1m",
+    )
+
+    assert context.normalized_asset_class() == "fx"
+    assert context.to_dict()["asset_class"] == "fx"
+
+
+def test_base_market_context_uses_market_constants_for_market_type():
+    context = BaseMarketContext(
+        asset_class="crypto",
+        symbol="BTCUSDT",
+        venue="binance",
+        market_type="perp",
+        timestamp="2026-06-30T00:00:00Z",
+        timeframe="1m",
+    )
+
+    assert context.normalized_market_type() == "perpetual"
+    assert context.to_dict()["market_type"] == "perpetual"
+
+
+def test_base_market_context_from_dict_normalizes_asset_and_market_type():
+    data = {
+        "asset_class": "stock",
+        "symbol": "AAPL",
+        "venue": "nasdaq",
+        "market_type": "cash",
+        "timestamp": "2026-06-30T14:30:00Z",
+        "timeframe": "1m",
+    }
+
+    context = base_market_context_from_dict(data)
+
+    assert context.asset_class == "equity"
+    assert context.market_type == "cash"
+    assert context.to_dict()["asset_class"] == "equity"
+    assert context.to_dict()["market_type"] == "cash"

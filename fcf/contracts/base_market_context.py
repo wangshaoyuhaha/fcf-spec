@@ -1,30 +1,10 @@
 from dataclasses import dataclass, field
 from typing import Any, Dict, Optional
 
-
-SUPPORTED_ASSET_CLASSES = {
-    "crypto",
-    "fx",
-    "equity",
-    "futures",
-    "commodity",
-    "rates",
-    "bond",
-    "index",
-    "unknown",
-}
-
-
-def normalize_asset_class(asset_class: Optional[str]) -> str:
-    if asset_class is None:
-        return "unknown"
-
-    normalized = str(asset_class).strip().lower()
-
-    if normalized in SUPPORTED_ASSET_CLASSES:
-        return normalized
-
-    return "unknown"
+from fcf.contracts.market_constants import (
+    normalize_asset_class,
+    normalize_market_type,
+)
 
 
 @dataclass(frozen=True)
@@ -83,12 +63,15 @@ class BaseMarketContext:
     def normalized_asset_class(self) -> str:
         return normalize_asset_class(self.asset_class)
 
+    def normalized_market_type(self) -> str:
+        return normalize_market_type(self.market_type)
+
     def to_dict(self) -> Dict[str, Any]:
         return {
             "asset_class": self.normalized_asset_class(),
             "symbol": self.symbol,
             "venue": self.venue,
-            "market_type": self.market_type,
+            "market_type": self.normalized_market_type(),
             "timestamp": self.timestamp,
             "timeframe": self.timeframe,
             "currency": self.currency,
@@ -136,7 +119,7 @@ def base_market_context_from_dict(data: Dict[str, Any]) -> BaseMarketContext:
         asset_class=normalize_asset_class(data.get("asset_class")),
         symbol=data["symbol"],
         venue=data["venue"],
-        market_type=data["market_type"],
+        market_type=normalize_market_type(data.get("market_type")),
         timestamp=data["timestamp"],
         timeframe=data["timeframe"],
         currency=data.get("currency"),
