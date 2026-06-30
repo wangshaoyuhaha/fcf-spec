@@ -332,3 +332,126 @@ strategy_proposer 禁止：
 
 如果输入信息不足，应拒绝生成提案，而不是强行输出低质量提案。
 
+
+## 12. policy_engine 治理规则引擎
+
+### 职责
+
+policy_engine 负责根据系统规则审核决策提案。
+
+它判断提案是否违反系统宪法、事件契约、资金规则和风险限制。
+
+policy_engine 不负责预测，也不负责执行。
+
+### 输入事件
+
+policy_engine 输入：
+
+- fcf.decision.proposed
+- fcf.regime.detected
+- fcf.model.evaluated
+
+### 输出事件
+
+policy_engine 输出：
+
+- fcf.policy.reviewed
+
+### 禁止行为
+
+policy_engine 禁止：
+
+- 直接调用执行器
+- 修改模型输出
+- 修改历史提案
+- 忽略硬熔断规则
+- 因收益理由绕过风险规则
+
+### 失败处理
+
+如果 policy_engine 不可用，系统不能进入 LIVE。
+
+如果规则判断不确定，默认进入 shadow_only 或 rejected。
+
+## 13. risk_guardian 风险守卫
+
+### 职责
+
+risk_guardian 负责识别系统级风险、冲突风险、熔断风险和异常执行风险。
+
+risk_guardian 拥有触发硬熔断的权力。
+
+### 输入事件
+
+risk_guardian 输入：
+
+- fcf.decision.proposed
+- fcf.policy.reviewed
+- fcf.order.approved
+- fcf.order.executed
+- fcf.data.normalized
+- fcf.market.snapshot_created
+
+### 输出事件
+
+risk_guardian 输出：
+
+- fcf.risk.rejected
+- fcf.circuit_breaker.triggered
+- fcf.order.approved
+
+### 禁止行为
+
+risk_guardian 禁止：
+
+- 因模型置信度高而忽略风险
+- 因短期收益绕过熔断
+- 私自提高仓位
+- 删除风险事件
+- 隐藏冲突信息
+
+### 失败处理
+
+如果 risk_guardian 不可用，系统必须停止真实执行。
+
+如果发现同场冲突、滑点异常、数据质量崩溃或连续执行异常，必须进入 SHADOW 或 STOPPED。
+
+## 14. capital_manager 资金管理器
+
+### 职责
+
+capital_manager 负责控制仓位、限额、资金暴露和单次执行规模。
+
+它不判断方向，只判断资金是否允许。
+
+### 输入事件
+
+capital_manager 输入：
+
+- fcf.decision.proposed
+- fcf.policy.reviewed
+- fcf.risk.rejected
+
+### 输出事件
+
+capital_manager 输出：
+
+- fcf.policy.reviewed
+- fcf.risk.rejected
+
+### 禁止行为
+
+capital_manager 禁止：
+
+- 判断比赛结果
+- 生成策略提案
+- 直接调用执行器
+- 超过系统限额
+- 绕过 risk_guardian
+
+### 失败处理
+
+如果 capital_manager 不可用，系统不能执行真实订单。
+
+如果资金暴露超过阈值，必须拒绝新提案或降低仓位。
+
