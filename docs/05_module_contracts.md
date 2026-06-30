@@ -455,3 +455,185 @@ capital_manager 禁止：
 
 如果资金暴露超过阈值，必须拒绝新提案或降低仓位。
 
+
+## 15. executor 执行器
+
+### 职责
+
+executor 负责执行已经通过风控治理层批准的标准订单。
+
+executor 不判断策略，不判断方向，不读取模型内部逻辑。
+
+它只接收标准订单，并返回执行结果。
+
+### 输入事件
+
+executor 输入：
+
+- fcf.order.approved
+
+### 输出事件
+
+executor 输出：
+
+- fcf.order.executed
+
+### 禁止行为
+
+executor 禁止：
+
+- 读取策略内部逻辑
+- 修改提案内容
+- 修改风控审核结果
+- 自行提高仓位
+- 绕过 risk_guardian
+- 在未批准时执行真实订单
+
+### 失败处理
+
+如果 executor 执行失败，必须记录失败原因。
+
+如果连续执行失败，系统必须进入 SHADOW 或 STOPPED。
+
+## 16. event_store 事件存储
+
+### 职责
+
+event_store 负责保存所有标准事件。
+
+它是系统回放、审计、复盘和调试的基础。
+
+所有关键事件都必须写入 event_store。
+
+### 输入事件
+
+event_store 输入：
+
+- 所有标准事件
+
+### 输出
+
+event_store 不直接生成业务决策。
+
+它提供历史事件读取能力，供回放和审计使用。
+
+### 禁止行为
+
+event_store 禁止：
+
+- 修改历史事件
+- 删除关键事件
+- 改写事件顺序
+- 伪造事件时间
+- 私自过滤失败事件
+
+### 失败处理
+
+如果 event_store 不可用，系统不能进入 LIVE。
+
+如果事件保存失败，系统必须进入 DEGRADED 或 SHADOW。
+
+## 17. replay_engine 回放引擎
+
+### 职责
+
+replay_engine 负责根据历史事件重建系统状态。
+
+它用于验证系统是否可复现、可审计、可调试。
+
+### 输入
+
+replay_engine 输入：
+
+- event_store 中的历史事件
+- 起始 sequence_id
+- 结束 sequence_id
+
+### 输出事件
+
+replay_engine 输出：
+
+- fcf.replay.started
+- fcf.replay.completed
+
+### 禁止行为
+
+replay_engine 禁止：
+
+- 修改原始历史事件
+- 跳过失败事件
+- 修改过去的风控结果
+- 把回放结果当成真实执行结果
+
+### 失败处理
+
+如果回放结果和历史结果不一致，必须记录 mismatch。
+
+如果无法重建关键决策链路，说明事件契约或事件存储存在缺陷。
+
+## 18. shadow_simulator 影子模拟器
+
+### 职责
+
+shadow_simulator 负责在不影响真实资金的情况下模拟执行。
+
+它用于策略观察、风险验证、熔断后学习和恢复前验证。
+
+### 输入事件
+
+shadow_simulator 输入：
+
+- fcf.decision.proposed
+- fcf.policy.reviewed
+- fcf.risk.rejected
+- fcf.circuit_breaker.triggered
+
+### 输出事件
+
+shadow_simulator 输出：
+
+- fcf.shadow.simulated
+
+### 禁止行为
+
+shadow_simulator 禁止：
+
+- 真实下单
+- 修改真实账户状态
+- 把模拟结果伪装成真实成交
+- 忽略滑点和流动性影响
+- 绕过 event_store
+
+### 失败处理
+
+如果 shadow_simulator 不可用，系统可以停止影子学习。
+
+但如果系统处于熔断后恢复阶段，shadow_simulator 不可用时不能恢复 LIVE。
+
+## 19. D5 模块边界总结
+
+D5 的核心边界如下：
+
+- 数据模块只接入和标准化数据
+- 智能模块只分析和评估
+- 提案模块只生成决策提案
+- 风控模块负责审核、否决和熔断
+- 执行模块只执行批准后的标准订单
+- 审计模块保存事件
+- 回放模块重建历史
+- 影子模块模拟执行
+
+任何模块都不能绕过风控治理层直接影响真实资金。
+
+## 20. D5 当前状态
+
+D5 正式草稿已经覆盖第一版核心模块。
+
+后续 D6 将进入：
+
+- 文件结构设计
+- Python 包结构
+- 模块接口落地
+- 最小可运行骨架
+- 测试入口
+
