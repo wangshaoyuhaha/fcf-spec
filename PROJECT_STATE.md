@@ -303,3 +303,39 @@ P3-D11：Dify workflow user-facing response templates 已完成。
 进入 P3-D12：Dify adapter + response templates integration smoke。
 建议把 P3-D10 smoke runner 的结果接入 P3-D11 response templates，形成一条本地端到端样例链路。
 
+
+## P3-D12 完成记录
+
+P3-D12：Dify adapter + response templates integration smoke 已完成。
+
+新增文件：
+
+- docs/22_dify_adapter_response_integration_smoke.md
+- scripts/run_dify_integration_smoke.py
+- tests/test_dify_integration_smoke.py
+
+完成内容：
+
+- 新增 run_integration_smoke
+- 将 route_dify_http_request 接入 render_dify_user_response
+- 覆盖 single_success_to_user_success
+- 覆盖 single_bad_input_to_user_error
+- 覆盖 forbidden_intent_to_safety_refusal
+- 输出稳定 integration summary
+- 增加 pytest 覆盖
+
+安全边界：
+
+- 不启动真实 HTTP server
+- 不接真实 Dify
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不把 pipeline 成功伪装成真实交易成功
+
+下一步：
+
+进入 P3-D13：Phase 3 Dify integration acceptance document。
+建议新增阶段验收文档，汇总 P3-D5 到 P3-D12 的 Dify 接入边界、API wrapper、HTTP adapter、smoke runner、response templates 和 integration smoke。
+

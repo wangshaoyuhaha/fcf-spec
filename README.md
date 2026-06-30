@@ -244,3 +244,25 @@ P3-D11 新增：
 Dify 面向用户输出时必须保留安全边界：
 不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单。
 
+
+## P3-D12：Dify Adapter Response Integration Smoke
+
+P3-D12 新增：
+
+- docs/22_dify_adapter_response_integration_smoke.md
+- scripts/run_dify_integration_smoke.py
+- tests/test_dify_integration_smoke.py
+
+当前 integration smoke 把本地 HTTP adapter response 接入用户可见 response templates。
+
+覆盖场景：
+
+- single success -> user success
+- bad input -> user error
+- forbidden intent -> safety refusal
+
+P3-D12 不启动真实 HTTP server。
+P3-D12 不接真实 Dify。
+P3-D12 不接真实交易所 API。
+P3-D12 不真实下单。
+
