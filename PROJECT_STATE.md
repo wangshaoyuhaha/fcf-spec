@@ -268,3 +268,38 @@ P3-D10：Dify local HTTP adapter smoke runner 已完成。
 进入 P3-D11：Dify workflow user-facing response templates。
 建议新增文档和测试，固化 success / error / safety refusal 的用户可见输出模板。
 
+
+## P3-D11 完成记录
+
+P3-D11：Dify workflow user-facing response templates 已完成。
+
+新增文件：
+
+- docs/21_dify_user_facing_response_templates.md
+- fcf/api/dify_response_templates.py
+- tests/test_dify_response_templates.py
+
+完成内容：
+
+- 新增 render_success_response
+- 新增 render_error_response
+- 新增 render_safety_refusal
+- 新增 render_dify_user_response
+- 固化 success 用户可见模板
+- 固化 error 用户可见模板
+- 固化 safety refusal 用户可见模板
+- 增加 pytest 覆盖
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不把 pipeline 成功伪装成真实交易成功
+
+下一步：
+
+进入 P3-D12：Dify adapter + response templates integration smoke。
+建议把 P3-D10 smoke runner 的结果接入 P3-D11 response templates，形成一条本地端到端样例链路。
+

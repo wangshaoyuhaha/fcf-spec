@@ -226,3 +226,21 @@ P3-D10 不接真实 Dify。
 P3-D10 不接真实交易所 API。
 P3-D10 不真实下单。
 
+
+## P3-D11：Dify User Facing Response Templates
+
+P3-D11 新增：
+
+- docs/21_dify_user_facing_response_templates.md
+- fcf/api/dify_response_templates.py
+- tests/test_dify_response_templates.py
+
+当前模板覆盖：
+
+- success
+- error
+- safety_refusal
+
+Dify 面向用户输出时必须保留安全边界：
+不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单。
+
