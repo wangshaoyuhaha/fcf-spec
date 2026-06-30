@@ -1,42 +1,82 @@
-import asyncio
-import uuid
+from uuid import uuid4
 
+from fcf.contracts.event import create_event
 from fcf.core.event_bus import EventBus
-from fcf.storage.audit_store import AuditStore
-
-from fcf.modules.market import emit_mock_market
-from fcf.modules.perception import handle_market_snapshot
-from fcf.modules.regime import handle_fact_matrix
-from fcf.modules.cognitive_unit import handle_regime_detected
-from fcf.modules.governor import handle_cognitive_unit
-from fcf.modules.simulation import handle_decision_proposal
-from fcf.modules.meta import handle_simulation_completed
-from fcf.modules.execution import handle_meta_audit
+from fcf.core.event_store import EventStore
 
 
-async def main():
-    bus = EventBus()
-    audit = AuditStore("fcf_events.db")
+def run_minimal_spine() -> EventStore:
+    correlation_id = str(uuid4())
 
-    bus.subscribe("*", audit.log_event)
+    event_bus = EventBus()
+    event_store = EventStore()
 
-    bus.subscribe("fcf.market.snapshot.emitted", lambda e: handle_market_snapshot(e, bus))
-    bus.subscribe("fcf.perception.fact_matrix.ready", lambda e: handle_fact_matrix(e, bus))
-    bus.subscribe("fcf.regime.detected", lambda e: handle_regime_detected(e, bus))
-    bus.subscribe("fcf.cognitive_unit.completed", lambda e: handle_cognitive_unit(e, bus))
-    bus.subscribe("fcf.decision.proposal.created", lambda e: handle_decision_proposal(e, bus))
-    bus.subscribe("fcf.simulation.completed", lambda e: handle_simulation_completed(e, bus))
-    bus.subscribe("fcf.meta.audit.completed", lambda e: handle_meta_audit(e, bus))
+    event_bus.subscribe_all(event_store.record)
 
-    correlation_id = f"corr_{uuid.uuid4().hex[:16]}"
-    await emit_mock_market(bus, correlation_id)
+    raw_event = create_event(
+        event_name="fcf.data.raw_received",
+        source_module="data_ingestor",
+        correlation_id=correlation_id,
+        payload={
+            "data_type": "demo",
+            "source": "manual_demo",
+            "data_body": {"message": "hello FCF"},
+        },
+    )
+    event_bus.publish(raw_event)
 
-    print("FCF Phase 1 spine completed.")
-    print(f"correlation_id = {correlation_id}")
-    print("Audit DB written: fcf_events.db")
+    normalized_event = create_event(
+        event_name="fcf.data.normalized",
+        source_module="normalizer",
+        correlation_id=correlation_id,
+        causation_id=raw_event.event_id,
+        payload={
+            "data_type": "demo",
+            "quality_score": 1.0,
+            "normalized_data": {"message": "hello FCF"},
+        },
+    )
+    event_bus.publish(normalized_event)
 
-    audit.close()
+    regime_event = create_event(
+        event_name="fcf.regime.detected",
+        source_module="regime_radar",
+        correlation_id=correlation_id,
+        causation_id=normalized_event.event_id,
+        payload={
+            "target_id": "demo_target",
+            "regime": "demo_ready",
+            "confidence": 1.0,
+        },
+    )
+    event_bus.publish(regime_event)
+
+    decision_event = create_event(
+        event_name="fcf.decision.proposed",
+        source_module="strategy_proposer",
+        correlation_id=correlation_id,
+        causation_id=regime_event.event_id,
+        payload={
+            "proposal_id": "demo_proposal",
+            "target_id": "demo_target",
+            "direction": "observe_only",
+            "confidence": 1.0,
+            "suggested_stake": 0.0,
+        },
+    )
+    event_bus.publish(decision_event)
+
+    return event_store
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    store = run_minimal_spine()
+
+    print("FCF minimal spine executed.")
+    print(f"events_recorded: {store.count()}")
+
+    for event in store.all_events():
+        print(
+            f"{event.sequence_id} | {event.event_name} | "
+            f"source={event.source_module}"
+        )
