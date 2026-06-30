@@ -139,3 +139,24 @@ P3-D7 目标：
 - 明确不能真实下单
 - 明确不能接真实交易所 API key
 - 保持当前测试通过
+
+## P3-D7：Dify API Contract Examples
+
+P3-D7 已新增：
+
+- docs/17_dify_api_contract_examples.md
+
+该文档明确：
+
+- Dify 输入 JSON
+- FCF 输出 JSON
+- 错误响应格式
+- workflow 节点字段传递方式
+- 安全边界
+
+Dify 仍然只作为上层 workflow / 对话入口 / 编排层。
+Dify 不作为底层交易内核。
+Dify 不直接接真实交易所 API。
+Dify 不真实下单。
+Dify 只调用受控 API wrapper / pipeline。
+

@@ -122,3 +122,34 @@ last_commit: 77ff341
 current_stage: 全金融市场 / 多资产交易事件系统。Phase 1 Build Spine 已完成稳定收尾，D1-D11 已完成。Phase 2 多资产市场上下文基础层已完成阶段验收，P2-D1 到 P2-D10 已完成。Phase 3 已启动，P3-D1 到 P3-D6 已完成。P3-D6 新增本地 API wrapper：fcf/api/local_market_input_api.py，可包装 process_raw_market_input 和 process_raw_market_batch，返回稳定 response dict，为后续 Dify HTTP/API 节点做准备。当前主事件链仍为 8 个事件，python main.py 输出 events_recorded: 8，python -m pytest -q 预计显示 58 passed。Dify 不作为底层交易内核，不直接接交易所 API，不真实下单，只调用受控 API wrapper / pipeline。
 next_action: 先更新 README.md 和 PROJECT_STATE.md，把 P3-D6 标记为已完成并提交。然后进入 P3-D7：Dify API contract / example payload 文档，新增 docs/17_dify_api_contract_examples.md。
 要求：全程用中文一步步指挥我操作；命令必须给可直接复制的 Git Bash 格式；多行 cat 写文件必须包含完整 EOF；每次重要更新都提交并 push 到 GitHub，并更新新的续聊话术。
+
+## P3-D7 完成记录
+
+P3-D7：Dify API contract / example payload 文档已完成。
+
+新增文件：
+
+- docs/17_dify_api_contract_examples.md
+
+完成内容：
+
+- 明确 Dify single input JSON
+- 明确 Dify batch input JSON
+- 明确 FCF 成功输出 JSON
+- 明确 FCF 错误响应 JSON
+- 明确 workflow 节点字段传递方式
+- 明确安全边界
+
+安全边界保持不变：
+
+- Dify 不作为底层交易内核
+- Dify 不直接接真实交易所 API
+- Dify 不保存真实 API key
+- Dify 不真实下单
+- Dify 只调用受控 API wrapper / pipeline
+
+下一步：
+
+进入 P3-D8：Dify workflow HTTP/API node mapping 文档。
+建议继续先做文档，不接真实交易所，不真实下单，不破坏现有测试。
+
