@@ -4,6 +4,10 @@ from fcf.data.ingestor import DataIngestor
 from fcf.data.normalizer import Normalizer
 from fcf.intelligence.regime_radar import RegimeRadar
 from fcf.decision.strategy_proposer import StrategyProposer
+from fcf.risk.policy_engine import PolicyEngine
+from fcf.risk.risk_guardian import RiskGuardian
+from fcf.execution.executor import Executor
+from fcf.shadow.simulator import ShadowSimulator
 
 
 def run_minimal_spine() -> EventStore:
@@ -16,6 +20,10 @@ def run_minimal_spine() -> EventStore:
     normalizer = Normalizer()
     regime_radar = RegimeRadar()
     strategy_proposer = StrategyProposer()
+    policy_engine = PolicyEngine()
+    risk_guardian = RiskGuardian()
+    executor = Executor()
+    shadow_simulator = ShadowSimulator()
 
     raw_event = ingestor.ingest_demo_data()
     event_bus.publish(raw_event)
@@ -28,6 +36,19 @@ def run_minimal_spine() -> EventStore:
 
     decision_event = strategy_proposer.propose(regime_event)
     event_bus.publish(decision_event)
+
+    policy_event = policy_engine.review(decision_event)
+    event_bus.publish(policy_event)
+
+    order_event = risk_guardian.approve(policy_event)
+    event_bus.publish(order_event)
+
+    if order_event.event_name == "fcf.order.approved":
+        executed_event = executor.execute(order_event)
+        event_bus.publish(executed_event)
+
+    shadow_event = shadow_simulator.simulate(decision_event)
+    event_bus.publish(shadow_event)
 
     return event_store
 
