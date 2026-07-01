@@ -148,3 +148,51 @@ current_stage: 全金融市场 / 多资产交易事件系统。Phase 1 Build Spi
 next_action: 进入 P4-D1：Schema hardening plan。新增 schema hardening 文档，明确 raw market input 的必填字段、可选字段、类型转换规则、多资产字段兼容策略。不接真实交易所 API，不真实下单，不破坏现有测试。
 要求：全程中文一步步指挥；命令必须是可直接复制的 Git Bash 格式；多行 cat 必须包含完整 EOF；每次重要更新都 commit 并 push，并更新新的续聊话术。
 
+
+## P4-D1 完成记录
+
+P4-D1：Schema hardening plan 已完成。
+
+新增文件：
+
+- docs/25_p4_schema_hardening_plan.md
+
+完成内容：
+
+- 明确 raw market input 必填字段
+- 明确 raw market input 可选字段
+- 明确类型转换规则
+- 明确 market_type 归一化规则
+- 明确 asset_class 多资产兼容策略
+- 明确错误响应要求
+- 明确 Dify 接入安全边界
+- 明确 P4-D2 下一步实现方向
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 73 passed
+
+下一步：
+
+进入 P4-D2：raw market input schema module。
+
+建议新增：
+
+- fcf/schemas/raw_market_input_schema.py
+- tests/test_raw_market_input_schema.py
+
+P4-D2 目标：
+
+- 实现 required field check
+- 实现 optional field normalize
+- 实现 number conversion
+- 实现 market_type normalization
+- 实现 asset_class normalization
+- 保持 local_market_input_api 返回稳定 response dict
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

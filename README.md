@@ -333,3 +333,28 @@ Phase 3 当前已完成阶段收尾。
 - 不真实下单
 - 不让 Dify 成为底层交易内核
 
+
+## P4-D1：Schema Hardening Plan
+
+P4-D1 新增：
+
+- docs/25_p4_schema_hardening_plan.md
+
+P4-D1 开始 Phase 4。
+
+Phase 4 第一目标是强化 raw market input 的 schema 边界，明确：
+
+- 必填字段
+- 可选字段
+- 类型转换规则
+- market_type 归一化规则
+- asset_class 多资产兼容策略
+- 错误响应要求
+- Dify 接入安全边界
+
+P4-D1 只做规划文档。
+不接真实交易所 API。
+不保存真实 API key。
+不读取钱包私钥。
+不真实下单。
+
