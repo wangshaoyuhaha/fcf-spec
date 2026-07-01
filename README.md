@@ -2330,3 +2330,26 @@ P10-D3 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P10-D4：paper-only operator runbook。
+
+## P10-D4：Paper-only Operator Runbook
+
+P10-D4 新增：
+
+- docs/93_p10_paper_only_operator_runbook.md
+- tests/test_p10_paper_only_operator_runbook.py
+
+runbook 明确 operator 如何运行：
+
+- python main.py
+- python scripts/run_all_smokes.py
+- python scripts/run_p9_acceptance_smoke.py
+- python scripts/run_p9_global_regression_summary.py
+- python -m pytest -q
+
+runbook 明确 status、safe_boundary、operator_review_required 和 failed 处理规则。
+
+P10-D4 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P10-D5：failure triage guide。

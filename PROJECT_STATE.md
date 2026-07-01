@@ -1284,3 +1284,52 @@ P10-D3：operator review response templates 已完成。
 下一步：
 
 进入 P10-D4：paper-only operator runbook。
+
+## P10-D4 完成记录
+
+P10-D4：paper-only operator runbook 已完成。
+
+新增文件：
+
+- docs/93_p10_paper_only_operator_runbook.md
+- tests/test_p10_paper_only_operator_runbook.py
+
+完成内容：
+
+- 明确 operator 本地完整回归命令
+- 明确 Dify-safe adapter 复核入口
+- 明确 operator review response template
+- 明确 status 读取规则
+- 明确 safe_boundary 读取规则
+- 明确 failed 处理规则
+- 明确 operator_review_required 处理规则
+- 验证 run_p9_global_regression_summary 仍然 completed
+- 验证 handle_dify_global_regression_request 仍然 ok
+- 验证 render_operator_review_response 仍然 global_regression_passed
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p9_global_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 470 passed 左右
+
+下一步：
+
+进入 P10-D5：failure triage guide。
