@@ -1713,3 +1713,39 @@ P7-D8 明确：
 - 不真实下单
 - 不把 paper execution 伪装成 real execution
 
+
+## P7-D9：Phase 7 to Phase 8 Bridge Plan
+
+P7-D9 新增：
+
+- docs/69_p7_to_p8_bridge_plan.md
+- tests/test_p7_to_p8_bridge_plan.py
+
+P7-D9 完成 Phase 7 到 Phase 8 的桥接规划。
+
+Phase 8 建议主题：
+
+- Portfolio-level guarded paper execution
+
+Phase 8 候选方向：
+
+- portfolio-level guarded paper execution
+- cross-asset exposure checks
+- portfolio-level user-facing response
+- regression CI entrypoint
+
+P7-D9 建议下一步：
+
+- P8-D1：Portfolio-level guarded paper execution plan
+
+P7-D9 明确：
+
+- Phase 8 第一轮仍不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+

@@ -313,3 +313,53 @@ P7-D8：post-closeout guarded paper execution regression summary 已完成。
 - 不真实下单
 - 不破坏测试
 
+
+## P7-D9 完成记录
+
+P7-D9：Phase 7 to Phase 8 bridge plan 已完成。
+
+新增文件：
+
+- docs/69_p7_to_p8_bridge_plan.md
+- tests/test_p7_to_p8_bridge_plan.py
+
+完成内容：
+
+- 新增 Phase 7 到 Phase 8 桥接规划
+- 汇总 P7-D1 到 P7-D9
+- 明确 Phase 8 建议主题为 Portfolio-level guarded paper execution
+- 明确 portfolio-level guarded paper execution 候选方向
+- 明确 cross-asset exposure checks 候选方向
+- 明确 portfolio-level user-facing response 候选方向
+- 明确 regression CI entrypoint 候选方向
+- 明确 P8-D1 到 P8-D6 候选路线
+- 明确 Phase 8 第一轮不做真实交易所 API、不真实下单、不保存真实 API key、不读取钱包私钥
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python scripts/run_multi_asset_guarded_paper_execution_smoke.py 输出 status completed
+- python scripts/run_multi_asset_guarded_paper_execution_response_smoke.py 输出 status completed
+- python scripts/run_p7_guarded_paper_execution_acceptance_smoke.py 输出 status completed
+- python scripts/run_p7_guarded_paper_execution_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 296 passed 左右
+
+下一步：
+
+进入 P8-D1：Portfolio-level guarded paper execution plan。
+
+建议目标：
+
+- 新增 docs/70_p8_portfolio_guarded_paper_execution_plan.md
+- 明确 portfolio-level 输入 / 输出 / 分支 / 安全边界
+- 只做规划文档
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏测试
+
