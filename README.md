@@ -625,3 +625,65 @@ P4-D11 不保存真实 API key。
 P4-D11 不读取钱包私钥。
 P4-D11 不真实下单。
 
+
+## P4-D12：Phase 4 Multi-asset Schema Acceptance
+
+P4-D12 新增：
+
+- docs/35_p4_multi_asset_schema_acceptance.md
+
+P4-D12 汇总验收：
+
+- multi-asset fixture
+- multi-asset Dify success smoke
+- multi-asset Dify negative smoke
+- batch schema error 整体失败策略
+- user-facing success response
+- user-facing error response
+
+当前多资产覆盖：
+
+- crypto / BTCUSDT
+- equities / AAPL
+- fx / EURUSD
+- commodities / XAUUSD
+
+P4-D12 不接真实交易所 API。
+P4-D12 不保存真实 API key。
+P4-D12 不读取钱包私钥。
+P4-D12 不真实下单。
+
+
+## P4-D13：Phase 4 Closeout
+
+P4-D13 新增：
+
+- docs/36_p4_closeout_project_state.md
+
+Phase 4 已完成阶段收尾。
+
+当前完成范围：
+
+- schema hardening
+- schema error catalog
+- schema pipeline integration
+- Dify schema-aware tests
+- batch schema error behavior
+- multi-asset fixture
+- multi-asset success smoke
+- multi-asset negative smoke
+- Phase 4 multi-asset schema acceptance
+
+当前验证：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 127 passed
+
+下一步建议：
+
+- P5-D1：Paper-only sandbox execution boundary plan
+
