@@ -2863,3 +2863,58 @@ Archive-D4：final archive manifest 已完成。
 下一步：
 
 进入 Archive-D5：final operator archive handoff。
+
+## Archive-D5 完成记录
+
+Archive-D5：final operator archive handoff 已完成。
+
+新增文件：
+
+- docs/125_archive_d5_final_operator_archive_handoff.md
+- tests/test_archive_d5_final_operator_archive_handoff.py
+
+完成内容：
+
+- 明确 final_operator_archive_handoff_version = 0.1.0
+- 明确 operator 可做事项
+- 明确 operator 不可做事项
+- 明确最终交接文件
+- 明确最终归档命令
+- 明确 archive record 读取规则
+- 明确允许解释
+- 明确禁止解释
+- 明确人工复核与 safe_boundary
+- 明确失败停止规则
+- 明确归档后修改规则
+- 明确 Final Archive 安全边界
+- 验证 P12 final delivery package summary 仍然 completed
+- 验证 ready_for_p12_d10_archive_bridge_plan 仍然 true
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p12_final_delivery_package_summary.py 输出 status completed
+- python -m pytest -q 显示 756 passed 左右
+
+下一步：
+
+进入 Archive-D6：final archive acceptance smoke。
