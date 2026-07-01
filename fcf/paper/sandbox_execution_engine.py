@@ -1,5 +1,9 @@
 from typing import Any, Dict, Optional
 
+from fcf.contracts.event import create_event
+from fcf.core.event_store import EventStore
+from fcf.replay.replay_engine import ReplayEngine
+
 from fcf.paper.paper_order_schema import normalize_paper_order
 
 ENGINE_NAME = "sandbox_execution_engine"
@@ -224,3 +228,85 @@ def execute_sandbox_order(
         )
     except Exception as error:
         return _error_response(error)
+
+
+def _build_sandbox_execution_event(execution_data: Dict[str, Any]) -> Any:
+    return create_event(
+        event_name=execution_data["event_name"],
+        source_module=ENGINE_NAME,
+        correlation_id=execution_data["correlation_id"],
+        payload={
+            "sandbox_execution": execution_data,
+        },
+        metadata={
+            "execution_mode": "paper",
+            "real_order": False,
+            "real_execution": False,
+            "real_exchange_api": False,
+            "real_money_impact": False,
+        },
+    )
+
+
+def _persist_execution_store_if_needed(
+    store: EventStore,
+    output_path: Optional[str],
+) -> bool:
+    if output_path:
+        store.save_jsonl(output_path)
+        return True
+    return False
+
+
+def _replay_execution_store(store: EventStore) -> Dict[str, Any]:
+    replay_engine = ReplayEngine()
+    return replay_engine.replay(store.all_events())
+
+
+def execute_sandbox_order_with_eventstore(
+    raw_order: Dict[str, Any],
+    simulation_mode: str = MODE_SIMULATED_FILL,
+    fill_price: Optional[float] = None,
+    filled_quantity: Optional[float] = None,
+    reject_reason: Optional[str] = None,
+    output_path: Optional[str] = None,
+) -> Dict[str, Any]:
+    execution_response = execute_sandbox_order(
+        raw_order=raw_order,
+        simulation_mode=simulation_mode,
+        fill_price=fill_price,
+        filled_quantity=filled_quantity,
+        reject_reason=reject_reason,
+    )
+
+    if execution_response["ok"] is not True:
+        return execution_response
+
+    execution_data = dict(execution_response["data"])
+
+    store = EventStore()
+    event = _build_sandbox_execution_event(execution_data)
+    store.record(event)
+
+    persisted = _persist_execution_store_if_needed(store, output_path)
+    replay_result = _replay_execution_store(store)
+
+    execution_data.update(
+        {
+            "event_count": store.count(),
+            "event_names": replay_result.get(
+                "event_names",
+                [execution_data["event_name"]],
+            ),
+            "persisted": persisted,
+            "output_path": output_path,
+            "replay": replay_result,
+        }
+    )
+
+    return _stable_response(
+        ok=True,
+        data=execution_data,
+        error=None,
+    )
+

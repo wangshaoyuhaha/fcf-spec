@@ -773,3 +773,28 @@ P5-D3 不保存真实 API key。
 P5-D3 不读取钱包私钥。
 P5-D3 不真实下单。
 
+
+## P5-D4：Sandbox Execution EventStore and Replay Integration
+
+P5-D4 新增：
+
+- docs/40_p5_sandbox_execution_eventstore_replay.md
+- tests/test_sandbox_execution_eventstore_replay.py
+
+P5-D4 修改：
+
+- fcf/paper/sandbox_execution_engine.py
+
+当前新增能力：
+
+- execute_sandbox_order_with_eventstore
+- sandbox execution event 写入 EventStore
+- ReplayEngine 回放 sandbox execution event
+- 可选 JSONL 持久化
+- full fill / partial fill / reject 均可 Replay
+
+P5-D4 不接真实交易所 API。
+P5-D4 不保存真实 API key。
+P5-D4 不读取钱包私钥。
+P5-D4 不真实下单。
+

@@ -361,3 +361,52 @@ P5-D3：sandbox execution engine skeleton 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P5-D4 完成记录
+
+P5-D4：sandbox execution EventStore and Replay integration 已完成。
+
+新增文件：
+
+- docs/40_p5_sandbox_execution_eventstore_replay.md
+- tests/test_sandbox_execution_eventstore_replay.py
+
+修改文件：
+
+- fcf/paper/sandbox_execution_engine.py
+
+完成内容：
+
+- 新增 execute_sandbox_order_with_eventstore
+- sandbox execution success 写入 EventStore
+- full fill event 可 Replay
+- partial fill event 可 Replay
+- reject event 可 Replay
+- 可选 output_path 持久化 JSONL
+- bad paper order 仍返回 ok=false
+- 保持 stable response dict
+- 保持安全边界字段
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 156 passed
+
+下一步：
+
+进入 P5-D5：paper execution API wrapper。
+
+建议目标：
+
+- 新增 fcf/api/paper_execution_api.py
+- 包装 execute_sandbox_order_with_eventstore
+- 返回稳定 response dict
+- 支持 simulated_fill / simulated_reject
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
