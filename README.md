@@ -2664,3 +2664,25 @@ P11-D6 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P11-D7：Phase 11 acceptance smoke。
+
+## P11-D7：Phase 11 Acceptance Smoke
+
+P11-D7 新增：
+
+- docs/106_p11_acceptance_smoke.md
+- scripts/run_p11_acceptance_smoke.py
+- tests/test_p11_acceptance_smoke.py
+
+新增命令：
+
+- python scripts/run_p11_acceptance_smoke.py
+
+P11-D7 汇总 P10 package summary、P11 regression stability gate、Dify-safe global regression adapter、operator review response templates、P11 docs readiness 和 safe_boundary。
+
+验收输出 ready_for_p11_d8_closeout=true。
+
+P11-D7 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P11-D8：Phase 11 closeout。
