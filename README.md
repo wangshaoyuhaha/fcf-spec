@@ -407,3 +407,25 @@ P4-D3 修改：
 - 不接真实交易所 API
 - 不真实下单
 
+
+## P4-D4：Schema-aware Dify Adapter and Response Tests
+
+P4-D4 新增：
+
+- docs/27_p4_schema_aware_dify_adapter_response_tests.md
+- tests/test_schema_aware_dify_adapter_response.py
+
+当前测试覆盖：
+
+- schema normalized success
+- missing required field
+- bad market_type
+- bad spread
+- bad asset_class
+- schema error to user-facing error response
+
+P4-D4 不接真实交易所 API。
+P4-D4 不保存真实 API key。
+P4-D4 不读取钱包私钥。
+P4-D4 不真实下单。
+
