@@ -606,3 +606,49 @@ P4-D10：multi-asset fixture Dify response smoke 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P4-D11 完成记录
+
+P4-D11：multi-asset error fixture and negative smoke 已完成。
+
+新增文件：
+
+- docs/34_p4_multi_asset_error_negative_smoke.md
+- scripts/run_multi_asset_error_dify_smoke.py
+- tests/test_multi_asset_error_dify_smoke.py
+
+完成内容：
+
+- 新增 run_multi_asset_error_dify_smoke
+- 覆盖 equities bad market_type
+- 覆盖 fx bad spread
+- 覆盖 commodities missing last_price
+- 确认 Dify batch route 返回 422
+- 确认 local_market_input_api 返回 ok false
+- 确认 user-facing response 为 error
+- 确认 batch 中任意一行 schema 错误则整体失败
+- 确认不做部分成功
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 127 passed
+
+下一步：
+
+进入 P4-D12：Phase 4 multi-asset schema acceptance。
+
+建议目标：
+
+- 汇总 P4-D9 到 P4-D11 的多资产 fixture 与 smoke 成果
+- 明确多资产当前覆盖范围
+- 明确 success smoke 和 negative smoke 行为
+- 明确仍是 mock / fixture，不接真实数据源
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

@@ -597,3 +597,31 @@ P4-D10 不保存真实 API key。
 P4-D10 不读取钱包私钥。
 P4-D10 不真实下单。
 
+
+## P4-D11：Multi-asset Error Dify Smoke
+
+P4-D11 新增：
+
+- docs/34_p4_multi_asset_error_negative_smoke.md
+- scripts/run_multi_asset_error_dify_smoke.py
+- tests/test_multi_asset_error_dify_smoke.py
+
+当前 negative smoke 覆盖：
+
+- equities bad market_type
+- fx bad spread
+- commodities missing last_price
+
+当前预期行为：
+
+- Dify batch route 返回 422
+- local_market_input_api 返回 ok false
+- response templates 转成 user-facing error response
+- batch 中任意一行 schema 错误则整体失败
+- 不做部分成功
+
+P4-D11 不接真实交易所 API。
+P4-D11 不保存真实 API key。
+P4-D11 不读取钱包私钥。
+P4-D11 不真实下单。
+
