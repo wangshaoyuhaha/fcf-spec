@@ -685,3 +685,31 @@ P8-D8：Phase 8 closeout / project state consolidation 已完成。
 下一步：
 
 进入 P8-D9：post-closeout portfolio guarded paper regression summary，或者进入 Phase 9 规划。
+
+## P8-D9 完成记录
+
+P8-D9：post-closeout portfolio guarded paper regression summary 已完成。
+
+新增文件：
+
+- docs/78_p8_portfolio_guarded_paper_regression_summary.md
+- scripts/run_p8_portfolio_guarded_paper_regression_summary.py
+- tests/test_p8_portfolio_guarded_paper_regression_summary.py
+
+完成内容：
+
+- 汇总 P7 guarded paper regression summary
+- 汇总 P8 portfolio guarded paper execution smoke
+- 输出 regression_summary
+- 输出 ready_for_phase9_planning
+- 保持 paper-only 安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p8_portfolio_guarded_paper_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 361 passed 左右
+
+下一步：
+
+进入 P8-D10：Phase 8 to Phase 9 bridge plan。

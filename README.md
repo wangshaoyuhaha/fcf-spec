@@ -1971,3 +1971,16 @@ P8-D8 完成 Phase 8 portfolio guarded paper execution 第一轮阶段收尾。
 
 P8-D8 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
 
+
+## P8-D9：Post-closeout Portfolio Guarded Paper Regression Summary
+
+P8-D9 新增：
+
+- docs/78_p8_portfolio_guarded_paper_regression_summary.md
+- scripts/run_p8_portfolio_guarded_paper_regression_summary.py
+- tests/test_p8_portfolio_guarded_paper_regression_summary.py
+
+P8-D9 汇总 P7 regression 与 P8 portfolio smoke，并输出 ready_for_phase9_planning。
+
+P8-D9 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
+
