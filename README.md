@@ -1372,3 +1372,58 @@ P6-D11 汇总验收 Phase 6 policy / risk deny hardening 成果：
 - python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
 - python -m pytest -q 显示 235 passed
 
+
+## P6-D12：Phase 6 Closeout
+
+P6-D12 新增：
+
+- docs/60_p6_closeout_project_state.md
+
+Phase 6 已完成阶段收尾。
+
+当前完成范围：
+
+- policy / risk deny case hardening
+- paper execution policy gate
+- policy gate API integration
+- paper_policy_deny user-facing response
+- Dify response smoke policy deny coverage
+- paper execution risk guardian
+- risk guardian API integration
+- paper_risk_deny user-facing response
+- Dify response smoke risk deny coverage
+- Dify response smoke 全分支覆盖
+
+当前 Dify response smoke 覆盖：
+
+- paper_fill_success
+- paper_reject_success
+- paper_policy_deny
+- paper_risk_deny
+- paper_execution_error
+- paper_safety_refusal
+
+当前验证：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 235 passed
+
+下一步建议：
+
+- P7-D1：Multi-asset guarded paper execution fixture plan
+
+继续保持：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不允许 Dify 绕过 policy / risk
+- 不把 paper execution 伪装成 real execution
+
