@@ -429,3 +429,28 @@ P4-D4 不保存真实 API key。
 P4-D4 不读取钱包私钥。
 P4-D4 不真实下单。
 
+
+## P4-D5：Schema Error Catalog
+
+P4-D5 新增：
+
+- docs/28_p4_schema_error_catalog.md
+- fcf/schemas/schema_error_catalog.py
+- tests/test_schema_error_catalog.py
+
+当前 schema error catalog 定义：
+
+- MissingField
+- InvalidEnumValue
+- InvalidNumber
+- InvalidPositiveNumber
+- InvalidNonNegativeNumber
+- InvalidSpread
+- InvalidPayloadType
+
+P4-D5 固化 schema error message builder。
+P4-D5 不接真实交易所 API。
+P4-D5 不保存真实 API key。
+P4-D5 不读取钱包私钥。
+P4-D5 不真实下单。
+

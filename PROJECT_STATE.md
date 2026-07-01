@@ -332,3 +332,48 @@ P4-D4：schema-aware Dify adapter and response tests 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P4-D5 完成记录
+
+P4-D5：schema error catalog and stable error messages 已完成。
+
+新增文件：
+
+- docs/28_p4_schema_error_catalog.md
+- fcf/schemas/schema_error_catalog.py
+- tests/test_schema_error_catalog.py
+
+完成内容：
+
+- 新增 schema error catalog
+- 新增 MissingField
+- 新增 InvalidEnumValue
+- 新增 InvalidNumber
+- 新增 InvalidPositiveNumber
+- 新增 InvalidNonNegativeNumber
+- 新增 InvalidSpread
+- 新增 InvalidPayloadType
+- 新增稳定 error message builder
+- 增加 pytest 覆盖
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 102 passed
+
+下一步：
+
+进入 P4-D6：integrate schema error catalog into raw market input schema。
+
+建议目标：
+
+- raw_market_input_schema 使用 schema_error_catalog 的 message builder
+- 保持现有错误 message 兼容
+- 保持 Dify adapter 422 行为
+- 保持 response templates error 行为
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
