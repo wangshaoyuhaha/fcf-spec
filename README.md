@@ -1891,3 +1891,26 @@ P8-D4 继续保持：
 - 不读取真实仓位
 - 不声明真实资金影响
 
+
+## P8-D5：Portfolio Paper Execution User-facing Response Templates
+
+P8-D5 新增：
+
+- docs/74_p8_portfolio_paper_execution_response_templates.md
+- fcf/api/portfolio_paper_execution_response_templates.py
+- tests/test_portfolio_paper_execution_response_templates.py
+
+新增入口：
+
+- render_portfolio_paper_execution_user_response
+
+当前覆盖用户响应：
+
+- portfolio_paper_success
+- portfolio_paper_partial_success
+- portfolio_policy_deny
+- portfolio_risk_deny
+- portfolio_schema_error
+
+P8-D5 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不声明真实成交或真实资金影响。
+

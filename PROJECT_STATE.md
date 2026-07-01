@@ -568,3 +568,34 @@ P8-D4：Portfolio-level risk exposure checks 已完成。
 - 不真实下单
 - 不破坏测试
 
+
+## P8-D5 完成记录
+
+P8-D5：Portfolio paper execution user-facing response templates 已完成。
+
+新增文件：
+
+- docs/74_p8_portfolio_paper_execution_response_templates.md
+- fcf/api/portfolio_paper_execution_response_templates.py
+- tests/test_portfolio_paper_execution_response_templates.py
+
+完成内容：
+
+- 新增 render_portfolio_paper_execution_user_response
+- 覆盖 portfolio_paper_success
+- 覆盖 portfolio_paper_partial_success
+- 覆盖 portfolio_policy_deny
+- 覆盖 portfolio_risk_deny
+- 覆盖 portfolio_schema_error
+- 响应包含 safety_notice
+- 响应明确没有真实下单、没有连接真实交易所、没有真实成交、没有真实资金影响
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p7_guarded_paper_execution_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 337 passed 左右
+
+下一步：
+
+进入 P8-D6：Portfolio guarded paper execution smoke runner。
