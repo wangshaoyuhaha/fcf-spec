@@ -1892,3 +1892,54 @@ P11-D5：maintenance checklist 已完成。
 下一步：
 
 进入 P11-D6：regression stability gate。
+
+## P11-D6 完成记录
+
+P11-D6：regression stability gate 已完成。
+
+新增文件：
+
+- docs/105_p11_regression_stability_gate.md
+- fcf/regression/regression_stability_gate.py
+- tests/test_p11_regression_stability_gate.py
+
+完成内容：
+
+- 新增 evaluate_regression_stability_gate
+- 检查 P10 package summary status
+- 检查 ready_for_p10_d10_bridge_plan
+- 检查 Dify adapter ok
+- 检查 operator response passed
+- 检查 deliverables all present
+- 检查 safe_boundary
+- 输出 ready_for_p11_d7_acceptance_smoke
+- 验证 failed payload 能被 gate 拒绝
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p10_dify_safe_package_summary.py 输出 status completed
+- python -m pytest -q 显示 575 passed 左右
+
+下一步：
+
+进入 P11-D7：Phase 11 acceptance smoke。

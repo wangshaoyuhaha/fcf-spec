@@ -2644,3 +2644,23 @@ P11-D5 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P11-D6：regression stability gate。
+
+## P11-D6：Regression Stability Gate
+
+P11-D6 新增：
+
+- docs/105_p11_regression_stability_gate.md
+- fcf/regression/regression_stability_gate.py
+- tests/test_p11_regression_stability_gate.py
+
+新增入口：
+
+- evaluate_regression_stability_gate
+
+该 gate 检查 P10 package summary、Dify adapter、operator response、deliverables、safe_boundary，并输出 ready_for_p11_d7_acceptance_smoke。
+
+P11-D6 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P11-D7：Phase 11 acceptance smoke。
