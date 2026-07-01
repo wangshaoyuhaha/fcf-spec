@@ -599,3 +599,34 @@ P8-D5：Portfolio paper execution user-facing response templates 已完成。
 下一步：
 
 进入 P8-D6：Portfolio guarded paper execution smoke runner。
+
+## P8-D6 完成记录
+
+P8-D6：Portfolio guarded paper execution smoke runner 已完成。
+
+新增文件：
+
+- docs/75_p8_portfolio_guarded_paper_execution_smoke_runner.md
+- scripts/run_portfolio_guarded_paper_execution_smoke.py
+- tests/test_portfolio_guarded_paper_execution_smoke.py
+
+完成内容：
+
+- 新增 run_portfolio_guarded_paper_execution_smoke.py
+- 读取 portfolio fixture
+- 调用 handle_portfolio_paper_execution
+- 调用 render_portfolio_paper_execution_user_response
+- 输出 status completed
+- 汇总 portfolio_branch_counts
+- 汇总 response_type_counts
+- 保持 paper-only 安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_portfolio_guarded_paper_execution_smoke.py 输出 status completed
+- python -m pytest -q 显示 343 passed 左右
+
+下一步：
+
+进入 P8-D7：Portfolio guarded paper execution acceptance。

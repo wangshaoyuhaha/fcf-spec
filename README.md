@@ -1914,3 +1914,23 @@ P8-D5 新增：
 
 P8-D5 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不声明真实成交或真实资金影响。
 
+
+## P8-D6：Portfolio Guarded Paper Execution Smoke Runner
+
+P8-D6 新增：
+
+- docs/75_p8_portfolio_guarded_paper_execution_smoke_runner.md
+- scripts/run_portfolio_guarded_paper_execution_smoke.py
+- tests/test_portfolio_guarded_paper_execution_smoke.py
+
+runner 读取 fixtures/paper_order_portfolios_multi_asset.json，调用 handle_portfolio_paper_execution 和 render_portfolio_paper_execution_user_response。
+
+当前覆盖：
+
+- portfolio_all_fill
+- portfolio_mixed_results
+- portfolio_policy_deny
+- portfolio_risk_deny
+
+P8-D6 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
+
