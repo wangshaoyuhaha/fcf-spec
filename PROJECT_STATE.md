@@ -424,3 +424,48 @@ P4-D6：integrate schema error catalog into raw market input schema 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P4-D7 完成记录
+
+P4-D7：schema batch error behavior and Dify batch tests 已完成。
+
+新增文件：
+
+- docs/30_p4_schema_batch_error_behavior.md
+- tests/test_schema_batch_dify_adapter_errors.py
+
+完成内容：
+
+- 明确 batch 中任意一行 schema 错误则整体失败
+- 明确不做部分成功
+- 明确 batch schema error 返回 422
+- 明确 batch schema error 可转成 user-facing error response
+- 增加 batch success schema normalization 测试
+- 增加 batch missing required field 测试
+- 增加 batch bad market_type 测试
+- 增加 batch bad spread 测试
+- 增加 batch bad asset_class 测试
+- 增加 batch bad number 测试
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 116 passed
+
+下一步：
+
+进入 P4-D8：schema hardening closeout and Phase 4 midpoint acceptance。
+
+建议目标：
+
+- 汇总 P4-D1 到 P4-D7 的 schema hardening 成果
+- 明确当前 raw market input schema 能力
+- 明确 Dify adapter schema error 行为
+- 明确 batch error 行为
+- 更新 README 和 PROJECT_STATE
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏测试
+

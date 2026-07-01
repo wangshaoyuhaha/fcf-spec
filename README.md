@@ -476,3 +476,34 @@ P4-D6 修改：
 - 不接真实交易所 API
 - 不真实下单
 
+
+## P4-D7：Schema Batch Error Behavior
+
+P4-D7 新增：
+
+- docs/30_p4_schema_batch_error_behavior.md
+- tests/test_schema_batch_dify_adapter_errors.py
+
+当前 batch schema error 策略：
+
+- batch 中任意一行 schema 校验失败，整个 batch 失败
+- 不做部分成功
+- 不写入部分成功事件
+- Dify HTTP adapter 返回 422
+- local_market_input_api 返回 ok false
+- response templates 转成 user-facing error response
+
+P4-D7 覆盖：
+
+- batch success schema normalization
+- batch missing required field
+- batch bad market_type
+- batch bad spread
+- batch bad asset_class
+- batch bad number
+
+P4-D7 不接真实交易所 API。
+P4-D7 不保存真实 API key。
+P4-D7 不读取钱包私钥。
+P4-D7 不真实下单。
+
