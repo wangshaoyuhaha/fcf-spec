@@ -2918,3 +2918,34 @@ Archive-D5：final operator archive handoff 已完成。
 下一步：
 
 进入 Archive-D6：final archive acceptance smoke。
+
+## Archive-D6 完成记录
+
+Archive-D6：final archive acceptance smoke 已完成。
+
+新增文件：
+
+- docs/126_archive_d6_final_archive_acceptance_smoke.md
+- scripts/run_final_archive_acceptance_smoke.py
+- tests/test_archive_d6_final_archive_acceptance_smoke.py
+
+完成内容：
+
+- 新增 python scripts/run_final_archive_acceptance_smoke.py
+- 汇总 P12 final delivery package summary
+- 汇总 Archive-D1 到 Archive-D6 文档
+- 汇总 final archive manifest
+- 汇总 final operator archive handoff
+- 汇总 safe_boundary
+- 输出 ready_for_archive_d7_closeout=true
+- 保持 paper-only 安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_final_archive_acceptance_smoke.py 输出 status completed
+- python -m pytest -q 显示 764 passed 左右
+
+下一步：
+
+进入 Archive-D7：final archive closeout。
