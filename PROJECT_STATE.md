@@ -186,3 +186,67 @@ current_stage: 全金融市场 / 多资产交易事件系统。Phase 1 Build Spi
 next_action: 进入 P5-D1：Paper-only sandbox execution boundary plan。新增 paper-only sandbox execution boundary 文档，明确 paper order 与 real order 的区别、Dify 不可触达真实执行器、sandbox execution 只能产生模拟事件并进入 EventStore / Replay。不接真实交易所 API，不真实下单，不破坏测试。
 要求：全程中文一步步指挥；命令必须是可直接复制的 Git Bash 格式；多行 cat 必须包含完整 EOF；每次重要更新都 commit 并 push，并更新新的续聊话术。
 
+
+## P5-D1 完成记录
+
+P5-D1：Paper-only sandbox execution boundary plan 已完成。
+
+新增文件：
+
+- docs/37_p5_paper_sandbox_execution_boundary_plan.md
+
+完成内容：
+
+- 明确 paper order 定义
+- 明确 real order 定义
+- 明确 sandbox execution 定义
+- 明确 Dify 与执行边界
+- 明确建议事件类型
+- 明确建议模块边界
+- 明确 stable response dict 要求
+- 明确 Replay 要求
+- 明确审计要求
+- 明确用户可见说明
+- 明确 P5-D2 下一步方向
+
+当前安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不让 Dify 成为底层交易内核
+- 不把 sandbox execution 伪装成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 127 passed
+
+下一步：
+
+进入 P5-D2：paper order schema module。
+
+建议新增：
+
+- fcf/paper/__init__.py
+- fcf/paper/paper_order_schema.py
+- tests/test_paper_order_schema.py
+
+P5-D2 目标：
+
+- 定义 paper order required fields
+- 定义 side normalization
+- 定义 order_type normalization
+- 定义 quantity positive check
+- 定义 price optional positive check
+- 明确 real_order false
+- 明确 execution_mode paper
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

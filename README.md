@@ -687,3 +687,29 @@ Phase 4 已完成阶段收尾。
 
 - P5-D1：Paper-only sandbox execution boundary plan
 
+
+## P5-D1：Paper-only Sandbox Execution Boundary Plan
+
+P5-D1 新增：
+
+- docs/37_p5_paper_sandbox_execution_boundary_plan.md
+
+P5-D1 开始 Phase 5。
+
+Phase 5 第一目标是定义 paper-only sandbox execution boundary。
+
+P5-D1 明确：
+
+- paper order 与 real order 的区别
+- sandbox execution 只能模拟执行
+- sandbox execution 必须进入 EventStore
+- sandbox execution 必须可 Replay
+- Dify 不可触达真实执行器
+- Dify 不可真实下单
+- sandbox execution 不能伪装成真实成交
+
+P5-D1 不接真实交易所 API。
+P5-D1 不保存真实 API key。
+P5-D1 不读取钱包私钥。
+P5-D1 不真实下单。
+
