@@ -411,3 +411,57 @@ P7-D3：multi-asset guarded paper execution smoke runner 已完成。
 - 不真实下单
 - 不破坏测试
 
+
+## P7-D4 完成记录
+
+P7-D4：Dify response integration for guarded paper fixture smoke 已完成。
+
+新增文件：
+
+- docs/64_p7_guarded_paper_execution_dify_response_smoke.md
+- scripts/run_multi_asset_guarded_paper_execution_response_smoke.py
+- tests/test_multi_asset_guarded_paper_execution_response_smoke.py
+
+完成内容：
+
+- 新增 guarded paper execution Dify response smoke
+- runner 读取 fixtures/paper_orders_multi_asset_guarded.json
+- runner 调用 route_dify_paper_execution_request
+- runner 使用 render_paper_execution_user_response
+- 覆盖 16 个 fixture case
+- 覆盖 crypto / equities / fx / commodities
+- 覆盖 fill_success / sandbox_reject / policy_deny / risk_deny
+- fill_success 转成 paper_fill_success
+- sandbox_reject 转成 paper_reject_success
+- policy_deny 转成 paper_policy_deny
+- risk_deny 转成 paper_risk_deny
+- 验证用户响应不声称 real execution
+- 验证安全边界仍为 paper-only
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python scripts/run_multi_asset_guarded_paper_execution_smoke.py 输出 status completed
+- python scripts/run_multi_asset_guarded_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 266 passed 左右
+
+下一步：
+
+进入 P7-D5：guarded paper execution phase acceptance。
+
+建议目标：
+
+- 新增 Phase 7 guarded paper execution acceptance 文档
+- 汇总 P7-D1 到 P7-D4
+- 汇总 fixture / smoke / Dify response 覆盖
+- 明确 paper-only 安全边界
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏测试
+

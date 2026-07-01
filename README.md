@@ -1521,3 +1521,46 @@ P7-D3 明确：
 - 不读取钱包私钥
 - 不真实下单
 
+
+## P7-D4：Dify Response Integration for Guarded Paper Fixture Smoke
+
+P7-D4 新增：
+
+- docs/64_p7_guarded_paper_execution_dify_response_smoke.md
+- scripts/run_multi_asset_guarded_paper_execution_response_smoke.py
+- tests/test_multi_asset_guarded_paper_execution_response_smoke.py
+
+当前 smoke runner 会读取：
+
+- fixtures/paper_orders_multi_asset_guarded.json
+
+并通过 Dify paper execution adapter 调用：
+
+- route_dify_paper_execution_request
+- ROUTE_EXECUTE
+
+然后使用：
+
+- render_paper_execution_user_response
+
+把结果转成用户可见响应。
+
+覆盖：
+
+- crypto / equities / fx / commodities
+- fill_success / sandbox_reject / policy_deny / risk_deny
+
+P7-D4 明确：
+
+- fill_success 转成 paper_fill_success
+- sandbox_reject 转成 paper_reject_success
+- policy_deny 转成 paper_policy_deny
+- risk_deny 转成 paper_risk_deny
+- 所有用户响应都不能声称真实成交
+- sandbox reject 不是交易所真实拒单
+- policy deny / risk deny 不是交易所真实拒单
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+
