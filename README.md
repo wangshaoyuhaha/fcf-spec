@@ -2955,3 +2955,25 @@ P12-D8 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P12-D9：post-closeout final delivery package summary。
+
+## P12-D9：Post-closeout Final Delivery Package Summary
+
+P12-D9 新增：
+
+- docs/119_p12_post_closeout_final_delivery_package_summary.md
+- scripts/run_p12_final_delivery_package_summary.py
+- tests/test_p12_final_delivery_package_summary.py
+
+新增命令：
+
+- python scripts/run_p12_final_delivery_package_summary.py
+
+P12-D9 汇总 P12 closeout、P12 acceptance smoke、P11 release readiness package summary、final non-production delivery package、archive readiness checklist、final command index、final artifact manifest、final safety boundary declaration、final operator delivery note 和 paper-only safe_boundary。
+
+验收输出 ready_for_p12_d10_archive_bridge_plan=true。
+
+P12-D9 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P12-D10：Phase 12 to final archive bridge plan。
