@@ -565,3 +565,54 @@ P5-D7：Dify paper execution local adapter 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P5-D8 完成记录
+
+P5-D8：Dify paper execution smoke runner 已完成。
+
+新增文件：
+
+- docs/44_p5_dify_paper_execution_smoke_runner.md
+- scripts/run_dify_paper_execution_smoke.py
+- tests/test_dify_paper_execution_smoke.py
+
+完成内容：
+
+- 新增 run_dify_paper_execution_smoke
+- 覆盖 contract
+- 覆盖 simulated_fill
+- 覆盖 simulated_reject
+- 覆盖 bad_order_error
+- 覆盖 bad_simulation_mode_error
+- 覆盖 missing_raw_order_error
+- 输出稳定 smoke summary
+- 增加 pytest 覆盖
+- 明确不接真实交易所 API
+- 明确不真实下单
+- 明确不把 paper execution 伪装成 real execution
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python -m pytest -q 显示 176 passed
+
+下一步：
+
+进入 P5-D9：paper execution user-facing response templates。
+
+建议目标：
+
+- 新增 paper execution user-facing response templates
+- 覆盖 paper fill success
+- 覆盖 paper reject success
+- 覆盖 paper execution error
+- 覆盖 safety refusal
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

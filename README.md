@@ -888,3 +888,34 @@ P5-D7 不保存真实 API key。
 P5-D7 不读取钱包私钥。
 P5-D7 不真实下单。
 
+
+## P5-D8：Dify Paper Execution Smoke Runner
+
+P5-D8 新增：
+
+- docs/44_p5_dify_paper_execution_smoke_runner.md
+- scripts/run_dify_paper_execution_smoke.py
+- tests/test_dify_paper_execution_smoke.py
+
+当前 smoke runner 覆盖：
+
+- contract
+- simulated_fill
+- simulated_reject
+- bad_order_error
+- bad_simulation_mode_error
+- missing_raw_order_error
+
+当前安全边界：
+
+- execution_mode = paper
+- real_order = false
+- real_execution = false
+- real_exchange_api = false
+- real_money_impact = false
+
+P5-D8 不接真实交易所 API。
+P5-D8 不保存真实 API key。
+P5-D8 不读取钱包私钥。
+P5-D8 不真实下单。
+
