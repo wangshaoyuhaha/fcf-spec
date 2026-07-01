@@ -774,3 +774,35 @@ P9-D1：Global regression suite plan 已完成。
 下一步：
 
 进入 P9-D2：run_all_smokes entrypoint。
+
+## P9-D2 完成记录
+
+P9-D2：run_all_smokes entrypoint 已完成。
+
+新增文件：
+
+- docs/81_p9_run_all_smokes_entrypoint.md
+- scripts/run_all_smokes.py
+- tests/test_p9_run_all_smokes_entrypoint.py
+
+完成内容：
+
+- 新增 python scripts/run_all_smokes.py
+- 汇总 P7 guarded paper execution regression summary
+- 汇总 P8 portfolio guarded paper regression summary
+- 输出 status
+- 输出 suites
+- 输出 counts
+- 输出 readiness
+- 输出 safe_boundary
+- 保持 paper-only 安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_all_smokes.py 输出 status completed
+- python -m pytest -q 显示 380 passed 左右
+
+下一步：
+
+进入 P9-D3：global regression report schema。

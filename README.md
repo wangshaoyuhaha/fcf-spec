@@ -2034,3 +2034,24 @@ Phase 9 第一轮目标：
 - CI-safe regression command document
 
 P9-D1 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
+
+## P9-D2：run_all_smokes Entrypoint
+
+P9-D2 新增：
+
+- docs/81_p9_run_all_smokes_entrypoint.md
+- scripts/run_all_smokes.py
+- tests/test_p9_run_all_smokes_entrypoint.py
+
+新增命令：
+
+- python scripts/run_all_smokes.py
+
+当前汇总：
+
+- P7 guarded paper execution regression summary
+- P8 portfolio guarded paper regression summary
+
+输出 status、suites、counts、readiness、safe_boundary。
+
+P9-D2 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
