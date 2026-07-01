@@ -1031,3 +1031,29 @@ Phase 5 已完成阶段收尾。
 - 不真实下单
 - 不把 paper execution 伪装成 real execution
 
+
+## P6-D1：Policy and Risk Deny Case Hardening Plan
+
+P6-D1 新增：
+
+- docs/49_p6_policy_risk_deny_case_hardening_plan.md
+
+P6-D1 开始 Phase 6。
+
+Phase 6 第一目标是强化 policy / risk deny case。
+
+P6-D1 明确：
+
+- schema error、policy deny、risk deny、Dify safety refusal 的区别
+- paper execution 也不能绕过 policy / risk
+- deny case 的建议执行顺序
+- 后续 policy deny 候选规则
+- 后续 risk deny 候选规则
+- Dify 用户可见要求
+- 后续测试规划
+
+P6-D1 不接真实交易所 API。
+P6-D1 不保存真实 API key。
+P6-D1 不读取钱包私钥。
+P6-D1 不真实下单。
+

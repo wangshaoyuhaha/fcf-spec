@@ -231,3 +231,62 @@ current_stage: 全金融市场 / 多资产交易事件系统。Phase 1 Build Spi
 next_action: 进入 P6-D1：Policy and risk deny case hardening plan。新增 policy / risk deny case hardening 文档，明确 paper execution 也不能绕过 policy / risk，增加后续 deny case 测试规划，明确 Dify safety refusal 与 policy deny 的区别。不接真实交易所 API，不真实下单，不破坏测试。
 要求：全程中文一步步指挥；命令必须是可直接复制的 Git Bash 格式；多行 cat 必须包含完整 EOF；每次重要更新都 commit 并 push，并更新新的续聊话术。成功后直接给下一步代码，不必等待用户说继续。
 
+
+## P6-D1 完成记录
+
+P6-D1：Policy and risk deny case hardening plan 已完成。
+
+新增文件：
+
+- docs/49_p6_policy_risk_deny_case_hardening_plan.md
+
+完成内容：
+
+- 明确 schema error 定义
+- 明确 policy deny 定义
+- 明确 risk deny 定义
+- 明确 Dify safety refusal 定义
+- 明确 deny case 优先级
+- 明确后续事件类型
+- 明确后续模块规划
+- 明确 policy deny 候选规则
+- 明确 risk deny 候选规则
+- 明确 Dify 用户可见要求
+- 明确测试规划
+- 明确 P6-D2 下一步方向
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 186 passed
+
+下一步：
+
+进入 P6-D2：paper execution policy gate module。
+
+建议新增：
+
+- fcf/policy/paper_execution_policy.py
+- tests/test_paper_execution_policy.py
+
+P6-D2 目标：
+
+- 定义 policy deny reason
+- 实现 evaluate_paper_execution_policy
+- 拒绝 real_execution_requested
+- 拒绝 save_api_key_requested
+- 拒绝 read_private_key_requested
+- 拒绝 bypass_risk_requested
+- 拒绝 force_execute_requested
+- 拒绝 convert_paper_to_real_requested
+- 返回稳定 decision dict
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
