@@ -630,3 +630,30 @@ P8-D6：Portfolio guarded paper execution smoke runner 已完成。
 下一步：
 
 进入 P8-D7：Portfolio guarded paper execution acceptance。
+
+## P8-D7 完成记录
+
+P8-D7：Portfolio guarded paper execution acceptance 已完成。
+
+新增文件：
+
+- docs/76_p8_portfolio_guarded_paper_execution_acceptance.md
+- tests/test_p8_portfolio_guarded_paper_execution_acceptance.py
+
+完成内容：
+
+- 汇总 P8-D1 到 P8-D6
+- 验证 portfolio guarded paper execution smoke 仍然 completed
+- 验证 4 个 portfolio case 全部通过
+- 验证 4 个 response type 覆盖完整
+- 验证 paper-only 安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_portfolio_guarded_paper_execution_smoke.py 输出 status completed
+- python -m pytest -q 显示 349 passed 左右
+
+下一步：
+
+进入 P8-D8：Phase 8 closeout / project state consolidation。

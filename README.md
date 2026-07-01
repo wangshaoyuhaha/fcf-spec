@@ -1934,3 +1934,17 @@ runner 读取 fixtures/paper_order_portfolios_multi_asset.json，调用 handle_p
 
 P8-D6 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
 
+
+## P8-D7：Portfolio Guarded Paper Execution Acceptance
+
+P8-D7 新增：
+
+- docs/76_p8_portfolio_guarded_paper_execution_acceptance.md
+- tests/test_p8_portfolio_guarded_paper_execution_acceptance.py
+
+P8-D7 汇总验收 P8-D1 到 P8-D6。
+
+当前 portfolio smoke 输出 status completed，覆盖 portfolio_all_fill、portfolio_mixed_results、portfolio_policy_deny、portfolio_risk_deny。
+
+P8-D7 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
+
