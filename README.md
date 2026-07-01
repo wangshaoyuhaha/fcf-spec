@@ -2559,3 +2559,29 @@ P11-D2 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P11-D3：versioned run commands document。
+
+## P11-D3：Versioned Run Commands Document
+
+P11-D3 新增：
+
+- docs/102_p11_versioned_run_commands.md
+- tests/test_p11_versioned_run_commands.py
+
+命令清单版本：
+
+- command_profile_version = 0.1.0
+
+当前记录 profile：
+
+- local_full_regression
+- ci_safe_regression
+- dify_safe_paper_review
+- failure_triage
+
+P11-D3 明确本地完整回归命令、CI-safe 回归命令、Dify-safe paper review 命令、失败排查命令、命令维护规则和安全边界。
+
+P11-D3 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P11-D4：artifact inventory and ownership map。
