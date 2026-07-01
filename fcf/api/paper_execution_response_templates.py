@@ -144,6 +144,40 @@ def render_paper_execution_error_response(paper_response: Dict[str, Any]) -> Dic
     )
 
 
+def render_paper_policy_deny_response(paper_response: Dict[str, Any]) -> Dict[str, Any]:
+    body = _body(paper_response)
+    error = body.get("error") or {}
+
+    error_type = error.get("type", "PolicyDeny")
+    error_message = error.get("message", "policy denied")
+
+    message = (
+        "系统 policy gate 已拒绝该 paper execution 请求。"
+        "这不是交易所真实拒单，也不是真实下单失败。"
+        "系统没有连接真实交易所，没有真实下单，没有真实资金变化，也没有真实仓位变化。"
+        "请移除真实执行、保存 API key、读取私钥、绕过风控或强制执行等危险意图后，"
+        "重新提交 paper / sandbox 请求。"
+    )
+
+    return _base_response(
+        response_type="paper_policy_deny",
+        title="纸面模拟执行被策略规则拒绝",
+        message=message,
+        fields={
+            "error_type": error_type,
+            "error_message": error_message,
+            "policy_denied": True,
+            "not_exchange_reject": True,
+            "real_order": False,
+            "real_execution": False,
+            "real_exchange_api": False,
+            "real_money_impact": False,
+        },
+    )
+
+
+
+
 def render_paper_safety_refusal(intent: str, reason: Optional[str] = None) -> Dict[str, Any]:
     message = (
         "当前系统只支持 paper / sandbox execution，不能执行该操作。"
@@ -185,6 +219,9 @@ def render_paper_execution_user_response(
     body = _body(paper_response)
 
     if body.get("ok") is not True:
+        error = body.get("error") or {}
+        if error.get("type") == "PolicyDeny":
+            return render_paper_policy_deny_response(paper_response)
         return render_paper_execution_error_response(paper_response)
 
     data = body.get("data") or {}

@@ -1113,3 +1113,34 @@ P6-D3 不保存真实 API key。
 P6-D3 不读取钱包私钥。
 P6-D3 不真实下单。
 
+
+## P6-D4：Paper Execution Policy Deny Response Templates
+
+P6-D4 新增：
+
+- docs/52_p6_paper_execution_policy_deny_response_templates.md
+- tests/test_paper_execution_policy_deny_response_templates.py
+
+P6-D4 修改：
+
+- fcf/api/paper_execution_response_templates.py
+
+当前新增：
+
+- render_paper_policy_deny_response
+- PolicyDeny 自动渲染为 paper_policy_deny
+
+当前用户可见边界：
+
+- policy deny 不是交易所真实拒单
+- policy deny 不是真实下单失败
+- policy deny 没有连接真实交易所
+- policy deny 没有真实下单
+- policy deny 没有真实资金变化
+- policy deny 没有真实仓位变化
+
+P6-D4 不接真实交易所 API。
+P6-D4 不保存真实 API key。
+P6-D4 不读取钱包私钥。
+P6-D4 不真实下单。
+
