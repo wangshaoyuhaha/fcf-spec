@@ -2302,3 +2302,31 @@ P10-D2 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P10-D3：operator review response templates。
+
+## P10-D3：Operator Review Response Templates
+
+P10-D3 新增：
+
+- docs/92_p10_operator_review_response_templates.md
+- fcf/api/operator_review_response_templates.py
+- tests/test_p10_operator_review_response_templates.py
+
+新增入口：
+
+- render_operator_review_response
+
+覆盖 response_type：
+
+- global_regression_passed
+- global_regression_failed
+- safe_boundary_failed
+- project_state_inconsistent
+- operator_review_required
+
+所有响应明确这是 paper-only / non-production 响应，不是真实交易信号，不是真实下单结果，不是真实成交结果，需要人工复核。
+
+P10-D3 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P10-D4：paper-only operator runbook。
