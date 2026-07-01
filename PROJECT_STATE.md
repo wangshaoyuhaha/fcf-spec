@@ -252,3 +252,59 @@ current_stage: 全金融市场 / 多资产交易事件系统。Phase 1 Build Spi
 next_action: 进入 P7-D1：Multi-asset guarded paper execution fixture plan。新增 multi-asset guarded paper execution fixture 规划文档，覆盖 crypto / equities / fx / commodities，明确每个资产类别的 raw_order 样例、risk_context 样例、policy deny / risk deny 分支样例。不接真实交易所 API，不真实下单，不破坏测试。
 要求：全程中文一步步指挥；命令必须是可直接复制的 Git Bash 格式；多行 cat 必须包含完整 EOF；每次重要更新都 commit 并 push，并更新新的续聊话术。成功后直接给下一步代码，不必等待用户说继续。
 
+
+## P7-D1 完成记录
+
+P7-D1：Multi-asset guarded paper execution fixture plan 已完成。
+
+新增文件：
+
+- docs/61_p7_multi_asset_guarded_paper_execution_fixture_plan.md
+
+完成内容：
+
+- 明确 Phase 7 multi-asset guarded paper execution 目标
+- 明确 crypto raw_order / risk_context 样例
+- 明确 equities raw_order / risk_context 样例
+- 明确 fx raw_order / risk_context 样例
+- 明确 commodities raw_order / risk_context 样例
+- 明确 fill success 分支规划
+- 明确 sandbox reject 分支规划
+- 明确 policy deny 分支规划
+- 明确 risk deny 分支规划
+- 明确后续 fixture 文件规划
+- 明确后续 smoke runner 规划
+- 明确安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 235 passed
+
+下一步：
+
+进入 P7-D2：multi-asset guarded paper execution fixture。
+
+建议新增：
+
+- fixtures/paper_orders_multi_asset_guarded.json
+- tests/test_multi_asset_guarded_paper_fixture.py
+
+P7-D2 目标：
+
+- 新增 crypto / equities / fx / commodities fixture
+- 每个资产类别覆盖 fill success
+- 每个资产类别覆盖 sandbox reject
+- 每个资产类别覆盖 policy deny
+- 每个资产类别覆盖 risk deny
+- 验证 fixture schema
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

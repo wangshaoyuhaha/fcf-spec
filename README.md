@@ -1427,3 +1427,26 @@ Phase 6 已完成阶段收尾。
 - 不允许 Dify 绕过 policy / risk
 - 不把 paper execution 伪装成 real execution
 
+
+## P7-D1：Multi-asset Guarded Paper Execution Fixture Plan
+
+P7-D1 新增：
+
+- docs/61_p7_multi_asset_guarded_paper_execution_fixture_plan.md
+
+P7-D1 开始 Phase 7。
+
+Phase 7 目标：
+
+- 将 guarded paper execution 扩展到 multi-asset fixture
+- 覆盖 crypto / equities / fx / commodities
+- 明确 raw_order 样例
+- 明确 risk_context 样例
+- 明确 fill success / sandbox reject / policy deny / risk deny 分支
+- 为后续 multi-asset guarded paper execution smoke 做准备
+
+P7-D1 不接真实交易所 API。
+P7-D1 不保存真实 API key。
+P7-D1 不读取钱包私钥。
+P7-D1 不真实下单。
+
