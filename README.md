@@ -536,3 +536,31 @@ P4-D8 不保存真实 API key。
 P4-D8 不读取钱包私钥。
 P4-D8 不真实下单。
 
+
+## P4-D9：Multi-asset Fixture Expansion
+
+P4-D9 新增：
+
+- docs/32_p4_multi_asset_fixture_expansion_plan.md
+- fixtures/raw_market_data_multi_asset.json
+- tests/test_multi_asset_fixture_schema.py
+
+当前多资产 fixture 覆盖：
+
+- crypto / BTCUSDT / perpetual
+- equities / AAPL / spot
+- fx / EURUSD / spot
+- commodities / XAUUSD / futures
+
+当前测试确认：
+
+- fixture 可以加载
+- 每一行都能通过 raw market input schema
+- market_input_pipeline 可以处理多资产 batch
+- Dify HTTP batch adapter 可以处理多资产 batch
+
+P4-D9 不接真实交易所 API。
+P4-D9 不保存真实 API key。
+P4-D9 不读取钱包私钥。
+P4-D9 不真实下单。
+

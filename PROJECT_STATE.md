@@ -512,3 +512,48 @@ P4-D8：schema hardening closeout and Phase 4 midpoint acceptance 已完成。
 - 不真实下单
 - 保持 schema 兼容
 
+
+## P4-D9 完成记录
+
+P4-D9：multi-asset fixture expansion plan 已完成。
+
+新增文件：
+
+- docs/32_p4_multi_asset_fixture_expansion_plan.md
+- fixtures/raw_market_data_multi_asset.json
+- tests/test_multi_asset_fixture_schema.py
+
+完成内容：
+
+- 新增 multi-asset fixture expansion plan
+- 新增 crypto fixture row
+- 新增 equities fixture row
+- 新增 fx fixture row
+- 新增 commodities fixture row
+- 增加 fixture load 测试
+- 增加 schema normalization 测试
+- 增加 market_input_pipeline multi-asset batch 测试
+- 增加 Dify HTTP batch adapter multi-asset batch 测试
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 120 passed
+
+下一步：
+
+进入 P4-D10：multi-asset fixture Dify response smoke。
+
+建议目标：
+
+- 新增 scripts/run_multi_asset_dify_smoke.py
+- 读取 fixtures/raw_market_data_multi_asset.json
+- 调用 Dify batch route
+- 接入 render_dify_user_response
+- 输出稳定 summary
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
