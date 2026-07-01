@@ -2475,3 +2475,33 @@ P10-D9 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P10-D10：Phase 10 to Phase 11 bridge plan。
+
+## P10-D10：Phase 10 to Phase 11 Bridge Plan
+
+P10-D10 新增：
+
+- docs/99_p10_to_p11_bridge_plan.md
+- tests/test_p10_to_p11_bridge_plan.py
+
+P10-D10 完成 Phase 10 到 Phase 11 的桥接规划。
+
+Phase 11 建议主题：
+
+- Release readiness, operator handoff package, and long-term maintainability
+
+Phase 11 候选方向：
+
+- release readiness plan
+- operator handoff package
+- versioned run commands document
+- artifact inventory
+- maintenance checklist
+- regression stability gate
+- long-term safety boundary checklist
+- Phase 11 acceptance smoke
+
+P10-D10 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P11-D1：Release readiness plan。
