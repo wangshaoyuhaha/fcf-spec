@@ -657,3 +657,31 @@ P8-D7：Portfolio guarded paper execution acceptance 已完成。
 下一步：
 
 进入 P8-D8：Phase 8 closeout / project state consolidation。
+
+## P8-D8 完成记录
+
+P8-D8：Phase 8 closeout / project state consolidation 已完成。
+
+新增文件：
+
+- docs/77_p8_closeout_project_state.md
+- tests/test_p8_closeout_project_state.py
+
+完成内容：
+
+- 汇总 P8-D1 到 P8-D7
+- 标记 Phase 8 portfolio guarded paper execution 第一轮完成阶段收尾
+- 验证 portfolio guarded paper execution smoke 仍然 completed
+- 验证 4 个 portfolio case 全部通过
+- 验证 response type 覆盖完整
+- 验证 paper-only 安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_portfolio_guarded_paper_execution_smoke.py 输出 status completed
+- python -m pytest -q 显示 355 passed 左右
+
+下一步：
+
+进入 P8-D9：post-closeout portfolio guarded paper regression summary，或者进入 Phase 9 规划。
