@@ -2377,3 +2377,25 @@ P10-D5 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P10-D6：Dify workflow node contract document。
+
+## P10-D6：Dify Workflow Node Contract Document
+
+P10-D6 新增：
+
+- docs/95_p10_dify_workflow_node_contract.md
+- tests/test_p10_dify_workflow_node_contract.py
+
+Dify workflow 建议节点：
+
+- Input validation node
+- Global regression API node
+- Safe boundary review node
+- Operator response template node
+- Human review node
+- Final non-production output node
+
+P10-D6 明确 Dify workflow 只允许 paper-only / non-production / operator review / safe boundary review，不允许真实交易所 API、真实下单、真实账户读取、真实仓位读取、自动实盘交易、自动绕过人工复核、绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P10-D7：Phase 10 acceptance smoke。
