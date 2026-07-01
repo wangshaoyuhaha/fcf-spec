@@ -412,3 +412,53 @@ P8-D1：Portfolio-level guarded paper execution plan 已完成。
 - 不真实下单
 - 不破坏测试
 
+
+## P8-D2 完成记录
+
+P8-D2：Portfolio paper order fixture 已完成。
+
+新增文件：
+
+- docs/71_p8_portfolio_paper_order_fixture.md
+- fixtures/paper_order_portfolios_multi_asset.json
+- tests/test_portfolio_paper_order_fixture.py
+
+完成内容：
+
+- 新增 portfolio paper order fixture
+- 覆盖 portfolio_all_fill
+- 覆盖 portfolio_mixed_results
+- 覆盖 portfolio_policy_deny
+- 覆盖 portfolio_risk_deny
+- 覆盖 crypto / equities / fx / commodities
+- 覆盖 fill_success / sandbox_reject / policy_deny / risk_deny
+- 覆盖 blocked_by_portfolio_policy
+- 覆盖 blocked_by_portfolio_risk
+- 验证 fixture schema
+- 验证 expected counts
+- 验证 paper-only 安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p7_guarded_paper_execution_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 312 passed 左右
+
+下一步：
+
+进入 P8-D3：Portfolio paper execution API wrapper。
+
+建议目标：
+
+- 新增 fcf/api/portfolio_paper_execution_api.py
+- 新增 tests/test_portfolio_paper_execution_api.py
+- 读取 portfolio fixture
+- 逐笔调用 handle_paper_execution
+- 汇总 filled / sandbox_rejected / policy_denied / risk_denied
+- 汇总 asset_class_counts
+- 汇总 branch_counts
+- 返回稳定 response dict
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏测试
+

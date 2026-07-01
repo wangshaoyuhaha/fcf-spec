@@ -1780,3 +1780,39 @@ P8-D1 只做规划文档。
 不接真实交易所 API。
 不真实下单。
 
+
+## P8-D2：Portfolio Paper Order Fixture
+
+P8-D2 新增：
+
+- docs/71_p8_portfolio_paper_order_fixture.md
+- fixtures/paper_order_portfolios_multi_asset.json
+- tests/test_portfolio_paper_order_fixture.py
+
+当前 portfolio fixture 覆盖：
+
+- portfolio_all_fill
+- portfolio_mixed_results
+- portfolio_policy_deny
+- portfolio_risk_deny
+
+当前资产类别覆盖：
+
+- crypto
+- equities
+- fx
+- commodities
+
+当前 order 分支覆盖：
+
+- fill_success
+- sandbox_reject
+- policy_deny
+- risk_deny
+- blocked_by_portfolio_policy
+- blocked_by_portfolio_risk
+
+P8-D2 只新增 fixture 和 fixture schema 测试。
+不接真实交易所 API。
+不真实下单。
+

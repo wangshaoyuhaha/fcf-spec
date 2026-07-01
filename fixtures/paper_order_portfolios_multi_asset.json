@@ -1,0 +1,645 @@
+[
+  {
+    "case_id": "portfolio_all_fill",
+    "portfolio_id": "p8-portfolio-all-fill",
+    "branch": "portfolio_all_fill",
+    "description": "All portfolio paper orders pass policy and risk, then sandbox fills.",
+    "request": {
+      "portfolio_id": "p8-portfolio-all-fill",
+      "correlation_id": "p8-d2-portfolio-all-fill",
+      "source": "p8_portfolio_fixture",
+      "orders": [
+        {
+          "order_id": "p8-all-fill-crypto",
+          "expected_branch": "fill_success",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "Crypto",
+            "symbol": "btcusdt",
+            "venue": "BINANCE",
+            "market_type": "PERP",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "0.10",
+            "price": "60050.5",
+            "time_in_force": "gtc",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-all-fill-crypto",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-all-fill",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 1.0,
+            "max_notional": 1000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        },
+        {
+          "order_id": "p8-all-fill-equities",
+          "expected_branch": "fill_success",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "Equities",
+            "symbol": "aapl",
+            "venue": "NASDAQ",
+            "market_type": "SPOT",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "5",
+            "price": "220.50",
+            "time_in_force": "day",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-all-fill-equities",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-all-fill",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 1000.0,
+            "max_notional": 1000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        },
+        {
+          "order_id": "p8-all-fill-fx",
+          "expected_branch": "fill_success",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "FX",
+            "symbol": "eurusd",
+            "venue": "OANDA",
+            "market_type": "SPOT",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "10000",
+            "price": "1.0905",
+            "time_in_force": "gtc",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-all-fill-fx",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-all-fill",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 1000000.0,
+            "max_notional": 10000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        },
+        {
+          "order_id": "p8-all-fill-commodities",
+          "expected_branch": "fill_success",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "Commodities",
+            "symbol": "xauusd",
+            "venue": "CME",
+            "market_type": "FUTURES",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "1",
+            "price": "2360.50",
+            "time_in_force": "gtc",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-all-fill-commodities",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-all-fill",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 100.0,
+            "max_notional": 1000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        }
+      ],
+      "portfolio_policy_context": {
+        "real_execution_requested": false,
+        "bypass_risk_requested": false,
+        "save_api_key_requested": false,
+        "connect_exchange_requested": false,
+        "force_execute_requested": false
+      },
+      "portfolio_risk_context": {
+        "max_order_count": 10,
+        "max_total_notional": 10000000.0,
+        "max_asset_class_notional": {
+          "crypto": 1000000.0,
+          "equities": 1000000.0,
+          "fx": 10000000.0,
+          "commodities": 1000000.0
+        },
+        "blocked_asset_classes": [],
+        "blocked_symbols": [],
+        "duplicate_order_keys": [],
+        "max_same_side_count": 10,
+        "max_single_order_notional": 10000000.0
+      },
+      "metadata": {
+        "paper_only": true,
+        "real_execution": false
+      }
+    },
+    "expected": {
+      "ok": true,
+      "portfolio_status": "completed",
+      "order_count": 4,
+      "filled_count": 4,
+      "sandbox_rejected_count": 0,
+      "policy_denied_count": 0,
+      "risk_denied_count": 0,
+      "asset_class_counts": {
+        "commodities": 1,
+        "crypto": 1,
+        "equities": 1,
+        "fx": 1
+      },
+      "branch_counts": {
+        "fill_success": 4
+      },
+      "real_execution": false,
+      "safe_boundary": {
+        "paper_only": true,
+        "no_real_exchange_api": true,
+        "no_real_order_placement": true,
+        "no_exchange_api_key_storage": true,
+        "no_wallet_private_key_access": true
+      }
+    }
+  },
+  {
+    "case_id": "portfolio_mixed_results",
+    "portfolio_id": "p8-portfolio-mixed-results",
+    "branch": "portfolio_mixed_results",
+    "description": "Portfolio contains fill success, sandbox reject, policy deny, and risk deny orders.",
+    "request": {
+      "portfolio_id": "p8-portfolio-mixed-results",
+      "correlation_id": "p8-d2-portfolio-mixed-results",
+      "source": "p8_portfolio_fixture",
+      "orders": [
+        {
+          "order_id": "p8-mixed-crypto-fill",
+          "expected_branch": "fill_success",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "Crypto",
+            "symbol": "btcusdt",
+            "venue": "BINANCE",
+            "market_type": "PERP",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "0.10",
+            "price": "60050.5",
+            "time_in_force": "gtc",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-mixed-crypto-fill",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-mixed-results",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 1.0,
+            "max_notional": 1000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        },
+        {
+          "order_id": "p8-mixed-equities-reject",
+          "expected_branch": "sandbox_reject",
+          "simulation_mode": "simulated_reject",
+          "reject_reason": "p8-d2 portfolio fixture sandbox reject",
+          "raw_order": {
+            "asset_class": "Equities",
+            "symbol": "msft",
+            "venue": "NASDAQ",
+            "market_type": "SPOT",
+            "side": "SELL",
+            "order_type": "LIMIT",
+            "quantity": "5",
+            "price": "450.00",
+            "time_in_force": "day",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-mixed-equities-reject",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-mixed-results",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 1000.0,
+            "max_notional": 1000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        },
+        {
+          "order_id": "p8-mixed-fx-policy-deny",
+          "expected_branch": "policy_deny",
+          "simulation_mode": "simulated_fill",
+          "policy_context": {
+            "connect_exchange_requested": true
+          },
+          "raw_order": {
+            "asset_class": "FX",
+            "symbol": "eurusd",
+            "venue": "OANDA",
+            "market_type": "SPOT",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "10000",
+            "price": "1.0905",
+            "time_in_force": "gtc",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-mixed-fx-policy-deny",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-mixed-results",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 1000000.0,
+            "max_notional": 10000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        },
+        {
+          "order_id": "p8-mixed-commodities-risk-deny",
+          "expected_branch": "risk_deny",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "Commodities",
+            "symbol": "xauusd",
+            "venue": "CME",
+            "market_type": "FUTURES",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "1",
+            "price": "2360.50",
+            "time_in_force": "gtc",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-mixed-commodities-risk-deny",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-mixed-results",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 100.0,
+            "max_notional": 1000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": ["commodities"],
+            "high_risk_flags": []
+          }
+        }
+      ],
+      "portfolio_policy_context": {
+        "real_execution_requested": false,
+        "bypass_risk_requested": false,
+        "save_api_key_requested": false,
+        "connect_exchange_requested": false,
+        "force_execute_requested": false
+      },
+      "portfolio_risk_context": {
+        "max_order_count": 10,
+        "max_total_notional": 10000000.0,
+        "max_asset_class_notional": {
+          "crypto": 1000000.0,
+          "equities": 1000000.0,
+          "fx": 10000000.0,
+          "commodities": 1000000.0
+        },
+        "blocked_asset_classes": [],
+        "blocked_symbols": [],
+        "duplicate_order_keys": [],
+        "max_same_side_count": 10,
+        "max_single_order_notional": 10000000.0
+      },
+      "metadata": {
+        "paper_only": true,
+        "real_execution": false
+      }
+    },
+    "expected": {
+      "ok": true,
+      "portfolio_status": "partial",
+      "order_count": 4,
+      "filled_count": 1,
+      "sandbox_rejected_count": 1,
+      "policy_denied_count": 1,
+      "risk_denied_count": 1,
+      "asset_class_counts": {
+        "commodities": 1,
+        "crypto": 1,
+        "equities": 1,
+        "fx": 1
+      },
+      "branch_counts": {
+        "fill_success": 1,
+        "policy_deny": 1,
+        "risk_deny": 1,
+        "sandbox_reject": 1
+      },
+      "real_execution": false,
+      "safe_boundary": {
+        "paper_only": true,
+        "no_real_exchange_api": true,
+        "no_real_order_placement": true,
+        "no_exchange_api_key_storage": true,
+        "no_wallet_private_key_access": true
+      }
+    }
+  },
+  {
+    "case_id": "portfolio_policy_deny",
+    "portfolio_id": "p8-portfolio-policy-deny",
+    "branch": "portfolio_policy_deny",
+    "description": "Portfolio is denied at portfolio policy level before any sandbox execution.",
+    "request": {
+      "portfolio_id": "p8-portfolio-policy-deny",
+      "correlation_id": "p8-d2-portfolio-policy-deny",
+      "source": "p8_portfolio_fixture",
+      "orders": [
+        {
+          "order_id": "p8-policy-deny-crypto",
+          "expected_branch": "blocked_by_portfolio_policy",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "Crypto",
+            "symbol": "btcusdt",
+            "venue": "BINANCE",
+            "market_type": "PERP",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "0.10",
+            "price": "60050.5",
+            "time_in_force": "gtc",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-policy-deny-crypto",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-policy-deny",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 1.0,
+            "max_notional": 1000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        },
+        {
+          "order_id": "p8-policy-deny-equities",
+          "expected_branch": "blocked_by_portfolio_policy",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "Equities",
+            "symbol": "aapl",
+            "venue": "NASDAQ",
+            "market_type": "SPOT",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "5",
+            "price": "220.50",
+            "time_in_force": "day",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-policy-deny-equities",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-policy-deny",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 1000.0,
+            "max_notional": 1000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        }
+      ],
+      "portfolio_policy_context": {
+        "real_execution_requested": true,
+        "bypass_risk_requested": false,
+        "save_api_key_requested": false,
+        "connect_exchange_requested": false,
+        "force_execute_requested": false
+      },
+      "portfolio_risk_context": {
+        "max_order_count": 10,
+        "max_total_notional": 10000000.0,
+        "max_asset_class_notional": {
+          "crypto": 1000000.0,
+          "equities": 1000000.0
+        },
+        "blocked_asset_classes": [],
+        "blocked_symbols": [],
+        "duplicate_order_keys": [],
+        "max_same_side_count": 10,
+        "max_single_order_notional": 10000000.0
+      },
+      "metadata": {
+        "paper_only": true,
+        "real_execution": false
+      }
+    },
+    "expected": {
+      "ok": false,
+      "portfolio_status": "portfolio_policy_deny",
+      "order_count": 2,
+      "filled_count": 0,
+      "sandbox_rejected_count": 0,
+      "policy_denied_count": 2,
+      "risk_denied_count": 0,
+      "asset_class_counts": {
+        "crypto": 1,
+        "equities": 1
+      },
+      "branch_counts": {
+        "blocked_by_portfolio_policy": 2
+      },
+      "real_execution": false,
+      "safe_boundary": {
+        "paper_only": true,
+        "no_real_exchange_api": true,
+        "no_real_order_placement": true,
+        "no_exchange_api_key_storage": true,
+        "no_wallet_private_key_access": true
+      }
+    }
+  },
+  {
+    "case_id": "portfolio_risk_deny",
+    "portfolio_id": "p8-portfolio-risk-deny",
+    "branch": "portfolio_risk_deny",
+    "description": "Portfolio is denied at portfolio risk level before sandbox execution.",
+    "request": {
+      "portfolio_id": "p8-portfolio-risk-deny",
+      "correlation_id": "p8-d2-portfolio-risk-deny",
+      "source": "p8_portfolio_fixture",
+      "orders": [
+        {
+          "order_id": "p8-risk-deny-fx",
+          "expected_branch": "blocked_by_portfolio_risk",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "FX",
+            "symbol": "eurusd",
+            "venue": "OANDA",
+            "market_type": "SPOT",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "10000",
+            "price": "1.0905",
+            "time_in_force": "gtc",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-risk-deny-fx",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-risk-deny",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 1000000.0,
+            "max_notional": 10000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        },
+        {
+          "order_id": "p8-risk-deny-commodities",
+          "expected_branch": "blocked_by_portfolio_risk",
+          "simulation_mode": "simulated_fill",
+          "raw_order": {
+            "asset_class": "Commodities",
+            "symbol": "xauusd",
+            "venue": "CME",
+            "market_type": "FUTURES",
+            "side": "BUY",
+            "order_type": "LIMIT",
+            "quantity": "1",
+            "price": "2360.50",
+            "time_in_force": "gtc",
+            "source": "p8_portfolio_fixture",
+            "correlation_id": "p8-risk-deny-commodities",
+            "metadata": {
+              "portfolio_id": "p8-portfolio-risk-deny",
+              "paper_only": true
+            }
+          },
+          "risk_context": {
+            "max_quantity": 100.0,
+            "max_notional": 1000000.0,
+            "allow_leverage": false,
+            "allow_margin": false,
+            "duplicate_order_keys": [],
+            "blocked_symbols": [],
+            "blocked_asset_classes": [],
+            "high_risk_flags": []
+          }
+        }
+      ],
+      "portfolio_policy_context": {
+        "real_execution_requested": false,
+        "bypass_risk_requested": false,
+        "save_api_key_requested": false,
+        "connect_exchange_requested": false,
+        "force_execute_requested": false
+      },
+      "portfolio_risk_context": {
+        "max_order_count": 1,
+        "max_total_notional": 10000000.0,
+        "max_asset_class_notional": {
+          "fx": 10000000.0,
+          "commodities": 1000000.0
+        },
+        "blocked_asset_classes": [],
+        "blocked_symbols": [],
+        "duplicate_order_keys": [],
+        "max_same_side_count": 10,
+        "max_single_order_notional": 10000000.0
+      },
+      "metadata": {
+        "paper_only": true,
+        "real_execution": false
+      }
+    },
+    "expected": {
+      "ok": false,
+      "portfolio_status": "portfolio_risk_deny",
+      "order_count": 2,
+      "filled_count": 0,
+      "sandbox_rejected_count": 0,
+      "policy_denied_count": 0,
+      "risk_denied_count": 2,
+      "asset_class_counts": {
+        "commodities": 1,
+        "fx": 1
+      },
+      "branch_counts": {
+        "blocked_by_portfolio_risk": 2
+      },
+      "real_execution": false,
+      "safe_boundary": {
+        "paper_only": true,
+        "no_real_exchange_api": true,
+        "no_real_order_placement": true,
+        "no_exchange_api_key_storage": true,
+        "no_wallet_private_key_access": true
+      }
+    }
+  }
+]
