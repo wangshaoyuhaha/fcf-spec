@@ -2647,3 +2647,56 @@ P12-D10：Phase 12 to final archive bridge plan 已完成。
 下一步：
 
 进入 Archive-D1：final archive plan。
+
+## Archive-D1 完成记录
+
+Archive-D1：final archive plan 已完成。
+
+新增文件：
+
+- docs/121_archive_d1_final_archive_plan.md
+- tests/test_archive_d1_final_archive_plan.py
+
+完成内容：
+
+- 启动最终归档阶段
+- 明确 Final Archive 主题为 Final archive readiness, immutable delivery snapshot, and operator archive handoff
+- 明确 final_archive_plan_version = 0.1.0
+- 明确 immutable delivery snapshot 原则
+- 明确 Archive-D1 到 Archive-D7 路线
+- 明确归档前必须运行命令
+- 明确归档记录字段
+- 明确 operator archive handoff 要求
+- 明确 failed stop rules
+- 明确 Final Archive 安全边界
+- 验证 P12 final delivery package summary 仍然 completed
+- 验证 ready_for_p12_d10_archive_bridge_plan 仍然 true
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p12_final_delivery_package_summary.py 输出 status completed
+- python -m pytest -q 显示 715 passed 左右
+
+下一步：
+
+进入 Archive-D2：immutable delivery snapshot checklist。
