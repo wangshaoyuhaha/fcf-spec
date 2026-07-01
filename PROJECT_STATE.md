@@ -741,3 +741,36 @@ P8-D10：Phase 8 to Phase 9 bridge plan 已完成。
 下一步：
 
 进入 P9-D1：Global regression suite plan。
+
+## P9-D1 完成记录
+
+P9-D1：Global regression suite plan 已完成。
+
+新增文件：
+
+- docs/80_p9_global_regression_suite_plan.md
+- tests/test_p9_global_regression_suite_plan.py
+
+完成内容：
+
+- 启动 Phase 9
+- 明确 Phase 9 主题为 Global paper-only regression suite and CI-safe operational readiness
+- 明确统一 smoke / regression 入口规划
+- 明确 P7 regression summary 汇总规划
+- 明确 P8 portfolio regression summary 汇总规划
+- 明确 machine-readable regression report 规划
+- 明确 global safe_boundary checker 规划
+- 明确 PROJECT_STATE / README consistency checker 规划
+- 明确 CI-safe regression command document 规划
+- 明确 P9-D1 到 P9-D8 路线
+- 明确 Phase 9 第一轮不接真实交易所 API、不真实下单、不配置 CI secret、不做 production deployment
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p8_portfolio_guarded_paper_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 373 passed 左右
+
+下一步：
+
+进入 P9-D2：run_all_smokes entrypoint。

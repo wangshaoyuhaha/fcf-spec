@@ -2009,3 +2009,28 @@ Phase 9 候选方向：
 - 项目状态一致性检查
 
 P8-D10 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
+
+## P9-D1：Global Regression Suite Plan
+
+P9-D1 新增：
+
+- docs/80_p9_global_regression_suite_plan.md
+- tests/test_p9_global_regression_suite_plan.py
+
+P9-D1 启动 Phase 9。
+
+Phase 9 建议主题：
+
+- Global paper-only regression suite and CI-safe operational readiness
+
+Phase 9 第一轮目标：
+
+- 统一 smoke / regression 入口
+- 汇总 P7 regression summary
+- 汇总 P8 portfolio regression summary
+- machine-readable regression report
+- 全局 safe_boundary checker
+- PROJECT_STATE / README consistency checker
+- CI-safe regression command document
+
+P9-D1 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
