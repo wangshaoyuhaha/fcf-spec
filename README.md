@@ -2977,3 +2977,34 @@ P12-D9 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P12-D10：Phase 12 to final archive bridge plan。
+
+## P12-D10：Phase 12 to Final Archive Bridge Plan
+
+P12-D10 新增：
+
+- docs/120_p12_to_final_archive_bridge_plan.md
+- tests/test_p12_to_final_archive_bridge_plan.py
+
+P12-D10 完成 Phase 12 到最终归档阶段的桥接规划。
+
+Final Archive 建议主题：
+
+- Final archive readiness, immutable delivery snapshot, and operator archive handoff
+
+Final Archive 候选方向：
+
+- final archive plan
+- immutable delivery snapshot checklist
+- final release note
+- final archive manifest
+- final operator archive handoff
+- final archive acceptance smoke
+- final archive closeout
+
+P12-D10 验证 P12 final delivery package summary 仍然 completed，ready_for_p12_d10_archive_bridge_plan 仍然 true。
+
+P12-D10 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+Archive-D1：final archive plan。
