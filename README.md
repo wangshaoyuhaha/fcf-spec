@@ -2086,3 +2086,19 @@ P9-D3 新增：
 - next_action
 
 P9-D3 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
+
+## P9-D4：Global Safe Boundary Checker
+
+P9-D4 新增：
+
+- docs/83_p9_global_safe_boundary_checker.md
+- fcf/regression/global_safe_boundary_checker.py
+- tests/test_p9_global_safe_boundary_checker.py
+
+新增入口：
+
+- check_global_safe_boundary
+
+该入口验证 global regression report 或 safe_boundary dict 是否保持 paper-only 安全边界。
+
+P9-D4 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。

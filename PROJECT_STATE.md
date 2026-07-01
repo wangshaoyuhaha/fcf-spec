@@ -839,3 +839,40 @@ P9-D3：global regression report schema 已完成。
 下一步：
 
 进入 P9-D4：global safe boundary checker。
+
+## P9-D4 完成记录
+
+P9-D4：global safe boundary checker 已完成。
+
+新增文件：
+
+- docs/83_p9_global_safe_boundary_checker.md
+- fcf/regression/global_safe_boundary_checker.py
+- tests/test_p9_global_safe_boundary_checker.py
+
+完成内容：
+
+- 新增 check_global_safe_boundary
+- 验证 paper_only
+- 验证 execution_mode
+- 验证 real_order / real_execution / real_exchange_api / real_money_impact
+- 验证 no_real_exchange_api
+- 验证 no_real_order_placement
+- 验证 no_exchange_api_key_storage
+- 验证 no_wallet_private_key_access
+- 验证 no_real_account_balance_read
+- 验证 no_real_position_read
+- 验证 does_not_claim_real_trade_success
+- 验证 ci_secret_required=false
+- 验证 production_deployment=false
+- 保持 paper-only 安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_all_smokes.py 输出 status completed
+- python -m pytest -q 显示 395 passed 左右
+
+下一步：
+
+进入 P9-D5：PROJECT_STATE / README consistency checker。
