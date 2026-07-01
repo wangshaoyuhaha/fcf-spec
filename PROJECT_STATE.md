@@ -250,3 +250,63 @@ P5-D2 目标：
 - 不真实下单
 - 不破坏现有测试
 
+
+## P5-D2 完成记录
+
+P5-D2：paper order schema module 已完成。
+
+新增文件：
+
+- docs/38_p5_paper_order_schema_module.md
+- fcf/paper/__init__.py
+- fcf/paper/paper_order_schema.py
+- tests/test_paper_order_schema.py
+
+完成内容：
+
+- 定义 paper order required fields
+- 实现 describe_paper_order_schema
+- 实现 check_required_fields
+- 实现 normalize_side
+- 实现 normalize_order_type
+- 实现 normalize_time_in_force
+- 实现 normalize_paper_order
+- 实现 validate_paper_order
+- 实现 quantity positive check
+- 实现 price optional positive check
+- 强制 execution_mode = paper
+- 强制 real_order = false
+- 强制 real_exchange_api = false
+- 强制 real_money_impact = false
+- 增加 pytest 覆盖
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 141 passed
+
+下一步：
+
+进入 P5-D3：sandbox execution engine skeleton。
+
+建议新增：
+
+- fcf/paper/sandbox_execution_engine.py
+- tests/test_sandbox_execution_engine.py
+
+P5-D3 目标：
+
+- 接收 normalized paper order
+- 生成 sandbox execution summary
+- 支持 simulated_fill
+- 支持 simulated_reject
+- 明确 real_order false
+- 明确 real_execution false
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

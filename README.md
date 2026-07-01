@@ -713,3 +713,32 @@ P5-D1 不保存真实 API key。
 P5-D1 不读取钱包私钥。
 P5-D1 不真实下单。
 
+
+## P5-D2：Paper Order Schema Module
+
+P5-D2 新增：
+
+- fcf/paper/__init__.py
+- fcf/paper/paper_order_schema.py
+- tests/test_paper_order_schema.py
+- docs/38_p5_paper_order_schema_module.md
+
+当前 paper order schema 实现：
+
+- required field check
+- side normalization
+- order_type normalization
+- time_in_force normalization
+- quantity positive check
+- price optional positive check
+- metadata dict check
+- execution_mode 强制为 paper
+- real_order 强制为 false
+- real_exchange_api 强制为 false
+- real_money_impact 强制为 false
+
+P5-D2 不接真实交易所 API。
+P5-D2 不保存真实 API key。
+P5-D2 不读取钱包私钥。
+P5-D2 不真实下单。
+
