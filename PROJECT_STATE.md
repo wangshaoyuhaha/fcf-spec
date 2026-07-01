@@ -2461,3 +2461,58 @@ P12-D6：final safety boundary declaration 已完成。
 下一步：
 
 进入 P12-D7：final operator delivery note and Phase 12 acceptance smoke。
+
+## P12-D7 完成记录
+
+P12-D7：final operator delivery note and Phase 12 acceptance smoke 已完成。
+
+新增文件：
+
+- docs/116_p12_final_operator_delivery_note.md
+- docs/117_p12_acceptance_smoke.md
+- scripts/run_p12_acceptance_smoke.py
+- tests/test_p12_acceptance_smoke.py
+
+完成内容：
+
+- 新增 final operator delivery note
+- 新增 Phase 12 acceptance smoke 文档
+- 新增 python scripts/run_p12_acceptance_smoke.py
+- 汇总 P12 D1-D7 文档
+- 汇总 P11 release readiness package summary
+- 汇总 final non-production delivery package
+- 汇总 archive readiness checklist
+- 汇总 final command index
+- 汇总 final artifact manifest
+- 汇总 final safety boundary declaration
+- 汇总 final operator delivery note
+- 输出 ready_for_p12_d8_closeout=true
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p12_acceptance_smoke.py 输出 status completed
+- python -m pytest -q 显示 681 passed 左右
+
+下一步：
+
+进入 P12-D8：Phase 12 closeout。

@@ -2899,3 +2899,26 @@ P12-D6 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P12-D7：final operator delivery note and Phase 12 acceptance smoke。
+
+## P12-D7：Final Operator Delivery Note and Phase 12 Acceptance Smoke
+
+P12-D7 新增：
+
+- docs/116_p12_final_operator_delivery_note.md
+- docs/117_p12_acceptance_smoke.md
+- scripts/run_p12_acceptance_smoke.py
+- tests/test_p12_acceptance_smoke.py
+
+新增命令：
+
+- python scripts/run_p12_acceptance_smoke.py
+
+P12-D7 汇总 P12 D1-D7 文档、P11 release readiness package summary、final non-production delivery package、archive readiness checklist、final command index、final artifact manifest、final safety boundary declaration、final operator delivery note 和 safe_boundary。
+
+验收输出 ready_for_p12_d8_closeout=true。
+
+P12-D7 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P12-D8：Phase 12 closeout。
