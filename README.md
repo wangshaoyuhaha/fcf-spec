@@ -1749,3 +1749,34 @@ P7-D9 明确：
 - 不声明真实成交
 - 不声明真实资金影响
 
+
+## P8-D1：Portfolio-level Guarded Paper Execution Plan
+
+P8-D1 新增：
+
+- docs/70_p8_portfolio_guarded_paper_execution_plan.md
+- tests/test_p8_portfolio_guarded_paper_execution_plan.py
+
+P8-D1 启动 Phase 8。
+
+Phase 8 建议主题：
+
+- Portfolio-level guarded paper execution
+
+P8-D1 明确：
+
+- portfolio 输入结构
+- portfolio 输出结构
+- portfolio 分支规划
+- portfolio-level policy 候选规则
+- portfolio-level risk 候选规则
+- cross-asset exposure checks
+- portfolio user-facing response 规划
+- regression / CI 入口规划
+- Phase 8 第一轮安全边界
+
+P8-D1 只做规划文档。
+不改核心执行逻辑。
+不接真实交易所 API。
+不真实下单。
+

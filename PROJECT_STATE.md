@@ -363,3 +363,52 @@ P7-D9：Phase 7 to Phase 8 bridge plan 已完成。
 - 不真实下单
 - 不破坏测试
 
+
+## P8-D1 完成记录
+
+P8-D1：Portfolio-level guarded paper execution plan 已完成。
+
+新增文件：
+
+- docs/70_p8_portfolio_guarded_paper_execution_plan.md
+- tests/test_p8_portfolio_guarded_paper_execution_plan.py
+
+完成内容：
+
+- 启动 Phase 8
+- 明确 Phase 8 建议主题为 Portfolio-level guarded paper execution
+- 明确 portfolio 输入结构
+- 明确 portfolio order 结构
+- 明确 portfolio 输出结构
+- 明确 portfolio 分支规划
+- 明确 portfolio-level policy 候选规则
+- 明确 portfolio-level risk 候选规则
+- 明确 cross-asset exposure checks
+- 明确 portfolio user-facing response 规划
+- 明确 regression / CI 入口规划
+- 明确 P8-D1 到 P8-D8 第一轮路线
+- 明确 Phase 8 第一轮不接真实交易所 API、不真实下单、不保存真实 API key、不读取钱包私钥
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p7_guarded_paper_execution_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 304 passed 左右
+
+下一步：
+
+进入 P8-D2：Portfolio paper order fixture。
+
+建议目标：
+
+- 新增 fixtures/paper_order_portfolios_multi_asset.json
+- 新增 tests/test_portfolio_paper_order_fixture.py
+- 覆盖 portfolio_all_fill
+- 覆盖 portfolio_mixed_results
+- 覆盖 portfolio_policy_deny
+- 覆盖 portfolio_risk_deny
+- 覆盖 crypto / equities / fx / commodities
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏测试
+
