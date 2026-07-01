@@ -670,3 +670,56 @@ P5-D9：paper execution user-facing response templates 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P5-D10 完成记录
+
+P5-D10：Dify paper execution response integration smoke 已完成。
+
+新增文件：
+
+- docs/46_p5_dify_paper_execution_response_smoke.md
+- scripts/run_dify_paper_execution_response_smoke.py
+- tests/test_dify_paper_execution_response_smoke.py
+
+完成内容：
+
+- 新增 run_dify_paper_execution_response_smoke
+- 调用 Dify paper execution adapter
+- 接入 paper_execution_response_templates
+- 覆盖 fill_to_user_paper_fill_success
+- 覆盖 reject_to_user_paper_reject_success
+- 覆盖 bad_order_to_user_paper_execution_error
+- 覆盖 real_execution_intent_to_safety_refusal
+- 输出稳定 summary
+- 增加 pytest 覆盖
+- 明确不接真实交易所 API
+- 明确不真实下单
+- 明确不把 paper execution 伪装成 real execution
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 186 passed
+
+下一步：
+
+进入 P5-D11：Phase 5 paper execution acceptance document。
+
+建议目标：
+
+- 汇总 P5-D1 到 P5-D10 的 paper-only sandbox execution 成果
+- 明确 paper order schema
+- 明确 sandbox execution engine
+- 明确 EventStore / Replay integration
+- 明确 Dify paper adapter
+- 明确 paper user-facing response templates
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

@@ -947,3 +947,25 @@ P5-D9 不保存真实 API key。
 P5-D9 不读取钱包私钥。
 P5-D9 不真实下单。
 
+
+## P5-D10：Dify Paper Execution Response Integration Smoke
+
+P5-D10 新增：
+
+- docs/46_p5_dify_paper_execution_response_smoke.md
+- scripts/run_dify_paper_execution_response_smoke.py
+- tests/test_dify_paper_execution_response_smoke.py
+
+当前 integration smoke 覆盖：
+
+- fill -> paper_fill_success
+- reject -> paper_reject_success
+- bad order -> paper_execution_error
+- real execution intent -> paper_safety_refusal
+
+P5-D10 不接真实交易所 API。
+P5-D10 不保存真实 API key。
+P5-D10 不读取钱包私钥。
+P5-D10 不真实下单。
+P5-D10 不把 paper execution 伪装成 real execution。
+
