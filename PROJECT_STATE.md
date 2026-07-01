@@ -1842,3 +1842,53 @@ P11-D4：artifact inventory and ownership map 已完成。
 下一步：
 
 进入 P11-D5：maintenance checklist。
+
+## P11-D5 完成记录
+
+P11-D5：maintenance checklist 已完成。
+
+新增文件：
+
+- docs/104_p11_maintenance_checklist.md
+- tests/test_p11_maintenance_checklist.py
+
+完成内容：
+
+- 新增 checklist_version = 0.1.0
+- 明确 daily maintenance checklist
+- 明确 pre-change checklist
+- 明确 post-change checklist
+- 明确 pre-release checklist
+- 明确 safety boundary checklist
+- 明确 failed triage checklist
+- 明确 long-term maintainability checklist
+- 验证 P10 package summary 仍然 completed
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p10_dify_safe_package_summary.py 输出 status completed
+- python -m pytest -q 显示 565 passed 左右
+
+下一步：
+
+进入 P11-D6：regression stability gate。

@@ -1,0 +1,204 @@
+# P11-D5 - Maintenance Checklist
+
+P11-D5 新增 maintenance checklist。
+
+新增文件：
+
+- docs/104_p11_maintenance_checklist.md
+- tests/test_p11_maintenance_checklist.py
+
+## 1. 目的
+
+该 checklist 用于 FCF paper-only / non-production 系统的日常维护、变更维护、发布前复核和长期安全边界复核。
+
+checklist_version = 0.1.0
+phase = P11
+day = P11-D5
+status = active
+
+该 checklist 用于：
+
+- daily maintenance
+- pre-change review
+- post-change review
+- pre-release review
+- safety boundary review
+- failed triage
+- long-term maintainability
+
+该 checklist 不用于：
+
+- 真实交易
+- 实盘下单
+- 真实账户读取
+- 真实仓位读取
+- 钱包私钥读取
+- 自动实盘交易
+- 自动绕过人工复核
+- 绕过 policy / risk / safe_boundary
+
+## 2. Daily maintenance checklist
+
+daily maintenance 必须检查：
+
+- README.md 存在
+- PROJECT_STATE.md 存在
+- docs/101_p11_operator_handoff_package.md 存在
+- docs/102_p11_versioned_run_commands.md 存在
+- docs/103_p11_artifact_inventory.md 存在
+- docs/104_p11_maintenance_checklist.md 存在
+- python main.py 可运行
+- python scripts/run_all_smokes.py 可运行
+- python scripts/run_p10_dify_safe_package_summary.py 可运行
+- python -m pytest -q 可运行
+
+daily maintenance 通过标准：
+
+- events_recorded: 8
+- status completed
+- pytest 全部 passed
+- git status 干净
+- 没有未提交文件
+
+## 3. Pre-change checklist
+
+变更前必须确认：
+
+- 当前 main 与 origin/main 一致
+- git status --short 干净
+- 最近一次 pytest 已通过
+- 当前任务属于 paper-only / non-production
+- 当前任务不需要真实交易所 API
+- 当前任务不需要真实 API key
+- 当前任务不需要钱包私钥
+- 当前任务不需要真实账户余额
+- 当前任务不需要真实仓位
+- 当前任务不需要真实下单
+
+## 4. Post-change checklist
+
+变更后必须确认：
+
+- 新增或修改 docs
+- 新增或修改 tests
+- README.md 已更新
+- PROJECT_STATE.md 已更新
+- artifact inventory 已更新或确认无需更新
+- versioned run commands 已更新或确认无需更新
+- python main.py 通过
+- python scripts/run_p10_dify_safe_package_summary.py 通过
+- python -m pytest -q 通过
+- commit 已完成
+- push 已完成
+
+## 5. Pre-release checklist
+
+发布前必须确认：
+
+- operator handoff package 已存在
+- versioned run commands document 已存在
+- artifact inventory 已存在
+- maintenance checklist 已存在
+- failure triage guide 已存在
+- Dify workflow node contract 已存在
+- run_p10_dify_safe_package_summary 输出 status completed
+- Dify-safe adapter 输出 ok true
+- operator review response 输出 global_regression_passed
+- operator_review_required true
+- ready_for_operator_review true
+- safe_boundary ok true
+
+## 6. Safety boundary checklist
+
+每次维护必须确认：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+safe_boundary 字段必须保持：
+
+- paper_only = true
+- execution_mode = paper
+- real_order = false
+- real_execution = false
+- real_exchange_api = false
+- real_money_impact = false
+- no_real_exchange_api = true
+- no_real_order_placement = true
+- no_exchange_api_key_storage = true
+- no_wallet_private_key_access = true
+- no_real_account_balance_read = true
+- no_real_position_read = true
+- does_not_claim_real_trade_success = true
+- operator_review_required = true
+- auto_live_trading = false
+- bypass_operator_review = false
+- bypass_policy_risk_safe_boundary = false
+
+## 7. Failed triage checklist
+
+如果出现 failed：
+
+- 立即停止
+- 不进入下一阶段
+- 不解释为交易信号
+- 不连接真实交易所
+- 不配置 API key
+- 不读取钱包私钥
+- 不尝试真实下单
+- 不删除测试绕过失败
+- 不修改 safe_boundary 绕过失败
+- 保留完整错误输出
+- 回到 docs/94_p10_failure_triage_guide.md
+
+## 8. Long-term maintainability checklist
+
+长期维护必须确认：
+
+- 每个阶段有文档
+- 每个阶段有测试
+- 每个阶段有 README.md 更新
+- 每个阶段有 PROJECT_STATE.md 更新
+- 每个阶段有 commit
+- 每个阶段有 push
+- 新 artifact 写入 docs/103_p11_artifact_inventory.md
+- 新命令写入 docs/102_p11_versioned_run_commands.md
+- 新维护规则写入 docs/104_p11_maintenance_checklist.md
+- 安全边界不被删除
+- failed 停止规则不被删除
+- paper-only / non-production 声明不被删除
+
+## 9. P11-D5 验收标准
+
+P11-D5 完成需要满足：
+
+- 新增 docs/104_p11_maintenance_checklist.md
+- 新增 tests/test_p11_maintenance_checklist.py
+- 文档明确 checklist_version
+- 文档明确 daily maintenance checklist
+- 文档明确 pre-change checklist
+- 文档明确 post-change checklist
+- 文档明确 pre-release checklist
+- 文档明确 safety boundary checklist
+- 文档明确 failed triage checklist
+- 文档明确 long-term maintainability checklist
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p10_dify_safe_package_summary.py 输出 status completed
+- python -m pytest -q 通过
+
+下一步：
+
+P11-D6：regression stability gate。
