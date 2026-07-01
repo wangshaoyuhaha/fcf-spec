@@ -798,3 +798,35 @@ P5-D4 不保存真实 API key。
 P5-D4 不读取钱包私钥。
 P5-D4 不真实下单。
 
+
+## P5-D5：Paper Execution API Wrapper
+
+P5-D5 新增：
+
+- docs/41_p5_paper_execution_api_wrapper.md
+- fcf/api/paper_execution_api.py
+- tests/test_paper_execution_api.py
+
+当前 paper execution API wrapper 支持：
+
+- describe_paper_execution_api
+- handle_paper_execution
+- simulated_fill
+- simulated_reject
+- stable response dict
+- EventStore / ReplayEngine integration
+- 可选 JSONL 持久化
+
+当前强制安全边界：
+
+- execution_mode = paper
+- real_order = false
+- real_execution = false
+- real_exchange_api = false
+- real_money_impact = false
+
+P5-D5 不接真实交易所 API。
+P5-D5 不保存真实 API key。
+P5-D5 不读取钱包私钥。
+P5-D5 不真实下单。
+

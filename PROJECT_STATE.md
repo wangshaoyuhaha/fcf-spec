@@ -410,3 +410,56 @@ P5-D4：sandbox execution EventStore and Replay integration 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P5-D5 完成记录
+
+P5-D5：paper execution API wrapper 已完成。
+
+新增文件：
+
+- docs/41_p5_paper_execution_api_wrapper.md
+- fcf/api/paper_execution_api.py
+- tests/test_paper_execution_api.py
+
+完成内容：
+
+- 新增 describe_paper_execution_api
+- 新增 handle_paper_execution
+- 包装 execute_sandbox_order_with_eventstore
+- 支持 simulated_fill
+- 支持 simulated_reject
+- 支持 full fill
+- 支持 partial fill
+- 支持 stable response dict
+- 支持可选 JSONL 持久化
+- 错误时返回 ok false / error / data null
+- 强制 execution_mode = paper
+- 强制 real_order = false
+- 强制 real_execution = false
+- 强制 real_exchange_api = false
+- 强制 real_money_impact = false
+- 增加 pytest 覆盖
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 163 passed
+
+下一步：
+
+进入 P5-D6：Dify paper execution contract and local adapter planning。
+
+建议目标：
+
+- 新增 Dify paper execution API contract 文档
+- 明确 paper execution 输入 JSON
+- 明确 paper execution 输出 JSON
+- 明确 Dify 禁止 real execution
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
