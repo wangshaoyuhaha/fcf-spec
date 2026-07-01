@@ -1333,3 +1333,54 @@ P10-D4：paper-only operator runbook 已完成。
 下一步：
 
 进入 P10-D5：failure triage guide。
+
+## P10-D5 完成记录
+
+P10-D5：failure triage guide 已完成。
+
+新增文件：
+
+- docs/94_p10_failure_triage_guide.md
+- tests/test_p10_failure_triage_guide.py
+
+完成内容：
+
+- 覆盖 pytest failed
+- 覆盖 smoke failed
+- 覆盖 safe_boundary failed
+- 覆盖 project state consistency failed
+- 覆盖 Dify adapter input invalid
+- 覆盖 response template mismatch
+- 明确所有 failed 必须停止继续操作
+- 明确 failed 不得解释为交易信号
+- 明确 failed 不得连接真实交易所
+- 明确 failed 不得配置 API key
+- 明确 failed 不得读取钱包私钥
+- 明确 failed 不得尝试真实下单
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p9_global_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 480 passed 左右
+
+下一步：
+
+进入 P10-D6：Dify workflow node contract document。

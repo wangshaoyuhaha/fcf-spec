@@ -2353,3 +2353,27 @@ P10-D4 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P10-D5：failure triage guide。
+
+## P10-D5：Failure Triage Guide
+
+P10-D5 新增：
+
+- docs/94_p10_failure_triage_guide.md
+- tests/test_p10_failure_triage_guide.py
+
+failure triage guide 覆盖：
+
+- pytest failed
+- smoke failed
+- safe_boundary failed
+- project state consistency failed
+- Dify adapter input invalid
+- response template mismatch
+
+所有 failed 都必须停止继续操作，不进入下一阶段，不解释为交易信号，不连接真实交易所，不配置 API key，不读取钱包私钥，不尝试真实下单。
+
+P10-D5 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P10-D6：Dify workflow node contract document。
