@@ -1564,3 +1564,36 @@ P7-D4 明确：
 - 不读取钱包私钥
 - 不真实下单
 
+
+## P7-D5：Guarded Paper Execution Phase Acceptance
+
+P7-D5 新增：
+
+- docs/65_p7_guarded_paper_execution_acceptance.md
+- tests/test_p7_guarded_paper_execution_acceptance.py
+
+P7-D5 汇总验收：
+
+- P7-D1 multi-asset guarded paper fixture plan
+- P7-D2 multi-asset guarded paper execution fixture
+- P7-D3 multi-asset guarded paper execution smoke runner
+- P7-D4 Dify response integration for guarded paper fixture smoke
+
+当前覆盖：
+
+- crypto / equities / fx / commodities
+- fill_success / sandbox_reject / policy_deny / risk_deny
+- paper_fill_success / paper_reject_success / paper_policy_deny / paper_risk_deny
+
+P7-D5 明确：
+
+- policy deny / risk deny 不进入 sandbox execution
+- policy deny / risk deny 不生成 sandbox execution event
+- sandbox fill 不是真实成交
+- sandbox reject 不是交易所真实拒单
+- PolicyDeny / RiskDeny 不是交易所真实拒单
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+
