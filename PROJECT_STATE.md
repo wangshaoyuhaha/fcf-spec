@@ -1013,3 +1013,49 @@ P9-D7：Phase 9 acceptance smoke 已完成。
 下一步：
 
 进入 P9-D8：Phase 9 closeout。
+
+## P9-D8 完成记录
+
+P9-D8：Phase 9 closeout / project state consolidation 已完成。
+
+新增文件：
+
+- docs/87_p9_closeout_project_state.md
+- tests/test_p9_closeout_project_state.py
+
+完成内容：
+
+- 汇总 P9-D1 到 P9-D7
+- 标记 Phase 9 第一轮完成阶段收尾
+- 验证 run_all_smokes 仍然 completed
+- 验证 build_global_regression_report 仍然 completed
+- 验证 check_global_safe_boundary 仍然 completed
+- 验证 check_project_state_consistency 仍然 completed
+- 验证 run_p9_acceptance_smoke 仍然 completed
+- 验证 ready_for_p9_d8_closeout=true
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不把 paper execution 伪装成 real execution
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_all_smokes.py 输出 status completed
+- python scripts/run_p9_acceptance_smoke.py 输出 status completed
+- python -m pytest -q 显示 425 passed 左右
+
+下一步：
+
+进入 P9-D9：post-closeout global regression summary，或者进入 Phase 10 规划。
