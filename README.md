@@ -2535,3 +2535,27 @@ P11-D1 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P11-D2：operator handoff package document。
+
+## P11-D2：Operator Handoff Package
+
+P11-D2 新增：
+
+- docs/101_p11_operator_handoff_package.md
+- tests/test_p11_operator_handoff_package.py
+
+operator handoff package 明确：
+
+- operator 接手范围
+- 当前系统定位
+- 必跑回归命令
+- Dify-safe operator review 入口
+- operator response 读取规则
+- 交接清单
+- failed 停止规则
+- 长期维护规则
+
+P11-D2 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P11-D3：versioned run commands document。

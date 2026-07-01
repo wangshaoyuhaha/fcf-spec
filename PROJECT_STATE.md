@@ -1686,3 +1686,55 @@ P11-D1：Release readiness plan 已完成。
 下一步：
 
 进入 P11-D2：operator handoff package document。
+
+## P11-D2 完成记录
+
+P11-D2：operator handoff package document 已完成。
+
+新增文件：
+
+- docs/101_p11_operator_handoff_package.md
+- tests/test_p11_operator_handoff_package.py
+
+完成内容：
+
+- 明确 operator 接手范围
+- 明确当前系统定位
+- 明确 operator 必跑命令
+- 明确 Dify-safe operator review 入口
+- 明确 operator response 读取规则
+- 明确交接清单
+- 明确 failed 停止规则
+- 明确长期维护规则
+- 验证 P10 package summary 仍然 completed
+- 验证 Dify-safe adapter 仍然 ok
+- 验证 operator review response 仍然 global_regression_passed
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p10_dify_safe_package_summary.py 输出 status completed
+- python -m pytest -q 显示 536 passed 左右
+
+下一步：
+
+进入 P11-D3：versioned run commands document。
