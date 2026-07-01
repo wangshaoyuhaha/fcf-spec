@@ -969,3 +969,65 @@ P5-D10 不读取钱包私钥。
 P5-D10 不真实下单。
 P5-D10 不把 paper execution 伪装成 real execution。
 
+
+## P5-D11：Phase 5 Paper Execution Acceptance
+
+P5-D11 新增：
+
+- docs/47_p5_paper_execution_acceptance.md
+
+P5-D11 汇总验收 Phase 5 paper-only sandbox execution 成果：
+
+- paper order schema
+- sandbox execution engine
+- EventStore / ReplayEngine integration
+- paper execution API wrapper
+- Dify paper execution local adapter
+- Dify paper execution smoke runner
+- paper execution user-facing response templates
+- Dify paper execution response integration smoke
+
+当前验证：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 186 passed
+
+
+## P5-D12：Phase 5 Closeout
+
+P5-D12 新增：
+
+- docs/48_p5_closeout_project_state.md
+
+Phase 5 已完成阶段收尾。
+
+当前完成范围：
+
+- paper-only sandbox execution boundary
+- paper order schema
+- sandbox execution engine
+- EventStore / ReplayEngine integration
+- paper execution API wrapper
+- Dify paper execution local adapter
+- Dify paper execution smoke runner
+- paper execution user-facing response templates
+- Dify paper execution response integration smoke
+
+下一步建议：
+
+- P6-D1：Policy and risk deny case hardening plan
+
+继续保持：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不把 paper execution 伪装成 real execution
+
