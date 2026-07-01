@@ -1855,3 +1855,39 @@ P8-D3 继续保持：
 - 不读取真实仓位
 - 不声明真实资金影响
 
+
+## P8-D4：Portfolio-level Risk Exposure Checks
+
+P8-D4 新增：
+
+- docs/73_p8_portfolio_risk_guardian.md
+- fcf/policy/portfolio_risk_guardian.py
+- tests/test_portfolio_risk_guardian.py
+
+新增入口：
+
+- evaluate_portfolio_risk_guardian
+
+当前覆盖：
+
+- max_order_count
+- max_total_notional
+- max_asset_class_notional
+- blocked_asset_classes
+- blocked_symbols
+- duplicate_order_keys
+- max_same_side_count
+- max_single_order_notional
+
+P8-D4 同时让 portfolio_paper_execution_api 使用独立 portfolio risk guardian。
+
+P8-D4 继续保持：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实资金影响
+

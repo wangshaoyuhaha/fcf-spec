@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 from fcf.api.paper_execution_api import handle_paper_execution
+from fcf.policy.portfolio_risk_guardian import evaluate_portfolio_risk_guardian
 
 
 API_NAME = "portfolio_paper_execution_api"
@@ -384,8 +385,12 @@ def _handle_with_output_root(
         )
 
     risk_context = portfolio_request.get("portfolio_risk_context") or {}
-    risk_deny_reasons = _portfolio_risk_deny_reasons(orders, risk_context)
-    if risk_deny_reasons:
+    risk_evaluation = evaluate_portfolio_risk_guardian(
+        orders=orders,
+        risk_context=risk_context,
+    )
+    risk_deny_reasons = risk_evaluation.get("deny_reasons", [])
+    if risk_evaluation.get("ok") is False:
         data = _blocked_portfolio_data(
             portfolio_request=portfolio_request,
             portfolio_status="portfolio_risk_deny",
@@ -393,6 +398,7 @@ def _handle_with_output_root(
             policy_denied_count=0,
             risk_denied_count=len(orders),
         )
+        data["portfolio_risk_evaluation"] = risk_evaluation
         return _stable_response(
             ok=False,
             error={
