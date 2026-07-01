@@ -1333,3 +1333,42 @@ P6-D10 不保存真实 API key。
 P6-D10 不读取钱包私钥。
 P6-D10 不真实下单。
 
+
+## P6-D11：Phase 6 Policy / Risk Deny Acceptance
+
+P6-D11 新增：
+
+- docs/59_p6_policy_risk_deny_acceptance.md
+
+P6-D11 汇总验收 Phase 6 policy / risk deny hardening 成果：
+
+- policy gate
+- policy gate API integration
+- paper_policy_deny user-facing response
+- policy deny smoke coverage
+- risk guardian
+- risk guardian API integration
+- paper_risk_deny user-facing response
+- risk deny smoke coverage
+- Dify response smoke 全分支覆盖
+
+当前 Dify response smoke 覆盖：
+
+- paper_fill_success
+- paper_reject_success
+- paper_policy_deny
+- paper_risk_deny
+- paper_execution_error
+- paper_safety_refusal
+
+当前验证：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 235 passed
+

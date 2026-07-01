@@ -790,3 +790,53 @@ P6-D10：Dify paper execution response smoke includes risk deny 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P6-D11 完成记录
+
+P6-D11：Phase 6 policy / risk deny acceptance 已完成。
+
+新增文件：
+
+- docs/59_p6_policy_risk_deny_acceptance.md
+
+完成内容：
+
+- 汇总 P6-D1 到 P6-D10
+- 验收 policy gate
+- 验收 policy gate API integration
+- 验收 paper_policy_deny user-facing response
+- 验收 policy deny smoke coverage
+- 验收 risk guardian
+- 验收 risk guardian API integration
+- 验收 paper_risk_deny user-facing response
+- 验收 risk deny smoke coverage
+- 验收 Dify response smoke 全分支覆盖
+- 明确 PolicyDeny / RiskDeny 都不是交易所真实拒单
+- 明确不接真实交易所 API
+- 明确不真实下单
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 235 passed
+
+下一步：
+
+进入 P6-D12：Phase 6 closeout / project state consolidation。
+
+建议目标：
+
+- 更新 PROJECT_STATE.md 为 Phase 6 已完成阶段收尾
+- 新增 docs/60_p6_closeout_project_state.md
+- 汇总当前全项目状态
+- 生成最新新聊天续接话术
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
