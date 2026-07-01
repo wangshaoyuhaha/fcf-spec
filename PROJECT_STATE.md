@@ -1182,3 +1182,54 @@ P10-D1：Dify-safe paper operations plan 已完成。
 下一步：
 
 进入 P10-D2：global regression Dify adapter contract。
+
+## P10-D2 完成记录
+
+P10-D2：global regression Dify adapter contract 已完成。
+
+新增文件：
+
+- docs/91_p10_global_regression_dify_adapter_contract.md
+- fcf/api/dify_global_regression_api.py
+- tests/test_p10_global_regression_dify_adapter_contract.py
+
+完成内容：
+
+- 新增 handle_dify_global_regression_request
+- 支持 review_mode 校验
+- 支持 requested_checks 校验
+- 支持 output_format 校验
+- 调用 run_all_smokes
+- 调用 build_global_regression_report
+- 调用 check_global_safe_boundary
+- 调用 check_project_state_consistency
+- 输出稳定 ok/api/api_version/error/data
+- 输出 operator_review_required
+- 输出 ready_for_operator_review
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p9_global_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 453 passed 左右
+
+下一步：
+
+进入 P10-D3：operator review response templates。

@@ -2282,3 +2282,23 @@ P10-D1 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P10-D2：global regression Dify adapter contract。
+
+## P10-D2：Global Regression Dify Adapter Contract
+
+P10-D2 新增：
+
+- docs/91_p10_global_regression_dify_adapter_contract.md
+- fcf/api/dify_global_regression_api.py
+- tests/test_p10_global_regression_dify_adapter_contract.py
+
+新增入口：
+
+- handle_dify_global_regression_request
+
+该入口是 Dify-safe global regression adapter，只允许调用现有 paper-only regression runner。
+
+P10-D2 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P10-D3：operator review response templates。
