@@ -2949,3 +2949,56 @@ Archive-D6：final archive acceptance smoke 已完成。
 下一步：
 
 进入 Archive-D7：final archive closeout。
+
+## Archive-D7 完成记录
+
+Archive-D7：final archive closeout 已完成。
+
+新增文件：
+
+- docs/127_archive_d7_final_archive_closeout.md
+- tests/test_archive_d7_final_archive_closeout.py
+
+完成内容：
+
+- 汇总 Archive-D1 到 Archive-D6
+- 完成最终归档阶段 closeout
+- 验证 final archive acceptance smoke 仍然 completed
+- 验证 ready_for_archive_d7_closeout 仍然 true
+- 验证 P12 final delivery package summary 仍然 completed
+- 验证 ready_for_p12_d10_archive_bridge_plan 仍然 true
+- 保持 paper-only 安全边界
+
+最终状态：
+
+- Final Archive 阶段完成
+- paper-only safe_boundary preserved
+- operator_review_required true
+- bypass_operator_review false
+- bypass_policy_risk_safe_boundary false
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_final_archive_acceptance_smoke.py 输出 status completed
+- python -m pytest -q 显示 773 passed 左右
+
+最终归档阶段完成。
