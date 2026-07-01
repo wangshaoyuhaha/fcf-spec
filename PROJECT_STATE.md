@@ -920,3 +920,50 @@ P9-D5：PROJECT_STATE / README consistency checker 已完成。
 下一步：
 
 进入 P9-D6：CI-safe regression command document。
+
+## P9-D6 完成记录
+
+P9-D6：CI-safe regression command document 已完成。
+
+新增文件：
+
+- docs/85_p9_ci_safe_regression_command_document.md
+- tests/test_p9_ci_safe_regression_command_document.py
+
+完成内容：
+
+- 明确本地推荐回归命令
+- 明确 CI 推荐回归命令
+- 明确 CI 不需要 exchange API key
+- 明确 CI 不需要 wallet private key
+- 明确 CI 不需要 real account credentials
+- 明确 CI 不需要 real broker credentials
+- 明确 CI 不需要 CI secret
+- 明确 CI 不需要 production deployment permission
+- 验证 run_all_smokes 仍然 completed
+- 验证 global safe boundary checker 仍然 completed
+- 验证 project state consistency checker 仍然 completed
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_all_smokes.py 输出 status completed
+- python -m pytest -q 显示 410 passed 左右
+
+下一步：
+
+进入 P9-D7：Phase 9 acceptance smoke。

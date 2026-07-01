@@ -2131,3 +2131,29 @@ P9-D5 新增：
 - 下一步 P9-D6：CI-safe regression command document
 
 P9-D5 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
+
+## P9-D6：CI-safe Regression Command Document
+
+P9-D6 新增：
+
+- docs/85_p9_ci_safe_regression_command_document.md
+- tests/test_p9_ci_safe_regression_command_document.py
+
+当前本地推荐命令：
+
+- python main.py
+- python scripts/run_all_smokes.py
+- python -m pytest -q
+
+当前 CI 推荐命令：
+
+- python scripts/run_all_smokes.py
+- python -m pytest -q
+
+CI 不需要 exchange API key、wallet private key、real account credentials、real broker credentials、CI secret 或 production deployment permission。
+
+P9-D6 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响。
+
+下一步：
+
+P9-D7：Phase 9 acceptance smoke。
