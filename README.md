@@ -2922,3 +2922,36 @@ P12-D7 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P12-D8：Phase 12 closeout。
+
+## P12-D8：Phase 12 Closeout
+
+P12-D8 新增：
+
+- docs/118_p12_closeout_project_state.md
+- tests/test_p12_closeout_project_state.py
+
+P12-D8 完成 Phase 12：Documentation hardening, archive readiness, and final non-production delivery package 第一轮阶段收尾。
+
+当前完成能力：
+
+- documentation hardening
+- final non-production delivery package
+- archive readiness checklist
+- final command index
+- final artifact manifest
+- final safety boundary declaration
+- final operator delivery note
+- Phase 12 acceptance smoke
+
+当前最终命令：
+
+- python main.py
+- python scripts/run_p11_release_readiness_package_summary.py
+- python scripts/run_p12_acceptance_smoke.py
+- python -m pytest -q
+
+P12-D8 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P12-D9：post-closeout final delivery package summary。
