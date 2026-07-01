@@ -2742,3 +2742,33 @@ P11-D9 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P11-D10：Phase 11 to Phase 12 bridge plan。
+
+## P11-D10：Phase 11 to Phase 12 Bridge Plan
+
+P11-D10 新增：
+
+- docs/109_p11_to_p12_bridge_plan.md
+- tests/test_p11_to_p12_bridge_plan.py
+
+P11-D10 完成 Phase 11 到 Phase 12 的桥接规划。
+
+Phase 12 建议主题：
+
+- Documentation hardening, archive readiness, and final non-production delivery package
+
+Phase 12 候选方向：
+
+- documentation hardening plan
+- final non-production delivery package
+- archive readiness checklist
+- final command index
+- final artifact manifest
+- final safety boundary declaration
+- final operator delivery note
+- Phase 12 acceptance smoke
+
+P11-D10 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P12-D1：Documentation hardening plan。
