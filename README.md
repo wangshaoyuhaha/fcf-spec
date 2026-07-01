@@ -919,3 +919,31 @@ P5-D8 不保存真实 API key。
 P5-D8 不读取钱包私钥。
 P5-D8 不真实下单。
 
+
+## P5-D9：Paper Execution User-facing Response Templates
+
+P5-D9 新增：
+
+- docs/45_p5_paper_execution_user_facing_response_templates.md
+- fcf/api/paper_execution_response_templates.py
+- tests/test_paper_execution_response_templates.py
+
+当前模板覆盖：
+
+- paper_fill_success
+- paper_reject_success
+- paper_execution_error
+- paper_safety_refusal
+
+P5-D9 强制用户可见边界：
+
+- paper fill 不是实盘成交
+- paper reject 不是交易所真实拒单
+- error 不是实盘下单失败
+- safety refusal 必须拒绝真实执行 intent
+
+P5-D9 不接真实交易所 API。
+P5-D9 不保存真实 API key。
+P5-D9 不读取钱包私钥。
+P5-D9 不真实下单。
+
