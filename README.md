@@ -1597,3 +1597,40 @@ P7-D5 明确：
 - 不读取钱包私钥
 - 不真实下单
 
+
+## P7-D6：Guarded Paper Execution Acceptance Smoke Runner
+
+P7-D6 新增：
+
+- docs/66_p7_guarded_paper_execution_acceptance_smoke_runner.md
+- scripts/run_p7_guarded_paper_execution_acceptance_smoke.py
+- tests/test_p7_guarded_paper_execution_acceptance_smoke.py
+
+P7-D6 汇总验收：
+
+- P7-D2 multi-asset guarded paper execution fixture
+- P7-D3 multi-asset guarded paper execution smoke runner
+- P7-D4 Dify response integration for guarded paper fixture smoke
+- P7-D5 guarded paper execution phase acceptance
+
+当前 runner 输出：
+
+- status
+- acceptance_summary
+- artifact_checks
+- execution_smoke_summary
+- response_smoke_summary
+- safe_boundary
+
+P7-D6 明确：
+
+- status 必须为 completed
+- 16 个 fixture case 必须全部通过
+- crypto / equities / fx / commodities 覆盖完整
+- fill_success / sandbox_reject / policy_deny / risk_deny 覆盖完整
+- paper_fill_success / paper_reject_success / paper_policy_deny / paper_risk_deny 覆盖完整
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+
