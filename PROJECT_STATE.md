@@ -377,3 +377,50 @@ P4-D5：schema error catalog and stable error messages 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P4-D6 完成记录
+
+P4-D6：integrate schema error catalog into raw market input schema 已完成。
+
+新增文件：
+
+- docs/29_p4_integrate_schema_error_catalog.md
+- tests/test_raw_market_input_schema_error_catalog_integration.py
+
+修改文件：
+
+- fcf/schemas/raw_market_input_schema.py
+
+完成内容：
+
+- raw_market_input_schema 使用 schema_error_catalog message builder
+- missing required field 使用 missing_fields_message
+- invalid enum 使用 invalid_enum_message
+- invalid number 使用 invalid_number_message
+- invalid positive number 使用 invalid_positive_number_message
+- invalid non-negative number 使用 invalid_non_negative_number_message
+- invalid spread 使用 invalid_spread_message
+- invalid payload type 使用 invalid_payload_type_message
+- 保持现有错误 message 兼容
+- 保持 Dify adapter 422 行为
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 110 passed
+
+下一步：
+
+进入 P4-D7：schema batch error behavior and Dify batch tests。
+
+建议目标：
+
+- 增加 batch 中单行 schema error 的测试
+- 明确 batch 遇到错误时整体失败还是部分成功
+- 当前建议整体失败并返回稳定 422
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

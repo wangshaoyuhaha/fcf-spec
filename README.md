@@ -454,3 +454,25 @@ P4-D5 不保存真实 API key。
 P4-D5 不读取钱包私钥。
 P4-D5 不真实下单。
 
+
+## P4-D6：Integrate Schema Error Catalog
+
+P4-D6 新增：
+
+- docs/29_p4_integrate_schema_error_catalog.md
+- tests/test_raw_market_input_schema_error_catalog_integration.py
+
+P4-D6 修改：
+
+- fcf/schemas/raw_market_input_schema.py
+
+当前 raw_market_input_schema 已使用 schema_error_catalog 的稳定 message builder。
+
+保持兼容：
+
+- Dify adapter 422 行为不变
+- response templates error 行为不变
+- 现有错误 message 不变
+- 不接真实交易所 API
+- 不真实下单
+

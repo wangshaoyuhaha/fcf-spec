@@ -1,5 +1,15 @@
 from typing import Any, Dict, List, Optional
 
+from fcf.schemas.schema_error_catalog import (
+    invalid_enum_message,
+    invalid_non_negative_number_message,
+    invalid_number_message,
+    invalid_payload_type_message,
+    invalid_positive_number_message,
+    invalid_spread_message,
+    missing_fields_message,
+)
+
 SCHEMA_NAME = "raw_market_input_schema"
 SCHEMA_VERSION = "0.1.0"
 
@@ -68,7 +78,7 @@ def describe_schema() -> Dict[str, Any]:
 
 def _require_mapping(raw: Dict[str, Any]) -> None:
     if not isinstance(raw, dict):
-        raise ValueError("raw market input must be a dict")
+        raise ValueError(invalid_payload_type_message())
 
 
 def _require_non_empty_string(raw: Dict[str, Any], field: str) -> str:
@@ -91,20 +101,20 @@ def check_required_fields(raw: Dict[str, Any]) -> None:
             missing.append(field)
 
     if missing:
-        raise ValueError("missing required fields: " + ", ".join(missing))
+        raise ValueError(missing_fields_message(missing))
 
 
 def normalize_asset_class(asset_class: str) -> str:
     normalized = asset_class.strip().lower()
     if normalized not in SUPPORTED_ASSET_CLASSES:
-        raise ValueError(f"asset_class is not supported: {asset_class}")
+        raise ValueError(invalid_enum_message("asset_class", asset_class))
     return normalized
 
 
 def normalize_market_type(market_type: str) -> str:
     key = market_type.strip().lower()
     if key not in MARKET_TYPE_ALIASES:
-        raise ValueError(f"market_type is not supported: {market_type}")
+        raise ValueError(invalid_enum_message("market_type", market_type))
     return MARKET_TYPE_ALIASES[key]
 
 
@@ -122,16 +132,16 @@ def to_float_field(raw: Dict[str, Any], field: str) -> Optional[float]:
     try:
         converted = float(value)
     except (TypeError, ValueError) as error:
-        raise ValueError(f"{field} must be a valid number") from error
+        raise ValueError(invalid_number_message(field)) from error
 
     return converted
 
 
 def _require_positive_number(value: Optional[float], field: str) -> float:
     if value is None:
-        raise ValueError(f"{field} must be a valid number")
+        raise ValueError(invalid_number_message(field))
     if value <= 0:
-        raise ValueError(f"{field} must be greater than 0")
+        raise ValueError(invalid_positive_number_message(field))
     return value
 
 
@@ -139,7 +149,7 @@ def _require_non_negative_number(value: Optional[float], field: str) -> Optional
     if value is None:
         return None
     if value < 0:
-        raise ValueError(f"{field} must be greater than or equal to 0")
+        raise ValueError(invalid_non_negative_number_message(field))
     return value
 
 
@@ -176,7 +186,7 @@ def normalize_raw_market_input(raw: Dict[str, Any]) -> Dict[str, Any]:
     best_bid = normalized.get("best_bid")
     best_ask = normalized.get("best_ask")
     if best_bid is not None and best_ask is not None and best_bid > best_ask:
-        raise ValueError("best_bid must be less than or equal to best_ask")
+        raise ValueError(invalid_spread_message())
 
     return normalized
 
