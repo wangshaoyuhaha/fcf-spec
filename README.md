@@ -1671,3 +1671,45 @@ Phase 7 guarded paper execution 第一轮已完成阶段收尾。
 - sandbox reject 不是交易所真实拒单
 - PolicyDeny / RiskDeny 不是交易所真实拒单
 
+
+## P7-D8：Post-closeout Guarded Paper Execution Regression Summary
+
+P7-D8 新增：
+
+- docs/68_p7_guarded_paper_execution_regression_summary.md
+- scripts/run_p7_guarded_paper_execution_regression_summary.py
+- tests/test_p7_guarded_paper_execution_regression_summary.py
+
+P7-D8 汇总当前所有 smoke runner：
+
+- Dify HTTP adapter smoke
+- Dify integration smoke
+- multi-asset Dify smoke
+- multi-asset Dify error smoke
+- Dify paper execution smoke
+- Dify paper execution response smoke
+- multi-asset guarded paper execution smoke
+- multi-asset guarded paper execution response smoke
+- P7 guarded paper execution acceptance smoke
+
+当前 regression summary 输出：
+
+- status
+- smoke_count
+- completed_count
+- failed_count
+- smoke_results
+- guarded_summary
+- regression_summary
+- safe_boundary
+
+P7-D8 明确：
+
+- 9 个 smoke runner 必须全部 completed
+- guarded execution 16 个 case 必须全部通过
+- guarded response 16 个 case 必须全部通过
+- Phase 7 第一轮回归通过后可进入 Phase 8 规划
+- 不接真实交易所 API
+- 不真实下单
+- 不把 paper execution 伪装成 real execution
+

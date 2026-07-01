@@ -255,3 +255,61 @@ current_stage: 全金融市场 / 多资产交易事件系统。Phase 1 Build Spi
 next_action: 进入 P7-D8：post-closeout guarded paper execution regression summary。新增 regression summary runner 或文档，汇总 Phase 7 第一轮所有 smoke runner 输出，为后续 Phase 8 做准备。不接真实交易所 API，不真实下单，不破坏测试。
 要求：全程中文一步步指挥；命令必须是可直接复制的 Git Bash 格式；多行 cat 必须包含完整 EOF；每次重要更新都 commit 并 push，并更新新的续聊话术。
 
+
+## P7-D8 完成记录
+
+P7-D8：post-closeout guarded paper execution regression summary 已完成。
+
+新增文件：
+
+- docs/68_p7_guarded_paper_execution_regression_summary.md
+- scripts/run_p7_guarded_paper_execution_regression_summary.py
+- tests/test_p7_guarded_paper_execution_regression_summary.py
+
+完成内容：
+
+- 新增 P7 post-closeout regression summary runner
+- 汇总 9 个 smoke runner
+- 汇总 guarded execution smoke
+- 汇总 guarded response smoke
+- 汇总 P7 acceptance smoke
+- 输出 smoke_results
+- 输出 guarded_summary
+- 输出 regression_summary
+- 输出 safe_boundary
+- 验证 smoke_count 为 9
+- 验证 completed_count 为 9
+- 验证 failed_count 为 0
+- 验证 guarded execution 16 个 case 全部通过
+- 验证 guarded response 16 个 case 全部通过
+- 验证 ready_for_phase8_planning 为 true
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python scripts/run_multi_asset_guarded_paper_execution_smoke.py 输出 status completed
+- python scripts/run_multi_asset_guarded_paper_execution_response_smoke.py 输出 status completed
+- python scripts/run_p7_guarded_paper_execution_acceptance_smoke.py 输出 status completed
+- python scripts/run_p7_guarded_paper_execution_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 289 passed 左右
+
+下一步：
+
+进入 P7-D9：Phase 7 to Phase 8 bridge plan。
+
+建议目标：
+
+- 新增 Phase 8 规划文档
+- 明确 portfolio-level guarded paper execution 候选方向
+- 明确 cross-asset exposure checks 候选方向
+- 明确 regression CI entrypoint 候选方向
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏测试
+
