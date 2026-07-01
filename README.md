@@ -2856,3 +2856,31 @@ P12-D4 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P12-D5：final artifact manifest。
+
+## P12-D5：Final Artifact Manifest
+
+P12-D5 新增：
+
+- docs/114_p12_final_artifact_manifest.md
+- tests/test_p12_final_artifact_manifest.py
+
+该文档形成 final artifact manifest，覆盖：
+
+- docs manifest
+- scripts manifest
+- api manifest
+- regression manifest
+- policy manifest
+- fixtures manifest
+- tests manifest
+- owner / status 规则
+- planned final artifacts
+- deprecated artifact rule
+- archive readiness linkage
+- final safety boundary
+
+P12-D5 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P12-D6：final safety boundary declaration。
