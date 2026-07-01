@@ -507,3 +507,32 @@ P4-D7 不保存真实 API key。
 P4-D7 不读取钱包私钥。
 P4-D7 不真实下单。
 
+
+## P4-D8：Schema Hardening Midpoint Acceptance
+
+P4-D8 新增：
+
+- docs/31_p4_schema_hardening_midpoint_acceptance.md
+
+P4-D8 汇总 P4-D1 到 P4-D7 的 schema hardening 成果：
+
+- raw market input schema module
+- schema integration into market input pipeline
+- schema-aware Dify adapter tests
+- schema error catalog
+- schema error catalog integration
+- batch schema error behavior
+- Dify batch error tests
+
+当前验证：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 116 passed
+
+P4-D8 不接真实交易所 API。
+P4-D8 不保存真实 API key。
+P4-D8 不读取钱包私钥。
+P4-D8 不真实下单。
+

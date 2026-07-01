@@ -469,3 +469,46 @@ P4-D7：schema batch error behavior and Dify batch tests 已完成。
 - 不真实下单
 - 不破坏测试
 
+
+## P4-D8 完成记录
+
+P4-D8：schema hardening closeout and Phase 4 midpoint acceptance 已完成。
+
+新增文件：
+
+- docs/31_p4_schema_hardening_midpoint_acceptance.md
+
+完成内容：
+
+- 汇总 P4-D1 到 P4-D7 的 schema hardening 成果
+- 明确当前 raw market input schema 能力
+- 明确当前 required fields
+- 明确当前 optional number fields
+- 明确当前 asset_class 支持范围
+- 明确当前 market_type 归一化范围
+- 明确当前 schema error catalog
+- 明确 Dify adapter schema error 行为
+- 明确 batch error 整体失败策略
+- 明确当前验收命令
+- 明确下一步 multi-asset fixture expansion plan
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 116 passed
+
+下一步：
+
+进入 P4-D9：multi-asset fixture expansion plan。
+
+建议目标：
+
+- 新增多资产 fixture 扩展规划
+- 设计 crypto / equities / fx / commodities 的 fixture 样例字段
+- 不一次性接真实数据源
+- 不接真实交易所 API
+- 不真实下单
+- 保持 schema 兼容
+
