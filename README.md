@@ -2399,3 +2399,25 @@ P10-D6 明确 Dify workflow 只允许 paper-only / non-production / operator rev
 下一步：
 
 P10-D7：Phase 10 acceptance smoke。
+
+## P10-D7：Phase 10 Acceptance Smoke
+
+P10-D7 新增：
+
+- docs/96_p10_acceptance_smoke.md
+- scripts/run_p10_acceptance_smoke.py
+- tests/test_p10_acceptance_smoke.py
+
+新增命令：
+
+- python scripts/run_p10_acceptance_smoke.py
+
+P10-D7 汇总 P9 global regression summary、Dify global regression adapter、operator review response templates、P10 docs readiness 和 safe_boundary。
+
+验收输出 ready_for_p10_d8_closeout=true。
+
+P10-D7 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P10-D8：Phase 10 closeout。
