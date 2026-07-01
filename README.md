@@ -2686,3 +2686,37 @@ P11-D7 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P11-D8：Phase 11 closeout。
+
+## P11-D8：Phase 11 Closeout
+
+P11-D8 新增：
+
+- docs/107_p11_closeout_project_state.md
+- tests/test_p11_closeout_project_state.py
+
+P11-D8 完成 Phase 11：Release readiness, operator handoff package, and long-term maintainability 第一轮阶段收尾。
+
+当前完成能力：
+
+- release readiness plan
+- operator handoff package
+- versioned run commands document
+- artifact inventory and ownership map
+- maintenance checklist
+- regression stability gate
+- Phase 11 acceptance smoke
+
+当前全局命令：
+
+- python main.py
+- python scripts/run_all_smokes.py
+- python scripts/run_p9_global_regression_summary.py
+- python scripts/run_p10_dify_safe_package_summary.py
+- python scripts/run_p11_acceptance_smoke.py
+- python -m pytest -q
+
+P11-D8 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P11-D9：post-closeout release readiness package summary，或者 P11-D10：Phase 11 to Phase 12 bridge plan。

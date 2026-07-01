@@ -1993,3 +1993,51 @@ P11-D7：Phase 11 acceptance smoke 已完成。
 下一步：
 
 进入 P11-D8：Phase 11 closeout。
+
+## P11-D8 完成记录
+
+P11-D8：Phase 11 closeout / project state consolidation 已完成。
+
+新增文件：
+
+- docs/107_p11_closeout_project_state.md
+- tests/test_p11_closeout_project_state.py
+
+完成内容：
+
+- 汇总 P11-D1 到 P11-D7
+- 标记 Phase 11 第一轮完成阶段收尾
+- 验证 run_p11_acceptance_smoke 仍然 completed
+- 验证 evaluate_regression_stability_gate 仍然 completed
+- 验证 Dify-safe adapter 仍然 ok
+- 验证 operator review response 仍然 global_regression_passed
+- 验证 ready_for_p11_d8_closeout=true
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p11_acceptance_smoke.py 输出 status completed
+- python -m pytest -q 显示 594 passed 左右
+
+下一步：
+
+进入 P11-D9：post-closeout release readiness package summary，或者进入 P11-D10：Phase 11 to Phase 12 bridge plan。
