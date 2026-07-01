@@ -119,6 +119,7 @@ def route_dify_paper_execution_request(
         filled_quantity=body_object.get("filled_quantity"),
         reject_reason=body_object.get("reject_reason"),
         output_path=body_object.get("output_path"),
+        policy_context=body_object,
     )
 
     return _http_response(

@@ -32,9 +32,6 @@ def _sample_paper_order() -> Dict[str, Any]:
         "metadata": {
             "note": "paper only smoke",
         },
-        "real_order": True,
-        "real_exchange_api": True,
-        "real_money_impact": True,
     }
 
 

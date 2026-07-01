@@ -25,9 +25,6 @@ def _sample_paper_order():
         "metadata": {
             "note": "paper only",
         },
-        "real_order": True,
-        "real_exchange_api": True,
-        "real_money_impact": True,
     }
 
 

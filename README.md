@@ -1086,3 +1086,30 @@ P6-D2 不保存真实 API key。
 P6-D2 不读取钱包私钥。
 P6-D2 不真实下单。
 
+
+## P6-D3：Integrate Policy Gate Into Paper Execution API
+
+P6-D3 新增：
+
+- docs/51_p6_integrate_policy_gate_into_paper_execution_api.md
+- tests/test_paper_execution_api_policy_integration.py
+
+P6-D3 修改：
+
+- fcf/api/paper_execution_api.py
+- fcf/api/dify_paper_execution_adapter.py
+- 部分 tests / scripts 中的 safe sample，移除 real_order=true 等危险字段
+
+当前能力：
+
+- handle_paper_execution 会先调用 evaluate_paper_execution_policy
+- policy denied 时直接返回 ok=false
+- policy denied 时不进入 sandbox execution engine
+- Dify adapter 会把 body 作为 policy_context 传入
+- top-level dangerous intent 会被拒绝
+
+P6-D3 不接真实交易所 API。
+P6-D3 不保存真实 API key。
+P6-D3 不读取钱包私钥。
+P6-D3 不真实下单。
+

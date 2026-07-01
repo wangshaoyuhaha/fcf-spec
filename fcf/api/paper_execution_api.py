@@ -1,5 +1,6 @@
 from typing import Any, Dict, Optional
 
+from fcf.policy.paper_execution_policy import evaluate_paper_execution_policy
 from fcf.paper.sandbox_execution_engine import (
     MODE_SIMULATED_FILL,
     MODE_SIMULATED_REJECT,
@@ -63,7 +64,24 @@ def handle_paper_execution(
     filled_quantity: Optional[float] = None,
     reject_reason: Optional[str] = None,
     output_path: Optional[str] = None,
+    policy_context: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
+    policy_request: Dict[str, Any] = {
+        "raw_order": raw_order,
+        "simulation_mode": simulation_mode,
+    }
+    if isinstance(policy_context, dict):
+        policy_request.update(policy_context)
+        policy_request["raw_order"] = raw_order
+
+    policy_decision = evaluate_paper_execution_policy(policy_request)
+    if policy_decision["ok"] is not True:
+        return _stable_response(
+            ok=False,
+            data=None,
+            error=policy_decision["error"],
+        )
+
     engine_response = execute_sandbox_order_with_eventstore(
         raw_order=raw_order,
         simulation_mode=simulation_mode,
