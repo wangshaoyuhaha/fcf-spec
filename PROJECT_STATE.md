@@ -1059,3 +1059,49 @@ P9-D8：Phase 9 closeout / project state consolidation 已完成。
 下一步：
 
 进入 P9-D9：post-closeout global regression summary，或者进入 Phase 10 规划。
+
+## P9-D9 完成记录
+
+P9-D9：post-closeout global regression summary 已完成。
+
+新增文件：
+
+- docs/88_p9_post_closeout_global_regression_summary.md
+- scripts/run_p9_global_regression_summary.py
+- tests/test_p9_global_regression_summary.py
+
+完成内容：
+
+- 新增 python scripts/run_p9_global_regression_summary.py
+- 汇总 run_all_smokes
+- 汇总 run_p9_acceptance_smoke
+- 汇总 build_global_regression_report
+- 汇总 check_global_safe_boundary
+- 汇总 check_project_state_consistency
+- 汇总 P9 closeout doc
+- 输出 ready_for_phase10_planning=true
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不把 paper execution 伪装成 real execution
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p9_global_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 432 passed 左右
+
+下一步：
+
+进入 P9-D10：Phase 9 to Phase 10 bridge plan。
