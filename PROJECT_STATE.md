@@ -290,3 +290,62 @@ P6-D2 目标：
 - 不真实下单
 - 不破坏现有测试
 
+
+## P6-D2 完成记录
+
+P6-D2：paper execution policy gate module 已完成。
+
+新增文件：
+
+- docs/50_p6_paper_execution_policy_gate.md
+- fcf/policy/paper_execution_policy.py
+- tests/test_paper_execution_policy.py
+
+完成内容：
+
+- 新增 describe_paper_execution_policy
+- 新增 evaluate_paper_execution_policy
+- 支持稳定 allowed decision dict
+- 支持稳定 denied decision dict
+- 支持检查 request 顶层字段
+- 支持检查 request.metadata 字段
+- 支持检查 raw_order 字段
+- 支持检查 raw_order.metadata 字段
+- 拒绝 real_execution_requested
+- 拒绝 real_order
+- 拒绝 real_exchange_api
+- 拒绝 save_api_key_requested
+- 拒绝 read_private_key_requested
+- 拒绝 bypass_risk_requested
+- 拒绝 force_execute_requested
+- 拒绝 convert_paper_to_real_requested
+- 拒绝 place_real_order_requested
+- 拒绝 connect_exchange_requested
+- 增加 pytest 覆盖
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 199 passed
+
+下一步：
+
+进入 P6-D3：integrate paper execution policy gate into paper execution API。
+
+建议目标：
+
+- 在 paper_execution_api.handle_paper_execution 前调用 evaluate_paper_execution_policy
+- policy denied 时直接返回 ok=false
+- 不进入 sandbox execution engine
+- 保持现有成功路径不变
+- 增加 API integration tests
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

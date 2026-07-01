@@ -1057,3 +1057,32 @@ P6-D1 不保存真实 API key。
 P6-D1 不读取钱包私钥。
 P6-D1 不真实下单。
 
+
+## P6-D2：Paper Execution Policy Gate Module
+
+P6-D2 新增：
+
+- docs/50_p6_paper_execution_policy_gate.md
+- fcf/policy/paper_execution_policy.py
+- tests/test_paper_execution_policy.py
+
+当前 policy gate 支持：
+
+- evaluate_paper_execution_policy
+- describe_paper_execution_policy
+- 拒绝 real_execution_requested
+- 拒绝 real_order
+- 拒绝 real_exchange_api
+- 拒绝 save_api_key_requested
+- 拒绝 read_private_key_requested
+- 拒绝 bypass_risk_requested
+- 拒绝 force_execute_requested
+- 拒绝 convert_paper_to_real_requested
+- 拒绝 place_real_order_requested
+- 拒绝 connect_exchange_requested
+
+P6-D2 不接真实交易所 API。
+P6-D2 不保存真实 API key。
+P6-D2 不读取钱包私钥。
+P6-D2 不真实下单。
+
