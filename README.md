@@ -2585,3 +2585,37 @@ P11-D3 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P11-D4：artifact inventory and ownership map。
+
+## P11-D4：Artifact Inventory and Ownership Map
+
+P11-D4 新增：
+
+- docs/103_p11_artifact_inventory.md
+- tests/test_p11_artifact_inventory.py
+
+inventory_version = 0.1.0
+
+当前记录 owner 角色：
+
+- operator
+- maintainer
+- reviewer
+- safety_guardian
+
+当前记录 artifact 类别：
+
+- core docs artifacts
+- Phase 10 Dify-safe package artifacts
+- scripts artifacts
+- API artifacts
+- regression artifacts
+- policy / fixture artifacts
+- test artifacts
+
+P11-D4 明确 artifact maintenance rules：新增 artifact 必须写入 inventory，修改 artifact 必须更新对应测试，README.md 和 PROJECT_STATE.md 必须同步更新，每次变更必须运行 pytest、commit、push。
+
+P11-D4 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P11-D5：maintenance checklist。

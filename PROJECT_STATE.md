@@ -1790,3 +1790,55 @@ P11-D3：versioned run commands document 已完成。
 下一步：
 
 进入 P11-D4：artifact inventory and ownership map。
+
+## P11-D4 完成记录
+
+P11-D4：artifact inventory and ownership map 已完成。
+
+新增文件：
+
+- docs/103_p11_artifact_inventory.md
+- tests/test_p11_artifact_inventory.py
+
+完成内容：
+
+- 新增 inventory_version = 0.1.0
+- 明确 owner 角色：operator / maintainer / reviewer / safety_guardian
+- 明确 core docs artifacts
+- 明确 Phase 10 Dify-safe package artifacts
+- 明确 scripts artifacts
+- 明确 API artifacts
+- 明确 regression artifacts
+- 明确 policy / fixture artifacts
+- 明确 test artifacts
+- 明确 artifact maintenance rules
+- 验证 P10 package summary 仍然 completed
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p10_dify_safe_package_summary.py 输出 status completed
+- python -m pytest -q 显示 556 passed 左右
+
+下一步：
+
+进入 P11-D5：maintenance checklist。
