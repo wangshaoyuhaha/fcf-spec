@@ -1486,3 +1486,38 @@ P7-D2 明确：
 - 不读取钱包私钥
 - 不真实下单
 
+
+## P7-D3：Multi-asset Guarded Paper Execution Smoke Runner
+
+P7-D3 新增：
+
+- docs/63_p7_multi_asset_guarded_paper_execution_smoke_runner.md
+- scripts/run_multi_asset_guarded_paper_execution_smoke.py
+- tests/test_multi_asset_guarded_paper_execution_smoke_runner.py
+
+当前 smoke runner 会读取：
+
+- fixtures/paper_orders_multi_asset_guarded.json
+
+并逐条调用：
+
+- handle_paper_execution
+
+覆盖：
+
+- crypto / equities / fx / commodities
+- fill_success / sandbox_reject / policy_deny / risk_deny
+
+P7-D3 明确：
+
+- runner 输出 status completed
+- fixture 共 16 个 case
+- 16 个 case 必须全部 passed
+- policy_deny / risk_deny 不生成 sandbox execution event
+- sandbox reject 不是交易所真实拒单
+- policy deny / risk deny 不是交易所真实拒单
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+
