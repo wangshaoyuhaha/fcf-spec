@@ -503,3 +503,68 @@ P6-D5：Dify paper execution response smoke includes policy deny 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P6-D6 完成记录
+
+P6-D6：paper execution risk guardian module plan 已完成。
+
+新增文件：
+
+- docs/54_p6_paper_execution_risk_guardian_plan.md
+
+完成内容：
+
+- 明确 risk deny 定义
+- 明确 risk deny 不是 schema error
+- 明确 risk deny 不是 policy deny
+- 明确 risk deny 不是 Dify safety refusal
+- 明确 risk deny 不是交易所真实拒单
+- 明确后续 paper execution risk guardian 模块规划
+- 明确建议 risk_context
+- 明确 max_quantity 风控规则
+- 明确 max_notional 风控规则
+- 明确 duplicate order 风控规则
+- 明确 blocked symbol / asset class 风控规则
+- 明确 leverage / margin 风控规则
+- 明确 high risk flags 风控规则
+- 明确 RiskDeny 用户可见文案要求
+- 明确后续 P6-D7 到 P6-D10 集成路线
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 210 passed
+
+下一步：
+
+进入 P6-D7：paper execution risk guardian module。
+
+建议新增：
+
+- fcf/risk/paper_execution_risk_guardian.py
+- tests/test_paper_execution_risk_guardian.py
+
+P6-D7 目标：
+
+- 新增 describe_paper_execution_risk_guardian
+- 新增 evaluate_paper_execution_risk
+- 支持 stable allowed decision dict
+- 支持 stable denied decision dict
+- 拒绝 missing risk_context
+- 拒绝 quantity > max_quantity
+- 拒绝 notional > max_notional
+- 拒绝 duplicate order
+- 拒绝 blocked symbol
+- 拒绝 blocked asset_class
+- 拒绝 leverage / margin request
+- 拒绝 high risk flags
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏测试
+

@@ -1175,3 +1175,30 @@ P6-D5 不保存真实 API key。
 P6-D5 不读取钱包私钥。
 P6-D5 不真实下单。
 
+
+## P6-D6：Paper Execution Risk Guardian Module Plan
+
+P6-D6 新增：
+
+- docs/54_p6_paper_execution_risk_guardian_plan.md
+
+P6-D6 明确：
+
+- risk deny 的定义
+- risk deny 与 schema error / policy deny / safety refusal 的区别
+- 后续 paper execution risk guardian 模块规划
+- 建议 risk_context
+- 建议 max_quantity 规则
+- 建议 max_notional 规则
+- 建议 duplicate order 规则
+- 建议 blocked symbol / blocked asset class 规则
+- 建议 leverage / margin 拒绝规则
+- 建议 high risk flags 拒绝规则
+- RiskDeny 用户可见文案要求
+- 后续 P6-D7 到 P6-D10 集成路径
+
+P6-D6 不接真实交易所 API。
+P6-D6 不保存真实 API key。
+P6-D6 不读取钱包私钥。
+P6-D6 不真实下单。
+
