@@ -1202,3 +1202,36 @@ P6-D6 不保存真实 API key。
 P6-D6 不读取钱包私钥。
 P6-D6 不真实下单。
 
+
+## P6-D7：Paper Execution Risk Guardian Module
+
+P6-D7 新增：
+
+- docs/55_p6_paper_execution_risk_guardian_module.md
+- fcf/risk/paper_execution_risk_guardian.py
+- tests/test_paper_execution_risk_guardian.py
+
+当前新增函数：
+
+- describe_paper_execution_risk_guardian
+- evaluate_paper_execution_risk
+
+当前 RiskDeny 覆盖：
+
+- request must be dict
+- raw_order must be dict
+- missing risk_context
+- quantity > max_quantity
+- notional > max_notional
+- duplicate order key
+- blocked symbol
+- blocked asset class
+- leverage request
+- margin request
+- high risk flags
+
+P6-D7 不接真实交易所 API。
+P6-D7 不保存真实 API key。
+P6-D7 不读取钱包私钥。
+P6-D7 不真实下单。
+
