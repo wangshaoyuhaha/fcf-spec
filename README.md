@@ -2884,3 +2884,18 @@ P12-D5 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P12-D6：final safety boundary declaration。
+
+## P12-D6：Final Safety Boundary Declaration
+
+P12-D6 新增：
+
+- docs/115_p12_final_safety_boundary_declaration.md
+- tests/test_p12_final_safety_boundary_declaration.py
+
+该文档形成 final safety boundary declaration，明确最终系统定位、最终禁止事项、safe_boundary 字段契约、允许/禁止输出、failed stop rules、人工复核要求、归档前安全要求和自然语言安全声明。
+
+P12-D6 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P12-D7：final operator delivery note and Phase 12 acceptance smoke。

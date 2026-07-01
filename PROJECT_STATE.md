@@ -2407,3 +2407,57 @@ P12-D5：final artifact manifest 已完成。
 下一步：
 
 进入 P12-D6：final safety boundary declaration。
+
+## P12-D6 完成记录
+
+P12-D6：final safety boundary declaration 已完成。
+
+新增文件：
+
+- docs/115_p12_final_safety_boundary_declaration.md
+- tests/test_p12_final_safety_boundary_declaration.py
+
+完成内容：
+
+- 明确 final_safety_boundary_declaration_version = 0.1.0
+- 明确 final system positioning
+- 明确 final prohibited actions
+- 明确 final safe_boundary field contract
+- 明确 final allowed outputs
+- 明确 final failed stop rules
+- 明确 final review requirement
+- 明确 final archive safety requirement
+- 明确 final plain-language declaration
+- 验证 P11 release readiness package summary 仍然 completed
+- 验证 ready_for_p11_d10_bridge_plan 仍然 true
+- 验证 Dify-safe adapter 仍然 ok
+- 验证 operator response 仍然 global_regression_passed
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+- 不自动实盘交易
+- 不自动绕过人工复核
+- 不绕过 policy / risk / safe_boundary
+- 不把 paper-only passed 解释成真实交易信号
+- 不把 paper-only passed 解释成真实成交
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p11_release_readiness_package_summary.py 输出 status completed
+- python -m pytest -q 显示 668 passed 左右
+
+下一步：
+
+进入 P12-D7：final operator delivery note and Phase 12 acceptance smoke。
