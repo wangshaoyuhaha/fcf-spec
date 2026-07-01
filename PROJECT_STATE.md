@@ -876,3 +876,47 @@ P9-D4：global safe boundary checker 已完成。
 下一步：
 
 进入 P9-D5：PROJECT_STATE / README consistency checker。
+
+## P9-D5 完成记录
+
+P9-D5：PROJECT_STATE / README consistency checker 已完成。
+
+新增文件：
+
+- docs/84_p9_project_state_consistency_checker.md
+- fcf/regression/project_state_consistency_checker.py
+- tests/test_p9_project_state_consistency_checker.py
+
+完成内容：
+
+- 新增 check_project_state_consistency
+- 验证 README.md 存在
+- 验证 PROJECT_STATE.md 存在
+- 验证 README.md 包含 P9-D1 到 P9-D5
+- 验证 PROJECT_STATE.md 包含 P9-D1 到 P9-D5
+- 验证 README.md 包含安全边界
+- 验证 PROJECT_STATE.md 包含安全边界
+- 验证 README.md 包含下一步 P9-D6
+- 验证 PROJECT_STATE.md 包含下一步 P9-D6
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_all_smokes.py 输出 status completed
+- python -m pytest -q 显示 403 passed 左右
+
+下一步：
+
+进入 P9-D6：CI-safe regression command document。

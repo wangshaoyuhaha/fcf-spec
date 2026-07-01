@@ -2102,3 +2102,32 @@ P9-D4 新增：
 该入口验证 global regression report 或 safe_boundary dict 是否保持 paper-only 安全边界。
 
 P9-D4 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
+
+## P9-D5：PROJECT_STATE / README Consistency Checker
+
+P9-D5 新增：
+
+- docs/84_p9_project_state_consistency_checker.md
+- fcf/regression/project_state_consistency_checker.py
+- tests/test_p9_project_state_consistency_checker.py
+
+新增入口：
+
+- check_project_state_consistency
+
+该入口验证 README.md 与 PROJECT_STATE.md 的阶段记录、安全边界、下一步记录是否一致。
+
+当前要求 README.md 与 PROJECT_STATE.md 均包含：
+
+- P9-D1 到 P9-D5
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 下一步 P9-D6：CI-safe regression command document
+
+P9-D5 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
