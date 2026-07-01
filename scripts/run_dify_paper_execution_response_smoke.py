@@ -30,7 +30,7 @@ def _sample_paper_order() -> Dict[str, Any]:
         "price": "60050.5",
         "time_in_force": "gtc",
         "source": "dify_paper_execution_response_smoke",
-        "correlation_id": "p5-d10-dify-paper-execution-response-smoke",
+        "correlation_id": "p6-d5-dify-paper-execution-response-smoke",
         "metadata": {
             "note": "paper only response smoke",
         },
@@ -51,18 +51,25 @@ def _summarize_case(
     user_response: Dict[str, Any],
 ) -> Dict[str, Any]:
     body = {}
+    error = {}
     if adapter_response is not None:
         body = adapter_response.get("body", {})
+        error = body.get("error") or {}
 
     safety_notice = user_response.get("safety_notice", "")
+    fields = user_response.get("fields") or {}
 
     return {
         "name": name,
         "adapter_http_status": None if adapter_response is None else adapter_response.get("http_status"),
         "adapter_ok": body.get("ok"),
         "adapter_api": body.get("api"),
+        "adapter_error_type": error.get("type"),
         "user_response_type": user_response.get("response_type"),
         "user_title": user_response.get("title"),
+        "user_error_type": fields.get("error_type"),
+        "policy_denied": fields.get("policy_denied"),
+        "not_exchange_reject": fields.get("not_exchange_reject"),
         "user_safety_notice_present": "没有真实下单" in safety_notice,
     }
 
@@ -80,10 +87,21 @@ def run_dify_paper_execution_response_smoke() -> Dict[str, Any]:
         {
             "raw_order": _sample_paper_order(),
             "simulation_mode": "simulated_reject",
-            "reject_reason": "policy denied in response smoke",
+            "reject_reason": "policy allowed then sandbox reject in response smoke",
         }
     )
     reject_user_response = render_paper_execution_user_response(reject_adapter_response)
+
+    policy_deny_adapter_response = _call_execute(
+        {
+            "raw_order": _sample_paper_order(),
+            "simulation_mode": "simulated_fill",
+            "bypass_risk_requested": True,
+        }
+    )
+    policy_deny_user_response = render_paper_execution_user_response(
+        policy_deny_adapter_response
+    )
 
     bad_order = _sample_paper_order()
     bad_order["quantity"] = "-1"
@@ -107,6 +125,11 @@ def run_dify_paper_execution_response_smoke() -> Dict[str, Any]:
             "reject_to_user_paper_reject_success",
             reject_adapter_response,
             reject_user_response,
+        ),
+        _summarize_case(
+            "policy_deny_to_user_paper_policy_deny",
+            policy_deny_adapter_response,
+            policy_deny_user_response,
         ),
         _summarize_case(
             "bad_order_to_user_paper_execution_error",
@@ -137,6 +160,7 @@ def run_dify_paper_execution_response_smoke() -> Dict[str, Any]:
             "only_calls_dify_paper_execution_adapter": True,
             "only_renders_paper_user_responses": True,
             "does_not_claim_real_trade_success": True,
+            "does_not_claim_policy_deny_as_exchange_reject": True,
         },
     }
 

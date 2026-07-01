@@ -1144,3 +1144,34 @@ P6-D4 不保存真实 API key。
 P6-D4 不读取钱包私钥。
 P6-D4 不真实下单。
 
+
+## P6-D5：Dify Paper Execution Response Smoke Includes Policy Deny
+
+P6-D5 新增：
+
+- docs/53_p6_dify_paper_execution_response_smoke_policy_deny.md
+
+P6-D5 修改：
+
+- scripts/run_dify_paper_execution_response_smoke.py
+- tests/test_dify_paper_execution_response_smoke.py
+
+当前 response smoke 覆盖：
+
+- fill -> paper_fill_success
+- reject -> paper_reject_success
+- policy deny -> paper_policy_deny
+- bad order -> paper_execution_error
+- real execution intent -> paper_safety_refusal
+
+P6-D5 明确区分：
+
+- policy_deny 不是交易所真实拒单
+- execution_error 不是实盘下单失败
+- safety_refusal 不调用 adapter
+
+P6-D5 不接真实交易所 API。
+P6-D5 不保存真实 API key。
+P6-D5 不读取钱包私钥。
+P6-D5 不真实下单。
+

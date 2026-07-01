@@ -453,3 +453,53 @@ P6-D4：paper execution policy deny response templates 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P6-D5 完成记录
+
+P6-D5：Dify paper execution response smoke includes policy deny 已完成。
+
+新增文件：
+
+- docs/53_p6_dify_paper_execution_response_smoke_policy_deny.md
+
+修改文件：
+
+- scripts/run_dify_paper_execution_response_smoke.py
+- tests/test_dify_paper_execution_response_smoke.py
+
+完成内容：
+
+- response smoke case_count 从 4 增加到 5
+- 新增 policy_deny_to_user_paper_policy_deny
+- policy deny 渲染为 paper_policy_deny
+- bad order 仍渲染为 paper_execution_error
+- real execution intent 仍渲染为 paper_safety_refusal
+- fill / reject 成功路径保持不变
+- 明确 policy deny 不是交易所真实拒单
+- 明确不接真实交易所 API
+- 明确不真实下单
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 210 passed
+
+下一步：
+
+进入 P6-D6：paper execution risk guardian module plan。
+
+建议目标：
+
+- 新增 paper execution risk guardian plan
+- 明确 max_quantity / max_notional / duplicate order / missing risk_context 等 risk deny
+- 明确 risk deny 不是交易所真实拒单
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
