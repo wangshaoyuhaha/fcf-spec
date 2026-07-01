@@ -462,3 +462,59 @@ P8-D2：Portfolio paper order fixture 已完成。
 - 不真实下单
 - 不破坏测试
 
+
+## P8-D3 完成记录
+
+P8-D3：Portfolio paper execution API wrapper 已完成。
+
+新增文件：
+
+- docs/72_p8_portfolio_paper_execution_api_wrapper.md
+- fcf/api/portfolio_paper_execution_api.py
+- tests/test_portfolio_paper_execution_api.py
+
+完成内容：
+
+- 新增 handle_portfolio_paper_execution
+- 返回稳定 response dict
+- 支持 portfolio_policy_deny
+- 支持 portfolio_risk_deny
+- 支持逐笔调用 handle_paper_execution
+- 支持 portfolio_all_fill
+- 支持 portfolio_mixed_results
+- 汇总 filled_count
+- 汇总 sandbox_rejected_count
+- 汇总 policy_denied_count
+- 汇总 risk_denied_count
+- 汇总 asset_class_counts
+- 汇总 branch_counts
+- 汇总 total_notional
+- 汇总 notional_by_asset_class
+- 保持 paper-only safe_boundary
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p7_guarded_paper_execution_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 319 passed 左右
+
+下一步：
+
+进入 P8-D4：Portfolio-level risk exposure checks。
+
+建议目标：
+
+- 新增 fcf/policy/portfolio_risk_guardian.py
+- 新增 tests/test_portfolio_risk_guardian.py
+- 把 P8-D3 内部 portfolio risk checks 拆成独立模块
+- 覆盖 max_order_count
+- 覆盖 max_total_notional
+- 覆盖 max_asset_class_notional
+- 覆盖 blocked_asset_classes
+- 覆盖 blocked_symbols
+- 覆盖 max_same_side_count
+- 覆盖 max_single_order_notional
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏测试
+

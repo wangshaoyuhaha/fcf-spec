@@ -1816,3 +1816,42 @@ P8-D2 只新增 fixture 和 fixture schema 测试。
 不接真实交易所 API。
 不真实下单。
 
+
+## P8-D3：Portfolio Paper Execution API Wrapper
+
+P8-D3 新增：
+
+- docs/72_p8_portfolio_paper_execution_api_wrapper.md
+- fcf/api/portfolio_paper_execution_api.py
+- tests/test_portfolio_paper_execution_api.py
+
+新增 API 入口：
+
+- handle_portfolio_paper_execution
+
+当前能力：
+
+- 读取 portfolio request
+- portfolio-level policy deny
+- portfolio-level risk deny
+- 逐笔调用 handle_paper_execution
+- 汇总 filled_count
+- 汇总 sandbox_rejected_count
+- 汇总 policy_denied_count
+- 汇总 risk_denied_count
+- 汇总 asset_class_counts
+- 汇总 branch_counts
+- 汇总 total_notional
+- 汇总 notional_by_asset_class
+- 返回稳定 response dict
+
+P8-D3 继续保持：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实资金影响
+
