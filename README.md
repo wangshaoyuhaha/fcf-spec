@@ -2817,3 +2817,18 @@ P12-D2 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P12-D3：archive readiness checklist。
+
+## P12-D3：Archive Readiness Checklist
+
+P12-D3 新增：
+
+- docs/112_p12_archive_readiness_checklist.md
+- tests/test_p12_archive_readiness_checklist.py
+
+该文档形成 archive readiness checklist，覆盖 repository readiness、documentation readiness、command readiness、package readiness、artifact readiness、archive record、failed stop rules 和 final safety boundary checklist。
+
+P12-D3 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P12-D4：final command index。
