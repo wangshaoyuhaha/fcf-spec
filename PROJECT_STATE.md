@@ -557,3 +557,52 @@ P4-D9：multi-asset fixture expansion plan 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P4-D10 完成记录
+
+P4-D10：multi-asset fixture Dify response smoke 已完成。
+
+新增文件：
+
+- docs/33_p4_multi_asset_dify_response_smoke.md
+- scripts/run_multi_asset_dify_smoke.py
+- tests/test_multi_asset_dify_smoke.py
+
+完成内容：
+
+- 新增 run_multi_asset_dify_smoke
+- 读取 fixtures/raw_market_data_multi_asset.json
+- 调用 Dify batch route
+- 接入 render_dify_user_response
+- 输出稳定 smoke summary
+- 验证 adapter_http_status 为 200
+- 验证 adapter_ok 为 true
+- 验证 event_count 为 4
+- 验证 user_response_type 为 success
+- 验证多资产 symbols / asset_classes / market_types
+- 验证安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 123 passed
+
+下一步：
+
+进入 P4-D11：multi-asset error fixture and negative smoke。
+
+建议目标：
+
+- 新增多资产错误 fixture 或在 smoke 中构造错误样例
+- 覆盖 equities bad market_type
+- 覆盖 fx bad spread
+- 覆盖 commodities missing last_price
+- 确认 Dify batch route 返回 422
+- 确认 user-facing response 为 error
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

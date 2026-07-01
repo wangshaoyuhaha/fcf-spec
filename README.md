@@ -564,3 +564,36 @@ P4-D9 不保存真实 API key。
 P4-D9 不读取钱包私钥。
 P4-D9 不真实下单。
 
+
+## P4-D10：Multi-asset Dify Response Smoke
+
+P4-D10 新增：
+
+- docs/33_p4_multi_asset_dify_response_smoke.md
+- scripts/run_multi_asset_dify_smoke.py
+- tests/test_multi_asset_dify_smoke.py
+
+当前 smoke runner 会读取：
+
+- fixtures/raw_market_data_multi_asset.json
+
+并调用：
+
+- POST /api/v1/market-input/batch
+
+然后接入：
+
+- render_dify_user_response
+
+当前覆盖：
+
+- crypto / BTCUSDT
+- equities / AAPL
+- fx / EURUSD
+- commodities / XAUUSD
+
+P4-D10 不接真实交易所 API。
+P4-D10 不保存真实 API key。
+P4-D10 不读取钱包私钥。
+P4-D10 不真实下单。
+
