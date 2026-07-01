@@ -713,3 +713,31 @@ P8-D9：post-closeout portfolio guarded paper regression summary 已完成。
 下一步：
 
 进入 P8-D10：Phase 8 to Phase 9 bridge plan。
+
+## P8-D10 完成记录
+
+P8-D10：Phase 8 to Phase 9 bridge plan 已完成。
+
+新增文件：
+
+- docs/79_p8_to_p9_bridge_plan.md
+- tests/test_p8_to_p9_bridge_plan.py
+
+完成内容：
+
+- 完成 Phase 8 到 Phase 9 的桥接规划
+- 明确 Phase 9 建议主题为 Global paper-only regression suite and CI-safe operational readiness
+- 明确 P9-D1 到 P9-D8 候选路线
+- 明确 Phase 9 第一轮不做真实交易所 API、不真实下单、不配置 CI secret、不做 production deployment
+- 验证 P8 regression summary 仍然 completed
+- 验证 ready_for_phase9_planning 仍然 true
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p8_portfolio_guarded_paper_regression_summary.py 输出 status completed
+- python -m pytest -q 显示 367 passed 左右
+
+下一步：
+
+进入 P9-D1：Global regression suite plan。

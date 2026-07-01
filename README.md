@@ -1984,3 +1984,28 @@ P8-D9 汇总 P7 regression 与 P8 portfolio smoke，并输出 ready_for_phase9_p
 
 P8-D9 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
 
+
+## P8-D10：Phase 8 to Phase 9 Bridge Plan
+
+P8-D10 新增：
+
+- docs/79_p8_to_p9_bridge_plan.md
+- tests/test_p8_to_p9_bridge_plan.py
+
+P8-D10 完成 Phase 8 到 Phase 9 的桥接规划。
+
+Phase 9 建议主题：
+
+- Global paper-only regression suite and CI-safe operational readiness
+
+Phase 9 候选方向：
+
+- 统一 smoke / regression 入口
+- P7 regression summary
+- P8 portfolio regression summary
+- 全局 safe_boundary 校验
+- machine-readable regression report
+- CI-safe entrypoint
+- 项目状态一致性检查
+
+P8-D10 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
