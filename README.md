@@ -2253,3 +2253,32 @@ P9-D10 继续保持 paper-only 安全边界，不接真实交易所 API，不真
 下一步：
 
 P10-D1：Dify-safe paper operations plan。
+
+## P10-D1：Dify-safe Paper Operations Plan
+
+P10-D1 新增：
+
+- docs/90_p10_dify_safe_paper_operations_plan.md
+- tests/test_p10_dify_safe_paper_operations_plan.py
+
+P10-D1 启动 Phase 10。
+
+Phase 10 主题：
+
+- Dify-safe paper operations packaging and operator review readiness
+
+Phase 10 第一轮目标：
+
+- Dify-safe global regression adapter
+- operator review response templates
+- paper-only operator runbook
+- failure triage guide
+- Dify workflow node contract document
+- handoff package for non-production paper-only use
+- Phase 10 acceptance smoke
+
+P10-D1 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P10-D2：global regression Dify adapter contract。
