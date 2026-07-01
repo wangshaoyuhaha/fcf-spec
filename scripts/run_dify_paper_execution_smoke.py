@@ -73,6 +73,16 @@ def run_dify_paper_execution_smoke() -> Dict[str, Any]:
         {
             "raw_order": _sample_paper_order(),
             "simulation_mode": "simulated_fill",
+            "risk_context": {
+                "max_quantity": 1.0,
+                "max_notional": 100000.0,
+                "allow_leverage": False,
+                "allow_margin": False,
+                "duplicate_order_keys": [],
+                "blocked_symbols": [],
+                "blocked_asset_classes": [],
+                "high_risk_flags": [],
+            },
         },
     )
 
@@ -82,6 +92,16 @@ def run_dify_paper_execution_smoke() -> Dict[str, Any]:
         {
             "raw_order": _sample_paper_order(),
             "simulation_mode": "simulated_reject",
+            "risk_context": {
+                "max_quantity": 1.0,
+                "max_notional": 100000.0,
+                "allow_leverage": False,
+                "allow_margin": False,
+                "duplicate_order_keys": [],
+                "blocked_symbols": [],
+                "blocked_asset_classes": [],
+                "high_risk_flags": [],
+            },
             "reject_reason": "policy denied in smoke",
         },
     )

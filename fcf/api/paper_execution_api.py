@@ -1,6 +1,7 @@
 from typing import Any, Dict, Optional
 
 from fcf.policy.paper_execution_policy import evaluate_paper_execution_policy
+from fcf.risk.paper_execution_risk_guardian import evaluate_paper_execution_risk
 from fcf.paper.sandbox_execution_engine import (
     MODE_SIMULATED_FILL,
     MODE_SIMULATED_REJECT,
@@ -65,6 +66,7 @@ def handle_paper_execution(
     reject_reason: Optional[str] = None,
     output_path: Optional[str] = None,
     policy_context: Optional[Dict[str, Any]] = None,
+    risk_context: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     policy_request: Dict[str, Any] = {
         "raw_order": raw_order,
@@ -80,6 +82,26 @@ def handle_paper_execution(
             ok=False,
             data=None,
             error=policy_decision["error"],
+        )
+
+    risk_request: Dict[str, Any] = {
+        "raw_order": raw_order,
+    }
+    if isinstance(policy_context, dict):
+        risk_request.update(policy_context)
+        risk_request["raw_order"] = raw_order
+
+    if isinstance(risk_context, dict):
+        risk_request["risk_context"] = risk_context
+    elif "risk_context" not in risk_request:
+        risk_request["allow_missing_risk_context"] = True
+
+    risk_decision = evaluate_paper_execution_risk(risk_request)
+    if risk_decision["ok"] is not True:
+        return _stable_response(
+            ok=False,
+            data=None,
+            error=risk_decision["error"],
         )
 
     engine_response = execute_sandbox_order_with_eventstore(

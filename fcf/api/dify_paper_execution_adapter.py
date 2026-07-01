@@ -120,6 +120,7 @@ def route_dify_paper_execution_request(
         reject_reason=body_object.get("reject_reason"),
         output_path=body_object.get("output_path"),
         policy_context=body_object,
+        risk_context=body_object.get("risk_context"),
     )
 
     return _http_response(

@@ -628,3 +628,61 @@ P6-D7：paper execution risk guardian module 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P6-D8 完成记录
+
+P6-D8：integrate risk guardian into paper execution API 已完成。
+
+新增文件：
+
+- docs/56_p6_integrate_risk_guardian_into_paper_execution_api.md
+- tests/test_paper_execution_api_risk_integration.py
+
+修改文件：
+
+- fcf/api/paper_execution_api.py
+- fcf/api/dify_paper_execution_adapter.py
+- scripts/run_dify_paper_execution_smoke.py
+- scripts/run_dify_paper_execution_response_smoke.py
+
+完成内容：
+
+- paper_execution_api.handle_paper_execution 接入 evaluate_paper_execution_risk
+- 执行顺序固定为 policy gate -> risk guardian -> sandbox execution
+- RiskDeny 时直接返回 ok=false
+- RiskDeny 时不进入 sandbox execution engine
+- RiskDeny 时不生成 sandbox execution event
+- Dify adapter 传入 risk_context
+- smoke safe sample 增加 risk_context
+- safe paper execution 成功路径保持可用
+- max_quantity risk deny 已覆盖
+- max_notional risk deny 已覆盖
+- blocked symbol risk deny 已覆盖
+- 增加 pytest 覆盖
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 229 passed
+
+下一步：
+
+进入 P6-D9：paper execution risk deny response templates。
+
+建议目标：
+
+- 扩展 paper_execution_response_templates
+- 新增 render_paper_risk_deny_response
+- RiskDeny 自动渲染为 paper_risk_deny
+- 明确 risk deny 不是交易所真实拒单
+- 明确没有真实下单
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

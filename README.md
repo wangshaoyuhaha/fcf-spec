@@ -1235,3 +1235,37 @@ P6-D7 不保存真实 API key。
 P6-D7 不读取钱包私钥。
 P6-D7 不真实下单。
 
+
+## P6-D8：Integrate Risk Guardian Into Paper Execution API
+
+P6-D8 新增：
+
+- docs/56_p6_integrate_risk_guardian_into_paper_execution_api.md
+- tests/test_paper_execution_api_risk_integration.py
+
+P6-D8 修改：
+
+- fcf/api/paper_execution_api.py
+- fcf/api/dify_paper_execution_adapter.py
+- scripts/run_dify_paper_execution_smoke.py
+- scripts/run_dify_paper_execution_response_smoke.py
+
+当前执行顺序：
+
+- policy gate
+- risk guardian
+- sandbox execution
+
+当前能力：
+
+- RiskDeny 直接返回 ok=false
+- RiskDeny 不进入 sandbox execution engine
+- RiskDeny 不生成 sandbox execution event
+- Dify adapter 传入 risk_context
+- max_quantity / max_notional / blocked symbol 等 risk deny 可在 API 层拦截
+
+P6-D8 不接真实交易所 API。
+P6-D8 不保存真实 API key。
+P6-D8 不读取钱包私钥。
+P6-D8 不真实下单。
+
