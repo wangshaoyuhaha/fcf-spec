@@ -30,10 +30,23 @@ def _sample_paper_order() -> Dict[str, Any]:
         "price": "60050.5",
         "time_in_force": "gtc",
         "source": "dify_paper_execution_response_smoke",
-        "correlation_id": "p6-d5-dify-paper-execution-response-smoke",
+        "correlation_id": "p6-d10-dify-paper-execution-response-smoke",
         "metadata": {
             "note": "paper only response smoke",
         },
+    }
+
+
+def _safe_risk_context() -> Dict[str, Any]:
+    return {
+        "max_quantity": 1.0,
+        "max_notional": 100000.0,
+        "allow_leverage": False,
+        "allow_margin": False,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": [],
     }
 
 
@@ -69,6 +82,7 @@ def _summarize_case(
         "user_title": user_response.get("title"),
         "user_error_type": fields.get("error_type"),
         "policy_denied": fields.get("policy_denied"),
+        "risk_denied": fields.get("risk_denied"),
         "not_exchange_reject": fields.get("not_exchange_reject"),
         "user_safety_notice_present": "没有真实下单" in safety_notice,
     }
@@ -79,16 +93,7 @@ def run_dify_paper_execution_response_smoke() -> Dict[str, Any]:
         {
             "raw_order": _sample_paper_order(),
             "simulation_mode": "simulated_fill",
-            "risk_context": {
-                "max_quantity": 1.0,
-                "max_notional": 100000.0,
-                "allow_leverage": False,
-                "allow_margin": False,
-                "duplicate_order_keys": [],
-                "blocked_symbols": [],
-                "blocked_asset_classes": [],
-                "high_risk_flags": [],
-            },
+            "risk_context": _safe_risk_context(),
         }
     )
     fill_user_response = render_paper_execution_user_response(fill_adapter_response)
@@ -97,17 +102,8 @@ def run_dify_paper_execution_response_smoke() -> Dict[str, Any]:
         {
             "raw_order": _sample_paper_order(),
             "simulation_mode": "simulated_reject",
-            "risk_context": {
-                "max_quantity": 1.0,
-                "max_notional": 100000.0,
-                "allow_leverage": False,
-                "allow_margin": False,
-                "duplicate_order_keys": [],
-                "blocked_symbols": [],
-                "blocked_asset_classes": [],
-                "high_risk_flags": [],
-            },
-            "reject_reason": "policy allowed then sandbox reject in response smoke",
+            "reject_reason": "policy and risk allowed then sandbox reject in response smoke",
+            "risk_context": _safe_risk_context(),
         }
     )
     reject_user_response = render_paper_execution_user_response(reject_adapter_response)
@@ -117,10 +113,24 @@ def run_dify_paper_execution_response_smoke() -> Dict[str, Any]:
             "raw_order": _sample_paper_order(),
             "simulation_mode": "simulated_fill",
             "bypass_risk_requested": True,
+            "risk_context": _safe_risk_context(),
         }
     )
     policy_deny_user_response = render_paper_execution_user_response(
         policy_deny_adapter_response
+    )
+
+    risk_context = _safe_risk_context()
+    risk_context["max_quantity"] = 0.1
+    risk_deny_adapter_response = _call_execute(
+        {
+            "raw_order": _sample_paper_order(),
+            "simulation_mode": "simulated_fill",
+            "risk_context": risk_context,
+        }
+    )
+    risk_deny_user_response = render_paper_execution_user_response(
+        risk_deny_adapter_response
     )
 
     bad_order = _sample_paper_order()
@@ -129,6 +139,7 @@ def run_dify_paper_execution_response_smoke() -> Dict[str, Any]:
         {
             "raw_order": bad_order,
             "simulation_mode": "simulated_fill",
+            "risk_context": _safe_risk_context(),
         }
     )
     error_user_response = render_paper_execution_user_response(error_adapter_response)
@@ -150,6 +161,11 @@ def run_dify_paper_execution_response_smoke() -> Dict[str, Any]:
             "policy_deny_to_user_paper_policy_deny",
             policy_deny_adapter_response,
             policy_deny_user_response,
+        ),
+        _summarize_case(
+            "risk_deny_to_user_paper_risk_deny",
+            risk_deny_adapter_response,
+            risk_deny_user_response,
         ),
         _summarize_case(
             "bad_order_to_user_paper_execution_error",
@@ -181,6 +197,7 @@ def run_dify_paper_execution_response_smoke() -> Dict[str, Any]:
             "only_renders_paper_user_responses": True,
             "does_not_claim_real_trade_success": True,
             "does_not_claim_policy_deny_as_exchange_reject": True,
+            "does_not_claim_risk_deny_as_exchange_reject": True,
         },
     }
 

@@ -8,7 +8,7 @@ def test_dify_paper_execution_response_smoke_completes_and_is_safe():
 
     assert result["status"] == "completed"
     assert result["runner"] == "dify_paper_execution_response_smoke"
-    assert result["case_count"] == 5
+    assert result["case_count"] == 6
     assert result["safe_boundary"]["execution_mode"] == "paper"
     assert result["safe_boundary"]["real_order"] is False
     assert result["safe_boundary"]["real_execution"] is False
@@ -16,6 +16,7 @@ def test_dify_paper_execution_response_smoke_completes_and_is_safe():
     assert result["safe_boundary"]["no_real_order_placement"] is True
     assert result["safe_boundary"]["does_not_claim_real_trade_success"] is True
     assert result["safe_boundary"]["does_not_claim_policy_deny_as_exchange_reject"] is True
+    assert result["safe_boundary"]["does_not_claim_risk_deny_as_exchange_reject"] is True
 
 
 def test_dify_paper_execution_response_smoke_success_cases_are_stable():
@@ -54,8 +55,27 @@ def test_dify_paper_execution_response_smoke_policy_deny_case_is_stable():
     assert policy_deny["user_title"] == "纸面模拟执行被策略规则拒绝"
     assert policy_deny["user_error_type"] == "PolicyDeny"
     assert policy_deny["policy_denied"] is True
+    assert policy_deny["risk_denied"] is None
     assert policy_deny["not_exchange_reject"] is True
     assert policy_deny["user_safety_notice_present"] is True
+
+
+def test_dify_paper_execution_response_smoke_risk_deny_case_is_stable():
+    result = run_dify_paper_execution_response_smoke()
+    cases = {case["name"]: case for case in result["cases"]}
+
+    risk_deny = cases["risk_deny_to_user_paper_risk_deny"]
+    assert risk_deny["adapter_http_status"] == 422
+    assert risk_deny["adapter_ok"] is False
+    assert risk_deny["adapter_api"] == "paper_execution_api"
+    assert risk_deny["adapter_error_type"] == "RiskDeny"
+    assert risk_deny["user_response_type"] == "paper_risk_deny"
+    assert risk_deny["user_title"] == "纸面模拟执行被风控规则拒绝"
+    assert risk_deny["user_error_type"] == "RiskDeny"
+    assert risk_deny["policy_denied"] is None
+    assert risk_deny["risk_denied"] is True
+    assert risk_deny["not_exchange_reject"] is True
+    assert risk_deny["user_safety_notice_present"] is True
 
 
 def test_dify_paper_execution_response_smoke_error_case_is_stable():
@@ -71,6 +91,7 @@ def test_dify_paper_execution_response_smoke_error_case_is_stable():
     assert error["user_title"] == "纸面模拟执行校验失败"
     assert error["user_error_type"] == "ValueError"
     assert error["policy_denied"] is None
+    assert error["risk_denied"] is None
     assert error["user_safety_notice_present"] is True
 
 
