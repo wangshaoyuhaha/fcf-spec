@@ -463,3 +463,52 @@ P5-D5：paper execution API wrapper 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P5-D6 完成记录
+
+P5-D6：Dify paper execution contract and local adapter planning 已完成。
+
+新增文件：
+
+- docs/42_p5_dify_paper_execution_contract.md
+
+完成内容：
+
+- 明确 Dify simulated_fill 输入 JSON
+- 明确 Dify simulated_reject 输入 JSON
+- 明确 paper execution 成功输出 JSON
+- 明确 paper execution 错误输出 JSON
+- 明确 Dify workflow 推荐节点
+- 明确 Dify 字段映射
+- 明确 Dify 必须拒绝的 intent
+- 明确用户可见 success 文案要求
+- 明确 Dify paper execution local adapter 规划
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 163 passed
+
+下一步：
+
+进入 P5-D7：Dify paper execution local adapter。
+
+建议新增：
+
+- fcf/api/dify_paper_execution_adapter.py
+- tests/test_dify_paper_execution_adapter.py
+
+目标：
+
+- 支持 GET /api/v1/paper-execution/contract
+- 支持 POST /api/v1/paper-execution/execute
+- 只调用 paper_execution_api
+- 返回 http-style response dict
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

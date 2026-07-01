@@ -830,3 +830,28 @@ P5-D5 不保存真实 API key。
 P5-D5 不读取钱包私钥。
 P5-D5 不真实下单。
 
+
+## P5-D6：Dify Paper Execution Contract
+
+P5-D6 新增：
+
+- docs/42_p5_dify_paper_execution_contract.md
+
+P5-D6 明确：
+
+- Dify paper execution 输入 JSON
+- Dify paper execution 输出 JSON
+- simulated_fill 请求格式
+- simulated_reject 请求格式
+- 错误响应格式
+- Dify workflow 推荐节点
+- Dify 字段映射
+- Dify 必须拒绝的 real execution intent
+- 用户可见 success / error / safety 文案边界
+- 后续 Dify paper execution adapter 规划
+
+P5-D6 不接真实交易所 API。
+P5-D6 不保存真实 API key。
+P5-D6 不读取钱包私钥。
+P5-D6 不真实下单。
+
