@@ -1450,3 +1450,39 @@ P7-D1 不保存真实 API key。
 P7-D1 不读取钱包私钥。
 P7-D1 不真实下单。
 
+
+## P7-D2：Multi-asset Guarded Paper Execution Fixture
+
+P7-D2 新增：
+
+- docs/62_p7_multi_asset_guarded_paper_execution_fixture.md
+- fixtures/paper_orders_multi_asset_guarded.json
+- tests/test_multi_asset_guarded_paper_fixture.py
+
+当前 fixture 覆盖：
+
+- crypto
+- equities
+- fx
+- commodities
+
+每个资产类别覆盖：
+
+- fill_success
+- sandbox_reject
+- policy_deny
+- risk_deny
+
+P7-D2 明确：
+
+- fill_success 会进入 sandbox execution 并生成 sandbox event
+- sandbox_reject 会进入 sandbox execution 并生成 sandbox rejected event
+- policy_deny 不进入 sandbox execution，不生成 sandbox event
+- risk_deny 不进入 sandbox execution，不生成 sandbox event
+- sandbox reject 不是交易所真实拒单
+- policy deny / risk deny 不是交易所真实拒单
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+

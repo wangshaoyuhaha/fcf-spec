@@ -308,3 +308,55 @@ P7-D2 目标：
 - 不真实下单
 - 不破坏现有测试
 
+
+## P7-D2 完成记录
+
+P7-D2：multi-asset guarded paper execution fixture 已完成。
+
+新增文件：
+
+- docs/62_p7_multi_asset_guarded_paper_execution_fixture.md
+- fixtures/paper_orders_multi_asset_guarded.json
+- tests/test_multi_asset_guarded_paper_fixture.py
+
+完成内容：
+
+- 新增 multi-asset guarded paper execution fixture
+- 覆盖 crypto / equities / fx / commodities
+- 每个资产类别覆盖 fill_success
+- 每个资产类别覆盖 sandbox_reject
+- 每个资产类别覆盖 policy_deny
+- 每个资产类别覆盖 risk_deny
+- 验证 fixture schema
+- 验证 fixture case_id 唯一
+- 验证 asset_class x branch 覆盖完整
+- 验证 guarded paper execution 分支行为
+- 验证 policy deny 不生成 sandbox execution event
+- 验证 risk deny 不生成 sandbox execution event
+- 验证 sandbox fill / reject 仍为 paper-only
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 255 passed 左右
+
+下一步：
+
+进入 P7-D3：multi-asset guarded paper execution smoke runner。
+
+建议目标：
+
+- 新增 scripts/run_multi_asset_guarded_paper_execution_smoke.py
+- 读取 fixtures/paper_orders_multi_asset_guarded.json
+- 汇总 fill_success / sandbox_reject / policy_deny / risk_deny 分支
+- 输出 status completed
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏测试
+

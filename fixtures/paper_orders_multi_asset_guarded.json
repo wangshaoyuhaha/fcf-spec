@@ -1,0 +1,690 @@
+[
+  {
+    "case_id": "crypto_fill_success",
+    "asset_class": "crypto",
+    "branch": "fill_success",
+    "description": "Crypto paper order passes policy and risk, then sandbox fills.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Crypto",
+        "symbol": "btcusdt",
+        "venue": "BINANCE",
+        "market_type": "PERP",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "0.25",
+        "price": "60050.5",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-crypto-fill",
+        "metadata": {
+          "note": "paper only crypto fill fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "risk_context": {
+        "max_quantity": 1.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": true,
+      "execution_status": "filled",
+      "error_type": null,
+      "sandbox_event_expected": true,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "crypto_sandbox_reject",
+    "asset_class": "crypto",
+    "branch": "sandbox_reject",
+    "description": "Crypto paper order passes policy and risk, then sandbox rejects.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Crypto",
+        "symbol": "btcusdt",
+        "venue": "BINANCE",
+        "market_type": "PERP",
+        "side": "SELL",
+        "order_type": "LIMIT",
+        "quantity": "0.10",
+        "price": "60100.0",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-crypto-reject",
+        "metadata": {
+          "note": "paper only crypto sandbox reject fixture"
+        }
+      },
+      "simulation_mode": "simulated_reject",
+      "reject_reason": "p7-d2 sandbox reject for crypto",
+      "risk_context": {
+        "max_quantity": 1.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": true,
+      "execution_status": "rejected",
+      "error_type": null,
+      "sandbox_event_expected": true,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "crypto_policy_deny",
+    "asset_class": "crypto",
+    "branch": "policy_deny",
+    "description": "Crypto request is denied by policy before risk or sandbox execution.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Crypto",
+        "symbol": "btcusdt",
+        "venue": "BINANCE",
+        "market_type": "PERP",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "0.25",
+        "price": "60050.5",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-crypto-policy-deny",
+        "metadata": {
+          "note": "paper only crypto policy deny fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "policy_context": {
+        "bypass_risk_requested": true
+      },
+      "risk_context": {
+        "max_quantity": 1.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": false,
+      "execution_status": null,
+      "error_type": "PolicyDeny",
+      "sandbox_event_expected": false,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "crypto_risk_deny",
+    "asset_class": "crypto",
+    "branch": "risk_deny",
+    "description": "Crypto request passes policy but is denied by risk guardian before sandbox execution.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Crypto",
+        "symbol": "btcusdt",
+        "venue": "BINANCE",
+        "market_type": "PERP",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "0.25",
+        "price": "60050.5",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-crypto-risk-deny",
+        "metadata": {
+          "note": "paper only crypto risk deny fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "risk_context": {
+        "max_quantity": 1.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": ["crypto"],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": false,
+      "execution_status": null,
+      "error_type": "RiskDeny",
+      "sandbox_event_expected": false,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "equities_fill_success",
+    "asset_class": "equities",
+    "branch": "fill_success",
+    "description": "Equities paper order passes policy and risk, then sandbox fills.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Equities",
+        "symbol": "aapl",
+        "venue": "NASDAQ",
+        "market_type": "SPOT",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "10",
+        "price": "220.50",
+        "time_in_force": "day",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-equities-fill",
+        "metadata": {
+          "note": "paper only equities fill fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "risk_context": {
+        "max_quantity": 1000.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": true,
+      "execution_status": "filled",
+      "error_type": null,
+      "sandbox_event_expected": true,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "equities_sandbox_reject",
+    "asset_class": "equities",
+    "branch": "sandbox_reject",
+    "description": "Equities paper order passes policy and risk, then sandbox rejects.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Equities",
+        "symbol": "msft",
+        "venue": "NASDAQ",
+        "market_type": "SPOT",
+        "side": "SELL",
+        "order_type": "LIMIT",
+        "quantity": "5",
+        "price": "450.00",
+        "time_in_force": "day",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-equities-reject",
+        "metadata": {
+          "note": "paper only equities sandbox reject fixture"
+        }
+      },
+      "simulation_mode": "simulated_reject",
+      "reject_reason": "p7-d2 sandbox reject for equities",
+      "risk_context": {
+        "max_quantity": 1000.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": true,
+      "execution_status": "rejected",
+      "error_type": null,
+      "sandbox_event_expected": true,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "equities_policy_deny",
+    "asset_class": "equities",
+    "branch": "policy_deny",
+    "description": "Equities request is denied by policy before sandbox execution.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Equities",
+        "symbol": "aapl",
+        "venue": "NASDAQ",
+        "market_type": "SPOT",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "10",
+        "price": "220.50",
+        "time_in_force": "day",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-equities-policy-deny",
+        "metadata": {
+          "note": "paper only equities policy deny fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "policy_context": {
+        "force_execute_requested": true
+      },
+      "risk_context": {
+        "max_quantity": 1000.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": false,
+      "execution_status": null,
+      "error_type": "PolicyDeny",
+      "sandbox_event_expected": false,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "equities_risk_deny",
+    "asset_class": "equities",
+    "branch": "risk_deny",
+    "description": "Equities request passes policy but is denied by risk guardian.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Equities",
+        "symbol": "aapl",
+        "venue": "NASDAQ",
+        "market_type": "SPOT",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "10",
+        "price": "220.50",
+        "time_in_force": "day",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-equities-risk-deny",
+        "metadata": {
+          "note": "paper only equities risk deny fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "risk_context": {
+        "max_quantity": 1000.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": ["equities"],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": false,
+      "execution_status": null,
+      "error_type": "RiskDeny",
+      "sandbox_event_expected": false,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "fx_fill_success",
+    "asset_class": "fx",
+    "branch": "fill_success",
+    "description": "FX paper order passes policy and risk, then sandbox fills.",
+    "request": {
+      "raw_order": {
+        "asset_class": "FX",
+        "symbol": "eurusd",
+        "venue": "OANDA",
+        "market_type": "SPOT",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "10000",
+        "price": "1.0905",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-fx-fill",
+        "metadata": {
+          "note": "paper only fx fill fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "risk_context": {
+        "max_quantity": 1000000.0,
+        "max_notional": 10000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": true,
+      "execution_status": "filled",
+      "error_type": null,
+      "sandbox_event_expected": true,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "fx_sandbox_reject",
+    "asset_class": "fx",
+    "branch": "sandbox_reject",
+    "description": "FX paper order passes policy and risk, then sandbox rejects.",
+    "request": {
+      "raw_order": {
+        "asset_class": "FX",
+        "symbol": "gbpusd",
+        "venue": "OANDA",
+        "market_type": "SPOT",
+        "side": "SELL",
+        "order_type": "LIMIT",
+        "quantity": "8000",
+        "price": "1.2700",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-fx-reject",
+        "metadata": {
+          "note": "paper only fx sandbox reject fixture"
+        }
+      },
+      "simulation_mode": "simulated_reject",
+      "reject_reason": "p7-d2 sandbox reject for fx",
+      "risk_context": {
+        "max_quantity": 1000000.0,
+        "max_notional": 10000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": true,
+      "execution_status": "rejected",
+      "error_type": null,
+      "sandbox_event_expected": true,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "fx_policy_deny",
+    "asset_class": "fx",
+    "branch": "policy_deny",
+    "description": "FX request is denied by policy before sandbox execution.",
+    "request": {
+      "raw_order": {
+        "asset_class": "FX",
+        "symbol": "eurusd",
+        "venue": "OANDA",
+        "market_type": "SPOT",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "10000",
+        "price": "1.0905",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-fx-policy-deny",
+        "metadata": {
+          "note": "paper only fx policy deny fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "policy_context": {
+        "connect_exchange_requested": true
+      },
+      "risk_context": {
+        "max_quantity": 1000000.0,
+        "max_notional": 10000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": false,
+      "execution_status": null,
+      "error_type": "PolicyDeny",
+      "sandbox_event_expected": false,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "fx_risk_deny",
+    "asset_class": "fx",
+    "branch": "risk_deny",
+    "description": "FX request passes policy but is denied by risk guardian.",
+    "request": {
+      "raw_order": {
+        "asset_class": "FX",
+        "symbol": "eurusd",
+        "venue": "OANDA",
+        "market_type": "SPOT",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "10000",
+        "price": "1.0905",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-fx-risk-deny",
+        "metadata": {
+          "note": "paper only fx risk deny fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "risk_context": {
+        "max_quantity": 1000000.0,
+        "max_notional": 10000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": ["fx"],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": false,
+      "execution_status": null,
+      "error_type": "RiskDeny",
+      "sandbox_event_expected": false,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "commodities_fill_success",
+    "asset_class": "commodities",
+    "branch": "fill_success",
+    "description": "Commodities paper order passes policy and risk, then sandbox fills.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Commodities",
+        "symbol": "xauusd",
+        "venue": "CME",
+        "market_type": "FUTURES",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "2",
+        "price": "2360.50",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-commodities-fill",
+        "metadata": {
+          "note": "paper only commodities fill fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "risk_context": {
+        "max_quantity": 100.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": true,
+      "execution_status": "filled",
+      "error_type": null,
+      "sandbox_event_expected": true,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "commodities_sandbox_reject",
+    "asset_class": "commodities",
+    "branch": "sandbox_reject",
+    "description": "Commodities paper order passes policy and risk, then sandbox rejects.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Commodities",
+        "symbol": "xagusd",
+        "venue": "CME",
+        "market_type": "FUTURES",
+        "side": "SELL",
+        "order_type": "LIMIT",
+        "quantity": "5",
+        "price": "31.50",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-commodities-reject",
+        "metadata": {
+          "note": "paper only commodities sandbox reject fixture"
+        }
+      },
+      "simulation_mode": "simulated_reject",
+      "reject_reason": "p7-d2 sandbox reject for commodities",
+      "risk_context": {
+        "max_quantity": 100.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": true,
+      "execution_status": "rejected",
+      "error_type": null,
+      "sandbox_event_expected": true,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "commodities_policy_deny",
+    "asset_class": "commodities",
+    "branch": "policy_deny",
+    "description": "Commodities request is denied by policy before sandbox execution.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Commodities",
+        "symbol": "xauusd",
+        "venue": "CME",
+        "market_type": "FUTURES",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "2",
+        "price": "2360.50",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-commodities-policy-deny",
+        "metadata": {
+          "note": "paper only commodities policy deny fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "policy_context": {
+        "save_api_key_requested": true
+      },
+      "risk_context": {
+        "max_quantity": 100.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": [],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": false,
+      "execution_status": null,
+      "error_type": "PolicyDeny",
+      "sandbox_event_expected": false,
+      "real_execution": false
+    }
+  },
+  {
+    "case_id": "commodities_risk_deny",
+    "asset_class": "commodities",
+    "branch": "risk_deny",
+    "description": "Commodities request passes policy but is denied by risk guardian.",
+    "request": {
+      "raw_order": {
+        "asset_class": "Commodities",
+        "symbol": "xauusd",
+        "venue": "CME",
+        "market_type": "FUTURES",
+        "side": "BUY",
+        "order_type": "LIMIT",
+        "quantity": "2",
+        "price": "2360.50",
+        "time_in_force": "gtc",
+        "source": "p7_d2_multi_asset_guarded_fixture",
+        "correlation_id": "p7-d2-commodities-risk-deny",
+        "metadata": {
+          "note": "paper only commodities risk deny fixture"
+        }
+      },
+      "simulation_mode": "simulated_fill",
+      "risk_context": {
+        "max_quantity": 100.0,
+        "max_notional": 1000000.0,
+        "allow_leverage": false,
+        "allow_margin": false,
+        "duplicate_order_keys": [],
+        "blocked_symbols": [],
+        "blocked_asset_classes": ["commodities"],
+        "high_risk_flags": []
+      }
+    },
+    "expected": {
+      "ok": false,
+      "execution_status": null,
+      "error_type": "RiskDeny",
+      "sandbox_event_expected": false,
+      "real_execution": false
+    }
+  }
+]
