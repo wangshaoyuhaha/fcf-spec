@@ -967,3 +967,49 @@ P9-D6：CI-safe regression command document 已完成。
 下一步：
 
 进入 P9-D7：Phase 9 acceptance smoke。
+
+## P9-D7 完成记录
+
+P9-D7：Phase 9 acceptance smoke 已完成。
+
+新增文件：
+
+- docs/86_p9_acceptance_smoke.md
+- scripts/run_p9_acceptance_smoke.py
+- tests/test_p9_acceptance_smoke.py
+
+完成内容：
+
+- 新增 python scripts/run_p9_acceptance_smoke.py
+- 汇总 run_all_smokes
+- 汇总 build_global_regression_report
+- 汇总 check_global_safe_boundary
+- 汇总 check_project_state_consistency
+- 输出 acceptance_summary
+- 输出 components
+- 输出 safe_boundary
+- 输出 ready_for_p9_d8_closeout=true
+- 保持 paper-only 安全边界
+
+安全边界：
+
+- 不接真实交易所 API
+- 不保存真实 API key
+- 不读取钱包私钥
+- 不真实下单
+- 不读取真实账户余额
+- 不读取真实仓位
+- 不声明真实成交
+- 不声明真实资金影响
+- 不配置 CI secret
+- 不做 production deployment
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_p9_acceptance_smoke.py 输出 status completed
+- python -m pytest -q 显示 418 passed 左右
+
+下一步：
+
+进入 P9-D8：Phase 9 closeout。
