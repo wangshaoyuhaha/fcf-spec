@@ -1,8 +1,46 @@
 from typing import Any, Dict, List, Optional
 
+from fcf.contracts.event import create_event
 from fcf.core.event_store import EventStore
-from fcf.modules.mock_market_data_adapter import build_raw_market_event
 from fcf.replay.replay_engine import ReplayEngine
+from fcf.schemas.raw_market_input_schema import (
+    SCHEMA_NAME,
+    SCHEMA_VERSION,
+    normalize_raw_market_input,
+)
+
+PIPELINE_NAME = "market_input_pipeline"
+RAW_MARKET_EVENT_NAME = "fcf.market.raw_received"
+
+
+def _build_raw_market_event(
+    normalized_raw: Dict[str, Any],
+    correlation_id: str,
+) -> Any:
+    return create_event(
+        event_name=RAW_MARKET_EVENT_NAME,
+        source_module=PIPELINE_NAME,
+        correlation_id=correlation_id,
+        payload={
+            "raw_market_input": normalized_raw,
+        },
+        metadata={
+            "schema": SCHEMA_NAME,
+            "schema_version": SCHEMA_VERSION,
+        },
+    )
+
+
+def _persist_if_needed(store: EventStore, output_path: Optional[str]) -> bool:
+    if output_path:
+        store.save_jsonl(output_path)
+        return True
+    return False
+
+
+def _replay_store(store: EventStore) -> Dict[str, Any]:
+    replay_engine = ReplayEngine()
+    return replay_engine.replay(store.all_events())
 
 
 def process_raw_market_input(
@@ -10,43 +48,32 @@ def process_raw_market_input(
     correlation_id: str,
     output_path: Optional[str] = None,
 ) -> Dict[str, Any]:
-    event = build_raw_market_event(
-        raw=raw,
-        correlation_id=correlation_id,
-    )
+    normalized_raw = normalize_raw_market_input(raw)
 
     store = EventStore()
+    event = _build_raw_market_event(
+        normalized_raw=normalized_raw,
+        correlation_id=correlation_id,
+    )
     store.record(event)
 
-    persisted = False
-    replay_source_events = store.all_events()
-
-    if output_path is not None:
-        store.save_jsonl(output_path)
-        persisted = True
-        loaded_store = EventStore.load_jsonl(output_path)
-        replay_source_events = loaded_store.all_events()
-
-    replay_engine = ReplayEngine()
-    replay_result = replay_engine.replay(replay_source_events)
+    persisted = _persist_if_needed(store, output_path)
+    replay_result = _replay_store(store)
 
     return {
         "status": "completed",
-        "pipeline": "market_input_pipeline",
+        "pipeline": PIPELINE_NAME,
         "correlation_id": correlation_id,
+        "schema": SCHEMA_NAME,
+        "schema_version": SCHEMA_VERSION,
+        "asset_class": normalized_raw["asset_class"],
+        "symbol": normalized_raw["symbol"],
+        "venue": normalized_raw["venue"],
+        "market_type": normalized_raw["market_type"],
+        "event_count": store.count(),
+        "event_names": replay_result.get("event_names", []),
         "persisted": persisted,
         "output_path": output_path,
-        "event_count": store.count(),
-        "event_name": event.event_name,
-        "event_id": event.event_id,
-        "asset_class": event.payload["asset_class"],
-        "symbol": event.payload["symbol"],
-        "venue": event.payload["venue"],
-        "market_type": event.payload["market_type"],
-        "timeframe": event.payload["timeframe"],
-        "last_price": event.payload["prices"]["last_price"],
-        "source": event.payload["source"],
-        "source_type": event.payload["source_type"],
         "replay": replay_result,
     }
 
@@ -56,41 +83,36 @@ def process_raw_market_batch(
     correlation_id: str,
     output_path: Optional[str] = None,
 ) -> Dict[str, Any]:
+    if not isinstance(rows, list):
+        raise ValueError("rows must be provided as list")
+
     store = EventStore()
+    normalized_rows: List[Dict[str, Any]] = []
 
-    symbols = []
-    event_ids = []
+    for row in rows:
+        normalized_raw = normalize_raw_market_input(row)
+        normalized_rows.append(normalized_raw)
 
-    for index, raw in enumerate(rows):
-        event = build_raw_market_event(
-            raw=raw,
-            correlation_id=f"{correlation_id}-{index + 1}",
+        event = _build_raw_market_event(
+            normalized_raw=normalized_raw,
+            correlation_id=correlation_id,
         )
         store.record(event)
-        symbols.append(event.payload["symbol"])
-        event_ids.append(event.event_id)
 
-    persisted = False
-    replay_source_events = store.all_events()
-
-    if output_path is not None:
-        store.save_jsonl(output_path)
-        persisted = True
-        loaded_store = EventStore.load_jsonl(output_path)
-        replay_source_events = loaded_store.all_events()
-
-    replay_engine = ReplayEngine()
-    replay_result = replay_engine.replay(replay_source_events)
+    persisted = _persist_if_needed(store, output_path)
+    replay_result = _replay_store(store)
 
     return {
         "status": "completed",
-        "pipeline": "market_input_pipeline",
+        "pipeline": PIPELINE_NAME,
         "correlation_id": correlation_id,
+        "schema": SCHEMA_NAME,
+        "schema_version": SCHEMA_VERSION,
+        "event_count": store.count(),
+        "symbols": [row["symbol"] for row in normalized_rows],
+        "asset_classes": [row["asset_class"] for row in normalized_rows],
+        "market_types": [row["market_type"] for row in normalized_rows],
         "persisted": persisted,
         "output_path": output_path,
-        "event_count": store.count(),
-        "event_names": [event.event_name for event in replay_source_events],
-        "event_ids": event_ids,
-        "symbols": symbols,
         "replay": replay_result,
     }

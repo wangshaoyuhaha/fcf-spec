@@ -249,3 +249,47 @@ P4-D2：raw market input schema module 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P4-D3 完成记录
+
+P4-D3：integrate raw market input schema into market input pipeline 已完成。
+
+新增文件：
+
+- docs/26_p4_schema_pipeline_integration.md
+- tests/test_market_input_pipeline_schema_integration.py
+
+修改文件：
+
+- fcf/pipelines/market_input_pipeline.py
+
+完成内容：
+
+- process_raw_market_input 调用 normalize_raw_market_input
+- process_raw_market_batch 调用 normalize_raw_market_input
+- pipeline 返回 schema 和 schema_version
+- single input 支持 schema normalization
+- batch input 支持 schema normalization
+- schema 错误保持 ValueError
+- local_market_input_api 继续包装为稳定 response dict
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 87 passed
+
+下一步：
+
+进入 P4-D4：schema-aware Dify adapter and response tests。
+
+建议目标：
+
+- 增加 Dify HTTP adapter 对 schema error 的测试
+- 增加 Dify response templates 对 schema error 的测试
+- 确认 bad spread / missing required / bad market_type 均能稳定返回
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

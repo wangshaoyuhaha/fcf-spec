@@ -384,3 +384,26 @@ P4-D2 不保存真实 API key。
 P4-D2 不读取钱包私钥。
 P4-D2 不真实下单。
 
+
+## P4-D3：Schema Integration Into Market Input Pipeline
+
+P4-D3 新增：
+
+- docs/26_p4_schema_pipeline_integration.md
+- tests/test_market_input_pipeline_schema_integration.py
+
+P4-D3 修改：
+
+- fcf/pipelines/market_input_pipeline.py
+
+当前 market_input_pipeline 已在入口调用 normalize_raw_market_input。
+
+当前能力：
+
+- single input 进入 pipeline 前先做 schema normalization
+- batch input 进入 pipeline 前先做 schema normalization
+- schema 错误直接抛出 ValueError
+- local_market_input_api 继续把错误包装成稳定 response dict
+- 不接真实交易所 API
+- 不真实下单
+
