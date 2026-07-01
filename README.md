@@ -358,3 +358,29 @@ P4-D1 只做规划文档。
 不读取钱包私钥。
 不真实下单。
 
+
+## P4-D2：Raw Market Input Schema Module
+
+P4-D2 新增：
+
+- fcf/schemas/__init__.py
+- fcf/schemas/raw_market_input_schema.py
+- tests/test_raw_market_input_schema.py
+
+当前 schema module 实现：
+
+- required field check
+- optional number field normalization
+- number conversion
+- market_type normalization
+- asset_class normalization
+- last_price 正数校验
+- volume / depth 非负校验
+- best_bid <= best_ask 校验
+- stable schema description
+
+P4-D2 仍然不接真实交易所 API。
+P4-D2 不保存真实 API key。
+P4-D2 不读取钱包私钥。
+P4-D2 不真实下单。
+

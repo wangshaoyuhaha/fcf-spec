@@ -196,3 +196,56 @@ P4-D2 目标：
 - 不真实下单
 - 不破坏现有测试
 
+
+## P4-D2 完成记录
+
+P4-D2：raw market input schema module 已完成。
+
+新增文件：
+
+- fcf/schemas/__init__.py
+- fcf/schemas/raw_market_input_schema.py
+- tests/test_raw_market_input_schema.py
+
+完成内容：
+
+- 实现 describe_schema
+- 实现 check_required_fields
+- 实现 normalize_asset_class
+- 实现 normalize_market_type
+- 实现 to_float_field
+- 实现 normalize_raw_market_input
+- 实现 validate_raw_market_input
+- 增加 pytest 覆盖
+
+当前 schema 能力：
+
+- 必填字段检查
+- 字符串字段归一化
+- 数字字段转换
+- market_type 归一化
+- asset_class 归一化
+- last_price 正数校验
+- volume / quote_volume / depth 非负校验
+- best_bid <= best_ask 校验
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python -m pytest -q 显示 84 passed
+
+下一步：
+
+进入 P4-D3：integrate raw market input schema into market input pipeline。
+
+建议目标：
+
+- 在 market_input_pipeline 或 mock adapter 边界调用 normalize_raw_market_input
+- 保持 local_market_input_api 的稳定 response dict
+- 增加 integration tests
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
