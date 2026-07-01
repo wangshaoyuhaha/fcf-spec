@@ -806,3 +806,36 @@ P9-D2：run_all_smokes entrypoint 已完成。
 下一步：
 
 进入 P9-D3：global regression report schema。
+
+## P9-D3 完成记录
+
+P9-D3：global regression report schema 已完成。
+
+新增文件：
+
+- docs/82_p9_global_regression_report_schema.md
+- fcf/regression/__init__.py
+- fcf/regression/global_regression_report_schema.py
+- tests/test_p9_global_regression_report_schema.py
+
+完成内容：
+
+- 新增 build_global_regression_report
+- 定义 machine-readable global regression report schema
+- 汇总 status
+- 汇总 suites
+- 汇总 counts
+- 汇总 readiness
+- 汇总 safe_boundary
+- 输出 next_action
+- 保持 paper-only 安全边界
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_all_smokes.py 输出 status completed
+- python -m pytest -q 显示 387 passed 左右
+
+下一步：
+
+进入 P9-D4：global safe boundary checker。

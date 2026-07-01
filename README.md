@@ -2055,3 +2055,34 @@ P9-D2 新增：
 输出 status、suites、counts、readiness、safe_boundary。
 
 P9-D2 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
+
+## P9-D3：Global Regression Report Schema
+
+P9-D3 新增：
+
+- docs/82_p9_global_regression_report_schema.md
+- fcf/regression/__init__.py
+- fcf/regression/global_regression_report_schema.py
+- tests/test_p9_global_regression_report_schema.py
+
+新增入口：
+
+- build_global_regression_report
+
+该入口把 python scripts/run_all_smokes.py 的输出转成 machine-readable global regression report。
+
+输出字段：
+
+- report_version
+- generated_by
+- phase
+- status
+- source_runner
+- suites
+- counts
+- readiness
+- safe_boundary
+- report_path
+- next_action
+
+P9-D3 继续保持 paper-only 安全边界，不接真实交易所 API，不真实下单。
