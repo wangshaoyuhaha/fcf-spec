@@ -742,3 +742,34 @@ P5-D2 不保存真实 API key。
 P5-D2 不读取钱包私钥。
 P5-D2 不真实下单。
 
+
+## P5-D3：Sandbox Execution Engine Skeleton
+
+P5-D3 新增：
+
+- docs/39_p5_sandbox_execution_engine_skeleton.md
+- fcf/paper/sandbox_execution_engine.py
+- tests/test_sandbox_execution_engine.py
+
+当前 sandbox execution engine 支持：
+
+- simulated_fill
+- simulated_reject
+- full fill
+- partial fill
+- stable response dict
+- safe boundary fields
+
+当前强制：
+
+- execution_mode = paper
+- real_order = false
+- real_execution = false
+- real_exchange_api = false
+- real_money_impact = false
+
+P5-D3 不接真实交易所 API。
+P5-D3 不保存真实 API key。
+P5-D3 不读取钱包私钥。
+P5-D3 不真实下单。
+

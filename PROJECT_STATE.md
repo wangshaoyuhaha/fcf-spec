@@ -310,3 +310,54 @@ P5-D3 目标：
 - 不真实下单
 - 不破坏现有测试
 
+
+## P5-D3 完成记录
+
+P5-D3：sandbox execution engine skeleton 已完成。
+
+新增文件：
+
+- docs/39_p5_sandbox_execution_engine_skeleton.md
+- fcf/paper/sandbox_execution_engine.py
+- tests/test_sandbox_execution_engine.py
+
+完成内容：
+
+- 新增 describe_sandbox_execution_engine
+- 新增 execute_sandbox_order
+- 支持 simulated_fill
+- 支持 simulated_reject
+- 支持 full fill
+- 支持 partial fill
+- 支持 stable response dict
+- 错误时返回 ok false / error / data null
+- 强制 execution_mode = paper
+- 强制 real_order = false
+- 强制 real_execution = false
+- 强制 real_exchange_api = false
+- 强制 real_money_impact = false
+- 增加 pytest 覆盖
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 151 passed
+
+下一步：
+
+进入 P5-D4：sandbox execution EventStore and Replay integration。
+
+建议目标：
+
+- sandbox execution summary 写入 EventStore
+- 生成 sandbox execution event
+- ReplayEngine 回放 sandbox execution event
+- 增加测试
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
