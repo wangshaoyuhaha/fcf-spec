@@ -176,6 +176,38 @@ def render_paper_policy_deny_response(paper_response: Dict[str, Any]) -> Dict[st
     )
 
 
+def render_paper_risk_deny_response(paper_response: Dict[str, Any]) -> Dict[str, Any]:
+    body = _body(paper_response)
+    error = body.get("error") or {}
+
+    error_type = error.get("type", "RiskDeny")
+    error_message = error.get("message", "risk denied")
+
+    message = (
+        "系统 risk guardian 已拒绝该 paper / sandbox execution 请求。"
+        "这不是交易所真实拒单，也不是真实下单失败。"
+        "系统没有连接真实交易所，没有真实下单，没有真实资金变化，也没有真实仓位变化。"
+        "请降低 quantity / notional，移除 blocked symbol、leverage、margin 或 high risk flags，"
+        "或补充合规 risk_context 后重新提交 paper / sandbox 请求。"
+    )
+
+    return _base_response(
+        response_type="paper_risk_deny",
+        title="纸面模拟执行被风控规则拒绝",
+        message=message,
+        fields={
+            "error_type": error_type,
+            "error_message": error_message,
+            "risk_denied": True,
+            "not_exchange_reject": True,
+            "real_order": False,
+            "real_execution": False,
+            "real_exchange_api": False,
+            "real_money_impact": False,
+        },
+    )
+
+
 
 
 def render_paper_safety_refusal(intent: str, reason: Optional[str] = None) -> Dict[str, Any]:
@@ -222,6 +254,8 @@ def render_paper_execution_user_response(
         error = body.get("error") or {}
         if error.get("type") == "PolicyDeny":
             return render_paper_policy_deny_response(paper_response)
+        if error.get("type") == "RiskDeny":
+            return render_paper_risk_deny_response(paper_response)
         return render_paper_execution_error_response(paper_response)
 
     data = body.get("data") or {}

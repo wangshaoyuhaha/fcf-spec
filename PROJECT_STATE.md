@@ -686,3 +686,54 @@ P6-D8：integrate risk guardian into paper execution API 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P6-D9 完成记录
+
+P6-D9：paper execution risk deny response templates 已完成。
+
+新增文件：
+
+- docs/57_p6_paper_execution_risk_deny_response_templates.md
+- tests/test_paper_execution_risk_deny_response_templates.py
+
+修改文件：
+
+- fcf/api/paper_execution_response_templates.py
+
+完成内容：
+
+- 新增 render_paper_risk_deny_response
+- render_paper_execution_user_response 自动识别 RiskDeny
+- RiskDeny 渲染为 paper_risk_deny
+- PolicyDeny 仍渲染为 paper_policy_deny
+- ValueError 仍渲染为 paper_execution_error
+- safety refusal 仍渲染为 paper_safety_refusal
+- 用户可见文案明确 risk deny 不是交易所真实拒单
+- 用户可见文案明确没有真实下单
+- 增加 pytest 覆盖
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_smoke.py 输出 status completed
+- python scripts/run_dify_paper_execution_response_smoke.py 输出 status completed
+- python -m pytest -q 显示 234 passed
+
+下一步：
+
+进入 P6-D10：Dify paper execution response smoke includes risk deny。
+
+建议目标：
+
+- 更新 scripts/run_dify_paper_execution_response_smoke.py
+- 增加 risk_deny case
+- 区分 policy_deny / risk_deny / execution_error / safety_refusal
+- 更新测试
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+

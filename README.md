@@ -1269,3 +1269,34 @@ P6-D8 不保存真实 API key。
 P6-D8 不读取钱包私钥。
 P6-D8 不真实下单。
 
+
+## P6-D9：Paper Execution Risk Deny Response Templates
+
+P6-D9 新增：
+
+- docs/57_p6_paper_execution_risk_deny_response_templates.md
+- tests/test_paper_execution_risk_deny_response_templates.py
+
+P6-D9 修改：
+
+- fcf/api/paper_execution_response_templates.py
+
+当前新增：
+
+- render_paper_risk_deny_response
+- RiskDeny 自动渲染为 paper_risk_deny
+
+当前用户可见边界：
+
+- risk deny 不是交易所真实拒单
+- risk deny 不是真实下单失败
+- risk deny 没有连接真实交易所
+- risk deny 没有真实下单
+- risk deny 没有真实资金变化
+- risk deny 没有真实仓位变化
+
+P6-D9 不接真实交易所 API。
+P6-D9 不保存真实 API key。
+P6-D9 不读取钱包私钥。
+P6-D9 不真实下单。
+
