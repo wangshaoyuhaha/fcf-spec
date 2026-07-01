@@ -2802,3 +2802,18 @@ P12-D1 继续保持 paper-only 安全边界：不接真实交易所 API，不保
 下一步：
 
 P12-D2：final non-production delivery package document。
+
+## P12-D2：Final Non-production Delivery Package
+
+P12-D2 新增：
+
+- docs/111_p12_final_non_production_delivery_package.md
+- tests/test_p12_final_non_production_delivery_package.py
+
+该文档形成最终 non-production delivery package 总说明，覆盖项目定位、当前系统定位、最终交付文档、最终运行命令、Dify-safe paper review 入口、最终通过状态说明、失败停止规则、最终安全边界和最终交付限制。
+
+P12-D2 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
+
+下一步：
+
+P12-D3：archive readiness checklist。
