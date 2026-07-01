@@ -855,3 +855,36 @@ P5-D6 不保存真实 API key。
 P5-D6 不读取钱包私钥。
 P5-D6 不真实下单。
 
+
+## P5-D7：Dify Paper Execution Local Adapter
+
+P5-D7 新增：
+
+- docs/43_p5_dify_paper_execution_local_adapter.md
+- fcf/api/dify_paper_execution_adapter.py
+- tests/test_dify_paper_execution_adapter.py
+
+当前支持路由：
+
+- GET /api/v1/paper-execution/contract
+- POST /api/v1/paper-execution/execute
+
+当前能力：
+
+- contract route
+- simulated_fill
+- simulated_reject
+- partial fill
+- bad order 422
+- bad simulation_mode 422
+- unknown route 404
+- method not allowed 405
+- bad request 400
+- 可选 JSONL 持久化
+
+P5-D7 只调用 paper_execution_api。
+P5-D7 不接真实交易所 API。
+P5-D7 不保存真实 API key。
+P5-D7 不读取钱包私钥。
+P5-D7 不真实下单。
+

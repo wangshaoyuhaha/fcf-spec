@@ -512,3 +512,56 @@ P5-D6：Dify paper execution contract and local adapter planning 已完成。
 - 不真实下单
 - 不破坏现有测试
 
+
+## P5-D7 完成记录
+
+P5-D7：Dify paper execution local adapter 已完成。
+
+新增文件：
+
+- docs/43_p5_dify_paper_execution_local_adapter.md
+- fcf/api/dify_paper_execution_adapter.py
+- tests/test_dify_paper_execution_adapter.py
+
+完成内容：
+
+- 新增 route_dify_paper_execution_request
+- 新增 describe_routes
+- 支持 GET /api/v1/paper-execution/contract
+- 支持 POST /api/v1/paper-execution/execute
+- 支持 simulated_fill
+- 支持 simulated_reject
+- 支持 partial fill
+- 支持 bad order 422
+- 支持 bad simulation_mode 422
+- 支持 unknown route 404
+- 支持 method not allowed 405
+- 支持 bad request 400
+- 支持可选 JSONL 持久化
+- 只调用 paper_execution_api
+- 不接真实交易所 API
+- 不真实下单
+
+当前验证预期：
+
+- python main.py 输出 events_recorded: 8
+- python scripts/run_dify_http_adapter_smoke.py 输出 status completed
+- python scripts/run_dify_integration_smoke.py 输出 status completed
+- python scripts/run_multi_asset_dify_smoke.py 输出 status completed
+- python scripts/run_multi_asset_error_dify_smoke.py 输出 status completed
+- python -m pytest -q 显示 172 passed
+
+下一步：
+
+进入 P5-D8：Dify paper execution smoke runner。
+
+建议目标：
+
+- 新增 scripts/run_dify_paper_execution_smoke.py
+- 调用 Dify paper execution adapter
+- 覆盖 contract / fill / reject / error
+- 输出稳定 summary
+- 不接真实交易所 API
+- 不真实下单
+- 不破坏现有测试
+
