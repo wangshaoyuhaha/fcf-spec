@@ -238,3 +238,28 @@ Validation:
 
 - python -m pytest -q
 - expected: 17 passed
+
+## P0-D9 CLI Entry
+
+Status: completed
+
+Added:
+
+- src/btc_finance_platform/cli.py
+- main.py
+- tests/test_cli.py
+- docs/011_cli_entry.md
+
+Scope:
+
+- minimum command line entry
+- one-command paper pipeline
+- no production deployment
+- no live trading
+- no real exchange API
+
+Validation:
+
+- python main.py --symbol BTCUSDT --price 65000
+- python -m pytest -q
+- expected: 19 passed
