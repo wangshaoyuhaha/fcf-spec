@@ -1265,3 +1265,17 @@ Important:
 - no strategy calibration yet
 - no real execution
 - future P9 handles backtest and calibration
+
+## P8-D10 To P8-D12 Learning Readiness
+Status: completed
+Commit: pending
+
+Completed:
+- P8-D10 learning dataset quality gate
+- P8-D11 calibration readiness gate
+- P8-D12 learning readiness bundle
+
+Important:
+- no model training yet
+- no strategy calibration yet
+- ready for future P9 backtest and calibration handoff
