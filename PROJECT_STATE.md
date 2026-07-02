@@ -376,3 +376,33 @@ Validation: expected 25 passed
 Status: completed
 Validation: expected 30 passed
 
+
+## P1-D7 To P1-D9 Analysis Flow Record Export
+
+Status: completed
+
+Added:
+
+- src/btc_finance_platform/paper_run_record.py
+- src/btc_finance_platform/report_exporter.py
+- src/btc_finance_platform/analysis_flow.py
+- scripts/run_analysis_flow_smoke.py
+- tests/test_analysis_flow_record_export.py
+- docs/019_p1_analysis_flow_record_export.md
+
+Scope:
+
+- paper run record
+- paper report export
+- paper analysis flow wrapper
+- no real exchange API
+- no live trading
+- no real order
+- no real execution
+- no real money impact
+
+Validation:
+
+- python scripts/run_analysis_flow_smoke.py
+- python -m pytest -q
+- expected: 35 passed
