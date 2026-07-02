@@ -3205,3 +3205,37 @@ Archive-D7 完成最终归档阶段 closeout。
 Archive-D7 继续保持 paper-only 安全边界：不接真实交易所 API，不保存真实 API key，不读取钱包私钥，不真实下单，不读取真实账户余额，不读取真实仓位，不声明真实成交，不声明真实资金影响，不自动绕过人工复核，不绕过 policy / risk / safe_boundary。
 
 Final Archive 阶段完成。
+
+## Final Archive Status
+
+FCF / fcf-spec is now in final archived, maintenance-only, paper-only state.
+
+Current verified status:
+
+- Phase 1 through Phase 12 completed
+- Final Archive D1 through D7 completed
+- Archive-D7 final archive closeout completed
+- Latest verified full test result: 773 passed
+- paper-only safe_boundary preserved
+- operator_review_required = true
+- bypass_operator_review = false
+- bypass_policy_risk_safe_boundary = false
+
+Start here for future maintenance:
+
+- docs/131_maintenance_final_archive_index.md
+- docs/132_maintenance_continuation_prompt.md
+- docs/130_maintenance_operator_quickstart.md
+
+Required validation after future maintenance changes:
+
+- python main.py
+- python scripts/run_p12_final_delivery_package_summary.py
+- python scripts/run_final_archive_acceptance_smoke.py
+- python -m pytest -q
+
+Safety boundary:
+
+This project must not connect real exchange APIs, store real API keys, read wallet private keys, place real orders, read real account balances, read real positions, claim real execution success, claim real financial impact, configure CI secrets, deploy to production, auto-trade live capital, bypass operator review, bypass policy checks, bypass risk checks, or bypass safe_boundary checks.
+
+Paper-only passed must not be interpreted as a real trading signal, real fill, or real execution.

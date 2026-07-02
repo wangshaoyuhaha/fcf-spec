@@ -3222,3 +3222,25 @@ Scope:
 - no bypass of operator review, policy, risk, or safe_boundary
 
 Required validation was rerun after this maintenance documentation update.
+
+## Maintenance README Final Archive Pointer
+
+Date: 2026-07-02 12:23:45 +0800
+
+Added README final archive pointer and maintenance record.
+
+Files changed:
+
+- README.md
+- docs/133_maintenance_readme_final_archive_pointer.md
+
+Scope:
+
+- maintenance documentation only
+- no new Phase opened
+- no safe_boundary change
+- no production deployment
+- no live trading behavior
+- no bypass of operator review, policy, risk, or safe_boundary
+
+Required validation was rerun after this maintenance documentation update.
