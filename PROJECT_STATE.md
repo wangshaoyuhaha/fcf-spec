@@ -3201,3 +3201,24 @@ Scope:
 - no bypass of operator review, policy, risk, or safe_boundary
 
 Required validation was rerun after this maintenance documentation update.
+
+## Maintenance Continuation Prompt
+
+Date: 2026-07-02 12:08:58 +0800
+
+Added final archive continuation prompt for future new-chat handoff.
+
+File added:
+
+- docs/132_maintenance_continuation_prompt.md
+
+Scope:
+
+- maintenance documentation only
+- no new Phase opened
+- no safe_boundary change
+- no production deployment
+- no live trading behavior
+- no bypass of operator review, policy, risk, or safe_boundary
+
+Required validation was rerun after this maintenance documentation update.
