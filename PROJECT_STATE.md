@@ -54,3 +54,26 @@ Safety:
 - no real order placement
 - no production deployment
 - no live auto-trading
+
+## P0-D2 Architecture And Module Boundaries
+
+Status: completed
+
+Added:
+
+- docs/002_architecture.md
+- docs/003_module_boundaries.md
+
+Scope:
+
+- documentation only
+- paper-only architecture
+- module boundary definition
+- no real exchange integration
+- no live trading behavior
+- no production deployment
+
+Validation required:
+
+- python scripts/run_safety_smoke.py
+- python -m pytest -q
