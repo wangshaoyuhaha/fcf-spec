@@ -58,6 +58,7 @@ COMMANDS = [
     ["python", "scripts/run_p10_model_registry_closeout_smoke.py"],
     ["python", "scripts/run_paper_deployment_handoff_smoke.py"],
     ["python", "scripts/run_paper_deployment_preflight_smoke.py"],
+    ["python", "scripts/run_paper_deployment_dry_run_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
