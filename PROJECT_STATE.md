@@ -1374,3 +1374,18 @@ Important:
 - no parameter update
 - no real execution
 - P10 must remain paper-only and operator-reviewed
+
+## P10-D1 To P10-D3 Model Registry Baseline
+Status: completed
+Commit: pending
+
+Completed:
+- P10-D1 paper model registry schema
+- P10-D2 strategy version record
+- P10-D3 calibration proposal version record
+
+Important:
+- no model training
+- no model deployment
+- no parameter update
+- no real execution
