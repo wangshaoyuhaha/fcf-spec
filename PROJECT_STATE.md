@@ -459,3 +459,7 @@ Validation: expected 58 passed
 ## P2-D7 To P2-D9 Batch History
 Status: completed
 Validation: expected 63 passed
+
+## P2-D10 To P2-D12 Batch Quality Manifest
+Status: completed
+Validation: expected 69 passed
