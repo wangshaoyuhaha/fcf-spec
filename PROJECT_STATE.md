@@ -1312,3 +1312,17 @@ Important:
 - no live calibration
 - no real execution
 - offline paper-only backtest preparation
+
+## P9-D4 To P9-D6 Backtest Metrics And Report
+Status: completed
+Commit: pending
+
+Completed:
+- P9-D4 backtest metric summary
+- P9-D5 calibration evaluation baseline
+- P9-D6 backtest readable report
+
+Important:
+- no model training yet
+- no strategy parameter update
+- no real execution
