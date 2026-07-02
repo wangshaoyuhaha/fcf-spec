@@ -815,3 +815,31 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P5-D10 To P5-D12 Governance UI Contract
+Status: completed
+Validation: expected about 173 passed
+Commit: pending
+
+Completed:
+- P5-D10 governance UI card and UI contract
+- P5-D11 governance decision index
+- P5-D12 writable governance contract bundle
+
+Architecture direction:
+- Prepare future UI/audit page integration
+- Reconnect FCF-style governor, regime, policy_engine, and audit_store ideas
+- BTC remains the first paper-only implementation line
+- Long-term target remains a general FCF-style finance platform for stocks and other markets
+
+Safety:
+- paper-only
+- no real exchange API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
