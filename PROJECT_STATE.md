@@ -77,3 +77,30 @@ Validation required:
 
 - python scripts/run_safety_smoke.py
 - python -m pytest -q
+
+## P0-D3 Paper Market Snapshot
+
+Status: completed
+
+Added:
+
+- src/btc_finance_platform/market_snapshot.py
+- scripts/run_market_snapshot_smoke.py
+- tests/test_market_snapshot.py
+- docs/004_paper_market_snapshot.md
+
+Scope:
+
+- paper-only market snapshot
+- manual paper input only
+- no real exchange API
+- no real API key
+- no real balance read
+- no real position read
+- no real order placement
+
+Validation required:
+
+- python scripts/run_safety_smoke.py
+- python scripts/run_market_snapshot_smoke.py
+- python -m pytest -q
