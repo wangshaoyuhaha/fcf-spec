@@ -48,6 +48,7 @@ COMMANDS = [
     ["python", "scripts/run_p8_closeout_smoke.py"],
     ["python", "scripts/run_paper_backtest_baseline_smoke.py"],
     ["python", "scripts/run_paper_backtest_metrics_smoke.py"],
+    ["python", "scripts/run_paper_calibration_proposal_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
@@ -72,6 +73,7 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
 
 

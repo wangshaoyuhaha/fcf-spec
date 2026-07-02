@@ -1326,3 +1326,18 @@ Important:
 - no model training yet
 - no strategy parameter update
 - no real execution
+
+## P9-D7 To P9-D9 Calibration Proposal UI
+Status: completed
+Commit: pending
+
+Completed:
+- P9-D7 risk bucket performance index
+- P9-D8 calibration proposal contract
+- P9-D9 calibration UI contract
+
+Important:
+- no model training
+- no parameter update
+- no real execution
+- operator review required before any future change
