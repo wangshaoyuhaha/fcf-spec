@@ -934,3 +934,26 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P6-D7 To P6-D9 Multi-Market Readable Report
+Status: completed
+Validation: expected about 205 passed
+Commit: pending
+
+Completed:
+- P6-D7 multi-market report summary
+- P6-D8 multi-market UI contract and markdown report
+- P6-D9 writable multi-market report bundle
+
+Safety:
+- paper-only
+- no real exchange API
+- no real brokerage API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
