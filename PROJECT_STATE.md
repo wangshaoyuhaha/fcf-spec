@@ -371,3 +371,8 @@ Validation:
 Status: completed
 Validation: expected 25 passed
 
+
+## P1-D4 To P1-D6 Risk Strategy Integrated Report
+Status: completed
+Validation: expected 30 passed
+
