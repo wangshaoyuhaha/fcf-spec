@@ -159,3 +159,32 @@ Validation required:
 - python scripts/run_decision_draft_smoke.py
 - python scripts/run_operator_review_smoke.py
 - python -m pytest -q
+
+## P0-D6 Paper Pipeline Smoke
+
+Status: completed
+
+Added:
+
+- src/btc_finance_platform/paper_pipeline.py
+- scripts/run_paper_pipeline_smoke.py
+- tests/test_paper_pipeline.py
+- docs/007_paper_pipeline_smoke.md
+
+Scope:
+
+- end-to-end paper pipeline
+- market snapshot to decision draft to operator review gate
+- no live action
+- no real order placement
+- no real execution claim
+- no real financial impact claim
+
+Validation required:
+
+- python scripts/run_safety_smoke.py
+- python scripts/run_market_snapshot_smoke.py
+- python scripts/run_decision_draft_smoke.py
+- python scripts/run_operator_review_smoke.py
+- python scripts/run_paper_pipeline_smoke.py
+- python -m pytest -q
