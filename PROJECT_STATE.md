@@ -843,3 +843,43 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P5-D13 To P5-D15 Closeout And P6 Transition
+Status: completed
+Validation: expected about 181 passed
+Commit: pending
+
+Completed:
+- P5-D13 P5 governance layer closeout summary
+- P5-D14 P5 paper-only safety acceptance
+- P5-D15 P6 transition anchor
+
+P5 completed:
+- regime classification baseline
+- risk governor baseline
+- policy gate over paper signals
+- governance audit trail
+- operator approval gate
+- governance readable report
+- governance UI contract
+- governance decision index
+
+Next phase:
+- P6 multi-market architecture preparation
+
+Architecture direction:
+- BTC remains the first paper-only implementation line
+- Long-term target remains a general FCF-style finance platform for stocks and other markets
+
+Safety:
+- paper-only
+- no real exchange API
+- no real brokerage API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
