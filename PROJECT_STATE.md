@@ -1356,3 +1356,21 @@ Important:
 - no parameter update
 - no real execution
 - operator review required before any future change
+
+## P9-D13 To P9-D15 Closeout And P10 Transition
+Status: completed
+Commit: pending
+
+Completed:
+- P9-D13 P9 closeout summary
+- P9-D14 P9 paper-only safety acceptance
+- P9-D15 P10 model registry transition anchor
+
+Next phase:
+- P10 model registry and strategy versioning
+
+Important:
+- no model training
+- no parameter update
+- no real execution
+- P10 must remain paper-only and operator-reviewed
