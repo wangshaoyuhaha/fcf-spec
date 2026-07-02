@@ -6,3 +6,9 @@
 .env.*
 secrets/
 data/live/
+# Generated runtime artifacts
+artifacts/
+# Python cache
+# Local logs
+*_log.txt
+btc_*_log.txt
