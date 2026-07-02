@@ -263,3 +263,27 @@ Validation:
 - python main.py --symbol BTCUSDT --price 65000
 - python -m pytest -q
 - expected: 19 passed
+
+## P0-D10 One Command Validation
+
+Status: completed
+
+Added:
+
+- scripts/run_all_checks.py
+- docs/012_one_command_validation.md
+
+Scope:
+
+- one-command local validation
+- run all smoke scripts
+- run CLI smoke
+- run all tests
+- no production deployment
+- no live trading
+- no real exchange API
+
+Validation:
+
+- python scripts/run_all_checks.py
+- expected: 19 passed
