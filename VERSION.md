@@ -1,24 +1,25 @@
-﻿# Version
+# Version
 
 Project: BTC Finance Platform
 
-Current version: 0.1.0-p0
+Current version: 0.2.0-p1
 
-Status: P0 foundation completed in paper-only mode.
+Status: P1 paper-only analysis foundation completed.
 
 ## Version Notes
 
 This version includes:
 
-- safe_boundary
-- paper market snapshot
-- paper decision draft
-- operator review gate
-- end-to-end paper pipeline
-- CLI entry
-- one-command validation
-- documentation index
-- P0 closeout notes
+- P0 paper-only safe foundation
+- P1 paper input validation
+- P1 paper market analysis
+- P1 paper risk scoring
+- P1 paper strategy draft
+- P1 integrated paper report
+- P1 paper run record
+- P1 paper report export
+- P1 paper history summary
+- P1 analysis CLI
 
 ## Safety
 

@@ -88,3 +88,38 @@ FCF / fcf-spec 已经最终归档并关闭：
 ## 下一步
 
 P0-D9：添加最小命令行入口，让用户可以一条命令跑完整 paper pipeline。
+
+
+## P1 当前状态
+
+P1 已完成 paper-only 分析平台基础能力：
+
+- paper 输入校验
+- paper 市场分析
+- paper 风险评分
+- paper 策略草案
+- paper 报告渲染
+- paper 运行记录
+- paper 报告导出
+- paper 历史摘要
+- analysis CLI
+- 一键验证脚本
+
+当前验证：
+
+- python scripts/run_all_checks.py
+- 45 passed
+- ALL CHECKS PASSED
+
+仍然禁止：
+
+- 接真实交易所 API
+- 保存真实 API key
+- 读取钱包私钥
+- 真实下单
+- 读取真实余额
+- 读取真实仓位
+- 声明真实成交
+- 声明真实资金影响
+- 自动实盘交易
+- 绕过人工复核

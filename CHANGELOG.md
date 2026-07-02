@@ -37,3 +37,39 @@ Safety:
 - no real positions
 - no production deployment
 - no live auto-trading
+
+## 0.2.0-p1
+
+P1 paper-only analysis foundation completed.
+
+Added:
+
+- paper input validation
+- paper market analysis
+- paper risk scoring
+- paper strategy draft
+- integrated paper report
+- paper run record
+- report export
+- paper history summary
+- analysis CLI
+- updated one-command validation
+
+Validation:
+
+- python scripts/run_all_checks.py
+- 45 passed
+- ALL CHECKS PASSED
+
+Safety:
+
+- paper-only preserved
+- no real exchange API
+- no real API key storage
+- no wallet private key access
+- no real orders
+- no real balances
+- no real positions
+- no production deployment
+- no live auto-trading
+
