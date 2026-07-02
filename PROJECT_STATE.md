@@ -565,3 +565,31 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P3-D13 To P3-D15 Closeout And FCF Architecture Anchor
+Status: completed
+Validation: expected 102 passed
+Commit: pending
+
+Completed:
+- P3-D13 P3 closeout summary
+- P3-D14 FCF original architecture anchor
+- P3-D15 P3 paper-only safety acceptance
+
+Architecture direction:
+- Current repo is btc_finance_platform
+- BTC is the first paper-only implementation line
+- The long-term target is a general FCF-style finance platform for stocks and other markets
+- Preserve event-driven core, policy engine, perception, regime, governor, execution, simulation, meta, and audit storage ideas
+
+Safety:
+- paper-only
+- no real exchange API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required

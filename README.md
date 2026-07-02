@@ -159,3 +159,33 @@ P2 已完成多 symbol / 批量 paper 分析基础能力：
 - 声明真实资金影响
 - 自动实盘交易
 - 绕过人工复核
+
+## FCF Architecture Anchor
+
+This repository is currently named btc_finance_platform, but BTC is only the first paper-only implementation line.
+
+The broader target is a general FCF-style finance platform for stocks and other financial markets.
+
+Original FCF skeleton ideas preserved:
+- event-driven core
+- event model
+- policy engine
+- perception module
+- regime module
+- governor module
+- execution module restricted to paper-only at this stage
+- simulation module
+- meta/self-check module
+- audit store
+
+Safety boundary:
+- paper-only
+- no real exchange API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
