@@ -1218,3 +1218,50 @@ Forbidden:
 Safety:
 - paper-only
 - operator review required
+
+## P8-D7 To P8-D9 Learning Memory UI Contract
+Status: completed
+Validation: expected about 287 passed
+Commit: pending
+
+Completed:
+- P8-D7 learning memory UI contract
+- P8-D8 learning dataset index
+- P8-D9 learning memory UI bundle
+
+Important:
+- no model training yet
+- no strategy calibration yet
+- no live trading
+- learning UI remains paper-only
+
+Safety:
+- paper-only
+- no self-trading
+- no automatic live trading
+- no bypassing operator review
+- no real exchange API
+- no real brokerage API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
+
+## P8-D4 To P8-D6 Learning Audit And Calibration Handoff
+Status: completed
+Commit: pending
+
+Completed:
+- P8-D4 learning event audit trail
+- P8-D5 feedback-to-calibration handoff
+- P8-D6 learning memory readable report
+
+Important:
+- no model training yet
+- no strategy calibration yet
+- no real execution
+- future P9 handles backtest and calibration

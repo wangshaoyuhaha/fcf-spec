@@ -42,6 +42,7 @@ COMMANDS = [
     ["python", "scripts/run_paper_operator_console_acceptance_smoke.py"],
     ["python", "scripts/run_p7_closeout_smoke.py"],
     ["python", "scripts/run_paper_learning_memory_smoke.py"],
+    ["python", "scripts/run_paper_learning_audit_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
@@ -66,6 +67,8 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
 
 
 
