@@ -447,3 +447,7 @@ Validation:
 - python scripts/run_all_checks.py
 - expected: 45 passed
 - expected: ALL CHECKS PASSED
+
+## P2-D1 To P2-D3 Batch Paper Analysis
+Status: completed
+Validation: expected 51 passed
