@@ -734,3 +734,30 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P5-D1 To P5-D3 Risk Governance And Regime Baseline
+Status: completed
+Validation: expected about 148 passed
+Commit: pending
+
+Completed:
+- P5-D1 paper market regime classification baseline
+- P5-D2 risk governor decision baseline
+- P5-D3 policy gate over paper governor decisions
+
+Architecture direction:
+- Reconnect FCF-style regime, governor, and policy engine ideas
+- BTC remains the first paper-only implementation line
+- Long-term target remains a general FCF-style finance platform for stocks and other markets
+
+Safety:
+- paper-only
+- no real exchange API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
