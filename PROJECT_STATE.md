@@ -1184,3 +1184,37 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P8-D1 To P8-D3 Learning Memory Baseline
+Status: completed
+Validation: expected about 271 passed
+Commit: pending
+
+Completed:
+- P8-D1 learning memory schema
+- P8-D2 operator feedback dataset
+- P8-D3 paper outcome tracking contract
+
+Allowed:
+- paper-only memory
+- operator feedback dataset
+- paper outcome tracking
+- future backtest and calibration handoff
+
+Forbidden:
+- self-trading
+- automatic live trading
+- bypassing operator review
+- real exchange API
+- real brokerage API
+- real API key
+- wallet private key
+- real order
+- real execution
+- real balance
+- real position
+- real money impact
+
+Safety:
+- paper-only
+- operator review required
