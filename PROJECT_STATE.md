@@ -211,3 +211,30 @@ Validation:
 
 - python -m pytest -q
 - 17 passed
+
+## P0-D8 README Quickstart
+
+Status: completed
+
+Added:
+
+- docs/010_readme_quickstart.md
+
+Changed:
+
+- README.md
+
+Scope:
+
+- README quickstart
+- common commands
+- current project state
+- safety boundary reminder
+- no production deployment
+- no live trading
+- no real exchange API
+
+Validation:
+
+- python -m pytest -q
+- expected: 17 passed
