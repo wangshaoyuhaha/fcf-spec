@@ -451,3 +451,7 @@ Validation:
 ## P2-D1 To P2-D3 Batch Paper Analysis
 Status: completed
 Validation: expected 51 passed
+
+## P2-D4 To P2-D6 Batch File CLI Export
+Status: completed
+Validation: expected 58 passed
