@@ -788,3 +788,30 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P5-D7 To P5-D9 Governance Readable Report
+Status: completed
+Validation: expected about 165 passed
+Commit: pending
+
+Completed:
+- P5-D7 governance report summary
+- P5-D8 human-readable governance markdown report
+- P5-D9 governance markdown/json report bundle artifact
+
+Architecture direction:
+- Reconnect FCF-style governor, regime, policy_engine, and audit_store ideas
+- BTC remains the first paper-only implementation line
+- Long-term target remains a general FCF-style finance platform for stocks and other markets
+
+Safety:
+- paper-only
+- no real exchange API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
