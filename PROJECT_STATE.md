@@ -593,3 +593,29 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P4-D1 To P4-D3 Paper Analysis Logic Baseline
+Status: completed
+Validation: expected 110 passed
+Commit: pending
+
+Completed:
+- P4-D1 price deviation analysis
+- P4-D2 simple momentum and paper risk score
+- P4-D3 paper signal draft and batch analysis baseline
+
+Architecture direction:
+- BTC remains the first paper-only implementation line
+- Long-term target remains a general FCF-style finance platform for stocks and other markets
+
+Safety:
+- paper-only
+- no real exchange API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required

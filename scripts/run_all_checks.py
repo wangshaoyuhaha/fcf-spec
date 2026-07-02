@@ -21,6 +21,7 @@ COMMANDS = [
     ["python", "scripts/run_local_data_bridge_smoke.py"],
     ["python", "scripts/run_local_data_handoff_smoke.py"],
     ["python", "scripts/run_p3_closeout_smoke.py"],
+    ["python", "scripts/run_paper_analysis_logic_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
@@ -45,6 +46,7 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
 
 
