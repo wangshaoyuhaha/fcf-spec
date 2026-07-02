@@ -1279,3 +1279,21 @@ Important:
 - no model training yet
 - no strategy calibration yet
 - ready for future P9 backtest and calibration handoff
+
+## P8-D13 To P8-D15 Closeout And P9 Transition
+Status: completed
+Commit: pending
+
+Completed:
+- P8-D13 P8 learning closeout summary
+- P8-D14 P8 paper-only learning safety acceptance
+- P8-D15 P9 backtest and calibration transition anchor
+
+Next phase:
+- P9 backtest and calibration
+
+Important:
+- no model training yet
+- no strategy calibration yet
+- no live trading
+- P9 must remain paper-only and operator-reviewed
