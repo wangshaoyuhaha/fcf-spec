@@ -1529,3 +1529,25 @@ Safety:
 - no real balances or positions
 - no real money impact
 - operator review required
+
+## P11-D10 To P11-D12 Paper Dry Run Report Gate
+Status: completed after validation
+Validation: expected 395 passed
+Commit: pending
+
+Completed:
+- P11-D10 paper dry-run report gate
+- P11-D11 operator-reviewed dry-run report summary
+- P11-D12 paper-only report regression tests
+
+Safety:
+- paper-only
+- no real exchange API
+- no real brokerage API
+- no real API keys
+- no wallet private keys
+- no real orders
+- no real execution
+- no real balances or positions
+- no real money impact
+- operator review required
