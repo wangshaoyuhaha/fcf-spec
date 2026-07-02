@@ -1404,3 +1404,18 @@ Important:
 - no model deployment
 - no parameter update
 - no real execution
+
+## P10-D7 To P10-D9 Model Registry UI
+Status: completed
+Commit: pending
+
+Completed:
+- P10-D7 model version index
+- P10-D8 model registry UI contract
+- P10-D9 model registry UI manifest
+
+Important:
+- no model training
+- no model deployment
+- no parameter update
+- no real execution
