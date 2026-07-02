@@ -2,24 +2,24 @@
 
 Project: BTC Finance Platform
 
-Current version: 0.2.0-p1
+Current version: 0.3.0-p2
 
-Status: P1 paper-only analysis foundation completed.
+Status: P2 paper-only batch analysis foundation completed.
 
 ## Version Notes
 
 This version includes:
 
-- P0 paper-only safe foundation
-- P1 paper input validation
-- P1 paper market analysis
-- P1 paper risk scoring
-- P1 paper strategy draft
-- P1 integrated paper report
-- P1 paper run record
-- P1 paper report export
-- P1 paper history summary
-- P1 analysis CLI
+- P0 paper-only safety foundation
+- P1 single-symbol paper analysis foundation
+- P2 multi-symbol batch paper analysis
+- batch JSON / CSV file loading
+- batch CLI
+- batch report export
+- batch run records
+- batch history summary
+- batch quality gate
+- batch manifest
 
 ## Safety
 

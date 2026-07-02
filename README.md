@@ -123,3 +123,39 @@ P1 已完成 paper-only 分析平台基础能力：
 - 声明真实资金影响
 - 自动实盘交易
 - 绕过人工复核
+
+
+## P2 当前状态
+
+P2 已完成多 symbol / 批量 paper 分析基础能力：
+
+- 多 symbol paper 输入
+- 批量 paper 分析
+- 批量 paper 报告
+- JSON / CSV 批量文件导入
+- 批量 CLI
+- 批量报告导出
+- 批量运行记录
+- 批量历史摘要
+- 批量质量闸门
+- 批量错误收集
+- 批量 manifest
+
+当前验证：
+
+- python scripts/run_all_checks.py
+- 69 passed
+- ALL CHECKS PASSED
+
+仍然禁止：
+
+- 接真实交易所 API
+- 保存真实 API key
+- 读取钱包私钥
+- 真实下单
+- 读取真实余额
+- 读取真实仓位
+- 声明真实成交
+- 声明真实资金影响
+- 自动实盘交易
+- 绕过人工复核

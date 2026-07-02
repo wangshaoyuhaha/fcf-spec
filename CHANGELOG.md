@@ -73,3 +73,39 @@ Safety:
 - no production deployment
 - no live auto-trading
 
+## 0.3.0-p2
+
+P2 paper-only batch analysis foundation completed.
+
+Added:
+
+- multi-symbol paper batch input
+- batch paper analysis
+- batch paper report
+- JSON / CSV batch file loader
+- batch CLI
+- batch report export
+- batch run record
+- batch history summary
+- batch quality gate
+- batch input error collector
+- batch manifest
+
+Validation:
+
+- python scripts/run_all_checks.py
+- 69 passed
+- ALL CHECKS PASSED
+
+Safety:
+
+- paper-only preserved
+- no real exchange API
+- no real API key storage
+- no wallet private key access
+- no real orders
+- no real balances
+- no real positions
+- no production deployment
+- no live auto-trading
+
