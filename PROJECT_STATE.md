@@ -1297,3 +1297,18 @@ Important:
 - no strategy calibration yet
 - no live trading
 - P9 must remain paper-only and operator-reviewed
+
+## P9-D1 To P9-D3 Paper Backtest Baseline
+Status: completed
+Commit: pending
+
+Completed:
+- P9-D1 paper backtest input contract
+- P9-D2 paper outcome scoring baseline
+- P9-D3 calibration seed baseline
+
+Important:
+- no model training yet
+- no live calibration
+- no real execution
+- offline paper-only backtest preparation
