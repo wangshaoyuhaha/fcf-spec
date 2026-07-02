@@ -1,0 +1,64 @@
+{
+  "by_symbol": {
+    "BTCUSDT": {
+      "allowed_action": "paper_analysis_review",
+      "governor_gate": "paper_allowed_with_operator_review",
+      "policy_gate": "pass",
+      "regime": "neutral",
+      "risk_level": "medium",
+      "status": "paper_review_allowed",
+      "symbol": "BTCUSDT"
+    },
+    "ETHUSDT": {
+      "allowed_action": "paper_analysis_review",
+      "governor_gate": "paper_allowed_with_operator_review",
+      "policy_gate": "pass",
+      "regime": "overextended_downside",
+      "risk_level": "medium",
+      "status": "paper_review_allowed",
+      "symbol": "ETHUSDT"
+    },
+    "SOLUSDT": {
+      "allowed_action": "paper_analysis_review",
+      "governor_gate": "paper_allowed_with_operator_review",
+      "policy_gate": "pass",
+      "regime": "overextended_upside",
+      "risk_level": "medium",
+      "status": "paper_review_allowed",
+      "symbol": "SOLUSDT"
+    }
+  },
+  "count": 6,
+  "decision": "decision_index_paper_only",
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "review_queue": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "status_counts": {
+    "paper_review_allowed": 6
+  },
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT"
+  ],
+  "type": "governance_decision_index",
+  "wallet_private_key_required": false
+}

@@ -1,0 +1,30 @@
+{
+  "action_counts": {
+    "approved": 1,
+    "pending": 1,
+    "rejected": 1
+  },
+  "all_reviewed": false,
+  "allowed_global_next_step": "continue_operator_review",
+  "count": 3,
+  "decision": "operator_workflow_summary_paper_only",
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "symbols": [
+    "BTCUSDT",
+    "AAPL",
+    "SPY"
+  ],
+  "type": "operator_workflow_summary",
+  "wallet_private_key_required": false
+}

@@ -1,0 +1,123 @@
+{
+  "console_contract_version": "p7_d1_operator_console_contract_v1",
+  "created_at_utc": "2026-07-02T16:46:16.718901+00:00",
+  "decision": "operator_console_ui_manifest_paper_only",
+  "manifest_version": "p7_d7_operator_console_ui_manifest_v1",
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "source_file": "sample_multi_market_batch.json",
+  "summary": {
+    "action_counts": {
+      "approved": 1,
+      "pending": 1,
+      "rejected": 1
+    },
+    "all_reviewed": false,
+    "allowed_global_next_step": "continue_operator_review",
+    "asset_class_counts": {
+      "crypto": 1,
+      "etf": 1,
+      "stock": 1
+    },
+    "count": 3,
+    "decision": "operator_console_summary_paper_only",
+    "market_counts": {
+      "paper_binance": 1,
+      "paper_us_equity": 1,
+      "paper_us_etf": 1
+    },
+    "ok": true,
+    "operator_review_required": true,
+    "paper_only": true,
+    "real_api_key_required": false,
+    "real_balance": false,
+    "real_brokerage_api": false,
+    "real_exchange_api": false,
+    "real_execution": false,
+    "real_money_impact": false,
+    "real_order": false,
+    "real_position": false,
+    "real_world_actions_allowed": false,
+    "source_file": "sample_multi_market_batch.json",
+    "status_counts": {
+      "paper_review_allowed": 3
+    },
+    "symbols": [
+      "BTCUSDT",
+      "AAPL",
+      "SPY"
+    ],
+    "type": "operator_console_readable_summary",
+    "wallet_private_key_required": false
+  },
+  "type": "operator_console_ui_manifest",
+  "validation": {
+    "checks": {
+      "all_views_paper_only": true,
+      "has_views": true,
+      "manifest_ok": true,
+      "no_real_api_key_required": true,
+      "no_real_balance": true,
+      "no_real_brokerage_api": true,
+      "no_real_exchange_api": true,
+      "no_real_execution": true,
+      "no_real_money_impact": true,
+      "no_real_order": true,
+      "no_real_position": true,
+      "no_wallet_private_key_required": true,
+      "operator_review_required": true,
+      "paper_only_preserved": true
+    },
+    "decision": "operator_console_manifest_validation_paper_only",
+    "ok": true,
+    "operator_review_required": true,
+    "paper_only": true,
+    "real_api_key_required": false,
+    "real_balance": false,
+    "real_brokerage_api": false,
+    "real_exchange_api": false,
+    "real_execution": false,
+    "real_money_impact": false,
+    "real_order": false,
+    "real_position": false,
+    "type": "operator_console_ui_manifest_validation",
+    "wallet_private_key_required": false
+  },
+  "views": [
+    {
+      "paper_only": true,
+      "source_contract": "operator_dashboard_summary.json",
+      "title": "Dashboard",
+      "view_id": "dashboard"
+    },
+    {
+      "paper_only": true,
+      "source_contract": "operator_workflow_state.json",
+      "title": "Review Queue",
+      "view_id": "review_queue"
+    },
+    {
+      "paper_only": true,
+      "source_contract": "report_viewer_index.json",
+      "title": "Reports",
+      "view_id": "reports"
+    },
+    {
+      "paper_only": true,
+      "source_contract": "operator_console_report.md",
+      "title": "Safety Boundary",
+      "view_id": "safety"
+    }
+  ],
+  "wallet_private_key_required": false,
+  "workflow_version": "p7_d4_operator_workflow_state_v1"
+}

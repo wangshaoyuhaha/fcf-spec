@@ -1,0 +1,39 @@
+{
+  "asset_class_counts": {
+    "crypto": 1,
+    "etf": 1,
+    "stock": 1
+  },
+  "count": 3,
+  "decision": "multi_market_summary_paper_only",
+  "gate_counts": {
+    "paper_allowed_with_operator_review": 3
+  },
+  "market_counts": {
+    "paper_binance": 1,
+    "paper_us_equity": 1,
+    "paper_us_etf": 1
+  },
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "regime_counts": {
+    "neutral": 3
+  },
+  "source_file": "sample_multi_market_batch.json",
+  "symbols": [
+    "BTCUSDT",
+    "AAPL",
+    "SPY"
+  ],
+  "type": "multi_market_report_summary",
+  "wallet_private_key_required": false
+}

@@ -1,0 +1,64 @@
+{
+  "asset_class_counts": {
+    "crypto": 1,
+    "etf": 1,
+    "stock": 1
+  },
+  "count": 3,
+  "created_at_utc": "2026-07-02T16:46:16.601135+00:00",
+  "decision": "operator_dashboard_summary_paper_only",
+  "market_counts": {
+    "paper_binance": 1,
+    "paper_us_equity": 1,
+    "paper_us_etf": 1
+  },
+  "next_phase": "P7 UI and operator console preparation",
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "phase": "P7",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "safety_banner": {
+    "decision": "ui_banner_paper_only",
+    "messages": [
+      "This console is paper-only.",
+      "No real exchange or brokerage connection is enabled.",
+      "No real orders, execution, balances, positions, or money impact are allowed.",
+      "Operator review remains required."
+    ],
+    "ok": true,
+    "operator_review_required": true,
+    "paper_only": true,
+    "real_api_key_required": false,
+    "real_balance": false,
+    "real_brokerage_api": false,
+    "real_exchange_api": false,
+    "real_execution": false,
+    "real_money_impact": false,
+    "real_order": false,
+    "real_position": false,
+    "severity": "critical_safety_notice",
+    "title": "PAPER ONLY OPERATOR CONSOLE",
+    "type": "paper_ui_safety_banner",
+    "wallet_private_key_required": false
+  },
+  "source_file": "sample_multi_market_batch.json",
+  "source_phase": "P6",
+  "status_counts": {
+    "paper_review_allowed": 3
+  },
+  "symbols": [
+    "BTCUSDT",
+    "AAPL",
+    "SPY"
+  ],
+  "type": "operator_dashboard_summary",
+  "wallet_private_key_required": false
+}

@@ -1086,3 +1086,39 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## Future Learning Roadmap Anchor
+Status: planned, not implemented
+
+Purpose:
+- Preserve future self-learning direction in the project skeleton.
+- Continue current phase order first.
+- Do not implement autonomous learning or trading now.
+
+Future plan:
+- P8 learning memory, feedback dataset, paper outcome tracking
+- P9 backtest and calibration
+- P10 model registry and strategy versioning
+- P11 UI pages
+- P12 final archive and delivery
+
+Allowed:
+- paper-only data accumulation
+- operator feedback
+- offline training
+- backtesting
+- calibration
+- model versioning
+- reports and UI display
+
+Forbidden:
+- real exchange API
+- real brokerage API
+- real API keys
+- wallet private keys
+- real orders
+- real execution
+- real balances or positions
+- real money impact
+- automatic live trading
+- bypassing operator review
