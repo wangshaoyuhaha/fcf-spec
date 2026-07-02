@@ -1038,3 +1038,27 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P7-D4 To P7-D6 Operator Review Workflow
+Status: completed
+Validation: expected about 240 passed
+Commit: pending
+
+Completed:
+- P7-D4 operator review action contract
+- P7-D5 paper-only approval workflow state and summary
+- P7-D6 CLI-to-UI artifact export bridge
+
+Safety:
+- paper-only
+- approved only means paper review approved
+- no real exchange API
+- no real brokerage API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
