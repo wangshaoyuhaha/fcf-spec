@@ -761,3 +761,30 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P5-D4 To P5-D6 Governance Audit And Operator Gate
+Status: completed
+Validation: expected about 156 passed
+Commit: pending
+
+Completed:
+- P5-D4 governance audit event and audit trail
+- P5-D5 operator approval gate
+- P5-D6 policy constraint summary
+
+Architecture direction:
+- Reconnect FCF-style audit_store and policy_engine ideas
+- BTC remains the first paper-only implementation line
+- Long-term target remains a general FCF-style finance platform for stocks and other markets
+
+Safety:
+- paper-only
+- no real exchange API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
