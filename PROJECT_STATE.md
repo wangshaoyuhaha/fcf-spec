@@ -671,3 +671,29 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P4-D10 To P4-D12 Paper Readable Report
+Status: completed
+Validation: expected about 133 passed
+Commit: pending
+
+Completed:
+- P4-D10 paper report summary from review packet
+- P4-D11 human-readable markdown report
+- P4-D12 markdown and json report bundle artifact
+
+Architecture direction:
+- BTC remains the first paper-only implementation line
+- Long-term target remains a general FCF-style finance platform for stocks and other markets
+
+Safety:
+- paper-only
+- no real exchange API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required
