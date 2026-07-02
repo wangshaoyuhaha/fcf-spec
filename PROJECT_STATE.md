@@ -1341,3 +1341,18 @@ Important:
 - no parameter update
 - no real execution
 - operator review required before any future change
+
+## P9-D10 To P9-D12 Calibration Readiness
+Status: completed
+Commit: pending
+
+Completed:
+- P9-D10 calibration acceptance gate
+- P9-D11 backtest UI readiness gate
+- P9-D12 P9 readiness bundle
+
+Important:
+- no model training
+- no parameter update
+- no real execution
+- operator review required before any future change
