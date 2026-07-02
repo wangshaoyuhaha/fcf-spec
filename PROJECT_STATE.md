@@ -1595,3 +1595,25 @@ Safety:
 - no real balances or positions
 - no real money impact
 - operator review required
+
+## P12-D4 To P12-D6 Paper Final Release Acceptance Gate
+Status: completed after validation
+Validation: expected 414 passed
+Commit: pending
+
+Completed:
+- P12-D4 paper final release acceptance gate
+- P12-D5 operator acceptance summary
+- P12-D6 paper-only acceptance regression tests
+
+Safety:
+- paper-only
+- no real exchange API
+- no real brokerage API
+- no real API keys
+- no wallet private keys
+- no real orders
+- no real execution
+- no real balances or positions
+- no real money impact
+- operator review required
