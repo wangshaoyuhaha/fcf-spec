@@ -131,3 +131,31 @@ Validation required:
 - python scripts/run_market_snapshot_smoke.py
 - python scripts/run_decision_draft_smoke.py
 - python -m pytest -q
+
+## P0-D5 Operator Review Gate
+
+Status: completed
+
+Added:
+
+- src/btc_finance_platform/operator_review.py
+- scripts/run_operator_review_smoke.py
+- tests/test_operator_review.py
+- docs/006_operator_review_gate.md
+
+Scope:
+
+- operator review gate
+- no operator review bypass
+- no live action
+- no real order placement
+- no real execution claim
+- no real financial impact claim
+
+Validation required:
+
+- python scripts/run_safety_smoke.py
+- python scripts/run_market_snapshot_smoke.py
+- python scripts/run_decision_draft_smoke.py
+- python scripts/run_operator_review_smoke.py
+- python -m pytest -q
