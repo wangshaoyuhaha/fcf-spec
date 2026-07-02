@@ -104,3 +104,30 @@ Validation required:
 - python scripts/run_safety_smoke.py
 - python scripts/run_market_snapshot_smoke.py
 - python -m pytest -q
+
+## P0-D4 Paper Decision Draft
+
+Status: completed
+
+Added:
+
+- src/btc_finance_platform/decision_draft.py
+- scripts/run_decision_draft_smoke.py
+- tests/test_decision_draft.py
+- docs/005_paper_decision_draft.md
+
+Scope:
+
+- paper-only decision draft
+- operator review required
+- no live action
+- no real order placement
+- no real execution claim
+- no real financial impact claim
+
+Validation required:
+
+- python scripts/run_safety_smoke.py
+- python scripts/run_market_snapshot_smoke.py
+- python scripts/run_decision_draft_smoke.py
+- python -m pytest -q
