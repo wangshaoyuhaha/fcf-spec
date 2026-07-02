@@ -3159,3 +3159,24 @@ Scope:
 - no live trading behavior
 
 Required validation was rerun after this maintenance documentation update.
+
+## Maintenance Operator Quickstart
+
+Date: 2026-07-02 11:33:53 +0800
+
+Added final archive operator quickstart.
+
+File added:
+
+- docs/130_maintenance_operator_quickstart.md
+
+Scope:
+
+- maintenance documentation only
+- no new Phase opened
+- no safe_boundary change
+- no production deployment
+- no live trading behavior
+- no bypass of operator review, policy, risk, or safe_boundary
+
+Required validation was rerun after this maintenance documentation update.
