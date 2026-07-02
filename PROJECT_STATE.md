@@ -287,3 +287,43 @@ Validation:
 
 - python scripts/run_all_checks.py
 - expected: 19 passed
+
+## P0-D11 Documentation Index
+
+Status: completed
+
+Added:
+
+- docs/013_documentation_index.md
+
+## P0-D12 Batch Closeout Summary
+
+Status: completed
+
+Added:
+
+- docs/014_p0_batch_closeout_summary.md
+
+## P0-D13 Project Organization Note
+
+Status: completed
+
+Added:
+
+- docs/015_project_organization_note.md
+
+Scope:
+
+- documentation index
+- P0 status summary
+- future folder organization note
+- no project move yet
+- no production deployment
+- no live trading
+- no real exchange API
+
+Validation:
+
+- python scripts/run_all_checks.py
+- expected: 19 passed
+- expected: ALL CHECKS PASSED
