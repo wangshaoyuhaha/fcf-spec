@@ -883,3 +883,31 @@ Safety:
 - no real position
 - no real money impact
 - operator review required
+
+## P6-D1 To P6-D3 Multi-Market Architecture Baseline
+Status: completed
+Validation: expected about 190 passed
+Commit: pending
+
+Completed:
+- P6-D1 asset class taxonomy
+- P6-D2 symbol normalization across crypto, stocks, ETFs, FX, and commodities
+- P6-D3 paper-only market adapter input contract
+
+Architecture direction:
+- BTC remains the first paper-only implementation line
+- Long-term target remains a general FCF-style finance platform for stocks and other markets
+- Prepare future UI and adapter layers without enabling real-world trading
+
+Safety:
+- paper-only
+- no real exchange API
+- no real brokerage API
+- no real API key
+- no wallet private key
+- no real order
+- no real execution
+- no real balance
+- no real position
+- no real money impact
+- operator review required

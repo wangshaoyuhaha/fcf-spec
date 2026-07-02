@@ -1,0 +1,23 @@
+﻿[
+  {
+    "symbol": "BTC/USDT",
+    "asset_class": "crypto",
+    "market": "paper binance",
+    "price": 65000,
+    "reference_price": 64000
+  },
+  {
+    "symbol": "AAPL",
+    "asset_class": "stock",
+    "market": "paper us equity",
+    "price": 190,
+    "reference_price": 188
+  },
+  {
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "market": "paper us etf",
+    "price": 520,
+    "reference_price": 518
+  }
+]
