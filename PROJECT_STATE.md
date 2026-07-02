@@ -406,3 +406,8 @@ Validation:
 - python scripts/run_analysis_flow_smoke.py
 - python -m pytest -q
 - expected: 35 passed
+
+## P1-D10 To P1-D12 Analysis CLI And Export
+Status: completed
+Validation: expected 40 passed
+

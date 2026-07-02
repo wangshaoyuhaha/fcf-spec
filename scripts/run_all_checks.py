@@ -1,5 +1,4 @@
 ﻿import subprocess
-import sys
 
 
 COMMANDS = [
@@ -8,6 +7,10 @@ COMMANDS = [
     ["python", "scripts/run_decision_draft_smoke.py"],
     ["python", "scripts/run_operator_review_smoke.py"],
     ["python", "scripts/run_paper_pipeline_smoke.py"],
+    ["python", "scripts/run_paper_analysis_report_smoke.py"],
+    ["python", "scripts/run_integrated_report_smoke.py"],
+    ["python", "scripts/run_analysis_flow_smoke.py"],
+    ["python", "scripts/run_analysis_cli_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
