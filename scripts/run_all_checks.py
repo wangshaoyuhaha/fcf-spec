@@ -14,6 +14,7 @@ COMMANDS = [
     ["python", "scripts/run_paper_history_smoke.py"],
     ["python", "scripts/run_batch_analysis_smoke.py"],
     ["python", "scripts/run_batch_cli_smoke.py"],
+    ["python", "scripts/run_batch_history_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
