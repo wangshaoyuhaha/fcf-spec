@@ -1,4 +1,4 @@
-import subprocess
+﻿import subprocess
 
 
 COMMANDS = [
@@ -16,6 +16,7 @@ COMMANDS = [
     ["python", "scripts/run_batch_cli_smoke.py"],
     ["python", "scripts/run_batch_history_smoke.py"],
     ["python", "scripts/run_batch_quality_smoke.py"],
+    ["python", "scripts/run_schema_validation_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]

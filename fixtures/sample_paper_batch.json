@@ -1,0 +1,17 @@
+﻿[
+  {
+    "symbol": "BTCUSDT",
+    "price": 65000,
+    "reference_price": 64000
+  },
+  {
+    "symbol": "ETHUSDT",
+    "price": 3500,
+    "reference_price": 3600
+  },
+  {
+    "symbol": "SOLUSDT",
+    "price": 150,
+    "reference_price": 145
+  }
+]

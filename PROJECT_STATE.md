@@ -495,3 +495,7 @@ Validation:
 - python scripts/run_all_checks.py
 - expected: 69 passed
 - expected: ALL CHECKS PASSED
+
+## P3-D1 To P3-D3 Data Schema And Fixtures
+Status: completed
+Validation: expected 75 passed
