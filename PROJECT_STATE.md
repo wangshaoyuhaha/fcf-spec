@@ -327,3 +327,42 @@ Validation:
 - python scripts/run_all_checks.py
 - expected: 19 passed
 - expected: ALL CHECKS PASSED
+
+## P0-D14 Version File
+
+Status: completed
+
+Added:
+
+- VERSION.md
+
+## P0-D15 Changelog
+
+Status: completed
+
+Added:
+
+- CHANGELOG.md
+
+## P0-D16 P0 Closeout Marker
+
+Status: completed
+
+Added:
+
+- docs/016_p0_closeout_marker.md
+
+Scope:
+
+- version marker
+- changelog
+- P0 closeout marker
+- no production deployment
+- no live trading
+- no real exchange API
+
+Validation:
+
+- python scripts/run_all_checks.py
+- expected: 19 passed
+- expected: ALL CHECKS PASSED
