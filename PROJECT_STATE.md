@@ -3180,3 +3180,24 @@ Scope:
 - no bypass of operator review, policy, risk, or safe_boundary
 
 Required validation was rerun after this maintenance documentation update.
+
+## Maintenance Final Archive Index
+
+Date: 2026-07-02 11:53:15 +0800
+
+Added final archive index.
+
+File added:
+
+- docs/131_maintenance_final_archive_index.md
+
+Scope:
+
+- maintenance documentation only
+- no new Phase opened
+- no safe_boundary change
+- no production deployment
+- no live trading behavior
+- no bypass of operator review, policy, risk, or safe_boundary
+
+Required validation was rerun after this maintenance documentation update.
