@@ -2053,3 +2053,17 @@ Completed:
 - P24-D11 final index archive manifest
 - P24-D12 final index handoff checkpoint
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P25-D1 To P25-D9 Paper Release Final Archive
+Status: completed
+Completed:
+- P25-D1 final archive packet
+- P25-D2 final archive summary
+- P25-D3 final archive safety gate
+- P25-D4 final archive readable report
+- P25-D5 final archive operator checklist
+- P25-D6 final archive completion gate
+- P25-D7 final archive export packet
+- P25-D8 final archive closeout checkpoint
+- P25-D9 final archive handoff packet
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
