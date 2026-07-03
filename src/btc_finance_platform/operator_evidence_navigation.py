@@ -102,3 +102,77 @@ def build_operator_evidence_breadcrumb(section_id: str | None = None) -> dict[st
         "deploy_enabled": False,
         "real_trading_enabled": False,
     }
+
+
+def build_operator_evidence_navigation_overview() -> dict[str, Any]:
+    index = build_operator_evidence_navigation_index()
+    return {
+        "ok": True,
+        "type": "operator_evidence_navigation_overview",
+        "root_route": index["root_route"],
+        "release_tag": index["release_tag"],
+        "route_count": index["route_count"],
+        "available_sections": [route["section_id"] for route in index["routes"]],
+        "summary": "Local read-only navigation overview for operator evidence console.",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def search_operator_evidence_sections(query: str) -> dict[str, Any]:
+    needle = str(query).strip().lower()
+    index = build_operator_evidence_navigation_index()
+    matches = []
+
+    for route in index["routes"]:
+        haystack = " ".join([
+            route["section_id"],
+            route["title"],
+            route["artifact"],
+        ]).lower()
+        if needle and needle in haystack:
+            matches.append(route)
+
+    return {
+        "ok": True,
+        "type": "operator_evidence_section_search",
+        "query": query,
+        "match_count": len(matches),
+        "matches": matches,
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+    }
+
+
+def evaluate_operator_evidence_navigation_safety() -> dict[str, Any]:
+    index = build_operator_evidence_navigation_index()
+    all_routes_read_only = all(route["read_only"] is True for route in index["routes"])
+    passed = (
+        index["paper_only"] is True
+        and index["local_only"] is True
+        and index["read_only"] is True
+        and index["deploy_enabled"] is False
+        and index["real_trading_enabled"] is False
+        and index["operator_review_required"] is True
+        and all_routes_read_only
+    )
+    return {
+        "ok": passed,
+        "type": "operator_evidence_navigation_safety_gate",
+        "status": "PASSED" if passed else "FAILED",
+        "route_count": index["route_count"],
+        "all_routes_read_only": all_routes_read_only,
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }

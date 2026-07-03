@@ -1857,3 +1857,11 @@ Completed:
 - P18-D2 route resolver
 - P18-D3 breadcrumb contract
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P18-D4 To P18-D6 Local Evidence Navigation Overview Search Safety
+Status: completed
+Completed:
+- P18-D4 navigation overview
+- P18-D5 section search and filter
+- P18-D6 navigation safety gate
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
