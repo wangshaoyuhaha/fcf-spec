@@ -1889,3 +1889,11 @@ Completed:
 - P19-D2 archive resolver
 - P19-D3 archive overview
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P19-D4 To P19-D6 Local Evidence Archive Timeline Search Safety
+Status: completed
+Completed:
+- P19-D4 archive timeline
+- P19-D5 archive search
+- P19-D6 archive safety gate
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
