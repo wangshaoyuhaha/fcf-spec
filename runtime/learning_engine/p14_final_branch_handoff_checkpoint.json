@@ -1,0 +1,115 @@
+{
+  "branch_name": "p13-operator-console",
+  "current_stage": "P14-D52-D54",
+  "deployment_allowed_now": false,
+  "handoff_policy": {
+    "handoff_auto_apply_allowed": false,
+    "merge_auto_execute_allowed": false,
+    "merge_to_main_allowed_now": false,
+    "operator_branch_handoff_required": true,
+    "operator_review_required": true,
+    "release_allowed_now": false,
+    "release_auto_publish_allowed": false
+  },
+  "handoff_status": "READY_FOR_OPERATOR_BRANCH_HANDOFF",
+  "latest_commit_label": "add P14 final archive manifest",
+  "local_only": true,
+  "missing_items": [],
+  "non_ready_item_count": 0,
+  "non_ready_items": [],
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "purpose": "final review-only branch handoff checkpoint before any later human-controlled merge or release",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "required_handoff_items": [
+    "p14_final_archive_manifest",
+    "p14_final_operator_acceptance_packet",
+    "p14_merge_readiness_bridge",
+    "p14_learning_engine_closeout",
+    "repo_clean",
+    "all_checks_passed",
+    "pytest_passed"
+  ],
+  "rows": [
+    {
+      "handoff_auto_apply_allowed": false,
+      "item_key": "p14_final_archive_manifest",
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "ready"
+    },
+    {
+      "handoff_auto_apply_allowed": false,
+      "item_key": "p14_final_operator_acceptance_packet",
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "ready"
+    },
+    {
+      "handoff_auto_apply_allowed": false,
+      "item_key": "p14_merge_readiness_bridge",
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "ready"
+    },
+    {
+      "handoff_auto_apply_allowed": false,
+      "item_key": "p14_learning_engine_closeout",
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "ready"
+    },
+    {
+      "handoff_auto_apply_allowed": false,
+      "item_key": "repo_clean",
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "ready"
+    },
+    {
+      "handoff_auto_apply_allowed": false,
+      "item_key": "all_checks_passed",
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "ready"
+    },
+    {
+      "handoff_auto_apply_allowed": false,
+      "item_key": "pytest_passed",
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "ready"
+    }
+  ],
+  "target_branch": "main",
+  "trading_buttons_enabled": false,
+  "type": "p14_final_branch_handoff_checkpoint",
+  "ui_mode": "read_only",
+  "unsafe_item_count": 0,
+  "unsafe_items": [],
+  "validation_passed_count": 598,
+  "wallet_private_key_required": false
+}
