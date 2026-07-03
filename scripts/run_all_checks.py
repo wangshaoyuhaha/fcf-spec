@@ -67,6 +67,7 @@ COMMANDS = [
     ["python", "scripts/run_paper_final_release_archive_acceptance_smoke.py"],
     ["python", "scripts/run_p12_final_archive_closeout_smoke.py"],
     ["python", "scripts/run_p13_operator_console_smoke.py"],
+    ["python", "scripts/run_p13_operator_console_launcher_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
