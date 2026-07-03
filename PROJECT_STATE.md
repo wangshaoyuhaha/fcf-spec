@@ -1873,3 +1873,11 @@ Completed:
 - P18-D8 navigation export packet
 - P18-D9 navigation closeout checkpoint
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P18-D10 To P18-D12 Final Handoff
+Status: completed
+Completed:
+- P18-D10 final navigation acceptance packet
+- P18-D11 final archive manifest
+- P18-D12 final handoff checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
