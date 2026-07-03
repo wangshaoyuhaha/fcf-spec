@@ -76,3 +76,79 @@ def summarize_operator_evidence_console(manifest: dict[str, Any] | None = None) 
         "deploy_enabled": False,
         "operator_review_required": data["safety_boundary"]["operator_review_required"],
     }
+
+
+def resolve_operator_evidence_artifacts(manifest: dict[str, Any] | None = None) -> dict[str, Any]:
+    data = manifest or build_operator_evidence_console_manifest()
+    artifacts = []
+    for section in data["sections"]:
+        artifacts.append({
+            "section_id": section["section_id"],
+            "artifact": section["artifact"],
+            "required": True,
+            "read_only": section["read_only"],
+            "status": "INDEXED",
+        })
+
+    return {
+        "ok": True,
+        "type": "operator_evidence_artifact_resolver",
+        "release_tag": data["release_tag"],
+        "artifact_count": len(artifacts),
+        "artifacts": artifacts,
+        "paper_only": True,
+        "read_only": True,
+        "real_trading_enabled": False,
+        "deploy_enabled": False,
+    }
+
+
+def build_operator_evidence_readable_report(manifest: dict[str, Any] | None = None) -> dict[str, Any]:
+    data = manifest or build_operator_evidence_console_manifest()
+    return {
+        "ok": True,
+        "type": "operator_evidence_readable_report",
+        "title": "P16 Operator Evidence Console Report",
+        "release_tag": data["release_tag"],
+        "release_commit": data["release_commit"],
+        "summary": "Read-only operator evidence console for the P14 paper release.",
+        "sections": [section["title"] for section in data["sections"]],
+        "safety_summary": "paper-only, local-only, read-only, no deploy, no real trading",
+        "operator_review_required": True,
+        "real_trading_enabled": False,
+        "deploy_enabled": False,
+    }
+
+
+def evaluate_operator_evidence_console_safety(manifest: dict[str, Any] | None = None) -> dict[str, Any]:
+    data = manifest or build_operator_evidence_console_manifest()
+    boundary = data["safety_boundary"]
+    blocked = [
+        not boundary["real_exchange_api"],
+        not boundary["real_brokerage_api"],
+        not boundary["api_keys_allowed"],
+        not boundary["wallet_private_keys_allowed"],
+        not boundary["real_orders_allowed"],
+        not boundary["real_execution_allowed"],
+        not boundary["real_balances_positions_allowed"],
+        not boundary["real_money_impact"],
+        not boundary["auto_deploy_allowed"],
+    ]
+    allowed = [
+        boundary["paper_only"],
+        boundary["local_only"],
+        boundary["read_only"],
+        boundary["operator_review_required"],
+    ]
+    passed = all(blocked) and all(allowed)
+    return {
+        "ok": passed,
+        "type": "operator_evidence_console_safety_gate",
+        "status": "PASSED" if passed else "FAILED",
+        "paper_only": boundary["paper_only"],
+        "local_only": boundary["local_only"],
+        "read_only": boundary["read_only"],
+        "real_trading_enabled": False,
+        "deploy_enabled": False,
+        "operator_review_required": boundary["operator_review_required"],
+    }

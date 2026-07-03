@@ -1793,3 +1793,11 @@ Safety:
 - no real money impact
 - operator review required
 - no auto-deploy
+
+## P16-D4 To P16-D6 Operator Evidence Console Extension
+Status: completed
+Completed:
+- P16-D4 evidence artifact resolver
+- P16-D5 readable evidence console report
+- P16-D6 evidence console safety gate
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
