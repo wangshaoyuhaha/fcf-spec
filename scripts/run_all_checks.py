@@ -84,6 +84,7 @@ COMMANDS = [
     ["python", "scripts/run_p14_feature_orthogonality_audit_smoke.py"],
     ["python", "scripts/run_p14_alpha_decay_profiling_smoke.py"],
     ["python", "scripts/run_p14_meta_anomaly_detection_smoke.py"],
+    ["python", "scripts/run_p14_governor_weight_proposal_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
