@@ -202,3 +202,94 @@ def build_local_evidence_export_readable_index(export_dir: str = "runtime/operat
         "real_trading_enabled": False,
         "operator_review_required": True,
     }
+
+
+def render_local_evidence_export_index_markdown(export_dir: str = "runtime/operator_evidence_console") -> str:
+    index = build_local_evidence_export_readable_index(export_dir)
+    lines = [
+        "# P17 Local Evidence Export Index",
+        "",
+        f"Export dir: {index['export_dir']}",
+        f"Validation: {index['validation_status']}",
+        f"File count: {index['file_count']}",
+        "",
+        "Files:",
+    ]
+    lines.extend(f"- {path}" for path in index["files"])
+    lines.extend([
+        "",
+        "Safety:",
+        "- paper-only",
+        "- local-only",
+        "- read-only",
+        "- no deploy",
+        "- no real trading",
+        "- operator review required",
+    ])
+    return "\n".join(lines) + "\n"
+
+
+def write_local_evidence_export_readable_index(export_dir: str | Path) -> dict[str, Any]:
+    export_path = Path(export_dir)
+    export_path.mkdir(parents=True, exist_ok=True)
+
+    json_path = export_path / "local_evidence_export_index.json"
+    md_path = export_path / "local_evidence_export_index.md"
+
+    index = build_local_evidence_export_readable_index(str(export_path))
+    json_path.write_text(json.dumps(index, indent=2, sort_keys=True), encoding="utf-8")
+    md_path.write_text(render_local_evidence_export_index_markdown(str(export_path)), encoding="utf-8")
+
+    return {
+        "ok": True,
+        "type": "local_evidence_export_readable_index_write_result",
+        "written_count": 2,
+        "written_files": [str(json_path), str(md_path)],
+        "paper_only": True,
+        "local_only": True,
+        "read_only_export": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+    }
+
+
+def build_local_evidence_export_closeout_checkpoint(export_dir: str = "runtime/operator_evidence_console") -> dict[str, Any]:
+    validator = validate_local_evidence_export_bundle(export_dir)
+    readable = build_local_evidence_export_readable_index(export_dir)
+    return {
+        "ok": validator["ok"] and readable["ok"],
+        "type": "local_evidence_export_closeout_checkpoint",
+        "phase": "P17-D7-D9",
+        "export_dir": export_dir,
+        "validation_status": validator["status"],
+        "file_count": readable["file_count"],
+        "completed": [
+            "readable_index_writer",
+            "export_closeout_checkpoint",
+            "export_handoff_packet",
+        ],
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_local_evidence_export_handoff_packet(export_dir: str = "runtime/operator_evidence_console") -> dict[str, Any]:
+    closeout = build_local_evidence_export_closeout_checkpoint(export_dir)
+    return {
+        "ok": closeout["ok"],
+        "type": "local_evidence_export_handoff_packet",
+        "release_tag": "v14-learning-engine-paper",
+        "phase": "P17-D7-D9",
+        "export_dir": export_dir,
+        "handoff_status": "READY_FOR_OPERATOR_REVIEW" if closeout["ok"] else "BLOCKED",
+        "closeout": closeout,
+        "next_phase_candidate": "P18 Local Evidence Console Navigation",
+        "safety_boundary": "paper-only, local-only, read-only, no deploy, no real trading",
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }

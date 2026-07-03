@@ -1833,3 +1833,11 @@ Completed:
 - P17-D5 export bundle validator
 - P17-D6 readable export index
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P17-D7 To P17-D9 Local Evidence Export Closeout
+Status: completed
+Completed:
+- P17-D7 readable index writer
+- P17-D8 export closeout checkpoint
+- P17-D9 export handoff packet
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
