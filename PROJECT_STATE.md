@@ -1881,3 +1881,11 @@ Completed:
 - P18-D11 final archive manifest
 - P18-D12 final handoff checkpoint
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P19-D1 To P19-D3 Local Evidence Console Archive View
+Status: completed
+Completed:
+- P19-D1 archive index
+- P19-D2 archive resolver
+- P19-D3 archive overview
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
