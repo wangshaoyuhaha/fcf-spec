@@ -1,0 +1,121 @@
+{
+  "audit_policy": {
+    "auto_silence_allowed": false,
+    "auto_weight_update_allowed": false,
+    "operator_review_required": true
+  },
+  "current_stage": "P14-D19-D21",
+  "deployment_allowed_now": false,
+  "local_only": true,
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "purpose": "identify the best paper time window for each feature or information source",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "report_status": "READY_FOR_OPERATOR_REVIEW",
+  "row_count": 3,
+  "rows": [
+    {
+      "alpha_window_class": "medium_term",
+      "auto_weight_update_allowed": false,
+      "best_score": 0.28,
+      "best_window_hours": 72.0,
+      "decay_status": "positive_alpha_observed",
+      "local_only": true,
+      "ok": true,
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "source_id": "macro_uncertainty_note",
+      "source_type": "macro_text",
+      "suggested_usage": "use_for_medium_term_paper_context",
+      "type": "p14_alpha_decay_profile",
+      "window_scores": [
+        {
+          "score": 0.12,
+          "window_hours": 24.0
+        },
+        {
+          "score": 0.28,
+          "window_hours": 72.0
+        },
+        {
+          "score": 0.22,
+          "window_hours": 168.0
+        }
+      ]
+    },
+    {
+      "alpha_window_class": "short_term",
+      "auto_weight_update_allowed": false,
+      "best_score": 0.33,
+      "best_window_hours": 24.0,
+      "decay_status": "positive_alpha_observed",
+      "local_only": true,
+      "ok": true,
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "source_id": "volume_breakout_score",
+      "source_type": "market_feature",
+      "suggested_usage": "use_for_short_term_paper_context",
+      "type": "p14_alpha_decay_profile",
+      "window_scores": [
+        {
+          "score": 0.16,
+          "window_hours": 4.0
+        },
+        {
+          "score": 0.33,
+          "window_hours": 24.0
+        },
+        {
+          "score": 0.19,
+          "window_hours": 72.0
+        }
+      ]
+    },
+    {
+      "alpha_window_class": "ultra_short_term",
+      "auto_weight_update_allowed": false,
+      "best_score": 0.31,
+      "best_window_hours": 4.0,
+      "decay_status": "positive_alpha_observed",
+      "local_only": true,
+      "ok": true,
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "source_id": "twitter_sentiment_index",
+      "source_type": "sentiment",
+      "suggested_usage": "use_for_ultra_short_term_paper_context",
+      "type": "p14_alpha_decay_profile",
+      "window_scores": [
+        {
+          "score": 0.18,
+          "window_hours": 1.0
+        },
+        {
+          "score": 0.31,
+          "window_hours": 4.0
+        },
+        {
+          "score": 0.08,
+          "window_hours": 24.0
+        }
+      ]
+    }
+  ],
+  "trading_buttons_enabled": false,
+  "type": "p14_alpha_decay_report",
+  "ui_mode": "read_only",
+  "wallet_private_key_required": false
+}
