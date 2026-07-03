@@ -1733,3 +1733,23 @@ Safety:
 - no real money impact
 - operator review required
 - no auto-deploy
+
+## P15-D7 To P15-D9 Scenario Patch Safety Regression
+Status: completed
+Completed:
+- P15-D7 scenario report browser plan
+- P15-D8 patch proposal review queue
+- P15-D9 safety boundary regression report
+Safety:
+- paper-only
+- local-only
+- read-only
+- no real exchange API
+- no real brokerage API
+- no API keys
+- no real orders
+- no real execution
+- no real balances / positions
+- no real money impact
+- operator review required
+- no auto-deploy
