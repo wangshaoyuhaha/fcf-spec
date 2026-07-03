@@ -2133,3 +2133,22 @@ Completed:
 - P28-D8 final seal closeout checkpoint
 - P28-D9 final seal handoff packet
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P28-D10 To P28-D12 Final Seal Handoff
+Status: completed
+Completed:
+- P28-D10 final seal archive acceptance packet
+- P28-D11 final seal archive manifest
+- P28-D12 final seal handoff checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P29-D1 To P29-D6 Paper Release Final Operator Receipt
+Status: completed
+Completed:
+- P29-D1 final operator receipt
+- P29-D2 final operator receipt summary
+- P29-D3 final operator receipt safety gate
+- P29-D4 final operator receipt readable report
+- P29-D5 final operator receipt checklist
+- P29-D6 final operator receipt completion gate
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
