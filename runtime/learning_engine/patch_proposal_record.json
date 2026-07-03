@@ -1,0 +1,67 @@
+{
+  "gate": {
+    "auto_commit_allowed": false,
+    "auto_merge_allowed": false,
+    "auto_release_allowed": false,
+    "failed_fields": [],
+    "gate_status": "passed",
+    "local_only": true,
+    "ok": true,
+    "operator_review_required": true,
+    "paper_only": true,
+    "patch_auto_apply_allowed": false,
+    "proposal_id": "patch_proposal_001",
+    "real_world_actions_allowed": false,
+    "scenario_review_required": true,
+    "type": "p14_patch_proposal_gate"
+  },
+  "local_only": true,
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "patch_auto_apply_allowed": false,
+  "proposal": {
+    "ai_patch_design_allowed": true,
+    "auto_commit_allowed": false,
+    "auto_merge_allowed": false,
+    "auto_release_allowed": false,
+    "deployment_allowed_now": false,
+    "local_only": true,
+    "ok": true,
+    "operator_review_required": true,
+    "paper_only": true,
+    "patch_auto_apply_allowed": false,
+    "proposal_id": "patch_proposal_001",
+    "proposal_status": "READY_FOR_SCENARIO_AND_OPERATOR_REVIEW",
+    "rationale": "paper-only audit found weak feature overlap requiring operator review",
+    "real_api_key_required": false,
+    "real_balance": false,
+    "real_brokerage_api": false,
+    "real_exchange_api": false,
+    "real_execution": false,
+    "real_money_impact": false,
+    "real_order": false,
+    "real_position": false,
+    "real_world_actions_allowed": false,
+    "risk_notes": [
+      "proposal-only",
+      "no auto apply",
+      "operator review required"
+    ],
+    "target_files": [
+      "src/btc_finance_platform/p14_feature_source_audit.py",
+      "tests/test_p14_feature_source_audit.py"
+    ],
+    "test_plan": [
+      "python scripts/run_all_checks.py",
+      "python -m pytest -q"
+    ],
+    "title": "tighten paper feature audit threshold",
+    "trading_buttons_enabled": false,
+    "type": "p14_patch_proposal",
+    "ui_mode": "read_only",
+    "wallet_private_key_required": false
+  },
+  "real_world_actions_allowed": false,
+  "type": "p14_patch_proposal_record"
+}
