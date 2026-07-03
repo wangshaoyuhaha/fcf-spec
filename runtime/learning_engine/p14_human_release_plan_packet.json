@@ -1,0 +1,132 @@
+{
+  "current_stage": "P14-D58-D60",
+  "deployment_allowed_now": false,
+  "local_only": true,
+  "manual_commands": [
+    "git status --short",
+    "python scripts/run_all_checks.py",
+    "python -m pytest -q",
+    "git tag -a v14-learning-engine-paper -m \"P14 learning engine paper release\"",
+    "git push origin v14-learning-engine-paper",
+    "create GitHub release manually after operator review"
+  ],
+  "missing_items": [],
+  "non_ready_item_count": 0,
+  "non_ready_items": [],
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "plan_status": "READY_FOR_HUMAN_RELEASE_REVIEW",
+  "purpose": "review-only manual release plan packet; commands are documented but not executed",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "release_plan_policy": {
+    "auto_deploy_allowed": false,
+    "auto_execute_allowed": false,
+    "auto_release_allowed": false,
+    "auto_tag_allowed": false,
+    "deploy_allowed_now": false,
+    "human_operator_required": true,
+    "manual_release_plan_only": true,
+    "operator_review_required": true,
+    "release_allowed_now": false,
+    "tag_allowed_now": false
+  },
+  "required_release_plan_items": [
+    "human_merge_plan",
+    "final_branch_handoff_checkpoint",
+    "final_archive_manifest",
+    "all_checks_passed",
+    "pytest_passed",
+    "repo_clean",
+    "human_operator_required"
+  ],
+  "rows": [
+    {
+      "auto_deploy_allowed": false,
+      "auto_execute_allowed": false,
+      "auto_release_allowed": false,
+      "auto_tag_allowed": false,
+      "human_operator_required": true,
+      "item_key": "human_merge_plan",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_deploy_allowed": false,
+      "auto_execute_allowed": false,
+      "auto_release_allowed": false,
+      "auto_tag_allowed": false,
+      "human_operator_required": true,
+      "item_key": "final_branch_handoff_checkpoint",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_deploy_allowed": false,
+      "auto_execute_allowed": false,
+      "auto_release_allowed": false,
+      "auto_tag_allowed": false,
+      "human_operator_required": true,
+      "item_key": "final_archive_manifest",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_deploy_allowed": false,
+      "auto_execute_allowed": false,
+      "auto_release_allowed": false,
+      "auto_tag_allowed": false,
+      "human_operator_required": true,
+      "item_key": "all_checks_passed",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_deploy_allowed": false,
+      "auto_execute_allowed": false,
+      "auto_release_allowed": false,
+      "auto_tag_allowed": false,
+      "human_operator_required": true,
+      "item_key": "pytest_passed",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_deploy_allowed": false,
+      "auto_execute_allowed": false,
+      "auto_release_allowed": false,
+      "auto_tag_allowed": false,
+      "human_operator_required": true,
+      "item_key": "repo_clean",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_deploy_allowed": false,
+      "auto_execute_allowed": false,
+      "auto_release_allowed": false,
+      "auto_tag_allowed": false,
+      "human_operator_required": true,
+      "item_key": "human_operator_required",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    }
+  ],
+  "tag_name": "v14-learning-engine-paper",
+  "target_branch": "main",
+  "trading_buttons_enabled": false,
+  "type": "p14_human_release_plan_packet",
+  "ui_mode": "read_only",
+  "unsafe_item_count": 0,
+  "unsafe_items": [],
+  "validation_passed_count": 614,
+  "wallet_private_key_required": false
+}
