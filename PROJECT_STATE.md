@@ -1969,3 +1969,19 @@ Completed:
 - P21-D8 master closeout checkpoint
 - P21-D9 master handoff packet
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P21-D10 To P21-D12 Final Master Handoff
+Status: completed
+Completed:
+- P21-D10 final master archive acceptance packet
+- P21-D11 final master archive manifest
+- P21-D12 final master handoff checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P22-D1 To P22-D3 Paper Release Master Ledger
+Status: completed
+Completed:
+- P22-D1 release master ledger
+- P22-D2 release master ledger summary
+- P22-D3 release master ledger safety gate
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
