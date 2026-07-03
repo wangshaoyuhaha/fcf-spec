@@ -152,3 +152,72 @@ def evaluate_operator_evidence_console_safety(manifest: dict[str, Any] | None = 
         "deploy_enabled": False,
         "operator_review_required": boundary["operator_review_required"],
     }
+
+
+def build_operator_evidence_section_lookup(section_id: str | None = None) -> dict[str, Any]:
+    manifest = build_operator_evidence_console_manifest()
+    lookup = {section["section_id"]: section for section in manifest["sections"]}
+
+    if section_id is not None:
+        return {
+            "ok": section_id in lookup,
+            "type": "operator_evidence_section_lookup",
+            "section_id": section_id,
+            "section": lookup.get(section_id),
+            "read_only": True,
+            "real_trading_enabled": False,
+            "deploy_enabled": False,
+        }
+
+    return {
+        "ok": True,
+        "type": "operator_evidence_section_lookup",
+        "section_count": len(lookup),
+        "sections": lookup,
+        "read_only": True,
+        "real_trading_enabled": False,
+        "deploy_enabled": False,
+    }
+
+
+def build_operator_evidence_static_export_package() -> dict[str, Any]:
+    manifest = build_operator_evidence_console_manifest()
+    return {
+        "ok": True,
+        "type": "operator_evidence_static_export_package",
+        "release_tag": manifest["release_tag"],
+        "release_commit": manifest["release_commit"],
+        "manifest": manifest,
+        "summary": summarize_operator_evidence_console(manifest),
+        "artifact_resolver": resolve_operator_evidence_artifacts(manifest),
+        "readable_report": build_operator_evidence_readable_report(manifest),
+        "safety_gate": evaluate_operator_evidence_console_safety(manifest),
+        "export_mode": "LOCAL_STATIC_READ_ONLY",
+        "paper_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+    }
+
+
+def build_operator_evidence_console_closeout_checkpoint() -> dict[str, Any]:
+    export_package = build_operator_evidence_static_export_package()
+    return {
+        "ok": True,
+        "type": "operator_evidence_console_closeout_checkpoint",
+        "phase": "P16-D7-D9",
+        "release_tag": export_package["release_tag"],
+        "completed": [
+            "section_lookup",
+            "static_export_package",
+            "console_closeout_checkpoint",
+        ],
+        "section_count": export_package["manifest"]["section_count"],
+        "safety_gate_status": export_package["safety_gate"]["status"],
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }

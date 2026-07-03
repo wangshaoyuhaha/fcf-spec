@@ -1801,3 +1801,11 @@ Completed:
 - P16-D5 readable evidence console report
 - P16-D6 evidence console safety gate
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P16-D7 To P16-D9 Operator Evidence Console Closeout
+Status: completed
+Completed:
+- P16-D7 section lookup contract
+- P16-D8 static export package
+- P16-D9 console closeout checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
