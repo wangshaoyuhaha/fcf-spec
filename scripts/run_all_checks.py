@@ -71,6 +71,7 @@ COMMANDS = [
     ["python", "scripts/run_p13_operator_console_snapshot_smoke.py"],
     ["python", "scripts/run_p13_operator_console_review_packet_smoke.py"],
     ["python", "scripts/run_p13_operator_console_acceptance_smoke.py"],
+    ["python", "scripts/run_p13_branch_closeout_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
