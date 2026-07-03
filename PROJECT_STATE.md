@@ -1715,3 +1715,21 @@ Safety:
 - no real money impact
 - operator review required
 - no auto-deploy
+
+## P15-D4 To P15-D6 Evidence Review Learning Browser
+Status: completed
+Completed:
+- P15-D4 release evidence index
+- P15-D5 operator review history index
+- P15-D6 learning memory browser plan
+Safety:
+- read-only
+- paper-only
+- no real exchange API
+- no API keys
+- no real orders
+- no real execution
+- no real balances / positions
+- no real money impact
+- operator review required
+- no auto-deploy
