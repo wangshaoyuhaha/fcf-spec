@@ -176,3 +176,79 @@ def evaluate_operator_evidence_navigation_safety() -> dict[str, Any]:
         "real_trading_enabled": False,
         "operator_review_required": True,
     }
+
+
+def build_operator_evidence_navigation_readable_map() -> dict[str, Any]:
+    index = build_operator_evidence_navigation_index()
+    return {
+        "ok": True,
+        "type": "operator_evidence_navigation_readable_map",
+        "title": "P18 Local Evidence Console Navigation Map",
+        "release_tag": index["release_tag"],
+        "root_route": index["root_route"],
+        "items": [
+            {
+                "label": route["title"],
+                "route": route["route"],
+                "artifact": route["artifact"],
+                "read_only": route["read_only"],
+            }
+            for route in index["routes"]
+        ],
+        "item_count": index["route_count"],
+        "safety_summary": "paper-only, local-only, read-only, no deploy, no real trading",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_operator_evidence_navigation_export_packet() -> dict[str, Any]:
+    index = build_operator_evidence_navigation_index()
+    overview = build_operator_evidence_navigation_overview()
+    readable_map = build_operator_evidence_navigation_readable_map()
+    safety_gate = evaluate_operator_evidence_navigation_safety()
+    return {
+        "ok": safety_gate["ok"],
+        "type": "operator_evidence_navigation_export_packet",
+        "phase": "P18-D7-D9",
+        "release_tag": index["release_tag"],
+        "index": index,
+        "overview": overview,
+        "readable_map": readable_map,
+        "safety_gate": safety_gate,
+        "export_mode": "LOCAL_STATIC_READ_ONLY",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_operator_evidence_navigation_closeout_checkpoint() -> dict[str, Any]:
+    packet = build_operator_evidence_navigation_export_packet()
+    return {
+        "ok": packet["ok"],
+        "type": "operator_evidence_navigation_closeout_checkpoint",
+        "phase": "P18-D7-D9",
+        "release_tag": packet["release_tag"],
+        "completed": [
+            "navigation_readable_map",
+            "navigation_export_packet",
+            "navigation_closeout_checkpoint",
+        ],
+        "route_count": packet["index"]["route_count"],
+        "safety_gate_status": packet["safety_gate"]["status"],
+        "next_phase_candidate": "P19 Local Evidence Console Archive View",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }

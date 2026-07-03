@@ -1865,3 +1865,11 @@ Completed:
 - P18-D5 section search and filter
 - P18-D6 navigation safety gate
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P18-D7 To P18-D9 Local Evidence Navigation Closeout
+Status: completed
+Completed:
+- P18-D7 navigation readable map
+- P18-D8 navigation export packet
+- P18-D9 navigation closeout checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
