@@ -2067,3 +2067,22 @@ Completed:
 - P25-D8 final archive closeout checkpoint
 - P25-D9 final archive handoff packet
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P25-D10 To P25-D12 Final Closeout
+Status: completed
+Completed:
+- P25-D10 final closeout acceptance packet
+- P25-D11 final closeout manifest
+- P25-D12 final closeout handoff checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P26-D1 To P26-D6 Paper Release Completion Receipt
+Status: completed
+Completed:
+- P26-D1 completion receipt
+- P26-D2 completion receipt summary
+- P26-D3 completion receipt safety gate
+- P26-D4 completion receipt readable report
+- P26-D5 completion receipt operator checklist
+- P26-D6 completion receipt completion gate
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
