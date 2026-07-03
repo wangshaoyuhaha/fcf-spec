@@ -1683,3 +1683,12 @@ Safety:
 - no real balances or positions
 - no real money impact
 - operator review required
+
+## P14 Release Closeout
+Status: completed
+Tag: v14-learning-engine-paper
+Release: BTC finance platform P14 Learning Engine paper release
+Release commit: 5188158 merge P14 learning engine into main
+Validation: ALL CHECKS PASSED; 630 passed
+Deploy: not performed
+Safety: paper-only, local-only, read-only, no real trading, operator review required.
