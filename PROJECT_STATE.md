@@ -1817,3 +1817,11 @@ Completed:
 - P16-D11 final archive manifest
 - P16-D12 final handoff checkpoint
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P17-D1 To P17-D3 Local Evidence Console Export Files
+Status: completed
+Completed:
+- P17-D1 local evidence export manifest
+- P17-D2 markdown evidence report renderer
+- P17-D3 local static export file writer
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
