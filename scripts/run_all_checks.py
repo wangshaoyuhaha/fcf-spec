@@ -76,6 +76,7 @@ COMMANDS = [
     ["python", "scripts/run_p13_ai_learning_memory_ledger_smoke.py"],
     ["python", "scripts/run_p13_ai_learning_audit_report_smoke.py"],
     ["python", "scripts/run_p13_final_closeout_summary_smoke.py"],
+    ["python", "scripts/run_p14_regime_taxonomy_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
