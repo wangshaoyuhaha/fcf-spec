@@ -91,6 +91,7 @@ COMMANDS = [
     ["python", "scripts/run_p14_explanation_consistency_check_smoke.py"],
     ["python", "scripts/run_p14_learning_engine_closeout_smoke.py"],
     ["python", "scripts/run_p14_merge_readiness_bridge_smoke.py"],
+    ["python", "scripts/run_p14_final_operator_acceptance_packet_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]

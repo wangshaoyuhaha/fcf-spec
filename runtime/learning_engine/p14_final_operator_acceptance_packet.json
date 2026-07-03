@@ -1,0 +1,113 @@
+{
+  "acceptance_policy": {
+    "final_operator_acceptance_required": true,
+    "merge_auto_execute_allowed": false,
+    "merge_to_main_allowed_now": false,
+    "operator_review_required": true,
+    "release_allowed_now": false,
+    "release_auto_publish_allowed": false
+  },
+  "acceptance_status": "READY_FOR_FINAL_OPERATOR_ACCEPTANCE",
+  "current_stage": "P14-D46-D48",
+  "deployment_allowed_now": false,
+  "local_only": true,
+  "missing_items": [],
+  "non_accepted_item_count": 0,
+  "non_accepted_items": [],
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "purpose": "final review-only operator acceptance packet before any later human-controlled merge or release decision",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "required_acceptance_items": [
+    "p14_learning_engine_closeout",
+    "p14_merge_readiness_bridge",
+    "all_checks_passed",
+    "pytest_passed",
+    "repo_clean",
+    "operator_review_required",
+    "paper_only_boundary_preserved"
+  ],
+  "rows": [
+    {
+      "item_key": "p14_learning_engine_closeout",
+      "manual_decision_required": true,
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "accepted"
+    },
+    {
+      "item_key": "p14_merge_readiness_bridge",
+      "manual_decision_required": true,
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "accepted"
+    },
+    {
+      "item_key": "all_checks_passed",
+      "manual_decision_required": true,
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "accepted"
+    },
+    {
+      "item_key": "pytest_passed",
+      "manual_decision_required": true,
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "accepted"
+    },
+    {
+      "item_key": "repo_clean",
+      "manual_decision_required": true,
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "accepted"
+    },
+    {
+      "item_key": "operator_review_required",
+      "manual_decision_required": true,
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "accepted"
+    },
+    {
+      "item_key": "paper_only_boundary_preserved",
+      "manual_decision_required": true,
+      "merge_auto_execute_allowed": false,
+      "operator_review_required": true,
+      "real_world_actions_allowed": false,
+      "release_auto_publish_allowed": false,
+      "status": "accepted"
+    }
+  ],
+  "source_branch": "p13-operator-console",
+  "target_branch": "main",
+  "trading_buttons_enabled": false,
+  "type": "p14_final_operator_acceptance_packet",
+  "ui_mode": "read_only",
+  "unsafe_item_count": 0,
+  "unsafe_items": [],
+  "validation_passed_count": 583,
+  "wallet_private_key_required": false
+}
