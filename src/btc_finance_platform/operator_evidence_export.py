@@ -121,3 +121,84 @@ def write_local_evidence_export_files(export_dir: str | Path) -> dict[str, Any]:
         "deploy_enabled": False,
         "real_trading_enabled": False,
     }
+
+import hashlib
+
+
+def build_local_evidence_export_integrity_index(export_dir: str = "runtime/operator_evidence_console") -> dict[str, Any]:
+    bundle = build_local_evidence_export_files(export_dir)
+    items = []
+    for item in bundle["files"]:
+        raw = item["content"].encode("utf-8")
+        items.append({
+            "path": item["path"],
+            "content_type": item["content_type"],
+            "sha256": hashlib.sha256(raw).hexdigest(),
+            "size_bytes": len(raw),
+            "read_only": item["read_only"],
+        })
+
+    return {
+        "ok": True,
+        "type": "local_evidence_export_integrity_index",
+        "export_dir": export_dir,
+        "file_count": len(items),
+        "items": items,
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+    }
+
+
+def validate_local_evidence_export_bundle(export_dir: str = "runtime/operator_evidence_console") -> dict[str, Any]:
+    bundle = build_local_evidence_export_files(export_dir)
+    integrity = build_local_evidence_export_integrity_index(export_dir)
+
+    file_count_ok = bundle["file_count"] == bundle["manifest"]["file_count"] == integrity["file_count"]
+    all_read_only = all(item["read_only"] is True for item in bundle["files"])
+    all_hashes_valid = all(len(item["sha256"]) == 64 and item["size_bytes"] > 0 for item in integrity["items"])
+    safety_ok = (
+        bundle["paper_only"] is True
+        and bundle["local_only"] is True
+        and bundle["read_only"] is True
+        and bundle["deploy_enabled"] is False
+        and bundle["real_trading_enabled"] is False
+    )
+
+    passed = file_count_ok and all_read_only and all_hashes_valid and safety_ok
+    return {
+        "ok": passed,
+        "type": "local_evidence_export_bundle_validator",
+        "status": "PASSED" if passed else "FAILED",
+        "file_count_ok": file_count_ok,
+        "all_read_only": all_read_only,
+        "all_hashes_valid": all_hashes_valid,
+        "safety_ok": safety_ok,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+    }
+
+
+def build_local_evidence_export_readable_index(export_dir: str = "runtime/operator_evidence_console") -> dict[str, Any]:
+    manifest = build_local_evidence_export_manifest(export_dir)
+    integrity = build_local_evidence_export_integrity_index(export_dir)
+    validator = validate_local_evidence_export_bundle(export_dir)
+
+    return {
+        "ok": validator["ok"],
+        "type": "local_evidence_export_readable_index",
+        "title": "P17 Local Evidence Console Export Index",
+        "export_dir": export_dir,
+        "file_count": manifest["file_count"],
+        "files": [item["path"] for item in integrity["items"]],
+        "validation_status": validator["status"],
+        "safety_summary": "paper-only, local-only, read-only, no deploy, no real trading",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }

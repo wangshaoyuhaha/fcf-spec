@@ -1825,3 +1825,11 @@ Completed:
 - P17-D2 markdown evidence report renderer
 - P17-D3 local static export file writer
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P17-D4 To P17-D6 Local Evidence Export Integrity
+Status: completed
+Completed:
+- P17-D4 export file integrity index
+- P17-D5 export bundle validator
+- P17-D6 readable export index
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
