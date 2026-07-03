@@ -79,3 +79,79 @@ def build_local_evidence_final_review_summary() -> dict[str, Any]:
         "real_trading_enabled": False,
         "operator_review_required": True,
     }
+
+
+def build_local_evidence_final_review_readable_report() -> dict[str, Any]:
+    summary = build_local_evidence_final_review_summary()
+    return {
+        "ok": summary["ok"],
+        "type": "local_evidence_final_review_readable_report",
+        "title": "P20 Final Evidence Review Readable Report",
+        "release_tag": summary["release_tag"],
+        "review_item_count": summary["review_item_count"],
+        "sections": [
+            "release evidence",
+            "post release continuity",
+            "operator evidence console",
+            "local evidence export",
+            "local evidence navigation",
+            "local evidence archive view",
+        ],
+        "safety_summary": "paper-only, local-only, read-only, no deploy, no real trading",
+        "safety_gate_status": summary["safety_gate_status"],
+        "operator_review_required": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+    }
+
+
+def build_local_evidence_final_review_operator_checklist() -> dict[str, Any]:
+    checklist = [
+        {"item": "P14 release evidence reviewed", "required": True, "status": "READY"},
+        {"item": "P15 continuity evidence reviewed", "required": True, "status": "READY"},
+        {"item": "P16 evidence console reviewed", "required": True, "status": "READY"},
+        {"item": "P17 export evidence reviewed", "required": True, "status": "READY"},
+        {"item": "P18 navigation evidence reviewed", "required": True, "status": "READY"},
+        {"item": "P19 archive evidence reviewed", "required": True, "status": "READY"},
+        {"item": "no deploy confirmed", "required": True, "status": "READY"},
+        {"item": "no real trading confirmed", "required": True, "status": "READY"},
+    ]
+    return {
+        "ok": True,
+        "type": "local_evidence_final_review_operator_checklist",
+        "check_count": len(checklist),
+        "checklist": checklist,
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def evaluate_local_evidence_final_review_completion_gate() -> dict[str, Any]:
+    report = build_local_evidence_final_review_readable_report()
+    checklist = build_local_evidence_final_review_operator_checklist()
+    all_ready = all(item["status"] == "READY" and item["required"] is True for item in checklist["checklist"])
+    passed = (
+        report["ok"] is True
+        and checklist["ok"] is True
+        and all_ready
+        and report["deploy_enabled"] is False
+        and report["real_trading_enabled"] is False
+        and checklist["operator_review_required"] is True
+    )
+    return {
+        "ok": passed,
+        "type": "local_evidence_final_review_completion_gate",
+        "status": "PASSED" if passed else "FAILED",
+        "all_required_checks_ready": all_ready,
+        "check_count": checklist["check_count"],
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
