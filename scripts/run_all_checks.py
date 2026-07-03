@@ -80,6 +80,7 @@ COMMANDS = [
     ["python", "scripts/run_p14_shadow_ledger_smoke.py"],
     ["python", "scripts/run_p14_expert_trust_score_smoke.py"],
     ["python", "scripts/run_p14_feature_source_audit_smoke.py"],
+    ["python", "scripts/run_p14_risk_adjusted_trust_score_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
