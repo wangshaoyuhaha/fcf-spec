@@ -155,3 +155,72 @@ def evaluate_paper_evidence_master_completion_gate() -> dict[str, Any]:
         "real_trading_enabled": False,
         "operator_review_required": True,
     }
+
+
+def build_paper_evidence_master_export_packet() -> dict[str, Any]:
+    summary = build_paper_evidence_master_closeout_summary()
+    readable = build_paper_evidence_master_readable_report()
+    checklist = build_paper_evidence_master_operator_checklist()
+    completion = evaluate_paper_evidence_master_completion_gate()
+
+    return {
+        "ok": summary["ok"] and readable["ok"] and checklist["ok"] and completion["ok"],
+        "type": "paper_evidence_master_export_packet",
+        "phase": "P21-D7-D9",
+        "release_tag": summary["release_tag"],
+        "summary": summary,
+        "readable_report": readable,
+        "operator_checklist": checklist,
+        "completion_gate": completion,
+        "export_mode": "LOCAL_STATIC_READ_ONLY",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_paper_evidence_master_closeout_checkpoint() -> dict[str, Any]:
+    packet = build_paper_evidence_master_export_packet()
+    return {
+        "ok": packet["ok"],
+        "type": "paper_evidence_master_closeout_checkpoint",
+        "phase": "P21-D7-D9",
+        "release_tag": packet["release_tag"],
+        "completed": [
+            "master_export_packet",
+            "master_closeout_checkpoint",
+            "master_handoff_packet",
+        ],
+        "completion_gate_status": packet["completion_gate"]["status"],
+        "covered_phase_count": packet["summary"]["covered_phase_count"],
+        "check_count": packet["operator_checklist"]["check_count"],
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_paper_evidence_master_handoff_packet() -> dict[str, Any]:
+    closeout = build_paper_evidence_master_closeout_checkpoint()
+    return {
+        "ok": closeout["ok"],
+        "type": "paper_evidence_master_handoff_packet",
+        "release_tag": closeout["release_tag"],
+        "phase": "P21-D7-D9",
+        "handoff_status": "READY_FOR_MASTER_ARCHIVE" if closeout["ok"] else "BLOCKED",
+        "closeout": closeout,
+        "next_phase_candidate": "P21 Final Archive Closeout",
+        "safety_boundary": "paper-only, local-only, read-only, no deploy, no real trading",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
