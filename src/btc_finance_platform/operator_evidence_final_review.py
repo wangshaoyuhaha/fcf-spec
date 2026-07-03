@@ -155,3 +155,72 @@ def evaluate_local_evidence_final_review_completion_gate() -> dict[str, Any]:
         "real_trading_enabled": False,
         "operator_review_required": True,
     }
+
+
+def build_local_evidence_final_review_export_packet() -> dict[str, Any]:
+    summary = build_local_evidence_final_review_summary()
+    readable = build_local_evidence_final_review_readable_report()
+    checklist = build_local_evidence_final_review_operator_checklist()
+    completion = evaluate_local_evidence_final_review_completion_gate()
+
+    return {
+        "ok": summary["ok"] and readable["ok"] and checklist["ok"] and completion["ok"],
+        "type": "local_evidence_final_review_export_packet",
+        "phase": "P20-D7-D9",
+        "release_tag": summary["release_tag"],
+        "summary": summary,
+        "readable_report": readable,
+        "operator_checklist": checklist,
+        "completion_gate": completion,
+        "export_mode": "LOCAL_STATIC_READ_ONLY",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_local_evidence_final_review_closeout_checkpoint() -> dict[str, Any]:
+    packet = build_local_evidence_final_review_export_packet()
+    return {
+        "ok": packet["ok"],
+        "type": "local_evidence_final_review_closeout_checkpoint",
+        "phase": "P20-D7-D9",
+        "release_tag": packet["release_tag"],
+        "completed": [
+            "final_review_export_packet",
+            "final_review_closeout_checkpoint",
+            "final_review_handoff_packet",
+        ],
+        "completion_gate_status": packet["completion_gate"]["status"],
+        "review_item_count": packet["summary"]["review_item_count"],
+        "check_count": packet["operator_checklist"]["check_count"],
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_local_evidence_final_review_handoff_packet() -> dict[str, Any]:
+    closeout = build_local_evidence_final_review_closeout_checkpoint()
+    return {
+        "ok": closeout["ok"],
+        "type": "local_evidence_final_review_handoff_packet",
+        "release_tag": closeout["release_tag"],
+        "phase": "P20-D7-D9",
+        "handoff_status": "READY_FOR_FINAL_ARCHIVE" if closeout["ok"] else "BLOCKED",
+        "closeout": closeout,
+        "next_phase_candidate": "P20 Final Archive Closeout",
+        "safety_boundary": "paper-only, local-only, read-only, no deploy, no real trading",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
