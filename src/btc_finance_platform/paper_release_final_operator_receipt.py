@@ -170,3 +170,77 @@ def evaluate_paper_release_final_operator_receipt_completion_gate() -> dict[str,
         "real_trading_enabled": False,
         "operator_review_required": True,
     }
+
+
+def build_paper_release_final_operator_receipt_export_packet() -> dict[str, Any]:
+    receipt = build_paper_release_final_operator_receipt()
+    readable = build_paper_release_final_operator_receipt_readable_report()
+    checklist = build_paper_release_final_operator_receipt_checklist()
+    completion = evaluate_paper_release_final_operator_receipt_completion_gate()
+    safety = evaluate_paper_release_final_operator_receipt_safety()
+    return {
+        "ok": receipt["ok"] and readable["ok"] and checklist["ok"] and completion["ok"] and safety["ok"],
+        "type": "paper_release_final_operator_receipt_export_packet",
+        "phase": "P29-D7-D12",
+        "release_tag": receipt["release_tag"],
+        "receipt": receipt,
+        "readable_report": readable,
+        "operator_checklist": checklist,
+        "completion_gate": completion,
+        "safety_gate": safety,
+        "export_mode": "LOCAL_STATIC_READ_ONLY",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_paper_release_final_operator_receipt_closeout_checkpoint() -> dict[str, Any]:
+    packet = build_paper_release_final_operator_receipt_export_packet()
+    return {
+        "ok": packet["ok"],
+        "type": "paper_release_final_operator_receipt_closeout_checkpoint",
+        "phase": "P29-D7-D12",
+        "release_tag": packet["release_tag"],
+        "completed": [
+            "final_operator_receipt_export_packet",
+            "final_operator_receipt_closeout_checkpoint",
+            "final_operator_receipt_handoff_packet",
+            "final_operator_receipt_archive_acceptance_packet",
+            "final_operator_receipt_archive_manifest",
+            "final_operator_receipt_handoff_checkpoint",
+        ],
+        "completion_gate_status": packet["completion_gate"]["status"],
+        "safety_gate_status": packet["safety_gate"]["status"],
+        "receipt_item_count": packet["receipt"]["receipt_item_count"],
+        "check_count": packet["operator_checklist"]["check_count"],
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_paper_release_final_operator_receipt_handoff_packet() -> dict[str, Any]:
+    closeout = build_paper_release_final_operator_receipt_closeout_checkpoint()
+    return {
+        "ok": closeout["ok"],
+        "type": "paper_release_final_operator_receipt_handoff_packet",
+        "release_tag": closeout["release_tag"],
+        "phase": "P29-D7-D12",
+        "handoff_status": "READY_FOR_OPERATOR_RECEIPT_ARCHIVE" if closeout["ok"] else "BLOCKED",
+        "closeout": closeout,
+        "next_phase_candidate": "P30 Paper Release Final Delivery",
+        "safety_boundary": "paper-only, local-only, read-only, no deploy, no real trading",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }

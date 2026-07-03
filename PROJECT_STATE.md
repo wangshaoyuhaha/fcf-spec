@@ -2152,3 +2152,22 @@ Completed:
 - P29-D5 final operator receipt checklist
 - P29-D6 final operator receipt completion gate
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P29-D7 To P29-D12 Final Operator Receipt Closeout
+Status: completed
+Completed:
+- P29-D7 final operator receipt export packet
+- P29-D8 final operator receipt closeout checkpoint
+- P29-D9 final operator receipt handoff packet
+- P29-D10 final operator receipt archive acceptance packet
+- P29-D11 final operator receipt archive manifest
+- P29-D12 final operator receipt handoff checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P30-D1 To P30-D3 Paper Release Final Delivery
+Status: completed
+Completed:
+- P30-D1 final delivery packet
+- P30-D2 final delivery summary
+- P30-D3 final delivery safety gate
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
