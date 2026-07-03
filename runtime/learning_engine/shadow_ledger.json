@@ -1,5 +1,5 @@
 {
-  "event_count": 18,
+  "event_count": 19,
   "events": [
     {
       "counterfactual_learning_enabled": true,
@@ -1185,6 +1185,72 @@
       "regime": "trend_up",
       "selected_expert_id": "momentum_expert",
       "timestamp_utc": "2026-07-03T04:05:43.185037+00:00",
+      "trading_buttons_enabled": false,
+      "type": "p14_shadow_ledger_event",
+      "wallet_private_key_required": false
+    },
+    {
+      "counterfactual_learning_enabled": true,
+      "decision_id": "paper_decision_001",
+      "expert_proposals": [
+        {
+          "confidence": 0.55,
+          "direction": "observe",
+          "expert_id": "macro_expert",
+          "paper_entry": null,
+          "paper_only": true,
+          "paper_stop": null,
+          "paper_take_profit": null,
+          "rationale": "paper-only macro uncertainty",
+          "real_execution": false,
+          "real_money_impact": false,
+          "real_order": false
+        },
+        {
+          "confidence": 0.72,
+          "direction": "long",
+          "expert_id": "momentum_expert",
+          "paper_entry": null,
+          "paper_only": true,
+          "paper_stop": null,
+          "paper_take_profit": null,
+          "rationale": "paper-only momentum continuation",
+          "real_execution": false,
+          "real_money_impact": false,
+          "real_order": false
+        },
+        {
+          "confidence": 0.61,
+          "direction": "flat",
+          "expert_id": "smc_expert",
+          "paper_entry": null,
+          "paper_only": true,
+          "paper_stop": null,
+          "paper_take_profit": null,
+          "rationale": "paper-only liquidity sweep risk",
+          "real_execution": false,
+          "real_money_impact": false,
+          "real_order": false
+        }
+      ],
+      "learning_mode": "shadow_paper_only",
+      "local_only": true,
+      "ok": true,
+      "operator_review_required": true,
+      "paper_only": true,
+      "proposal_count": 3,
+      "real_api_key_required": false,
+      "real_balance": false,
+      "real_brokerage_api": false,
+      "real_exchange_api": false,
+      "real_execution": false,
+      "real_money_impact": false,
+      "real_order": false,
+      "real_position": false,
+      "real_world_actions_allowed": false,
+      "regime": "trend_up",
+      "selected_expert_id": "momentum_expert",
+      "timestamp_utc": "2026-07-03T04:13:38.752686+00:00",
       "trading_buttons_enabled": false,
       "type": "p14_shadow_ledger_event",
       "wallet_private_key_required": false
