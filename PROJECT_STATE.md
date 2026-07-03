@@ -1897,3 +1897,11 @@ Completed:
 - P19-D5 archive search
 - P19-D6 archive safety gate
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P19-D7 To P19-D9 Local Evidence Archive Closeout
+Status: completed
+Completed:
+- P19-D7 archive readable map
+- P19-D8 archive export packet
+- P19-D9 archive closeout checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
