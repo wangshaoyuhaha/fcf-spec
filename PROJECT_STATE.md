@@ -1841,3 +1841,11 @@ Completed:
 - P17-D8 export closeout checkpoint
 - P17-D9 export handoff packet
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P17-D10 To P17-D12 Final Handoff
+Status: completed
+Completed:
+- P17-D10 final export acceptance packet
+- P17-D11 final archive manifest
+- P17-D12 final handoff checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
