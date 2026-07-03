@@ -14,10 +14,10 @@
   ],
   "current_stage": "P13-D25-D27",
   "deployment_allowed_now": false,
-  "event_count": 13,
+  "event_count": 14,
   "learning_mode": "audit_and_proposal_only",
   "ledger_summary": {
-    "event_count": 13,
+    "event_count": 14,
     "ledger_scope": "local_only",
     "ledger_type": "p13_ai_learning_memory_ledger"
   },
