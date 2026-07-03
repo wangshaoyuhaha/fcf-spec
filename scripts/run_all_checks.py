@@ -96,6 +96,7 @@ COMMANDS = [
     ["python", "scripts/run_p14_final_branch_handoff_smoke.py"],
     ["python", "scripts/run_p14_human_merge_plan_smoke.py"],
     ["python", "scripts/run_p14_human_release_plan_smoke.py"],
+    ["python", "scripts/run_p14_final_completion_receipt_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
