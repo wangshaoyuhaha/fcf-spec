@@ -1,0 +1,125 @@
+{
+  "current_stage": "P14-D55-D57",
+  "deployment_allowed_now": false,
+  "local_only": true,
+  "manual_commands": [
+    "git status --short",
+    "python scripts/run_all_checks.py",
+    "python -m pytest -q",
+    "git checkout main",
+    "git pull origin main",
+    "git merge --no-ff p13-operator-console",
+    "python scripts/run_all_checks.py",
+    "python -m pytest -q",
+    "git push origin main"
+  ],
+  "merge_plan_policy": {
+    "auto_execute_allowed": false,
+    "auto_merge_allowed": false,
+    "auto_release_allowed": false,
+    "human_operator_required": true,
+    "manual_merge_plan_only": true,
+    "merge_to_main_allowed_now": false,
+    "operator_review_required": true
+  },
+  "missing_items": [],
+  "non_ready_item_count": 0,
+  "non_ready_items": [],
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "plan_status": "READY_FOR_HUMAN_MERGE_REVIEW",
+  "purpose": "review-only manual merge plan packet; commands are documented but not executed",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "required_plan_items": [
+    "final_branch_handoff_checkpoint",
+    "final_archive_manifest",
+    "final_operator_acceptance_packet",
+    "all_checks_passed",
+    "pytest_passed",
+    "repo_clean",
+    "human_operator_required"
+  ],
+  "rows": [
+    {
+      "auto_execute_allowed": false,
+      "auto_merge_allowed": false,
+      "auto_release_allowed": false,
+      "human_operator_required": true,
+      "item_key": "final_branch_handoff_checkpoint",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_execute_allowed": false,
+      "auto_merge_allowed": false,
+      "auto_release_allowed": false,
+      "human_operator_required": true,
+      "item_key": "final_archive_manifest",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_execute_allowed": false,
+      "auto_merge_allowed": false,
+      "auto_release_allowed": false,
+      "human_operator_required": true,
+      "item_key": "final_operator_acceptance_packet",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_execute_allowed": false,
+      "auto_merge_allowed": false,
+      "auto_release_allowed": false,
+      "human_operator_required": true,
+      "item_key": "all_checks_passed",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_execute_allowed": false,
+      "auto_merge_allowed": false,
+      "auto_release_allowed": false,
+      "human_operator_required": true,
+      "item_key": "pytest_passed",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_execute_allowed": false,
+      "auto_merge_allowed": false,
+      "auto_release_allowed": false,
+      "human_operator_required": true,
+      "item_key": "repo_clean",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    },
+    {
+      "auto_execute_allowed": false,
+      "auto_merge_allowed": false,
+      "auto_release_allowed": false,
+      "human_operator_required": true,
+      "item_key": "human_operator_required",
+      "real_world_actions_allowed": false,
+      "status": "ready"
+    }
+  ],
+  "source_branch": "p13-operator-console",
+  "target_branch": "main",
+  "trading_buttons_enabled": false,
+  "type": "p14_human_merge_plan_packet",
+  "ui_mode": "read_only",
+  "unsafe_item_count": 0,
+  "unsafe_items": [],
+  "validation_passed_count": 606,
+  "wallet_private_key_required": false
+}

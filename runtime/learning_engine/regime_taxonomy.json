@@ -1,0 +1,55 @@
+{
+  "current_stage": "P14-D1-D3",
+  "deployment_allowed_now": false,
+  "learning_engine_order": [
+    "define_regime_taxonomy",
+    "record_shadow_ledger",
+    "score_experts_by_regime",
+    "generate_governor_weight_proposal",
+    "wait_for_operator_review"
+  ],
+  "local_only": true,
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "purpose": "define paper-only market regime buckets before expert trust scoring",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "regime_inputs_allowed": [
+    "paper_price_features",
+    "paper_volatility_features",
+    "paper_volume_features",
+    "paper_funding_features",
+    "paper_liquidity_notes",
+    "paper_macro_notes"
+  ],
+  "regime_inputs_forbidden": [
+    "real_exchange_api",
+    "real_brokerage_api",
+    "api_keys",
+    "wallet_private_keys",
+    "real_balances",
+    "real_positions"
+  ],
+  "regime_types": [
+    "trend_up",
+    "trend_down",
+    "range_chop",
+    "high_volatility_breakout",
+    "low_volatility_compression",
+    "liquidity_stress",
+    "unknown"
+  ],
+  "trading_buttons_enabled": false,
+  "type": "p14_learning_engine_regime_taxonomy",
+  "ui_mode": "read_only",
+  "wallet_private_key_required": false,
+  "why_regime_first": "expert trust scores must be conditioned by market environment"
+}

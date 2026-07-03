@@ -1,0 +1,154 @@
+{
+  "closeout_policy": {
+    "auto_apply_allowed": false,
+    "merge_to_main_allowed_now": false,
+    "operator_review_required": true,
+    "p14_can_be_closed_after_operator_review": true,
+    "release_allowed_now": false
+  },
+  "closeout_status": "READY_FOR_OPERATOR_REVIEW",
+  "completed_module_count": 13,
+  "current_stage": "P14-D40-D42",
+  "deployment_allowed_now": false,
+  "local_only": true,
+  "missing_modules": [],
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "purpose": "final review-only closeout summary for P14 paper learning engine",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "required_module_count": 13,
+  "rows": [
+    {
+      "auto_apply_allowed": false,
+      "module_key": "regime_taxonomy",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D1-D3",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "shadow_ledger",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D4-D6",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "expert_trust_scoring",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D7-D9",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "feature_source_audit",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D10-D12",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "risk_adjusted_trust_scoring",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D13-D15",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "feature_orthogonality_audit",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D16-D18",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "alpha_decay_profiling",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D19-D21",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "meta_anomaly_detection",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D22-D24",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "governor_weight_proposal",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D25-D27",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "scenario_engine",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D28-D30",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "patch_proposal_sandbox",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D31-D33",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "data_quality_sentry",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D34-D36",
+      "status": "completed"
+    },
+    {
+      "auto_apply_allowed": false,
+      "module_key": "explanation_consistency_check",
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "stage": "P14-D37-D39",
+      "status": "completed"
+    }
+  ],
+  "trading_buttons_enabled": false,
+  "type": "p14_learning_engine_closeout_report",
+  "ui_mode": "read_only",
+  "unsafe_module_count": 0,
+  "unsafe_modules": [],
+  "wallet_private_key_required": false
+}

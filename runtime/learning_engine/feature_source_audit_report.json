@@ -1,0 +1,68 @@
+{
+  "audit_policy": {
+    "auto_prune_allowed": false,
+    "auto_silence_allowed": false,
+    "deprioritize_weak_features_allowed": true,
+    "operator_review_required": true
+  },
+  "audit_status": "READY_FOR_OPERATOR_REVIEW",
+  "current_stage": "P14-D10-D12",
+  "deployment_allowed_now": false,
+  "local_only": true,
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "purpose": "identify weak or noisy paper features before governor weighting",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "row_count": 3,
+  "rows": [
+    {
+      "audit_action": "insufficient_data",
+      "auto_prune_allowed": false,
+      "correlation": -0.22,
+      "feature_id": "macro_uncertainty_note",
+      "observation_count": 15,
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "regime": "liquidity_stress",
+      "source_type": "macro_text"
+    },
+    {
+      "audit_action": "deprioritize_or_silence",
+      "auto_prune_allowed": false,
+      "correlation": 0.04,
+      "feature_id": "twitter_sentiment_index",
+      "observation_count": 120,
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "regime": "range_chop",
+      "source_type": "sentiment"
+    },
+    {
+      "audit_action": "keep_high_priority",
+      "auto_prune_allowed": false,
+      "correlation": 0.36,
+      "feature_id": "volume_breakout_score",
+      "observation_count": 90,
+      "operator_review_required": true,
+      "paper_only": true,
+      "real_world_actions_allowed": false,
+      "regime": "trend_up",
+      "source_type": "market_feature"
+    }
+  ],
+  "trading_buttons_enabled": false,
+  "type": "p14_feature_source_audit_report",
+  "ui_mode": "read_only",
+  "wallet_private_key_required": false
+}

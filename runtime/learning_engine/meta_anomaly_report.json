@@ -1,0 +1,73 @@
+{
+  "anomaly_count": 2,
+  "current_stage": "P14-D22-D24",
+  "deployment_allowed_now": false,
+  "local_only": true,
+  "meta_policy": {
+    "auto_mode_switch_allowed": false,
+    "auto_trading_allowed": false,
+    "force_shadow_review_proposal_allowed": true,
+    "operator_review_required": true
+  },
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "purpose": "detect paper-only confidence inversion, drawdown stress, and meta-level learning anomalies",
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "report_status": "READY_FOR_OPERATOR_REVIEW",
+  "row_count": 2,
+  "rows": [
+    {
+      "actual_win_rate": 0.35,
+      "anomaly_flags": [
+        "overconfidence_anomaly"
+      ],
+      "auto_mode_switch_allowed": false,
+      "average_confidence": 0.91,
+      "confidence_status": "overconfidence_anomaly",
+      "drawdown_status": "normal",
+      "local_only": true,
+      "max_paper_drawdown_pct": 0.12,
+      "ok": true,
+      "operator_review_required": true,
+      "paper_only": true,
+      "proposed_mode": "force_shadow_review",
+      "real_world_actions_allowed": false,
+      "regime": "trend_up",
+      "type": "p14_meta_anomaly_window",
+      "window_id": "last_30_days_high_confidence"
+    },
+    {
+      "actual_win_rate": 0.5,
+      "anomaly_flags": [
+        "critical_paper_drawdown"
+      ],
+      "auto_mode_switch_allowed": false,
+      "average_confidence": 0.62,
+      "confidence_status": "normal",
+      "drawdown_status": "critical_paper_drawdown",
+      "local_only": true,
+      "max_paper_drawdown_pct": 0.34,
+      "ok": true,
+      "operator_review_required": true,
+      "paper_only": true,
+      "proposed_mode": "force_shadow_review",
+      "real_world_actions_allowed": false,
+      "regime": "liquidity_stress",
+      "type": "p14_meta_anomaly_window",
+      "window_id": "last_30_days_drawdown"
+    }
+  ],
+  "trading_buttons_enabled": false,
+  "type": "p14_meta_anomaly_report",
+  "ui_mode": "read_only",
+  "wallet_private_key_required": false
+}
