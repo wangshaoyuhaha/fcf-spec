@@ -151,3 +151,77 @@ def evaluate_paper_release_evidence_snapshot_completion_gate() -> dict[str, Any]
         "real_trading_enabled": False,
         "operator_review_required": True,
     }
+
+
+def build_paper_release_evidence_snapshot_export_packet() -> dict[str, Any]:
+    snapshot = build_paper_release_evidence_snapshot()
+    readable = build_paper_release_evidence_snapshot_readable_report()
+    checklist = build_paper_release_evidence_snapshot_operator_checklist()
+    completion = evaluate_paper_release_evidence_snapshot_completion_gate()
+    safety = evaluate_paper_release_evidence_snapshot_safety()
+    return {
+        "ok": snapshot["ok"] and readable["ok"] and checklist["ok"] and completion["ok"] and safety["ok"],
+        "type": "paper_release_evidence_snapshot_export_packet",
+        "phase": "P23-D7-D12",
+        "release_tag": snapshot["release_tag"],
+        "snapshot": snapshot,
+        "readable_report": readable,
+        "operator_checklist": checklist,
+        "completion_gate": completion,
+        "safety_gate": safety,
+        "export_mode": "LOCAL_STATIC_READ_ONLY",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_paper_release_evidence_snapshot_closeout_checkpoint() -> dict[str, Any]:
+    packet = build_paper_release_evidence_snapshot_export_packet()
+    return {
+        "ok": packet["ok"],
+        "type": "paper_release_evidence_snapshot_closeout_checkpoint",
+        "phase": "P23-D7-D12",
+        "release_tag": packet["release_tag"],
+        "completed": [
+            "snapshot_export_packet",
+            "snapshot_closeout_checkpoint",
+            "snapshot_handoff_packet",
+            "snapshot_archive_acceptance_packet",
+            "snapshot_archive_manifest",
+            "snapshot_final_handoff_checkpoint",
+        ],
+        "completion_gate_status": packet["completion_gate"]["status"],
+        "safety_gate_status": packet["safety_gate"]["status"],
+        "item_count": packet["snapshot"]["item_count"],
+        "check_count": packet["operator_checklist"]["check_count"],
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
+
+
+def build_paper_release_evidence_snapshot_handoff_packet() -> dict[str, Any]:
+    closeout = build_paper_release_evidence_snapshot_closeout_checkpoint()
+    return {
+        "ok": closeout["ok"],
+        "type": "paper_release_evidence_snapshot_handoff_packet",
+        "release_tag": closeout["release_tag"],
+        "phase": "P23-D7-D12",
+        "handoff_status": "READY_FOR_SNAPSHOT_ARCHIVE" if closeout["ok"] else "BLOCKED",
+        "closeout": closeout,
+        "next_phase_candidate": "P24 Paper Release Master Index",
+        "safety_boundary": "paper-only, local-only, read-only, no deploy, no real trading",
+        "paper_only": True,
+        "local_only": True,
+        "read_only": True,
+        "deploy_enabled": False,
+        "real_trading_enabled": False,
+        "operator_review_required": True,
+    }
