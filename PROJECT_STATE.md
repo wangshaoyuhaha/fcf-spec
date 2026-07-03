@@ -2001,3 +2001,22 @@ Completed:
 - P22-D8 master ledger closeout checkpoint
 - P22-D9 master ledger handoff packet
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P22-D10 To P22-D12 Final Ledger Handoff
+Status: completed
+Completed:
+- P22-D10 final ledger archive acceptance packet
+- P22-D11 final ledger archive manifest
+- P22-D12 final ledger handoff checkpoint
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P23-D1 To P23-D6 Paper Release Evidence Snapshot
+Status: completed
+Completed:
+- P23-D1 paper release evidence snapshot
+- P23-D2 snapshot summary
+- P23-D3 snapshot safety gate
+- P23-D4 snapshot readable report
+- P23-D5 snapshot operator checklist
+- P23-D6 snapshot completion gate
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
