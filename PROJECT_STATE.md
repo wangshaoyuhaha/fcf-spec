@@ -1849,3 +1849,11 @@ Completed:
 - P17-D11 final archive manifest
 - P17-D12 final handoff checkpoint
 Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
+
+## P18-D1 To P18-D3 Local Evidence Console Navigation
+Status: completed
+Completed:
+- P18-D1 local evidence navigation index
+- P18-D2 route resolver
+- P18-D3 breadcrumb contract
+Safety: paper-only, local-only, read-only, no deploy, no real trading, operator review required.
