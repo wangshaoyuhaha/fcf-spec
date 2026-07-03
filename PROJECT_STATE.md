@@ -1773,3 +1773,23 @@ Safety:
 - no real money impact
 - operator review required
 - no auto-deploy
+
+## P16-D1 To P16-D3 Operator Evidence Console Skeleton
+Status: completed
+Completed:
+- P16-D1 operator evidence console manifest
+- P16-D2 read-only section registry
+- P16-D3 console summary contract
+Safety:
+- paper-only
+- local-only
+- read-only
+- no real exchange API
+- no real brokerage API
+- no API keys
+- no real orders
+- no real execution
+- no real balances / positions
+- no real money impact
+- operator review required
+- no auto-deploy
