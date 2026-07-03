@@ -1,5 +1,5 @@
 {
-  "event_count": 6,
+  "event_count": 7,
   "events": [
     {
       "event_type": "validation_observed",
@@ -148,6 +148,31 @@
       "real_world_actions_allowed": false,
       "summary": "P13 learning boundary validation observed in local-only paper mode",
       "timestamp_utc": "2026-07-03T02:04:34.585372+00:00",
+      "trading_buttons_enabled": false,
+      "type": "p13_learning_memory_event"
+    },
+    {
+      "event_type": "validation_observed",
+      "evidence": {
+        "operator_review_required": true,
+        "paper_only": true,
+        "pytest_expected": 464
+      },
+      "learning_mode": "audit_and_proposal_only",
+      "local_only": true,
+      "memory_scope": "local_json_ledger",
+      "ok": true,
+      "operator_review_required": true,
+      "paper_only": true,
+      "patch_auto_apply_allowed": false,
+      "real_brokerage_api": false,
+      "real_exchange_api": false,
+      "real_execution": false,
+      "real_money_impact": false,
+      "real_order": false,
+      "real_world_actions_allowed": false,
+      "summary": "P13 learning boundary validation observed in local-only paper mode",
+      "timestamp_utc": "2026-07-03T02:08:19.740698+00:00",
       "trading_buttons_enabled": false,
       "type": "p13_learning_memory_event"
     }

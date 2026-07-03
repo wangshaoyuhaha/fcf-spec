@@ -1,0 +1,56 @@
+{
+  "current_stage": "P14-D7-D9",
+  "governor_weight_auto_apply_allowed": false,
+  "governor_weight_proposal_allowed": true,
+  "local_only": true,
+  "ok": true,
+  "operator_review_required": true,
+  "paper_only": true,
+  "real_api_key_required": false,
+  "real_balance": false,
+  "real_brokerage_api": false,
+  "real_exchange_api": false,
+  "real_execution": false,
+  "real_money_impact": false,
+  "real_order": false,
+  "real_position": false,
+  "real_world_actions_allowed": false,
+  "report_status": "READY_FOR_OPERATOR_REVIEW",
+  "row_count": 3,
+  "rows": [
+    {
+      "average_confidence": 0.72,
+      "expert_id": "momentum_expert",
+      "governor_weight_auto_apply_allowed": false,
+      "governor_weight_proposal_allowed": true,
+      "observation_count": 1,
+      "regime": "trend_up",
+      "trust_score": 0.703555177272657,
+      "trust_score_mode": "paper_half_life_weighted"
+    },
+    {
+      "average_confidence": 0.55,
+      "expert_id": "macro_expert",
+      "governor_weight_auto_apply_allowed": false,
+      "governor_weight_proposal_allowed": true,
+      "observation_count": 1,
+      "regime": "trend_up",
+      "trust_score": 0.0,
+      "trust_score_mode": "paper_half_life_weighted"
+    },
+    {
+      "average_confidence": 0.61,
+      "expert_id": "smc_expert",
+      "governor_weight_auto_apply_allowed": false,
+      "governor_weight_proposal_allowed": true,
+      "observation_count": 1,
+      "regime": "trend_up",
+      "trust_score": -0.59606758074489,
+      "trust_score_mode": "paper_half_life_weighted"
+    }
+  ],
+  "trading_buttons_enabled": false,
+  "trust_score_formula": "weighted_score = outcome_score * 0.5 ** (age_days / half_life_days)",
+  "type": "p14_expert_trust_report",
+  "wallet_private_key_required": false
+}

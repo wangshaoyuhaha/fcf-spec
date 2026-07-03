@@ -78,6 +78,7 @@ COMMANDS = [
     ["python", "scripts/run_p13_final_closeout_summary_smoke.py"],
     ["python", "scripts/run_p14_regime_taxonomy_smoke.py"],
     ["python", "scripts/run_p14_shadow_ledger_smoke.py"],
+    ["python", "scripts/run_p14_expert_trust_score_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
     ["python", "-m", "pytest", "-q"],
 ]
