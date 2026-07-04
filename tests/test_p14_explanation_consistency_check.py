@@ -21,8 +21,8 @@ def test_detect_unsafe_explanation_phrases():
 
 def test_field_consistency_detects_mismatch():
     mismatches = check_field_consistency(
-        {"real_world_actions_allowed": False},
-        {"real_world_actions_allowed": False},
+        {"operator_review_required": True},
+        {"operator_review_required": False},
     )
 
     assert len(mismatches) == 1
