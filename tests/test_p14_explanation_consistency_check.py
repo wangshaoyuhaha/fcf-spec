@@ -26,7 +26,7 @@ def test_field_consistency_detects_mismatch():
     )
 
     assert len(mismatches) == 1
-    assert mismatches[0]["field"] == "real_world_actions_allowed"
+    assert mismatches[0]["field"] == "operator_review_required"
 
 
 def test_explanation_consistency_blocks_unsafe_phrase():
