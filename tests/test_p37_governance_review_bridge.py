@@ -1,0 +1,40 @@
+import os
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.join(ROOT, "src")
+if SRC not in sys.path:
+ sys.path.insert(0, SRC)
+
+from btc_finance_platform.paper_governance_review_bridge import build_p37_governance_review_bridge
+from btc_finance_platform.paper_governance_review_bridge import build_p37_review_boundary
+from btc_finance_platform.paper_governance_review_bridge import build_p37_review_readiness_gate
+
+
+def test_p37_governance_review_bridge_uses_897_baseline():
+ result = build_p37_governance_review_bridge()
+ assert result["phase"] == "P37"
+ assert result["step_range"] == "D1-D3"
+ assert result["baseline_tests"] == 897
+ assert result["previous_phase"] == "P36"
+ assert result["review_bridge_ready"] is True
+ assert result["operator_review_required"] is True
+
+
+def test_p37_review_boundary_blocks_real_actions():
+ result = build_p37_review_boundary()
+ assert result["operator_review_required"] is True
+ assert result["operator_can_override_safety"] is False
+ assert result["real_world_actions_allowed"] is False
+ assert result["tag_allowed"] is False
+ assert result["release_allowed"] is False
+ assert result["deploy_allowed"] is False
+
+
+def test_p37_review_readiness_gate_blocks_release_deploy():
+ result = build_p37_review_readiness_gate()
+ assert result["ready_for_p37_d4_d6"] is True
+ assert result["ready_for_tag"] is False
+ assert result["ready_for_release"] is False
+ assert result["ready_for_deploy"] is False
+ assert result["operator_review_required"] is True
