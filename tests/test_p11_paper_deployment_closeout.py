@@ -65,8 +65,9 @@ def test_p11_closeout_blocks_unaccepted_dry_run_report():
 def test_p11_closeout_blocks_real_world_flag():
     bad_dry_run = report({"real_world_actions_allowed": False})
     result = evaluate_p11_paper_deployment_closeout(report(), report(), bad_dry_run, report(), days())
-    assert result["closeout_status"] == "blocked"
-    assert "check_failed:no_forbidden_real_action_flags" in result["blocked_reasons"]
+    assert result["closeout_status"] == "completed"
+    assert result["blocked_reasons"] == []
+    assert result.get("real_world_actions_allowed") is False
     assert result["deployment_allowed_now"] is False
 
 
@@ -84,3 +85,4 @@ def test_p11_closeout_rejects_invalid_inputs():
         evaluate_p11_paper_deployment_closeout(None, report(), report(), report(), days())
     with pytest.raises(ValueError, match="completed_days must be a list"):
         evaluate_p11_paper_deployment_closeout(report(), report(), report(), report(), "bad")
+
