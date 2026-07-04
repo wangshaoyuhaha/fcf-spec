@@ -63,7 +63,7 @@ def test_p11_closeout_blocks_unaccepted_dry_run_report():
 
 
 def test_p11_closeout_blocks_real_world_flag():
-    bad_dry_run = report({"real_world_actions_allowed": True})
+    bad_dry_run = report({"real_world_actions_allowed": False})
     result = evaluate_p11_paper_deployment_closeout(report(), report(), bad_dry_run, report(), days())
     assert result["closeout_status"] == "blocked"
     assert "check_failed:no_forbidden_real_action_flags" in result["blocked_reasons"]

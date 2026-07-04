@@ -18,7 +18,7 @@ FCF / fcf-spec is closed and archived:
 
 Do not continue new FCF phases.
 
-Do not mix this project with football_quant_ai.
+Do not mix this project with external_non_fcf_project.
 
 Do not mix this project with _WC2026_项目全量备份.
 

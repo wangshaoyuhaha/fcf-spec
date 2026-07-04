@@ -22,7 +22,7 @@
 
 以下目录不属于本项目：
 
-- football_quant_ai
+- external_non_fcf_project
 - _WC2026_项目全量备份
 - fcf_phase1_spine
 

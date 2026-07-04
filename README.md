@@ -18,7 +18,7 @@ FCF / fcf-spec 已经最终归档并关闭：
 
 不要把本项目和以下文件夹混用：
 
-- football_quant_ai
+- external_non_fcf_project
 - _WC2026_项目全量备份
 
 ## 当前已完成
