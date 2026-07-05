@@ -5,6 +5,15 @@
     build_paper_review_contract,
     validate_paper_review_contract,
 )
+from .paper_review_record import (
+    ALLOWED_PAPER_DECISION_LABELS,
+    ALLOWED_REVIEW_STATUSES,
+    PAPER_DECISION_LABEL_UNDECIDED,
+    REVIEW_STATUS_PENDING,
+    PaperReviewRecord,
+    build_paper_review_record_from_ui_source,
+    validate_paper_review_record,
+)
 from .ui_app_source_loader import (
     ALLOWED_UI_SOURCE_TYPES,
     UiAppSourcePayload,
@@ -22,4 +31,11 @@ __all__ = [
     "UiAppSourcePayload",
     "load_ui_app_source_payload",
     "summarize_ui_app_source_payload",
+    "ALLOWED_PAPER_DECISION_LABELS",
+    "ALLOWED_REVIEW_STATUSES",
+    "PAPER_DECISION_LABEL_UNDECIDED",
+    "REVIEW_STATUS_PENDING",
+    "PaperReviewRecord",
+    "build_paper_review_record_from_ui_source",
+    "validate_paper_review_record",
 ]
