@@ -55,3 +55,17 @@ __all__ = [
     "validate_risk_reason_review_panels",
     "write_local_report_artifact",
 ]
+
+from .final_handoff import (
+    UI_APP_D6_FINAL_HANDOFF,
+    get_ui_app_d6_final_handoff,
+    validate_ui_app_d6_final_handoff,
+)
+
+__all__.extend(
+    [
+        "UI_APP_D6_FINAL_HANDOFF",
+        "get_ui_app_d6_final_handoff",
+        "validate_ui_app_d6_final_handoff",
+    ]
+)
