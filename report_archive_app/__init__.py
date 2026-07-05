@@ -8,6 +8,19 @@
     build_report_archive_contract,
     validate_report_archive_contract,
 )
+from .item_index import (
+    ARCHIVE_ITEM_INDEX_STAGE_ID,
+    ARCHIVE_ITEM_INDEX_STATUS,
+    ARCHIVE_ITEM_INDEX_TYPE,
+    ARCHIVE_ITEM_RECORD_TYPE,
+    ArchiveItemIndex,
+    ArchiveItemIndexRecord,
+    build_archive_item_index,
+    build_archive_item_index_record,
+    summarize_archive_item_index,
+    validate_archive_item_index,
+    validate_archive_item_index_record,
+)
 from .source_discovery import (
     DISCOVERY_ALLOWED_EXTENSIONS,
     ArchiveSourceCandidate,
@@ -38,4 +51,15 @@ __all__ = [
     "is_discoverable_archive_source",
     "summarize_archive_source_candidates",
     "validate_archive_source_candidate",
+    "ARCHIVE_ITEM_INDEX_STAGE_ID",
+    "ARCHIVE_ITEM_INDEX_STATUS",
+    "ARCHIVE_ITEM_INDEX_TYPE",
+    "ARCHIVE_ITEM_RECORD_TYPE",
+    "ArchiveItemIndex",
+    "ArchiveItemIndexRecord",
+    "build_archive_item_index",
+    "build_archive_item_index_record",
+    "summarize_archive_item_index",
+    "validate_archive_item_index",
+    "validate_archive_item_index_record",
 ]
