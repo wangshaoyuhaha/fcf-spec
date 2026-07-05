@@ -165,6 +165,9 @@ def evaluate_volume_price_anomaly(record):
     final_score = round(_clamp_score(score) * data_quality_factor, 2)
     level = _level_from_score(final_score)
 
+    if data_quality_state == PASS_LIMITED and level == STRONG_ANOMALY:
+        level = MEDIUM_ANOMALY
+
     if final_score < 25:
         risk_flags.append("PUBLIC_SIGNAL_WEAK")
 
@@ -211,4 +214,5 @@ def build_volume_price_anomaly_package(records):
         "paper_only": True,
         "real_action_blocked": True,
     }
+
 

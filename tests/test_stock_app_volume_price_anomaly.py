@@ -95,8 +95,9 @@ def test_build_volume_price_anomaly_package_counts_levels():
     medium["high_20d"] = 12.0
     weak = strong_record()
     weak["symbol"] = "300000"
-    weak["close"] = 10.1
-    weak["volume"] = 900000
+    weak["close"] = 10.4
+    weak["high"] = 10.45
+    weak["volume"] = 1500000
     weak["turnover_rate"] = 2.0
     weak["high_20d"] = 12.0
 
@@ -109,4 +110,5 @@ def test_build_volume_price_anomaly_package_counts_levels():
     assert result["weak_anomaly_count"] == 1
     assert result["paper_only"] is True
     assert result["real_action_blocked"] is True
+
 
