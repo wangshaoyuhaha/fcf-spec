@@ -1,4 +1,18 @@
-﻿from .ops_contract import (
+﻿from .issue_list import (
+    DATA_QUALITY_ISSUE_LIST_TYPE,
+    DATA_QUALITY_ISSUE_RECORD_TYPE,
+    DATA_QUALITY_ISSUE_STAGE_ID,
+    ISSUE_STATUS_NO_ACTION_REQUIRED,
+    ISSUE_STATUS_OPEN,
+    DataQualityIssue,
+    DataQualityIssueList,
+    build_data_quality_issue_from_check,
+    build_data_quality_issue_list,
+    summarize_data_quality_issue_list,
+    validate_data_quality_issue,
+    validate_data_quality_issue_list,
+)
+from .ops_contract import (
     ALLOWED_SOURCE_APP_IDS,
     ALLOWED_SOURCE_TYPES,
     DATA_QUALITY_OPS_APP_ID,
@@ -58,4 +72,16 @@ __all__ = [
     "build_data_quality_ops_checks",
     "summarize_data_quality_ops_checks",
     "validate_data_quality_ops_check",
+    "DATA_QUALITY_ISSUE_LIST_TYPE",
+    "DATA_QUALITY_ISSUE_RECORD_TYPE",
+    "DATA_QUALITY_ISSUE_STAGE_ID",
+    "ISSUE_STATUS_NO_ACTION_REQUIRED",
+    "ISSUE_STATUS_OPEN",
+    "DataQualityIssue",
+    "DataQualityIssueList",
+    "build_data_quality_issue_from_check",
+    "build_data_quality_issue_list",
+    "summarize_data_quality_issue_list",
+    "validate_data_quality_issue",
+    "validate_data_quality_issue_list",
 ]
