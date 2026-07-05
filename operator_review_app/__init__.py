@@ -43,6 +43,16 @@ from .ui_app_source_loader import (
     load_ui_app_source_payload,
     summarize_ui_app_source_payload,
 )
+from .workflow_handoff import (
+    FINAL_CLOSEOUT_STATUS,
+    FINAL_HANDOFF_PACKET_TYPE,
+    OPERATOR_REVIEW_FINAL_STAGE_ID,
+    FinalOperatorReviewHandoff,
+    build_final_operator_review_handoff,
+    build_operator_review_closeout_summary,
+    validate_final_operator_review_handoff,
+    write_final_operator_review_handoff,
+)
 
 __all__ = [
     "OPERATOR_REVIEW_APP_ID",
@@ -80,4 +90,12 @@ __all__ = [
     "validate_local_review_packet",
     "validate_no_execution_receipt",
     "write_local_review_packet",
+    "FINAL_CLOSEOUT_STATUS",
+    "FINAL_HANDOFF_PACKET_TYPE",
+    "OPERATOR_REVIEW_FINAL_STAGE_ID",
+    "FinalOperatorReviewHandoff",
+    "build_final_operator_review_handoff",
+    "build_operator_review_closeout_summary",
+    "validate_final_operator_review_handoff",
+    "write_final_operator_review_handoff",
 ]
