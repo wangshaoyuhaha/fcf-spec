@@ -33,7 +33,8 @@ def build_data_app_manifest_for_file(file_path: str | Path) -> dict[str, Any]:
     path = Path(file_path)
     checksum = file_sha256(path)
     adapter_result = build_local_file_adapter_result(path)
-    manifest_id = f"DATAAPP-A-SHARE-{checksum[:12]}-{adapter_result[\"row_count\"]}"
+    row_count = adapter_result["row_count"]
+    manifest_id = f"DATAAPP-A-SHARE-{checksum[:12]}-{row_count}"
 
     return {
         "app": "DATA-APP",
@@ -129,3 +130,4 @@ def validate_data_app_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
         "checksum_sha256": manifest.get("checksum_sha256"),
         "checks": checks,
     }
+
