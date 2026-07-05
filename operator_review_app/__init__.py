@@ -1,15 +1,15 @@
-﻿"""Operator review sidecar package.
-
-This package is paper-only, local-only, read-only, and sidecar-only.
-It must not import or mutate P1-P47 core modules.
-"""
-
-from .paper_review_contract import (
+﻿from .paper_review_contract import (
     OPERATOR_REVIEW_APP_ID,
     OPERATOR_REVIEW_STAGE_ID,
     PaperReviewContract,
     build_paper_review_contract,
     validate_paper_review_contract,
+)
+from .ui_app_source_loader import (
+    ALLOWED_UI_SOURCE_TYPES,
+    UiAppSourcePayload,
+    load_ui_app_source_payload,
+    summarize_ui_app_source_payload,
 )
 
 __all__ = [
@@ -18,4 +18,8 @@ __all__ = [
     "PaperReviewContract",
     "build_paper_review_contract",
     "validate_paper_review_contract",
+    "ALLOWED_UI_SOURCE_TYPES",
+    "UiAppSourcePayload",
+    "load_ui_app_source_payload",
+    "summarize_ui_app_source_payload",
 ]
