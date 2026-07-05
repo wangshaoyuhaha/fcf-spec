@@ -1,22 +1,41 @@
-﻿"""Report archive sidecar package.
-
-This package is paper-only, local-only, read-only, and sidecar-only.
-It archives local report and handoff artifacts from completed sidecar layers.
-It must not import or mutate P1-P47 core modules.
-"""
-
-from .archive_contract import (
+﻿from .archive_contract import (
+    ALLOWED_SOURCE_APP_IDS,
+    ALLOWED_SOURCE_TYPES,
+    ARCHIVE_OUTPUT_TYPES,
     REPORT_ARCHIVE_APP_ID,
     REPORT_ARCHIVE_STAGE_ID,
     ReportArchiveContract,
     build_report_archive_contract,
     validate_report_archive_contract,
 )
+from .source_discovery import (
+    DISCOVERY_ALLOWED_EXTENSIONS,
+    ArchiveSourceCandidate,
+    build_archive_source_candidate,
+    discover_archive_source_candidates,
+    infer_source_app_id,
+    infer_source_type,
+    is_discoverable_archive_source,
+    summarize_archive_source_candidates,
+    validate_archive_source_candidate,
+)
 
 __all__ = [
+    "ALLOWED_SOURCE_APP_IDS",
+    "ALLOWED_SOURCE_TYPES",
+    "ARCHIVE_OUTPUT_TYPES",
     "REPORT_ARCHIVE_APP_ID",
     "REPORT_ARCHIVE_STAGE_ID",
     "ReportArchiveContract",
     "build_report_archive_contract",
     "validate_report_archive_contract",
+    "DISCOVERY_ALLOWED_EXTENSIONS",
+    "ArchiveSourceCandidate",
+    "build_archive_source_candidate",
+    "discover_archive_source_candidates",
+    "infer_source_app_id",
+    "infer_source_type",
+    "is_discoverable_archive_source",
+    "summarize_archive_source_candidates",
+    "validate_archive_source_candidate",
 ]
