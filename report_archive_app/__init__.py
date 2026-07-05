@@ -8,6 +8,18 @@
     build_report_archive_contract,
     validate_report_archive_contract,
 )
+from .archive_packet import (
+    ARCHIVE_MANIFEST_STAGE_ID,
+    ARCHIVE_MANIFEST_TYPE,
+    PAPER_ARCHIVE_PACKET_TYPE,
+    ArchiveManifest,
+    PaperArchivePacket,
+    build_archive_manifest,
+    build_paper_archive_packet,
+    validate_archive_manifest,
+    validate_paper_archive_packet,
+    write_paper_archive_packet,
+)
 from .integrity_summary import (
     ARCHIVE_INTEGRITY_RECORD_TYPE,
     ARCHIVE_INTEGRITY_STAGE_ID,
@@ -90,4 +102,14 @@ __all__ = [
     "summarize_archive_integrity_summary",
     "validate_archive_integrity_record",
     "validate_archive_integrity_summary",
+    "ARCHIVE_MANIFEST_STAGE_ID",
+    "ARCHIVE_MANIFEST_TYPE",
+    "PAPER_ARCHIVE_PACKET_TYPE",
+    "ArchiveManifest",
+    "PaperArchivePacket",
+    "build_archive_manifest",
+    "build_paper_archive_packet",
+    "validate_archive_manifest",
+    "validate_paper_archive_packet",
+    "write_paper_archive_packet",
 ]
