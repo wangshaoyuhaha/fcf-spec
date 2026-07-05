@@ -14,6 +14,18 @@ from .paper_review_record import (
     build_paper_review_record_from_ui_source,
     validate_paper_review_record,
 )
+from .reviewer_risk_models import (
+    REVIEWER_NOTE_RECORD_TYPE,
+    RISK_ACKNOWLEDGEMENT_PENDING,
+    RISK_ACKNOWLEDGEMENT_RECORD_TYPE,
+    RISK_ACKNOWLEDGEMENT_STATUS,
+    ReviewerNoteRecord,
+    RiskAcknowledgementRecord,
+    build_reviewer_note_record,
+    build_risk_acknowledgement_record,
+    validate_reviewer_note_record,
+    validate_risk_acknowledgement_record,
+)
 from .ui_app_source_loader import (
     ALLOWED_UI_SOURCE_TYPES,
     UiAppSourcePayload,
@@ -38,4 +50,14 @@ __all__ = [
     "PaperReviewRecord",
     "build_paper_review_record_from_ui_source",
     "validate_paper_review_record",
+    "REVIEWER_NOTE_RECORD_TYPE",
+    "RISK_ACKNOWLEDGEMENT_PENDING",
+    "RISK_ACKNOWLEDGEMENT_RECORD_TYPE",
+    "RISK_ACKNOWLEDGEMENT_STATUS",
+    "ReviewerNoteRecord",
+    "RiskAcknowledgementRecord",
+    "build_reviewer_note_record",
+    "build_risk_acknowledgement_record",
+    "validate_reviewer_note_record",
+    "validate_risk_acknowledgement_record",
 ]
