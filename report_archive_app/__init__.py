@@ -59,6 +59,16 @@ from .source_discovery import (
     summarize_archive_source_candidates,
     validate_archive_source_candidate,
 )
+from .workflow_handoff import (
+    FINAL_ARCHIVE_CLOSEOUT_STATUS,
+    FINAL_ARCHIVE_HANDOFF_PACKET_TYPE,
+    REPORT_ARCHIVE_FINAL_STAGE_ID,
+    FinalReportArchiveHandoff,
+    build_final_report_archive_handoff,
+    build_report_archive_closeout_summary,
+    validate_final_report_archive_handoff,
+    write_final_report_archive_handoff,
+)
 
 __all__ = [
     "ALLOWED_SOURCE_APP_IDS",
@@ -112,4 +122,12 @@ __all__ = [
     "validate_archive_manifest",
     "validate_paper_archive_packet",
     "write_paper_archive_packet",
+    "FINAL_ARCHIVE_CLOSEOUT_STATUS",
+    "FINAL_ARCHIVE_HANDOFF_PACKET_TYPE",
+    "REPORT_ARCHIVE_FINAL_STAGE_ID",
+    "FinalReportArchiveHandoff",
+    "build_final_report_archive_handoff",
+    "build_report_archive_closeout_summary",
+    "validate_final_report_archive_handoff",
+    "write_final_report_archive_handoff",
 ]
