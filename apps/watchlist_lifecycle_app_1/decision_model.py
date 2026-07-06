@@ -99,8 +99,18 @@ def evaluate_watchlist_lifecycle_state(
         selected_state = REVIEW_REQUIRED
         decision_reasons.append("operator review requires review")
     elif "SOURCE_STALE" in risk_flags or source_health["has_missing_sources"]:
-        selected_state = STALE_REVIEW
-        decision_reasons.append("source context requires stale review")
+        if previous_state in {ACTIVE_WATCH, REVIEW_REQUIRED}:
+            selected_state = STALE_REVIEW
+            decision_reasons.append("source context requires stale review")
+        elif previous_state == ENTRY_REVIEW:
+            selected_state = REVIEW_REQUIRED
+            decision_reasons.append("source context requires manual review before stale review")
+        elif previous_state == STALE_REVIEW:
+            selected_state = REVIEW_REQUIRED
+            decision_reasons.append("stale review requires manual review follow-up")
+        else:
+            selected_state = ENTRY_REVIEW
+            decision_reasons.append("new paper candidate requires entry review before stale review")
     elif previous_state in {ENTRY_REVIEW, REVIEW_REQUIRED, STALE_REVIEW}:
         selected_state = ACTIVE_WATCH
         decision_reasons.append("paper candidate may remain under active watch")
@@ -249,3 +259,4 @@ def validate_watchlist_lifecycle_evaluation(evaluation: Dict[str, Any]) -> Dict[
         "stage_id": candidate.get("stage_id"),
         "selected_state": candidate.get("selected_state"),
     }
+
