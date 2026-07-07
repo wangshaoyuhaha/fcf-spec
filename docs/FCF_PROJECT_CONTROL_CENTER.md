@@ -1875,3 +1875,149 @@ Rule:
 
 Future ideas must enter governance review before implementation.
 
+
+# Artifact Schema Contract
+
+## Artifact Schema Governance
+
+Every Artifact must contain:
+
+- artifact_id
+- artifact_type
+- owner
+- producer
+- consumer
+- version
+- created_time
+- validation_status
+- lifecycle_status
+
+Principles:
+
+- Artifact must be traceable.
+- Artifact must be verifiable.
+- Artifact must not be silently overwritten.
+
+
+# Artifact Version Contract
+
+## Version Governance
+
+Artifact versions follow:
+
+v1
+v2
+v3
+
+Allowed:
+
+- create new artifact version
+
+Forbidden:
+
+- overwrite previous artifact
+- silent modification
+- delete historical artifact
+
+
+# Field Level Dependency Matrix
+
+## Field Dependency Governance
+
+Purpose:
+
+Upgrade dependency governance from Sidecar level to Field level.
+
+Each governed field should define:
+
+- producer
+- consumer
+- validator
+- archive owner
+
+This phase defines governance rules only.
+No business field mutation is allowed.
+
+
+# Historical Bug Migration Framework
+
+## Historical Bug Migration
+
+Historical project issues should be migrated into Bug History Register.
+
+Required fields:
+
+- BUG-ID
+- Date
+- Source Window
+- Module
+- Description
+- Severity
+- Status
+- Resolution
+
+
+# Architecture Decision Record Expansion
+
+## Architecture Decision Record
+
+Required fields:
+
+Decision:
+
+Why:
+
+Impact:
+
+Status:
+
+
+## Core Freeze Decision
+
+P1-P47 Core remains frozen.
+
+No P48 expansion.
+
+No core mutation.
+
+
+## Sidecar Architecture Decision
+
+Future extension uses:
+
+Frozen Core
++
+Controlled Sidecars
+
+
+## AI Boundary Decision
+
+AI provides:
+
+- explanation
+- summary
+- reasoning
+
+AI cannot:
+
+- modify score
+- modify reason codes
+- remove risk flags
+
+
+## Human Governance Decision
+
+Operator review remains mandatory.
+
+
+## Paper-only Decision
+
+FCF remains:
+
+paper-only
+local-only
+read-only
+sidecar-only
+
+No execution capability.
+
