@@ -1818,3 +1818,60 @@ Future refinement required:
 - artifact schema contract
 - artifact version contract
 
+
+## Artifact Dependency Matrix
+
+| Artifact | Producer Sidecar | Consumer Sidecar |
+| --- | --- | --- |
+| validated_dataset | DATA-APP-1 | DATA-QUALITY-OPS-APP-1, STOCK-APP-1 |
+| quality_report | DATA-QUALITY-OPS-APP-1 | SIGNAL-VALIDATION-APP-1, MODEL-GOVERNANCE-APP-1 |
+| ranked_watchlist | STOCK-APP-1 | WATCHLIST-LIFECYCLE-APP-1, AI-CONTEXT-1 |
+| explanation_report | AI-CONTEXT-1 | OPERATOR-REVIEW-APP-1, UI-APP-1 |
+| risk_review_packet | RISK-EXPOSURE-APP-1 | PORTFOLIO-REVIEW-APP-1, OPERATOR-REVIEW-APP-1 |
+| operator_review_record | OPERATOR-REVIEW-APP-1 | DECISION-AUDIT-APP-1, REPORT-ARCHIVE-APP-1 |
+| archive_manifest | REPORT-ARCHIVE-APP-1 | FINAL-COMPLETION-REVIEW-APP-1 |
+
+## Bug History Register
+
+Fields:
+
+- BUG-ID
+- Date
+- Source
+- Module
+- Description
+- Severity
+- Status
+- Resolution
+
+Rule:
+
+Historical bugs must be migrated into project governance records.
+Chat history is not the only source of truth.
+
+## Roadmap Governance Framework
+
+Idea Lifecycle:
+
+PROPOSED
+
+¡ý
+
+REVIEWING
+
+¡ý
+
+ACCEPTED
+
+¡ý
+
+REJECTED
+
+¡ý
+
+DEFERRED
+
+Rule:
+
+Future ideas must enter governance review before implementation.
+
