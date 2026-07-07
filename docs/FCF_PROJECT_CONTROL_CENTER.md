@@ -1614,3 +1614,70 @@ Operator review remains mandatory.
 
 No automated approval bypass.
 
+
+## Change Control Rule
+
+All FCF changes must follow controlled governance.
+
+Required flow:
+
+Idea
+
+¡ý
+
+Review
+
+¡ý
+
+Accepted / Rejected / Deferred
+
+¡ý
+
+Control Center Update
+
+¡ý
+
+Implementation
+
+
+Forbidden:
+
+- Direct implementation from chat discussion.
+- Unreviewed architecture change.
+- Core modification without governance approval.
+- Sidecar expansion without registration.
+
+
+## Control Center Update Policy
+
+FCF_PROJECT_CONTROL_CENTER.md is the governance index and architecture baseline.
+
+Updates are required when:
+
+- architecture rules change
+- safety boundaries change
+- Sidecar registry changes
+- major decisions are made
+- important bugs are recorded
+
+
+The Control Center does not replace detailed documents.
+
+It provides:
+
+- project state index
+- architecture governance
+- decision tracking
+- change history reference
+
+
+All future FCF windows must read:
+
+1. FCF_PROJECT_CONTROL_CENTER.md
+2. FCF_CURRENT_STATE_MASTER_FINAL.md
+3. FCF_FINAL_ARCHITECTURE_GAP_AUDIT_REPORT.md
+4. FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md
+5. FCF_NEW_WINDOW_CHAT_PROMPT.md
+
+before making project changes.
+
