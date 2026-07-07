@@ -2120,3 +2120,159 @@ V1.0 scope:
 V1.0 is a governance milestone only.
 
 It does not represent feature completion, deployment, or production execution.
+
+# FCF CONTROL CENTER V0.7 Governance Enhancement
+
+## Global Architecture Map
+
+FCF Architecture:
+
+FCF Core P1-P47 Frozen
+
+¡ý
+
+Sidecar Governance Layer
+
+¡ý
+
+Artifact Governance Layer
+
+¡ý
+
+Operator Review Layer
+
+¡ý
+
+Archive Layer
+
+
+Core:
+Responsible for deterministic computation.
+
+Sidecar:
+Responsible for controlled extension.
+
+Governance:
+Responsible for constraint and review.
+
+Archive:
+Responsible for historical preservation.
+
+
+## Correlation_ID Contract
+
+Correlation_ID is defined as:
+
+- audit traceability identifier
+- artifact chain identifier
+
+
+Trace chain:
+
+Data Snapshot
+
+¡ý
+
+Validated Artifact
+
+¡ý
+
+Research Artifact
+
+¡ý
+
+AI Explanation
+
+¡ý
+
+Risk Review
+
+¡ý
+
+Operator Review
+
+¡ý
+
+Archive
+
+
+Restrictions:
+
+Correlation_ID is not:
+
+- order id
+- execution id
+- position id
+- trading id
+
+
+## Artifact Governance Contract
+
+Every Artifact must be:
+
+- identifiable
+- owned
+- versioned
+- validated
+- traceable
+- immutable after archive
+
+
+Forbidden:
+
+- silent overwrite
+- delete history
+- ownerless artifact
+
+
+## Bug Archive Migration Status
+
+Migration states:
+
+- Pending
+- Migrated
+- Reviewed
+- Closed
+
+
+Migration scope:
+
+- architecture bugs
+- safety boundary bugs
+- workflow governance bugs
+
+
+Do not migrate ordinary chat content.
+
+
+## FCF CONTROL CENTER V1.0 Blueprint
+
+Target structure:
+
+1. Project Identity
+
+2. Core Constitution
+
+3. Architecture Map
+
+4. Sidecar Registry
+
+5. Dependency Governance
+
+6. Artifact Governance
+
+7. Bug History
+
+8. Decision History
+
+9. Roadmap
+
+10. Change Control
+
+
+V1.0 planning only.
+
+No feature development.
+
+No core modification.
+
