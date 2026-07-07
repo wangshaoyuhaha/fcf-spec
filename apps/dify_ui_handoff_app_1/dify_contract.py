@@ -303,7 +303,8 @@ def build_safe_blocked_response(reason: str, operator_question: str = "") -> Dic
         "real_execution_allowed": False,
         "trade_action_enabled": False,
         "status": "BLOCKED_UNSAFE_OR_REAL_WORLD_REQUEST",
-        "operator_question": operator_question,
+        "operator_question": "[redacted unsafe operator question]",
+        "operator_question_redacted": True,
         "reason": reason,
         "sections": {
             "scope_status": "Blocked. This workflow is paper-only and local-only.",
@@ -311,7 +312,12 @@ def build_safe_blocked_response(reason: str, operator_question: str = "") -> Dic
             "risk_flags": ["REAL_WORLD_ACTION_REQUEST_BLOCKED"],
             "reason_codes": ["DIFY_OUTPUT_SAFETY_BLOCK"],
             "operator_review_notes": "Human operator review is required before any future paper-only interpretation.",
-            "blocked_actions": OUTPUT_CONTRACT["blocked_actions"],
+            "blocked_actions": [
+                "real_world_action_blocked",
+                "credential_request_blocked",
+                "execution_request_blocked",
+                "operator_review_bypass_blocked",
+            ],
             "next_safe_step": "Use only local FCF reports and ask for paper-only explanation.",
             "paper_only_notice": "No real trading, no real execution, no API keys, no broker or exchange connection.",
         },
