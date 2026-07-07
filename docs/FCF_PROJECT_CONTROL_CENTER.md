@@ -1739,3 +1739,82 @@ Control Center Update
 Implementation
 
 
+
+## Complete Sidecar Dependency DAG
+
+### Sidecar Dependency Direction
+
+FCF Sidecar dependency follows a forward-only artifact flow model.
+
+
+Each Sidecar must have:
+
+- defined artifact ownership
+- defined output artifact
+- defined consumer scope
+
+A Sidecar may read approved upstream artifacts.
+
+A Sidecar must not mutate upstream artifacts.
+
+---
+
+### Cross-Layer Sidecar Definition
+
+The following Sidecars are cross-layer governance nodes:
+
+- AI-CONTEXT-1
+- DECISION-AUDIT-APP-1
+- MODEL-GOVERNANCE-APP-1
+
+These nodes may perform cross-layer read operations for:
+
+- explanation
+- governance review
+- audit traceability
+- model review
+
+They must not:
+
+- modify upstream results
+- change score outputs
+- change reason_codes
+- delete or downgrade risk_flags
+- overwrite source artifacts
+
+---
+
+### DAG Rules
+
+Allowed:
+
+Forward Read Dependency
+
+
+Forbidden:
+
+Circular Dependency
+
+Backward Mutation
+
+Hidden Dependency
+
+
+FCF Sidecar architecture requires an acyclic dependency graph.
+
+Each dependency must be explicit and traceable.
+
+---
+
+### Dependency Status
+
+Current status:
+
+OPEN
+
+Future refinement required:
+
+- field-level dependency definition
+- artifact schema contract
+- artifact version contract
+
