@@ -133,23 +133,23 @@ Flow:
 
 Raw Data
 
-â†?
+ï¿½?
 
 Data Quality Gate
 
-â†?
+ï¿½?
 
 Validated Data
 
-â†?
+ï¿½?
 
 Research Analysis
 
-â†?
+ï¿½?
 
 AI Explanation
 
-â†?
+ï¿½?
 
 Human Review
 
@@ -445,27 +445,27 @@ Official flow:
 
 LOCAL PAPER DATA
 
-â†?
+ï¿½?
 
 DATA QUALITY GATE
 
-â†?
+ï¿½?
 
 RESEARCH LAYER
 
-â†?
+ï¿½?
 
 AI REASONING LAYER
 
-â†?
+ï¿½?
 
 GOVERNANCE REVIEW
 
-â†?
+ï¿½?
 
 PRESENTATION
 
-â†?
+ï¿½?
 
 ARCHIVE
 
@@ -481,11 +481,11 @@ Forbidden:
 
 AI-CONTEXT
 
-â†?
+ï¿½?
 
 modify
 
-â†?
+ï¿½?
 
 STOCK calculation
 
@@ -502,11 +502,11 @@ Forbidden:
 
 UI
 
-â†?
+ï¿½?
 
 modify
 
-â†?
+ï¿½?
 
 Risk Flag
 
@@ -523,11 +523,11 @@ Forbidden:
 
 Archive
 
-â†?
+ï¿½?
 
 overwrite
 
-â†?
+ï¿½?
 
 Historical Record
 
@@ -814,11 +814,11 @@ Idea Lifecycle:
 
 PROPOSED
 
-â†?
+ï¿½?
 
 REVIEWING
 
-â†?
+ï¿½?
 
 ACCEPTED
 
@@ -1099,23 +1099,23 @@ Required process:
 
 New Idea
 
-â†?
+ï¿½?
 
 Control Center Record
 
-â†?
+ï¿½?
 
 Architecture Review
 
-â†?
+ï¿½?
 
 Accept / Reject / Defer
 
-â†?
+ï¿½?
 
 Roadmap
 
-â†?
+ï¿½?
 
 Development
 
@@ -1252,17 +1252,17 @@ Presentation and Immutable Archive
 Allowed direction:
 
 DATA
-¡ý
+ï¿½ï¿½
 QUALITY
-¡ý
+ï¿½ï¿½
 RESEARCH
-¡ý
+ï¿½ï¿½
 AI CONTEXT
-¡ý
+ï¿½ï¿½
 GOVERNANCE
-¡ý
+ï¿½ï¿½
 PRESENTATION
-¡ý
+ï¿½ï¿½
 ARCHIVE
 
 
@@ -1321,19 +1321,19 @@ REPORT-ARCHIVE-APP-1
 
 CREATED
 
-¡ý
+ï¿½ï¿½
 
 VALIDATED
 
-¡ý
+ï¿½ï¿½
 
 REVIEWED
 
-¡ý
+ï¿½ï¿½
 
 ARCHIVED
 
-¡ý
+ï¿½ï¿½
 
 IMMUTABLE
 
@@ -1375,3 +1375,120 @@ Added:
 Status:
 
 FCF_PROJECT_CONTROL_CENTER_V0.2
+## Artifact Flow Model
+
+FCF artifacts follow a one-way governance flow:
+
+Input Source
+
+â†“
+
+Validated Artifact
+
+â†“
+
+Research Artifact
+
+â†“
+
+Explanation Artifact
+
+â†“
+
+Review Artifact
+
+â†“
+
+Audit Artifact
+
+â†“
+
+Archive Artifact
+
+Rules:
+
+- Artifact flow is unidirectional.
+- Downstream artifacts must not contaminate upstream layers.
+- Historical artifacts must not modify previous stages.
+- Archive artifacts are for traceability and review only.
+
+
+## Artifact Ownership Model
+
+Every artifact must have:
+
+- unique owner
+- clear generator
+- defined read scope
+- defined lifecycle
+
+
+| Artifact | Owner |
+| --- | --- |
+| validated_dataset | DATA-APP-1 |
+| quality_report | DATA-QUALITY-OPS-APP-1 |
+| ranked_watchlist | STOCK-APP-1 |
+| explanation_report | AI-CONTEXT-1 |
+| risk_review_packet | RISK-EXPOSURE-APP-1 |
+| operator_review_record | OPERATOR-REVIEW-APP-1 |
+| archive_manifest | REPORT-ARCHIVE-APP-1 |
+
+
+Artifact ownership means responsibility for generation and version control.
+
+Ownership does not grant permission to modify Core outputs.
+
+
+## Artifact Lifecycle Model
+
+Standard lifecycle:
+
+CREATED
+
+â†“
+
+VALIDATED
+
+â†“
+
+REVIEWED
+
+â†“
+
+ARCHIVED
+
+â†“
+
+IMMUTABLE
+
+
+After ARCHIVED:
+
+Forbidden:
+
+- overwrite
+- delete
+- silent modification
+
+Archived artifacts are immutable governance records.
+
+
+## Artifact Modification Rules
+
+Allowed:
+
+- Artifact owner may create a new version.
+- New review packets may be generated.
+- New archive snapshots may be created.
+
+
+Forbidden:
+
+- modifying historical artifacts
+- overwriting existing archives
+- deleting audit records
+- reducing risk information
+- modifying Core outputs
+- changing score results
+- changing reason codes
+- deleting or downgrading risk flags
