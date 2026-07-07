@@ -2276,3 +2276,144 @@ No feature development.
 
 No core modification.
 
+
+# FCF CONTROL CENTER V0.8 FINAL HARDENING
+
+## Control Center Consistency Audit
+
+检查项目治理文件一致性：
+
+- Project Identity consistency
+- Core Freeze consistency
+- Sidecar Registry consistency
+- Dependency Matrix consistency
+- Artifact Ownership consistency
+- Artifact Lifecycle consistency
+- Decision Record consistency
+- Roadmap status consistency
+- Bug Register consistency
+
+
+## Full Governance Checklist
+
+任何未来变化必须检查：
+
+- 是否违反 P1-P47 Core Freeze
+- 是否需要 Sidecar 扩展
+- 是否影响 Artifact
+- 是否影响 Dependency DAG
+- 是否产生 Circular Dependency
+- 是否缺少 Owner
+- 是否缺少 Version Contract
+- 是否需要 Operator Review
+- 是否违反 Paper-only Boundary
+
+
+## Historical Architecture Decision Migration
+
+### Core Freeze Decision
+
+Decision:
+P1-P47 Core Freeze
+
+Why:
+保持核心稳定，防止核心漂移。
+
+Impact:
+未来扩展只能通过 Sidecar。
+
+Status:
+Accepted
+
+
+### Sidecar Architecture Decision
+
+Decision:
+Frozen Core + Controlled Sidecars
+
+Why:
+扩展能力不污染核心。
+
+Impact:
+系统保持模块隔离。
+
+Status:
+Accepted
+
+
+### AI Boundary Decision
+
+Decision:
+AI Explanation Boundary
+
+Why:
+AI负责解释、总结、推理，不负责计算和决策。
+
+Impact:
+保持确定性计算和人工治理。
+
+Status:
+Accepted
+
+
+### Human Governance Decision
+
+Decision:
+Operator Review Required
+
+Why:
+最终责任保留在人类。
+
+Impact:
+禁止自动审批。
+
+Status:
+Accepted
+
+
+### Paper-only Decision
+
+Decision:
+Paper-only System Boundary
+
+Why:
+避免进入真实资金执行。
+
+Impact:
+保持研究和审计属性。
+
+Status:
+Accepted
+
+
+## FCF CONTROL CENTER V1.0 Final Structure
+
+规划结构：
+
+1. Project Identity
+
+2. Current State
+
+3. Core Constitution
+
+4. Architecture Map
+
+5. Sidecar Registry
+
+6. Dependency Governance
+
+7. Artifact Governance
+
+8. Audit Checklist
+
+9. Bug History
+
+10. Decision History
+
+11. Roadmap Governance
+
+12. Change Control
+
+Status:
+Planning Only
+
