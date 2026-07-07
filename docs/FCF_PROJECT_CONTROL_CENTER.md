@@ -2417,3 +2417,70 @@ Accepted
 Status:
 Planning Only
 
+
+# FCF CONTROL CENTER V1.0 FINAL BASELINE
+
+Status:
+
+FINAL BASELINE
+
+
+FCF_PROJECT_CONTROL_CENTER.md is the highest governance index of FCF.
+
+
+It defines:
+
+- project identity
+- architecture boundaries
+- core governance rules
+- sidecar governance
+- artifact governance
+- change control process
+
+
+It is not:
+
+- execution engine
+- trading system
+- automatic decision system
+
+
+Future changes must follow:
+
+Proposal
+
+¡ý
+
+Review
+
+¡ý
+
+Accepted
+
+¡ý
+
+Controlled Update
+
+
+Core Freeze remains:
+
+P1-P47 frozen.
+
+
+Extension rule:
+
+Future capability expansion must follow controlled Sidecar governance.
+
+
+Safety Boundary remains:
+
+paper-only
+
+local-only
+
+read-only
+
+sidecar-only
+
+operator review required
+
