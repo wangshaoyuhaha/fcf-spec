@@ -1492,3 +1492,125 @@ Forbidden:
 - changing score results
 - changing reason codes
 - deleting or downgrading risk flags
+## Correlation_ID Traceability Model
+
+Correlation_ID is a governance traceability identifier.
+
+Purpose:
+
+- audit traceability identifier
+- artifact chain identifier
+
+Correlation_ID connects:
+
+Data Snapshot
+
+¡ý
+
+Validated Artifact
+
+¡ý
+
+Research Artifact
+
+¡ý
+
+AI Explanation
+
+¡ý
+
+Risk Review
+
+¡ý
+
+Operator Review
+
+¡ý
+
+Archive
+
+
+Rules:
+
+- Correlation_ID is only for governance traceability.
+- Correlation_ID is not an execution identifier.
+- Correlation_ID does not create trading authority.
+
+Forbidden usage:
+
+- execution id
+- order id
+- position id
+- broker id
+
+
+## Bug History Register
+
+FCF maintains a centralized Bug History Register.
+
+Required fields:
+
+| Field | Description |
+| --- | --- |
+| BUG-ID | Unique bug identifier |
+| Date | Discovery date |
+| Source | Origin of issue |
+| Module | Related component |
+| Description | Problem description |
+| Severity | Impact level |
+| Status | Current state |
+| Resolution | Handling result |
+
+
+Purpose:
+
+- Preserve historical bug lessons.
+- Prevent repeated failures.
+- Move critical knowledge from chat history into project governance.
+
+
+## Architecture Decision Record
+
+FCF maintains Architecture Decision Records.
+
+
+### Core Freeze Decision
+
+P1-P47 Core is frozen.
+
+Future expansion uses controlled Sidecars only.
+
+
+### Sidecar Architecture Decision
+
+FCF uses:
+
+Frozen Core
+
++
+
+Controlled Sidecars
+
+
+### AI Boundary Decision
+
+AI provides:
+
+- explanation
+- summary
+- reasoning
+- context analysis
+
+AI must not:
+
+- modify scores
+- modify reason codes
+- remove risk flags
+
+
+### Human Governance Decision
+
+Operator review remains mandatory.
+
+No automated approval bypass.
+
