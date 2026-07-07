@@ -2021,3 +2021,102 @@ sidecar-only
 
 No execution capability.
 
+# FCF CONTROL CENTER V0.6 Governance Enhancement
+
+## Governance Audit Checklist
+
+Before any future change, extension, or governance update, the following checks are required:
+
+- [ ] No violation of P1-P47 Core Freeze
+- [ ] No violation of Sidecar-only extension rule
+- [ ] No circular dependency introduced
+- [ ] No backward mutation introduced
+- [ ] No historical Artifact modification
+- [ ] Artifact Owner exists
+- [ ] Artifact Version Contract exists
+- [ ] Operator Review requirement evaluated
+- [ ] Paper-only boundary preserved
+
+
+## Control Center Consistency Rules
+
+The Control Center governance layer should maintain consistency between:
+
+- Sidecar Registry and Dependency DAG
+- Artifact ownership and lifecycle status
+- Roadmap status and decision records
+- Architecture decisions and current state
+
+
+These rules define governance expectations only.
+
+No automatic execution or automatic modification is allowed.
+
+
+## Artifact Schema Template
+
+All governance artifacts should contain the following metadata:
+
+- artifact_id
+- artifact_type
+- owner
+- producer
+- consumer
+- version
+- created_time
+- validation_status
+- lifecycle_status
+
+
+Artifact schema is governance metadata only.
+
+No business trading fields are defined here.
+
+
+## Historical Bug Migration Policy
+
+Historical issues migrated into the Bug History Register must focus on:
+
+- Architecture related bugs
+- Safety boundary related bugs
+- Governance process related bugs
+
+
+Required fields:
+
+- BUG-ID
+- Date
+- Source Window
+- Module
+- Description
+- Severity
+- Status
+- Resolution
+
+
+Normal conversation records are not migrated unless they represent reusable governance knowledge.
+
+
+## Control Center V1.0 Roadmap
+
+Target:
+
+FCF_PROJECT_CONTROL_CENTER.md becomes the long-term governance index.
+
+V1.0 scope:
+
+- Current State
+- Architecture Map
+- Core Constitution
+- Sidecar Registry
+- Dependency Governance
+- Artifact Governance
+- Bug History
+- Decision History
+- Roadmap
+- Audit Checklist
+
+
+V1.0 is a governance milestone only.
+
+It does not represent feature completion, deployment, or production execution.
