@@ -133,23 +133,23 @@ Flow:
 
 Raw Data
 
-â†“
+â†?
 
 Data Quality Gate
 
-â†“
+â†?
 
 Validated Data
 
-â†“
+â†?
 
 Research Analysis
 
-â†“
+â†?
 
 AI Explanation
 
-â†“
+â†?
 
 Human Review
 
@@ -445,27 +445,27 @@ Official flow:
 
 LOCAL PAPER DATA
 
-â†“
+â†?
 
 DATA QUALITY GATE
 
-â†“
+â†?
 
 RESEARCH LAYER
 
-â†“
+â†?
 
 AI REASONING LAYER
 
-â†“
+â†?
 
 GOVERNANCE REVIEW
 
-â†“
+â†?
 
 PRESENTATION
 
-â†“
+â†?
 
 ARCHIVE
 
@@ -481,11 +481,11 @@ Forbidden:
 
 AI-CONTEXT
 
-â†“
+â†?
 
 modify
 
-â†“
+â†?
 
 STOCK calculation
 
@@ -502,11 +502,11 @@ Forbidden:
 
 UI
 
-â†“
+â†?
 
 modify
 
-â†“
+â†?
 
 Risk Flag
 
@@ -523,11 +523,11 @@ Forbidden:
 
 Archive
 
-â†“
+â†?
 
 overwrite
 
-â†“
+â†?
 
 Historical Record
 
@@ -814,11 +814,11 @@ Idea Lifecycle:
 
 PROPOSED
 
-â†“
+â†?
 
 REVIEWING
 
-â†“
+â†?
 
 ACCEPTED
 
@@ -1099,23 +1099,23 @@ Required process:
 
 New Idea
 
-â†“
+â†?
 
 Control Center Record
 
-â†“
+â†?
 
 Architecture Review
 
-â†“
+â†?
 
 Accept / Reject / Defer
 
-â†“
+â†?
 
 Roadmap
 
-â†“
+â†?
 
 Development
 
@@ -1203,3 +1203,175 @@ Added:
 
 
 ---
+# 20. SIDECAR DEPENDENCY MATRIX
+
+V0.2-D1 Architecture Draft Accepted.
+
+## Four Zone Topology
+
+Zone A:
+Data Foundation
+
+- DATA-APP-1
+- DATA-QUALITY-OPS-APP-1
+- SIGNAL-VALIDATION-APP-1
+
+
+Zone B:
+Research Intelligence
+
+- STOCK-APP-1
+- MARKET-SCENARIO-APP-1
+- WATCHLIST-LIFECYCLE-APP-1
+- BACKTEST-REVIEW-APP-1
+
+
+Zone C:
+Governance Review Gate
+
+- AI-CONTEXT-1
+- MODEL-GOVERNANCE-APP-1
+- RISK-EXPOSURE-APP-1
+- PORTFOLIO-REVIEW-APP-1
+- OPERATOR-REVIEW-APP-1
+- DECISION-AUDIT-APP-1
+
+
+Zone D:
+Presentation and Immutable Archive
+
+- UI-APP-1
+- DASHBOARD-STATUS-APP-1
+- RESEARCH-WORKFLOW-APP-1
+- REPORT-ARCHIVE-APP-1
+- FINAL-COMPLETION-REVIEW-APP-1
+
+
+## Dependency Rules
+
+Allowed direction:
+
+DATA
+¡ý
+QUALITY
+¡ý
+RESEARCH
+¡ý
+AI CONTEXT
+¡ý
+GOVERNANCE
+¡ý
+PRESENTATION
+¡ý
+ARCHIVE
+
+
+Forbidden:
+
+AI-CONTEXT-1 -> STOCK-APP-1
+
+Reason:
+AI explanation cannot modify calculation results.
+
+
+UI-APP-1 -> CORE
+
+Reason:
+Presentation layer has no mutation authority.
+
+
+ARCHIVE -> SOURCE
+
+Reason:
+Archive cannot rewrite history.
+
+
+OPERATOR -> EXECUTION
+
+Reason:
+Review is not execution.
+
+
+## Artifact Ownership
+
+Every artifact has one owner.
+
+Examples:
+
+validated_dataset:
+DATA-APP-1
+
+ranked_watchlist:
+STOCK-APP-1
+
+explanation_report:
+AI-CONTEXT-1
+
+risk_review_packet:
+RISK-EXPOSURE-APP-1
+
+operator_review_record:
+OPERATOR-REVIEW-APP-1
+
+archive_manifest:
+REPORT-ARCHIVE-APP-1
+
+
+## Artifact Lifecycle
+
+CREATED
+
+¡ý
+
+VALIDATED
+
+¡ý
+
+REVIEWED
+
+¡ý
+
+ARCHIVED
+
+¡ý
+
+IMMUTABLE
+
+
+Immutable rule:
+
+Archived artifacts cannot be overwritten.
+
+
+## Decision History
+
+P1-P47 Core Freeze:
+
+Future expansion must use Sidecar only.
+
+
+AI Boundary:
+
+AI explains.
+AI does not modify scores or risk flags.
+
+
+Human Governance:
+
+Operator retains final review authority.
+
+
+## CHANGE LOG
+
+2026-07-07
+
+Added:
+
+- Sidecar Dependency Matrix
+- Artifact Ownership Model
+- Artifact Lifecycle Model
+- Decision History Framework
+
+Status:
+
+FCF_PROJECT_CONTROL_CENTER_V0.2
