@@ -2544,3 +2544,78 @@ Deferred backlog:
 - Dify local configuration hardening: optional and deferred until the operator is ready to configure Dify/Ollama locally.
 
 <!-- FCF_CC_DIFY_UI_HANDOFF_APP_1_MAINLINE_SYNC_END -->
+
+<!-- FCF_CC_SIDECAR_TOPOLOGY_REVIEW_APP_1_MAINLINE_SYNC_BEGIN -->
+
+## Mainline Sync: SIDECAR-TOPOLOGY-REVIEW-APP-1
+
+Status: completed and merged into main.
+
+Mainline state:
+
+- Branch: main
+- Latest merge commit: df56963 merge SIDECAR-TOPOLOGY-REVIEW-APP-1 into main
+- Push status: success
+- Push range: 0c40104..df56963 main -> main
+- Final git status: clean
+- Tag: none
+- Release: none
+- Deploy: none
+
+Completed sidecar commits:
+
+- b9388f1 add SIDECAR-TOPOLOGY-REVIEW-D1 contract
+- ae6f7e6 add SIDECAR-TOPOLOGY-REVIEW-D2 inventory
+- d157800 add SIDECAR-TOPOLOGY-REVIEW-D3 isolation zones
+- 6186ea6 add SIDECAR-TOPOLOGY-REVIEW-D4 dependency dag
+- f0b8b87 add SIDECAR-TOPOLOGY-REVIEW-D5 queue gates
+- 07e53c3 add SIDECAR-TOPOLOGY-REVIEW-D6 final closeout
+- df56963 merge SIDECAR-TOPOLOGY-REVIEW-APP-1 into main
+
+Final files:
+
+- FCF_CURRENT_STATE_SIDECAR_TOPOLOGY_REVIEW_APP_1_FINAL.md
+- apps/sidecar_topology_review_app_1/
+- docs/sidecar_topology_review_app_1/
+- tests/test_sidecar_topology_review_app_1_d1_contract.py
+- tests/test_sidecar_topology_review_app_1_d2_inventory.py
+- tests/test_sidecar_topology_review_app_1_d3_isolation_zones.py
+- tests/test_sidecar_topology_review_app_1_d4_dag_review.py
+- tests/test_sidecar_topology_review_app_1_d5_queue_gates.py
+- tests/test_sidecar_topology_review_app_1_d6_closeout.py
+
+Governance result:
+
+- Completed sidecar inventory established.
+- Four isolation zones established.
+- Dependency DAG review established.
+- Circular dependency risk rules established.
+- Future sidecar queue and governance gates established.
+
+Deferred backlog remains:
+
+- DIFY-LOCAL-CONFIG-HARDENING-APP-1 stays deferred until operator explicitly starts local Dify/Ollama configuration.
+- Future sidecars require explicit operator approval before development.
+
+Safety confirmation:
+
+- paper-only
+- local-only
+- read-only
+- governance-only
+- operator-review-only
+- no P48
+- no core mutation
+- no broker API
+- no exchange API
+- no wallet API
+- no real order
+- no real execution
+- no real balance or position read
+- no real money impact
+- no Dify API write
+- no deploy
+- no release
+- no tag
+
+<!-- FCF_CC_SIDECAR_TOPOLOGY_REVIEW_APP_1_MAINLINE_SYNC_END -->
