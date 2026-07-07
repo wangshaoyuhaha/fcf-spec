@@ -1681,3 +1681,61 @@ All future FCF windows must read:
 
 before making project changes.
 
+
+## FCF Control Center Version History
+
+### V0.1 Foundation
+
+Completed:
+
+- Project identity established.
+- Core freeze governance recorded.
+- Sidecar registry created.
+- Safety boundary recorded.
+- Idea and gap management introduced.
+
+
+### V0.2 Architecture Governance
+
+Completed:
+
+- Sidecar topology governance added.
+- Dependency rules added.
+- Read / Write contract established.
+- Artifact ownership concept introduced.
+- Architecture decision framework introduced.
+
+
+### V0.3 Governance Enhancement
+
+Completed:
+
+- Artifact flow governance added.
+- Artifact lifecycle rules added.
+- Correlation_ID traceability framework added.
+- Bug history register added.
+- Architecture decision records added.
+- Change control policy added.
+
+
+Current status:
+
+FCF Control Center is the governance baseline for project evolution.
+
+Future changes must follow:
+
+Review
+
+¡ý
+
+Decision
+
+¡ý
+
+Control Center Update
+
+¡ý
+
+Implementation
+
+
