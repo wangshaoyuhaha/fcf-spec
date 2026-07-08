@@ -239,3 +239,80 @@ def validate_rollup_record(record: CorrelationRollupRecord) -> tuple[bool, tuple
         issues.append("invalid_trace_state")
 
     return (not issues, tuple(issues))
+
+@dataclass(frozen=True)
+class CorrelationTraceSummary:
+    correlation_id: str
+    record_count: int
+    artifact_types: tuple[str, ...]
+    source_apps: tuple[str, ...]
+    rollup_scopes: tuple[str, ...]
+    trace_states: tuple[str, ...]
+    has_blocked_trace: bool
+    has_partial_trace: bool
+    operator_review_required: bool
+    summary_state: str
+
+
+def _unique_sorted(values: Iterable[str]) -> tuple[str, ...]:
+    return tuple(sorted(dict.fromkeys(values)))
+
+
+def infer_summary_state(trace_states: Iterable[str]) -> str:
+    states = set(trace_states)
+    if "trace_blocked" in states:
+        return "blocked"
+    if "trace_partial" in states:
+        return "partial"
+    return "complete"
+
+
+def build_trace_summary(
+    correlation_id: str,
+    records: Iterable[CorrelationRollupRecord],
+) -> CorrelationTraceSummary:
+    record_tuple = tuple(records)
+    if not record_tuple:
+        raise ValueError("empty_rollup_records")
+
+    for record in record_tuple:
+        valid, issues = validate_rollup_record(record)
+        if not valid:
+            raise ValueError(",".join(issues))
+        if record.correlation_id != correlation_id:
+            raise ValueError("correlation_id_mismatch")
+
+    trace_states = _unique_sorted(record.trace_state for record in record_tuple)
+
+    return CorrelationTraceSummary(
+        correlation_id=correlation_id,
+        record_count=len(record_tuple),
+        artifact_types=_unique_sorted(record.artifact_type for record in record_tuple),
+        source_apps=_unique_sorted(record.source_app for record in record_tuple),
+        rollup_scopes=_unique_sorted(record.rollup_scope for record in record_tuple),
+        trace_states=trace_states,
+        has_blocked_trace="trace_blocked" in trace_states,
+        has_partial_trace="trace_partial" in trace_states,
+        operator_review_required=any(
+            record.operator_review_state == "review_required"
+            for record in record_tuple
+        ),
+        summary_state=infer_summary_state(trace_states),
+    )
+
+
+def build_trace_summaries(
+    records: Iterable[CorrelationRollupRecord],
+) -> dict[str, CorrelationTraceSummary]:
+    grouped: dict[str, list[CorrelationRollupRecord]] = {}
+
+    for record in records:
+        valid, issues = validate_rollup_record(record)
+        if not valid:
+            raise ValueError(",".join(issues))
+        grouped.setdefault(record.correlation_id, []).append(record)
+
+    return {
+        correlation_id: build_trace_summary(correlation_id, grouped_records)
+        for correlation_id, grouped_records in sorted(grouped.items())
+    }
