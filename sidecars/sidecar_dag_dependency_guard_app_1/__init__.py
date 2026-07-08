@@ -117,3 +117,151 @@ def validate_dependency_dag(edges: Iterable[SidecarDependencyEdge]) -> tuple[boo
         issues.append("cycle_detected")
 
     return (not issues, tuple(sorted(dict.fromkeys(issues))))
+
+ALLOWED_SIDECAR_ZONES = frozenset(
+    {
+        "data_foundation",
+        "research_intelligence",
+        "governance_review",
+        "presentation_handoff",
+        "archive_audit",
+    }
+)
+
+ZONE_ORDER = {
+    "data_foundation": 1,
+    "research_intelligence": 2,
+    "governance_review": 3,
+    "presentation_handoff": 4,
+    "archive_audit": 5,
+}
+
+
+@dataclass(frozen=True)
+class SidecarDependencyNode:
+    name: str
+    zone: str
+    status: str
+    read_only: bool
+    operator_review_required: bool
+
+
+def validate_sidecar_node(node: SidecarDependencyNode) -> tuple[bool, tuple[str, ...]]:
+    issues: list[str] = []
+
+    if not node.name.strip():
+        issues.append("missing_node_name")
+
+    if node.zone not in ALLOWED_SIDECAR_ZONES:
+        issues.append("invalid_zone")
+
+    if not node.status.strip():
+        issues.append("missing_status")
+
+    if node.read_only is not True:
+        issues.append("node_must_be_read_only")
+
+    if node.operator_review_required is not True:
+        issues.append("operator_review_not_required")
+
+    return (not issues, tuple(issues))
+
+
+def build_node_index(nodes: Iterable[SidecarDependencyNode]) -> dict[str, SidecarDependencyNode]:
+    index: dict[str, SidecarDependencyNode] = {}
+
+    for node in nodes:
+        valid, issues = validate_sidecar_node(node)
+        if not valid:
+            raise ValueError(",".join(issues))
+
+        if node.name in index:
+            raise ValueError("duplicate_node")
+
+        index[node.name] = node
+
+    return dict(sorted(index.items()))
+
+
+def validate_dependency_direction(
+    edge: SidecarDependencyEdge,
+    node_index: dict[str, SidecarDependencyNode],
+) -> tuple[bool, tuple[str, ...]]:
+    issues: list[str] = []
+
+    valid_edge, edge_issues = validate_dependency_edge(edge)
+    if not valid_edge:
+        issues.extend(edge_issues)
+        return (False, tuple(issues))
+
+    if edge.source not in node_index:
+        issues.append("unknown_source_node")
+
+    if edge.target not in node_index:
+        issues.append("unknown_target_node")
+
+    if issues:
+        return (False, tuple(issues))
+
+    source_zone = node_index[edge.source].zone
+    target_zone = node_index[edge.target].zone
+
+    if ZONE_ORDER[source_zone] > ZONE_ORDER[target_zone]:
+        issues.append("reverse_dependency")
+
+    return (not issues, tuple(issues))
+
+
+def validate_dependency_graph(
+    nodes: Iterable[SidecarDependencyNode],
+    edges: Iterable[SidecarDependencyEdge],
+) -> tuple[bool, tuple[str, ...]]:
+    issues: list[str] = []
+
+    try:
+        node_index = build_node_index(nodes)
+    except ValueError as exc:
+        return (False, tuple(str(exc).split(",")))
+
+    edge_tuple = tuple(edges)
+
+    for edge in edge_tuple:
+        valid, edge_issues = validate_dependency_direction(edge, node_index)
+        if not valid:
+            issues.extend(edge_issues)
+
+    if not issues and has_cycle(edge_tuple):
+        issues.append("cycle_detected")
+
+    return (not issues, tuple(sorted(dict.fromkeys(issues))))
+
+
+def default_sidecar_nodes() -> tuple[SidecarDependencyNode, ...]:
+    return (
+        SidecarDependencyNode("DATA-APP-1", "data_foundation", "completed", True, True),
+        SidecarDependencyNode("REPORT-ARCHIVE-APP-1", "data_foundation", "completed", True, True),
+        SidecarDependencyNode("DATA-QUALITY-OPS-APP-1", "data_foundation", "completed", True, True),
+        SidecarDependencyNode("STOCK-APP-1", "research_intelligence", "completed", True, True),
+        SidecarDependencyNode("AI-CONTEXT-1", "research_intelligence", "completed", True, True),
+        SidecarDependencyNode("MARKET-SCENARIO-APP-1", "research_intelligence", "completed", True, True),
+        SidecarDependencyNode("BACKTEST-REVIEW-APP-1", "research_intelligence", "completed", True, True),
+        SidecarDependencyNode("SIGNAL-VALIDATION-APP-1", "governance_review", "completed", True, True),
+        SidecarDependencyNode("MODEL-GOVERNANCE-APP-1", "governance_review", "completed", True, True),
+        SidecarDependencyNode("OPERATOR-REVIEW-APP-1", "governance_review", "completed", True, True),
+        SidecarDependencyNode("UI-APP-1", "presentation_handoff", "completed", True, True),
+        SidecarDependencyNode("UI-RISK-FLAG-VISIBILITY-APP-1", "presentation_handoff", "completed", True, True),
+        SidecarDependencyNode("ARCHIVE-CORRELATION-ROLLUP-APP-1", "archive_audit", "completed", True, True),
+        SidecarDependencyNode("SIDECAR-DAG-DEPENDENCY-GUARD-APP-1", "archive_audit", "active", True, True),
+    )
+
+
+def default_dependency_edges() -> tuple[SidecarDependencyEdge, ...]:
+    return (
+        SidecarDependencyEdge("DATA-APP-1", "STOCK-APP-1", "clean universe to stock ranking"),
+        SidecarDependencyEdge("STOCK-APP-1", "AI-CONTEXT-1", "ranked watchlist to explanation"),
+        SidecarDependencyEdge("AI-CONTEXT-1", "UI-APP-1", "explanation to read-only UI"),
+        SidecarDependencyEdge("UI-APP-1", "OPERATOR-REVIEW-APP-1", "UI report to operator review"),
+        SidecarDependencyEdge("OPERATOR-REVIEW-APP-1", "REPORT-ARCHIVE-APP-1", "operator review to archive"),
+        SidecarDependencyEdge("REPORT-ARCHIVE-APP-1", "ARCHIVE-CORRELATION-ROLLUP-APP-1", "archive to correlation rollup"),
+        SidecarDependencyEdge("ARCHIVE-CORRELATION-ROLLUP-APP-1", "SIDECAR-DAG-DEPENDENCY-GUARD-APP-1", "rollup to dag guard"),
+    )
