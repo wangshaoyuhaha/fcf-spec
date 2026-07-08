@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 
 SAFETY = {
@@ -15,7 +15,6 @@ SAFETY = {
 
 ROWS = (
     ("DATA-APP-1", "data_ingestion_and_quarantine", 10, ()),
-    ("DATA-QUALITY-OPS-APP-1", "data_ingestion_and_quarantine", 20, ("DATA-APP-1",)),
     ("STOCK-APP-1", "context_and_interpretation", 30, ("DATA-APP-1",)),
     ("AI-CONTEXT-1", "context_and_interpretation", 40, ("STOCK-APP-1",)),
     ("UI-APP-1", "presentation_and_immutable_archive", 50, ("AI-CONTEXT-1",)),
