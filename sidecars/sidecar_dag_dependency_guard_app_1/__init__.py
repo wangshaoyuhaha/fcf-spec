@@ -504,3 +504,102 @@ def default_dependency_edges() -> tuple[SidecarDependencyEdge, ...]:
         SidecarDependencyEdge("REPORT-ARCHIVE-APP-1", "ARCHIVE-CORRELATION-ROLLUP-APP-1", "archive to correlation rollup"),
         SidecarDependencyEdge("ARCHIVE-CORRELATION-ROLLUP-APP-1", "SIDECAR-DAG-DEPENDENCY-GUARD-APP-1", "rollup to dag guard"),
     )
+
+
+@dataclass(frozen=True)
+class DependencyGuardPacket:
+    packet_id: str
+    graph_report: DependencyGraphReport
+    import_scan_report: ImportBoundaryScanReport
+    operator_review_required: bool
+    paper_only: bool
+    local_only: bool
+    read_only: bool
+    sidecar_only: bool
+    release_allowed: bool
+    deploy_allowed: bool
+    status: str
+
+
+def infer_guard_packet_status(
+    graph_report: DependencyGraphReport,
+    import_scan_report: ImportBoundaryScanReport,
+) -> str:
+    if not graph_report.valid:
+        return "blocked"
+
+    if not import_scan_report.valid:
+        return "blocked"
+
+    return "ready_for_operator_review"
+
+
+def build_dependency_guard_packet(
+    packet_id: str,
+    nodes: Iterable[SidecarDependencyNode],
+    edges: Iterable[SidecarDependencyEdge],
+    file_text_by_path: dict[str, str],
+) -> DependencyGuardPacket:
+    graph_report = build_dependency_graph_report(nodes, edges)
+    import_scan_report = build_import_boundary_scan_report(file_text_by_path)
+
+    packet = DependencyGuardPacket(
+        packet_id=packet_id,
+        graph_report=graph_report,
+        import_scan_report=import_scan_report,
+        operator_review_required=True,
+        paper_only=True,
+        local_only=True,
+        read_only=True,
+        sidecar_only=True,
+        release_allowed=False,
+        deploy_allowed=False,
+        status=infer_guard_packet_status(graph_report, import_scan_report),
+    )
+
+    valid, issues = validate_dependency_guard_packet(packet)
+    if not valid:
+        raise ValueError(",".join(issues))
+
+    return packet
+
+
+def validate_dependency_guard_packet(packet: DependencyGuardPacket) -> tuple[bool, tuple[str, ...]]:
+    issues: list[str] = []
+
+    if not packet.packet_id.strip():
+        issues.append("missing_packet_id")
+
+    if packet.operator_review_required is not True:
+        issues.append("operator_review_not_required")
+
+    if packet.paper_only is not True:
+        issues.append("paper_only_required")
+
+    if packet.local_only is not True:
+        issues.append("local_only_required")
+
+    if packet.read_only is not True:
+        issues.append("read_only_required")
+
+    if packet.sidecar_only is not True:
+        issues.append("sidecar_only_required")
+
+    if packet.release_allowed is not False:
+        issues.append("release_allowed_must_be_false")
+
+    if packet.deploy_allowed is not False:
+        issues.append("deploy_allowed_must_be_false")
+
+    expected_status = infer_guard_packet_status(
+        packet.graph_report,
+        packet.import_scan_report,
+    )
+
+    if packet.status != expected_status:
+        issues.append("status_mismatch")
+
+    if packet.status not in {"ready_for_operator_review", "blocked"}:
+        issues.append("invalid_status")
+
+    return (not issues, tuple(issues))
