@@ -206,6 +206,9 @@ def validate_dependency_direction(
     source_zone = node_index[edge.source].zone
     target_zone = node_index[edge.target].zone
 
+    if (edge.source, edge.target) in EXPLICIT_ALLOWED_DEPENDENCY_EDGES:
+        return (True, ())
+
     if ZONE_ORDER[source_zone] > ZONE_ORDER[target_zone]:
         issues.append("reverse_dependency")
 
