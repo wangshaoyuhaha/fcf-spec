@@ -603,3 +603,102 @@ def validate_dependency_guard_packet(packet: DependencyGuardPacket) -> tuple[boo
         issues.append("invalid_status")
 
     return (not issues, tuple(issues))
+
+
+@dataclass(frozen=True)
+class DependencyGuardCloseout:
+    source_app: str
+    completed_stages: tuple[str, ...]
+    final_status: str
+    operator_review_required: bool
+    core_mutation_allowed: bool
+    source_mutation_allowed: bool
+    risk_flag_downgrade_allowed: bool
+    real_execution_allowed: bool
+    tag_allowed: bool
+    release_allowed: bool
+    deploy_allowed: bool
+    handoff_summary: str
+
+
+DEPENDENCY_GUARD_REQUIRED_STAGES = (
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+)
+
+
+def build_dependency_guard_closeout(
+    completed_stages: Iterable[str],
+    source_app: str = "SIDECAR-DAG-DEPENDENCY-GUARD-APP-1",
+) -> DependencyGuardCloseout:
+    closeout = DependencyGuardCloseout(
+        source_app=source_app,
+        completed_stages=tuple(completed_stages),
+        final_status="completed_pending_operator_merge_review",
+        operator_review_required=True,
+        core_mutation_allowed=False,
+        source_mutation_allowed=False,
+        risk_flag_downgrade_allowed=False,
+        real_execution_allowed=False,
+        tag_allowed=False,
+        release_allowed=False,
+        deploy_allowed=False,
+        handoff_summary=(
+            "Sidecar DAG dependency guard completed. "
+            "Operator review is required before main merge."
+        ),
+    )
+
+    valid, issues = validate_dependency_guard_closeout(closeout)
+    if not valid:
+        raise ValueError(",".join(issues))
+
+    return closeout
+
+
+def validate_dependency_guard_closeout(
+    closeout: DependencyGuardCloseout,
+) -> tuple[bool, tuple[str, ...]]:
+    issues: list[str] = []
+
+    if closeout.source_app != "SIDECAR-DAG-DEPENDENCY-GUARD-APP-1":
+        issues.append("invalid_source_app")
+
+    if closeout.completed_stages != DEPENDENCY_GUARD_REQUIRED_STAGES:
+        issues.append("completed_stages_mismatch")
+
+    if closeout.final_status != "completed_pending_operator_merge_review":
+        issues.append("invalid_final_status")
+
+    if closeout.operator_review_required is not True:
+        issues.append("operator_review_not_required")
+
+    if closeout.core_mutation_allowed is not False:
+        issues.append("core_mutation_must_be_false")
+
+    if closeout.source_mutation_allowed is not False:
+        issues.append("source_mutation_must_be_false")
+
+    if closeout.risk_flag_downgrade_allowed is not False:
+        issues.append("risk_flag_downgrade_must_be_false")
+
+    if closeout.real_execution_allowed is not False:
+        issues.append("real_execution_must_be_false")
+
+    if closeout.tag_allowed is not False:
+        issues.append("tag_allowed_must_be_false")
+
+    if closeout.release_allowed is not False:
+        issues.append("release_allowed_must_be_false")
+
+    if closeout.deploy_allowed is not False:
+        issues.append("deploy_allowed_must_be_false")
+
+    if "Operator review is required" not in closeout.handoff_summary:
+        issues.append("missing_operator_review_handoff")
+
+    return (not issues, tuple(issues))
