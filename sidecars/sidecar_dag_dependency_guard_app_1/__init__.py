@@ -1,4 +1,4 @@
-﻿"""SIDECAR-DAG-DEPENDENCY-GUARD-APP-1 D1.
+﻿"""SIDECAR-DAG-DEPENDENCY-GUARD-APP-1.
 
 Read-only dependency guard helpers for sidecar DAG validation.
 """
@@ -34,12 +34,106 @@ FORBIDDEN_TARGETS = frozenset(
     }
 )
 
+ALLOWED_SIDECAR_ZONES = frozenset(
+    {
+        "data_foundation",
+        "research_intelligence",
+        "governance_review",
+        "presentation_handoff",
+        "archive_audit",
+    }
+)
+
+ZONE_ORDER = {
+    "data_foundation": 1,
+    "research_intelligence": 2,
+    "governance_review": 3,
+    "presentation_handoff": 4,
+    "archive_audit": 5,
+}
+
+EXPLICIT_ALLOWED_DEPENDENCY_EDGES = frozenset(
+    {
+        ("UI-APP-1", "OPERATOR-REVIEW-APP-1"),
+        ("OPERATOR-REVIEW-APP-1", "REPORT-ARCHIVE-APP-1"),
+    }
+)
+
+FORBIDDEN_IMPORT_PATTERNS = frozenset(
+    {
+        "from sidecars import",
+        "import sidecars",
+        "core_mutation",
+        "p48_core_expansion",
+        "real_trading",
+        "real_execution",
+        "broker_api",
+        "exchange_api",
+        "api_key",
+        "wallet_private_key",
+        "buy_button",
+        "sell_button",
+        "order_button",
+    }
+)
+
 
 @dataclass(frozen=True)
 class SidecarDependencyEdge:
     source: str
     target: str
     reason: str
+
+
+@dataclass(frozen=True)
+class SidecarDependencyNode:
+    name: str
+    zone: str
+    status: str
+    read_only: bool
+    operator_review_required: bool
+
+
+@dataclass(frozen=True)
+class DependencyPolicyDecision:
+    source_zone: str
+    target_zone: str
+    allowed: bool
+    reason: str
+
+
+@dataclass(frozen=True)
+class DependencyViolation:
+    source: str
+    target: str
+    violation_type: str
+    reason: str
+
+
+@dataclass(frozen=True)
+class DependencyGraphReport:
+    node_count: int
+    edge_count: int
+    violation_count: int
+    has_cycle: bool
+    valid: bool
+    violations: tuple[DependencyViolation, ...]
+
+
+@dataclass(frozen=True)
+class ImportBoundaryFinding:
+    path: str
+    line_number: int
+    pattern: str
+    finding_type: str
+
+
+@dataclass(frozen=True)
+class ImportBoundaryScanReport:
+    scanned_file_count: int
+    finding_count: int
+    findings: tuple[ImportBoundaryFinding, ...]
+    valid: bool
 
 
 def validate_dependency_edge(edge: SidecarDependencyEdge) -> tuple[bool, tuple[str, ...]]:
@@ -118,40 +212,6 @@ def validate_dependency_dag(edges: Iterable[SidecarDependencyEdge]) -> tuple[boo
 
     return (not issues, tuple(sorted(dict.fromkeys(issues))))
 
-ALLOWED_SIDECAR_ZONES = frozenset(
-    {
-        "data_foundation",
-        "research_intelligence",
-        "governance_review",
-        "presentation_handoff",
-        "archive_audit",
-    }
-)
-
-ZONE_ORDER = {
-    "data_foundation": 1,
-    "research_intelligence": 2,
-    "governance_review": 3,
-    "presentation_handoff": 4,
-    "archive_audit": 5,
-}
-
-
-
-EXPLICIT_ALLOWED_DEPENDENCY_EDGES = frozenset(
-    {
-        ("UI-APP-1", "OPERATOR-REVIEW-APP-1"),
-        ("OPERATOR-REVIEW-APP-1", "REPORT-ARCHIVE-APP-1"),
-    }
-)
-@dataclass(frozen=True)
-class SidecarDependencyNode:
-    name: str
-    zone: str
-    status: str
-    read_only: bool
-    operator_review_required: bool
-
 
 def validate_sidecar_node(node: SidecarDependencyNode) -> tuple[bool, tuple[str, ...]]:
     issues: list[str] = []
@@ -190,6 +250,24 @@ def build_node_index(nodes: Iterable[SidecarDependencyNode]) -> dict[str, Sideca
     return dict(sorted(index.items()))
 
 
+def evaluate_zone_policy(source_zone: str, target_zone: str) -> DependencyPolicyDecision:
+    if source_zone not in ZONE_ORDER:
+        return DependencyPolicyDecision(source_zone, target_zone, False, "unknown_source_zone")
+
+    if target_zone not in ZONE_ORDER:
+        return DependencyPolicyDecision(source_zone, target_zone, False, "unknown_target_zone")
+
+    if ZONE_ORDER[source_zone] > ZONE_ORDER[target_zone]:
+        return DependencyPolicyDecision(source_zone, target_zone, False, "reverse_dependency")
+
+    return DependencyPolicyDecision(
+        source_zone,
+        target_zone,
+        True,
+        "allowed_forward_or_same_zone_dependency",
+    )
+
+
 def validate_dependency_direction(
     edge: SidecarDependencyEdge,
     node_index: dict[str, SidecarDependencyNode],
@@ -210,14 +288,16 @@ def validate_dependency_direction(
     if issues:
         return (False, tuple(issues))
 
-    source_zone = node_index[edge.source].zone
-    target_zone = node_index[edge.target].zone
-
     if (edge.source, edge.target) in EXPLICIT_ALLOWED_DEPENDENCY_EDGES:
         return (True, ())
 
-    if ZONE_ORDER[source_zone] > ZONE_ORDER[target_zone]:
-        issues.append("reverse_dependency")
+    decision = evaluate_zone_policy(
+        node_index[edge.source].zone,
+        node_index[edge.target].zone,
+    )
+
+    if not decision.allowed:
+        issues.append(decision.reason)
 
     return (not issues, tuple(issues))
 
@@ -246,71 +326,64 @@ def validate_dependency_graph(
     return (not issues, tuple(sorted(dict.fromkeys(issues))))
 
 
-def default_sidecar_nodes() -> tuple[SidecarDependencyNode, ...]:
-    return (
-        SidecarDependencyNode("DATA-APP-1", "data_foundation", "completed", True, True),
-        SidecarDependencyNode("REPORT-ARCHIVE-APP-1", "archive_audit", "completed", True, True),
-        SidecarDependencyNode("DATA-QUALITY-OPS-APP-1", "data_foundation", "completed", True, True),
-        SidecarDependencyNode("STOCK-APP-1", "research_intelligence", "completed", True, True),
-        SidecarDependencyNode("AI-CONTEXT-1", "research_intelligence", "completed", True, True),
-        SidecarDependencyNode("MARKET-SCENARIO-APP-1", "research_intelligence", "completed", True, True),
-        SidecarDependencyNode("BACKTEST-REVIEW-APP-1", "research_intelligence", "completed", True, True),
-        SidecarDependencyNode("SIGNAL-VALIDATION-APP-1", "governance_review", "completed", True, True),
-        SidecarDependencyNode("MODEL-GOVERNANCE-APP-1", "governance_review", "completed", True, True),
-        SidecarDependencyNode("OPERATOR-REVIEW-APP-1", "governance_review", "completed", True, True),
-        SidecarDependencyNode("UI-APP-1", "presentation_handoff", "completed", True, True),
-        SidecarDependencyNode("UI-RISK-FLAG-VISIBILITY-APP-1", "presentation_handoff", "completed", True, True),
-        SidecarDependencyNode("ARCHIVE-CORRELATION-ROLLUP-APP-1", "archive_audit", "completed", True, True),
-        SidecarDependencyNode("SIDECAR-DAG-DEPENDENCY-GUARD-APP-1", "archive_audit", "active", True, True),
+def collect_dependency_violations(
+    nodes: Iterable[SidecarDependencyNode],
+    edges: Iterable[SidecarDependencyEdge],
+) -> tuple[DependencyViolation, ...]:
+    violations: list[DependencyViolation] = []
+
+    try:
+        node_index = build_node_index(nodes)
+    except ValueError as exc:
+        return (
+            DependencyViolation(
+                source="node_registry",
+                target="node_registry",
+                violation_type="invalid_node_registry",
+                reason=str(exc),
+            ),
+        )
+
+    edge_tuple = tuple(edges)
+
+    for edge in edge_tuple:
+        valid, issues = validate_dependency_direction(edge, node_index)
+        if not valid:
+            violations.extend(
+                DependencyViolation(edge.source, edge.target, issue, edge.reason)
+                for issue in issues
+            )
+
+    if not violations and has_cycle(edge_tuple):
+        violations.append(
+            DependencyViolation(
+                source="dependency_graph",
+                target="dependency_graph",
+                violation_type="cycle_detected",
+                reason="dependency graph must be acyclic",
+            )
+        )
+
+    return tuple(violations)
+
+
+def build_dependency_graph_report(
+    nodes: Iterable[SidecarDependencyNode],
+    edges: Iterable[SidecarDependencyEdge],
+) -> DependencyGraphReport:
+    node_tuple = tuple(nodes)
+    edge_tuple = tuple(edges)
+    violations = collect_dependency_violations(node_tuple, edge_tuple)
+    graph_has_cycle = False if violations else has_cycle(edge_tuple)
+
+    return DependencyGraphReport(
+        node_count=len(node_tuple),
+        edge_count=len(edge_tuple),
+        violation_count=len(violations),
+        has_cycle=graph_has_cycle,
+        valid=not violations and not graph_has_cycle,
+        violations=violations,
     )
-
-
-def default_dependency_edges() -> tuple[SidecarDependencyEdge, ...]:
-    return (
-        SidecarDependencyEdge("DATA-APP-1", "STOCK-APP-1", "clean universe to stock ranking"),
-        SidecarDependencyEdge("STOCK-APP-1", "AI-CONTEXT-1", "ranked watchlist to explanation"),
-        SidecarDependencyEdge("AI-CONTEXT-1", "UI-APP-1", "explanation to read-only UI"),
-        SidecarDependencyEdge("UI-APP-1", "OPERATOR-REVIEW-APP-1", "UI report to operator review"),
-        SidecarDependencyEdge("OPERATOR-REVIEW-APP-1", "REPORT-ARCHIVE-APP-1", "operator review to archive"),
-        SidecarDependencyEdge("REPORT-ARCHIVE-APP-1", "ARCHIVE-CORRELATION-ROLLUP-APP-1", "archive to correlation rollup"),
-        SidecarDependencyEdge("ARCHIVE-CORRELATION-ROLLUP-APP-1", "SIDECAR-DAG-DEPENDENCY-GUARD-APP-1", "rollup to dag guard"),
-    )
-
-
-
-FORBIDDEN_IMPORT_PATTERNS = frozenset(
-    {
-        "from sidecars import",
-        "import sidecars",
-        "core_mutation",
-        "p48_core_expansion",
-        "real_trading",
-        "real_execution",
-        "broker_api",
-        "exchange_api",
-        "api_key",
-        "wallet_private_key",
-        "buy_button",
-        "sell_button",
-        "order_button",
-    }
-)
-
-
-@dataclass(frozen=True)
-class ImportBoundaryFinding:
-    path: str
-    line_number: int
-    pattern: str
-    finding_type: str
-
-
-@dataclass(frozen=True)
-class ImportBoundaryScanReport:
-    scanned_file_count: int
-    finding_count: int
-    findings: tuple[ImportBoundaryFinding, ...]
-    valid: bool
 
 
 def classify_import_boundary_path(path: str) -> str:
@@ -326,6 +399,16 @@ def classify_import_boundary_path(path: str) -> str:
         return "test"
 
     return "other"
+
+
+def _is_enabled_forbidden_pattern(pattern: str, normalized_line: str) -> bool:
+    return (
+        f"{pattern} = true" in normalized_line
+        or f"{pattern}=true" in normalized_line
+        or f"{pattern} = 'forbidden'" in normalized_line
+        or f'{pattern} = "forbidden"' in normalized_line
+        or f"{pattern}()" in normalized_line
+    )
 
 
 def scan_import_boundary_text(path: str, text: str) -> tuple[ImportBoundaryFinding, ...]:
@@ -352,18 +435,24 @@ def scan_import_boundary_text(path: str, text: str) -> tuple[ImportBoundaryFindi
             )
 
         for pattern in FORBIDDEN_IMPORT_PATTERNS:
-            if pattern in normalized_line:
-                if pattern in {"from sidecars import", "import sidecars"} and path_type != "core":
+            if pattern not in normalized_line:
+                continue
+
+            if pattern in {"from sidecars import", "import sidecars"} and path_type != "core":
+                continue
+
+            if pattern not in {"from sidecars import", "import sidecars"}:
+                if not _is_enabled_forbidden_pattern(pattern, normalized_line):
                     continue
 
-                findings.append(
-                    ImportBoundaryFinding(
-                        path=path,
-                        line_number=line_number,
-                        pattern=pattern,
-                        finding_type="forbidden_pattern",
-                    )
+            findings.append(
+                ImportBoundaryFinding(
+                    path=path,
+                    line_number=line_number,
+                    pattern=pattern,
+                    finding_type="forbidden_pattern",
                 )
+            )
 
     return tuple(findings)
 
@@ -383,4 +472,35 @@ def build_import_boundary_scan_report(
         finding_count=len(finding_tuple),
         findings=finding_tuple,
         valid=len(finding_tuple) == 0,
+    )
+
+
+def default_sidecar_nodes() -> tuple[SidecarDependencyNode, ...]:
+    return (
+        SidecarDependencyNode("DATA-APP-1", "data_foundation", "completed", True, True),
+        SidecarDependencyNode("DATA-QUALITY-OPS-APP-1", "data_foundation", "completed", True, True),
+        SidecarDependencyNode("STOCK-APP-1", "research_intelligence", "completed", True, True),
+        SidecarDependencyNode("AI-CONTEXT-1", "research_intelligence", "completed", True, True),
+        SidecarDependencyNode("MARKET-SCENARIO-APP-1", "research_intelligence", "completed", True, True),
+        SidecarDependencyNode("BACKTEST-REVIEW-APP-1", "research_intelligence", "completed", True, True),
+        SidecarDependencyNode("SIGNAL-VALIDATION-APP-1", "governance_review", "completed", True, True),
+        SidecarDependencyNode("MODEL-GOVERNANCE-APP-1", "governance_review", "completed", True, True),
+        SidecarDependencyNode("OPERATOR-REVIEW-APP-1", "governance_review", "completed", True, True),
+        SidecarDependencyNode("UI-APP-1", "presentation_handoff", "completed", True, True),
+        SidecarDependencyNode("UI-RISK-FLAG-VISIBILITY-APP-1", "presentation_handoff", "completed", True, True),
+        SidecarDependencyNode("REPORT-ARCHIVE-APP-1", "archive_audit", "completed", True, True),
+        SidecarDependencyNode("ARCHIVE-CORRELATION-ROLLUP-APP-1", "archive_audit", "completed", True, True),
+        SidecarDependencyNode("SIDECAR-DAG-DEPENDENCY-GUARD-APP-1", "archive_audit", "active", True, True),
+    )
+
+
+def default_dependency_edges() -> tuple[SidecarDependencyEdge, ...]:
+    return (
+        SidecarDependencyEdge("DATA-APP-1", "STOCK-APP-1", "clean universe to stock ranking"),
+        SidecarDependencyEdge("STOCK-APP-1", "AI-CONTEXT-1", "ranked watchlist to explanation"),
+        SidecarDependencyEdge("AI-CONTEXT-1", "UI-APP-1", "explanation to read-only UI"),
+        SidecarDependencyEdge("UI-APP-1", "OPERATOR-REVIEW-APP-1", "UI report to operator review"),
+        SidecarDependencyEdge("OPERATOR-REVIEW-APP-1", "REPORT-ARCHIVE-APP-1", "operator review to archive"),
+        SidecarDependencyEdge("REPORT-ARCHIVE-APP-1", "ARCHIVE-CORRELATION-ROLLUP-APP-1", "archive to correlation rollup"),
+        SidecarDependencyEdge("ARCHIVE-CORRELATION-ROLLUP-APP-1", "SIDECAR-DAG-DEPENDENCY-GUARD-APP-1", "rollup to dag guard"),
     )
