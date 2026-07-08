@@ -316,3 +316,92 @@ def build_trace_summaries(
         correlation_id: build_trace_summary(correlation_id, grouped_records)
         for correlation_id, grouped_records in sorted(grouped.items())
     }
+
+@dataclass(frozen=True)
+class CorrelationRollupPacket:
+    packet_id: str
+    created_at_utc: str
+    source_app: str
+    summary_count: int
+    record_count: int
+    summaries: tuple[CorrelationTraceSummary, ...]
+    safety_state: str
+    operator_review_required: bool
+    no_execution_statement: str
+    release_allowed: bool
+    deploy_allowed: bool
+
+
+def build_rollup_packet(
+    packet_id: str,
+    records: Iterable[CorrelationRollupRecord],
+    created_at_utc: str,
+    source_app: str = "ARCHIVE-CORRELATION-ROLLUP-APP-1",
+) -> CorrelationRollupPacket:
+    record_tuple = tuple(records)
+    if not record_tuple:
+        raise ValueError("empty_rollup_packet_records")
+
+    summaries = tuple(build_trace_summaries(record_tuple).values())
+    record_count = sum(summary.record_count for summary in summaries)
+
+    packet = CorrelationRollupPacket(
+        packet_id=packet_id,
+        created_at_utc=created_at_utc,
+        source_app=source_app,
+        summary_count=len(summaries),
+        record_count=record_count,
+        summaries=summaries,
+        safety_state="paper_only_local_read_only_sidecar_only",
+        operator_review_required=True,
+        no_execution_statement="This packet is paper-only and cannot execute trades.",
+        release_allowed=False,
+        deploy_allowed=False,
+    )
+
+    valid, issues = validate_rollup_packet(packet)
+    if not valid:
+        raise ValueError(",".join(issues))
+
+    return packet
+
+
+def validate_rollup_packet(packet: CorrelationRollupPacket) -> tuple[bool, tuple[str, ...]]:
+    issues: list[str] = []
+
+    if not packet.packet_id.strip():
+        issues.append("missing_packet_id")
+
+    if not packet.created_at_utc.strip():
+        issues.append("missing_created_at_utc")
+
+    if packet.summary_count != len(packet.summaries):
+        issues.append("summary_count_mismatch")
+
+    if packet.record_count != sum(summary.record_count for summary in packet.summaries):
+        issues.append("record_count_mismatch")
+
+    if packet.safety_state != "paper_only_local_read_only_sidecar_only":
+        issues.append("invalid_packet_safety_state")
+
+    if packet.operator_review_required is not True:
+        issues.append("operator_review_not_required")
+
+    if packet.release_allowed is not False:
+        issues.append("release_allowed_must_be_false")
+
+    if packet.deploy_allowed is not False:
+        issues.append("deploy_allowed_must_be_false")
+
+    if "cannot execute trades" not in packet.no_execution_statement:
+        issues.append("missing_no_execution_statement")
+
+    return (not issues, tuple(issues))
+
+
+def packet_has_blocked_trace(packet: CorrelationRollupPacket) -> bool:
+    return any(summary.has_blocked_trace for summary in packet.summaries)
+
+
+def packet_has_partial_trace(packet: CorrelationRollupPacket) -> bool:
+    return any(summary.has_partial_trace for summary in packet.summaries)
