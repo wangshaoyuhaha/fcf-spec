@@ -277,3 +277,110 @@ def default_dependency_edges() -> tuple[SidecarDependencyEdge, ...]:
     )
 
 
+
+FORBIDDEN_IMPORT_PATTERNS = frozenset(
+    {
+        "from sidecars import",
+        "import sidecars",
+        "core_mutation",
+        "p48_core_expansion",
+        "real_trading",
+        "real_execution",
+        "broker_api",
+        "exchange_api",
+        "api_key",
+        "wallet_private_key",
+        "buy_button",
+        "sell_button",
+        "order_button",
+    }
+)
+
+
+@dataclass(frozen=True)
+class ImportBoundaryFinding:
+    path: str
+    line_number: int
+    pattern: str
+    finding_type: str
+
+
+@dataclass(frozen=True)
+class ImportBoundaryScanReport:
+    scanned_file_count: int
+    finding_count: int
+    findings: tuple[ImportBoundaryFinding, ...]
+    valid: bool
+
+
+def classify_import_boundary_path(path: str) -> str:
+    normalized = path.replace("\\", "/")
+
+    if normalized.startswith("core/") or "/core/" in normalized:
+        return "core"
+
+    if normalized.startswith("sidecars/") or "/sidecars/" in normalized:
+        return "sidecar"
+
+    if normalized.startswith("tests/") or "/tests/" in normalized:
+        return "test"
+
+    return "other"
+
+
+def scan_import_boundary_text(path: str, text: str) -> tuple[ImportBoundaryFinding, ...]:
+    path_type = classify_import_boundary_path(path)
+    findings: list[ImportBoundaryFinding] = []
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        normalized_line = line.strip().lower()
+
+        if not normalized_line:
+            continue
+
+        if path_type == "core" and (
+            normalized_line.startswith("from sidecars")
+            or normalized_line.startswith("import sidecars")
+        ):
+            findings.append(
+                ImportBoundaryFinding(
+                    path=path,
+                    line_number=line_number,
+                    pattern="core_imports_sidecars",
+                    finding_type="core_sidecar_import_violation",
+                )
+            )
+
+        for pattern in FORBIDDEN_IMPORT_PATTERNS:
+            if pattern in normalized_line:
+                if pattern in {"from sidecars import", "import sidecars"} and path_type != "core":
+                    continue
+
+                findings.append(
+                    ImportBoundaryFinding(
+                        path=path,
+                        line_number=line_number,
+                        pattern=pattern,
+                        finding_type="forbidden_pattern",
+                    )
+                )
+
+    return tuple(findings)
+
+
+def build_import_boundary_scan_report(
+    file_text_by_path: dict[str, str],
+) -> ImportBoundaryScanReport:
+    findings: list[ImportBoundaryFinding] = []
+
+    for path, text in sorted(file_text_by_path.items()):
+        findings.extend(scan_import_boundary_text(path, text))
+
+    finding_tuple = tuple(findings)
+
+    return ImportBoundaryScanReport(
+        scanned_file_count=len(file_text_by_path),
+        finding_count=len(finding_tuple),
+        findings=finding_tuple,
+        valid=len(finding_tuple) == 0,
+    )
