@@ -239,7 +239,7 @@ def validate_dependency_graph(
 def default_sidecar_nodes() -> tuple[SidecarDependencyNode, ...]:
     return (
         SidecarDependencyNode("DATA-APP-1", "data_foundation", "completed", True, True),
-        SidecarDependencyNode("REPORT-ARCHIVE-APP-1", "data_foundation", "completed", True, True),
+        SidecarDependencyNode("REPORT-ARCHIVE-APP-1", "archive_audit", "completed", True, True),
         SidecarDependencyNode("DATA-QUALITY-OPS-APP-1", "data_foundation", "completed", True, True),
         SidecarDependencyNode("STOCK-APP-1", "research_intelligence", "completed", True, True),
         SidecarDependencyNode("AI-CONTEXT-1", "research_intelligence", "completed", True, True),
@@ -265,3 +265,4 @@ def default_dependency_edges() -> tuple[SidecarDependencyEdge, ...]:
         SidecarDependencyEdge("REPORT-ARCHIVE-APP-1", "ARCHIVE-CORRELATION-ROLLUP-APP-1", "archive to correlation rollup"),
         SidecarDependencyEdge("ARCHIVE-CORRELATION-ROLLUP-APP-1", "SIDECAR-DAG-DEPENDENCY-GUARD-APP-1", "rollup to dag guard"),
     )
+
