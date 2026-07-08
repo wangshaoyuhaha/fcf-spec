@@ -2798,3 +2798,77 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D2 Architecture Gap Candidate Queue
+
+Status: active candidate queue.
+
+Purpose:
+- Preserve remaining architecture gap candidates.
+- Keep candidate priority visible.
+- Prevent skipped UI risk flag visibility work.
+- Prevent skipped archive correlation rollup work.
+
+Candidate queue:
+
+### 1. UI-RISK-FLAG-VISIBILITY-APP-1
+Priority: high.
+Reason:
+- UI must render risk_flags explicitly.
+- UI must render reason_codes explicitly.
+- UI must not hide risk flags.
+- UI must not downgrade risk flags.
+- UI must not delete reason codes.
+Expected scope:
+- read-only UI visibility contract
+- risk flag panel visibility checks
+- reason code panel visibility checks
+- blocked response visibility checks
+- operator review visibility handoff
+Execution size: medium sidecar.
+
+### 2. ARCHIVE-CORRELATION-ROLLUP-APP-1
+Priority: medium-high.
+Reason:
+- Correlation_ID should be traceable across archive, report, final state, and control-center records.
+- Archive/report outputs should support full-chain trace lookup.
+Expected scope:
+- read-only archive correlation source loader
+- correlation rollup schema
+- final-state correlation summary
+- archive/report trace packet
+- no mutation and no execution boundary
+Execution size: medium sidecar.
+
+### 3. CONTROL-CENTER-MAINTENANCE-APP-2 closeout
+Priority: current.
+Reason:
+- Current branch is lightweight control-center hardening.
+- Complete control-center updates first, then merge to main.
+Execution size: small.
+
+Next selection rule:
+- Finish CONTROL-CENTER-MAINTENANCE-APP-2 first.
+- Then choose UI-RISK-FLAG-VISIBILITY-APP-1 before ARCHIVE-CORRELATION-ROLLUP-APP-1 unless operator changes priority.
+- Large sidecar work must use a dedicated branch.
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no risk flag deletion or downgrade
+- no reason code deletion
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
