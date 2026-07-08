@@ -3118,3 +3118,54 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## ARCHIVE-CORRELATION-ROLLUP-APP-1 Completion
+
+Status: completed and merged into main.
+
+Purpose:
+ARCHIVE-CORRELATION-ROLLUP-APP-1 establishes a read-only Correlation_ID rollup layer across archive, report, final current state, control center, handoff, and validation artifacts.
+
+Completed stages:
+- D1 sidecar boundary and rollup contract
+- D2 read-only source discovery
+- D3 rollup record schema
+- D4 trace summary and coverage review
+- D5 rollup packet
+- D6 final workflow handoff and closeout
+
+Final capability:
+- classify eligible artifact paths
+- reject runtime files as source of truth
+- build Correlation_ID rollup records
+- validate rollup record safety state
+- summarize trace coverage
+- detect partial or blocked traces
+- build paper-only rollup packets
+- preserve operator review requirement
+- keep release and deploy disabled
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no source mutation
+- no score mutation
+- no reason code mutation
+- no risk flag deletion
+- no risk flag downgrade
+- no real trading
+- no real execution
+- no broker API
+- no exchange API
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
