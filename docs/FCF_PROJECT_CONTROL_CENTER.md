@@ -2669,3 +2669,42 @@ Safety confirmation:
 - no tag
 
 <!-- FCF_CC_CONTROL_CENTER_MAINTENANCE_APP_1_MAINLINE_SYNC_END -->
+
+## CORRELATION-ID-TRACEABILITY-APP-1
+
+Status: completed and merged into main.
+
+Main merge commit:
+- b2ef1ce merge CORRELATION-ID-TRACEABILITY-APP-1 into main
+
+Sidecar branch:
+- sidecar-correlation-id-traceability-app-1
+
+Completed stages:
+- D1 sidecar boundary and traceability contract
+- D2 read-only source map
+- D3 trace record schema
+- D4 chain integrity rules
+- D5 trace review packet
+- D6 final handoff closeout
+
+Purpose:
+- Establish full-chain Correlation_ID traceability across Data, Validation, Review, UI, Archive, and Dify handoff artifacts.
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no source content mutation
+- no score mutation
+- no reason code mutation
+- no risk flag deletion or downgrade
+- no Dify deploy
+- no Dify API write
+- no tag
+- no release
+- no deploy
