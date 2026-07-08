@@ -2751,3 +2751,329 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D1 Next Phase Decision Register
+
+Status: active control-center maintenance layer.
+
+Purpose:
+- Preserve next-phase decision order.
+- Prevent skipped architecture review details.
+- Keep Annie route visible in the control center.
+- Separate lightweight control-center work from large D1-D6 sidecar construction.
+
+Accepted next-phase order:
+1. SIDECAR-TOPOLOGY-REVIEW-APP-1
+2. CONTROL-CENTER-MAINTENANCE-APP-2
+3. UI-RISK-FLAG-VISIBILITY-APP-1
+4. ARCHIVE-CORRELATION-ROLLUP-APP-1
+
+Completed before this layer:
+- SIDECAR-TOPOLOGY-REVIEW-APP-1 completed, merged, validated, pushed, and archived.
+
+Current selected phase:
+- CONTROL-CENTER-MAINTENANCE-APP-2
+
+Execution rule:
+- Small control-center updates may be completed in the current control window.
+- Large implementation work must use a dedicated sidecar development branch or window.
+- Architecture gap details must not be skipped.
+- Operator confirmation remains required before tag, release, or deploy.
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D2 Architecture Gap Candidate Queue
+
+Status: active candidate queue.
+
+Purpose:
+- Preserve remaining architecture gap candidates.
+- Keep candidate priority visible.
+- Prevent skipped UI risk flag visibility work.
+- Prevent skipped archive correlation rollup work.
+
+Candidate queue:
+
+### 1. UI-RISK-FLAG-VISIBILITY-APP-1
+Priority: high.
+Reason:
+- UI must render risk_flags explicitly.
+- UI must render reason_codes explicitly.
+- UI must not hide risk flags.
+- UI must not downgrade risk flags.
+- UI must not delete reason codes.
+Expected scope:
+- read-only UI visibility contract
+- risk flag panel visibility checks
+- reason code panel visibility checks
+- blocked response visibility checks
+- operator review visibility handoff
+Execution size: medium sidecar.
+
+### 2. ARCHIVE-CORRELATION-ROLLUP-APP-1
+Priority: medium-high.
+Reason:
+- Correlation_ID should be traceable across archive, report, final state, and control-center records.
+- Archive/report outputs should support full-chain trace lookup.
+Expected scope:
+- read-only archive correlation source loader
+- correlation rollup schema
+- final-state correlation summary
+- archive/report trace packet
+- no mutation and no execution boundary
+Execution size: medium sidecar.
+
+### 3. CONTROL-CENTER-MAINTENANCE-APP-2 closeout
+Priority: current.
+Reason:
+- Current branch is lightweight control-center hardening.
+- Complete control-center updates first, then merge to main.
+Execution size: small.
+
+Next selection rule:
+- Finish CONTROL-CENTER-MAINTENANCE-APP-2 first.
+- Then choose UI-RISK-FLAG-VISIBILITY-APP-1 before ARCHIVE-CORRELATION-ROLLUP-APP-1 unless operator changes priority.
+- Large sidecar work must use a dedicated branch.
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no risk flag deletion or downgrade
+- no reason code deletion
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D3 Window Routing Rule
+
+Status: active routing rule.
+
+Purpose:
+- Define when work stays in the control window.
+- Define when work needs a dedicated development window.
+- Prevent accidental large implementation inside the control window.
+
+Control window allowed:
+- read-only status recovery
+- architecture gap review
+- candidate priority selection
+- control-center documentation updates
+- final state archive updates
+- small safety or governance text hardening
+
+Development window required:
+- any new medium or large D1-D6 sidecar
+- any test-backed implementation module
+- any schema/model/loader/packet code addition
+- any repair that changes executable app code
+- any branch that needs repeated pytest iterations
+
+Mandatory before new development window:
+- current branch clean
+- current branch pushed
+- selected sidecar name fixed
+- safety boundary copied
+- D1-D6 scope listed
+- no tag, release, or deploy unless operator explicitly confirms
+
+Current next planned large sidecar:
+- UI-RISK-FLAG-VISIBILITY-APP-1
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D4 Next Sidecar Handoff Template
+
+Status: active next-sidecar handoff template.
+
+Selected next large sidecar:
+- UI-RISK-FLAG-VISIBILITY-APP-1
+
+Purpose:
+- Verify UI risk flag visibility.
+- Verify reason code visibility.
+- Prevent hidden, downgraded, deleted, or softened risk flags.
+- Preserve operator review visibility.
+
+Required D1-D6 draft:
+- D1 read-only UI visibility boundary contract
+- D2 UI source artifact loader
+- D3 risk flag visibility schema
+- D4 reason code visibility schema
+- D5 blocked response and operator review visibility packet
+- D6 final workflow handoff and closeout
+
+Must verify:
+- risk_flags are rendered explicitly
+- reason_codes are rendered explicitly
+- blocked response state is visible
+- operator_review_required is visible
+- risk flag downgrade is forbidden
+- risk flag deletion is forbidden
+- reason code deletion is forbidden
+- UI cannot convert warning into approval
+- UI cannot bypass operator review
+
+Forbidden:
+- no buy button
+- no sell button
+- no order button
+- no broker connection
+- no exchange connection
+- no API key storage
+- no real account access
+- no real position access
+- no real execution
+- no tag
+- no release
+- no deploy
+
+Start rule:
+- Start UI-RISK-FLAG-VISIBILITY-APP-1 only after CONTROL-CENTER-MAINTENANCE-APP-2 is merged, archived, pushed, and clean.
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D5 Merge And Archive Readiness Checklist
+
+Status: active merge readiness checklist.
+
+Purpose:
+- Define required checks before merging this control-center maintenance layer.
+- Preserve clean handoff to the next large sidecar.
+- Prevent skipped final-state archive.
+
+Merge readiness checklist:
+- branch is control-center-maintenance-app-2
+- branch is pushed to origin
+- python scripts/run_all_checks.py passed
+- python -m pytest -q passed
+- git status --short is blank after runtime restore
+- no tag created
+- no release created
+- no deploy performed
+
+Required completion sequence:
+1. Finish CONTROL-CENTER-MAINTENANCE-APP-2 D6 closeout.
+2. Merge control-center-maintenance-app-2 into main.
+3. Run validation on main.
+4. Restore runtime generated files.
+5. Push main.
+6. Add final current-state archive file.
+7. Push final current-state archive.
+8. Return to control window.
+9. Start UI-RISK-FLAG-VISIBILITY-APP-1 only after clean final archive.
+
+Do not skip:
+- final current state file
+- control-center latest state confirmation
+- next sidecar handoff summary
+- clean git status confirmation
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D6 Final Closeout
+
+Status: completed on branch control-center-maintenance-app-2.
+
+Completed scope:
+- D1 next phase decision register
+- D2 architecture gap candidate queue
+- D3 window routing rule
+- D4 next sidecar handoff template
+- D5 merge and archive readiness checklist
+- D6 final closeout
+
+Final control-center result:
+- Annie route preserved.
+- Next phase order preserved.
+- UI-RISK-FLAG-VISIBILITY-APP-1 remains the next large sidecar candidate.
+- ARCHIVE-CORRELATION-ROLLUP-APP-1 remains the following candidate.
+- Small control-center work and large sidecar work are separated.
+- Merge and archive sequence is explicitly documented.
+
+Next required action after this D6:
+1. Merge control-center-maintenance-app-2 into main.
+2. Validate main.
+3. Push main.
+4. Add final current-state archive.
+5. Return to control window.
+6. Start UI-RISK-FLAG-VISIBILITY-APP-1 only after clean archive.
+
+Safety boundary preserved:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
