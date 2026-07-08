@@ -79,3 +79,49 @@ def build_rollup_index(items: Iterable[CorrelationRollupItem]) -> dict[str, tupl
         index.setdefault(item.correlation_id, []).append(item)
 
     return {key: tuple(value) for key, value in index.items()}
+
+ELIGIBLE_ARTIFACT_TYPES = frozenset(
+    {
+        "final_current_state",
+        "control_center",
+        "archive_report",
+        "backend_handoff",
+        "validation_summary",
+        "project_prompt",
+    }
+)
+
+
+def classify_artifact_path(path: str) -> str:
+    normalized = path.replace("\\", "/")
+
+    if normalized.endswith("docs/FCF_PROJECT_CONTROL_CENTER.md"):
+        return "control_center"
+
+    name = normalized.rsplit("/", 1)[-1]
+
+    if name.startswith("FCF_CURRENT_STATE_") and name.endswith(".md"):
+        return "final_current_state"
+
+    if "ARCHITECTURE_GAP_AUDIT_REPORT" in name or "AUDIT_REPORT" in name:
+        return "archive_report"
+
+    if "BACKEND_HANDOFF" in name or "HANDOFF" in name:
+        return "backend_handoff"
+
+    if "VALIDATION" in name and name.endswith(".md"):
+        return "validation_summary"
+
+    if "NEW_WINDOW_CHAT_PROMPT" in name:
+        return "project_prompt"
+
+    return "unknown"
+
+
+def is_rollup_source_path(path: str) -> bool:
+    return classify_artifact_path(path) in ELIGIBLE_ARTIFACT_TYPES
+
+
+def discover_rollup_source_paths(paths: Iterable[str]) -> tuple[str, ...]:
+    eligible = [path for path in paths if is_rollup_source_path(path)]
+    return tuple(sorted(dict.fromkeys(eligible)))
