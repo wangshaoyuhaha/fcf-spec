@@ -2872,3 +2872,57 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D3 Window Routing Rule
+
+Status: active routing rule.
+
+Purpose:
+- Define when work stays in the control window.
+- Define when work needs a dedicated development window.
+- Prevent accidental large implementation inside the control window.
+
+Control window allowed:
+- read-only status recovery
+- architecture gap review
+- candidate priority selection
+- control-center documentation updates
+- final state archive updates
+- small safety or governance text hardening
+
+Development window required:
+- any new medium or large D1-D6 sidecar
+- any test-backed implementation module
+- any schema/model/loader/packet code addition
+- any repair that changes executable app code
+- any branch that needs repeated pytest iterations
+
+Mandatory before new development window:
+- current branch clean
+- current branch pushed
+- selected sidecar name fixed
+- safety boundary copied
+- D1-D6 scope listed
+- no tag, release, or deploy unless operator explicitly confirms
+
+Current next planned large sidecar:
+- UI-RISK-FLAG-VISIBILITY-APP-1
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
