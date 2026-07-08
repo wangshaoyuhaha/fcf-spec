@@ -3030,3 +3030,50 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D6 Final Closeout
+
+Status: completed on branch control-center-maintenance-app-2.
+
+Completed scope:
+- D1 next phase decision register
+- D2 architecture gap candidate queue
+- D3 window routing rule
+- D4 next sidecar handoff template
+- D5 merge and archive readiness checklist
+- D6 final closeout
+
+Final control-center result:
+- Annie route preserved.
+- Next phase order preserved.
+- UI-RISK-FLAG-VISIBILITY-APP-1 remains the next large sidecar candidate.
+- ARCHIVE-CORRELATION-ROLLUP-APP-1 remains the following candidate.
+- Small control-center work and large sidecar work are separated.
+- Merge and archive sequence is explicitly documented.
+
+Next required action after this D6:
+1. Merge control-center-maintenance-app-2 into main.
+2. Validate main.
+3. Push main.
+4. Add final current-state archive.
+5. Return to control window.
+6. Start UI-RISK-FLAG-VISIBILITY-APP-1 only after clean archive.
+
+Safety boundary preserved:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
