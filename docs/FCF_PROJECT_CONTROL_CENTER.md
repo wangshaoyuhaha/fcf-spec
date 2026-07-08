@@ -3077,3 +3077,44 @@ Safety boundary preserved:
 - no tag
 - no release
 - no deploy
+
+## UI-RISK-FLAG-VISIBILITY-APP-1 Completion Update
+
+Status: completed and merged into main.
+
+Purpose:
+- Verify UI risk flag visibility.
+- Verify reason code visibility.
+- Verify blocked response state visibility.
+- Verify operator review required visibility.
+- Prevent hidden, downgraded, deleted, or softened risk flags.
+
+Completed stages:
+- D1 read-only UI visibility boundary contract
+- D2 UI visibility source loader
+- D2 fix test module name
+- D3 risk flag visibility schema
+- D4 reason code visibility schema
+- D5 blocked response and operator review visibility packet
+- D6 final workflow handoff and closeout
+
+Final validation:
+- python scripts/run_all_checks.py passed
+- python -m pytest -q = 1595 passed
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no risk flag downgrade
+- no risk flag deletion
+- no reason code deletion
+- no operator review bypass
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
