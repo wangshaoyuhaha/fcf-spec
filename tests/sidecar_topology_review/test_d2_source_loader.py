@@ -1,47 +1,36 @@
-﻿from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-DOC = ROOT / "docs" / "sidecars" / "correlation_id_traceability_app_1" / "D6_final_handoff_closeout.md"
+import importlib.util
+from pathlib import Path
 
 
-def test_correlation_id_traceability_d6_final_handoff_closeout_exists():
-    assert DOC.exists()
-    text = DOC.read_text(encoding="utf-8")
-    required = [
-        "D6 Final Handoff Closeout",
-        "CORRELATION-ID-TRACEABILITY-APP-1 is completed",
-        "D1 sidecar boundary and traceability contract",
-        "D2 read-only source map",
-        "D3 trace record schema",
-        "D4 chain integrity rules",
-        "D5 trace review packet",
-        "correlation_id trace linkage",
-        "validation failure visibility",
-        "operator review requirement visibility",
-        "risk flag visibility",
-        "reason code visibility",
-        "archive reference visibility",
-        "local Dify handoff reference visibility",
-        "no-execution receipt requirements",
-        "paper-only",
-        "local-only",
-        "read-only",
-        "sidecar-only",
-        "operator review required",
-        "no P48 core expansion",
-        "no P1-P47 core mutation",
-        "no score mutation",
-        "no reason code mutation",
-        "no risk flag deletion",
-        "no risk flag downgrade",
-        "no Dify deploy",
-        "no Dify API write",
-        "no tag",
-        "no release",
-        "no deploy",
-        "Merge Readiness",
-        "non-executable",
-    ]
-    for item in required:
-        assert item in text
+def load_module():
+    path = Path("app/sidecar_topology_review/source_loader.py")
+    spec = importlib.util.spec_from_file_location("source_loader", path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    return module
 
+
+def test_d2_source_loader_inventory_and_zones():
+    module = load_module()
+    rows = module.load_completed_sidecar_inventory()
+    ids = {row["sidecar_id"] for row in rows}
+    assert len(rows) >= 18
+    assert "CORRELATION-ID-TRACEABILITY-APP-1" in ids
+    assert "CONTROL-CENTER-MAINTENANCE-APP-1" in ids
+    assert set(module.load_zone_names()) == {
+        "data_ingestion_and_quarantine",
+        "context_and_interpretation",
+        "governance_and_review_gate",
+        "presentation_and_immutable_archive",
+    }
+    for row in rows:
+        assert row["paper_only"] is True
+        assert row["local_only"] is True
+        assert row["read_only"] is True
+        assert row["sidecar_only"] is True
+        assert row["operator_review_required"] is True
+        assert row["core_mutation_allowed"] is False
+        assert row["p48_core_expansion_allowed"] is False
+        assert row["trade_action_allowed"] is False
+        assert row["real_execution_allowed"] is False
