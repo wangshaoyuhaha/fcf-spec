@@ -2975,3 +2975,58 @@ Forbidden:
 
 Start rule:
 - Start UI-RISK-FLAG-VISIBILITY-APP-1 only after CONTROL-CENTER-MAINTENANCE-APP-2 is merged, archived, pushed, and clean.
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D5 Merge And Archive Readiness Checklist
+
+Status: active merge readiness checklist.
+
+Purpose:
+- Define required checks before merging this control-center maintenance layer.
+- Preserve clean handoff to the next large sidecar.
+- Prevent skipped final-state archive.
+
+Merge readiness checklist:
+- branch is control-center-maintenance-app-2
+- branch is pushed to origin
+- python scripts/run_all_checks.py passed
+- python -m pytest -q passed
+- git status --short is blank after runtime restore
+- no tag created
+- no release created
+- no deploy performed
+
+Required completion sequence:
+1. Finish CONTROL-CENTER-MAINTENANCE-APP-2 D6 closeout.
+2. Merge control-center-maintenance-app-2 into main.
+3. Run validation on main.
+4. Restore runtime generated files.
+5. Push main.
+6. Add final current-state archive file.
+7. Push final current-state archive.
+8. Return to control window.
+9. Start UI-RISK-FLAG-VISIBILITY-APP-1 only after clean final archive.
+
+Do not skip:
+- final current state file
+- control-center latest state confirmation
+- next sidecar handoff summary
+- clean git status confirmation
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
