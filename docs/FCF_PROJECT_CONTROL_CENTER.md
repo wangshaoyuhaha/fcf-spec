@@ -2619,3 +2619,53 @@ Safety confirmation:
 - no tag
 
 <!-- FCF_CC_SIDECAR_TOPOLOGY_REVIEW_APP_1_MAINLINE_SYNC_END -->
+
+<!-- FCF_CC_CONTROL_CENTER_MAINTENANCE_APP_1_MAINLINE_SYNC_BEGIN -->
+
+## Mainline Sync: CONTROL-CENTER-MAINTENANCE-APP-1
+
+Status: completed and merged into main.
+
+Mainline state:
+- Branch: main
+- Latest merge commit: fb75a85 merge CONTROL-CENTER-MAINTENANCE-APP-1 into main
+- Push status: success
+- Push range: f2a552b..fb75a85 main -> main
+- Final git status: clean
+- Tag: none
+- Release: none
+- Deploy: none
+
+Completed sidecar commits:
+- bad55e4 add CONTROL-CENTER-MAINTENANCE-D1 contract
+- 3c224fd add CONTROL-CENTER-MAINTENANCE-D2 required sections
+- 5cff6c4 add CONTROL-CENTER-MAINTENANCE-D3 merge template
+- b5b81d9 add CONTROL-CENTER-MAINTENANCE-D4 backlog rules
+- ca51918 add CONTROL-CENTER-MAINTENANCE-D5 validation checklist
+- cc7cb8b add CONTROL-CENTER-MAINTENANCE-D6 final closeout
+- fb75a85 merge CONTROL-CENTER-MAINTENANCE-APP-1 into main
+
+Governance result:
+- Control center update triggers defined.
+- Required control center sections defined.
+- Merge record template defined.
+- Deferred backlog maintenance rules defined.
+- Validation and clean-status checklist defined.
+- Repo control center remains source of truth.
+
+Safety confirmation:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- governance-only
+- operator-review-only
+- no P48
+- no core mutation
+- no real trading
+- no real execution
+- no deploy
+- no release
+- no tag
+
+<!-- FCF_CC_CONTROL_CENTER_MAINTENANCE_APP_1_MAINLINE_SYNC_END -->
