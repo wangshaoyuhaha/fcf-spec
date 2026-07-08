@@ -137,6 +137,13 @@ ZONE_ORDER = {
 }
 
 
+
+EXPLICIT_ALLOWED_DEPENDENCY_EDGES = frozenset(
+    {
+        ("UI-APP-1", "OPERATOR-REVIEW-APP-1"),
+        ("OPERATOR-REVIEW-APP-1", "REPORT-ARCHIVE-APP-1"),
+    }
+)
 @dataclass(frozen=True)
 class SidecarDependencyNode:
     name: str
@@ -268,4 +275,5 @@ def default_dependency_edges() -> tuple[SidecarDependencyEdge, ...]:
         SidecarDependencyEdge("REPORT-ARCHIVE-APP-1", "ARCHIVE-CORRELATION-ROLLUP-APP-1", "archive to correlation rollup"),
         SidecarDependencyEdge("ARCHIVE-CORRELATION-ROLLUP-APP-1", "SIDECAR-DAG-DEPENDENCY-GUARD-APP-1", "rollup to dag guard"),
     )
+
 
