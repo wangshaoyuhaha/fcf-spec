@@ -2926,3 +2926,52 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D4 Next Sidecar Handoff Template
+
+Status: active next-sidecar handoff template.
+
+Selected next large sidecar:
+- UI-RISK-FLAG-VISIBILITY-APP-1
+
+Purpose:
+- Verify UI risk flag visibility.
+- Verify reason code visibility.
+- Prevent hidden, downgraded, deleted, or softened risk flags.
+- Preserve operator review visibility.
+
+Required D1-D6 draft:
+- D1 read-only UI visibility boundary contract
+- D2 UI source artifact loader
+- D3 risk flag visibility schema
+- D4 reason code visibility schema
+- D5 blocked response and operator review visibility packet
+- D6 final workflow handoff and closeout
+
+Must verify:
+- risk_flags are rendered explicitly
+- reason_codes are rendered explicitly
+- blocked response state is visible
+- operator_review_required is visible
+- risk flag downgrade is forbidden
+- risk flag deletion is forbidden
+- reason code deletion is forbidden
+- UI cannot convert warning into approval
+- UI cannot bypass operator review
+
+Forbidden:
+- no buy button
+- no sell button
+- no order button
+- no broker connection
+- no exchange connection
+- no API key storage
+- no real account access
+- no real position access
+- no real execution
+- no tag
+- no release
+- no deploy
+
+Start rule:
+- Start UI-RISK-FLAG-VISIBILITY-APP-1 only after CONTROL-CENTER-MAINTENANCE-APP-2 is merged, archived, pushed, and clean.
