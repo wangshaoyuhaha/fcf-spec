@@ -2708,3 +2708,46 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## SIDECAR-TOPOLOGY-REVIEW-APP-1 Completion Update
+
+Status: completed and merged into main.
+
+Purpose:
+- Review completed sidecar dependency topology.
+- Define DAG-only sidecar dependency rule.
+- Group completed sidecars into isolation zones.
+- Prevent circular dependency.
+- Preserve paper-only, local-only, read-only, sidecar-only boundary.
+
+Completed stages:
+- D1 topology boundary contract
+- D2 completed sidecar source loader
+- D3 DAG dependency validation rules
+- D4 isolation zone model
+- D5 topology review packet
+- D6 final handoff closeout
+
+Final validation:
+- python scripts/run_all_checks.py passed
+- python -m pytest -q = 1589 passed
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no circular dependency
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
