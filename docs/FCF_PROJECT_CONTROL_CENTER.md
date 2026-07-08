@@ -2751,3 +2751,50 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## CONTROL-CENTER-MAINTENANCE-APP-2 D1 Next Phase Decision Register
+
+Status: active control-center maintenance layer.
+
+Purpose:
+- Preserve next-phase decision order.
+- Prevent skipped architecture review details.
+- Keep Annie route visible in the control center.
+- Separate lightweight control-center work from large D1-D6 sidecar construction.
+
+Accepted next-phase order:
+1. SIDECAR-TOPOLOGY-REVIEW-APP-1
+2. CONTROL-CENTER-MAINTENANCE-APP-2
+3. UI-RISK-FLAG-VISIBILITY-APP-1
+4. ARCHIVE-CORRELATION-ROLLUP-APP-1
+
+Completed before this layer:
+- SIDECAR-TOPOLOGY-REVIEW-APP-1 completed, merged, validated, pushed, and archived.
+
+Current selected phase:
+- CONTROL-CENTER-MAINTENANCE-APP-2
+
+Execution rule:
+- Small control-center updates may be completed in the current control window.
+- Large implementation work must use a dedicated sidecar development branch or window.
+- Architecture gap details must not be skipped.
+- Operator confirmation remains required before tag, release, or deploy.
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- no P48 core expansion
+- no P1-P47 core mutation
+- no real trading
+- no broker connection
+- no exchange connection
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
