@@ -1,7 +1,4 @@
-﻿"""ARCHIVE-CORRELATION-ROLLUP-APP-1.
-
-Read-only correlation evidence index sidecar.
-"""
+﻿"""ARCHIVE-CORRELATION-ROLLUP-APP-1."""
 
 from .chain_coverage import (
     build_chain_coverage_matrix,
@@ -12,6 +9,10 @@ from .contract import (
     ARCHIVE_CORRELATION_ROLLUP_APP_ID,
     CORRELATION_ROLLUP_REQUIRED_LINKS,
     build_correlation_rollup_contract,
+)
+from .final_handoff import (
+    build_final_handoff,
+    classify_final_handoff,
 )
 from .rollup_packet import (
     build_rollup_packet,
@@ -36,9 +37,11 @@ __all__ = [
     "build_artifact_reference",
     "build_chain_coverage_matrix",
     "build_correlation_rollup_contract",
+    "build_final_handoff",
     "build_reference_index",
     "build_rollup_packet",
     "build_trace_summary",
+    "classify_final_handoff",
     "classify_rollup_packet",
     "classify_trace_summary",
     "summarize_chain_coverage",
