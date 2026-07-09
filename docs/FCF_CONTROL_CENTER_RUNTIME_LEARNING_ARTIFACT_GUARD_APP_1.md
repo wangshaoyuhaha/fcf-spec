@@ -81,3 +81,23 @@ D4 rules:
 - runtime learning artifact paths must not be used as new-window handoff truth
 - runtime learning artifact paths must not be used as control center state truth
 - collisions are blocking governance issues
+
+## D5 Runtime Learning Artifact Guard Packet
+
+Status: D5 completed.
+
+Purpose:
+Build a deterministic guard packet for runtime learning artifact governance.
+
+D5 packet checks:
+- runtime dirty records
+- restore plan
+- evidence exclusion result
+- closeout eligibility
+
+D5 blocking rules:
+- unknown dirty files block closeout
+- runtime artifacts used as final evidence block closeout
+- runtime artifacts used as handoff truth block closeout
+- runtime artifacts used as control center truth block closeout
+- missing restore requirement blocks closeout

@@ -207,3 +207,51 @@ def validate_runtime_artifact_path_not_promoted(path: str) -> RuntimeLearningArt
         passed=not reasons,
         reason_codes=tuple(dict.fromkeys(reasons)),
     )
+
+
+@dataclass(frozen=True)
+class RuntimeLearningArtifactGuardPacket:
+    app_id: str
+    total_dirty_records: int
+    restorable_runtime_records: int
+    blocked_dirty_paths: tuple[str, ...]
+    evidence_collision_count: int
+    restore_required: bool
+    closeout_allowed: bool
+    reason_codes: tuple[str, ...]
+
+
+def build_runtime_learning_artifact_guard_packet(
+    dirty_records: tuple[RuntimeDirtyStatusRecord, ...],
+    restore_plan: RuntimeLearningRestorePlan,
+    evidence_result: RuntimeEvidenceExclusionResult,
+    app_id: str = "CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1",
+) -> RuntimeLearningArtifactGuardPacket:
+    reasons: list[str] = []
+
+    restorable_count = sum(1 for record in dirty_records if record.restorable_runtime_dirt)
+
+    if restore_plan.blocked_dirty_paths:
+        reasons.append("UNKNOWN_DIRTY_FILES_BLOCK_CLOSEOUT")
+
+    if evidence_result.collisions:
+        reasons.extend(evidence_result.reason_codes)
+
+    if restore_plan.restore_required:
+        reasons.append("RUNTIME_RESTORE_REQUIRED_BEFORE_FINAL_CLEAN_STATE")
+
+    closeout_allowed = (
+        not restore_plan.blocked_dirty_paths
+        and not evidence_result.collisions
+    )
+
+    return RuntimeLearningArtifactGuardPacket(
+        app_id=app_id,
+        total_dirty_records=len(dirty_records),
+        restorable_runtime_records=restorable_count,
+        blocked_dirty_paths=restore_plan.blocked_dirty_paths,
+        evidence_collision_count=len(evidence_result.collisions),
+        restore_required=restore_plan.restore_required,
+        closeout_allowed=closeout_allowed,
+        reason_codes=tuple(dict.fromkeys(reasons)),
+    )

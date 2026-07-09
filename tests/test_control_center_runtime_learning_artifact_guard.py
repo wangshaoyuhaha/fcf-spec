@@ -351,3 +351,128 @@ def test_regular_non_runtime_path_can_pass_promotion_check():
 
     assert result.passed is True
     assert result.reason_codes == ()
+
+
+def test_guard_packet_allows_closeout_when_only_restorable_runtime_dirt_exists():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        RUNTIME_LEARNING_ARTIFACT_PATHS,
+        build_runtime_learning_artifact_guard_packet,
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+        validate_runtime_artifacts_excluded_from_evidence,
+    )
+
+    dirty_records = parse_git_status_lines(
+        (
+            " M runtime/learning_engine/shadow_ledger.json",
+            " M runtime/operator_console/ai_learning_audit_report.json",
+        )
+    )
+    restore_plan = build_runtime_learning_restore_plan(dirty_records)
+    evidence_result = validate_runtime_artifacts_excluded_from_evidence(
+        runtime_paths=RUNTIME_LEARNING_ARTIFACT_PATHS,
+        evidence_source_paths=("FCF_CURRENT_STATE_ALPHA_FINAL.md",),
+    )
+
+    packet = build_runtime_learning_artifact_guard_packet(
+        dirty_records,
+        restore_plan,
+        evidence_result,
+    )
+
+    assert packet.app_id == "CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1"
+    assert packet.total_dirty_records == 2
+    assert packet.restorable_runtime_records == 2
+    assert packet.blocked_dirty_paths == ()
+    assert packet.evidence_collision_count == 0
+    assert packet.restore_required is True
+    assert packet.closeout_allowed is True
+    assert packet.reason_codes == ("RUNTIME_RESTORE_REQUIRED_BEFORE_FINAL_CLEAN_STATE",)
+
+
+def test_guard_packet_blocks_unknown_dirty_files():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        RUNTIME_LEARNING_ARTIFACT_PATHS,
+        build_runtime_learning_artifact_guard_packet,
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+        validate_runtime_artifacts_excluded_from_evidence,
+    )
+
+    dirty_records = parse_git_status_lines(
+        (
+            " M runtime/learning_engine/shadow_ledger.json",
+            " M docs/FCF_PROJECT_CONTROL_CENTER.md",
+        )
+    )
+    restore_plan = build_runtime_learning_restore_plan(dirty_records)
+    evidence_result = validate_runtime_artifacts_excluded_from_evidence(
+        runtime_paths=RUNTIME_LEARNING_ARTIFACT_PATHS,
+        evidence_source_paths=("FCF_CURRENT_STATE_ALPHA_FINAL.md",),
+    )
+
+    packet = build_runtime_learning_artifact_guard_packet(
+        dirty_records,
+        restore_plan,
+        evidence_result,
+    )
+
+    assert packet.closeout_allowed is False
+    assert packet.blocked_dirty_paths == ("docs/FCF_PROJECT_CONTROL_CENTER.md",)
+    assert "UNKNOWN_DIRTY_FILES_BLOCK_CLOSEOUT" in packet.reason_codes
+
+
+def test_guard_packet_blocks_runtime_evidence_collision:
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        RUNTIME_LEARNING_ARTIFACT_PATHS,
+        build_runtime_learning_artifact_guard_packet,
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+        validate_runtime_artifacts_excluded_from_evidence,
+    )
+
+    dirty_records = parse_git_status_lines((" M runtime/learning_engine/shadow_ledger.json",))
+    restore_plan = build_runtime_learning_restore_plan(dirty_records)
+    evidence_result = validate_runtime_artifacts_excluded_from_evidence(
+        runtime_paths=RUNTIME_LEARNING_ARTIFACT_PATHS,
+        evidence_source_paths=("runtime/learning_engine/shadow_ledger.json",),
+    )
+
+    packet = build_runtime_learning_artifact_guard_packet(
+        dirty_records,
+        restore_plan,
+        evidence_result,
+    )
+
+    assert packet.closeout_allowed is False
+    assert packet.evidence_collision_count == 1
+    assert "RUNTIME_ARTIFACT_USED_AS_EVIDENCE_SOURCE" in packet.reason_codes
+
+
+def test_guard_packet_handles_empty_clean_state():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        RUNTIME_LEARNING_ARTIFACT_PATHS,
+        build_runtime_learning_artifact_guard_packet,
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+        validate_runtime_artifacts_excluded_from_evidence,
+    )
+
+    dirty_records = parse_git_status_lines(())
+    restore_plan = build_runtime_learning_restore_plan(dirty_records)
+    evidence_result = validate_runtime_artifacts_excluded_from_evidence(
+        runtime_paths=RUNTIME_LEARNING_ARTIFACT_PATHS,
+        evidence_source_paths=("FCF_CURRENT_STATE_ALPHA_FINAL.md",),
+    )
+
+    packet = build_runtime_learning_artifact_guard_packet(
+        dirty_records,
+        restore_plan,
+        evidence_result,
+    )
+
+    assert packet.total_dirty_records == 0
+    assert packet.restorable_runtime_records == 0
+    assert packet.restore_required is False
+    assert packet.closeout_allowed is True
+    assert packet.reason_codes == ()
