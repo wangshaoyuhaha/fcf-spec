@@ -1,29 +1,28 @@
+﻿Continue FCF / Financial Cognitive Framework only.
 
+Latest confirmed main:
+7e5a221 add CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1 final current state
 
-## P46 FINAL HANDOFF SNAPSHOT
+Latest merge:
+d1e2d9a merge CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1 into main
 
-Project path: C:\\Users\\Admin\\Desktop\\btc_finance_platform
-Repo: wangshaoyuhaha/fcf-spec
-Branch: main
-Current phase after P45: final acceptance lock complete.
-Run validation: python scripts/run_all_checks.py and python -m pytest -q.
-Expected validation after P46: 1017 passed.
-Next step: P47 final consistency audit.
-Do not create tag, release, deploy, real trading, API key, wallet key, real order, or real execution.
-Operator review required.
+Validation:
+python scripts/run_all_checks.py = ALL CHECKS PASSED
+python -m pytest -q = 1836 passed
 
-## P47 FINAL HANDOFF SNAPSHOT
+Git:
+main clean
+origin/main synced
+no tag / no release / no deploy
 
-Project path: C:\\Users\\Admin\\Desktop\\btc_finance_platform
-Repo: wangshaoyuhaha/fcf-spec
-Branch: main
+Latest completed stage:
+CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1
 
-Final planned closeout path:
-- P45 final acceptance lock complete
-- P46 final project state and handoff index complete
-- P47 final consistency audit complete after validation
+Runtime learning artifacts are generated runtime files only. They must not be final current-state evidence, handoff truth, or control center truth. Restore them before final clean state.
 
-Expected validation after P47: 1029 passed.
-Do not continue functional expansion unless a new explicit project objective is defined.
-Do not create tag, release, deploy, real trading, API key, wallet key, real order, or real execution.
-Operator review required.
+Safety:
+paper-only / local-only / read-only / sidecar-only / operator review required.
+No P48, no core mutation, no real trading, no broker/exchange API, no API key, no buy/sell/order, no tag/release/deploy.
+
+Next action:
+Read-only state check first, then architecture / structure gap review.
