@@ -390,3 +390,179 @@ def test_assert_completion_entries_from_sources_pass_blocks_duplicate() -> None:
 
     with pytest.raises(ValueError, match="CONTROL_CENTER_COMPLETION_INDEX_DUPLICATE_FAILED"):
         assert_completion_entries_from_sources_pass([first, second])
+
+
+def test_derive_expected_app_ids_from_final_state_files() -> None:
+    from scripts.control_center_completion_index_guard import derive_expected_app_ids_from_final_state_files
+
+    app_ids = derive_expected_app_ids_from_final_state_files(
+        [
+            "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "FCF_CURRENT_STATE_OTHER_APP_1_FINAL.md",
+        ]
+    )
+
+    assert app_ids == ["OTHER-APP-1", "TEST-APP-1"]
+
+
+def test_build_completion_index_matrix_pass() -> None:
+    from scripts.control_center_completion_index_guard import (
+        assert_completion_index_matrix_pass,
+        build_completion_index_matrix,
+    )
+
+    entries = [
+        {
+            "app_id": "TEST-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        }
+    ]
+
+    report = build_completion_index_matrix(entries, ["TEST-APP-1"])
+
+    assert report.status == "PASS"
+    assert report.expected_count == 1
+    assert report.actual_count == 1
+    assert report.row_count == 1
+    assert report.rows[0].validation_status == "PASS"
+    assert_completion_index_matrix_pass(report)
+
+
+def test_build_completion_index_matrix_blocks_missing_app() -> None:
+    from scripts.control_center_completion_index_guard import build_completion_index_matrix
+
+    report = build_completion_index_matrix([], ["TEST-APP-1"])
+
+    assert report.status == "BLOCK"
+    assert report.missing_app_ids == ["TEST-APP-1"]
+
+
+def test_build_completion_index_matrix_blocks_unexpected_app() -> None:
+    from scripts.control_center_completion_index_guard import build_completion_index_matrix
+
+    entries = [
+        {
+            "app_id": "UNEXPECTED-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_UNEXPECTED_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        }
+    ]
+
+    report = build_completion_index_matrix(entries, ["TEST-APP-1"])
+
+    assert report.status == "BLOCK"
+    assert report.missing_app_ids == ["TEST-APP-1"]
+    assert report.unexpected_app_ids == ["UNEXPECTED-APP-1"]
+
+
+def test_build_completion_index_matrix_blocks_duplicate_app() -> None:
+    from scripts.control_center_completion_index_guard import build_completion_index_matrix
+
+    entry = {
+        "app_id": "TEST-APP-1",
+        "status": "completed",
+        "branch": "main",
+        "main_merge_commit": "123abcd",
+        "final_branch_commit": "456def0",
+        "final_current_state_commit": "789abcd",
+        "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+        "validation": "passed",
+        "git_status": "clean",
+        "origin_main": "synced",
+        "tag": "none",
+        "release": "none",
+        "deploy": "none",
+    }
+
+    report = build_completion_index_matrix([entry, dict(entry)], ["TEST-APP-1"])
+
+    assert report.status == "BLOCK"
+    assert "TEST-APP-1" in report.duplicate_app_ids
+
+
+def test_render_completion_index_matrix_md() -> None:
+    from scripts.control_center_completion_index_guard import (
+        build_completion_index_matrix,
+        render_completion_index_matrix_md,
+    )
+
+    entries = [
+        {
+            "app_id": "TEST-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        }
+    ]
+
+    report = build_completion_index_matrix(entries, ["TEST-APP-1"])
+    text = render_completion_index_matrix_md(report)
+
+    assert "# CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1 D4 Completion Matrix" in text
+    assert "- status: PASS" in text
+    assert "TEST-APP-1" in text
+
+
+def test_build_completion_index_matrix_from_sources() -> None:
+    from scripts.control_center_completion_index_guard import (
+        CompletionIndexSourceRecord,
+        build_completion_index_matrix_from_sources,
+    )
+
+    source = CompletionIndexSourceRecord(
+        path="FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+        source_kind="FINAL_CURRENT_STATE",
+        exists=True,
+        utf8_status="OK",
+        extracted_fields={
+            "app_id": "TEST-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        },
+    )
+
+    report = build_completion_index_matrix_from_sources([source])
+
+    assert report.status == "PASS"
+    assert report.expected_count == 1
+    assert report.actual_count == 1

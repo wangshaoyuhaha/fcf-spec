@@ -465,3 +465,190 @@ def assert_completion_entries_from_sources_pass(records: Iterable[CompletionInde
     for result in [validate_completion_index_entry(entry) for entry in entries]:
         assert_completion_index_entry_pass(result)
     assert_completion_index_uniqueness_pass(validate_completion_index_uniqueness(entries))
+
+
+@dataclass(frozen=True)
+class CompletionIndexMatrixRow:
+    app_id: str
+    final_current_state_file: str
+    entry_present: bool
+    validation_status: str
+    order_index: int
+
+
+@dataclass(frozen=True)
+class CompletionIndexMatrixReport:
+    status: str
+    expected_count: int
+    actual_count: int
+    row_count: int
+    missing_app_ids: List[str]
+    unexpected_app_ids: List[str]
+    duplicate_app_ids: List[str]
+    duplicate_final_state_files: List[str]
+    rows: List[CompletionIndexMatrixRow]
+
+
+def normalize_app_id(value: object) -> str:
+    return normalize_text(value).upper().replace("_", "-")
+
+
+def derive_expected_app_ids_from_final_state_files(file_paths: Iterable[str]) -> List[str]:
+    app_ids: List[str] = []
+
+    for file_path in file_paths:
+        app_id = infer_app_id_from_final_state_file(file_path)
+        if app_id != "UNKNOWN_APP":
+            app_ids.append(normalize_app_id(app_id))
+
+    return sorted(set(app_ids))
+
+
+def build_completion_index_matrix(
+    entries: Iterable[Mapping[str, object]],
+    expected_app_ids: Iterable[str] | None = None,
+) -> CompletionIndexMatrixReport:
+    entry_list = [dict(entry) for entry in entries]
+    normalized_entries: List[Dict[str, str]] = []
+
+    for entry in entry_list:
+        normalized_entry = {str(key): normalize_text(value) for key, value in entry.items()}
+        if "app_id" in normalized_entry:
+            normalized_entry["app_id"] = normalize_app_id(normalized_entry["app_id"])
+        normalized_entries.append(normalized_entry)
+
+    actual_app_ids = sorted(set(entry.get("app_id", "") for entry in normalized_entries if entry.get("app_id", "")))
+
+    if expected_app_ids is None:
+        expected = actual_app_ids
+    else:
+        expected = sorted(set(normalize_app_id(app_id) for app_id in expected_app_ids))
+
+    duplicate_result = validate_completion_index_uniqueness(normalized_entries)
+    missing_app_ids = sorted(set(expected) - set(actual_app_ids))
+    unexpected_app_ids = sorted(set(actual_app_ids) - set(expected))
+
+    rows: List[CompletionIndexMatrixRow] = []
+    by_app: Dict[str, Dict[str, str]] = {}
+
+    for entry in normalized_entries:
+        app_id = entry.get("app_id", "")
+        if app_id and app_id not in by_app:
+            by_app[app_id] = entry
+
+    for index, app_id in enumerate(sorted(set(expected) | set(actual_app_ids))):
+        entry = by_app.get(app_id)
+        if entry is None:
+            rows.append(
+                CompletionIndexMatrixRow(
+                    app_id=app_id,
+                    final_current_state_file="",
+                    entry_present=False,
+                    validation_status="MISSING",
+                    order_index=index,
+                )
+            )
+            continue
+
+        validation = validate_completion_index_entry(entry)
+        rows.append(
+            CompletionIndexMatrixRow(
+                app_id=app_id,
+                final_current_state_file=entry.get("final_current_state_file", ""),
+                entry_present=True,
+                validation_status=validation.status,
+                order_index=index,
+            )
+        )
+
+    status = "PASS"
+    if (
+        missing_app_ids
+        or unexpected_app_ids
+        or duplicate_result.status != "PASS"
+        or any(row.validation_status == "BLOCK" for row in rows)
+    ):
+        status = "BLOCK"
+
+    return CompletionIndexMatrixReport(
+        status=status,
+        expected_count=len(expected),
+        actual_count=len(actual_app_ids),
+        row_count=len(rows),
+        missing_app_ids=missing_app_ids,
+        unexpected_app_ids=unexpected_app_ids,
+        duplicate_app_ids=duplicate_result.duplicate_app_ids,
+        duplicate_final_state_files=duplicate_result.duplicate_final_state_files,
+        rows=rows,
+    )
+
+
+def assert_completion_index_matrix_pass(report: CompletionIndexMatrixReport) -> None:
+    if report.status != "PASS":
+        raise ValueError(
+            "CONTROL_CENTER_COMPLETION_INDEX_MATRIX_FAILED:"
+            f"missing={','.join(report.missing_app_ids)}:"
+            f"unexpected={','.join(report.unexpected_app_ids)}:"
+            f"duplicate_apps={','.join(report.duplicate_app_ids)}:"
+            f"duplicate_files={','.join(report.duplicate_final_state_files)}"
+        )
+
+
+def render_completion_index_matrix_md(report: CompletionIndexMatrixReport) -> str:
+    lines: List[str] = [
+        "# CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1 D4 Completion Matrix",
+        "",
+        "## Summary",
+        "",
+        f"- status: {report.status}",
+        f"- expected_count: {report.expected_count}",
+        f"- actual_count: {report.actual_count}",
+        f"- row_count: {report.row_count}",
+        "",
+        "## Missing App IDs",
+        "",
+    ]
+
+    if report.missing_app_ids:
+        for app_id in report.missing_app_ids:
+            lines.append(f"- {app_id}")
+    else:
+        lines.append("- none")
+
+    lines.extend(["", "## Unexpected App IDs", ""])
+
+    if report.unexpected_app_ids:
+        for app_id in report.unexpected_app_ids:
+            lines.append(f"- {app_id}")
+    else:
+        lines.append("- none")
+
+    lines.extend(["", "## Duplicate App IDs", ""])
+
+    if report.duplicate_app_ids:
+        for app_id in report.duplicate_app_ids:
+            lines.append(f"- {app_id}")
+    else:
+        lines.append("- none")
+
+    lines.extend(["", "## Matrix Rows", ""])
+
+    for row in report.rows:
+        lines.append(
+            f"- {row.order_index}: {row.app_id}: "
+            f"entry_present={str(row.entry_present).lower()}: "
+            f"validation_status={row.validation_status}: "
+            f"file={row.final_current_state_file}"
+        )
+
+    lines.append("")
+    return "\n".join(lines)
+
+
+def build_completion_index_matrix_from_sources(records: Iterable[CompletionIndexSourceRecord]) -> CompletionIndexMatrixReport:
+    source_list = list(records)
+    entries = build_completion_entries_from_sources(source_list)
+    expected = derive_expected_app_ids_from_final_state_files(
+        record.path for record in source_list if record.source_kind == "FINAL_CURRENT_STATE"
+    )
+    return build_completion_index_matrix(entries, expected)
