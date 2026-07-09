@@ -3492,3 +3492,53 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## APPROVED NEXT PHASE: CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1
+
+Status: approved, not started.
+
+Approval reason:
+Global gap scan and safety scan produced many expected hits from governance text, test assertions, final-state history, and safety boundary records. The project needs a deterministic classifier to separate expected scan hits from actionable structural risks.
+
+Approved scope:
+CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 will classify global grep scan hits into:
+- EXPECTED_GOVERNANCE_TEXT
+- EXPECTED_TEST_ASSERTION
+- EXPECTED_FINAL_STATE_HISTORY
+- EXPECTED_SAFETY_BOUNDARY
+- ACTIONABLE_STALE_STATE
+- ACTIONABLE_UNSAFE_PERMISSION
+- ACTIONABLE_STRUCTURE_GAP
+
+Planned branch:
+sidecar-control-center-global-scan-classification-guard-app-1
+
+Planned D1:
+Global Scan Classification Contract
+
+Current baseline before start:
+- latest main commit: d3c2afb sync handoff after CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1
+- previous completed phase: CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1
+- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
+- pytest: 1836 passed
+- git status: clean
+- origin/main: synced
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only governance validation
+- sidecar-only
+- operator review required
+- no P48
+- no core mutation
+- no real trading
+- no broker API
+- no exchange API
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
