@@ -3700,3 +3700,47 @@ Scope: visibility preservation validator.
 Validator checks that protected risk metadata remains visible across rendered packets.
 Validator rejects missing risk_flags, missing reason_codes, REVIEW_REQUIRED downgrade, CIRCUIT_BREAK downgrade, removed operator review requirement, removed conflict markers, removed missing-field markers, removed unsafe-permission markers, removed correlation_id, and removed source_artifact.
 Deliverables: UI_RISK_FLAG_VISIBILITY_VALIDATOR_D3.md, sidecars/ui_risk_flag_visibility_app_1/visibility_validator.py, test_ui_risk_flag_visibility_validator_d3.py.
+
+---
+
+## Completed Phase: ARCHIVE-CORRELATION-ROLLUP-APP-1
+
+Status: completed, merged into main, validated, pushed, and clean.
+
+Main merge commit:
+59ba8e7 merge ARCHIVE-CORRELATION-ROLLUP-APP-1 into main
+
+Final sidecar commit:
+fb05e00 fix ARCHIVE-CORRELATION-D6 final handoff tests
+
+Validation:
+python scripts/run_all_checks.py = ALL CHECKS PASSED
+python -m pytest -q = 2002 passed
+
+Purpose:
+Upgrade correlation_id from passive field preservation into a read-only full-chain evidence index.
+
+Completed stages:
+- D1 sidecar boundary and correlation rollup contract
+- D2 read-only source artifact reference model
+- D3 correlation chain coverage matrix
+- D4 trace summary
+- D5 read-only rollup packet
+- D6 final handoff closeout
+
+Boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- index-only
+- operator review required
+- no P48
+- no core mutation
+- no evidence backfill
+- no correlation_id auto-fill
+- no placeholder review generation
+- no UI dashboard panel
+- no tag
+- no release
+- no deploy

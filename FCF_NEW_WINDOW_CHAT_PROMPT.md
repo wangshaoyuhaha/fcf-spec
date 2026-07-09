@@ -1,305 +1,84 @@
+﻿You are continuing the FCF / Financial Cognitive Framework project.
 
-FCF CURRENT HANDOFF TRUTH - ARCHIVE CORRELATION ROLLUP APPROVED
+Project:
+FCF / Financial Cognitive Framework
+Repository: wangshaoyuhaha/fcf-spec
+Local path: C:\Users\Admin\Desktop\btc_finance_platform
+Branch: main
 
-Latest approved next phase:
-ARCHIVE-CORRELATION-ROLLUP-APP-1
+Language:
+Reply in Chinese.
+Keep responses short and direct.
+For PowerShell, provide complete copyable commands.
+Do not ask the user to manually open files.
+Prefer PowerShell for file writes.
+At each phase end, report commit, push, validation, and git status.
+Do not tag, release, or deploy without explicit approval.
 
-Current baseline before next development:
-- main HEAD: 8fafa06 sync handoff after UI-RISK-FLAG-VISIBILITY-APP-1 merge
-- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
-- pytest: 1963 passed
-- git status: clean
-- origin/main: synced
-- no tag / no release / no deploy
+Current latest true state:
+ARCHIVE-CORRELATION-ROLLUP-APP-1 is completed, merged into main, validated, pushed, and clean.
 
-Purpose:
-Turn correlation_id from preserved metadata into a read-only full-chain evidence index.
+Latest main merge commit:
+59ba8e7 merge ARCHIVE-CORRELATION-ROLLUP-APP-1 into main
 
-Required route:
-ARCHIVE-CORRELATION-D1 sidecar boundary and correlation rollup contract
-ARCHIVE-CORRELATION-D2 read-only artifact source discovery
-ARCHIVE-CORRELATION-D3 correlation index schema
-ARCHIVE-CORRELATION-D4 evidence chain resolver
-ARCHIVE-CORRELATION-D5 rollup report and operator review warning packet
-ARCHIVE-CORRELATION-D6 final handoff and closeout
-
-Hard rule:
-Index missing evidence; do not repair it.
-Mark missing links as INCOMPLETE.
-Mark stale links as STALE.
-Mark unresolved links as UNRESOLVED.
-Do not auto-pass incomplete chains.
-Do not auto-fill missing correlation_id.
-Do not create placeholder review records.
-No UI dashboard panel in this phase.
-
-Roadmap priority:
-Priority 1: ARCHIVE-CORRELATION-ROLLUP-APP-1
-Priority 2: ARTIFACT-LIFECYCLE-REGISTRY-APP-1
-Priority 3: VALIDATION-BASELINE-REGISTRY-APP-1
-Priority 4: DASHBOARD-CONTRADICTION-SCANNER-APP-1
-Priority 5: OPERATOR-DECISION-IMMUTABILITY-GUARD-APP-1
-
-Boundary:
-P1-P47 frozen; no P48; no core mutation; sidecar-only; paper-only; local-only; read-only; operator review required.
-
----
-
-FCF CURRENT HANDOFF TRUTH - UI RISK FLAG VISIBILITY APPLIED
-
-Latest completed phase:
-UI-RISK-FLAG-VISIBILITY-APP-1 completed and merged into main.
-
-Latest main HEAD:
-6079348 merge UI-RISK-FLAG-VISIBILITY-APP-1 into main
-
-Sidecar D6 commit:
-20b3ff5 add UI-RISK-FLAG-VISIBILITY-APP-1 D6 final closeout
+Final sidecar commit:
+fb05e00 fix ARCHIVE-CORRELATION-D6 final handoff tests
 
 Validation:
 python scripts/run_all_checks.py = ALL CHECKS PASSED
-python -m pytest -q = passed
+python -m pytest -q = 2002 passed
 
-Current truth:
-risk_flags and reason_codes must remain explicit and visible.
-REVIEW_REQUIRED must not auto-pass.
-CIRCUIT_BREAK must not downgrade.
-conflict_signals, missing_required_fields, unsafe_permissions, abnormal evidence_chain_status, correlation_id, and source_artifact must be preserved when present.
+git status:
+clean
 
-Boundary:
-P1-P47 frozen; no P48; no core mutation; sidecar-only; paper-only; local-only; read-only; operator review required.
+origin/main:
+synced
 
-Do not treat older Approved but not started / APPROVED NEXT PHASE / Begin with D1 / old validation count / old candidate sections as current truth unless operator explicitly re-approves.
+no tag / no release / no deploy
 
----
+Project positioning:
+FCF is a local multi-asset financial research governance platform.
+It is not BTC-only.
+It is not a trading execution system.
 
-# FCF CURRENT HANDOFF TRUTH - STALE MARKER CLEANUP APPLIED
-
-This section is the active current-state authority for this handoff file.
-
-Current completed phase:
-CONTROL-CENTER-HANDOFF-STALE-MARKER-CLEANUP-GUARD-APP-1 is completed and merged into main.
-
-Current main state:
-- main merge commit: 67a3781
-- D6 final closeout commit: 084b335
-- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
-- pytest: 1933 passed
-- git status: clean
-- origin/main: synced
-
-Previous completed phase retained for validation and history:
-CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 is completed.
-- main merge commit: ad16c03
-- final handoff sync commit: 8c18573
-- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
-- pytest: 1884 passed
-- git status: clean
-- origin/main: synced
-
-Stale marker rule:
-Any older "Approved but not started", "APPROVED NEXT PHASE", "Begin with D1",
-"Create sidecar branch", old validation count, or old next-phase candidate below
-this section is historical unless explicitly re-approved by the operator.
-
-Current next action:
-Architecture gap review or explicitly approved next phase only.
-
-Safety:
-paper-only / local-only / read-only / sidecar-only / operator review required.
-No P48. No core mutation. No real trading. No broker/exchange API. No API key.
-No wallet private key. No buy/sell/order. No tag/release/deploy.
-
----
-Continue BTC finance platform / FCF financial market model project only.
-Do not switch to football project.
-
-Read these backend sources first:
-1. FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md
-2. FCF_NEW_WINDOW_CHAT_PROMPT.md
-3. docs/FCF_PROJECT_CONTROL_CENTER.md
-4. FCF_CURRENT_STATE_CONTROL_CENTER_RUNTIME_LEARNING_ARTIFACT_GUARD_APP_1_FINAL.md
-
-Current latest state:
-- branch: main
-- latest main commit: 7e5a221 add CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1 final current state
-- latest merge commit: d1e2d9a merge CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1 into main
-- latest D6 commit: 31f177f add CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1 D6 final closeout
-- D5 repair commit: 0a35d3b fix CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1 D5 syntax regression
-- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
-- pytest: 1836 passed
-- git status: clean
-- origin/main: synced
-- no tag / no release / no deploy
-
-Latest completed stage:
-CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1
-
-Previous completed stage:
-CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1
-
-Runtime learning artifacts are governed:
-- runtime/learning_engine/shadow_ledger.json
-- runtime/operator_console/ai_learning_audit_report.json
-- runtime/operator_console/ai_learning_memory_ledger.json
-- runtime/operator_console/p13_final_closeout_summary.json
-
-Runtime governance rule:
-Runtime learning artifacts may be generated by validation, but they must not be used as final current-state evidence, handoff truth, or control center truth. They must be restored before final clean state.
-
-Core:
+Core architecture:
 P1-P47 core is frozen.
-Do not start P48.
-Do not mutate core.
+No P48.
+New capability must use sidecar extension.
+Preserve core frozen + sidecar extension.
+Preserve one-way dependency.
+No core mutation.
+
+Latest completed sidecar purpose:
+ARCHIVE-CORRELATION-ROLLUP-APP-1 upgrades correlation_id from passive field preservation into a read-only full-chain evidence index.
+
+It indexes existing chain links:
+data_snapshot, candidate, ai_explanation, ui_packet, review_packet, archive_packet, handoff, final_state.
+
+It only marks:
+COMPLETE, INCOMPLETE, STALE, UNRESOLVED.
+
+It must not:
+auto-pass, auto-fill correlation_id, backfill evidence, generate placeholder review, create UI dashboard panel, touch core, create P48.
 
 Safety boundary:
 paper-only / local-only / read-only / sidecar-only / operator review required.
 
-Forbidden:
-- real trading
-- real execution
-- broker connection
-- exchange connection
-- API key
-- wallet private key
-- real account
-- real position
-- buy button
-- sell button
-- order button
-- automatic position sizing
-- automatic portfolio action
-- future return prediction
-- guaranteed performance claim
-- tag
-- release
-- deploy
+Strictly forbidden:
+real trading
+real execution
+broker/exchange API
+API key
+wallet private key
+real account
+real position
+buy/sell/order
+automatic position sizing
+automatic portfolio action
+profit guarantee
+tag
+release
+deploy
 
-Next instruction:
-Start with read-only state check and architecture / structure gap review.
-Do not write code unless the user explicitly starts a new development phase.
-
-Approved but not started next phase:
-CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1
-
-Approval commit:
-ccd3955 record approved CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 next phase
-
-Next action:
-Start from main and create sidecar branch:
-sidecar-control-center-global-scan-classification-guard-app-1
-
-Begin with D1:
-Global Scan Classification Contract
-
-Baseline:
-main HEAD ccd3955
-previous completed phase CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1
-pytest 1836 passed
-run_all_checks passed
-git status clean
-origin/main synced
-
----
-
-## Completed Phase: CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1
-
-Status: completed and merged into main.
-
-Branch:
-sidecar-control-center-global-scan-classification-guard-app-1
-
-Main merge commit:
-ad16c03 merge CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 into main
-
-D6 final closeout commit:
-42ffeef add CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 D6 final closeout
-
-Validation:
-python scripts/run_all_checks.py = ALL CHECKS PASSED
-python -m pytest -q = 1884 passed
-
-Git:
-main pushed to origin/main.
-git status clean.
-
-Completed stages:
-- D1 Global Scan Classification Contract
-- D2 Global Scan Classification Rulebook
-- D3 Classification Packet
-- D4 Actionable Review Gate
-- D5 Classification Review Packet
-- D6 Final Workflow Handoff and Closeout
-
-Final behavior:
-- EXPECTED_GOVERNANCE_TEXT remains visible.
-- EXPECTED_TEST_ASSERTION remains visible.
-- EXPECTED_FINAL_STATE_HISTORY remains visible.
-- EXPECTED_SAFETY_BOUNDARY remains visible.
-- ACTIONABLE_STALE_STATE requires operator review.
-- ACTIONABLE_UNSAFE_PERMISSION is blocked until operator review.
-- ACTIONABLE_STRUCTURE_GAP requires operator review.
-- Expected labels do not downgrade actionable labels.
-- No scan hit is hidden, deleted, overwritten, or mutated.
-
-Safety:
-paper-only / local-only / read-only / sidecar-only / operator review required.
-No P48.
-No core mutation.
-No real trading.
-No broker/exchange API.
-No API key.
-No wallet private key.
-No buy/sell/order.
-No tag/release/deploy.
-
-
----
-
-## Completed Phase: CONTROL-CENTER-HANDOFF-STALE-MARKER-CLEANUP-GUARD-APP-1
-
-Status: completed and merged into main.
-
-Branch:
-sidecar-control-center-handoff-stale-marker-cleanup-guard-app-1
-
-Main merge commit:
-67a3781 merge CONTROL-CENTER-HANDOFF-STALE-MARKER-CLEANUP-GUARD-APP-1 into main
-
-D6 final closeout commit:
-084b335 add CONTROL-CENTER-HANDOFF-STALE-MARKER-CLEANUP-GUARD-APP-1 D6 final closeout
-
-Validation:
-python scripts/run_all_checks.py = ALL CHECKS PASSED
-python -m pytest -q = 1933 passed
-
-Git:
-main pushed to origin/main.
-git status clean.
-
-Completed stages:
-- D1 Handoff Stale Marker Cleanup Contract
-- D2 Stale Marker Inventory Scanner
-- D3 Stale Marker Cleanup Plan
-- D4 Stale Marker Cleanup Patch Builder
-- D5 Controlled Handoff Cleanup Apply
-- D6 Final Closeout
-
-Final behavior:
-- Active handoff/control files now contain current truth header.
-- Older approved/not-started markers are historical unless explicitly re-approved.
-- New windows must treat current truth header as authoritative.
-- No historical records were deleted.
-- No core mutation was introduced.
-
-Safety:
-paper-only / local-only / read-only / sidecar-only / operator review required.
-No P48.
-No core mutation.
-No real trading.
-No broker/exchange API.
-No API key.
-No wallet private key.
-No buy/sell/order.
-No tag/release/deploy.
-
+Next step:
+Return to control center planning and approve the next sidecar only after read-only verification.
