@@ -116,3 +116,28 @@ git status: clean
 Architecture gap review or explicitly approved next phase only
 origin/main: synced
 
+
+## Approved Next Phase
+
+ARTIFACT-LIFECYCLE-REGISTRY-APP-1 is approved as the next sidecar phase.
+
+Start from main only after read-only verification.
+
+Expected baseline before branch creation:
+- branch = main
+- latest HEAD includes approval commit for ARTIFACT-LIFECYCLE-REGISTRY-APP-1
+- previous stable HEAD = ab96a86 fix stale marker cleanup handoff sync marker
+- validation = ALL CHECKS PASSED
+- pytest = 2002 passed
+- git status = clean
+- origin/main = synced
+
+Next branch:
+sidecar-artifact-lifecycle-registry-app-1
+
+First stage:
+ARTIFACT-LIFECYCLE-D1 sidecar boundary and lifecycle registry contract
+
+Boundary:
+read-only / index-only / sidecar-only / operator review required.
+No P48. No core mutation. No tag. No release. No deploy.

@@ -3746,3 +3746,72 @@ Boundary:
 - no deploy
 
 
+
+---
+
+## Approved Next Phase: ARTIFACT-LIFECYCLE-REGISTRY-APP-1
+
+Status:
+approved as next sidecar phase.
+
+Approval baseline:
+- branch: main
+- latest HEAD before approval: ab96a86 fix stale marker cleanup handoff sync marker
+- previous completed phase: ARCHIVE-CORRELATION-ROLLUP-APP-1
+- previous merge commit: 59ba8e7 merge ARCHIVE-CORRELATION-ROLLUP-APP-1 into main
+- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
+- pytest: python -m pytest -q = 2002 passed
+- git status: clean
+- origin/main: synced
+- no tag
+- no release
+- no deploy
+
+Purpose:
+Create a global artifact lifecycle registry sidecar.
+
+Scope:
+- register artifact lifecycle states
+- centralize allowed artifact status vocabulary
+- index existing artifact state transitions
+- mark missing or inconsistent lifecycle state as INCOMPLETE, STALE, or UNRESOLVED
+- keep operator review required
+
+Allowed lifecycle policy:
+- index only
+- read only
+- sidecar only
+- no evidence backfill
+- no source artifact mutation
+- no artifact status auto-repair
+- no correlation_id auto-fill
+- no placeholder review generation
+- no operator review auto-pass
+- no UI dashboard panel
+- no P48
+- no P1-P47 core mutation
+
+Safety boundary:
+paper-only / local-only / read-only / sidecar-only / operator review required.
+
+Strictly forbidden:
+- real trading
+- real execution
+- broker or exchange API
+- API key
+- wallet private key
+- real account
+- real position
+- buy/sell/order
+- automatic position sizing
+- automatic portfolio action
+- tag
+- release
+- deploy
+
+Execution note:
+Next development branch should be:
+sidecar-artifact-lifecycle-registry-app-1
+
+First stage should be:
+ARTIFACT-LIFECYCLE-D1 sidecar boundary and lifecycle registry contract
