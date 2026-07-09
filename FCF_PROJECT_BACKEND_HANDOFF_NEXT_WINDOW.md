@@ -1,4 +1,32 @@
-﻿# FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW
+﻿# FCF CURRENT HANDOFF TRUTH - STALE MARKER CLEANUP APPLIED
+
+This file contains current handoff truth.
+
+CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 is completed.
+
+Current truth commits:
+- main merge commit: ad16c03
+- D6 final closeout commit: 42ffeef
+- final handoff sync commit: 8c18573
+- validation: 1884 passed
+
+Stale marker rule:
+Any old next-phase approval, old validation count, old approved-but-not-started marker, or old begin-with-D1 instruction is historical unless explicitly re-approved by the operator.
+
+Current latest completed phase:
+ARCHIVE-CORRELATION-ROLLUP-APP-1 is completed, merged into main, validated, pushed, and clean.
+
+Current latest commits:
+- final current state sync commit: 8089b75
+- main merge commit: 59ba8e7
+- final sidecar commit: fb05e00
+
+Current validation:
+- python scripts/run_all_checks.py = pending after this repair
+- python -m pytest -q = pending after this repair
+
+---
+# FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW
 
 Continue FCF / Financial Cognitive Framework only.
 Do not switch to football project.
@@ -153,3 +181,4 @@ git status --short blank
 
 Then return to control center planning before approving the next sidecar phase.
 Do not tag, release, deploy, or start real trading integrations.
+

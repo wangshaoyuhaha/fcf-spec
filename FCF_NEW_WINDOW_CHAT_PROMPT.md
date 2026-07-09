@@ -1,4 +1,32 @@
-﻿You are continuing the FCF / Financial Cognitive Framework project.
+﻿# FCF CURRENT HANDOFF TRUTH - STALE MARKER CLEANUP APPLIED
+
+This file contains current handoff truth.
+
+CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 is completed.
+
+Current truth commits:
+- main merge commit: ad16c03
+- D6 final closeout commit: 42ffeef
+- final handoff sync commit: 8c18573
+- validation: 1884 passed
+
+Stale marker rule:
+Any old next-phase approval, old validation count, old approved-but-not-started marker, or old begin-with-D1 instruction is historical unless explicitly re-approved by the operator.
+
+Current latest completed phase:
+ARCHIVE-CORRELATION-ROLLUP-APP-1 is completed, merged into main, validated, pushed, and clean.
+
+Current latest commits:
+- final current state sync commit: 8089b75
+- main merge commit: 59ba8e7
+- final sidecar commit: fb05e00
+
+Current validation:
+- python scripts/run_all_checks.py = pending after this repair
+- python -m pytest -q = pending after this repair
+
+---
+You are continuing the FCF / Financial Cognitive Framework project.
 
 Project:
 FCF / Financial Cognitive Framework
@@ -82,3 +110,4 @@ deploy
 
 Next step:
 Return to control center planning and approve the next sidecar only after read-only verification.
+
