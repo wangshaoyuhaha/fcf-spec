@@ -317,3 +317,117 @@ def assert_safe_write_result_ok(result: SafeWriteResult) -> None:
         raise ValueError(f"CONTROL_CENTER_SAFE_WRITE_FAILED: {result.path}={result.encoding_status}")
     if result.guard_status == "BLOCK":
         raise ValueError(f"CONTROL_CENTER_SAFE_WRITE_BLOCKED: {result.path}")
+
+@dataclass(frozen=True)
+class EncodingGuardPacket:
+    stage_id: str
+    registry_total: int
+    probe_total: int
+    ok_count: int
+    warn_count: int
+    block_count: int
+    status_by_path: Dict[str, str]
+    safety_scope: str
+    operator_review_required: bool
+    real_execution_allowed: bool
+    trade_action_enabled: bool
+
+
+def build_encoding_guard_packet(root: str | Path = ".") -> EncodingGuardPacket:
+    registry = build_guard_registry(root)
+    probes = build_encoding_probe_report(root)
+
+    ok_count = sum(1 for record in probes if record.guard_status == "PASS")
+    warn_count = sum(1 for record in probes if record.guard_status.startswith("WARN"))
+    block_count = sum(1 for record in probes if record.guard_status == "BLOCK")
+    status_by_path = {record.path: record.guard_status for record in probes}
+
+    return EncodingGuardPacket(
+        stage_id="CONTROL-CENTER-ENCODING-GUARD-APP-1-D5",
+        registry_total=len(registry),
+        probe_total=len(probes),
+        ok_count=ok_count,
+        warn_count=warn_count,
+        block_count=block_count,
+        status_by_path=status_by_path,
+        safety_scope="PAPER_ONLY_LOCAL_ONLY_READ_ONLY_SIDECAR_ONLY",
+        operator_review_required=True,
+        real_execution_allowed=False,
+        trade_action_enabled=False,
+    )
+
+
+def render_encoding_guard_packet_md(packet: EncodingGuardPacket) -> str:
+    lines: List[str] = [
+        "# CONTROL-CENTER-ENCODING-GUARD-APP-1 D5 Packet",
+        "",
+        "## Summary",
+        "",
+        f"- stage_id: {packet.stage_id}",
+        f"- registry_total: {packet.registry_total}",
+        f"- probe_total: {packet.probe_total}",
+        f"- ok_count: {packet.ok_count}",
+        f"- warn_count: {packet.warn_count}",
+        f"- block_count: {packet.block_count}",
+        f"- safety_scope: {packet.safety_scope}",
+        f"- operator_review_required: {str(packet.operator_review_required).lower()}",
+        f"- real_execution_allowed: {str(packet.real_execution_allowed).lower()}",
+        f"- trade_action_enabled: {str(packet.trade_action_enabled).lower()}",
+        "",
+        "## File Status",
+        "",
+    ]
+
+    for path, status in sorted(packet.status_by_path.items()):
+        lines.append(f"- {path}: {status}")
+
+    lines.extend(
+        [
+            "",
+            "## Safety Boundary",
+            "",
+            "- paper-only",
+            "- local-only",
+            "- read-only",
+            "- sidecar-only",
+            "- operator review required",
+            "- no real trading",
+            "- no broker API",
+            "- no exchange API",
+            "- no API key",
+            "- no buy button",
+            "- no sell button",
+            "- no order button",
+            "- no tag",
+            "- no release",
+            "- no deploy",
+            "",
+        ]
+    )
+
+    return "\n".join(lines)
+
+
+def write_encoding_guard_packet(root: str | Path, output_path: str | Path) -> SafeWriteResult:
+    import json
+    from dataclasses import asdict
+
+    packet = build_encoding_guard_packet(root)
+    payload = json.dumps(asdict(packet), indent=2, sort_keys=True) + "\n"
+    return atomic_write_utf8_lf(output_path, payload)
+
+
+def write_encoding_guard_packet_md(root: str | Path, output_path: str | Path) -> SafeWriteResult:
+    packet = build_encoding_guard_packet(root)
+    return atomic_write_utf8_lf(output_path, render_encoding_guard_packet_md(packet))
+
+
+def assert_encoding_guard_packet_ok(packet: EncodingGuardPacket) -> None:
+    if packet.block_count:
+        raise ValueError(f"CONTROL_CENTER_ENCODING_GUARD_PACKET_BLOCKED: block_count={packet.block_count}")
+    if packet.real_execution_allowed:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_PACKET_REAL_EXECUTION_FORBIDDEN")
+    if packet.trade_action_enabled:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_PACKET_TRADE_ACTION_FORBIDDEN")
+    if not packet.operator_review_required:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_PACKET_OPERATOR_REVIEW_REQUIRED")

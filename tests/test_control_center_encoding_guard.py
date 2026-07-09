@@ -196,3 +196,77 @@ def test_assert_safe_write_result_ok_blocks_bad_result(tmp_path: Path) -> None:
     target = tmp_path / "safe.md"
     result = atomic_write_utf8_lf(target, "ok\n")
     assert_safe_write_result_ok(result)
+
+def _write_complete_guard_fixture(tmp_path: Path) -> None:
+    write_text_utf8(tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md", "# Control\n")
+    write_text_utf8(tmp_path / "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md", "# Handoff\n")
+    write_text_utf8(tmp_path / "FCF_NEW_WINDOW_CHAT_PROMPT.md", "# Prompt\n")
+    write_text_utf8(tmp_path / "FCF_FINAL_ARCHITECTURE_GAP_AUDIT_REPORT.md", "# Audit\n")
+    write_text_utf8(tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md", "# Final\n")
+
+
+def test_build_encoding_guard_packet_counts(tmp_path: Path) -> None:
+    from scripts.control_center_encoding_guard import (
+        assert_encoding_guard_packet_ok,
+        build_encoding_guard_packet,
+    )
+
+    _write_complete_guard_fixture(tmp_path)
+    packet = build_encoding_guard_packet(tmp_path)
+
+    assert packet.stage_id == "CONTROL-CENTER-ENCODING-GUARD-APP-1-D5"
+    assert packet.registry_total == 5
+    assert packet.probe_total == 5
+    assert packet.ok_count == 5
+    assert packet.warn_count == 0
+    assert packet.block_count == 0
+    assert packet.operator_review_required is True
+    assert packet.real_execution_allowed is False
+    assert packet.trade_action_enabled is False
+    assert_encoding_guard_packet_ok(packet)
+
+
+def test_write_encoding_guard_packet_json(tmp_path: Path) -> None:
+    import json
+
+    from scripts.control_center_encoding_guard import write_encoding_guard_packet
+
+    _write_complete_guard_fixture(tmp_path)
+    output = tmp_path / "encoding_guard_packet.json"
+    result = write_encoding_guard_packet(tmp_path, output)
+
+    assert result.guard_status == "PASS"
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    assert payload["stage_id"] == "CONTROL-CENTER-ENCODING-GUARD-APP-1-D5"
+    assert payload["real_execution_allowed"] is False
+    assert payload["trade_action_enabled"] is False
+
+
+def test_write_encoding_guard_packet_markdown(tmp_path: Path) -> None:
+    from scripts.control_center_encoding_guard import write_encoding_guard_packet_md
+
+    _write_complete_guard_fixture(tmp_path)
+    output = tmp_path / "encoding_guard_packet.md"
+    result = write_encoding_guard_packet_md(tmp_path, output)
+
+    assert result.guard_status == "PASS"
+    text = output.read_text(encoding="utf-8")
+    assert "# CONTROL-CENTER-ENCODING-GUARD-APP-1 D5 Packet" in text
+    assert "- operator_review_required: true" in text
+    assert "- real_execution_allowed: false" in text
+    assert "- trade_action_enabled: false" in text
+
+
+def test_encoding_guard_packet_blocks_bad_file(tmp_path: Path) -> None:
+    from scripts.control_center_encoding_guard import (
+        assert_encoding_guard_packet_ok,
+        build_encoding_guard_packet,
+    )
+
+    _write_complete_guard_fixture(tmp_path)
+    (tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md").write_bytes(b"\xff")
+    packet = build_encoding_guard_packet(tmp_path)
+
+    assert packet.block_count == 1
+    with pytest.raises(ValueError, match="CONTROL_CENTER_ENCODING_GUARD_PACKET_BLOCKED"):
+        assert_encoding_guard_packet_ok(packet)
