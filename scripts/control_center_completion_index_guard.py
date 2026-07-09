@@ -652,3 +652,137 @@ def build_completion_index_matrix_from_sources(records: Iterable[CompletionIndex
         record.path for record in source_list if record.source_kind == "FINAL_CURRENT_STATE"
     )
     return build_completion_index_matrix(entries, expected)
+
+
+@dataclass(frozen=True)
+class CompletionIndexGuardPacket:
+    stage_id: str
+    status: str
+    expected_count: int
+    actual_count: int
+    row_count: int
+    missing_count: int
+    unexpected_count: int
+    duplicate_app_count: int
+    duplicate_file_count: int
+    invalid_row_count: int
+    safety_scope: str
+    operator_review_required: bool
+    real_execution_allowed: bool
+    trade_action_enabled: bool
+    tag_allowed: bool
+    release_allowed: bool
+    deploy_allowed: bool
+
+
+def build_completion_index_guard_packet(report: CompletionIndexMatrixReport) -> CompletionIndexGuardPacket:
+    invalid_row_count = sum(1 for row in report.rows if row.validation_status == "BLOCK")
+
+    return CompletionIndexGuardPacket(
+        stage_id="CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1-D5",
+        status=report.status,
+        expected_count=report.expected_count,
+        actual_count=report.actual_count,
+        row_count=report.row_count,
+        missing_count=len(report.missing_app_ids),
+        unexpected_count=len(report.unexpected_app_ids),
+        duplicate_app_count=len(report.duplicate_app_ids),
+        duplicate_file_count=len(report.duplicate_final_state_files),
+        invalid_row_count=invalid_row_count,
+        safety_scope="PAPER_ONLY_LOCAL_ONLY_READ_ONLY_SIDECAR_ONLY",
+        operator_review_required=True,
+        real_execution_allowed=False,
+        trade_action_enabled=False,
+        tag_allowed=False,
+        release_allowed=False,
+        deploy_allowed=False,
+    )
+
+
+def assert_completion_index_guard_packet_safe(packet: CompletionIndexGuardPacket) -> None:
+    if packet.status == "BLOCK":
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_BLOCKED")
+    if packet.missing_count:
+        raise ValueError(f"CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_MISSING:{packet.missing_count}")
+    if packet.unexpected_count:
+        raise ValueError(f"CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_UNEXPECTED:{packet.unexpected_count}")
+    if packet.duplicate_app_count:
+        raise ValueError(f"CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_DUPLICATE_APP:{packet.duplicate_app_count}")
+    if packet.duplicate_file_count:
+        raise ValueError(f"CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_DUPLICATE_FILE:{packet.duplicate_file_count}")
+    if packet.invalid_row_count:
+        raise ValueError(f"CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_INVALID_ROW:{packet.invalid_row_count}")
+    if not packet.operator_review_required:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_OPERATOR_REVIEW_REQUIRED")
+    if packet.real_execution_allowed:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_REAL_EXECUTION_FORBIDDEN")
+    if packet.trade_action_enabled:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_TRADE_ACTION_FORBIDDEN")
+    if packet.tag_allowed:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_TAG_FORBIDDEN")
+    if packet.release_allowed:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_RELEASE_FORBIDDEN")
+    if packet.deploy_allowed:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_DEPLOY_FORBIDDEN")
+
+
+def render_completion_index_guard_packet_md(packet: CompletionIndexGuardPacket) -> str:
+    lines: List[str] = [
+        "# CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1 D5 Guard Packet",
+        "",
+        "## Summary",
+        "",
+        f"- stage_id: {packet.stage_id}",
+        f"- status: {packet.status}",
+        f"- expected_count: {packet.expected_count}",
+        f"- actual_count: {packet.actual_count}",
+        f"- row_count: {packet.row_count}",
+        f"- missing_count: {packet.missing_count}",
+        f"- unexpected_count: {packet.unexpected_count}",
+        f"- duplicate_app_count: {packet.duplicate_app_count}",
+        f"- duplicate_file_count: {packet.duplicate_file_count}",
+        f"- invalid_row_count: {packet.invalid_row_count}",
+        f"- safety_scope: {packet.safety_scope}",
+        f"- operator_review_required: {str(packet.operator_review_required).lower()}",
+        f"- real_execution_allowed: {str(packet.real_execution_allowed).lower()}",
+        f"- trade_action_enabled: {str(packet.trade_action_enabled).lower()}",
+        f"- tag_allowed: {str(packet.tag_allowed).lower()}",
+        f"- release_allowed: {str(packet.release_allowed).lower()}",
+        f"- deploy_allowed: {str(packet.deploy_allowed).lower()}",
+        "",
+        "## Safety Boundary",
+        "",
+        "- paper-only",
+        "- local-only",
+        "- read-only governance validation",
+        "- sidecar-only",
+        "- operator review required",
+        "- no real trading",
+        "- no broker API",
+        "- no exchange API",
+        "- no API key",
+        "- no buy button",
+        "- no sell button",
+        "- no order button",
+        "- no tag",
+        "- no release",
+        "- no deploy",
+        "",
+    ]
+
+    return "\n".join(lines)
+
+
+def write_text_utf8_lf(path: str | Path, content: str) -> None:
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(content.replace("\r\n", "\n").replace("\r", "\n"), encoding="utf-8", newline="\n")
+
+
+def write_completion_index_guard_packet_md(packet: CompletionIndexGuardPacket, output_path: str | Path) -> None:
+    write_text_utf8_lf(output_path, render_completion_index_guard_packet_md(packet))
+
+
+def build_completion_index_guard_packet_from_sources(records: Iterable[CompletionIndexSourceRecord]) -> CompletionIndexGuardPacket:
+    matrix = build_completion_index_matrix_from_sources(records)
+    return build_completion_index_guard_packet(matrix)

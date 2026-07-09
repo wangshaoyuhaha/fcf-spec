@@ -566,3 +566,203 @@ def test_build_completion_index_matrix_from_sources() -> None:
     assert report.status == "PASS"
     assert report.expected_count == 1
     assert report.actual_count == 1
+
+
+def test_build_completion_index_guard_packet_pass() -> None:
+    from scripts.control_center_completion_index_guard import (
+        assert_completion_index_guard_packet_safe,
+        build_completion_index_guard_packet,
+        build_completion_index_matrix,
+    )
+
+    entries = [
+        {
+            "app_id": "TEST-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        }
+    ]
+
+    matrix = build_completion_index_matrix(entries, ["TEST-APP-1"])
+    packet = build_completion_index_guard_packet(matrix)
+
+    assert packet.stage_id == "CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1-D5"
+    assert packet.status == "PASS"
+    assert packet.expected_count == 1
+    assert packet.actual_count == 1
+    assert packet.missing_count == 0
+    assert packet.unexpected_count == 0
+    assert packet.duplicate_app_count == 0
+    assert packet.duplicate_file_count == 0
+    assert packet.invalid_row_count == 0
+    assert packet.operator_review_required is True
+    assert packet.real_execution_allowed is False
+    assert packet.trade_action_enabled is False
+    assert packet.tag_allowed is False
+    assert packet.release_allowed is False
+    assert packet.deploy_allowed is False
+    assert_completion_index_guard_packet_safe(packet)
+
+
+def test_completion_index_guard_packet_blocks_missing() -> None:
+    from scripts.control_center_completion_index_guard import (
+        assert_completion_index_guard_packet_safe,
+        build_completion_index_guard_packet,
+        build_completion_index_matrix,
+    )
+
+    matrix = build_completion_index_matrix([], ["TEST-APP-1"])
+    packet = build_completion_index_guard_packet(matrix)
+
+    assert packet.status == "BLOCK"
+    assert packet.missing_count == 1
+
+    with pytest.raises(ValueError, match="CONTROL_CENTER_COMPLETION_INDEX_GUARD_PACKET_BLOCKED"):
+        assert_completion_index_guard_packet_safe(packet)
+
+
+def test_completion_index_guard_packet_blocks_duplicate() -> None:
+    from scripts.control_center_completion_index_guard import (
+        build_completion_index_guard_packet,
+        build_completion_index_matrix,
+    )
+
+    entry = {
+        "app_id": "TEST-APP-1",
+        "status": "completed",
+        "branch": "main",
+        "main_merge_commit": "123abcd",
+        "final_branch_commit": "456def0",
+        "final_current_state_commit": "789abcd",
+        "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+        "validation": "passed",
+        "git_status": "clean",
+        "origin_main": "synced",
+        "tag": "none",
+        "release": "none",
+        "deploy": "none",
+    }
+
+    matrix = build_completion_index_matrix([entry, dict(entry)], ["TEST-APP-1"])
+    packet = build_completion_index_guard_packet(matrix)
+
+    assert packet.status == "BLOCK"
+    assert packet.duplicate_app_count == 1
+    assert packet.duplicate_file_count == 1
+
+
+def test_render_completion_index_guard_packet_md() -> None:
+    from scripts.control_center_completion_index_guard import (
+        build_completion_index_guard_packet,
+        build_completion_index_matrix,
+        render_completion_index_guard_packet_md,
+    )
+
+    entries = [
+        {
+            "app_id": "TEST-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        }
+    ]
+
+    packet = build_completion_index_guard_packet(build_completion_index_matrix(entries, ["TEST-APP-1"]))
+    text = render_completion_index_guard_packet_md(packet)
+
+    assert "# CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1 D5 Guard Packet" in text
+    assert "- status: PASS" in text
+    assert "- operator_review_required: true" in text
+    assert "- real_execution_allowed: false" in text
+    assert "- trade_action_enabled: false" in text
+    assert "- tag_allowed: false" in text
+    assert "- release_allowed: false" in text
+    assert "- deploy_allowed: false" in text
+
+
+def test_write_completion_index_guard_packet_md(tmp_path: Path) -> None:
+    from scripts.control_center_completion_index_guard import (
+        build_completion_index_guard_packet,
+        build_completion_index_matrix,
+        write_completion_index_guard_packet_md,
+    )
+
+    entries = [
+        {
+            "app_id": "TEST-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        }
+    ]
+
+    packet = build_completion_index_guard_packet(build_completion_index_matrix(entries, ["TEST-APP-1"]))
+    output = tmp_path / "packet.md"
+    write_completion_index_guard_packet_md(packet, output)
+
+    text = output.read_text(encoding="utf-8")
+    assert text.startswith("# CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1 D5 Guard Packet")
+    assert "- expected_count: 1" in text
+
+
+def test_build_completion_index_guard_packet_from_sources() -> None:
+    from scripts.control_center_completion_index_guard import (
+        CompletionIndexSourceRecord,
+        build_completion_index_guard_packet_from_sources,
+    )
+
+    source = CompletionIndexSourceRecord(
+        path="FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+        source_kind="FINAL_CURRENT_STATE",
+        exists=True,
+        utf8_status="OK",
+        extracted_fields={
+            "app_id": "TEST-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        },
+    )
+
+    packet = build_completion_index_guard_packet_from_sources([source])
+
+    assert packet.status == "PASS"
+    assert packet.expected_count == 1
+    assert packet.actual_count == 1
