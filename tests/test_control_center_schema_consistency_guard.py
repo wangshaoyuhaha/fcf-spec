@@ -329,3 +329,128 @@ def test_validate_normalized_final_state_fields_blocks_release() -> None:
 
     assert result.status == "BLOCK"
     assert "release:MUST_BE_NONE" in result.invalid_values
+
+
+def test_build_field_value_matrix_normalizes_aliases() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        build_field_value_matrix,
+    )
+
+    records = [
+        GovernanceSourceRecord(
+            path="a.md",
+            source_kind="FINAL_CURRENT_STATE",
+            exists=True,
+            utf8_status="OK",
+            extracted_fields={"origin/main": "synced", "git status": "clean"},
+        )
+    ]
+
+    matrix = build_field_value_matrix(records, ["origin_main", "git_status"])
+
+    assert matrix["origin_main"]["a.md"] == "synced"
+    assert matrix["git_status"]["a.md"] == "clean"
+
+
+def test_cross_source_consistency_passes_matching_values() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        assert_cross_source_consistency_pass,
+        build_cross_source_consistency_report,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"branch": "main", "release": "none"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {"branch": "main", "release": "none"}),
+    ]
+
+    report = build_cross_source_consistency_report(records, ["branch", "release"])
+
+    assert report.status == "PASS"
+    assert report.issue_count == 0
+    assert_cross_source_consistency_pass(report)
+
+
+def test_cross_source_consistency_blocks_conflicting_values() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        build_cross_source_consistency_report,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"release": "none"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {"release": "v1"}),
+    ]
+
+    report = build_cross_source_consistency_report(records, ["release"])
+
+    assert report.status == "BLOCK"
+    assert report.issues[0].severity == "BLOCK"
+    assert report.issues[0].field_name == "release"
+
+
+def test_cross_source_consistency_warns_partial_missing() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        build_cross_source_consistency_report,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"deploy": "none"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {}),
+    ]
+
+    report = build_cross_source_consistency_report(records, ["deploy"])
+
+    assert report.status == "WARN"
+    assert report.issues[0].message == "PARTIAL_MISSING_FIELD"
+
+
+def test_assert_cross_source_consistency_pass_raises_on_block() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        assert_cross_source_consistency_pass,
+        build_cross_source_consistency_report,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"tag": "none"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {"tag": "v1"}),
+    ]
+
+    report = build_cross_source_consistency_report(records, ["tag"])
+
+    with pytest.raises(ValueError, match="CONTROL_CENTER_CROSS_SOURCE_CONSISTENCY_FAILED"):
+        assert_cross_source_consistency_pass(report)
+
+
+def test_render_cross_source_consistency_report_md() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        build_cross_source_consistency_report,
+        render_cross_source_consistency_report_md,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"branch": "main"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {"branch": "main"}),
+    ]
+
+    report = build_cross_source_consistency_report(records, ["branch"])
+    text = render_cross_source_consistency_report_md(report)
+
+    assert "# CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1 D4 Consistency Report" in text
+    assert "- status: PASS" in text
+    assert "- branch" in text
+
+
+def test_default_consistency_fields_include_release_deploy() -> None:
+    from scripts.control_center_schema_consistency_guard import default_consistency_fields
+
+    fields = default_consistency_fields()
+
+    assert "release" in fields
+    assert "deploy" in fields
+    assert "tag" in fields
+    assert "validation" in fields

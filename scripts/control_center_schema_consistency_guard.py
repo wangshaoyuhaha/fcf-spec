@@ -426,3 +426,154 @@ def validate_normalized_final_state_fields(fields: Mapping[str, object]) -> Sche
 
 def validate_normalized_stage_fields(fields: Mapping[str, object]) -> SchemaConsistencyResult:
     return validate_stage_record(build_stage_record_from_fields(fields))
+
+
+@dataclass(frozen=True)
+class CrossSourceConsistencyIssue:
+    severity: str
+    field_name: str
+    message: str
+    paths: List[str]
+
+
+@dataclass(frozen=True)
+class CrossSourceConsistencyReport:
+    status: str
+    source_count: int
+    checked_fields: List[str]
+    issue_count: int
+    issues: List[CrossSourceConsistencyIssue]
+
+
+def normalized_fields_for_source(record: GovernanceSourceRecord) -> Dict[str, object]:
+    return normalize_record_values(record.extracted_fields)
+
+
+def build_field_value_matrix(
+    records: Iterable[GovernanceSourceRecord],
+    field_names: Iterable[str],
+) -> Dict[str, Dict[str, str]]:
+    matrix: Dict[str, Dict[str, str]] = {}
+    canonical_fields = [normalize_field_name(field) for field in field_names]
+
+    for field in canonical_fields:
+        matrix[field] = {}
+
+    for record in records:
+        normalized = normalized_fields_for_source(record)
+        for field in canonical_fields:
+            if field in normalized and str(normalized[field]).strip():
+                matrix[field][record.path] = str(normalized[field]).strip()
+
+    return matrix
+
+
+def build_cross_source_consistency_report(
+    records: Iterable[GovernanceSourceRecord],
+    field_names: Iterable[str],
+) -> CrossSourceConsistencyReport:
+    source_list = list(records)
+    checked_fields = [normalize_field_name(field) for field in field_names]
+    matrix = build_field_value_matrix(source_list, checked_fields)
+    issues: List[CrossSourceConsistencyIssue] = []
+
+    for field in checked_fields:
+        values_by_path = matrix.get(field, {})
+        present_paths = sorted(values_by_path)
+        missing_paths = sorted(record.path for record in source_list if record.path not in values_by_path)
+
+        unique_values = sorted(set(values_by_path.values()))
+
+        if len(unique_values) > 1:
+            issues.append(
+                CrossSourceConsistencyIssue(
+                    severity="BLOCK",
+                    field_name=field,
+                    message="CONFLICTING_VALUES",
+                    paths=present_paths,
+                )
+            )
+        elif values_by_path and missing_paths:
+            issues.append(
+                CrossSourceConsistencyIssue(
+                    severity="WARN",
+                    field_name=field,
+                    message="PARTIAL_MISSING_FIELD",
+                    paths=missing_paths,
+                )
+            )
+        elif not values_by_path:
+            issues.append(
+                CrossSourceConsistencyIssue(
+                    severity="WARN",
+                    field_name=field,
+                    message="FIELD_NOT_FOUND_IN_ANY_SOURCE",
+                    paths=sorted(record.path for record in source_list),
+                )
+            )
+
+    status = "PASS"
+    if any(issue.severity == "BLOCK" for issue in issues):
+        status = "BLOCK"
+    elif issues:
+        status = "WARN"
+
+    return CrossSourceConsistencyReport(
+        status=status,
+        source_count=len(source_list),
+        checked_fields=checked_fields,
+        issue_count=len(issues),
+        issues=issues,
+    )
+
+
+def assert_cross_source_consistency_pass(report: CrossSourceConsistencyReport) -> None:
+    if report.status == "BLOCK":
+        details = "; ".join(
+            f"{issue.field_name}:{issue.message}:{','.join(issue.paths)}"
+            for issue in report.issues
+            if issue.severity == "BLOCK"
+        )
+        raise ValueError(f"CONTROL_CENTER_CROSS_SOURCE_CONSISTENCY_FAILED:{details}")
+
+
+def render_cross_source_consistency_report_md(report: CrossSourceConsistencyReport) -> str:
+    lines: List[str] = [
+        "# CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1 D4 Consistency Report",
+        "",
+        "## Summary",
+        "",
+        f"- status: {report.status}",
+        f"- source_count: {report.source_count}",
+        f"- issue_count: {report.issue_count}",
+        "",
+        "## Checked Fields",
+        "",
+    ]
+
+    for field in report.checked_fields:
+        lines.append(f"- {field}")
+
+    lines.extend(["", "## Issues", ""])
+
+    if not report.issues:
+        lines.append("- none")
+    else:
+        for issue in report.issues:
+            lines.append(f"- {issue.severity}: {issue.field_name}: {issue.message}: {', '.join(issue.paths)}")
+
+    lines.append("")
+    return "\n".join(lines)
+
+
+def default_consistency_fields() -> List[str]:
+    return [
+        "app_id",
+        "branch",
+        "validation",
+        "git_status",
+        "origin_main",
+        "tag",
+        "release",
+        "deploy",
+    ]
