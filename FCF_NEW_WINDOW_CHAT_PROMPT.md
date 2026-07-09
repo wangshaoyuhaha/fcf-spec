@@ -1,4 +1,32 @@
-﻿# FCF CURRENT HANDOFF TRUTH - STALE MARKER CLEANUP APPLIED
+FCF CURRENT HANDOFF TRUTH - UI RISK FLAG VISIBILITY APPLIED
+
+Latest completed phase:
+UI-RISK-FLAG-VISIBILITY-APP-1 completed and merged into main.
+
+Latest main HEAD:
+6079348 merge UI-RISK-FLAG-VISIBILITY-APP-1 into main
+
+Sidecar D6 commit:
+20b3ff5 add UI-RISK-FLAG-VISIBILITY-APP-1 D6 final closeout
+
+Validation:
+python scripts/run_all_checks.py = ALL CHECKS PASSED
+python -m pytest -q = passed
+
+Current truth:
+risk_flags and reason_codes must remain explicit and visible.
+REVIEW_REQUIRED must not auto-pass.
+CIRCUIT_BREAK must not downgrade.
+conflict_signals, missing_required_fields, unsafe_permissions, abnormal evidence_chain_status, correlation_id, and source_artifact must be preserved when present.
+
+Boundary:
+P1-P47 frozen; no P48; no core mutation; sidecar-only; paper-only; local-only; read-only; operator review required.
+
+Do not treat older Approved but not started / APPROVED NEXT PHASE / Begin with D1 / old validation count / old candidate sections as current truth unless operator explicitly re-approves.
+
+---
+
+# FCF CURRENT HANDOFF TRUTH - STALE MARKER CLEANUP APPLIED
 
 This section is the active current-state authority for this handoff file.
 
