@@ -59,7 +59,32 @@ def test_artifact_reference_rejects_unknown_link_type():
             correlation_id="corr-1",
             status="PRESENT",
         )
-    except ValueError_repair_allowed"] is False
+    except ValueError as exc:
+        assert "unsupported link_type" in str(exc)
+    else:
+        raise AssertionError("unknown link_type should fail")
+
+
+def test_validate_artifact_reference_marks_invalid_without_repair():
+    reference = {
+        "link_type": "review_packet",
+        "artifact_id": "review-1",
+        "artifact_path": "runtime/archive/review-1.json",
+        "correlation_id": None,
+        "status": "PRESENT",
+        "source_mutation_allowed": False,
+        "evidence_backfill_allowed": False,
+        "correlation_id_auto_fill_allowed": False,
+        "placeholder_generation_allowed": False,
+    }
+
+    result = validate_artifact_reference(reference)
+
+    assert result["valid"] is False
+    assert result["status"] == "UNRESOLVED"
+    assert "PRESENT_WITHOUT_CORRELATION_ID" in result["issues"]
+    assert result["auto_pass_allowed"] is False
+    assert result["auto_repair_allowed"] is False
 
 
 def test_build_reference_index_marks_missing_chain_incomplete():
