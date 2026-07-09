@@ -3,9 +3,18 @@
 This section is the active current-state authority for this handoff file.
 
 Current completed phase:
-CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 is completed.
+CONTROL-CENTER-HANDOFF-STALE-MARKER-CLEANUP-GUARD-APP-1 is completed and merged into main.
 
 Current main state:
+- main merge commit: 67a3781
+- D6 final closeout commit: 084b335
+- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
+- pytest: 1933 passed
+- git status: clean
+- origin/main: synced
+
+Previous completed phase retained for validation and history:
+CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 is completed.
 - main merge commit: ad16c03
 - final handoff sync commit: 8c18573
 - validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
@@ -250,6 +259,56 @@ Final behavior:
 - ACTIONABLE_STRUCTURE_GAP requires operator review.
 - Expected labels do not downgrade actionable labels.
 - No scan hit is hidden, deleted, overwritten, or mutated.
+
+Safety:
+paper-only / local-only / read-only / sidecar-only / operator review required.
+No P48.
+No core mutation.
+No real trading.
+No broker/exchange API.
+No API key.
+No wallet private key.
+No buy/sell/order.
+No tag/release/deploy.
+
+
+---
+
+## Completed Phase: CONTROL-CENTER-HANDOFF-STALE-MARKER-CLEANUP-GUARD-APP-1
+
+Status: completed and merged into main.
+
+Branch:
+sidecar-control-center-handoff-stale-marker-cleanup-guard-app-1
+
+Main merge commit:
+67a3781 merge CONTROL-CENTER-HANDOFF-STALE-MARKER-CLEANUP-GUARD-APP-1 into main
+
+D6 final closeout commit:
+084b335 add CONTROL-CENTER-HANDOFF-STALE-MARKER-CLEANUP-GUARD-APP-1 D6 final closeout
+
+Validation:
+python scripts/run_all_checks.py = ALL CHECKS PASSED
+python -m pytest -q = 1933 passed
+
+Git:
+main pushed to origin/main.
+git status clean.
+
+Completed stages:
+- D1 Handoff Stale Marker Cleanup Contract
+- D2 Stale Marker Inventory Scanner
+- D3 Stale Marker Cleanup Plan
+- D4 Stale Marker Cleanup Patch Builder
+- D5 Controlled Handoff Cleanup Apply
+- D6 Final Closeout
+
+Final behavior:
+- Active handoff/control files now contain current truth header.
+- Older approved/not-started markers are historical unless explicitly re-approved.
+- New windows must treat current truth header as authoritative.
+- No historical records were deleted.
+- No core mutation was introduced.
 
 Safety:
 paper-only / local-only / read-only / sidecar-only / operator review required.
