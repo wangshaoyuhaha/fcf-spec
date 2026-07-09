@@ -431,3 +431,111 @@ def assert_encoding_guard_packet_ok(packet: EncodingGuardPacket) -> None:
         raise ValueError("CONTROL_CENTER_ENCODING_GUARD_PACKET_TRADE_ACTION_FORBIDDEN")
     if not packet.operator_review_required:
         raise ValueError("CONTROL_CENTER_ENCODING_GUARD_PACKET_OPERATOR_REVIEW_REQUIRED")
+
+
+@dataclass(frozen=True)
+class EncodingGuardCloseout:
+    app_id: str
+    completed_stages: List[str]
+    final_status: str
+    validation_required: bool
+    merge_ready: bool
+    paper_only: bool
+    local_only: bool
+    read_only: bool
+    sidecar_only: bool
+    operator_review_required: bool
+    no_real_trading: bool
+    no_tag_release_deploy: bool
+
+
+def build_encoding_guard_closeout() -> EncodingGuardCloseout:
+    return EncodingGuardCloseout(
+        app_id="CONTROL-CENTER-ENCODING-GUARD-APP-1",
+        completed_stages=[
+            "D1 strict UTF-8 guard contract",
+            "D2 guarded source registry",
+            "D3 read-only encoding probe",
+            "D4 UTF-8 LF safe writer",
+            "D5 encoding guard packet",
+            "D6 final workflow handoff and closeout",
+        ],
+        final_status="READY_FOR_MAIN_MERGE",
+        validation_required=True,
+        merge_ready=True,
+        paper_only=True,
+        local_only=True,
+        read_only=True,
+        sidecar_only=True,
+        operator_review_required=True,
+        no_real_trading=True,
+        no_tag_release_deploy=True,
+    )
+
+
+def render_encoding_guard_closeout_md(closeout: EncodingGuardCloseout) -> str:
+    lines: List[str] = [
+        "# CONTROL-CENTER-ENCODING-GUARD-APP-1 D6 Final Closeout",
+        "",
+        "## App",
+        "",
+        f"- app_id: {closeout.app_id}",
+        f"- final_status: {closeout.final_status}",
+        f"- validation_required: {str(closeout.validation_required).lower()}",
+        f"- merge_ready: {str(closeout.merge_ready).lower()}",
+        "",
+        "## Completed Stages",
+        "",
+    ]
+
+    for stage in closeout.completed_stages:
+        lines.append(f"- {stage}")
+
+    lines.extend(
+        [
+            "",
+            "## Safety Boundary",
+            "",
+            f"- paper_only: {str(closeout.paper_only).lower()}",
+            f"- local_only: {str(closeout.local_only).lower()}",
+            f"- read_only: {str(closeout.read_only).lower()}",
+            f"- sidecar_only: {str(closeout.sidecar_only).lower()}",
+            f"- operator_review_required: {str(closeout.operator_review_required).lower()}",
+            f"- no_real_trading: {str(closeout.no_real_trading).lower()}",
+            f"- no_tag_release_deploy: {str(closeout.no_tag_release_deploy).lower()}",
+            "",
+            "## Final Handoff",
+            "",
+            "CONTROL-CENTER-ENCODING-GUARD-APP-1 protects governance documents from unreadable UTF-8 states.",
+            "It provides strict UTF-8 checks, guarded source registry, encoding probe, safe writer, guard packet, and final closeout.",
+            "",
+            "This sidecar does not mutate core logic and does not enable trading execution.",
+            "",
+        ]
+    )
+
+    return "\n".join(lines)
+
+
+def write_encoding_guard_closeout_md(output_path: str | Path) -> SafeWriteResult:
+    closeout = build_encoding_guard_closeout()
+    return atomic_write_utf8_lf(output_path, render_encoding_guard_closeout_md(closeout))
+
+
+def assert_encoding_guard_closeout_safe(closeout: EncodingGuardCloseout) -> None:
+    if not closeout.merge_ready:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_CLOSEOUT_NOT_MERGE_READY")
+    if not closeout.paper_only:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_CLOSEOUT_PAPER_ONLY_REQUIRED")
+    if not closeout.local_only:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_CLOSEOUT_LOCAL_ONLY_REQUIRED")
+    if not closeout.read_only:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_CLOSEOUT_READ_ONLY_REQUIRED")
+    if not closeout.sidecar_only:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_CLOSEOUT_SIDECAR_ONLY_REQUIRED")
+    if not closeout.operator_review_required:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_CLOSEOUT_OPERATOR_REVIEW_REQUIRED")
+    if not closeout.no_real_trading:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_CLOSEOUT_REAL_TRADING_FORBIDDEN")
+    if not closeout.no_tag_release_deploy:
+        raise ValueError("CONTROL_CENTER_ENCODING_GUARD_CLOSEOUT_TAG_RELEASE_DEPLOY_FORBIDDEN")

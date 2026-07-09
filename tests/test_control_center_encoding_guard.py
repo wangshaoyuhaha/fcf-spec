@@ -270,3 +270,67 @@ def test_encoding_guard_packet_blocks_bad_file(tmp_path: Path) -> None:
     assert packet.block_count == 1
     with pytest.raises(ValueError, match="CONTROL_CENTER_ENCODING_GUARD_PACKET_BLOCKED"):
         assert_encoding_guard_packet_ok(packet)
+
+
+def test_build_encoding_guard_closeout_safe() -> None:
+    from scripts.control_center_encoding_guard import (
+        assert_encoding_guard_closeout_safe,
+        build_encoding_guard_closeout,
+    )
+
+    closeout = build_encoding_guard_closeout()
+
+    assert closeout.app_id == "CONTROL-CENTER-ENCODING-GUARD-APP-1"
+    assert closeout.final_status == "READY_FOR_MAIN_MERGE"
+    assert closeout.merge_ready is True
+    assert closeout.paper_only is True
+    assert closeout.local_only is True
+    assert closeout.read_only is True
+    assert closeout.sidecar_only is True
+    assert closeout.operator_review_required is True
+    assert closeout.no_real_trading is True
+    assert closeout.no_tag_release_deploy is True
+    assert len(closeout.completed_stages) == 6
+    assert_encoding_guard_closeout_safe(closeout)
+
+
+def test_render_encoding_guard_closeout_md_contains_required_boundary() -> None:
+    from scripts.control_center_encoding_guard import (
+        build_encoding_guard_closeout,
+        render_encoding_guard_closeout_md,
+    )
+
+    text = render_encoding_guard_closeout_md(build_encoding_guard_closeout())
+
+    assert "# CONTROL-CENTER-ENCODING-GUARD-APP-1 D6 Final Closeout" in text
+    assert "- paper_only: true" in text
+    assert "- local_only: true" in text
+    assert "- read_only: true" in text
+    assert "- sidecar_only: true" in text
+    assert "- operator_review_required: true" in text
+    assert "- no_real_trading: true" in text
+    assert "- no_tag_release_deploy: true" in text
+
+
+def test_write_encoding_guard_closeout_md(tmp_path: Path) -> None:
+    from scripts.control_center_encoding_guard import write_encoding_guard_closeout_md
+
+    output = tmp_path / "closeout.md"
+    result = write_encoding_guard_closeout_md(output)
+
+    assert result.guard_status == "PASS"
+    assert output.read_text(encoding="utf-8").startswith("# CONTROL-CENTER-ENCODING-GUARD-APP-1 D6 Final Closeout")
+
+
+def test_encoding_guard_closeout_stage_names() -> None:
+    from scripts.control_center_encoding_guard import build_encoding_guard_closeout
+
+    closeout = build_encoding_guard_closeout()
+    joined = "\n".join(closeout.completed_stages)
+
+    assert "D1 strict UTF-8 guard contract" in joined
+    assert "D2 guarded source registry" in joined
+    assert "D3 read-only encoding probe" in joined
+    assert "D4 UTF-8 LF safe writer" in joined
+    assert "D5 encoding guard packet" in joined
+    assert "D6 final workflow handoff and closeout" in joined
