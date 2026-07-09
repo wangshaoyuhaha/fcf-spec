@@ -476,3 +476,70 @@ def test_guard_packet_handles_empty_clean_state():
     assert packet.restore_required is False
     assert packet.closeout_allowed is True
     assert packet.reason_codes == ()
+
+
+def test_builds_runtime_learning_artifact_closeout_pass():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        RUNTIME_LEARNING_ARTIFACT_PATHS,
+        build_runtime_learning_artifact_closeout,
+        build_runtime_learning_artifact_guard_packet,
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+        validate_runtime_artifacts_excluded_from_evidence,
+    )
+
+    dirty_records = parse_git_status_lines(
+        (" M runtime/learning_engine/shadow_ledger.json",)
+    )
+    restore_plan = build_runtime_learning_restore_plan(dirty_records)
+    evidence_result = validate_runtime_artifacts_excluded_from_evidence(
+        runtime_paths=RUNTIME_LEARNING_ARTIFACT_PATHS,
+        evidence_source_paths=("FCF_CURRENT_STATE_ALPHA_FINAL.md",),
+    )
+    packet = build_runtime_learning_artifact_guard_packet(
+        dirty_records,
+        restore_plan,
+        evidence_result,
+    )
+
+    closeout = build_runtime_learning_artifact_closeout(packet)
+
+    assert closeout.app_id == "CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1"
+    assert closeout.final_status == "PASS"
+    assert closeout.closeout_allowed is True
+    assert closeout.restore_required is True
+    assert closeout.blocked_dirty_paths == ()
+    assert "D6 final workflow handoff and closeout" in closeout.completed_stages
+    assert "no deploy" in closeout.safety_boundary
+
+
+def test_builds_runtime_learning_artifact_closeout_blocked():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        RUNTIME_LEARNING_ARTIFACT_PATHS,
+        build_runtime_learning_artifact_closeout,
+        build_runtime_learning_artifact_guard_packet,
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+        validate_runtime_artifacts_excluded_from_evidence,
+    )
+
+    dirty_records = parse_git_status_lines(
+        (" M docs/FCF_PROJECT_CONTROL_CENTER.md",)
+    )
+    restore_plan = build_runtime_learning_restore_plan(dirty_records)
+    evidence_result = validate_runtime_artifacts_excluded_from_evidence(
+        runtime_paths=RUNTIME_LEARNING_ARTIFACT_PATHS,
+        evidence_source_paths=("FCF_CURRENT_STATE_ALPHA_FINAL.md",),
+    )
+    packet = build_runtime_learning_artifact_guard_packet(
+        dirty_records,
+        restore_plan,
+        evidence_result,
+    )
+
+    closeout = build_runtime_learning_artifact_closeout(packet)
+
+    assert closeout.final_status == "BLOCKED"
+    assert closeout.closeout_allowed is False
+    assert closeout.blocked_dirty_paths == ("docs/FCF_PROJECT_CONTROL_CENTER.md",)
+    assert "UNKNOWN_DIRTY_FILES_BLOCK_CLOSEOUT" in closeout.reason_codes

@@ -255,3 +255,56 @@ def build_runtime_learning_artifact_guard_packet(
         closeout_allowed=closeout_allowed,
         reason_codes=tuple(dict.fromkeys(reasons)),
     )
+
+
+@dataclass(frozen=True)
+class RuntimeLearningArtifactCloseout:
+    app_id: str
+    completed_stages: tuple[str, ...]
+    final_status: str
+    closeout_allowed: bool
+    restore_required: bool
+    blocked_dirty_paths: tuple[str, ...]
+    reason_codes: tuple[str, ...]
+    safety_boundary: tuple[str, ...]
+
+
+def build_runtime_learning_artifact_closeout(
+    packet: RuntimeLearningArtifactGuardPacket,
+) -> RuntimeLearningArtifactCloseout:
+    return RuntimeLearningArtifactCloseout(
+        app_id=packet.app_id,
+        completed_stages=(
+            "D1 runtime learning artifact contract",
+            "D2 runtime artifact dirty-state detector",
+            "D3 runtime restore plan",
+            "D4 final evidence exclusion guard",
+            "D5 runtime learning artifact guard packet",
+            "D5 repair syntax regression",
+            "D6 final workflow handoff and closeout",
+        ),
+        final_status="PASS" if packet.closeout_allowed else "BLOCKED",
+        closeout_allowed=packet.closeout_allowed,
+        restore_required=packet.restore_required,
+        blocked_dirty_paths=packet.blocked_dirty_paths,
+        reason_codes=packet.reason_codes,
+        safety_boundary=(
+            "paper-only",
+            "local-only",
+            "read-only governance validation",
+            "sidecar-only",
+            "operator review required",
+            "no P48",
+            "no core mutation",
+            "no real trading",
+            "no broker API",
+            "no exchange API",
+            "no API key",
+            "no buy button",
+            "no sell button",
+            "no order button",
+            "no tag",
+            "no release",
+            "no deploy",
+        ),
+    )
