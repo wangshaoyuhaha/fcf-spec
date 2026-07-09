@@ -3,15 +3,19 @@ from pathlib import Path
 import pytest
 
 from scripts.control_center_encoding_guard import (
+    append_section_utf8_lf,
     assert_encoding_probe_no_block,
     assert_guard_registry_ok,
+    assert_safe_write_result_ok,
     assert_utf8_readable,
+    atomic_write_utf8_lf,
     build_encoding_probe_report,
     build_guard_registry,
     check_utf8_readable,
     classify_guarded_file,
     detect_newline_style,
     discover_guarded_files,
+    normalize_lf,
     probe_encoding_file,
     read_text_utf8_strict,
     summarize_guard_registry,
@@ -155,3 +159,40 @@ def test_assert_encoding_probe_no_block_raises(tmp_path: Path) -> None:
     records = build_encoding_probe_report(tmp_path)
     with pytest.raises(ValueError, match="CONTROL_CENTER_ENCODING_PROBE_BLOCKED"):
         assert_encoding_probe_no_block(records)
+
+
+def test_normalize_lf() -> None:
+    assert normalize_lf("a\r\nb\rc\n") == "a\nb\nc\n"
+
+
+def test_atomic_write_utf8_lf_creates_utf8_lf_file(tmp_path: Path) -> None:
+    target = tmp_path / "safe.md"
+    result = atomic_write_utf8_lf(target, "# Safe\r\n\r\nbody\r\n")
+    assert_safe_write_result_ok(result)
+    assert read_text_utf8_strict(target) == "# Safe\n\nbody\n"
+    assert probe_encoding_file(target).newline_style == "LF"
+
+
+def test_atomic_write_utf8_lf_creates_backup(tmp_path: Path) -> None:
+    target = tmp_path / "safe.md"
+    write_text_utf8(target, "old\n")
+    result = atomic_write_utf8_lf(target, "new\n", create_backup=True)
+    assert result.backup_created is True
+    assert (tmp_path / "safe.md.bak").read_text(encoding="utf-8") == "old\n"
+
+
+def test_append_section_utf8_lf_is_idempotent(tmp_path: Path) -> None:
+    target = tmp_path / "control.md"
+    write_text_utf8(target, "# Control\n")
+    first = append_section_utf8_lf(target, "Encoding Guard", "status: ok")
+    second = append_section_utf8_lf(target, "Encoding Guard", "status: ok")
+    assert first.atomic_write is True
+    assert second.atomic_write is False
+    text = read_text_utf8_strict(target)
+    assert text.count("## Encoding Guard") == 1
+
+
+def test_assert_safe_write_result_ok_blocks_bad_result(tmp_path: Path) -> None:
+    target = tmp_path / "safe.md"
+    result = atomic_write_utf8_lf(target, "ok\n")
+    assert_safe_write_result_ok(result)

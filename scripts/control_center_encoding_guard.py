@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List
@@ -37,6 +39,17 @@ class EncodingProbeRecord:
     guard_status: str
 
 
+@dataclass(frozen=True)
+class SafeWriteResult:
+    path: str
+    byte_size: int
+    encoding_status: str
+    newline_style: str
+    atomic_write: bool
+    backup_created: bool
+    guard_status: str
+
+
 def _as_posix(path: str | Path) -> str:
     return Path(path).as_posix()
 
@@ -68,10 +81,14 @@ def assert_utf8_readable(paths: Iterable[str | Path]) -> None:
         raise ValueError(f"CONTROL_CENTER_ENCODING_GUARD_FAILED: {details}")
 
 
+def normalize_lf(text: str) -> str:
+    return text.replace("\r\n", "\n").replace("\r", "\n")
+
+
 def write_text_utf8(path: str | Path, content: str) -> None:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(content, encoding="utf-8", newline="\n")
+    target.write_text(normalize_lf(content), encoding="utf-8", newline="\n")
 
 
 def classify_guarded_file(path: str | Path) -> str:
@@ -226,3 +243,77 @@ def assert_encoding_probe_no_block(records: Iterable[EncodingProbeRecord]) -> No
     if bad:
         details = "; ".join(f"{record.path}={record.strict_utf8_status}" for record in sorted(bad, key=lambda item: item.path))
         raise ValueError(f"CONTROL_CENTER_ENCODING_PROBE_BLOCKED: {details}")
+
+
+def create_backup_copy(path: str | Path) -> Path | None:
+    target = Path(path)
+    if not target.exists():
+        return None
+    backup = target.with_suffix(target.suffix + ".bak")
+    backup.write_bytes(target.read_bytes())
+    return backup
+
+
+def atomic_write_utf8_lf(path: str | Path, content: str, create_backup: bool = False) -> SafeWriteResult:
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+
+    backup_created = False
+    if create_backup:
+        backup = create_backup_copy(target)
+        backup_created = backup is not None
+
+    normalized = normalize_lf(content)
+    encoded = normalized.encode("utf-8")
+
+    fd, temp_name = tempfile.mkstemp(prefix=target.name + ".", suffix=".tmp", dir=str(target.parent))
+    temp_path = Path(temp_name)
+    try:
+        with os.fdopen(fd, "wb") as handle:
+            handle.write(encoded)
+        os.replace(temp_path, target)
+    finally:
+        if temp_path.exists():
+            temp_path.unlink()
+
+    probe = probe_encoding_file(target)
+    return SafeWriteResult(
+        path=str(target),
+        byte_size=probe.byte_size,
+        encoding_status=probe.strict_utf8_status,
+        newline_style=probe.newline_style,
+        atomic_write=True,
+        backup_created=backup_created,
+        guard_status=probe.guard_status,
+    )
+
+
+def append_section_utf8_lf(path: str | Path, section_title: str, section_body: str, create_backup: bool = False) -> SafeWriteResult:
+    target = Path(path)
+    current = ""
+    if target.exists():
+        current = read_text_utf8_strict(target)
+
+    marker = f"## {section_title}"
+    if marker in current:
+        return SafeWriteResult(
+            path=str(target),
+            byte_size=len(target.read_bytes()),
+            encoding_status="OK",
+            newline_style=detect_newline_style(target.read_bytes()),
+            atomic_write=False,
+            backup_created=False,
+            guard_status=probe_encoding_file(target).guard_status,
+        )
+
+    base = normalize_lf(current).rstrip()
+    addition = f"{marker}\n\n{normalize_lf(section_body).strip()}\n"
+    next_content = f"{base}\n\n{addition}" if base else addition
+    return atomic_write_utf8_lf(target, next_content, create_backup=create_backup)
+
+
+def assert_safe_write_result_ok(result: SafeWriteResult) -> None:
+    if result.encoding_status != "OK":
+        raise ValueError(f"CONTROL_CENTER_SAFE_WRITE_FAILED: {result.path}={result.encoding_status}")
+    if result.guard_status == "BLOCK":
+        raise ValueError(f"CONTROL_CENTER_SAFE_WRITE_BLOCKED: {result.path}")
