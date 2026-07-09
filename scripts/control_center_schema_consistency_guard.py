@@ -160,7 +160,7 @@ def classify_governance_source(path: str | Path) -> str:
     name = Path(path).name
     normalized = Path(path).as_posix()
 
-    if normalized == "docs/FCF_PROJECT_CONTROL_CENTER.md":
+    if normalized == "docs/FCF_PROJECT_CONTROL_CENTER.md" or normalized.endswith("/docs/FCF_PROJECT_CONTROL_CENTER.md"):
         return "CONTROL_CENTER"
     if name == "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md":
         return "BACKEND_HANDOFF"

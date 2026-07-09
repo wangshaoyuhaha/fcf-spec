@@ -454,3 +454,11 @@ def test_default_consistency_fields_include_release_deploy() -> None:
     assert "deploy" in fields
     assert "tag" in fields
     assert "validation" in fields
+
+
+def test_classify_governance_source_handles_absolute_control_center_path(tmp_path: Path) -> None:
+    from scripts.control_center_schema_consistency_guard import classify_governance_source
+
+    target = tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md"
+
+    assert classify_governance_source(target) == "CONTROL_CENTER"
