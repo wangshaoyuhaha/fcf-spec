@@ -1,8 +1,17 @@
+from pathlib import Path
+
 import pytest
 
 from scripts.control_center_schema_consistency_guard import (
     REQUIRED_SAFETY_FLAGS,
+    assert_governance_sources_readable,
     assert_schema_result_pass,
+    classify_governance_source,
+    discover_governance_sources,
+    extract_markdown_key_values,
+    load_governance_source,
+    load_governance_sources,
+    summarize_governance_sources,
     validate_final_state_record,
     validate_safety_boundary,
     validate_stage_record,
@@ -113,3 +122,77 @@ def test_assert_schema_result_pass_raises_on_block() -> None:
 
     with pytest.raises(ValueError, match="CONTROL_CENTER_SCHEMA_CONSISTENCY_FAILED"):
         assert_schema_result_pass(result)
+
+
+def test_classify_governance_source() -> None:
+    assert classify_governance_source("docs/FCF_PROJECT_CONTROL_CENTER.md") == "CONTROL_CENTER"
+    assert classify_governance_source("FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md") == "BACKEND_HANDOFF"
+    assert classify_governance_source("FCF_NEW_WINDOW_CHAT_PROMPT.md") == "NEW_WINDOW_PROMPT"
+    assert classify_governance_source("FCF_CURRENT_STATE_TEST_APP_1_FINAL.md") == "FINAL_CURRENT_STATE"
+
+
+def test_extract_markdown_key_values() -> None:
+    text = """
+# Header
+
+branch: main
+Latest main commit: abc1234
+- git status: clean
+- origin-main: synced
+"""
+
+    fields = extract_markdown_key_values(text)
+
+    assert fields["branch"] == "main"
+    assert fields["latest_main_commit"] == "abc1234"
+    assert fields["git_status"] == "clean"
+    assert fields["origin_main"] == "synced"
+
+
+def test_load_governance_source_reads_utf8(tmp_path: Path) -> None:
+    target = tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md"
+    target.write_text("app_id: TEST\nbranch: main\n", encoding="utf-8")
+
+    record = load_governance_source(target)
+
+    assert record.exists is True
+    assert record.utf8_status == "OK"
+    assert record.source_kind == "FINAL_CURRENT_STATE"
+    assert record.extracted_fields["app_id"] == "TEST"
+
+
+def test_load_governance_source_reports_invalid_utf8(tmp_path: Path) -> None:
+    target = tmp_path / "FCF_CURRENT_STATE_BAD.md"
+    target.write_bytes(b"\xff")
+
+    record = load_governance_source(target)
+
+    assert record.exists is True
+    assert record.utf8_status == "UTF8_DECODE_ERROR"
+    assert record.extracted_fields == {}
+
+
+def test_discover_and_load_governance_sources(tmp_path: Path) -> None:
+    (tmp_path / "docs").mkdir()
+    (tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md").write_text("branch: main\n", encoding="utf-8")
+    (tmp_path / "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md").write_text("branch: main\n", encoding="utf-8")
+    (tmp_path / "FCF_NEW_WINDOW_CHAT_PROMPT.md").write_text("branch: main\n", encoding="utf-8")
+    (tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md").write_text("app_id: TEST\n", encoding="utf-8")
+
+    sources = discover_governance_sources(tmp_path)
+    records = load_governance_sources(tmp_path)
+    summary = summarize_governance_sources(records)
+
+    assert "docs/FCF_PROJECT_CONTROL_CENTER.md" in sources
+    assert "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md" in sources
+    assert len(records) == 4
+    assert summary["CONTROL_CENTER:OK"] == 1
+    assert summary["FINAL_CURRENT_STATE:OK"] == 1
+    assert_governance_sources_readable(records)
+
+
+def test_assert_governance_sources_readable_blocks_missing(tmp_path: Path) -> None:
+    records = load_governance_sources(tmp_path)
+
+    with pytest.raises(ValueError, match="CONTROL_CENTER_SCHEMA_SOURCE_READ_FAILED"):
+        assert_governance_sources_readable(records)
