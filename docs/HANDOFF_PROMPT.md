@@ -26,3 +26,12 @@ No P48, no core mutation, no real trading, no broker/exchange API, no API key, n
 
 Next action:
 Read-only state check first, then architecture / structure gap review.
+
+Approved but not started:
+CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1
+
+Approval commit:
+ccd3955 record approved CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 next phase
+
+Next:
+Create sidecar branch and start D1 Global Scan Classification Contract.

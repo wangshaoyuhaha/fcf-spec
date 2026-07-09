@@ -154,3 +154,28 @@ git status --short blank
 Then do architecture planning / gap review first.
 Do not write code unless the user explicitly starts a new development phase.
 Do not tag, release, deploy, or start real trading integrations.
+
+## Approved next phase
+
+Approved but not started:
+CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1
+
+Approval commit:
+ccd3955 record approved CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 next phase
+
+Reason:
+Global gap scan and safety scan produced many expected hits from governance text, test assertions, final-state history, and safety boundary records. The next guard will classify scan hits into expected records versus actionable stale state, unsafe permission, and structure gaps.
+
+Planned branch:
+sidecar-control-center-global-scan-classification-guard-app-1
+
+Planned D1:
+Global Scan Classification Contract
+
+Current baseline:
+- latest main commit: ccd3955
+- previous completed phase: CONTROL-CENTER-RUNTIME-LEARNING-ARTIFACT-GUARD-APP-1
+- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
+- pytest: 1836 passed
+- git status: clean
+- origin/main: synced
