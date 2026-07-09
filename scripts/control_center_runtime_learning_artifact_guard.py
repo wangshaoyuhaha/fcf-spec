@@ -74,3 +74,33 @@ def validate_runtime_learning_artifact_record(
         passed=not reasons,
         reason_codes=tuple(dict.fromkeys(reasons)),
     )
+
+
+@dataclass(frozen=True)
+class RuntimeDirtyStatusRecord:
+    relative_path: str
+    git_status_code: str
+    is_known_runtime_learning_artifact: bool
+    restorable_runtime_dirt: bool
+
+
+def parse_git_status_line(line: str) -> RuntimeDirtyStatusRecord:
+    status_code = line[:2].strip()
+    path = normalize_path(line[3:].strip())
+    is_known = is_runtime_learning_artifact_path(path)
+    return RuntimeDirtyStatusRecord(
+        relative_path=path,
+        git_status_code=status_code,
+        is_known_runtime_learning_artifact=is_known,
+        restorable_runtime_dirt=is_known and status_code in {"M", "MM"},
+    )
+
+
+def parse_git_status_lines(lines: tuple[str, ...]) -> tuple[RuntimeDirtyStatusRecord, ...]:
+    return tuple(parse_git_status_line(line) for line in lines if line.strip())
+
+
+def runtime_dirty_records_only(
+    records: tuple[RuntimeDirtyStatusRecord, ...],
+) -> bool:
+    return all(record.restorable_runtime_dirt for record in records)

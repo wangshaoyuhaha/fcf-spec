@@ -100,3 +100,72 @@ def test_runtime_learning_path_detection_accepts_slashes():
     assert is_runtime_learning_artifact_path("runtime/learning_engine/shadow_ledger.json") is True
     assert is_runtime_learning_artifact_path("runtime\\learning_engine\\shadow_ledger.json") is True
     assert is_runtime_learning_artifact_path("FCF_CURRENT_STATE_ALPHA_FINAL.md") is False
+
+
+def test_parse_git_status_line_detects_known_runtime_dirty_file():
+    from scripts.control_center_runtime_learning_artifact_guard import parse_git_status_line
+
+    record = parse_git_status_line(" M runtime/learning_engine/shadow_ledger.json")
+
+    assert record.relative_path == "runtime/learning_engine/shadow_ledger.json"
+    assert record.git_status_code == "M"
+    assert record.is_known_runtime_learning_artifact is True
+    assert record.restorable_runtime_dirt is True
+
+
+def test_parse_git_status_line_detects_unknown_dirty_file():
+    from scripts.control_center_runtime_learning_artifact_guard import parse_git_status_line
+
+    record = parse_git_status_line(" M docs/FCF_PROJECT_CONTROL_CENTER.md")
+
+    assert record.relative_path == "docs/FCF_PROJECT_CONTROL_CENTER.md"
+    assert record.git_status_code == "M"
+    assert record.is_known_runtime_learning_artifact is False
+    assert record.restorable_runtime_dirt is False
+
+
+def test_parse_git_status_lines_preserves_records():
+    from scripts.control_center_runtime_learning_artifact_guard import parse_git_status_lines
+
+    records = parse_git_status_lines(
+        (
+            " M runtime/learning_engine/shadow_ledger.json",
+            " M runtime/operator_console/ai_learning_audit_report.json",
+        )
+    )
+
+    assert len(records) == 2
+    assert records[0].restorable_runtime_dirt is True
+    assert records[1].restorable_runtime_dirt is True
+
+
+def test_runtime_dirty_records_only_accepts_known_runtime_dirt():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        parse_git_status_lines,
+        runtime_dirty_records_only,
+    )
+
+    records = parse_git_status_lines(
+        (
+            " M runtime/learning_engine/shadow_ledger.json",
+            " M runtime/operator_console/p13_final_closeout_summary.json",
+        )
+    )
+
+    assert runtime_dirty_records_only(records) is True
+
+
+def test_runtime_dirty_records_only_blocks_unknown_dirty_file():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        parse_git_status_lines,
+        runtime_dirty_records_only,
+    )
+
+    records = parse_git_status_lines(
+        (
+            " M runtime/learning_engine/shadow_ledger.json",
+            " M docs/FCF_PROJECT_CONTROL_CENTER.md",
+        )
+    )
+
+    assert runtime_dirty_records_only(records) is False

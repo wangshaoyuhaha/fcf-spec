@@ -40,3 +40,16 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## D2 Runtime Artifact Dirty-State Detector
+
+Status: D2 completed.
+
+Purpose:
+Detect whether runtime learning artifacts appear in git status after validation.
+
+D2 rules:
+- known runtime learning artifacts may appear as modified after validation
+- known runtime learning artifacts are restorable runtime dirt
+- unknown runtime files are not automatically approved
+- final closeout requires clean git status after restore
