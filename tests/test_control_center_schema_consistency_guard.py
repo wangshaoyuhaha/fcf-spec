@@ -569,3 +569,68 @@ def test_write_schema_consistency_packet_md(tmp_path: Path) -> None:
     text = output.read_text(encoding="utf-8")
     assert text.startswith("# CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1 D5 Packet")
     assert "- release" in text
+
+
+def test_build_schema_consistency_closeout_safe() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        assert_schema_consistency_closeout_safe,
+        build_schema_consistency_closeout,
+    )
+
+    closeout = build_schema_consistency_closeout()
+
+    assert closeout.app_id == "CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1"
+    assert closeout.final_status == "READY_FOR_MAIN_MERGE"
+    assert closeout.merge_ready is True
+    assert closeout.paper_only is True
+    assert closeout.local_only is True
+    assert closeout.read_only is True
+    assert closeout.sidecar_only is True
+    assert closeout.operator_review_required is True
+    assert closeout.no_real_trading is True
+    assert closeout.no_tag_release_deploy is True
+    assert_schema_consistency_closeout_safe(closeout)
+
+
+def test_render_schema_consistency_closeout_md_contains_required_boundary() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        build_schema_consistency_closeout,
+        render_schema_consistency_closeout_md,
+    )
+
+    text = render_schema_consistency_closeout_md(build_schema_consistency_closeout())
+
+    assert "# CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1 D6 Final Closeout" in text
+    assert "- paper_only: true" in text
+    assert "- local_only: true" in text
+    assert "- read_only: true" in text
+    assert "- sidecar_only: true" in text
+    assert "- operator_review_required: true" in text
+    assert "- no_real_trading: true" in text
+    assert "- no_tag_release_deploy: true" in text
+
+
+def test_write_schema_consistency_closeout_md(tmp_path: Path) -> None:
+    from scripts.control_center_schema_consistency_guard import write_schema_consistency_closeout_md
+
+    output = tmp_path / "closeout.md"
+    write_schema_consistency_closeout_md(output)
+
+    text = output.read_text(encoding="utf-8")
+    assert text.startswith("# CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1 D6 Final Closeout")
+    assert "READY_FOR_MAIN_MERGE" in text
+
+
+def test_schema_consistency_closeout_stage_names() -> None:
+    from scripts.control_center_schema_consistency_guard import build_schema_consistency_closeout
+
+    closeout = build_schema_consistency_closeout()
+    joined = "\n".join(closeout.completed_stages)
+
+    assert "D1 schema consistency contract" in joined
+    assert "D2 governance source loader" in joined
+    assert "D3 field normalizer" in joined
+    assert "D4 cross-source consistency matrix" in joined
+    assert "D4 repair absolute control center source classification" in joined
+    assert "D5 schema consistency guard packet" in joined
+    assert "D6 final workflow handoff and closeout" in joined
