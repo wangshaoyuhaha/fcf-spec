@@ -422,7 +422,7 @@ def test_guard_packet_blocks_unknown_dirty_files():
     assert "UNKNOWN_DIRTY_FILES_BLOCK_CLOSEOUT" in packet.reason_codes
 
 
-def test_guard_packet_blocks_runtime_evidence_collision:
+def test_guard_packet_blocks_runtime_evidence_collision():
     from scripts.control_center_runtime_learning_artifact_guard import (
         RUNTIME_LEARNING_ARTIFACT_PATHS,
         build_runtime_learning_artifact_guard_packet,
