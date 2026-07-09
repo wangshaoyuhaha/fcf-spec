@@ -26,6 +26,17 @@ class GuardedFileRecord:
     safety_scope: str
 
 
+@dataclass(frozen=True)
+class EncodingProbeRecord:
+    path: str
+    exists: bool
+    byte_size: int
+    strict_utf8_status: str
+    has_utf8_bom: bool
+    newline_style: str
+    guard_status: str
+
+
 def _as_posix(path: str | Path) -> str:
     return Path(path).as_posix()
 
@@ -133,3 +144,85 @@ def assert_guard_registry_ok(records: Iterable[GuardedFileRecord]) -> None:
     if bad:
         details = "; ".join(f"{record.path}={record.encoding_status}" for record in sorted(bad, key=lambda item: item.path))
         raise ValueError(f"CONTROL_CENTER_ENCODING_REGISTRY_FAILED: {details}")
+
+
+def detect_newline_style(raw: bytes) -> str:
+    if not raw:
+        return "EMPTY"
+    crlf = raw.count(b"\r\n")
+    lf = raw.count(b"\n")
+    cr = raw.count(b"\r") - crlf
+
+    if cr > 0:
+        return "MIXED_OR_CR"
+    if crlf > 0 and crlf == lf:
+        return "CRLF"
+    if crlf > 0 and lf > crlf:
+        return "MIXED"
+    if lf > 0:
+        return "LF"
+    return "NO_NEWLINE"
+
+
+def probe_encoding_file(path: str | Path) -> EncodingProbeRecord:
+    target = Path(path)
+    if not target.exists():
+        return EncodingProbeRecord(
+            path=str(target),
+            exists=False,
+            byte_size=0,
+            strict_utf8_status="MISSING",
+            has_utf8_bom=False,
+            newline_style="UNKNOWN",
+            guard_status="BLOCK",
+        )
+
+    raw = target.read_bytes()
+    strict_status = check_utf8_readable([target])[str(target)]
+    has_bom = raw.startswith(b"\xef\xbb\xbf")
+    newline_style = detect_newline_style(raw)
+
+    guard_status = "PASS"
+    if strict_status != "OK":
+        guard_status = "BLOCK"
+    elif has_bom:
+        guard_status = "WARN_BOM"
+    elif newline_style in {"CRLF", "MIXED", "MIXED_OR_CR"}:
+        guard_status = "WARN_NEWLINE"
+
+    return EncodingProbeRecord(
+        path=str(target),
+        exists=True,
+        byte_size=len(raw),
+        strict_utf8_status=strict_status,
+        has_utf8_bom=has_bom,
+        newline_style=newline_style,
+        guard_status=guard_status,
+    )
+
+
+def build_encoding_probe_report(root: str | Path = ".") -> List[EncodingProbeRecord]:
+    base = Path(root)
+    records: List[EncodingProbeRecord] = []
+    for relative_path in discover_guarded_files(base):
+        target = base / relative_path
+        probe = probe_encoding_file(target)
+        records.append(
+            EncodingProbeRecord(
+                path=relative_path,
+                exists=probe.exists,
+                byte_size=probe.byte_size,
+                strict_utf8_status=probe.strict_utf8_status,
+                has_utf8_bom=probe.has_utf8_bom,
+                newline_style=probe.newline_style,
+                guard_status=probe.guard_status,
+            )
+        )
+    return records
+
+
+def assert_encoding_probe_no_block(records: Iterable[EncodingProbeRecord]) -> None:
+    bad = [record for record in records if record.guard_status == "BLOCK"]
+    if bad:
+        details = "; ".join(f"{record.path}={record.strict_utf8_status}" for record in sorted(bad, key=lambda item: item.path))
+        raise ValueError(f"CONTROL_CENTER_ENCODING_PROBE_BLOCKED: {details}")
