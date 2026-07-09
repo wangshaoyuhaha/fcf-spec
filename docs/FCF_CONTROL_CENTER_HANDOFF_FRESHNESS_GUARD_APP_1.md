@@ -84,3 +84,24 @@ Snapshot rules:
 - no file mutation
 - no runtime action
 - no trading action
+
+## D4 Freshness Drift Detector
+
+Status: completed.
+
+Purpose:
+D4 adds deterministic drift detection between protected handoff snapshots and the approved baseline.
+
+Detected drift:
+- missing latest main commit
+- missing latest completed phase
+- missing latest merge commit
+- missing latest D6 commit
+- missing latest pytest count
+- stale commit reference
+- stale phase reference
+- stale pytest count reference
+- unsafe runtime reference
+
+Rule:
+Any drift means the handoff artifact is not fresh and must not be used as a new-window source until repaired.

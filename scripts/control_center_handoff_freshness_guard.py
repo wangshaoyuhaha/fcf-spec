@@ -194,3 +194,70 @@ def build_handoff_freshness_snapshots(
     records: tuple[HandoffSourceRecord, ...],
 ) -> tuple[HandoffFreshnessSnapshot, ...]:
     return tuple(build_handoff_freshness_snapshot(record) for record in records)
+
+
+@dataclass(frozen=True)
+class HandoffDriftRecord:
+    relative_path: str
+    reason_codes: tuple[str, ...]
+
+
+def detect_handoff_freshness_drift(
+    snapshot: HandoffFreshnessSnapshot,
+    baseline: HandoffFreshnessBaseline,
+    stale_commits: tuple[str, ...] = (),
+    stale_phases: tuple[str, ...] = (),
+    stale_pytest_counts: tuple[int, ...] = (),
+) -> HandoffDriftRecord:
+    reasons: list[str] = []
+
+    if baseline.latest_main_commit.lower() not in snapshot.commit_hashes:
+        reasons.append("MISSING_LATEST_MAIN_COMMIT")
+
+    if baseline.merge_commit.lower() not in snapshot.commit_hashes:
+        reasons.append("MISSING_LATEST_MERGE_COMMIT")
+
+    if baseline.d6_commit.lower() not in snapshot.commit_hashes:
+        reasons.append("MISSING_LATEST_D6_COMMIT")
+
+    if baseline.latest_phase not in snapshot.phase_tokens:
+        reasons.append("MISSING_LATEST_PHASE")
+
+    if baseline.pytest_passed_count not in snapshot.pytest_counts:
+        reasons.append("MISSING_LATEST_PYTEST_COUNT")
+
+    for commit in stale_commits:
+        if commit.lower() in snapshot.commit_hashes:
+            reasons.append("STALE_COMMIT_REFERENCE")
+
+    for phase in stale_phases:
+        if phase in snapshot.phase_tokens:
+            reasons.append("STALE_PHASE_REFERENCE")
+
+    for count in stale_pytest_counts:
+        if count in snapshot.pytest_counts and count != baseline.pytest_passed_count:
+            reasons.append("STALE_PYTEST_COUNT_REFERENCE")
+
+    return HandoffDriftRecord(
+        relative_path=snapshot.relative_path,
+        reason_codes=tuple(dict.fromkeys(reasons)),
+    )
+
+
+def detect_handoff_freshness_drifts(
+    snapshots: tuple[HandoffFreshnessSnapshot, ...],
+    baseline: HandoffFreshnessBaseline,
+    stale_commits: tuple[str, ...] = (),
+    stale_phases: tuple[str, ...] = (),
+    stale_pytest_counts: tuple[int, ...] = (),
+) -> tuple[HandoffDriftRecord, ...]:
+    return tuple(
+        detect_handoff_freshness_drift(
+            snapshot=snapshot,
+            baseline=baseline,
+            stale_commits=stale_commits,
+            stale_phases=stale_phases,
+            stale_pytest_counts=stale_pytest_counts,
+        )
+        for snapshot in snapshots
+    )

@@ -205,3 +205,99 @@ def test_builds_handoff_freshness_snapshots_for_records():
     assert len(snapshots) == 2
     assert snapshots[0].relative_path == "a.md"
     assert snapshots[1].relative_path == "b.md"
+
+
+def test_detects_no_drift_for_current_snapshot():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffSourceRecord,
+        build_handoff_freshness_snapshot,
+        detect_handoff_freshness_drift,
+    )
+
+    record = HandoffSourceRecord(
+        "fresh.md",
+        """
+        b757644 2feba64 36db8f6
+        1782 passed
+        CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1
+        """,
+    )
+
+    snapshot = build_handoff_freshness_snapshot(record)
+    drift = detect_handoff_freshness_drift(snapshot, _baseline())
+
+    assert drift.relative_path == "fresh.md"
+    assert drift.reason_codes == ()
+
+
+def test_detects_missing_latest_baseline_values():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffSourceRecord,
+        build_handoff_freshness_snapshot,
+        detect_handoff_freshness_drift,
+    )
+
+    record = HandoffSourceRecord("stale.md", "c3e6ae1 1781 passed OLD-PHASE-APP-1")
+    snapshot = build_handoff_freshness_snapshot(record)
+    drift = detect_handoff_freshness_drift(snapshot, _baseline())
+
+    assert "MISSING_LATEST_MAIN_COMMIT" in drift.reason_codes
+    assert "MISSING_LATEST_MERGE_COMMIT" in drift.reason_codes
+    assert "MISSING_LATEST_D6_COMMIT" in drift.reason_codes
+    assert "MISSING_LATEST_PHASE" in drift.reason_codes
+    assert "MISSING_LATEST_PYTEST_COUNT" in drift.reason_codes
+
+
+def test_detects_stale_snapshot_values():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffSourceRecord,
+        build_handoff_freshness_snapshot,
+        detect_handoff_freshness_drift,
+    )
+
+    record = HandoffSourceRecord(
+        "mixed.md",
+        """
+        b757644 2feba64 36db8f6 c3e6ae1
+        1782 passed
+        1781 passed
+        CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1
+        CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1
+        """,
+    )
+
+    snapshot = build_handoff_freshness_snapshot(record)
+    drift = detect_handoff_freshness_drift(
+        snapshot,
+        _baseline(),
+        stale_commits=("c3e6ae1",),
+        stale_phases=("CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1",),
+        stale_pytest_counts=(1781,),
+    )
+
+    assert "STALE_COMMIT_REFERENCE" in drift.reason_codes
+    assert "STALE_PHASE_REFERENCE" in drift.reason_codes
+    assert "STALE_PYTEST_COUNT_REFERENCE" in drift.reason_codes
+
+
+def test_detects_drift_for_multiple_snapshots():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffSourceRecord,
+        build_handoff_freshness_snapshots,
+        detect_handoff_freshness_drifts,
+    )
+
+    records = (
+        HandoffSourceRecord(
+            "fresh.md",
+            "b757644 2feba64 36db8f6 1782 passed CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1",
+        ),
+        HandoffSourceRecord("stale.md", "c3e6ae1 1781 passed OLD-PHASE-APP-1"),
+    )
+
+    snapshots = build_handoff_freshness_snapshots(records)
+    drifts = detect_handoff_freshness_drifts(snapshots, _baseline())
+
+    assert len(drifts) == 2
+    assert drifts[0].reason_codes == ()
+    assert drifts[1].reason_codes
