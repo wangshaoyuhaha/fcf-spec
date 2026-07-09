@@ -14,18 +14,14 @@ def build_chain_coverage_matrix(
     correlation_id: str,
     references: Iterable[Mapping[str, Any]],
 ) -> Dict[str, Any]:
-    """Build a read-only coverage matrix for one correlation_id.
-
-    The matrix only indexes existing evidence references.
-    It must not create missing evidence, auto-fill correlation_id,
-    generate placeholder review, or auto-pass any review state.
-    """
+    """Build a read-only coverage matrix for one correlation_id."""
 
     if not correlation_id:
         raise ValueError("correlation_id is required")
 
-    matrix: Dict[str, Dict[str, Any]] = {
-        link_type: {
+    matrix: Dict[str, Dict[str, Any]] = {}
+    for link_type in CORRELATION_ROLLUP_REQUIRED_LINKS:
+        matrix[link_type] = {
             "link_type": link_type,
             "covered": False,
             "status": "INCOMPLETE",
@@ -33,8 +29,6 @@ def build_chain_coverage_matrix(
             "artifact_paths": [],
             "issues": ["MISSING_LINK"],
         }
-        for link_type in CORRELATION_ROLLUP_REQUIRED_LINKS
-    }
 
     unresolved_issues: List[str] = []
     stale_links: List[str] = []
@@ -48,7 +42,7 @@ def build_chain_coverage_matrix(
             continue
 
         if reference.get("correlation_id") != correlation_id:
-            matrix[link_type]["issues"].append("CORRELATION_ID_MISMATCH")
+            matrix[link_type]["issues"] = ["CORRELATION_ID_MISMATCH"]
             unresolved_issues.append("CORRELATION_ID_MISMATCH")
             continue
 
@@ -75,17 +69,14 @@ def build_chain_coverage_matrix(
             matrix[link_type]["issues"] = validation["issues"] or ["UNRESOLVED_REFERENCE"]
             unresolved_issues.extend(matrix[link_type]["issues"])
 
-    missing_links = [
-        link_type
-        for link_type, row in matrix.items()
-        if row["status"] == "INCOMPLETE"
-    ]
+    missing_links = []
+    covered_links = []
 
-    covered_links = [
-        link_type
-        for link_type, row in matrix.items()
-        if row["covered"] is True
-    ]
+    for link_type, row in matrix.items():
+        if row["status"] == "INCOMPLETE":
+            missing_links.append(link_type)
+        if row["covered"] is True:
+            covered_links.append(link_type)
 
     if stale_links:
         rollup_status = "STALE"
@@ -120,9 +111,11 @@ def summarize_chain_coverage(matrix_packet: Mapping[str, Any]) -> Dict[str, Any]
 
     coverage_matrix = matrix_packet["coverage_matrix"]
     total_required = len(CORRELATION_ROLLUP_REQUIRED_LINKS)
-    covered_count = sum(
-        1 for row in coverage_matrix.values() if row["covered"] is True
-    )
+    covered_count = 0
+
+    for row in coverage_matrix.values():
+        if row["covered"] is True:
+            covered_count += 1
 
     return {
         "correlation_id": matrix_packet["correlation_id"],
@@ -138,3 +131,4 @@ def summarize_chain_coverage(matrix_packet: Mapping[str, Any]) -> Dict[str, Any]
         "auto_pass_allowed": False,
         "operator_review_required": True,
     }
+
