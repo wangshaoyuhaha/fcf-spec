@@ -179,3 +179,56 @@ Current baseline:
 - pytest: 1836 passed
 - git status: clean
 - origin/main: synced
+
+---
+
+## Completed Phase: CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1
+
+Status: completed and merged into main.
+
+Branch:
+sidecar-control-center-global-scan-classification-guard-app-1
+
+Main merge commit:
+ad16c03 merge CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 into main
+
+D6 final closeout commit:
+42ffeef add CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 D6 final closeout
+
+Validation:
+python scripts/run_all_checks.py = ALL CHECKS PASSED
+python -m pytest -q = 1884 passed
+
+Git:
+main pushed to origin/main.
+git status clean.
+
+Completed stages:
+- D1 Global Scan Classification Contract
+- D2 Global Scan Classification Rulebook
+- D3 Classification Packet
+- D4 Actionable Review Gate
+- D5 Classification Review Packet
+- D6 Final Workflow Handoff and Closeout
+
+Final behavior:
+- EXPECTED_GOVERNANCE_TEXT remains visible.
+- EXPECTED_TEST_ASSERTION remains visible.
+- EXPECTED_FINAL_STATE_HISTORY remains visible.
+- EXPECTED_SAFETY_BOUNDARY remains visible.
+- ACTIONABLE_STALE_STATE requires operator review.
+- ACTIONABLE_UNSAFE_PERMISSION is blocked until operator review.
+- ACTIONABLE_STRUCTURE_GAP requires operator review.
+- Expected labels do not downgrade actionable labels.
+- No scan hit is hidden, deleted, overwritten, or mutated.
+
+Safety:
+paper-only / local-only / read-only / sidecar-only / operator review required.
+No P48.
+No core mutation.
+No real trading.
+No broker/exchange API.
+No API key.
+No wallet private key.
+No buy/sell/order.
+No tag/release/deploy.
