@@ -150,3 +150,47 @@ def load_handoff_sources(root: str | Path) -> tuple[HandoffSourceRecord, ...]:
         )
 
     return tuple(records)
+
+import re
+
+
+@dataclass(frozen=True)
+class HandoffFreshnessSnapshot:
+    relative_path: str
+    commit_hashes: tuple[str, ...]
+    pytest_counts: tuple[int, ...]
+    phase_tokens: tuple[str, ...]
+    text_length: int
+
+
+_COMMIT_RE = re.compile(r"\b[0-9a-f]{7,40}\b", re.IGNORECASE)
+_PYTEST_RE = re.compile(r"\b(\d{3,5})\s+passed\b", re.IGNORECASE)
+_PHASE_RE = re.compile(r"\b[A-Z0-9]+(?:-[A-Z0-9]+)*-APP-1\b")
+
+
+def extract_commit_hashes(text: str) -> tuple[str, ...]:
+    return tuple(dict.fromkeys(match.group(0).lower() for match in _COMMIT_RE.finditer(text)))
+
+
+def extract_pytest_counts(text: str) -> tuple[int, ...]:
+    return tuple(dict.fromkeys(int(match.group(1)) for match in _PYTEST_RE.finditer(text)))
+
+
+def extract_phase_tokens(text: str) -> tuple[str, ...]:
+    return tuple(dict.fromkeys(match.group(0) for match in _PHASE_RE.finditer(text)))
+
+
+def build_handoff_freshness_snapshot(record: HandoffSourceRecord) -> HandoffFreshnessSnapshot:
+    return HandoffFreshnessSnapshot(
+        relative_path=record.relative_path,
+        commit_hashes=extract_commit_hashes(record.text),
+        pytest_counts=extract_pytest_counts(record.text),
+        phase_tokens=extract_phase_tokens(record.text),
+        text_length=len(record.text),
+    )
+
+
+def build_handoff_freshness_snapshots(
+    records: tuple[HandoffSourceRecord, ...],
+) -> tuple[HandoffFreshnessSnapshot, ...]:
+    return tuple(build_handoff_freshness_snapshot(record) for record in records)

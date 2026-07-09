@@ -63,3 +63,24 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## D3 Freshness Snapshot Builder
+
+Status: completed.
+
+Purpose:
+D3 adds deterministic freshness snapshot extraction from loaded handoff artifacts.
+
+Extracted signals:
+- commit hashes
+- pytest passed counts
+- control-center phase tokens
+- protected file path
+- text length
+
+Snapshot rules:
+- extraction is code-only
+- no LLM freshness inference
+- no file mutation
+- no runtime action
+- no trading action

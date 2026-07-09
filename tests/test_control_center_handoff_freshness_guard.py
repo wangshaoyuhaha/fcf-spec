@@ -135,3 +135,73 @@ def test_loads_handoff_sources_as_utf8_records(tmp_path: Path):
 def test_missing_optional_sources_are_ignored(tmp_path: Path):
     records = load_handoff_sources(tmp_path)
     assert records == ()
+
+
+def test_extracts_commit_hashes_in_stable_order():
+    from scripts.control_center_handoff_freshness_guard import extract_commit_hashes
+
+    text = "b757644 2feba64 b757644 36db8f6"
+    assert extract_commit_hashes(text) == ("b757644", "2feba64", "36db8f6")
+
+
+def test_extracts_pytest_passed_counts_in_stable_order():
+    from scripts.control_center_handoff_freshness_guard import extract_pytest_counts
+
+    text = "1782 passed, 1791 passed, 1782 passed"
+    assert extract_pytest_counts(text) == (1782, 1791)
+
+
+def test_extracts_phase_tokens_in_stable_order():
+    from scripts.control_center_handoff_freshness_guard import extract_phase_tokens
+
+    text = """
+    CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1
+    CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1
+    CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1
+    """
+    assert extract_phase_tokens(text) == (
+        "CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1",
+        "CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1",
+    )
+
+
+def test_builds_handoff_freshness_snapshot():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffSourceRecord,
+        build_handoff_freshness_snapshot,
+    )
+
+    record = HandoffSourceRecord(
+        relative_path="FCF_CURRENT_STATE_TEST_FINAL.md",
+        text="""
+        b757644
+        1782 passed
+        CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1
+        """,
+    )
+
+    snapshot = build_handoff_freshness_snapshot(record)
+
+    assert snapshot.relative_path == "FCF_CURRENT_STATE_TEST_FINAL.md"
+    assert snapshot.commit_hashes == ("b757644",)
+    assert snapshot.pytest_counts == (1782,)
+    assert snapshot.phase_tokens == ("CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1",)
+    assert snapshot.text_length == len(record.text)
+
+
+def test_builds_handoff_freshness_snapshots_for_records():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffSourceRecord,
+        build_handoff_freshness_snapshots,
+    )
+
+    records = (
+        HandoffSourceRecord("a.md", "b757644 1782 passed CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1"),
+        HandoffSourceRecord("b.md", "2feba64 1791 passed CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1"),
+    )
+
+    snapshots = build_handoff_freshness_snapshots(records)
+
+    assert len(snapshots) == 2
+    assert snapshots[0].relative_path == "a.md"
+    assert snapshots[1].relative_path == "b.md"
