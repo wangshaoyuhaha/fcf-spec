@@ -53,3 +53,17 @@ D2 rules:
 - known runtime learning artifacts are restorable runtime dirt
 - unknown runtime files are not automatically approved
 - final closeout requires clean git status after restore
+
+## D3 Runtime Restore Plan
+
+Status: D3 completed.
+
+Purpose:
+Build a deterministic restore plan for known runtime learning artifacts after validation.
+
+D3 rules:
+- only known runtime learning artifacts can enter the restore plan
+- unknown dirty files are blocked from automatic restore approval
+- restore plan is local-only and read-only governance metadata
+- restore plan does not mutate files by itself
+- final clean state still requires explicit git restore execution

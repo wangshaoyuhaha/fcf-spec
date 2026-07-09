@@ -104,3 +104,38 @@ def runtime_dirty_records_only(
     records: tuple[RuntimeDirtyStatusRecord, ...],
 ) -> bool:
     return all(record.restorable_runtime_dirt for record in records)
+
+
+@dataclass(frozen=True)
+class RuntimeLearningRestorePlan:
+    paths_to_restore: tuple[str, ...]
+    blocked_dirty_paths: tuple[str, ...]
+    restore_required: bool
+    restore_command: tuple[str, ...]
+
+
+def build_runtime_learning_restore_plan(
+    records: tuple[RuntimeDirtyStatusRecord, ...],
+) -> RuntimeLearningRestorePlan:
+    restore_paths: list[str] = []
+    blocked_paths: list[str] = []
+
+    for record in records:
+        if record.restorable_runtime_dirt:
+            restore_paths.append(record.relative_path)
+        else:
+            blocked_paths.append(record.relative_path)
+
+    unique_restore_paths = tuple(dict.fromkeys(restore_paths))
+    unique_blocked_paths = tuple(dict.fromkeys(blocked_paths))
+
+    return RuntimeLearningRestorePlan(
+        paths_to_restore=unique_restore_paths,
+        blocked_dirty_paths=unique_blocked_paths,
+        restore_required=bool(unique_restore_paths),
+        restore_command=("git", "restore", *unique_restore_paths),
+    )
+
+
+def restore_plan_allows_closeout(plan: RuntimeLearningRestorePlan) -> bool:
+    return not plan.blocked_dirty_paths

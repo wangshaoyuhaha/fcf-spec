@@ -169,3 +169,96 @@ def test_runtime_dirty_records_only_blocks_unknown_dirty_file():
     )
 
     assert runtime_dirty_records_only(records) is False
+
+
+def test_builds_restore_plan_for_known_runtime_dirty_files():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+    )
+
+    records = parse_git_status_lines(
+        (
+            " M runtime/learning_engine/shadow_ledger.json",
+            " M runtime/operator_console/ai_learning_memory_ledger.json",
+        )
+    )
+
+    plan = build_runtime_learning_restore_plan(records)
+
+    assert plan.paths_to_restore == (
+        "runtime/learning_engine/shadow_ledger.json",
+        "runtime/operator_console/ai_learning_memory_ledger.json",
+    )
+    assert plan.blocked_dirty_paths == ()
+    assert plan.restore_required is True
+    assert plan.restore_command == (
+        "git",
+        "restore",
+        "runtime/learning_engine/shadow_ledger.json",
+        "runtime/operator_console/ai_learning_memory_ledger.json",
+    )
+
+
+def test_restore_plan_blocks_unknown_dirty_files():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+    )
+
+    records = parse_git_status_lines(
+        (
+            " M runtime/learning_engine/shadow_ledger.json",
+            " M docs/FCF_PROJECT_CONTROL_CENTER.md",
+        )
+    )
+
+    plan = build_runtime_learning_restore_plan(records)
+
+    assert plan.paths_to_restore == ("runtime/learning_engine/shadow_ledger.json",)
+    assert plan.blocked_dirty_paths == ("docs/FCF_PROJECT_CONTROL_CENTER.md",)
+    assert plan.restore_required is True
+
+
+def test_restore_plan_deduplicates_paths():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+    )
+
+    records = parse_git_status_lines(
+        (
+            " M runtime/operator_console/p13_final_closeout_summary.json",
+            " M runtime/operator_console/p13_final_closeout_summary.json",
+        )
+    )
+
+    plan = build_runtime_learning_restore_plan(records)
+
+    assert plan.paths_to_restore == ("runtime/operator_console/p13_final_closeout_summary.json",)
+
+
+def test_restore_plan_allows_closeout_when_no_unknown_dirty_files():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+        restore_plan_allows_closeout,
+    )
+
+    records = parse_git_status_lines((" M runtime/learning_engine/shadow_ledger.json",))
+    plan = build_runtime_learning_restore_plan(records)
+
+    assert restore_plan_allows_closeout(plan) is True
+
+
+def test_restore_plan_blocks_closeout_when_unknown_dirty_files_exist():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        build_runtime_learning_restore_plan,
+        parse_git_status_lines,
+        restore_plan_allows_closeout,
+    )
+
+    records = parse_git_status_lines((" M docs/FCF_PROJECT_CONTROL_CENTER.md",))
+    plan = build_runtime_learning_restore_plan(records)
+
+    assert restore_plan_allows_closeout(plan) is False
