@@ -125,3 +125,54 @@ Guard rule:
 If any protected handoff artifact has drift reason codes, the packet fails.
 
 The packet is paper-only, local-only, read-only, and cannot repair or overwrite source files.
+
+## D6 Final Workflow Handoff And Closeout
+
+Status: completed.
+
+Purpose:
+D6 closes CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1 with a deterministic final closeout summary.
+
+Completed stages:
+- D1 freshness contract
+- D2 handoff source loader
+- D3 freshness snapshot builder
+- D4 freshness drift detector
+- D5 freshness guard packet
+- D6 final workflow handoff and closeout
+
+Protected handoff artifacts:
+- docs/FCF_PROJECT_CONTROL_CENTER.md
+- FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md
+- FCF_NEW_WINDOW_CHAT_PROMPT.md
+- docs/HANDOFF_PROMPT.md
+- FCF_CURRENT_STATE_*.md
+
+Final capability:
+- UTF-8 handoff source loading
+- commit hash extraction
+- pytest count extraction
+- phase token extraction
+- freshness snapshot generation
+- drift detection
+- guard packet generation
+- final closeout generation
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only governance validation
+- sidecar-only
+- operator review required
+- no P48
+- no core mutation
+- no real trading
+- no broker API
+- no exchange API
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy

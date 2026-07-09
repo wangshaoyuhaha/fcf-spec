@@ -297,3 +297,35 @@ def build_handoff_freshness_guard_packet(
         reason_codes=unique_reason_codes,
         blocked_paths=unique_blocked_paths,
     )
+
+
+@dataclass(frozen=True)
+class HandoffFreshnessCloseout:
+    app_id: str
+    completed_stages: tuple[str, ...]
+    final_status: str
+    guard_passed: bool
+    blocked_sources: int
+    reason_codes: tuple[str, ...]
+    safety_boundary: tuple[str, ...]
+
+
+def build_handoff_freshness_closeout(
+    packet: HandoffFreshnessGuardPacket,
+) -> HandoffFreshnessCloseout:
+    return HandoffFreshnessCloseout(
+        app_id=packet.app_id,
+        completed_stages=(
+            "D1 freshness contract",
+            "D2 handoff source loader",
+            "D3 freshness snapshot builder",
+            "D4 freshness drift detector",
+            "D5 freshness guard packet",
+            "D6 final workflow handoff and closeout",
+        ),
+        final_status="PASS" if packet.passed else "BLOCKED",
+        guard_passed=packet.passed,
+        blocked_sources=packet.blocked_sources,
+        reason_codes=packet.reason_codes,
+        safety_boundary=REQUIRED_SAFETY_TERMS,
+    )

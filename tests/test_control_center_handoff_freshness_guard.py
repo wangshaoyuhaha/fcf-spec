@@ -372,3 +372,41 @@ def test_empty_guard_packet_is_passing_noop():
     assert packet.passed is True
     assert packet.reason_codes == ()
     assert packet.blocked_paths == ()
+
+
+def test_builds_passing_handoff_freshness_closeout():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffDriftRecord,
+        build_handoff_freshness_closeout,
+        build_handoff_freshness_guard_packet,
+    )
+
+    packet = build_handoff_freshness_guard_packet((HandoffDriftRecord("fresh.md", ()),))
+    closeout = build_handoff_freshness_closeout(packet)
+
+    assert closeout.app_id == "CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1"
+    assert closeout.final_status == "PASS"
+    assert closeout.guard_passed is True
+    assert closeout.blocked_sources == 0
+    assert closeout.reason_codes == ()
+    assert "D6 final workflow handoff and closeout" in closeout.completed_stages
+    assert "paper-only" in closeout.safety_boundary
+    assert "no deploy" in closeout.safety_boundary
+
+
+def test_builds_blocked_handoff_freshness_closeout():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffDriftRecord,
+        build_handoff_freshness_closeout,
+        build_handoff_freshness_guard_packet,
+    )
+
+    packet = build_handoff_freshness_guard_packet(
+        (HandoffDriftRecord("stale.md", ("STALE_COMMIT_REFERENCE",)),)
+    )
+    closeout = build_handoff_freshness_closeout(packet)
+
+    assert closeout.final_status == "BLOCKED"
+    assert closeout.guard_passed is False
+    assert closeout.blocked_sources == 1
+    assert closeout.reason_codes == ("STALE_COMMIT_REFERENCE",)
