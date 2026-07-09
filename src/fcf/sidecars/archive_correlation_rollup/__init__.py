@@ -19,6 +19,10 @@ from .source_references import (
     build_reference_index,
     validate_artifact_reference,
 )
+from .trace_summary import (
+    build_trace_summary,
+    classify_trace_summary,
+)
 
 __all__ = [
     "ALLOWED_ROLLUP_STATUSES",
@@ -29,6 +33,8 @@ __all__ = [
     "build_chain_coverage_matrix",
     "build_correlation_rollup_contract",
     "build_reference_index",
+    "build_trace_summary",
+    "classify_trace_summary",
     "summarize_chain_coverage",
     "validate_artifact_reference",
 ]
