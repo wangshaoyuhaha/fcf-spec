@@ -786,3 +786,110 @@ def write_completion_index_guard_packet_md(packet: CompletionIndexGuardPacket, o
 def build_completion_index_guard_packet_from_sources(records: Iterable[CompletionIndexSourceRecord]) -> CompletionIndexGuardPacket:
     matrix = build_completion_index_matrix_from_sources(records)
     return build_completion_index_guard_packet(matrix)
+
+
+@dataclass(frozen=True)
+class CompletionIndexCloseout:
+    app_id: str
+    completed_stages: List[str]
+    final_status: str
+    validation_required: bool
+    merge_ready: bool
+    paper_only: bool
+    local_only: bool
+    read_only: bool
+    sidecar_only: bool
+    operator_review_required: bool
+    no_real_trading: bool
+    no_tag_release_deploy: bool
+
+
+def build_completion_index_closeout() -> CompletionIndexCloseout:
+    return CompletionIndexCloseout(
+        app_id="CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1",
+        completed_stages=[
+            "D1 completion index contract",
+            "D2 completion source loader",
+            "D3 completion entry builder",
+            "D4 completion index matrix",
+            "D5 completion index guard packet",
+            "D6 final workflow handoff and closeout",
+        ],
+        final_status="READY_FOR_MAIN_MERGE",
+        validation_required=True,
+        merge_ready=True,
+        paper_only=True,
+        local_only=True,
+        read_only=True,
+        sidecar_only=True,
+        operator_review_required=True,
+        no_real_trading=True,
+        no_tag_release_deploy=True,
+    )
+
+
+def assert_completion_index_closeout_safe(closeout: CompletionIndexCloseout) -> None:
+    if not closeout.merge_ready:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_CLOSEOUT_NOT_MERGE_READY")
+    if not closeout.paper_only:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_CLOSEOUT_PAPER_ONLY_REQUIRED")
+    if not closeout.local_only:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_CLOSEOUT_LOCAL_ONLY_REQUIRED")
+    if not closeout.read_only:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_CLOSEOUT_READ_ONLY_REQUIRED")
+    if not closeout.sidecar_only:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_CLOSEOUT_SIDECAR_ONLY_REQUIRED")
+    if not closeout.operator_review_required:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_CLOSEOUT_OPERATOR_REVIEW_REQUIRED")
+    if not closeout.no_real_trading:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_CLOSEOUT_REAL_TRADING_FORBIDDEN")
+    if not closeout.no_tag_release_deploy:
+        raise ValueError("CONTROL_CENTER_COMPLETION_INDEX_CLOSEOUT_TAG_RELEASE_DEPLOY_FORBIDDEN")
+
+
+def render_completion_index_closeout_md(closeout: CompletionIndexCloseout) -> str:
+    lines: List[str] = [
+        "# CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1 D6 Final Closeout",
+        "",
+        "## App",
+        "",
+        f"- app_id: {closeout.app_id}",
+        f"- final_status: {closeout.final_status}",
+        f"- validation_required: {str(closeout.validation_required).lower()}",
+        f"- merge_ready: {str(closeout.merge_ready).lower()}",
+        "",
+        "## Completed Stages",
+        "",
+    ]
+
+    for stage in closeout.completed_stages:
+        lines.append(f"- {stage}")
+
+    lines.extend(
+        [
+            "",
+            "## Safety Boundary",
+            "",
+            f"- paper_only: {str(closeout.paper_only).lower()}",
+            f"- local_only: {str(closeout.local_only).lower()}",
+            f"- read_only: {str(closeout.read_only).lower()}",
+            f"- sidecar_only: {str(closeout.sidecar_only).lower()}",
+            f"- operator_review_required: {str(closeout.operator_review_required).lower()}",
+            f"- no_real_trading: {str(closeout.no_real_trading).lower()}",
+            f"- no_tag_release_deploy: {str(closeout.no_tag_release_deploy).lower()}",
+            "",
+            "## Final Handoff",
+            "",
+            "CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1 protects the control center completion index from missing entries, duplicate app IDs, duplicate final current-state files, invalid commit references, dirty status records, unsynced origin/main records, and unsafe tag / release / deploy records.",
+            "",
+            "This sidecar does not mutate core logic and does not enable trading execution.",
+            "",
+        ]
+    )
+
+    return "\n".join(lines)
+
+
+def write_completion_index_closeout_md(output_path: str | Path) -> None:
+    closeout = build_completion_index_closeout()
+    write_text_utf8_lf(output_path, render_completion_index_closeout_md(closeout))

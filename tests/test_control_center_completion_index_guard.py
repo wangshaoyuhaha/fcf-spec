@@ -766,3 +766,68 @@ def test_build_completion_index_guard_packet_from_sources() -> None:
     assert packet.status == "PASS"
     assert packet.expected_count == 1
     assert packet.actual_count == 1
+
+
+def test_build_completion_index_closeout_safe() -> None:
+    from scripts.control_center_completion_index_guard import (
+        assert_completion_index_closeout_safe,
+        build_completion_index_closeout,
+    )
+
+    closeout = build_completion_index_closeout()
+
+    assert closeout.app_id == "CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1"
+    assert closeout.final_status == "READY_FOR_MAIN_MERGE"
+    assert closeout.validation_required is True
+    assert closeout.merge_ready is True
+    assert closeout.paper_only is True
+    assert closeout.local_only is True
+    assert closeout.read_only is True
+    assert closeout.sidecar_only is True
+    assert closeout.operator_review_required is True
+    assert closeout.no_real_trading is True
+    assert closeout.no_tag_release_deploy is True
+    assert_completion_index_closeout_safe(closeout)
+
+
+def test_render_completion_index_closeout_md_contains_boundary() -> None:
+    from scripts.control_center_completion_index_guard import (
+        build_completion_index_closeout,
+        render_completion_index_closeout_md,
+    )
+
+    text = render_completion_index_closeout_md(build_completion_index_closeout())
+
+    assert "# CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1 D6 Final Closeout" in text
+    assert "- paper_only: true" in text
+    assert "- local_only: true" in text
+    assert "- read_only: true" in text
+    assert "- sidecar_only: true" in text
+    assert "- operator_review_required: true" in text
+    assert "- no_real_trading: true" in text
+    assert "- no_tag_release_deploy: true" in text
+
+
+def test_completion_index_closeout_stage_names() -> None:
+    from scripts.control_center_completion_index_guard import build_completion_index_closeout
+
+    closeout = build_completion_index_closeout()
+    joined = "\n".join(closeout.completed_stages)
+
+    assert "D1 completion index contract" in joined
+    assert "D2 completion source loader" in joined
+    assert "D3 completion entry builder" in joined
+    assert "D4 completion index matrix" in joined
+    assert "D5 completion index guard packet" in joined
+    assert "D6 final workflow handoff and closeout" in joined
+
+
+def test_write_completion_index_closeout_md(tmp_path: Path) -> None:
+    from scripts.control_center_completion_index_guard import write_completion_index_closeout_md
+
+    output = tmp_path / "closeout.md"
+    write_completion_index_closeout_md(output)
+
+    text = output.read_text(encoding="utf-8")
+    assert text.startswith("# CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1 D6 Final Closeout")
+    assert "READY_FOR_MAIN_MERGE" in text
