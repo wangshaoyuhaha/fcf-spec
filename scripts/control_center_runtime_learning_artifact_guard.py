@@ -139,3 +139,71 @@ def build_runtime_learning_restore_plan(
 
 def restore_plan_allows_closeout(plan: RuntimeLearningRestorePlan) -> bool:
     return not plan.blocked_dirty_paths
+
+
+@dataclass(frozen=True)
+class RuntimeEvidenceCollision:
+    runtime_path: str
+    evidence_path: str
+    reason_code: str
+
+
+@dataclass(frozen=True)
+class RuntimeEvidenceExclusionResult:
+    passed: bool
+    collisions: tuple[RuntimeEvidenceCollision, ...]
+    reason_codes: tuple[str, ...]
+
+
+def validate_runtime_artifacts_excluded_from_evidence(
+    runtime_paths: tuple[str, ...],
+    evidence_source_paths: tuple[str, ...],
+) -> RuntimeEvidenceExclusionResult:
+    normalized_runtime_paths = tuple(normalize_path(path) for path in runtime_paths)
+    normalized_evidence_paths = tuple(normalize_path(path) for path in evidence_source_paths)
+
+    collisions: list[RuntimeEvidenceCollision] = []
+
+    for runtime_path in normalized_runtime_paths:
+        for evidence_path in normalized_evidence_paths:
+            if runtime_path == evidence_path:
+                collisions.append(
+                    RuntimeEvidenceCollision(
+                        runtime_path=runtime_path,
+                        evidence_path=evidence_path,
+                        reason_code="RUNTIME_ARTIFACT_USED_AS_EVIDENCE_SOURCE",
+                    )
+                )
+
+    reason_codes = tuple(dict.fromkeys(collision.reason_code for collision in collisions))
+
+    return RuntimeEvidenceExclusionResult(
+        passed=not collisions,
+        collisions=tuple(collisions),
+        reason_codes=reason_codes,
+    )
+
+
+def validate_runtime_artifact_path_not_promoted(path: str) -> RuntimeLearningArtifactValidation:
+    normalized = normalize_path(path)
+    reasons: list[str] = []
+
+    if is_runtime_learning_artifact_path(normalized):
+        reasons.append("RUNTIME_ARTIFACT_PATH_NOT_PROMOTABLE")
+
+    if normalized.startswith("FCF_CURRENT_STATE_"):
+        reasons.append("FINAL_CURRENT_STATE_PATH_RESERVED")
+
+    if normalized.startswith("FCF_PROJECT_BACKEND_HANDOFF"):
+        reasons.append("BACKEND_HANDOFF_PATH_RESERVED")
+
+    if normalized.startswith("FCF_NEW_WINDOW_CHAT_PROMPT"):
+        reasons.append("NEW_WINDOW_PROMPT_PATH_RESERVED")
+
+    if normalized == "docs/FCF_PROJECT_CONTROL_CENTER.md":
+        reasons.append("CONTROL_CENTER_PATH_RESERVED")
+
+    return RuntimeLearningArtifactValidation(
+        passed=not reasons,
+        reason_codes=tuple(dict.fromkeys(reasons)),
+    )

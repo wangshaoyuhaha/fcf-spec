@@ -67,3 +67,17 @@ D3 rules:
 - restore plan is local-only and read-only governance metadata
 - restore plan does not mutate files by itself
 - final clean state still requires explicit git restore execution
+
+## D4 Final Evidence Exclusion Guard
+
+Status: D4 completed.
+
+Purpose:
+Prevent runtime learning artifacts from being treated as final evidence, handoff source truth, or control center truth.
+
+D4 rules:
+- runtime learning artifact paths must not appear in final evidence source lists
+- runtime learning artifact paths must not be promoted to FCF_CURRENT_STATE files
+- runtime learning artifact paths must not be used as new-window handoff truth
+- runtime learning artifact paths must not be used as control center state truth
+- collisions are blocking governance issues

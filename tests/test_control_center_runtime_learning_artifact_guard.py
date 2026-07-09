@@ -262,3 +262,92 @@ def test_restore_plan_blocks_closeout_when_unknown_dirty_files_exist():
     plan = build_runtime_learning_restore_plan(records)
 
     assert restore_plan_allows_closeout(plan) is False
+
+
+def test_runtime_artifacts_are_excluded_from_final_evidence_sources_when_absent():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        RUNTIME_LEARNING_ARTIFACT_PATHS,
+        validate_runtime_artifacts_excluded_from_evidence,
+    )
+
+    result = validate_runtime_artifacts_excluded_from_evidence(
+        runtime_paths=RUNTIME_LEARNING_ARTIFACT_PATHS,
+        evidence_source_paths=(
+            "FCF_CURRENT_STATE_CONTROL_CENTER_HANDOFF_FRESHNESS_GUARD_APP_1_FINAL.md",
+            "docs/FCF_PROJECT_CONTROL_CENTER.md",
+        ),
+    )
+
+    assert result.passed is True
+    assert result.collisions == ()
+    assert result.reason_codes == ()
+
+
+def test_runtime_artifacts_are_blocked_when_used_as_evidence_sources():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        RUNTIME_LEARNING_ARTIFACT_PATHS,
+        validate_runtime_artifacts_excluded_from_evidence,
+    )
+
+    result = validate_runtime_artifacts_excluded_from_evidence(
+        runtime_paths=RUNTIME_LEARNING_ARTIFACT_PATHS,
+        evidence_source_paths=(
+            "runtime/learning_engine/shadow_ledger.json",
+            "FCF_CURRENT_STATE_ALPHA_FINAL.md",
+        ),
+    )
+
+    assert result.passed is False
+    assert result.reason_codes == ("RUNTIME_ARTIFACT_USED_AS_EVIDENCE_SOURCE",)
+    assert result.collisions[0].runtime_path == "runtime/learning_engine/shadow_ledger.json"
+
+
+def test_runtime_artifact_path_cannot_be_promoted():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        validate_runtime_artifact_path_not_promoted,
+    )
+
+    result = validate_runtime_artifact_path_not_promoted(
+        "runtime/operator_console/ai_learning_audit_report.json"
+    )
+
+    assert result.passed is False
+    assert "RUNTIME_ARTIFACT_PATH_NOT_PROMOTABLE" in result.reason_codes
+
+
+def test_reserved_final_current_state_path_is_detected():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        validate_runtime_artifact_path_not_promoted,
+    )
+
+    result = validate_runtime_artifact_path_not_promoted("FCF_CURRENT_STATE_ALPHA_FINAL.md")
+
+    assert result.passed is False
+    assert "FINAL_CURRENT_STATE_PATH_RESERVED" in result.reason_codes
+
+
+def test_reserved_handoff_paths_are_detected():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        validate_runtime_artifact_path_not_promoted,
+    )
+
+    backend = validate_runtime_artifact_path_not_promoted(
+        "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md"
+    )
+    prompt = validate_runtime_artifact_path_not_promoted("FCF_NEW_WINDOW_CHAT_PROMPT.md")
+    control = validate_runtime_artifact_path_not_promoted("docs/FCF_PROJECT_CONTROL_CENTER.md")
+
+    assert "BACKEND_HANDOFF_PATH_RESERVED" in backend.reason_codes
+    assert "NEW_WINDOW_PROMPT_PATH_RESERVED" in prompt.reason_codes
+    assert "CONTROL_CENTER_PATH_RESERVED" in control.reason_codes
+
+
+def test_regular_non_runtime_path_can_pass_promotion_check():
+    from scripts.control_center_runtime_learning_artifact_guard import (
+        validate_runtime_artifact_path_not_promoted,
+    )
+
+    result = validate_runtime_artifact_path_not_promoted("docs/ordinary_note.md")
+
+    assert result.passed is True
+    assert result.reason_codes == ()
