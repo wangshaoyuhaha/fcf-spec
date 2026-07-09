@@ -1,4 +1,33 @@
-﻿Continue BTC finance platform / FCF financial market model project only.
+﻿# FCF CURRENT HANDOFF TRUTH - STALE MARKER CLEANUP APPLIED
+
+This section is the active current-state authority for this handoff file.
+
+Current completed phase:
+CONTROL-CENTER-GLOBAL-SCAN-CLASSIFICATION-GUARD-APP-1 is completed.
+
+Current main state:
+- main merge commit: ad16c03
+- final handoff sync commit: 8c18573
+- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
+- pytest: 1884 passed
+- git status: clean
+- origin/main: synced
+
+Stale marker rule:
+Any older "Approved but not started", "APPROVED NEXT PHASE", "Begin with D1",
+"Create sidecar branch", old validation count, or old next-phase candidate below
+this section is historical unless explicitly re-approved by the operator.
+
+Current next action:
+Architecture gap review or explicitly approved next phase only.
+
+Safety:
+paper-only / local-only / read-only / sidecar-only / operator review required.
+No P48. No core mutation. No real trading. No broker/exchange API. No API key.
+No wallet private key. No buy/sell/order. No tag/release/deploy.
+
+---
+Continue BTC finance platform / FCF financial market model project only.
 Do not switch to football project.
 
 Read these backend sources first:
@@ -139,3 +168,4 @@ No API key.
 No wallet private key.
 No buy/sell/order.
 No tag/release/deploy.
+
