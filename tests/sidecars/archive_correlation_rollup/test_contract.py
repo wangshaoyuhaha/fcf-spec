@@ -1,4 +1,12 @@
-﻿from fcf.sidecars.archive_correlation_rollup import (
+﻿import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[3]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from fcf.sidecars.archive_correlation_rollup import (
     ALLOWED_ROLLUP_STATUSES,
     ARCHIVE_CORRELATION_ROLLUP_APP_ID,
     CORRELATION_ROLLUP_REQUIRED_LINKS,
