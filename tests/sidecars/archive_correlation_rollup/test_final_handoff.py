@@ -38,6 +38,7 @@ def _complete_packet():
         references=references,
     )
     summary = build_trace_summary(matrix)
+
     return build_rollup_packet(
         trace_summary=summary,
         artifact_references=references,
@@ -54,7 +55,29 @@ def test_final_handoff_complete_goes_to_operator_review_only():
     assert handoff["final_gate"] == "OPERATOR_REVIEW_REQUIRED"
     assert handoff["operator_review_required"] is True
     assert handoff["auto_pass_allowed"] is False
-    assert result["final_action"] ==l_handoff(rollup_packet=_complete_packet())
+    assert result["final_action"] == "HANDOFF_TO_OPERATOR_REVIEW"
+    assert result["auto_pass_allowed"] is False
+
+
+def test_final_handoff_preserves_safety_boundary():
+    handoff = build_final_handoff(rollup_packet=_complete_packet())
+
+    assert handoff["paper_only"] is True
+    assert handoff["local_only"] is True
+    assert handoff["read_only"] is True
+    assert handoff["sidecar_only"] is True
+    assert handoff["index_only"] is True
+    assert handoff["source_mutation_allowed"] is False
+    assert handoff["core_mutation_allowed"] is False
+    assert handoff["p48_core_expansion_allowed"] is False
+    assert handoff["evidence_backfill_allowed"] is False
+    assert handoff["correlation_id_auto_fill_allowed"] is False
+    assert handoff["placeholder_review_allowed"] is False
+    assert handoff["ui_dashboard_panel_allowed"] is False
+
+
+def test_final_handoff_forbids_execution_release_and_credentials():
+    handoff = build_final_handoff(rollup_packet=_complete_packet())
 
     assert handoff["tag_allowed"] is False
     assert handoff["release_allowed"] is False
