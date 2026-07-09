@@ -3684,3 +3684,19 @@ No wallet private key.
 No buy/sell/order.
 No tag/release/deploy.
 
+
+### UI-RISK-FLAG-VISIBILITY-APP-1 D2
+
+Status: completed on sidecar branch after validation.
+Scope: protected risk metadata visibility schema.
+Protected fields: risk_flags, reason_codes, review_status, blocked_reasons, conflict_signals, missing_required_fields, unsafe_permissions, operator_review_required, circuit_break, correlation_id, source_artifact, evidence_chain_status.
+Required behavior: REVIEW_REQUIRED must not auto-pass; CIRCUIT_BREAK must not downgrade; conflict, missing-field, unsafe-permission, and abnormal evidence-chain markers must route to operator review.
+Deliverables: UI_RISK_FLAG_VISIBILITY_SCHEMA_D2.md, d2_visibility_packet.json, test_ui_risk_flag_visibility_schema_d2.py.
+
+### UI-RISK-FLAG-VISIBILITY-APP-1 D3
+
+Status: completed on sidecar branch after validation.
+Scope: visibility preservation validator.
+Validator checks that protected risk metadata remains visible across rendered packets.
+Validator rejects missing risk_flags, missing reason_codes, REVIEW_REQUIRED downgrade, CIRCUIT_BREAK downgrade, removed operator review requirement, removed conflict markers, removed missing-field markers, removed unsafe-permission markers, removed correlation_id, and removed source_artifact.
+Deliverables: UI_RISK_FLAG_VISIBILITY_VALIDATOR_D3.md, sidecars/ui_risk_flag_visibility_app_1/visibility_validator.py, test_ui_risk_flag_visibility_validator_d3.py.
