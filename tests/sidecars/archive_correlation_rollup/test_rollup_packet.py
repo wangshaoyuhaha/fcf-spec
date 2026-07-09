@@ -16,29 +16,52 @@ from fcf.sidecars.archive_correlation_rollup import (
 )
 
 
-def _tion = classify_rollup_packet(packet)
+def _present_reference(link_type, correlation_id="corr-1", status="PRESENT"):
+    return build_artifact_reference(
+        link_type=link_type,
+        artifact_id=f"{link_type}-1",
+        artifact_path=f"runtime/archive/{link_type}-1.json",
+        correlation_id=correlation_id,
+        status=status,
+        source_stage="existing-sidecar",
+    )
 
-    assert packet["packet_type"] == "correlation_rollup_packet"
-    assert packet["stage"] == "D5"
-    assert packet["rollup_status"] == "COMPLETE"
-    assert packet["review_gate"] == "OPERATOR_REVIEW_REQUIRED"
-    assert packet["operator_review_required"] is True
-    assert packet["auto_pass_allowed"] is False
-    assert classification["packet_action"] == "QUEUE_OPERATOR_REVIEW"
-    assert classification["auto_pass_allowed"] is False
+
+def _complete_references():
+    return [
+        _present_reference(link_type)
+        for link_type in CORRELATION_ROLLUP_REQUIRED_LINKS
+    ]
 
 
-def test_rollup_packet_is_read_only_index_only_sidecar():
-    references = _complete_references()
+def _packet_from_references(references):
     matrix = build_chain_coverage_matrix(
         correlation_id="corr-1",
         references=references,
     )
     summary = build_trace_summary(matrix)
-    packet = build_rollup_packet(
+    return build_rollup_packet(
         trace_summary=summary,
         artifact_references=references,
     )
+
+
+def test_rollup_packet_complete_requires_operator_review():
+    packet = _packet_from_references(_complete_references())
+    result = classify_rollup_packet(packet)
+
+    assert packet["stage"] == "D5"
+    assert packet["packet_type"] == "correlation_rollup_packet"
+    assert packet["rollup_status"] == "COMPLETE"
+    assert packet["review_gate"] == "OPERATOR_REVIEW_REQUIRED"
+    assert packet["operator_review_required"] is True
+    assert packet["auto_pass_allowed"] is False
+    assert result["packet_action"] == "QUEUE_OPERATOR_REVIEW"
+    assert result["auto_pass_allowed"] is False
+
+
+def test_rollup_packet_keeps_all_safety_flags_false():
+    packet = _packet_from_references(_complete_references())
 
     assert packet["paper_only"] is True
     assert packet["local_only"] is True
@@ -52,20 +75,6 @@ def test_rollup_packet_is_read_only_index_only_sidecar():
     assert packet["ui_dashboard_panel_allowed"] is False
     assert packet["core_mutation_allowed"] is False
     assert packet["p48_core_expansion_allowed"] is False
-
-
-def test_rollup_packet_forbids_execution_and_release_actions():
-    references = _complete_references()
-    matrix = build_chain_coverage_matrix(
-        correlation_id="corr-1",
-        references=references,
-    )
-    summary = build_trace_summary(matrix)
-    packet = build_rollup_packet(
-        trace_summary=summary,
-        artifact_references=references,
-    )
-
     assert packet["tag_allowed"] is False
     assert packet["release_allowed"] is False
     assert packet["deploy_allowed"] is False
@@ -81,47 +90,25 @@ def test_rollup_packet_forbids_execution_and_release_actions():
     assert packet["auto_portfolio_action_allowed"] is False
 
 
-def test_rollup_packet_marks_incomplete_without_backfill():
-    references = [_present_reference("data_snapshot")]
-    matrix = build_chain_coverage_matrix(
-        correlation_id="corr-1",
-        references=references,
-    )
-    summary = build_trace_summary(matrix)
-    packet = build_rollup_packet(
-        trace_summary=summary,
-        artifact_references=references,
-    )
-    classification = classify_rollup_packet(packet)
+def test_rollup_packet_marks_incomplete_without_repair():
+    packet = _packet_from_references([_present_reference("data_snapshot")])
+    result = classify_rollup_packet(packet)
 
     assert packet["rollup_status"] == "INCOMPLETE"
-    assert classification["packet_action"] == "MARK_INCOMPLETE"
-    assert packet["evidence_backfill_allowed"] is False
-    assert classification["auto_repair_allowed"] is False
+    assert result["packet_action"] == "MARK_INCOMPLETE"
+    assert result["auto_repair_allowed"] is False
+    assert result["evidence_backfill_allowed"] is False
 
 
 def test_rollup_packet_marks_stale_without_placeholder_review():
     references = _complete_references()
-    references[4] = build_artifact_reference(
-        link_type="review_packet",
-        artifact_id="review-stale",
-        artifact_path="runtime/archive/review-stale.json",
-        correlation_id="corr-1",
-        status="STALE",
-    )
-    matrix = build_chain_coverage_matrix(
-        correlation_id="corr-1",
-        references=references,
-    )
-    summary = build_trace_summary(matrix)
-    packet = build_rollup_packet(
-        trace_summary=summary,
-        artifact_references=references,
-    )
-    classification = classify_rollup_packet(packet)
+    references[4] = _present_reference("review_packet", status="STALE")
+
+    packet = _packet_from_references(references)
+    result = classify_rollup_packet(packet)
 
     assert packet["rollup_status"] == "STALE"
-    assert classification["packet_action"] == "MARK_STALE"
+    assert result["packet_action"] == "MARK_STALE"
     assert packet["placeholder_review_allowed"] is False
 
 
@@ -131,28 +118,19 @@ def test_rollup_packet_marks_unresolved_without_auto_fill():
         "ai_explanation",
         correlation_id="corr-2",
     )
-    matrix = build_chain_coverage_matrix(
-        correlation_id="corr-1",
-        references=references,
-    )
-    summary = build_trace_summary(matrix)
-    packet = build_rollup_packet(
-        trace_summary=summary,
-        artifact_references=references,
-    )
-    classification = classify_rollup_packet(packet)
+
+    packet = _packet_from_references(references)
+    result = classify_rollup_packet(packet)
 
     assert packet["rollup_status"] == "UNRESOLVED"
-    assert classification["packet_action"] == "MARK_UNRESOLVED"
+    assert result["packet_action"] == "MARK_UNRESOLVED"
     assert packet["correlation_id_auto_fill_allowed"] is False
 
 
 def test_rollup_packet_requires_correlation_id():
     try:
         build_rollup_packet(
-            trace_summary={
-                "rollup_status": "UNRESOLVED",
-            },
+            trace_summary={"rollup_status": "UNRESOLVED"},
             artifact_references=[],
         )
     except ValueError as exc:
