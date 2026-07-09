@@ -2,7 +2,7 @@
 
 ## D1 Freshness Contract
 
-Status: D1 completed.
+Status: completed.
 
 Purpose:
 CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1 prevents stale handoff claims across project control center, backend handoff files, new-window prompts, and final current-state files.
@@ -14,18 +14,6 @@ Protected records:
 - docs/HANDOFF_PROMPT.md
 - FCF_CURRENT_STATE_*.md
 
-Freshness fields:
-- current phase
-- latest main commit
-- merge commit
-- final current-state commit
-- pytest passed count
-- run_all_checks status
-- branch state
-- origin/main sync state
-- working tree clean state
-- no tag / no release / no deploy status
-
 Current baseline:
 - latest main commit: b757644
 - latest phase: CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1
@@ -35,8 +23,27 @@ Current baseline:
 - run_all_checks: passed
 - next phase: CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1
 
-D1 rule:
-A handoff artifact is fresh only when it references the latest approved baseline and does not contain stale phase, stale commit, stale test count, or unsafe runtime claims.
+## D2 Handoff Source Loader
+
+Status: completed.
+
+Purpose:
+D2 adds deterministic source discovery and UTF-8 loading for freshness-protected handoff artifacts.
+
+Source groups:
+- control center
+- backend handoff
+- new-window prompt
+- docs handoff prompt
+- final current-state files
+
+Loader rules:
+- load only tracked repo files
+- ignore missing optional files safely
+- preserve relative path identity
+- read text as UTF-8
+- never mutate loaded files
+- never infer freshness by LLM
 
 Safety boundary:
 - paper-only

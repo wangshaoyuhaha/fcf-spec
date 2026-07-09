@@ -1,5 +1,9 @@
-﻿from scripts.control_center_handoff_freshness_guard import (
+﻿from pathlib import Path
+
+from scripts.control_center_handoff_freshness_guard import (
     HandoffFreshnessBaseline,
+    discover_handoff_source_paths,
+    load_handoff_sources,
     validate_handoff_freshness_contract,
 )
 
@@ -94,3 +98,40 @@ def test_blocks_unsafe_runtime_reference():
     result = validate_handoff_freshness_contract(text, _baseline())
     assert result.passed is False
     assert "UNSAFE_RUNTIME_REFERENCE" in result.reason_codes
+
+
+def test_discovers_exact_handoff_sources_and_current_state_files(tmp_path: Path):
+    (tmp_path / "docs").mkdir()
+    (tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md").write_text("cc", encoding="utf-8")
+    (tmp_path / "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md").write_text("handoff", encoding="utf-8")
+    (tmp_path / "FCF_NEW_WINDOW_CHAT_PROMPT.md").write_text("prompt", encoding="utf-8")
+    (tmp_path / "FCF_CURRENT_STATE_TEST_FINAL.md").write_text("state", encoding="utf-8")
+    (tmp_path / "ignored.md").write_text("ignored", encoding="utf-8")
+
+    paths = discover_handoff_source_paths(tmp_path)
+    relatives = [path.relative_to(tmp_path).as_posix() for path in paths]
+
+    assert "docs/FCF_PROJECT_CONTROL_CENTER.md" in relatives
+    assert "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md" in relatives
+    assert "FCF_NEW_WINDOW_CHAT_PROMPT.md" in relatives
+    assert "FCF_CURRENT_STATE_TEST_FINAL.md" in relatives
+    assert "ignored.md" not in relatives
+
+
+def test_loads_handoff_sources_as_utf8_records(tmp_path: Path):
+    (tmp_path / "docs").mkdir()
+    (tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md").write_text("control center", encoding="utf-8")
+    (tmp_path / "FCF_CURRENT_STATE_ALPHA_FINAL.md").write_text("alpha state", encoding="utf-8")
+
+    records = load_handoff_sources(tmp_path)
+
+    assert {record.relative_path for record in records} == {
+        "docs/FCF_PROJECT_CONTROL_CENTER.md",
+        "FCF_CURRENT_STATE_ALPHA_FINAL.md",
+    }
+    assert {record.text for record in records} == {"control center", "alpha state"}
+
+
+def test_missing_optional_sources_are_ignored(tmp_path: Path):
+    records = load_handoff_sources(tmp_path)
+    assert records == ()
