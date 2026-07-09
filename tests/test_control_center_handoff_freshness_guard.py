@@ -301,3 +301,74 @@ def test_detects_drift_for_multiple_snapshots():
     assert len(drifts) == 2
     assert drifts[0].reason_codes == ()
     assert drifts[1].reason_codes
+
+
+def test_builds_passing_guard_packet_when_no_drift_exists():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffDriftRecord,
+        build_handoff_freshness_guard_packet,
+    )
+
+    drifts = (
+        HandoffDriftRecord("a.md", ()),
+        HandoffDriftRecord("b.md", ()),
+    )
+
+    packet = build_handoff_freshness_guard_packet(drifts)
+
+    assert packet.app_id == "CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1"
+    assert packet.total_sources == 2
+    assert packet.blocked_sources == 0
+    assert packet.passed is True
+    assert packet.reason_codes == ()
+    assert packet.blocked_paths == ()
+
+
+def test_builds_blocking_guard_packet_when_drift_exists():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffDriftRecord,
+        build_handoff_freshness_guard_packet,
+    )
+
+    drifts = (
+        HandoffDriftRecord("fresh.md", ()),
+        HandoffDriftRecord("stale.md", ("STALE_COMMIT_REFERENCE", "MISSING_LATEST_PHASE")),
+    )
+
+    packet = build_handoff_freshness_guard_packet(drifts)
+
+    assert packet.total_sources == 2
+    assert packet.blocked_sources == 1
+    assert packet.passed is False
+    assert packet.reason_codes == ("STALE_COMMIT_REFERENCE", "MISSING_LATEST_PHASE")
+    assert packet.blocked_paths == ("stale.md",)
+
+
+def test_guard_packet_deduplicates_reason_codes_and_paths():
+    from scripts.control_center_handoff_freshness_guard import (
+        HandoffDriftRecord,
+        build_handoff_freshness_guard_packet,
+    )
+
+    drifts = (
+        HandoffDriftRecord("a.md", ("STALE_COMMIT_REFERENCE",)),
+        HandoffDriftRecord("a.md", ("STALE_COMMIT_REFERENCE", "STALE_PHASE_REFERENCE")),
+    )
+
+    packet = build_handoff_freshness_guard_packet(drifts)
+
+    assert packet.blocked_sources == 2
+    assert packet.reason_codes == ("STALE_COMMIT_REFERENCE", "STALE_PHASE_REFERENCE")
+    assert packet.blocked_paths == ("a.md",)
+
+
+def test_empty_guard_packet_is_passing_noop():
+    from scripts.control_center_handoff_freshness_guard import build_handoff_freshness_guard_packet
+
+    packet = build_handoff_freshness_guard_packet(())
+
+    assert packet.total_sources == 0
+    assert packet.blocked_sources == 0
+    assert packet.passed is True
+    assert packet.reason_codes == ()
+    assert packet.blocked_paths == ()

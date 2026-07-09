@@ -261,3 +261,39 @@ def detect_handoff_freshness_drifts(
         )
         for snapshot in snapshots
     )
+
+
+@dataclass(frozen=True)
+class HandoffFreshnessGuardPacket:
+    app_id: str
+    total_sources: int
+    blocked_sources: int
+    passed: bool
+    reason_codes: tuple[str, ...]
+    blocked_paths: tuple[str, ...]
+
+
+def build_handoff_freshness_guard_packet(
+    drifts: tuple[HandoffDriftRecord, ...],
+    app_id: str = "CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1",
+) -> HandoffFreshnessGuardPacket:
+    blocked = tuple(drift for drift in drifts if drift.reason_codes)
+
+    reason_codes: list[str] = []
+    blocked_paths: list[str] = []
+
+    for drift in blocked:
+        blocked_paths.append(drift.relative_path)
+        reason_codes.extend(drift.reason_codes)
+
+    unique_reason_codes = tuple(dict.fromkeys(reason_codes))
+    unique_blocked_paths = tuple(dict.fromkeys(blocked_paths))
+
+    return HandoffFreshnessGuardPacket(
+        app_id=app_id,
+        total_sources=len(drifts),
+        blocked_sources=len(blocked),
+        passed=not blocked,
+        reason_codes=unique_reason_codes,
+        blocked_paths=unique_blocked_paths,
+    )

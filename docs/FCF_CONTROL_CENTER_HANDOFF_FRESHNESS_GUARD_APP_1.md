@@ -105,3 +105,23 @@ Detected drift:
 
 Rule:
 Any drift means the handoff artifact is not fresh and must not be used as a new-window source until repaired.
+
+## D5 Freshness Guard Packet
+
+Status: completed.
+
+Purpose:
+D5 adds a deterministic guard packet that summarizes freshness drift across all protected handoff artifacts.
+
+Packet fields:
+- app_id
+- total_sources
+- blocked_sources
+- passed
+- reason_codes
+- blocked_paths
+
+Guard rule:
+If any protected handoff artifact has drift reason codes, the packet fails.
+
+The packet is paper-only, local-only, read-only, and cannot repair or overwrite source files.
