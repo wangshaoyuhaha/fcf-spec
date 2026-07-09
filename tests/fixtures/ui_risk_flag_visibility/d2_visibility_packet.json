@@ -1,0 +1,30 @@
+﻿{
+    "candidate_id":  "D2_SAMPLE_PACKET",
+    "risk_flags":  [
+                       "REVIEW_REQUIRED",
+                       "CONFLICT_SIGNAL"
+                   ],
+    "reason_codes":  [
+                         "MISSING_REQUIRED_FIELD",
+                         "UNSAFE_PERMISSION"
+                     ],
+    "review_status":  "REVIEW_REQUIRED",
+    "blocked_reasons":  [
+                            "missing_required_fields",
+                            "unsafe_permissions"
+                        ],
+    "conflict_signals":  [
+                             "model_signal_conflict"
+                         ],
+    "missing_required_fields":  [
+                                    "evidence_chain_status"
+                                ],
+    "unsafe_permissions":  [
+                               "attempted_execution_permission"
+                           ],
+    "operator_review_required":  true,
+    "circuit_break":  true,
+    "correlation_id":  "D2-CORRELATION-SAMPLE",
+    "source_artifact":  "local-paper-only-sidecar-sample",
+    "evidence_chain_status":  "incomplete"
+}
