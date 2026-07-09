@@ -1,11 +1,16 @@
-﻿from pathlib import Path
+from pathlib import Path
 
 import pytest
 
 from scripts.control_center_encoding_guard import (
+    assert_guard_registry_ok,
     assert_utf8_readable,
+    build_guard_registry,
     check_utf8_readable,
+    classify_guarded_file,
+    discover_guarded_files,
     read_text_utf8_strict,
+    summarize_guard_registry,
     write_text_utf8,
 )
 
@@ -33,3 +38,56 @@ def test_encoding_guard_assert_raises_on_bad_file(tmp_path: Path) -> None:
     target.write_bytes(b"\xff")
     with pytest.raises(ValueError, match="CONTROL_CENTER_ENCODING_GUARD_FAILED"):
         assert_utf8_readable([target])
+
+
+def test_classify_guarded_files() -> None:
+    assert classify_guarded_file("docs/FCF_PROJECT_CONTROL_CENTER.md") == "CONTROL_CENTER"
+    assert classify_guarded_file("FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md") == "BACKEND_HANDOFF"
+    assert classify_guarded_file("FCF_NEW_WINDOW_CHAT_PROMPT.md") == "NEW_WINDOW_PROMPT"
+    assert classify_guarded_file("FCF_FINAL_ARCHITECTURE_GAP_AUDIT_REPORT.md") == "FINAL_AUDIT"
+    assert classify_guarded_file("FCF_CURRENT_STATE_TEST_APP_1_FINAL.md") == "FINAL_CURRENT_STATE"
+
+
+def test_discover_guarded_files_includes_defaults_audit_and_final_state(tmp_path: Path) -> None:
+    write_text_utf8(tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md", "# Final State\n")
+    guarded = discover_guarded_files(tmp_path)
+    assert "docs/FCF_PROJECT_CONTROL_CENTER.md" in guarded
+    assert "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md" in guarded
+    assert "FCF_NEW_WINDOW_CHAT_PROMPT.md" in guarded
+    assert "FCF_FINAL_ARCHITECTURE_GAP_AUDIT_REPORT.md" in guarded
+    assert "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md" in guarded
+
+
+def test_build_guard_registry_marks_status_and_policy(tmp_path: Path) -> None:
+    write_text_utf8(tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md", "# Control\n")
+    write_text_utf8(tmp_path / "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md", "# Handoff\n")
+    write_text_utf8(tmp_path / "FCF_NEW_WINDOW_CHAT_PROMPT.md", "# Prompt\n")
+    write_text_utf8(tmp_path / "FCF_FINAL_ARCHITECTURE_GAP_AUDIT_REPORT.md", "# Audit\n")
+    write_text_utf8(tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md", "# Final\n")
+
+    records = build_guard_registry(tmp_path)
+    status_by_path = {record.path: record.encoding_status for record in records}
+    assert status_by_path["docs/FCF_PROJECT_CONTROL_CENTER.md"] == "OK"
+    assert status_by_path["FCF_CURRENT_STATE_TEST_APP_1_FINAL.md"] == "OK"
+    assert {record.write_policy for record in records} == {"UTF8_LF_ONLY"}
+    assert {record.safety_scope for record in records} == {"PAPER_ONLY_LOCAL_ONLY_READ_ONLY_SIDECAR_ONLY"}
+
+
+def test_guard_registry_summary_counts_missing_and_ok(tmp_path: Path) -> None:
+    write_text_utf8(tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md", "# Control\n")
+    records = build_guard_registry(tmp_path)
+    summary = summarize_guard_registry(records)
+    assert summary["OK"] == 1
+    assert summary["MISSING"] >= 3
+
+
+def test_assert_guard_registry_ok_blocks_invalid_utf8(tmp_path: Path) -> None:
+    write_text_utf8(tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md", "# Control\n")
+    write_text_utf8(tmp_path / "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md", "# Handoff\n")
+    write_text_utf8(tmp_path / "FCF_NEW_WINDOW_CHAT_PROMPT.md", "# Prompt\n")
+    write_text_utf8(tmp_path / "FCF_FINAL_ARCHITECTURE_GAP_AUDIT_REPORT.md", "# Audit\n")
+    (tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md").write_bytes(b"\xff")
+
+    records = build_guard_registry(tmp_path)
+    with pytest.raises(ValueError, match="CONTROL_CENTER_ENCODING_REGISTRY_FAILED"):
+        assert_guard_registry_ok(records)
