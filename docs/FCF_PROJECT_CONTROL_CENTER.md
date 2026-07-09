@@ -3373,3 +3373,65 @@ Safety boundary:
 - no tag
 - no release
 - no deploy
+
+## CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1
+
+Status: completed and merged into main.
+
+Purpose:
+CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1 protects new-window handoff sources, backend handoff files, final current-state files, and the project control center from stale commit references, stale pytest counts, stale phase states, and unsafe runtime claims.
+
+Completed stages:
+- D1 freshness contract
+- D2 handoff source loader
+- D3 freshness snapshot builder
+- D4 freshness drift detector
+- D5 freshness guard packet
+- D6 final workflow handoff and closeout
+
+Protected records:
+- docs/FCF_PROJECT_CONTROL_CENTER.md
+- FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md
+- FCF_NEW_WINDOW_CHAT_PROMPT.md
+- docs/HANDOFF_PROMPT.md
+- FCF_CURRENT_STATE_*.md
+
+Final capability:
+- UTF-8 handoff source loading
+- protected handoff source discovery
+- commit hash extraction
+- pytest passed count extraction
+- phase token extraction
+- freshness snapshot builder
+- drift detector
+- guard packet
+- final closeout summary
+
+Latest merge commit:
+4f10b54 merge CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1 into main
+
+Final D6 commit:
+b296bdf add CONTROL-CENTER-HANDOFF-FRESHNESS-GUARD-APP-1 D6 final closeout
+
+Validation:
+- python scripts/run_all_checks.py = ALL CHECKS PASSED
+- python -m pytest -q = 1806 passed
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only governance validation
+- sidecar-only
+- operator review required
+- no P48
+- no core mutation
+- no real trading
+- no broker API
+- no exchange API
+- no API key
+- no buy button
+- no sell button
+- no order button
+- no tag
+- no release
+- no deploy
