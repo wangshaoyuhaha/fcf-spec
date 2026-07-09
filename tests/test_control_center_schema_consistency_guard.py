@@ -196,3 +196,136 @@ def test_assert_governance_sources_readable_blocks_missing(tmp_path: Path) -> No
 
     with pytest.raises(ValueError, match="CONTROL_CENTER_SCHEMA_SOURCE_READ_FAILED"):
         assert_governance_sources_readable(records)
+
+def test_normalize_field_name_aliases() -> None:
+    from scripts.control_center_schema_consistency_guard import normalize_field_name
+
+    assert normalize_field_name("Latest HEAD") == "latest_main_commit"
+    assert normalize_field_name("merge-commit") == "main_merge_commit"
+    assert normalize_field_name("D6 commit") == "final_branch_commit"
+    assert normalize_field_name("origin/main") == "origin_main"
+    assert normalize_field_name("git status") == "git_status"
+
+
+def test_canonicalize_fields_maps_aliases() -> None:
+    from scripts.control_center_schema_consistency_guard import canonicalize_fields
+
+    fields = {
+        "Latest HEAD": "abc1234 add final state",
+        "merge commit": "def5678 merge app",
+        "D6 commit": "9999999 closeout",
+        "origin/main": "synced",
+    }
+
+    canonical = canonicalize_fields(fields)
+
+    assert canonical["latest_main_commit"] == "abc1234 add final state"
+    assert canonical["main_merge_commit"] == "def5678 merge app"
+    assert canonical["final_branch_commit"] == "9999999 closeout"
+    assert canonical["origin_main"] == "synced"
+
+
+def test_normalize_commit_value_extracts_hash() -> None:
+    from scripts.control_center_schema_consistency_guard import normalize_commit_value
+
+    assert normalize_commit_value("65fba58 add final current state") == "65fba58"
+    assert normalize_commit_value("merge commit: 274fec0 merge app") == "274fec0"
+
+
+def test_normalize_status_text() -> None:
+    from scripts.control_center_schema_consistency_guard import normalize_status_text
+
+    assert normalize_status_text("ALL CHECKS PASSED") == "passed"
+    assert normalize_status_text("git status clean") == "clean"
+    assert normalize_status_text("origin/main synced") == "synced"
+    assert normalize_status_text("none") == "none"
+
+
+def test_build_final_state_record_from_alias_fields() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        build_final_state_record_from_fields,
+        validate_final_state_record,
+    )
+
+    fields = {
+        "app id": "APP",
+        "Latest HEAD": "65fba58 add final current state",
+        "merge commit": "274fec0 merge APP into main",
+        "D6 commit": "28b01bf add D6 final closeout",
+        "pytest": "1696 passed",
+        "git status": "clean",
+        "origin/main": "synced",
+        "tag": "none",
+        "release": "none",
+        "deploy": "none",
+    }
+
+    record = build_final_state_record_from_fields(fields)
+    result = validate_final_state_record(record)
+
+    assert record["latest_main_commit"] == "65fba58"
+    assert record["main_merge_commit"] == "274fec0"
+    assert record["final_branch_commit"] == "28b01bf"
+    assert result.status == "PASS"
+
+
+def test_build_stage_record_from_alias_fields() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        build_stage_record_from_fields,
+        validate_stage_record,
+    )
+
+    fields = {
+        "app id": "APP",
+        "stage id": "D3",
+        "status": "completed",
+        "branch": "sidecar-x",
+        "commit": "abc1234 add D3",
+        "validation": "passed",
+        "git status": "clean",
+        "paper only": "true",
+        "local only": "true",
+        "read only": "true",
+        "sidecar only": "true",
+        "operator review required": "true",
+        "real trading allowed": "false",
+        "broker api allowed": "false",
+        "exchange api allowed": "false",
+        "api key allowed": "false",
+        "buy button allowed": "false",
+        "sell button allowed": "false",
+        "order button allowed": "false",
+        "tag allowed": "false",
+        "release allowed": "false",
+        "deploy allowed": "false",
+    }
+
+    record = build_stage_record_from_fields(fields)
+    result = validate_stage_record(record)
+
+    assert record["commit"] == "abc1234"
+    assert record["safety_boundary"]["paper_only"] is True
+    assert record["safety_boundary"]["real_trading_allowed"] is False
+    assert result.status == "PASS"
+
+
+def test_validate_normalized_final_state_fields_blocks_release() -> None:
+    from scripts.control_center_schema_consistency_guard import validate_normalized_final_state_fields
+
+    fields = {
+        "app id": "APP",
+        "Latest HEAD": "65fba58 add final current state",
+        "merge commit": "274fec0 merge APP into main",
+        "D6 commit": "28b01bf add D6 final closeout",
+        "pytest": "1696 passed",
+        "git status": "clean",
+        "origin/main": "synced",
+        "tag": "none",
+        "release": "v1",
+        "deploy": "none",
+    }
+
+    result = validate_normalized_final_state_fields(fields)
+
+    assert result.status == "BLOCK"
+    assert "release:MUST_BE_NONE" in result.invalid_values

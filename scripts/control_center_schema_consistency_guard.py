@@ -262,3 +262,167 @@ def assert_governance_sources_readable(records: Iterable[GovernanceSourceRecord]
     if bad:
         details = "; ".join(f"{record.path}={record.utf8_status}" for record in sorted(bad, key=lambda item: item.path))
         raise ValueError(f"CONTROL_CENTER_SCHEMA_SOURCE_READ_FAILED: {details}")
+
+FIELD_ALIASES: Dict[str, str] = {
+    "latest_head": "latest_main_commit",
+    "latest_head_commit": "latest_main_commit",
+    "latest_main": "latest_main_commit",
+    "latest_commit": "latest_main_commit",
+    "head": "latest_main_commit",
+    "head_commit": "latest_main_commit",
+    "merge_commit": "main_merge_commit",
+    "main_merge": "main_merge_commit",
+    "d6_commit": "final_branch_commit",
+    "final_commit": "final_branch_commit",
+    "final_branch": "final_branch_commit",
+    "branch_final_commit": "final_branch_commit",
+    "origin": "origin_main",
+    "origin_main_status": "origin_main",
+    "origin/main": "origin_main",
+    "origin_main_synced": "origin_main",
+    "pytest": "validation",
+    "tests": "validation",
+    "test_result": "validation",
+    "validation_baseline": "validation",
+    "status": "status",
+    "final_status": "status",
+    "current_status": "status",
+    "git": "git_status",
+    "gitstatus": "git_status",
+    "worktree": "git_status",
+    "worktree_status": "git_status",
+    "tags": "tag",
+    "tag_status": "tag",
+    "release_status": "release",
+    "deploy_status": "deploy",
+}
+
+
+COMMIT_FIELD_NAMES: List[str] = [
+    "commit",
+    "latest_main_commit",
+    "main_merge_commit",
+    "final_branch_commit",
+]
+
+
+BOOLEAN_TEXT_TRUE = {"true", "yes", "y", "1", "enabled", "allowed"}
+BOOLEAN_TEXT_FALSE = {"false", "no", "n", "0", "disabled", "forbidden", "none"}
+
+
+def normalize_field_name(name: str) -> str:
+    normalized = name.strip().lower()
+    normalized = normalized.replace("`", "")
+    normalized = normalized.replace("/", "_")
+    normalized = normalized.replace("-", "_")
+    normalized = normalized.replace(" ", "_")
+    normalized = re.sub(r"[^a-z0-9_]+", "_", normalized)
+    normalized = re.sub(r"_+", "_", normalized).strip("_")
+    return FIELD_ALIASES.get(normalized, normalized)
+
+
+def normalize_field_value(value: object) -> str:
+    return str(value).strip().strip("`").strip()
+
+
+def canonicalize_fields(fields: Mapping[str, object]) -> Dict[str, str]:
+    canonical: Dict[str, str] = {}
+    for key, value in fields.items():
+        canonical_key = normalize_field_name(str(key))
+        canonical[canonical_key] = normalize_field_value(value)
+    return canonical
+
+
+def normalize_commit_value(value: object) -> str:
+    text = normalize_field_value(value)
+    match = re.search(r"\b[0-9a-f]{7,40}\b", text.lower())
+    if match:
+        return match.group(0)
+    return text
+
+
+def normalize_status_text(value: object) -> str:
+    text = normalize_field_value(value).lower()
+    if text in {"clean", "blank", "empty"}:
+        return "clean"
+    if "clean" in text:
+        return "clean"
+    if "synced" in text or "up to date" in text or "up-to-date" in text:
+        return "synced"
+    if "passed" in text or "all checks passed" in text:
+        return "passed"
+    if text in {"none", "no", "false"}:
+        return "none"
+    return text
+
+
+def normalize_boolean_text(value: object) -> bool | None:
+    text = normalize_field_value(value).lower()
+    if text in BOOLEAN_TEXT_TRUE:
+        return True
+    if text in BOOLEAN_TEXT_FALSE:
+        return False
+    return None
+
+
+def normalize_record_values(fields: Mapping[str, object]) -> Dict[str, object]:
+    canonical = canonicalize_fields(fields)
+    normalized: Dict[str, object] = {}
+
+    for key, value in canonical.items():
+        if key in COMMIT_FIELD_NAMES:
+            normalized[key] = normalize_commit_value(value)
+        elif key in {"validation", "git_status", "origin_main", "tag", "release", "deploy", "status"}:
+            normalized[key] = normalize_status_text(value)
+        elif key in REQUIRED_SAFETY_FLAGS:
+            boolean_value = normalize_boolean_text(value)
+            normalized[key] = boolean_value if boolean_value is not None else value
+        else:
+            normalized[key] = normalize_field_value(value)
+
+    return normalized
+
+
+def build_safety_boundary_from_fields(fields: Mapping[str, object]) -> Dict[str, object]:
+    normalized = normalize_record_values(fields)
+    boundary: Dict[str, object] = {}
+
+    for key in REQUIRED_SAFETY_FLAGS:
+        if key in normalized:
+            boundary[key] = normalized[key]
+
+    return boundary
+
+
+def build_stage_record_from_fields(fields: Mapping[str, object]) -> Dict[str, object]:
+    normalized = normalize_record_values(fields)
+    record: Dict[str, object] = {}
+
+    for key in REQUIRED_STAGE_KEYS:
+        if key == "safety_boundary":
+            boundary = build_safety_boundary_from_fields(fields)
+            if boundary:
+                record[key] = boundary
+        elif key in normalized:
+            record[key] = normalized[key]
+
+    return record
+
+
+def build_final_state_record_from_fields(fields: Mapping[str, object]) -> Dict[str, object]:
+    normalized = normalize_record_values(fields)
+    record: Dict[str, object] = {}
+
+    for key in REQUIRED_FINAL_STATE_KEYS:
+        if key in normalized:
+            record[key] = normalized[key]
+
+    return record
+
+
+def validate_normalized_final_state_fields(fields: Mapping[str, object]) -> SchemaConsistencyResult:
+    return validate_final_state_record(build_final_state_record_from_fields(fields))
+
+
+def validate_normalized_stage_fields(fields: Mapping[str, object]) -> SchemaConsistencyResult:
+    return validate_stage_record(build_stage_record_from_fields(fields))
