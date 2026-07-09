@@ -3684,3 +3684,38 @@ No wallet private key.
 No buy/sell/order.
 No tag/release/deploy.
 
+
+### D2 Protected Risk Metadata Schema
+
+D2 新增风险元数据保护字段清单，用于约束 UI、handoff、review、dashboard、export、archive 等展示层。
+
+必须保留并显式可见的字段：
+
+- risk_flags
+- reason_codes
+- review_status
+- blocked_reasons
+- conflict_signals
+- missing_required_fields
+- unsafe_permissions
+- operator_review_required
+- circuit_break
+- correlation_id
+- source_artifact
+- evidence_chain_status
+
+D2 明确：
+
+- REVIEW_REQUIRED 不得自动通过。
+- CIRCUIT_BREAK 不得降级。
+- conflict_signals 不得隐藏，必须进入 operator review。
+- missing_required_fields 不得隐藏，必须进入 operator review。
+- unsafe_permissions 不得隐藏，必须进入 operator review。
+- correlation_id 和 source_artifact 存在时必须保留。
+- evidence_chain_status 异常时必须显式展示并进入 operator review。
+
+D2 deliverables:
+
+- docs/sidecars/ui-risk-flag-visibility-app-1/UI_RISK_FLAG_VISIBILITY_SCHEMA_D2.md
+- tests/fixtures/ui_risk_flag_visibility/d2_visibility_packet.json
+- tests/test_ui_risk_flag_visibility_schema_d2.py
