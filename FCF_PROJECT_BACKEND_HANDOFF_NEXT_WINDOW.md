@@ -1,3 +1,50 @@
+
+FCF CURRENT HANDOFF TRUTH - ARCHIVE CORRELATION ROLLUP APPROVED
+
+Latest approved next phase:
+ARCHIVE-CORRELATION-ROLLUP-APP-1
+
+Current baseline before next development:
+- main HEAD: 8fafa06 sync handoff after UI-RISK-FLAG-VISIBILITY-APP-1 merge
+- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
+- pytest: 1963 passed
+- git status: clean
+- origin/main: synced
+- no tag / no release / no deploy
+
+Purpose:
+Turn correlation_id from preserved metadata into a read-only full-chain evidence index.
+
+Required route:
+ARCHIVE-CORRELATION-D1 sidecar boundary and correlation rollup contract
+ARCHIVE-CORRELATION-D2 read-only artifact source discovery
+ARCHIVE-CORRELATION-D3 correlation index schema
+ARCHIVE-CORRELATION-D4 evidence chain resolver
+ARCHIVE-CORRELATION-D5 rollup report and operator review warning packet
+ARCHIVE-CORRELATION-D6 final handoff and closeout
+
+Hard rule:
+Index missing evidence; do not repair it.
+Mark missing links as INCOMPLETE.
+Mark stale links as STALE.
+Mark unresolved links as UNRESOLVED.
+Do not auto-pass incomplete chains.
+Do not auto-fill missing correlation_id.
+Do not create placeholder review records.
+No UI dashboard panel in this phase.
+
+Roadmap priority:
+Priority 1: ARCHIVE-CORRELATION-ROLLUP-APP-1
+Priority 2: ARTIFACT-LIFECYCLE-REGISTRY-APP-1
+Priority 3: VALIDATION-BASELINE-REGISTRY-APP-1
+Priority 4: DASHBOARD-CONTRADICTION-SCANNER-APP-1
+Priority 5: OPERATOR-DECISION-IMMUTABILITY-GUARD-APP-1
+
+Boundary:
+P1-P47 frozen; no P48; no core mutation; sidecar-only; paper-only; local-only; read-only; operator review required.
+
+---
+
 FCF CURRENT HANDOFF TRUTH - UI RISK FLAG VISIBILITY APPLIED
 
 Latest completed phase:
