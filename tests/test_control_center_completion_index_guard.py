@@ -133,3 +133,115 @@ def test_validate_completion_index_uniqueness_blocks_duplicates() -> None:
 
     with pytest.raises(ValueError, match="CONTROL_CENTER_COMPLETION_INDEX_DUPLICATE_FAILED"):
         assert_completion_index_uniqueness_pass(result)
+
+from pathlib import Path
+
+
+def test_classify_completion_source() -> None:
+    from scripts.control_center_completion_index_guard import classify_completion_source
+
+    assert classify_completion_source("docs/FCF_PROJECT_CONTROL_CENTER.md") == "CONTROL_CENTER"
+    assert classify_completion_source("FCF_CURRENT_STATE_TEST_APP_1_FINAL.md") == "FINAL_CURRENT_STATE"
+    assert classify_completion_source("docs/OTHER.md") == "GOVERNANCE_DOCUMENT"
+
+
+def test_classify_completion_source_absolute_control_center_path(tmp_path: Path) -> None:
+    from scripts.control_center_completion_index_guard import classify_completion_source
+
+    target = tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md"
+
+    assert classify_completion_source(target) == "CONTROL_CENTER"
+
+
+def test_extract_completion_key_values() -> None:
+    from scripts.control_center_completion_index_guard import extract_completion_key_values
+
+    text = """
+# Header
+
+app_id: TEST-APP-1
+- git status: clean
+- origin/main: synced
+Final Current-State File: FCF_CURRENT_STATE_TEST_APP_1_FINAL.md
+"""
+
+    fields = extract_completion_key_values(text)
+
+    assert fields["app_id"] == "TEST-APP-1"
+    assert fields["git_status"] == "clean"
+    assert fields["origin_main"] == "synced"
+    assert fields["final_current_state_file"] == "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md"
+
+
+def test_discover_completion_sources(tmp_path: Path) -> None:
+    (tmp_path / "docs").mkdir()
+    (tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md").write_text("# Control\n", encoding="utf-8")
+    (tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md").write_text("# Final\n", encoding="utf-8")
+
+    from scripts.control_center_completion_index_guard import discover_completion_sources
+
+    sources = discover_completion_sources(tmp_path)
+
+    assert "docs/FCF_PROJECT_CONTROL_CENTER.md" in sources
+    assert "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md" in sources
+
+
+def test_load_completion_source_reads_utf8_and_fields(tmp_path: Path) -> None:
+    target = tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md"
+    target.write_text("app_id: TEST\nstatus: completed\n", encoding="utf-8")
+
+    from scripts.control_center_completion_index_guard import load_completion_source
+
+    record = load_completion_source(target)
+
+    assert record.exists is True
+    assert record.utf8_status == "OK"
+    assert record.source_kind == "FINAL_CURRENT_STATE"
+    assert record.extracted_fields["app_id"] == "TEST"
+
+
+def test_load_completion_source_reports_invalid_utf8(tmp_path: Path) -> None:
+    target = tmp_path / "FCF_CURRENT_STATE_BAD.md"
+    target.write_bytes(b"\xff")
+
+    from scripts.control_center_completion_index_guard import load_completion_source
+
+    record = load_completion_source(target)
+
+    assert record.exists is True
+    assert record.utf8_status == "UTF8_DECODE_ERROR"
+    assert record.extracted_fields == {}
+
+
+def test_load_and_summarize_completion_sources(tmp_path: Path) -> None:
+    (tmp_path / "docs").mkdir()
+    (tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md").write_text("status: completed\n", encoding="utf-8")
+    (tmp_path / "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md").write_text("app_id: TEST\n", encoding="utf-8")
+
+    from scripts.control_center_completion_index_guard import (
+        assert_completion_sources_readable,
+        load_completion_sources,
+        summarize_completion_sources,
+    )
+
+    records = load_completion_sources(tmp_path)
+    summary = summarize_completion_sources(records)
+
+    assert len(records) == 2
+    assert summary["CONTROL_CENTER:OK"] == 1
+    assert summary["FINAL_CURRENT_STATE:OK"] == 1
+    assert_completion_sources_readable(records)
+
+
+def test_assert_completion_sources_readable_blocks_missing(tmp_path: Path) -> None:
+    import pytest
+
+    from scripts.control_center_completion_index_guard import (
+        assert_completion_sources_readable,
+        load_completion_sources,
+    )
+
+    records = load_completion_sources(tmp_path)
+
+    with pytest.raises(ValueError, match="CONTROL_CENTER_COMPLETION_INDEX_SOURCE_READ_FAILED"):
+        assert_completion_sources_readable(records)
