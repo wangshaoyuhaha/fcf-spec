@@ -577,3 +577,115 @@ def default_consistency_fields() -> List[str]:
         "release",
         "deploy",
     ]
+
+
+@dataclass(frozen=True)
+class SchemaConsistencyPacket:
+    stage_id: str
+    status: str
+    source_count: int
+    checked_fields: List[str]
+    issue_count: int
+    block_count: int
+    warn_count: int
+    safety_scope: str
+    operator_review_required: bool
+    real_execution_allowed: bool
+    trade_action_enabled: bool
+
+
+def build_schema_consistency_packet(
+    records: Iterable[GovernanceSourceRecord],
+    field_names: Iterable[str] | None = None,
+) -> SchemaConsistencyPacket:
+    checked = list(field_names) if field_names is not None else default_consistency_fields()
+    report = build_cross_source_consistency_report(records, checked)
+
+    block_count = sum(1 for issue in report.issues if issue.severity == "BLOCK")
+    warn_count = sum(1 for issue in report.issues if issue.severity == "WARN")
+
+    return SchemaConsistencyPacket(
+        stage_id="CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1-D5",
+        status=report.status,
+        source_count=report.source_count,
+        checked_fields=report.checked_fields,
+        issue_count=report.issue_count,
+        block_count=block_count,
+        warn_count=warn_count,
+        safety_scope="PAPER_ONLY_LOCAL_ONLY_READ_ONLY_SIDECAR_ONLY",
+        operator_review_required=True,
+        real_execution_allowed=False,
+        trade_action_enabled=False,
+    )
+
+
+def assert_schema_consistency_packet_safe(packet: SchemaConsistencyPacket) -> None:
+    if packet.status == "BLOCK" or packet.block_count:
+        raise ValueError(f"CONTROL_CENTER_SCHEMA_CONSISTENCY_PACKET_BLOCKED:block_count={packet.block_count}")
+    if not packet.operator_review_required:
+        raise ValueError("CONTROL_CENTER_SCHEMA_CONSISTENCY_PACKET_OPERATOR_REVIEW_REQUIRED")
+    if packet.real_execution_allowed:
+        raise ValueError("CONTROL_CENTER_SCHEMA_CONSISTENCY_PACKET_REAL_EXECUTION_FORBIDDEN")
+    if packet.trade_action_enabled:
+        raise ValueError("CONTROL_CENTER_SCHEMA_CONSISTENCY_PACKET_TRADE_ACTION_FORBIDDEN")
+
+
+def render_schema_consistency_packet_md(packet: SchemaConsistencyPacket) -> str:
+    lines: List[str] = [
+        "# CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1 D5 Packet",
+        "",
+        "## Summary",
+        "",
+        f"- stage_id: {packet.stage_id}",
+        f"- status: {packet.status}",
+        f"- source_count: {packet.source_count}",
+        f"- issue_count: {packet.issue_count}",
+        f"- block_count: {packet.block_count}",
+        f"- warn_count: {packet.warn_count}",
+        f"- safety_scope: {packet.safety_scope}",
+        f"- operator_review_required: {str(packet.operator_review_required).lower()}",
+        f"- real_execution_allowed: {str(packet.real_execution_allowed).lower()}",
+        f"- trade_action_enabled: {str(packet.trade_action_enabled).lower()}",
+        "",
+        "## Checked Fields",
+        "",
+    ]
+
+    for field in packet.checked_fields:
+        lines.append(f"- {field}")
+
+    lines.extend(
+        [
+            "",
+            "## Safety Boundary",
+            "",
+            "- paper-only",
+            "- local-only",
+            "- read-only governance validation",
+            "- sidecar-only",
+            "- operator review required",
+            "- no real trading",
+            "- no broker API",
+            "- no exchange API",
+            "- no API key",
+            "- no buy button",
+            "- no sell button",
+            "- no order button",
+            "- no tag",
+            "- no release",
+            "- no deploy",
+            "",
+        ]
+    )
+
+    return "\n".join(lines)
+
+
+def write_text_utf8_lf(path: str | Path, content: str) -> None:
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(content.replace("\r\n", "\n").replace("\r", "\n"), encoding="utf-8", newline="\n")
+
+
+def write_schema_consistency_packet_md(packet: SchemaConsistencyPacket, output_path: str | Path) -> None:
+    write_text_utf8_lf(output_path, render_schema_consistency_packet_md(packet))

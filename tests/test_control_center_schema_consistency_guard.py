@@ -462,3 +462,110 @@ def test_classify_governance_source_handles_absolute_control_center_path(tmp_pat
     target = tmp_path / "docs" / "FCF_PROJECT_CONTROL_CENTER.md"
 
     assert classify_governance_source(target) == "CONTROL_CENTER"
+
+
+def test_build_schema_consistency_packet_pass() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        assert_schema_consistency_packet_safe,
+        build_schema_consistency_packet,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"branch": "main", "release": "none"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {"branch": "main", "release": "none"}),
+    ]
+
+    packet = build_schema_consistency_packet(records, ["branch", "release"])
+
+    assert packet.stage_id == "CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1-D5"
+    assert packet.status == "PASS"
+    assert packet.source_count == 2
+    assert packet.issue_count == 0
+    assert packet.block_count == 0
+    assert packet.warn_count == 0
+    assert packet.operator_review_required is True
+    assert packet.real_execution_allowed is False
+    assert packet.trade_action_enabled is False
+    assert_schema_consistency_packet_safe(packet)
+
+
+def test_build_schema_consistency_packet_warn() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        build_schema_consistency_packet,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"deploy": "none"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {}),
+    ]
+
+    packet = build_schema_consistency_packet(records, ["deploy"])
+
+    assert packet.status == "WARN"
+    assert packet.block_count == 0
+    assert packet.warn_count == 1
+
+
+def test_build_schema_consistency_packet_blocks_conflict() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        assert_schema_consistency_packet_safe,
+        build_schema_consistency_packet,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"tag": "none"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {"tag": "v1"}),
+    ]
+
+    packet = build_schema_consistency_packet(records, ["tag"])
+
+    assert packet.status == "BLOCK"
+    assert packet.block_count == 1
+
+    with pytest.raises(ValueError, match="CONTROL_CENTER_SCHEMA_CONSISTENCY_PACKET_BLOCKED"):
+        assert_schema_consistency_packet_safe(packet)
+
+
+def test_render_schema_consistency_packet_md_contains_safety_flags() -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        build_schema_consistency_packet,
+        render_schema_consistency_packet_md,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"branch": "main"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {"branch": "main"}),
+    ]
+
+    packet = build_schema_consistency_packet(records, ["branch"])
+    text = render_schema_consistency_packet_md(packet)
+
+    assert "# CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1 D5 Packet" in text
+    assert "- operator_review_required: true" in text
+    assert "- real_execution_allowed: false" in text
+    assert "- trade_action_enabled: false" in text
+
+
+def test_write_schema_consistency_packet_md(tmp_path: Path) -> None:
+    from scripts.control_center_schema_consistency_guard import (
+        GovernanceSourceRecord,
+        build_schema_consistency_packet,
+        write_schema_consistency_packet_md,
+    )
+
+    records = [
+        GovernanceSourceRecord("a.md", "FINAL_CURRENT_STATE", True, "OK", {"release": "none"}),
+        GovernanceSourceRecord("b.md", "CONTROL_CENTER", True, "OK", {"release": "none"}),
+    ]
+
+    packet = build_schema_consistency_packet(records, ["release"])
+    output = tmp_path / "packet.md"
+    write_schema_consistency_packet_md(packet, output)
+
+    text = output.read_text(encoding="utf-8")
+    assert text.startswith("# CONTROL-CENTER-SCHEMA-CONSISTENCY-GUARD-APP-1 D5 Packet")
+    assert "- release" in text
