@@ -245,3 +245,148 @@ def test_assert_completion_sources_readable_blocks_missing(tmp_path: Path) -> No
 
     with pytest.raises(ValueError, match="CONTROL_CENTER_COMPLETION_INDEX_SOURCE_READ_FAILED"):
         assert_completion_sources_readable(records)
+
+
+def test_canonical_completion_field_name_aliases() -> None:
+    from scripts.control_center_completion_index_guard import canonical_completion_field_name
+
+    assert canonical_completion_field_name("Latest main commit") == "final_current_state_commit"
+    assert canonical_completion_field_name("main merge") == "main_merge_commit"
+    assert canonical_completion_field_name("D6 commit") == "final_branch_commit"
+    assert canonical_completion_field_name("origin/main") == "origin_main"
+
+
+def test_extract_commit_hash() -> None:
+    from scripts.control_center_completion_index_guard import extract_commit_hash
+
+    assert extract_commit_hash("c3e6ae1 add final current state") == "c3e6ae1"
+    assert extract_commit_hash("merge commit: 9abbca7 merge APP into main") == "9abbca7"
+
+
+def test_infer_app_id_from_final_state_file() -> None:
+    from scripts.control_center_completion_index_guard import infer_app_id_from_final_state_file
+
+    app_id = infer_app_id_from_final_state_file("FCF_CURRENT_STATE_CONTROL_CENTER_COMPLETION_INDEX_GUARD_APP_1_FINAL.md")
+
+    assert app_id == "CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1"
+
+
+def test_build_completion_entry_from_source() -> None:
+    from scripts.control_center_completion_index_guard import (
+        CompletionIndexSourceRecord,
+        build_completion_entry_from_source,
+        validate_completion_index_entry,
+    )
+
+    record = CompletionIndexSourceRecord(
+        path="FCF_CURRENT_STATE_CONTROL_CENTER_COMPLETION_INDEX_GUARD_APP_1_FINAL.md",
+        source_kind="FINAL_CURRENT_STATE",
+        exists=True,
+        utf8_status="OK",
+        extracted_fields={
+            "status": "completed",
+            "branch": "main",
+            "main merge commit": "123abcd merge APP into main",
+            "D6 commit": "456def0 add D6 final closeout",
+            "latest main commit": "789abcd add final current state",
+            "validation": "1741 passed",
+            "git status": "clean",
+            "origin/main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        },
+    )
+
+    entry = build_completion_entry_from_source(record)
+    result = validate_completion_index_entry(entry)
+
+    assert entry["app_id"] == "CONTROL-CENTER-COMPLETION-INDEX-GUARD-APP-1"
+    assert entry["main_merge_commit"] == "123abcd"
+    assert entry["final_branch_commit"] == "456def0"
+    assert entry["final_current_state_commit"] == "789abcd"
+    assert result.status == "PASS"
+
+
+def test_build_completion_entries_from_sources_filters_final_state_only() -> None:
+    from scripts.control_center_completion_index_guard import (
+        CompletionIndexSourceRecord,
+        build_completion_entries_from_sources,
+    )
+
+    final_record = CompletionIndexSourceRecord(
+        path="FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+        source_kind="FINAL_CURRENT_STATE",
+        exists=True,
+        utf8_status="OK",
+        extracted_fields={
+            "app_id": "TEST-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        },
+    )
+
+    control_record = CompletionIndexSourceRecord(
+        path="docs/FCF_PROJECT_CONTROL_CENTER.md",
+        source_kind="CONTROL_CENTER",
+        exists=True,
+        utf8_status="OK",
+        extracted_fields={"app_id": "CONTROL"},
+    )
+
+    entries = build_completion_entries_from_sources([control_record, final_record])
+
+    assert len(entries) == 1
+    assert entries[0]["app_id"] == "TEST-APP-1"
+
+
+def test_assert_completion_entries_from_sources_pass_blocks_duplicate() -> None:
+    import pytest
+
+    from scripts.control_center_completion_index_guard import (
+        CompletionIndexSourceRecord,
+        assert_completion_entries_from_sources_pass,
+    )
+
+    first = CompletionIndexSourceRecord(
+        path="FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+        source_kind="FINAL_CURRENT_STATE",
+        exists=True,
+        utf8_status="OK",
+        extracted_fields={
+            "app_id": "TEST-APP-1",
+            "status": "completed",
+            "branch": "main",
+            "main_merge_commit": "123abcd",
+            "final_branch_commit": "456def0",
+            "final_current_state_commit": "789abcd",
+            "final_current_state_file": "FCF_CURRENT_STATE_TEST_APP_1_FINAL.md",
+            "validation": "passed",
+            "git_status": "clean",
+            "origin_main": "synced",
+            "tag": "none",
+            "release": "none",
+            "deploy": "none",
+        },
+    )
+
+    second = CompletionIndexSourceRecord(
+        path="FCF_CURRENT_STATE_TEST_APP_1_FINAL_COPY.md",
+        source_kind="FINAL_CURRENT_STATE",
+        exists=True,
+        utf8_status="OK",
+        extracted_fields=first.extracted_fields,
+    )
+
+    with pytest.raises(ValueError, match="CONTROL_CENTER_COMPLETION_INDEX_DUPLICATE_FAILED"):
+        assert_completion_entries_from_sources_pass([first, second])
