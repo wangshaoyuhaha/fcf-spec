@@ -24,6 +24,12 @@ from .matrix import (
     MATRIX_VERSION,
     build_registered_comparison_matrix,
 )
+from .review import (
+    PROHIBITED_REVIEW_ACTIONS,
+    REVIEW_PACKET_VERSION,
+    REVIEW_PRIORITIES,
+    build_comparison_review_packet,
+)
 from .schema import (
     OPERATOR_REVIEW_STATUSES,
     REQUIRED_RECORD_FIELDS,
@@ -46,14 +52,18 @@ __all__ = [
     "FORBIDDEN_COMPARISON_STATUSES",
     "MATRIX_VERSION",
     "OPERATOR_REVIEW_STATUSES",
+    "PROHIBITED_REVIEW_ACTIONS",
     "REQUIRED_COMPARISON_DIMENSIONS",
     "REQUIRED_RECORD_FIELDS",
     "RESULT_STATUSES",
+    "REVIEW_PACKET_VERSION",
+    "REVIEW_PRIORITIES",
     "SCHEMA_VERSION",
     "STAGE_ID",
     "VALID_COMPARISON_STATUSES",
     "build_boundary_contract",
     "build_comparison_record",
+    "build_comparison_review_packet",
     "build_registered_comparison_matrix",
     "compare_expected_observed",
     "validate_boundary_contract",
