@@ -19,6 +19,11 @@ from .contract import (
     build_boundary_contract,
     validate_boundary_contract,
 )
+from .handoff import (
+    HANDOFF_STATUSES,
+    HANDOFF_VERSION,
+    build_drift_operator_handoff,
+)
 from .review import (
     PROHIBITED_REVIEW_ACTIONS,
     REVIEW_PACKET_VERSION,
@@ -52,6 +57,8 @@ __all__ = [
     "DRIFT_SEVERITIES",
     "DRIFT_STATUSES",
     "FORBIDDEN_DRIFT_STATUSES",
+    "HANDOFF_STATUSES",
+    "HANDOFF_VERSION",
     "OPERATOR_REVIEW_STATUSES",
     "PROHIBITED_REVIEW_ACTIONS",
     "REQUIRED_DRIFT_DIMENSIONS",
@@ -68,6 +75,7 @@ __all__ = [
     "build_boundary_contract",
     "build_drift_comparison_window",
     "build_drift_evidence_record",
+    "build_drift_operator_handoff",
     "build_drift_review_packet",
     "classify_drift_evidence",
     "validate_boundary_contract",
