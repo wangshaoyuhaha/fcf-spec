@@ -12,6 +12,11 @@ from .contract import (
     build_boundary_contract,
     validate_boundary_contract,
 )
+from .handoff import (
+    HANDOFF_STATUSES,
+    HANDOFF_VERSION,
+    build_challenge_operator_handoff,
+)
 from .report import (
     REPORT_STATUSES,
     REPORT_VERSION,
@@ -49,6 +54,8 @@ __all__ = [
     "CHALLENGE_STATUSES",
     "CONTRACT_VERSION",
     "FORBIDDEN_OUTCOMES",
+    "HANDOFF_STATUSES",
+    "HANDOFF_VERSION",
     "OPERATOR_REVIEW_STATUSES",
     "PROHIBITED_REVIEW_ACTIONS",
     "REASON_CODES",
@@ -66,6 +73,7 @@ __all__ = [
     "apply_challenge_rules",
     "build_boundary_contract",
     "build_challenge_evidence_record",
+    "build_challenge_operator_handoff",
     "build_challenge_review_packet",
     "build_contradiction_evidence_gap_report",
     "validate_boundary_contract",
