@@ -8,6 +8,13 @@ from .contract import (
     build_boundary_contract,
     validate_boundary_contract,
 )
+from .linkage_checks import (
+    LINKAGE_SCHEMA_VERSION,
+    LINKAGE_STAGE_ID,
+    LINKAGE_STATUSES,
+    build_sample_result_linkage_report,
+    validate_sample_result_linkage_report,
+)
 from .registry_index import (
     REGISTRY_SCHEMA_VERSION,
     REGISTRY_STAGE_ID,
@@ -30,6 +37,11 @@ __all__ = [
     "STAGE_ID",
     "build_boundary_contract",
     "validate_boundary_contract",
+    "LINKAGE_SCHEMA_VERSION",
+    "LINKAGE_STAGE_ID",
+    "LINKAGE_STATUSES",
+    "build_sample_result_linkage_report",
+    "validate_sample_result_linkage_report",
     "REGISTRY_SCHEMA_VERSION",
     "REGISTRY_STAGE_ID",
     "build_evaluation_result_registry",
