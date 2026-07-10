@@ -19,6 +19,11 @@ from .engine import (
     VALID_COMPARISON_STATUSES,
     compare_expected_observed,
 )
+from .handoff import (
+    HANDOFF_STATUSES,
+    HANDOFF_VERSION,
+    build_comparison_operator_handoff,
+)
 from .matrix import (
     COMPARISON_AXES,
     MATRIX_VERSION,
@@ -50,6 +55,8 @@ __all__ = [
     "ENGINE_VERSION",
     "FIELD_STATUSES",
     "FORBIDDEN_COMPARISON_STATUSES",
+    "HANDOFF_STATUSES",
+    "HANDOFF_VERSION",
     "MATRIX_VERSION",
     "OPERATOR_REVIEW_STATUSES",
     "PROHIBITED_REVIEW_ACTIONS",
@@ -62,6 +69,7 @@ __all__ = [
     "STAGE_ID",
     "VALID_COMPARISON_STATUSES",
     "build_boundary_contract",
+    "build_comparison_operator_handoff",
     "build_comparison_record",
     "build_comparison_review_packet",
     "build_registered_comparison_matrix",
