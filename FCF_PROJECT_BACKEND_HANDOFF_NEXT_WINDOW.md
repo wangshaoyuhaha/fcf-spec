@@ -1,4 +1,4 @@
-﻿# FCF CURRENT HANDOFF TRUTH - STALE MARKER CLEANUP APPLIED
+# FCF CURRENT HANDOFF TRUTH - STALE MARKER CLEANUP APPLIED
 
 This file contains current handoff truth.
 
@@ -398,3 +398,54 @@ Runtime guard points to preserve:
 
 After this update, do not keep adding planning-only patches.
 Next approved phase should be AI-CONTEXT-EVIDENCE-CONTRACT-APP-1.
+
+<!-- BEGIN AI-EVALUATION-SAMPLE-LIBRARY-APP-1 FINAL SYNC -->
+## Latest confirmed project state
+
+Latest completed phase:
+AI-EVALUATION-SAMPLE-LIBRARY-APP-1
+
+Main state:
+- branch: main
+- HEAD: 59f8b85
+- origin/main: 59f8b85
+- merge commit: 59f8b85 merge AI-EVALUATION-SAMPLE-LIBRARY-APP-1 into main
+- final current-state commit: 4904107
+- D6 commit: 19d0551
+- validation: ALL CHECKS PASSED
+- pytest: 2273 passed
+- git status: clean
+- no tag
+- no release
+- no deploy
+
+Phase commits:
+- D1: 2475d06
+- D2: 186c99a
+- D3: 17b80eb
+- D4: 6110fc8
+- D5: 6c0ac83
+- D6: 19d0551
+- Final Current State: 4904107
+- Main merge: 59f8b85
+
+Delivered capability:
+A local, versioned, structured and auditable AI evaluation sample
+library with sample records, registry indexing, coverage checks,
+governance review packets and final operator-review handoff.
+
+It does not:
+- invoke a live model
+- execute prompts
+- create a complete AI orchestrator
+- connect to news feeds
+- create trading instructions
+- perform real execution
+- bypass operator review
+- mutate P1-P47 core
+
+Next-window instruction:
+Start with a read-only main-state check.
+Do not begin another development phase until architecture review
+selects and approves the next sidecar.
+<!-- END AI-EVALUATION-SAMPLE-LIBRARY-APP-1 FINAL SYNC -->
