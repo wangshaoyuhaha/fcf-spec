@@ -19,6 +19,11 @@ from .engine import (
     VALID_COMPARISON_STATUSES,
     compare_expected_observed,
 )
+from .matrix import (
+    COMPARISON_AXES,
+    MATRIX_VERSION,
+    build_registered_comparison_matrix,
+)
 from .schema import (
     OPERATOR_REVIEW_STATUSES,
     REQUIRED_RECORD_FIELDS,
@@ -32,12 +37,14 @@ __all__ = [
     "ALLOWED_INPUTS",
     "ALLOWED_OUTPUTS",
     "APP_ID",
+    "COMPARISON_AXES",
     "COMPARISON_MODES",
     "COMPARISON_STATUSES",
     "CONTRACT_VERSION",
     "ENGINE_VERSION",
     "FIELD_STATUSES",
     "FORBIDDEN_COMPARISON_STATUSES",
+    "MATRIX_VERSION",
     "OPERATOR_REVIEW_STATUSES",
     "REQUIRED_COMPARISON_DIMENSIONS",
     "REQUIRED_RECORD_FIELDS",
@@ -47,6 +54,7 @@ __all__ = [
     "VALID_COMPARISON_STATUSES",
     "build_boundary_contract",
     "build_comparison_record",
+    "build_registered_comparison_matrix",
     "compare_expected_observed",
     "validate_boundary_contract",
     "validate_comparison_record",
