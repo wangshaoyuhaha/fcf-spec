@@ -3974,3 +3974,80 @@ Strictly forbidden:
 no validation result fabrication, no pass count fabrication, no P48, no core mutation, no source artifact mutation, no evidence backfill, no auto-pass, no tag, no release, no deploy.
 
 Architecture gap review or explicitly approved next phase only.
+
+---
+
+## FCF V2 AI 智能认知层主控规范
+
+### 主控定位
+
+本章节吸收 Google 与 DeepSeek 两份外部意见中有价值的部分。
+外部意见只作为参考，最终执行顺序、开发边界、阶段批准，全部以 FCF 项目总控为准。
+本阶段只更新总控文件，不开发功能，不修改 P1-P47 core，不创建 P48，不 tag，不 release，不 deploy。
+
+### FCF V2 核心定位
+
+FCF V2 = 确定性金融计算引擎 + 可控 AI 智能认知层。
+代码负责计算、验证、风险检查、注册表、归档、审计和 UI 可见性。
+AI 负责解释、分析、质疑、推演、总结和辅助人工复核。
+人工操作员负责最终复核、最终判断和最终签收。
+
+### AI 的身份
+
+AI 在 FCF 中是高级金融研究员，不是交易员、执行器、下单系统、仓位管理器或收益保证器。
+AI 可以分析市场环境、解释宏观变化、解释行业题材变化、比较不同假设、提出不确定性、质疑薄弱结论、生成场景推演、暴露风险矛盾、准备人工复核材料。
+AI 不可以输出买入、卖出、下单、真实交易、真实执行、连接券商、连接交易所、连接钱包、索要或保存 API key、读取真实账户、读取真实仓位、自动仓位、自动组合动作、保证收益、绕过人工复核、降级 REVIEW_REQUIRED 或 CIRCUIT_BREAK。
+
+### 为什么现在写入本章节
+
+FCF V1 已完成安全地基，包括 Data Quality Gate、Correlation_ID、Artifact Lifecycle Registry、Validation Baseline Registry、Model Governance、Operator Review、UI 风险可见性、Archive / Handoff。
+这些不是为了限制 AI，而是 AI 真正进入系统前必须具备的安全运行环境。
+FCF V2 的目标，是从防止 AI 失控，升级为让 AI 在可控范围内发挥最大研究价值。
+
+### AI 输入硬规则
+
+未来任何 AI sidecar，都不能只吃没有证据来源的自由提示词。
+AI 输入必须绑定项目证据，最低包含 correlation_id、source_artifact_ids、data_snapshot_id、validation_baseline_id、artifact_lifecycle_status、risk_flags、reason_codes、input_timestamp、input_scope、operator_review_requirement。
+如果输入来自新闻、叙事、宏观、情绪等外部材料，必须标记 external narrative input 和 human review required。
+
+### AI 输出硬规则
+
+未来任何 AI 输出都必须结构化、可复核、可归档。
+最低包含 correlation_id、ai_role、input_artifact_refs、analysis_summary、evidence_refs、uncertainty_statement、confidence_level、risk_flags_seen、risk_flags_added、contradiction_points、challenge_questions、human_review_required、forbidden_action_check、archive_required。
+AI 输出必须保留不确定性，不能隐藏风险，不能变成交易指令。
+
+### Correlation_ID 的 V2 含义
+
+Correlation_ID 不只是审计编号。
+在 V2 中，它也是 AI 认知证据链编号。
+未来链路目标：Data Snapshot -> Validation Baseline -> Candidate / Signal / Context Packet -> AI Context Output -> AI Challenge Output -> Scenario Reasoning Output -> UI Review Packet -> Operator Review Packet -> Archive Packet -> Final State / Handoff。
+每个 AI 判断必须连接到确定性项目产物、明确来源引用、不确定性声明或 human-review-required 标记。
+
+### 采纳意见
+
+采纳 Google 意见：FCF V2 应先定义 AI 智能认知层；AI 是可控研究层，不是交易代理；Risk Challenge AI 有价值；Dashboard contradiction scanner 不应早于 AI 输出标准化。
+采纳 DeepSeek 意见：Correlation_ID 是未来 AI 证据链基础设施；FCF 不能退化成纯规则排名系统；AI 输出必须具备来源追踪、质疑记录、不确定性、人工复核链路；第一个 AI 能力试点应优先考虑 Context AI -> Challenge AI。
+
+### 暂缓或拒绝
+
+暂缓完整 AI Orchestrator、完整 Multi-Agent Pipeline、Dashboard Contradiction Scanner。
+拒绝重开 core、创建 P48、AI 获得执行权限、AI 绕过人工复核、AI 生成真实交易动作。
+
+### 推荐后续顺序
+
+1. CONTROL-CENTER-V2-AI-INTELLIGENCE-LAYER-SPEC-APP-1：只改总控，锁定 AI 位置、边界、输入输出、证据链、后续顺序。
+2. AI-CONTEXT-EVIDENCE-CONTRACT-APP-1：把 AI 输入输出证据链做成可执行 sidecar contract。
+3. AI-CONTRARIAN-CHALLENGE-APP-1：第一个 V2 AI 能力 sidecar，对 AI Context 结论做反向质疑。
+4. DASHBOARD-CONTRADICTION-SCANNER-APP-1：在 AI 输出规范稳定后，再检查 UI 是否完整暴露风险、矛盾、不确定性。
+5. AI-ORCHESTRATION-ROADMAP-APP-1：只做未来规划，前面阶段稳定前不开发完整多 AI 调度。
+
+### 稳定性硬规则
+
+任何 V2 AI 功能必须同时满足：core frozen、sidecar-only、paper-only、local-only、read-only、operator review required、artifact archived、correlation_id preserved、validation baseline preserved、UI risk visibility preserved、tests added、handoff updated。
+
+### 主控决定
+
+FCF 不能停留在纯确定性排名系统。
+FCF V2 必须在保持安全边界的前提下，让 AI 提供可控、可追踪、可复核、可归档的金融认知能力。
+下一步不是直接开发 Dashboard Scanner。
+下一步应先做 AI-CONTEXT-EVIDENCE-CONTRACT-APP-1。
