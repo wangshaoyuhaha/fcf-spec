@@ -1,5 +1,10 @@
 """AI prompt and model version registry sidecar."""
 
+from .compatibility import (
+    COMPATIBILITY_FINDING_CLASSES,
+    evaluate_version_compatibility,
+    validate_compatibility_report,
+)
 from .contract import (
     APP_ID,
     CONTRACT_VERSION,
@@ -32,4 +37,7 @@ __all__ = [
     "validate_registry_index",
     "get_record_by_id",
     "get_records_by_kind",
+    "COMPATIBILITY_FINDING_CLASSES",
+    "evaluate_version_compatibility",
+    "validate_compatibility_report",
 ]
