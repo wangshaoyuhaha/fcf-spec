@@ -7,6 +7,7 @@ from .finding_schema import (
     build_contradiction_finding,
     validate_contradiction_finding,
 )
+from .scanner import scan_dashboard_contradictions
 from .source_loader import (
     build_source_manifest,
     load_source_record,
@@ -21,4 +22,5 @@ __all__ = [
     "FINDING_STATUSES",
     "build_contradiction_finding",
     "validate_contradiction_finding",
+    "scan_dashboard_contradictions",
 ]
