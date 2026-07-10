@@ -8,6 +8,14 @@ from .contract import (
     build_boundary_contract,
     validate_boundary_contract,
 )
+from .handoff import (
+    COMPLETED_STAGES,
+    HANDOFF_SCHEMA_VERSION,
+    HANDOFF_STAGE_ID,
+    HANDOFF_STATUSES,
+    build_evaluation_result_final_handoff,
+    validate_evaluation_result_final_handoff,
+)
 from .linkage_checks import (
     LINKAGE_SCHEMA_VERSION,
     LINKAGE_STAGE_ID,
@@ -44,6 +52,12 @@ __all__ = [
     "STAGE_ID",
     "build_boundary_contract",
     "validate_boundary_contract",
+    "COMPLETED_STAGES",
+    "HANDOFF_SCHEMA_VERSION",
+    "HANDOFF_STAGE_ID",
+    "HANDOFF_STATUSES",
+    "build_evaluation_result_final_handoff",
+    "validate_evaluation_result_final_handoff",
     "LINKAGE_SCHEMA_VERSION",
     "LINKAGE_STAGE_ID",
     "LINKAGE_STATUSES",
