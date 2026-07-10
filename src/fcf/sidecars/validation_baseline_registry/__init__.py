@@ -8,6 +8,10 @@ from .contract import (
     build_validation_baseline_index,
     validate_baseline_record,
 )
+from .snapshot_index import (
+    build_validation_baseline_snapshot,
+    build_validation_baseline_snapshot_index,
+)
 from .validation_runs import (
     ALLOWED_VALIDATION_RESULTS,
     build_validation_run_index,
@@ -22,6 +26,8 @@ __all__ = [
     "VALIDATION_BASELINE_REGISTRY_APP_ID",
     "build_validation_baseline_contract",
     "build_validation_baseline_index",
+    "build_validation_baseline_snapshot",
+    "build_validation_baseline_snapshot_index",
     "build_validation_run_index",
     "build_validation_run_record",
     "validate_baseline_record",
