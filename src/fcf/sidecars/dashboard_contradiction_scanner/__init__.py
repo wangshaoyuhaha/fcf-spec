@@ -1,6 +1,11 @@
 """Dashboard contradiction scanner sidecar."""
 
 from .contract import build_contract, validate_contract
+from .final_handoff import (
+    HANDOFF_TARGETS,
+    build_final_handoff,
+    validate_final_handoff,
+)
 from .finding_schema import (
     CONTRADICTION_SEVERITIES,
     FINDING_STATUSES,
@@ -31,4 +36,7 @@ __all__ = [
     "PACKET_STATUSES",
     "build_contradiction_review_packet",
     "validate_contradiction_review_packet",
+    "HANDOFF_TARGETS",
+    "build_final_handoff",
+    "validate_final_handoff",
 ]
