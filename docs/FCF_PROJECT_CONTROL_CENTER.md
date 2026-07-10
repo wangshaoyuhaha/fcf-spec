@@ -4554,3 +4554,95 @@ Next controlled state:
 - do not connect news feeds
 - do not add real trading or execution
 <!-- END AI-EVALUATION-RESULT-REGISTRY-APP-1 FINAL SYNC -->
+
+<!-- BEGIN AI-EVALUATION-COMPARISON-APP-1 APPROVAL -->
+## Approved Next Phase: AI-EVALUATION-COMPARISON-APP-1
+
+Status:
+APPROVED / NOT STARTED
+
+Approval baseline:
+- branch: main
+- HEAD: a6d904f
+- origin/main: a6d904f
+- working tree: clean
+- previous completed phase: AI-EVALUATION-RESULT-REGISTRY-APP-1
+- validation baseline: run_all_checks passed
+- pytest baseline: 2363 passed
+
+Architecture decision:
+AI-EVALUATION-COMPARISON-APP-1 is approved as the next controlled
+sidecar phase.
+
+Purpose:
+Build a deterministic local read-only expected-versus-observed
+evaluation comparison layer.
+
+Required comparison dimensions:
+- evaluation sample identifier
+- expected result reference
+- observed result reference
+- model identifier
+- model version
+- prompt identifier
+- prompt version
+- context evidence reference
+- result status
+- comparison status
+- operator review status
+
+Required capabilities:
+- deterministic expected-versus-observed comparison
+- cross-model comparison using registered model identifiers
+- cross-version comparison
+- prompt-version comparison
+- mismatch and missing-evidence detection
+- integrity validation
+- governance review packet
+- operator-review handoff
+
+Allowed states:
+- MATCHED
+- PARTIAL_MATCH
+- MISMATCH
+- REVIEW_REQUIRED
+- INVALID
+- BLOCKED
+- ARCHIVED
+
+Forbidden states:
+- AUTO_APPROVED
+- TRADE_READY
+- EXECUTION_READY
+- LIVE_READY
+
+Permanent boundaries:
+- no P48
+- no core mutation
+- no source artifact mutation
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no news feed connection
+- no automatic evaluation acceptance
+- no operator review bypass
+- no real trading or execution
+- no broker or exchange connection
+- no API keys or wallet keys
+- no real accounts or positions
+- no automatic position sizing
+- no automatic portfolio action
+- no tag
+- no release
+- no deploy
+
+Development gate:
+Implementation must start from a clean synchronized main baseline
+using a dedicated sidecar branch.
+
+Deferred following candidate:
+- AI-EVALUATION-DRIFT-REVIEW-APP-1
+
+Drift Review must not start before Comparison is completed, merged,
+validated, archived, and synchronized.
+<!-- END AI-EVALUATION-COMPARISON-APP-1 APPROVAL -->
