@@ -1,5 +1,9 @@
 ﻿"""VALIDATION-BASELINE-REGISTRY-APP-1."""
 
+from .baseline_packet import (
+    build_validation_baseline_packet,
+    classify_validation_baseline_packet,
+)
 from .baseline_summary import (
     build_validation_baseline_summary,
     classify_validation_baseline_summary,
@@ -30,11 +34,13 @@ __all__ = [
     "VALIDATION_BASELINE_REGISTRY_APP_ID",
     "build_validation_baseline_contract",
     "build_validation_baseline_index",
+    "build_validation_baseline_packet",
     "build_validation_baseline_snapshot",
     "build_validation_baseline_snapshot_index",
     "build_validation_baseline_summary",
     "build_validation_run_index",
     "build_validation_run_record",
+    "classify_validation_baseline_packet",
     "classify_validation_baseline_summary",
     "validate_baseline_record",
     "validate_validation_run_record",
