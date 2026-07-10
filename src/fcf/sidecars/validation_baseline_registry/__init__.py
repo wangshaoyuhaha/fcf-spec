@@ -16,6 +16,10 @@ from .contract import (
     build_validation_baseline_index,
     validate_baseline_record,
 )
+from .final_handoff import (
+    build_validation_baseline_final_handoff,
+    classify_validation_baseline_final_handoff,
+)
 from .snapshot_index import (
     build_validation_baseline_snapshot,
     build_validation_baseline_snapshot_index,
@@ -33,6 +37,7 @@ __all__ = [
     "REQUIRED_BASELINE_FIELDS",
     "VALIDATION_BASELINE_REGISTRY_APP_ID",
     "build_validation_baseline_contract",
+    "build_validation_baseline_final_handoff",
     "build_validation_baseline_index",
     "build_validation_baseline_packet",
     "build_validation_baseline_snapshot",
@@ -40,6 +45,7 @@ __all__ = [
     "build_validation_baseline_summary",
     "build_validation_run_index",
     "build_validation_run_record",
+    "classify_validation_baseline_final_handoff",
     "classify_validation_baseline_packet",
     "classify_validation_baseline_summary",
     "validate_baseline_record",
