@@ -3855,3 +3855,80 @@ paper-only / local-only / read-only / sidecar-only / index-only / operator revie
 
 Strictly forbidden:
 no P48, no core mutation, no source artifact mutation, no artifact status auto-repair, no evidence backfill, no auto-pass, no tag, no release, no deploy.
+
+---
+
+## Approved Next Phase: VALIDATION-BASELINE-REGISTRY-APP-1
+
+Status:
+approved as next sidecar phase.
+
+Approval baseline:
+- branch: main
+- latest HEAD before approval: bbffce5 add ARTIFACT-LIFECYCLE-REGISTRY-APP-1 final current state
+- previous completed phase: ARTIFACT-LIFECYCLE-REGISTRY-APP-1
+- previous merge commit: 0601415 merge ARTIFACT-LIFECYCLE-REGISTRY-APP-1 into main
+- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
+- pytest: python -m pytest -q = 2040 passed
+- git status: clean
+- origin/main: synced
+- no tag
+- no release
+- no deploy
+
+Purpose:
+Create a validation baseline registry sidecar.
+
+Scope:
+- register validation baselines
+- record validation command, result, pass count, and git state
+- index validation baseline history
+- mark missing, stale, inconsistent, or unresolved baseline state
+- keep operator review required
+
+Allowed baseline statuses:
+- REGISTERED
+- VERIFIED
+- INCOMPLETE
+- STALE
+- UNRESOLVED
+
+Boundary:
+- read-only
+- index-only
+- sidecar-only
+- no validation result fabrication
+- no pass count fabrication
+- no source artifact mutation
+- no evidence backfill
+- no correlation_id auto-fill
+- no placeholder review generation
+- no operator review auto-pass
+- no UI dashboard panel
+- no P48
+- no P1-P47 core mutation
+
+Safety boundary:
+paper-only / local-only / read-only / sidecar-only / operator review required.
+
+Strictly forbidden:
+- real trading
+- real execution
+- broker or exchange API
+- API key
+- wallet private key
+- real account
+- real position
+- buy/sell/order
+- automatic position sizing
+- automatic portfolio action
+- tag
+- release
+- deploy
+
+Execution note:
+Next development branch should be:
+sidecar-validation-baseline-registry-app-1
+
+First stage should be:
+VALIDATION-BASELINE-D1 sidecar boundary and validation baseline registry contract

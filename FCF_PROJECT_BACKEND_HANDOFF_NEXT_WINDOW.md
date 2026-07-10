@@ -252,3 +252,29 @@ paper-only / local-only / read-only / sidecar-only / index-only / operator revie
 
 Strictly forbidden:
 no P48, no core mutation, no source artifact mutation, no artifact status auto-repair, no evidence backfill, no auto-pass, no tag, no release, no deploy.
+
+## Approved Next Phase
+
+VALIDATION-BASELINE-REGISTRY-APP-1 is approved as the next sidecar phase.
+
+Start from main only after read-only verification.
+
+Expected baseline before branch creation:
+- branch = main
+- latest HEAD includes approval commit for VALIDATION-BASELINE-REGISTRY-APP-1
+- previous stable HEAD = bbffce5 add ARTIFACT-LIFECYCLE-REGISTRY-APP-1 final current state
+- validation = ALL CHECKS PASSED
+- pytest = 2040 passed
+- git status: clean
+- origin/main: synced
+
+Next branch:
+sidecar-validation-baseline-registry-app-1
+
+First stage:
+VALIDATION-BASELINE-D1 sidecar boundary and validation baseline registry contract
+
+Boundary:
+read-only / index-only / sidecar-only / operator review required.
+No validation result fabrication. No pass count fabrication. No P48. No core mutation. No tag. No release. No deploy.
+Architecture gap review or explicitly approved next phase only.
