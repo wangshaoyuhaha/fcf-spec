@@ -19,6 +19,11 @@ from .registry_index import (
     get_records_by_kind,
     validate_registry_index,
 )
+from .review_packet import (
+    REVIEW_PACKET_STATUSES,
+    build_version_governance_review_packet,
+    validate_version_governance_review_packet,
+)
 from .version_record import (
     build_version_record,
     validate_version_record,
@@ -40,4 +45,7 @@ __all__ = [
     "COMPATIBILITY_FINDING_CLASSES",
     "evaluate_version_compatibility",
     "validate_compatibility_report",
+    "REVIEW_PACKET_STATUSES",
+    "build_version_governance_review_packet",
+    "validate_version_governance_review_packet",
 ]
