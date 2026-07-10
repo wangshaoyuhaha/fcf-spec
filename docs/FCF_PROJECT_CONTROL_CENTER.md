@@ -4341,3 +4341,129 @@ Next controlled state:
 No new development phase is selected by this sync.
 Return to architecture review before approving another sidecar phase.
 <!-- END AI-EVALUATION-SAMPLE-LIBRARY-APP-1 FINAL SYNC -->
+
+<!-- BEGIN AI-EVALUATION-RESULT-REGISTRY-APP-1 ARCHITECTURE SELECTION -->
+## AI-EVALUATION-RESULT-REGISTRY-APP-1 Architecture Selection
+
+Decision date:
+2026-07-10
+
+Decision status:
+SELECTED_FOR_CONTROLLED_DEVELOPMENT
+
+Supersedes:
+The earlier state where no development target was selected after
+AI-EVALUATION-SAMPLE-LIBRARY-APP-1.
+
+Selected development target:
+AI-EVALUATION-RESULT-REGISTRY-APP-1
+
+Current baseline:
+- branch: main
+- HEAD: 99e51e2
+- origin/main: 99e51e2
+- latest completed phase: AI-EVALUATION-SAMPLE-LIBRARY-APP-1
+- latest phase merge commit: 59f8b85
+- latest control sync commit: 99e51e2
+- validation: 2273 passed
+- git status: clean
+
+Architecture reason:
+
+AI-EVALUATION-SAMPLE-LIBRARY-APP-1 defines expected evaluation
+samples and expected governance behavior.
+
+The next missing artifact is a structured record of observed
+evaluation results.
+
+This phase must register only local imported result artifacts.
+It must not invoke a model, execute a prompt, or run an AI
+orchestrator.
+
+Allowed inputs:
+- local evaluation sample reference
+- local prompt and model version registry reference
+- local context evidence reference
+- operator-imported evaluation output reference
+- local validation metadata
+
+Allowed outputs:
+- evaluation result record
+- result registry index
+- sample-result linkage report
+- integrity and coverage report
+- governance review packet
+- final operator-review handoff
+
+Planned stages:
+
+D1:
+boundary and imported evaluation result contract
+
+D2:
+evaluation result record schema
+
+D3:
+evaluation result registry index
+
+D4:
+sample-result linkage and integrity checks
+
+D5:
+paper-only governance review packet
+
+D6:
+final workflow handoff and closeout
+
+Mandatory status model:
+- RECORDED
+- REVIEW_REQUIRED
+- INVALID
+- BLOCKED
+- ARCHIVED
+
+Forbidden status semantics:
+- AUTO_APPROVED
+- TRADE_READY
+- EXECUTION_READY
+- LIVE_READY
+
+Safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- P1-P47 core remains frozen
+- no P48 core expansion
+- no core mutation
+- no source artifact mutation
+- no model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no news feed connection
+- no automatic evaluation acceptance
+- no operator review bypass
+- no real trading
+- no real execution
+- no broker or exchange connection
+- no API key storage
+- no wallet private key access
+- no real account access
+- no real position access
+- no automatic position sizing
+- no automatic portfolio action
+- no tag
+- no release
+- no deploy
+
+Deferred later candidates:
+- AI-EVALUATION-COMPARISON-APP-1
+- AI-EVALUATION-DRIFT-REVIEW-APP-1
+
+Deferred candidates must not start automatically.
+
+Development gate:
+Implementation may start only from a clean synchronized main
+baseline using a dedicated sidecar branch.
+<!-- END AI-EVALUATION-RESULT-REGISTRY-APP-1 ARCHITECTURE SELECTION -->
