@@ -4467,3 +4467,90 @@ Development gate:
 Implementation may start only from a clean synchronized main
 baseline using a dedicated sidecar branch.
 <!-- END AI-EVALUATION-RESULT-REGISTRY-APP-1 ARCHITECTURE SELECTION -->
+
+<!-- BEGIN AI-EVALUATION-RESULT-REGISTRY-APP-1 FINAL SYNC -->
+## AI-EVALUATION-RESULT-REGISTRY-APP-1 Final Sync
+
+Status:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+This final sync supersedes the earlier architecture-selection state
+for AI-EVALUATION-RESULT-REGISTRY-APP-1.
+
+Current main baseline:
+- branch: main
+- HEAD: e3710cb
+- origin/main: e3710cb
+- merge commit: e3710cb merge AI-EVALUATION-RESULT-REGISTRY-APP-1 into main
+- final current-state commit: 2dfee5c
+- D6 commit: 6fd5bca
+- validation: python scripts/run_all_checks.py = ALL CHECKS PASSED
+- pytest: 2363 passed
+- git status: clean
+- tag: none
+- release: none
+- deploy: none
+
+Completed commits:
+- D1: 63a6677 add AI-EVALUATION-RESULT-REGISTRY-D1 boundary contract
+- D2: d01c6ad add AI-EVALUATION-RESULT-REGISTRY-D2 result schema
+- D3: 42edabc add AI-EVALUATION-RESULT-REGISTRY-D3 registry index
+- D4: 45d0164 add AI-EVALUATION-RESULT-REGISTRY-D4 linkage checks
+- D5: 7d2f93a add AI-EVALUATION-RESULT-REGISTRY-D5 review packet
+- D6: 6fd5bca add AI-EVALUATION-RESULT-REGISTRY-D6 final handoff
+- Final Current State: 2dfee5c
+- Main merge: e3710cb
+
+Delivered capability:
+- imported evaluation result boundary contract
+- structured imported result record schema
+- deterministic result registry index
+- evaluation sample and result linkage checks
+- integrity and coverage validation
+- paper-only governance review packet
+- final operator-review handoff
+
+Supported result statuses:
+- RECORDED
+- REVIEW_REQUIRED
+- INVALID
+- BLOCKED
+- ARCHIVED
+
+Forbidden result statuses:
+- AUTO_APPROVED
+- TRADE_READY
+- EXECUTION_READY
+- LIVE_READY
+
+Safety boundary remains:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- imported-artifacts-only
+- operator review required
+- P1-P47 core frozen
+- no P48 core expansion
+- no core mutation
+- no source artifact mutation
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no news feed connection
+- no automatic evaluation acceptance
+- no operator review bypass
+- no real trading or execution
+- no broker or exchange connection
+- no credentials or wallet keys
+- no real accounts or positions
+- no automatic position sizing
+- no automatic portfolio actions
+
+Next controlled state:
+- no next development phase is selected by this sync
+- perform architecture review before approving another sidecar
+- do not start AI Orchestrator development
+- do not connect news feeds
+- do not add real trading or execution
+<!-- END AI-EVALUATION-RESULT-REGISTRY-APP-1 FINAL SYNC -->
