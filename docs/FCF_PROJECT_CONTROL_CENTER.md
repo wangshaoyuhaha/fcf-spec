@@ -3815,3 +3815,43 @@ sidecar-artifact-lifecycle-registry-app-1
 
 First stage should be:
 ARTIFACT-LIFECYCLE-D1 sidecar boundary and lifecycle registry contract
+
+---
+
+## Completed Phase: ARTIFACT-LIFECYCLE-REGISTRY-APP-1
+
+Status:
+completed, merged into main, validated, pushed, and clean.
+
+Main merge commit:
+0601415 merge ARTIFACT-LIFECYCLE-REGISTRY-APP-1 into main
+
+Final sidecar commit:
+d7f008b add ARTIFACT-LIFECYCLE-D6 final handoff closeout
+
+Validation:
+python scripts/run_all_checks.py = ALL CHECKS PASSED
+python -m pytest -q = 2040 passed
+
+git status:
+clean
+
+origin/main:
+synced
+
+Purpose:
+Create a global artifact lifecycle registry sidecar.
+
+Completed stages:
+- D1 sidecar boundary and lifecycle registry contract
+- D2 lifecycle transition policy
+- D3 artifact state snapshot index
+- D4 registry summary
+- D5 registry packet
+- D6 final handoff closeout
+
+Boundary:
+paper-only / local-only / read-only / sidecar-only / index-only / operator review required.
+
+Strictly forbidden:
+no P48, no core mutation, no source artifact mutation, no artifact status auto-repair, no evidence backfill, no auto-pass, no tag, no release, no deploy.
