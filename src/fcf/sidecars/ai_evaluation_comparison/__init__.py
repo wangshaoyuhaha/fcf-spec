@@ -13,6 +13,14 @@ from .contract import (
     build_boundary_contract,
     validate_boundary_contract,
 )
+from .schema import (
+    OPERATOR_REVIEW_STATUSES,
+    REQUIRED_RECORD_FIELDS,
+    RESULT_STATUSES,
+    SCHEMA_VERSION,
+    build_comparison_record,
+    validate_comparison_record,
+)
 
 __all__ = [
     "ALLOWED_INPUTS",
@@ -22,8 +30,14 @@ __all__ = [
     "COMPARISON_STATUSES",
     "CONTRACT_VERSION",
     "FORBIDDEN_COMPARISON_STATUSES",
+    "OPERATOR_REVIEW_STATUSES",
     "REQUIRED_COMPARISON_DIMENSIONS",
+    "REQUIRED_RECORD_FIELDS",
+    "RESULT_STATUSES",
+    "SCHEMA_VERSION",
     "STAGE_ID",
     "build_boundary_contract",
+    "build_comparison_record",
     "validate_boundary_contract",
+    "validate_comparison_record",
 ]
