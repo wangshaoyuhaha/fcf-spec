@@ -1,5 +1,9 @@
 ﻿"""VALIDATION-BASELINE-REGISTRY-APP-1."""
 
+from .baseline_summary import (
+    build_validation_baseline_summary,
+    classify_validation_baseline_summary,
+)
 from .contract import (
     ALLOWED_BASELINE_STATUSES,
     REQUIRED_BASELINE_FIELDS,
@@ -28,8 +32,10 @@ __all__ = [
     "build_validation_baseline_index",
     "build_validation_baseline_snapshot",
     "build_validation_baseline_snapshot_index",
+    "build_validation_baseline_summary",
     "build_validation_run_index",
     "build_validation_run_record",
+    "classify_validation_baseline_summary",
     "validate_baseline_record",
     "validate_validation_run_record",
 ]
