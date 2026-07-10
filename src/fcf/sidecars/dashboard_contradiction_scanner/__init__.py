@@ -7,6 +7,11 @@ from .finding_schema import (
     build_contradiction_finding,
     validate_contradiction_finding,
 )
+from .review_packet import (
+    PACKET_STATUSES,
+    build_contradiction_review_packet,
+    validate_contradiction_review_packet,
+)
 from .scanner import scan_dashboard_contradictions
 from .source_loader import (
     build_source_manifest,
@@ -23,4 +28,7 @@ __all__ = [
     "build_contradiction_finding",
     "validate_contradiction_finding",
     "scan_dashboard_contradictions",
+    "PACKET_STATUSES",
+    "build_contradiction_review_packet",
+    "validate_contradiction_review_packet",
 ]
