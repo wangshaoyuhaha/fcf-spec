@@ -12,6 +12,12 @@ from .contract import (
     build_boundary_contract,
     validate_boundary_contract,
 )
+from .report import (
+    REPORT_STATUSES,
+    REPORT_VERSION,
+    REVIEW_CATEGORIES,
+    build_contradiction_evidence_gap_report,
+)
 from .rules import (
     REASON_CODES,
     RULE_ENGINE_VERSION,
@@ -39,7 +45,10 @@ __all__ = [
     "FORBIDDEN_OUTCOMES",
     "OPERATOR_REVIEW_STATUSES",
     "REASON_CODES",
+    "REPORT_STATUSES",
+    "REPORT_VERSION",
     "REQUIRED_EVIDENCE_FIELDS",
+    "REVIEW_CATEGORIES",
     "RULE_ENGINE_VERSION",
     "RULE_IDS",
     "SCHEMA_VERSION",
@@ -48,6 +57,7 @@ __all__ = [
     "apply_challenge_rules",
     "build_boundary_contract",
     "build_challenge_evidence_record",
+    "build_contradiction_evidence_gap_report",
     "validate_boundary_contract",
     "validate_challenge_evidence_record",
 ]
