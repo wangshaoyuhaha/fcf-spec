@@ -9,6 +9,13 @@ from .contract import NarrativeBoundaryViolation
 from .contract import assert_valid_contract
 from .contract import build_default_contract
 from .contract import validate_contract
+from .linkage import NarrativeLinkageDisposition
+from .linkage import NarrativeLinkageRequest
+from .linkage import NarrativeLinkageResult
+from .linkage import NarrativeLinkageViolation
+from .linkage import assert_valid_linkage_request
+from .linkage import evaluate_narrative_linkage
+from .linkage import validate_linkage_request
 from .source_schema import NarrativeSourceRecord
 from .source_schema import NarrativeSourceSchemaViolation
 from .source_schema import NarrativeSourceTrustLevel
@@ -22,12 +29,19 @@ __all__ = [
     "CONTRACT_VERSION",
     "MarketNarrativeContextContract",
     "NarrativeBoundaryViolation",
+    "NarrativeLinkageDisposition",
+    "NarrativeLinkageRequest",
+    "NarrativeLinkageResult",
+    "NarrativeLinkageViolation",
     "NarrativeSourceRecord",
     "NarrativeSourceSchemaViolation",
     "NarrativeSourceTrustLevel",
     "assert_valid_contract",
+    "assert_valid_linkage_request",
     "assert_valid_source_record",
     "build_default_contract",
+    "evaluate_narrative_linkage",
     "validate_contract",
+    "validate_linkage_request",
     "validate_source_record",
 ]
