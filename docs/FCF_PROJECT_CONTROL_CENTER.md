@@ -4225,3 +4225,68 @@ AI-CONTEXT-EVIDENCE-CONTRACT-APP-1 必须吸收 ADR、AI 评估样例库、Resea
 AI-CONTRARIAN-CHALLENGE-APP-1 必须吸收 Human Override Ledger 和 challenge 有效性质检。
 DASHBOARD-CONTRADICTION-SCANNER-APP-1 必须检查 Research Artifact Package 与 UI 是否完整暴露 AI challenge、risk flags、uncertainty。
 任何 V2 AI sidecar 如果没有可运行产物、测试样例、研究包输出、handoff 和 final current state，不允许视为完成。
+
+---
+
+## FCF V2 AI 运行化防跑偏补丁
+
+### 主控结论
+
+本章节是进入 V2 AI 开发前的最后一个纯规划补丁。
+本阶段只更新总控规划，不开发功能，不修改 core，不创建 P48，不 tag，不 release，不 deploy。
+本章节完成后，主控不再继续无限补规划，下一阶段应进入 AI-CONTEXT-EVIDENCE-CONTRACT-APP-1。
+
+### 1. Source Trust Level 数据来源可信等级
+
+未来 AI 输入必须标记 source trust level，防止不同来源被混成同等可信事实。
+LEVEL 0：本地确定性数据。
+LEVEL 1：项目已归档产物。
+LEVEL 2：用户手动提供材料。
+LEVEL 3：外部新闻、公告、研报、宏观叙事、情绪材料。
+LEVEL 4：AI 生成的中间解释。
+LEVEL 0 和 LEVEL 1 可以进入事实链。
+LEVEL 2 和 LEVEL 3 只能进入上下文链，必须标记来源、时间、human review required。
+LEVEL 4 不能反向进入事实链，不能作为确定性计算输入。
+
+### 2. Reproducible Research Run 可复现研究运行记录
+
+未来每次生成研究包都必须生成 research_run_id。
+research_run_id 必须关联 correlation_id、input_hash、output_hash、contract_version、prompt_version、model_version、created_at_utc。
+研究包必须能回答：用了哪批输入、哪个 contract、哪个 prompt、哪个模型、哪次运行、是否可以复跑。
+没有 research_run_id 的 AI 研究输出不能作为正式研究包归档。
+
+### 3. AI 成本、超时、重试策略
+
+未来 AI sidecar 必须定义运行稳定性策略。
+必须包含：最大重试次数、最大等待时间、失败后降级动作、是否允许跳过 AI、跳过后是否强制 REVIEW_REQUIRED。
+AI 超时、失败、返回空结果或格式错误时，不允许系统静默继续。
+默认动作必须是 REVIEW_REQUIRED 或 BLOCK，并归档 issue。
+
+### 4. Local Privacy Boundary 本地隐私与外部模型边界
+
+FCF 保持 local-only / paper-only / read-only。
+任何未来 AI 模型调用或人工复制材料，都不得包含 API key、真实账户、真实仓位、钱包私钥、未脱敏个人信息、真实执行信息。
+如果未来使用外部 LLM，只允许处理脱敏后的研究上下文。
+禁止把本地敏感路径、密钥、账户、仓位、交易执行信息发送给外部模型。
+
+### 5. Golden Path Demo 标准演示路径
+
+FCF V2 必须保留一条标准演示路径，证明系统不是散装零件。
+Golden Path 应覆盖：本地样例数据输入、候选生成、AI 解释、AI 质疑、风险展示、人工复核、研究包归档。
+Golden Path 必须是本地、纸面、只读、可测试、可复现。
+后续 V2 sidecar 不能破坏 Golden Path。
+
+### 6. Stop Rule / Freeze Rule 规划停止规则
+
+当前主控已完成 AI 角色、AI 输入输出、证据链、硬化缺口、交付基础、运行化边界。
+本章节完成后，不再继续添加纯规划补丁。
+下一阶段必须进入 AI-CONTEXT-EVIDENCE-CONTRACT-APP-1。
+如果后续发现新想法，先记录为 backlog，不得阻塞已批准开发阶段。
+任何新想法只有在不破坏 core frozen、sidecar-only、paper-only、local-only、read-only、operator review required 的前提下，才允许进入后续阶段评估。
+
+### 对下一阶段的约束
+
+AI-CONTEXT-EVIDENCE-CONTRACT-APP-1 必须吸收 source trust level、research_run_id、AI timeout policy、local privacy boundary、Golden Path、Stop Rule。
+下一阶段不允许重新讨论是否先做 Dashboard Scanner。
+下一阶段不允许直接开发 full AI orchestrator。
+下一阶段目标必须是把 AI 输入、输出、证据链、版本、运行记录、失败处理、多资产主干做成可执行 sidecar contract。

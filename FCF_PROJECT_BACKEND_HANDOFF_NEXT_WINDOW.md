@@ -380,3 +380,21 @@ Six delivery foundation points to preserve:
 - asset-type isolation.
 
 Next AI development phase must preserve these items, especially AI-CONTEXT-EVIDENCE-CONTRACT-APP-1.
+
+---
+
+## Control Center V2 AI Runtime Operations Guard
+
+Latest planning update:
+- CONTROL-CENTER-V2-AI-RUNTIME-OPERATIONS-GUARD-APP-1 added as the final planning-only guard before V2 AI development.
+
+Runtime guard points to preserve:
+- Source Trust Level.
+- research_run_id and reproducible research run tracking.
+- AI cost, timeout, retry, and degradation policy.
+- local privacy boundary for model usage.
+- Golden Path Demo.
+- Stop Rule / Freeze Rule.
+
+After this update, do not keep adding planning-only patches.
+Next approved phase should be AI-CONTEXT-EVIDENCE-CONTRACT-APP-1.
