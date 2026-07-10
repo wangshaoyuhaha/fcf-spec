@@ -363,3 +363,20 @@ Hardening gaps to preserve:
 - multi-asset AI schema layering.
 
 Next AI development phase must include these constraints, especially AI-CONTEXT-EVIDENCE-CONTRACT-APP-1.
+
+---
+
+## Control Center V2 AI Delivery Foundation
+
+Latest planning update:
+- CONTROL-CENTER-V2-AI-DELIVERY-FOUNDATION-APP-1 added before V2 AI development.
+
+Six delivery foundation points to preserve:
+- ADR architecture decision records.
+- AI evaluation case library.
+- Research Artifact Package standard.
+- Human Override Ledger.
+- AI degradation mode.
+- asset-type isolation.
+
+Next AI development phase must preserve these items, especially AI-CONTEXT-EVIDENCE-CONTRACT-APP-1.

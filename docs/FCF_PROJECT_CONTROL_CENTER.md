@@ -4161,3 +4161,67 @@ AI-CONTEXT-EVIDENCE-CONTRACT-APP-1 开发前必须吸收本章节。
 该阶段不仅要定义 AI 输入输出字段，还必须覆盖输入来源分级、模型版本治理、质量评价、失败模式、多资产 schema 主干。
 AI-CONTRARIAN-CHALLENGE-APP-1 开发前必须吸收 Challenge AI 有效性质检规则。
 DASHBOARD-CONTRADICTION-SCANNER-APP-1 开发前必须吸收 UI 风险暴露规则。
+
+---
+
+## FCF V2 AI 交付基础补丁
+
+### 主控结论
+
+本章节补充 FCF V2 AI 能力落地前必须保留的 6 个交付基础规划点。
+本阶段只更新总控规划，不开发功能，不修改 core，不创建 P48，不 tag，不 release，不 deploy。
+目标是防止后续 AI sidecar 只停留在字段规范或漂亮报告，而缺少决策记录、测试样例、研究包标准、人工覆盖记录、降级策略和多资产隔离。
+
+### 1. ADR 架构决策记录
+
+未来 FCF V2 重大架构选择必须写入 ADR 架构决策记录。
+建议目录：docs/decisions/。
+建议文件包括：ADR-001-FCF-V2-AI-ROLE.md、ADR-002-AI-EVIDENCE-CONTRACT.md、ADR-003-CHALLENGE-AI-BOUNDARY.md。
+ADR 需要记录：为什么 AI 是研究员不是交易员、为什么先做 AI evidence contract、为什么 Dashboard Scanner 后置、为什么不先接自动新闻流、为什么不做 P48。
+ADR 是后续新窗口和新阶段的架构依据，避免反复推翻主控路线。
+
+### 2. AI 评估样例库
+
+未来 AI sidecar 必须有固定评估样例库，不能只看 AI 输出是否像样。
+建议目录：tests/fixtures/ai_evaluation_cases/。
+样例库至少覆盖：证据缺失案例、风险被隐藏案例、叙事幻觉案例、数据冲突案例、challenge 应触发案例、human review 必须存在案例。
+AI 评估样例库用于测试 AI 是否按 FCF 规则识别问题，而不是测试 AI 文笔是否流畅。
+
+### 3. Research Artifact Package 标准
+
+FCF V2 最终交付物必须从散文件升级为标准研究包。
+标准研究包名称：Research Artifact Package。
+研究包至少包含：事实数据、计算结果、AI 解释、AI 质疑、风险清单、不确定性声明、人工复核记录、归档编号、Correlation_ID。
+研究包不得包含买入、卖出、下单、仓位管理、收益保证或任何真实执行内容。
+研究包的目标是为人工复核提供完整证据链，而不是替代人工决策。
+
+### 4. Human Override Ledger
+
+V2 阶段必须记录人类操作员如何处理 AI 质疑。
+建议建立 Human Override Ledger。
+Human Override Ledger 至少记录：人什么时候接受 AI 质疑、人什么时候驳回 AI 质疑、驳回理由、驳回后是否继续归档、是否触发 circuit break、操作时间、关联 correlation_id。
+人类仍然是最终复核者，但人类驳回 AI challenge 时必须留下理由。
+这不是削弱人工权限，而是让人工覆盖行为可审计、可复盘、可归档。
+
+### 5. AI 降级模式
+
+未来必须定义 AI 不可用或 AI 输出异常时的安全降级模式。
+触发条件至少包括：AI 不可用、模型输出超时、输出格式错误、证据缺失、模型返回空结果、模型输出与确定性数据冲突。
+默认降级动作：生成 deterministic-only research packet，标记 AI_UNAVAILABLE 或 AI_INVALID_OUTPUT，强制 REVIEW_REQUIRED，归档 issue，不允许生成完整 AI 研究结论。
+AI 失败后禁止静默继续，禁止假装 AI 输出正常。
+
+### 6. 资产类型隔离
+
+FCF 是多资产金融研究平台，不是 BTC-only，也不是股票-only。
+未来 AI evidence contract 应保持共用主干字段，同时为股票、BTC、期货、债券或宏观资产保留独立 context schema。
+共用主干字段包括：correlation_id、evidence_refs、risk_flags、uncertainty、human_review_required、artifact_refs。
+资产专属逻辑必须隔离：股票可以包含估值、ROE、行业题材；BTC 可以包含链上、流动性、宏观风险偏好；期货可以包含期限结构、基差、库存、杠杆风险。
+禁止用股票估值逻辑硬套 BTC 或期货。
+禁止让 BTC 叙事逻辑污染股票研究链。
+
+### 对后续开发的约束
+
+AI-CONTEXT-EVIDENCE-CONTRACT-APP-1 必须吸收 ADR、AI 评估样例库、Research Artifact Package、AI 降级模式、多资产 schema 主干。
+AI-CONTRARIAN-CHALLENGE-APP-1 必须吸收 Human Override Ledger 和 challenge 有效性质检。
+DASHBOARD-CONTRADICTION-SCANNER-APP-1 必须检查 Research Artifact Package 与 UI 是否完整暴露 AI challenge、risk flags、uncertainty。
+任何 V2 AI sidecar 如果没有可运行产物、测试样例、研究包输出、handoff 和 final current state，不允许视为完成。
