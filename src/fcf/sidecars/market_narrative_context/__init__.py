@@ -9,6 +9,11 @@ from .contract import NarrativeBoundaryViolation
 from .contract import assert_valid_contract
 from .contract import build_default_contract
 from .contract import validate_contract
+from .source_schema import NarrativeSourceRecord
+from .source_schema import NarrativeSourceSchemaViolation
+from .source_schema import NarrativeSourceTrustLevel
+from .source_schema import assert_valid_source_record
+from .source_schema import validate_source_record
 
 __all__ = [
     "ALLOWED_INPUT_ARTIFACT_TYPES",
@@ -17,7 +22,12 @@ __all__ = [
     "CONTRACT_VERSION",
     "MarketNarrativeContextContract",
     "NarrativeBoundaryViolation",
+    "NarrativeSourceRecord",
+    "NarrativeSourceSchemaViolation",
+    "NarrativeSourceTrustLevel",
     "assert_valid_contract",
+    "assert_valid_source_record",
     "build_default_contract",
     "validate_contract",
+    "validate_source_record",
 ]
