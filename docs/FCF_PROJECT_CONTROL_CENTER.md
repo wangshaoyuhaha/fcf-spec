@@ -4738,3 +4738,78 @@ Release state:
 - tag: none
 - release: none
 - deploy: none
+<!-- AI-EVALUATION-DRIFT-REVIEW-APP-1-APPROVED -->
+
+## AI-EVALUATION-DRIFT-REVIEW-APP-1 APPROVED NEXT PHASE
+
+Approval state:
+APPROVED / READY TO START
+
+Approved execution branch:
+sidecar-ai-evaluation-drift-review-app-1
+
+Previous completed phase:
+AI-EVALUATION-COMPARISON-APP-1
+
+Previous completed main state:
+- main HEAD: f5d0b94
+- origin/main: f5d0b94
+- validation: ALL CHECKS PASSED
+- pytest: 2443 passed
+- git status: clean
+
+Approved objective:
+Create a deterministic local review layer for detecting and reviewing
+registered AI evaluation drift across time, model versions, prompt
+versions, expected results, and observed results.
+
+Approved scope:
+- drift review boundary contract
+- registered drift evidence schema
+- deterministic drift classification
+- time-window and version-window comparison
+- drift severity and reason-code generation
+- governance review packet
+- final operator-review handoff
+- final current-state archive
+- main merge and Control Center synchronization
+
+Permanent boundaries:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- no automatic model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no automatic model ranking
+- no automatic model selection
+- no automatic prompt selection
+- no automatic evaluation acceptance
+- no automatic winner selection
+- no trade action
+- no real execution
+- no broker or exchange connection
+- no API keys
+- no wallet keys
+- no real account or position access
+
+Execution order:
+D1 boundary contract
+D2 drift evidence schema
+D3 deterministic drift classifier
+D4 drift comparison window
+D5 governance review packet
+D6 operator-review handoff
+Final Current State
+Main merge
+Control Center final synchronization
+
+Release state:
+- tag: none
+- release: none
+- deploy: none

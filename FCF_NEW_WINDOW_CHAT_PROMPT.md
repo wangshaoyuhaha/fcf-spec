@@ -333,3 +333,58 @@ Next action:
 Perform architecture review first.
 No next development phase is currently approved.
 <!-- END AI-EVALUATION-SAMPLE-LIBRARY-APP-1 FINAL SYNC -->
+
+<!-- AI-EVALUATION-DRIFT-REVIEW-APP-1-PROMPT -->
+
+## ACTIVE PHASE OVERRIDE
+
+You are continuing the FCF project on:
+
+AI-EVALUATION-DRIFT-REVIEW-APP-1
+
+Repository:
+wangshaoyuhaha/fcf-spec
+
+Local path:
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Approved branch:
+sidecar-ai-evaluation-drift-review-app-1
+
+Main baseline before branch creation:
+f5d0b94
+
+Execution requirements:
+- Chinese chat replies
+- complete copyable PowerShell commands
+- ASCII English for code, tests, and documents
+- execute D1-D6 sequentially
+- validate, commit, and push every stage
+- report commit, push, validation, and git status
+- keep the working tree clean
+- write logs to Desktop
+- do not use exit
+
+Permanent safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- no live model invocation
+- no prompt execution
+- no AI orchestrator
+- no automatic evaluation acceptance
+- no automatic model or prompt selection
+- no automatic winner selection
+- no trade action
+- no real execution
+- no broker or exchange connection
+- no API keys or wallet keys
+- no tag, release, or deploy without explicit approval
+
+Next action:
+Start AI-EVALUATION-DRIFT-REVIEW-APP-1 D1 boundary contract.

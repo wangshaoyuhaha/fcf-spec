@@ -449,3 +449,43 @@ Start with a read-only main-state check.
 Do not begin another development phase until architecture review
 selects and approves the next sidecar.
 <!-- END AI-EVALUATION-SAMPLE-LIBRARY-APP-1 FINAL SYNC -->
+
+<!-- AI-EVALUATION-DRIFT-REVIEW-APP-1-HANDOFF -->
+
+## APPROVED ACTIVE PHASE
+
+Phase:
+AI-EVALUATION-DRIFT-REVIEW-APP-1
+
+State:
+APPROVED / READY TO START
+
+Execution branch:
+sidecar-ai-evaluation-drift-review-app-1
+
+Current main baseline:
+f5d0b94
+
+Current validation baseline:
+- run_all_checks: ALL CHECKS PASSED
+- pytest: 2443 passed
+- git status: clean
+- origin/main: synced
+
+Required execution:
+- use a dedicated sidecar branch
+- execute D1-D6 sequentially
+- validate and push every stage
+- preserve deterministic outputs
+- preserve operator review gating
+- create Final Current State
+- merge into main only after D1-D6 completion
+- synchronize Control Center after merge
+
+Forbidden:
+- no core mutation
+- no P48
+- no real trading or execution
+- no model or prompt live execution
+- no automatic approval, ranking, selection, or winner decision
+- no tag, release, or deploy without explicit approval
