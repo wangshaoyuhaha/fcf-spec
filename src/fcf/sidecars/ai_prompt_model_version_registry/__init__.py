@@ -13,6 +13,11 @@ from .contract import (
     build_contract,
     validate_contract,
 )
+from .final_handoff import (
+    HANDOFF_TARGETS,
+    build_final_handoff,
+    validate_final_handoff,
+)
 from .registry_index import (
     build_registry_index,
     get_record_by_id,
@@ -48,4 +53,7 @@ __all__ = [
     "REVIEW_PACKET_STATUSES",
     "build_version_governance_review_packet",
     "validate_version_governance_review_packet",
+    "HANDOFF_TARGETS",
+    "build_final_handoff",
+    "validate_final_handoff",
 ]
