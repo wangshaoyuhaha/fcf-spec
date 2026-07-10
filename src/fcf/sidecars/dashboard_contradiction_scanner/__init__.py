@@ -1,0 +1,42 @@
+"""Dashboard contradiction scanner sidecar."""
+
+from .contract import build_contract, validate_contract
+from .final_handoff import (
+    HANDOFF_TARGETS,
+    build_final_handoff,
+    validate_final_handoff,
+)
+from .finding_schema import (
+    CONTRADICTION_SEVERITIES,
+    FINDING_STATUSES,
+    build_contradiction_finding,
+    validate_contradiction_finding,
+)
+from .review_packet import (
+    PACKET_STATUSES,
+    build_contradiction_review_packet,
+    validate_contradiction_review_packet,
+)
+from .scanner import scan_dashboard_contradictions
+from .source_loader import (
+    build_source_manifest,
+    load_source_record,
+)
+
+__all__ = [
+    "build_contract",
+    "validate_contract",
+    "build_source_manifest",
+    "load_source_record",
+    "CONTRADICTION_SEVERITIES",
+    "FINDING_STATUSES",
+    "build_contradiction_finding",
+    "validate_contradiction_finding",
+    "scan_dashboard_contradictions",
+    "PACKET_STATUSES",
+    "build_contradiction_review_packet",
+    "validate_contradiction_review_packet",
+    "HANDOFF_TARGETS",
+    "build_final_handoff",
+    "validate_final_handoff",
+]
