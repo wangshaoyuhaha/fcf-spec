@@ -13,6 +13,12 @@ from .contract import (
     build_boundary_contract,
     validate_boundary_contract,
 )
+from .engine import (
+    ENGINE_VERSION,
+    FIELD_STATUSES,
+    VALID_COMPARISON_STATUSES,
+    compare_expected_observed,
+)
 from .schema import (
     OPERATOR_REVIEW_STATUSES,
     REQUIRED_RECORD_FIELDS,
@@ -29,6 +35,8 @@ __all__ = [
     "COMPARISON_MODES",
     "COMPARISON_STATUSES",
     "CONTRACT_VERSION",
+    "ENGINE_VERSION",
+    "FIELD_STATUSES",
     "FORBIDDEN_COMPARISON_STATUSES",
     "OPERATOR_REVIEW_STATUSES",
     "REQUIRED_COMPARISON_DIMENSIONS",
@@ -36,8 +44,10 @@ __all__ = [
     "RESULT_STATUSES",
     "SCHEMA_VERSION",
     "STAGE_ID",
+    "VALID_COMPARISON_STATUSES",
     "build_boundary_contract",
     "build_comparison_record",
+    "compare_expected_observed",
     "validate_boundary_contract",
     "validate_comparison_record",
 ]
