@@ -1,5 +1,14 @@
 """Market narrative context sidecar."""
 
+from .assessment import NarrativeAssessmentDisposition
+from .assessment import NarrativeAssessmentInput
+from .assessment import NarrativeAssessmentResult
+from .assessment import NarrativeAssessmentViolation
+from .assessment import NarrativeClaimPolarity
+from .assessment import NarrativeFreshnessState
+from .assessment import assess_narrative_context
+from .assessment import assert_valid_assessment_input
+from .assessment import validate_assessment_input
 from .contract import ALLOWED_INPUT_ARTIFACT_TYPES
 from .contract import ALLOWED_OUTPUT_ARTIFACT_TYPES
 from .contract import APP_ID
@@ -28,7 +37,13 @@ __all__ = [
     "APP_ID",
     "CONTRACT_VERSION",
     "MarketNarrativeContextContract",
+    "NarrativeAssessmentDisposition",
+    "NarrativeAssessmentInput",
+    "NarrativeAssessmentResult",
+    "NarrativeAssessmentViolation",
     "NarrativeBoundaryViolation",
+    "NarrativeClaimPolarity",
+    "NarrativeFreshnessState",
     "NarrativeLinkageDisposition",
     "NarrativeLinkageRequest",
     "NarrativeLinkageResult",
@@ -36,11 +51,14 @@ __all__ = [
     "NarrativeSourceRecord",
     "NarrativeSourceSchemaViolation",
     "NarrativeSourceTrustLevel",
+    "assess_narrative_context",
+    "assert_valid_assessment_input",
     "assert_valid_contract",
     "assert_valid_linkage_request",
     "assert_valid_source_record",
     "build_default_contract",
     "evaluate_narrative_linkage",
+    "validate_assessment_input",
     "validate_contract",
     "validate_linkage_request",
     "validate_source_record",
