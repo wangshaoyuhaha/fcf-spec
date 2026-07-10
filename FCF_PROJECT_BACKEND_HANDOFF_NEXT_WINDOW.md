@@ -344,3 +344,22 @@ Approved next route:
 
 Do not start Dashboard Scanner before AI input/output evidence contract and Challenge AI are stable.
 Do not start full AI orchestration before previous V2 stages are stable.
+
+---
+
+## Control Center V2 AI Hardening Gaps
+
+Latest planning update:
+- CONTROL-CENTER-V2-AI-HARDENING-GAPS-APP-1 added before V2 AI development.
+
+Hardening gaps to preserve:
+- AI input source classification.
+- AI output quality evaluation beyond schema shape.
+- prompt, model, and contract version governance.
+- Challenge AI quality requirements.
+- Human Review state machine upgrade.
+- UI risk exposure rules.
+- AI failure-mode default handling.
+- multi-asset AI schema layering.
+
+Next AI development phase must include these constraints, especially AI-CONTEXT-EVIDENCE-CONTRACT-APP-1.

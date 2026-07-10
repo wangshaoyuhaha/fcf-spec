@@ -4091,3 +4091,73 @@ Dashboard Contradiction Scanner 负责检查这些矛盾和质疑有没有在 UI
 暂缓自动新闻/叙事吞吐。
 暂缓自动情景模拟。
 任何暂缓项都不等于取消，只表示必须等证据契约、挑战机制、UI 风险暴露稳定后再做。
+
+---
+
+## FCF V2 AI 规划硬化缺口补丁
+
+### 主控结论
+
+本章节补充 FCF V2 AI 智能认知层进入开发前必须明确的硬化缺口。
+本阶段只更新总控规划，不开发功能，不修改 core，不创建 P48，不 tag，不 release，不 deploy。
+目标是防止 V2 AI 开发阶段出现空文档、弱测试、证据不清、UI 风险隐藏、多资产边界混乱等问题。
+
+### 1. AI 输入来源分级
+
+未来 AI 输入必须按来源分级，不能把所有输入都当成同等可信事实。
+输入来源至少分为：本地确定性数据、用户手动提供材料、外部新闻公告研报、宏观叙事材料、情绪或资金线索、AI 生成的中间解释。
+本地确定性数据可以进入事实层。
+外部新闻、研报、宏观、情绪材料只能进入上下文层，必须 snapshot 化、标时间、标来源、标 human review required。
+AI 自己生成的解释不能反向污染事实层，不能作为确定性计算输入。
+
+### 2. AI 输出质量评价
+
+AI 输出不能只检查格式，还必须检查质量。
+未来 AI sidecar 至少要评价：证据覆盖率、风险保留率、不确定性声明是否存在、challenge 是否有效、是否存在无来源判断、是否把研究解释伪装成结论。
+格式正确但证据不足的 AI 输出，必须进入 REVIEW_REQUIRED 或 BLOCK 状态。
+
+### 3. Prompt 和模型版本治理
+
+未来 AI 输出必须记录 prompt 与模型版本信息。
+最低字段包括：ai_role、model_name 或 model_family、prompt_version、contract_version、input_hash、output_hash、created_at_utc。
+如果 prompt、模型、contract 任一变化，必须能通过 artifact 和 correlation_id 追踪。
+没有版本记录的 AI 输出不能进入正式归档链。
+
+### 4. Challenge AI 有效性质检
+
+Risk Challenge AI 不能只输出泛泛而谈的谨慎表述。
+有效 challenge 必须包含：具体漏洞、对应证据、缺失证据、冲突字段、严重等级、是否触发 review block。
+无具体证据、无字段引用、无严重等级的 challenge，只能算低质量提醒，不能算有效反向质疑。
+
+### 5. Human Review 状态机升级
+
+V2 阶段人工复核不能只是确认按钮。
+Human Review 状态至少应支持：AI 解释已读、AI challenge 已读、challenge 接受、challenge 驳回、驳回理由、是否允许继续归档、是否触发 circuit break。
+如果 challenge 被驳回，必须记录人工驳回理由。
+没有人工复核记录的 AI 研究链不能形成最终研究包。
+
+### 6. UI 风险暴露规则
+
+Dashboard Scanner 后续必须检查风险是否被完整暴露，而不是只检查字段是否存在。
+必须检查：是否降级显示、是否隐藏在折叠区、是否只显示 AI 正面解释不显示 challenge、是否 summary 弱化原始 risk_flags、是否省略 uncertainty。
+任何 UI 风险隐藏、弱化、降级，都必须触发 REVIEW_REQUIRED 或 BLOCK。
+
+### 7. AI 失败模式默认处理
+
+必须提前定义 AI 失败时的默认动作。
+AI 不可用、输出格式错误、缺少证据引用、与确定性数据冲突、Challenge AI 打出 critical flag、UI 未展示风险，默认处理均为 BLOCK 或 REVIEW_REQUIRED，并归档 issue。
+禁止 AI 失败后静默继续。
+
+### 8. 多资产 AI schema 分层
+
+FCF 是多资产金融研究系统，不是 BTC-only，也不是股票-only。
+未来 AI 证据契约应保持共用主干字段，但股票、BTC、期货、债券或宏观类资产必须有各自 context schema。
+禁止用股票估值逻辑硬套 BTC 或期货。
+禁止让 BTC 叙事逻辑污染股票研究链。
+
+### 对下一阶段的影响
+
+AI-CONTEXT-EVIDENCE-CONTRACT-APP-1 开发前必须吸收本章节。
+该阶段不仅要定义 AI 输入输出字段，还必须覆盖输入来源分级、模型版本治理、质量评价、失败模式、多资产 schema 主干。
+AI-CONTRARIAN-CHALLENGE-APP-1 开发前必须吸收 Challenge AI 有效性质检规则。
+DASHBOARD-CONTRADICTION-SCANNER-APP-1 开发前必须吸收 UI 风险暴露规则。
