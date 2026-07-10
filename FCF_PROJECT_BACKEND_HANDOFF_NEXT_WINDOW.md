@@ -320,3 +320,27 @@ Strictly forbidden:
 no validation result fabrication, no pass count fabrication, no P48, no core mutation, no source artifact mutation, no evidence backfill, no auto-pass, no tag, no release, no deploy.
 
 Architecture gap review or explicitly approved next phase only.
+
+---
+
+## Latest Control Center V2 AI Update
+
+Latest main before this handoff sync:
+- 9d9b859 record FCF V2 AI intelligence layer in control center
+
+V2 direction:
+- FCF V2 is not an automatic trading system.
+- FCF V2 is a local paper-only research dossier system.
+- AI is a controlled research fellow, not a trader.
+- AI must be traceable, challengeable, reviewable, and archivable.
+
+Approved next route:
+1. AI-CONTEXT-EVIDENCE-CONTRACT-APP-1
+2. AI-CONTRARIAN-CHALLENGE-APP-1
+3. DASHBOARD-CONTRADICTION-SCANNER-APP-1
+4. MARKET-NARRATIVE-CONTEXT-APP-1
+5. AI-SCENARIO-SIMULATION-APP-1
+6. AI-ORCHESTRATION-ROADMAP-APP-1
+
+Do not start Dashboard Scanner before AI input/output evidence contract and Challenge AI are stable.
+Do not start full AI orchestration before previous V2 stages are stable.

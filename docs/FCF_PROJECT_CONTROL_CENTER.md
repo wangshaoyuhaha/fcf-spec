@@ -4051,3 +4051,43 @@ FCF 不能停留在纯确定性排名系统。
 FCF V2 必须在保持安全边界的前提下，让 AI 提供可控、可追踪、可复核、可归档的金融认知能力。
 下一步不是直接开发 Dashboard Scanner。
 下一步应先做 AI-CONTEXT-EVIDENCE-CONTRACT-APP-1。
+
+---
+
+## FCF V2 AI 落地路线修订
+
+### 主控修订结论
+
+本修订吸收 Google 与 DeepSeek 意见后形成，但以 FCF 主控稳定为最高优先级。
+FCF V2 的目标不是让 AI 更自由，而是让 AI 在证据链里更有用。
+FCF V2 不直接进入完整多 AI 编排，不直接引入自动新闻/叙事吞吐，不取消 Dashboard Scanner。
+
+### V2 推荐真实顺序
+
+V2-0：CONTROL-CENTER-V2-AI-INTELLIGENCE-LAYER-SPEC-APP-1。状态：已完成。作用：锁定 AI 在 FCF 中的位置、边界、输入输出、证据链和后续顺序。
+V2-1：AI-CONTEXT-EVIDENCE-CONTRACT-APP-1。作用：把 AI 输入、输出、证据链、归档、人工复核要求做成可执行 sidecar contract。
+V2-2：AI-CONTRARIAN-CHALLENGE-APP-1。作用：让 AI 对现有 AI-CONTEXT 输出进行反向质疑，生成 challenge packet。
+V2-3：DASHBOARD-CONTRADICTION-SCANNER-APP-1。作用：检查 UI 是否完整暴露 AI 质疑、risk flags、contradictions、uncertainty，防止摘要弱化风险。
+V2-4：MARKET-NARRATIVE-CONTEXT-APP-1。作用：在证据契约和挑战机制稳定后，受控引入市场叙事、宏观、行业上下文。
+V2-5：AI-SCENARIO-SIMULATION-APP-1。作用：在前置链路稳定后，进行受控多情景推演。
+V2-6：AI-ORCHESTRATION-ROADMAP-APP-1。作用：只评估是否需要完整多 AI 编排，不提前开发。
+
+### V2 落地硬规则
+
+每个 V2 sidecar 必须包含：输入 contract、输出 contract、可运行 loader 或 generator、本地样例数据、pytest 测试、forbidden action 测试、artifact / handoff 输出、final current state、run_all_checks、push 后 git clean。
+AI 阶段必须额外覆盖：幻觉输入测试、证据缺失测试、风险隐藏测试、挑战失败测试、人工复核必须存在测试。
+纯 Markdown 不能算功能落地。没有可运行产物、测试和归档，不允许进入下一阶段。
+
+### Dashboard Scanner 保留原因
+
+Risk Challenge AI 负责提出矛盾和质疑。
+Dashboard Contradiction Scanner 负责检查这些矛盾和质疑有没有在 UI 中完整暴露，是否被隐藏、弱化或降级。
+因此 Dashboard Scanner 不取消，但必须排在 AI 输出契约与 Challenge AI 之后。
+
+### 暂缓项
+
+暂缓完整 AI Orchestrator。
+暂缓完整 Multi-Agent Pipeline。
+暂缓自动新闻/叙事吞吐。
+暂缓自动情景模拟。
+任何暂缓项都不等于取消，只表示必须等证据契约、挑战机制、UI 风险暴露稳定后再做。

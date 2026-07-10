@@ -249,3 +249,16 @@ Strictly forbidden:
 no validation result fabrication, no pass count fabrication, no P48, no core mutation, no source artifact mutation, no evidence backfill, no auto-pass, no tag, no release, no deploy.
 
 Architecture gap review or explicitly approved next phase only.
+
+---
+
+当前最新主控状态：CONTROL-CENTER-V2-AI-INTELLIGENCE-LAYER-SPEC-APP-1
+
+继续 FCF / BTC finance platform 金融市场模型项目。只做 FCF，不要切到足球项目。
+最新主控已确认：FCF V2 = 确定性金融计算引擎 + 可控 AI 智能认知层。
+AI 是高级金融研究员，不是交易员、执行器、下单系统、仓位管理器或收益保证器。
+下一阶段不要直接做 Dashboard Scanner。
+下一阶段应先讨论并批准 AI-CONTEXT-EVIDENCE-CONTRACT-APP-1。
+后续顺序：AI evidence contract -> contrarian challenge -> dashboard contradiction scanner -> market narrative context -> scenario simulation -> orchestration roadmap。
+保持 core frozen、sidecar-only、paper-only、local-only、read-only、operator review required。
+禁止真实交易、真实执行、broker/exchange API、API key、wallet private key、real account、real position、buy/sell/order、自动仓位、自动组合动作、收益保证、tag、release、deploy。
