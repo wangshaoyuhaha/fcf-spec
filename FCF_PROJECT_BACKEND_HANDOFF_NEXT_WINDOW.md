@@ -278,3 +278,45 @@ Boundary:
 read-only / index-only / sidecar-only / operator review required.
 No validation result fabrication. No pass count fabrication. No P48. No core mutation. No tag. No release. No deploy.
 Architecture gap review or explicitly approved next phase only.
+
+---
+
+## Completed Phase: VALIDATION-BASELINE-REGISTRY-APP-1
+
+Status:
+completed, merged into main, validated, pushed, and clean.
+
+Main merge commit:
+b6c8525 merge VALIDATION-BASELINE-REGISTRY-APP-1 into main
+
+Final sidecar commit:
+e98c3d2 add VALIDATION-BASELINE-D6 final handoff closeout
+
+Validation:
+python scripts/run_all_checks.py = ALL CHECKS PASSED
+python -m pytest -q = 2082 passed
+
+git status:
+clean
+
+origin/main:
+synced
+
+Purpose:
+Create a validation baseline registry sidecar.
+
+Completed stages:
+- D1 sidecar boundary and validation baseline registry contract
+- D2 validation run record model
+- D3 validation baseline snapshot index
+- D4 validation baseline summary
+- D5 validation baseline packet
+- D6 final handoff closeout
+
+Boundary:
+paper-only / local-only / read-only / sidecar-only / index-only / operator review required.
+
+Strictly forbidden:
+no validation result fabrication, no pass count fabrication, no P48, no core mutation, no source artifact mutation, no evidence backfill, no auto-pass, no tag, no release, no deploy.
+
+Architecture gap review or explicitly approved next phase only.
