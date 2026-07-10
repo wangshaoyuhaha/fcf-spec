@@ -520,3 +520,83 @@ Permanent safety boundary:
 
 Next action:
 Start D1 boundary contract.
+
+<!-- AI-CONTRARIAN-CHALLENGE-APP-1-FINAL-PROMPT-SYNC -->
+
+## NEW WINDOW CURRENT STATE
+
+You are taking over the FCF / Financial Cognitive Framework control
+window.
+
+Repository:
+wangshaoyuhaha/fcf-spec
+
+Local path:
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Branch:
+main
+
+Latest confirmed main HEAD:
+41ad01d
+
+Latest completed phase:
+AI-CONTRARIAN-CHALLENGE-APP-1
+
+Latest phase state:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Current active development phase:
+none
+
+Next planning candidate:
+DASHBOARD-CONTRADICTION-SCANNER-APP-1
+
+Candidate state:
+PLANNING ONLY / NOT APPROVED / NOT STARTED
+
+Before any development:
+- verify main and origin/main are synchronized
+- verify git status is clean
+- run or confirm full validation
+- read docs/FCF_PROJECT_CONTROL_CENTER.md
+- perform architecture review
+- obtain explicit operator approval
+- create a dedicated sidecar branch only after approval
+
+Response requirements:
+- reply in Chinese
+- keep responses direct
+- provide complete copyable PowerShell commands
+- use ASCII English in code, tests, and documents
+- do not ask the operator to edit files manually
+- write logs to Desktop
+- do not use exit
+- report commit, push, validation, and git status
+- remind the operator when the chat window is close to full
+
+Permanent boundary:
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- original conclusions preserved
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no automatic truth decision
+- no automatic winner selection
+- no automatic conclusion replacement
+- no automatic model or prompt switching
+- no operator review bypass
+- no trade action
+- no real execution
+- no tag
+- no release
+- no deploy

@@ -4993,3 +4993,57 @@ Permanent boundaries:
 - no tag
 - no release
 - no deploy
+
+<!-- AI-CONTRARIAN-CHALLENGE-APP-1-FINAL-CONTROL-SYNC -->
+
+## AI-CONTRARIAN-CHALLENGE-APP-1 FINAL CLOSEOUT
+
+State:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Main merge commit:
+41ad01d
+
+Completed stages:
+- D1 boundary contract: 461c43c
+- D2 challenge evidence schema: 3127757
+- D3 deterministic challenge rules: 433b586
+- D4 contradiction and evidence-gap report: a99eca1
+- D5 governance review packet: 3cc8245
+- D6 operator-review handoff: 8595fed
+- Final Current State: 456f823
+
+Architecture result:
+The platform now has a deterministic read-only challenge layer for
+registered AI context and evaluation artifacts.
+
+Governance result:
+Challenge findings remain additional governance evidence only.
+They cannot overwrite source conclusions, decide truth, select a
+winner, bypass operator review, or trigger execution.
+
+Current active development phase:
+none
+
+Next planning candidate:
+DASHBOARD-CONTRADICTION-SCANNER-APP-1
+
+Candidate status:
+PLANNING ONLY / REQUIRES ARCHITECTURE REVIEW AND OPERATOR APPROVAL
+
+No automatic next-phase start is authorized.
+
+Permanent safety state:
+- core frozen
+- sidecar-only
+- paper-only
+- local-only
+- read-only
+- deterministic-only
+- operator-review-required
+- no live model or prompt execution
+- no orchestration execution
+- no automatic truth or winner decision
+- no conclusion replacement
+- no real execution
+- no tag, release, or deploy
