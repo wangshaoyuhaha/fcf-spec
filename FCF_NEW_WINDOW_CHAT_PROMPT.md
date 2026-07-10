@@ -388,3 +388,81 @@ Permanent safety boundary:
 
 Next action:
 Start AI-EVALUATION-DRIFT-REVIEW-APP-1 D1 boundary contract.
+<!-- AI-EVALUATION-DRIFT-REVIEW-APP-1-FINAL-PROMPT -->
+
+## FINAL CURRENT STATE OVERRIDE
+
+This section overrides all earlier active-phase instructions.
+
+You are continuing the FCF / Financial Cognitive Framework project.
+
+Repository:
+wangshaoyuhaha/fcf-spec
+
+Local path:
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Current branch:
+main
+
+Current HEAD:
+7eef90a
+
+Current origin/main:
+7eef90a
+
+Latest completed phase:
+AI-EVALUATION-DRIFT-REVIEW-APP-1
+
+Latest phase state:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Final Current State commit:
+8ddd692
+
+Main merge commit:
+7eef90a
+
+Validation:
+- python scripts/run_all_checks.py = ALL CHECKS PASSED
+- python -m pytest -q = 2545 passed
+- git status = clean
+- origin/main = synchronized
+
+Current active development phase:
+NONE
+
+Next phase:
+NOT SELECTED
+
+The next window must first:
+1. Verify main, origin/main, and clean status.
+2. Read docs/FCF_PROJECT_CONTROL_CENTER.md.
+3. Perform architecture review.
+4. Wait for explicit operator approval before creating a branch or
+   starting a new D1-D6 phase.
+
+Do not automatically resume the earlier Drift active-phase instruction.
+
+Permanent safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- operator review required
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no automatic drift approval or rejection
+- no automatic rollback
+- no automatic model or prompt switching
+- no operator review bypass
+- no trade action
+- no real execution
+- no broker or exchange connection
+- no API keys or wallet keys
+- no tag, release, or deploy without explicit approval
