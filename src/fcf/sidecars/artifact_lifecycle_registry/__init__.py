@@ -8,6 +8,10 @@ from .contract import (
     build_lifecycle_registry_index,
     validate_lifecycle_record,
 )
+from .final_handoff import (
+    build_lifecycle_final_handoff,
+    classify_lifecycle_final_handoff,
+)
 from .registry_packet import (
     build_lifecycle_registry_packet,
     classify_lifecycle_registry_packet,
@@ -33,11 +37,13 @@ __all__ = [
     "REQUIRED_ARTIFACT_FIELDS",
     "build_artifact_state_snapshot",
     "build_artifact_state_snapshot_index",
+    "build_lifecycle_final_handoff",
     "build_lifecycle_registry_contract",
     "build_lifecycle_registry_index",
     "build_lifecycle_registry_packet",
     "build_lifecycle_registry_summary",
     "build_transition_index",
+    "classify_lifecycle_final_handoff",
     "classify_lifecycle_registry_packet",
     "classify_lifecycle_registry_summary",
     "validate_lifecycle_record",
