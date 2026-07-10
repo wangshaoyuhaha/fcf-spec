@@ -27,6 +27,12 @@ from .schema import (
     build_drift_evidence_record,
     validate_drift_evidence_record,
 )
+from .window import (
+    REVIEW_DRIFT_STATUSES,
+    WINDOW_STATUSES,
+    WINDOW_VERSION,
+    build_drift_comparison_window,
+)
 
 __all__ = [
     "ALLOWED_INPUTS",
@@ -42,10 +48,14 @@ __all__ = [
     "OPERATOR_REVIEW_STATUSES",
     "REQUIRED_DRIFT_DIMENSIONS",
     "REQUIRED_EVIDENCE_FIELDS",
+    "REVIEW_DRIFT_STATUSES",
     "SCHEMA_VERSION",
     "SOURCE_COMPARISON_STATUSES",
     "STAGE_ID",
+    "WINDOW_STATUSES",
+    "WINDOW_VERSION",
     "build_boundary_contract",
+    "build_drift_comparison_window",
     "build_drift_evidence_record",
     "classify_drift_evidence",
     "validate_boundary_contract",
