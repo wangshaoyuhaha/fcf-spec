@@ -4646,3 +4646,95 @@ Deferred following candidate:
 Drift Review must not start before Comparison is completed, merged,
 validated, archived, and synchronized.
 <!-- END AI-EVALUATION-COMPARISON-APP-1 APPROVAL -->
+
+<!-- AI-EVALUATION-COMPARISON-APP-1-FINAL-SYNC -->
+
+## AI-EVALUATION-COMPARISON-APP-1 FINAL STATE
+
+Status:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Sidecar:
+AI-EVALUATION-COMPARISON-APP-1
+
+Sidecar final current-state commit:
+2342002
+
+Main merge commit:
+63cbaa8
+
+Main branch:
+main
+
+Main HEAD:
+63cbaa8
+
+Origin main:
+63cbaa8
+
+Delivered capability:
+- registered expected-versus-observed evaluation comparison
+- deterministic field-level comparison
+- registered model ID comparison
+- registered model version comparison
+- registered prompt ID comparison
+- registered prompt version comparison
+- cross-model comparison matrix
+- cross-version comparison matrix
+- governance review priority generation
+- deterministic operator-review queue
+- final operator-review handoff
+
+Completed stages:
+- D1 boundary contract
+- D2 comparison record schema
+- D3 deterministic comparison engine
+- D4 registered comparison matrix
+- D5 governance review packet
+- D6 operator-review handoff
+- Final Current State
+- Main merge
+
+Permanent safety state:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- operator review required
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- no automatic model invocation
+- no prompt execution
+- no automatic model ranking
+- no automatic model selection
+- no automatic prompt selection
+- no automatic winner selection
+- no automatic evaluation acceptance
+- no operator review bypass
+- no trade action
+- no real execution
+- no broker or exchange connection
+- no API keys
+- no wallet keys
+- no real account or position access
+
+Validation:
+- python scripts/run_all_checks.py = ALL CHECKS PASSED
+- python -m pytest -q = 2443 passed
+- git status = clean
+- origin/main = synced
+
+Deferred next candidate:
+AI-EVALUATION-DRIFT-REVIEW-APP-1
+
+Candidate state:
+PLANNING ONLY / NOT STARTED / REQUIRES EXPLICIT APPROVAL
+
+Window handoff files:
+UNCHANGED BY CURRENT OPERATOR INSTRUCTION
+
+Release state:
+- tag: none
+- release: none
+- deploy: none
