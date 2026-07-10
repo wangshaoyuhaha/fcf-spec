@@ -466,3 +466,57 @@ Permanent safety boundary:
 - no broker or exchange connection
 - no API keys or wallet keys
 - no tag, release, or deploy without explicit approval
+<!-- AI-CONTRARIAN-CHALLENGE-APP-1-PROMPT -->
+
+## ACTIVE PHASE OVERRIDE
+
+Active phase:
+AI-CONTRARIAN-CHALLENGE-APP-1
+
+Repository:
+wangshaoyuhaha/fcf-spec
+
+Local path:
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Approved branch:
+sidecar-ai-contrarian-challenge-app-1
+
+Main baseline:
+adc4c7f
+
+Execution requirements:
+- Chinese chat replies
+- complete copyable PowerShell commands
+- ASCII English for code, tests, and documents
+- execute D1-D6 sequentially
+- validate, commit, and push every stage
+- report commit, push, validation, and git status
+- keep working tree clean
+- write logs to Desktop
+- do not use exit
+- remind the operator before the chat window becomes too full
+
+Permanent safety boundary:
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no automatic truth decision
+- no automatic conclusion replacement
+- no automatic model or prompt switching
+- no trade action
+- no real execution
+- no tag, release, or deploy
+
+Next action:
+Start D1 boundary contract.

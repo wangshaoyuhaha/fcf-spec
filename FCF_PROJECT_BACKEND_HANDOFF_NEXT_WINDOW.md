@@ -570,3 +570,42 @@ Permanent boundaries:
 - no automatic rollback
 - no trade action or real execution
 - no tag, release, or deploy without explicit approval
+<!-- AI-CONTRARIAN-CHALLENGE-APP-1-HANDOFF -->
+
+## APPROVED ACTIVE PHASE
+
+Phase:
+AI-CONTRARIAN-CHALLENGE-APP-1
+
+State:
+APPROVED / READY TO START
+
+Execution branch:
+sidecar-ai-contrarian-challenge-app-1
+
+Main baseline:
+adc4c7f
+
+Validation baseline:
+- run_all_checks: ALL CHECKS PASSED
+- pytest: 2545 passed
+- git status: clean
+- origin/main: synchronized
+
+Required execution:
+- execute D1-D6 sequentially
+- validate, commit, and push every stage
+- preserve registered source artifacts
+- preserve operator review gating
+- never replace the original conclusion automatically
+- create Final Current State before main merge
+
+Forbidden:
+- no P48
+- no core mutation
+- no live model or prompt execution
+- no AI orchestrator execution
+- no automatic truth or winner decision
+- no automatic model or prompt switching
+- no trade action or real execution
+- no tag, release, or deploy

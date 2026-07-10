@@ -4921,3 +4921,75 @@ Release state:
 - tag: none
 - release: none
 - deploy: none
+<!-- AI-CONTRARIAN-CHALLENGE-APP-1-APPROVED -->
+
+## AI-CONTRARIAN-CHALLENGE-APP-1 APPROVED NEXT PHASE
+
+Approval state:
+APPROVED / READY TO START
+
+Approved branch:
+sidecar-ai-contrarian-challenge-app-1
+
+Current main baseline:
+adc4c7f
+
+Previous completed phases:
+- AI-EVALUATION-COMPARISON-APP-1
+- AI-EVALUATION-DRIFT-REVIEW-APP-1
+
+Approved objective:
+Create a deterministic local read-only challenge layer that examines
+registered AI context and evaluation artifacts for unsupported claims,
+missing evidence, hidden risk, logical gaps, overconfidence, and
+cross-artifact contradictions.
+
+Approved inputs:
+- registered AI context artifacts
+- registered evaluation result artifacts
+- registered comparison artifacts
+- registered drift review artifacts
+- registered risk flags
+- registered evidence references
+
+Approved outputs:
+- challenge evidence record
+- challenge finding report
+- contradiction summary
+- governance review packet
+- operator-review handoff
+
+Execution order:
+- D1 boundary contract
+- D2 challenge evidence schema
+- D3 deterministic challenge rules
+- D4 contradiction and evidence-gap report
+- D5 governance review packet
+- D6 operator-review handoff
+- Final Current State
+- Main merge
+- Final synchronization
+
+Permanent boundaries:
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no automatic truth decision
+- no automatic winner selection
+- no automatic conclusion replacement
+- no automatic model or prompt switching
+- no trade action
+- no real execution
+- no tag
+- no release
+- no deploy
