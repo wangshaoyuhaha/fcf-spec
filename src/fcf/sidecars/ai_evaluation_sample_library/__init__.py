@@ -14,6 +14,14 @@ from .coverage_checks import (
     build_evaluation_sample_coverage_report,
     validate_evaluation_sample_coverage_report,
 )
+from .handoff import (
+    COMPLETED_STAGES,
+    HANDOFF_SCHEMA_VERSION,
+    HANDOFF_STAGE_ID,
+    HANDOFF_STATUSES,
+    build_evaluation_sample_final_handoff,
+    validate_evaluation_sample_final_handoff,
+)
 from .registry_index import (
     REGISTRY_SCHEMA_VERSION,
     REGISTRY_STAGE_ID,
@@ -49,6 +57,12 @@ __all__ = [
     "COVERAGE_STATUSES",
     "build_evaluation_sample_coverage_report",
     "validate_evaluation_sample_coverage_report",
+    "COMPLETED_STAGES",
+    "HANDOFF_SCHEMA_VERSION",
+    "HANDOFF_STAGE_ID",
+    "HANDOFF_STATUSES",
+    "build_evaluation_sample_final_handoff",
+    "validate_evaluation_sample_final_handoff",
     "REGISTRY_SCHEMA_VERSION",
     "REGISTRY_STAGE_ID",
     "build_evaluation_sample_registry",
