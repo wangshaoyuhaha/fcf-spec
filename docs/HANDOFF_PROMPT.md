@@ -369,3 +369,36 @@ no automatic routing / no real execution.
 
 No tag, release, or deployment is approved.
 <!-- END FCF HANDOFF: AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-POST-PHASE-GAP-REVIEW -->
+
+<!-- BEGIN FCF HANDOFF APPROVAL: AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1 -->
+## Active Phase
+
+Phase:
+AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1
+
+Status:
+APPROVED / ACTIVE
+
+Branch:
+sidecar-ai-comprehensive-report-consumer-activation-app-1
+
+Current step:
+D1 production entry-point discovery and activation contract
+
+Approved sequence:
+- D1 production entry-point discovery and activation contract
+- D2 Operator Review entry-point activation
+- D3 UI entry-point activation
+- D4 Report Archive entry-point activation
+- D5 registered artifact and cross-surface activation validation
+- D6 full-chain activation closeout
+
+Permanent restrictions:
+paper-only / local-only / read-only / sidecar-only /
+deterministic-only / registered artifacts only /
+operator review required / manual archive authorization required /
+no runtime model invocation / no prompt execution /
+no automatic routing / no real execution.
+
+No tag, release, or deployment is approved.
+<!-- END FCF HANDOFF APPROVAL: AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1 -->

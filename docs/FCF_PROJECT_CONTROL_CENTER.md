@@ -5915,3 +5915,56 @@ Approval state: NOT APPROVED
 No implementation branch, tag, release, deployment, or sidecar branch
 deletion is approved by this review sync.
 <!-- END FCF SYNC: AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-POST-PHASE-GAP-REVIEW -->
+
+<!-- BEGIN FCF APPROVAL: AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1 -->
+## Approved Phase - AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1
+
+Status: APPROVED / ACTIVE
+
+Approval date: 2026-07-11 23:37:14 +08:00
+
+### Approval basis
+
+- binding phase completed and merged
+- post-phase architecture gap review committed
+- review commit: 91819d80a7d34190494b4e5011b9f5fff3ef5521
+- control and handoff review sync commit: e276d057110f87c1120643b040fe8b4003e7cc0d
+- GAP-1 through GAP-5 remain OPEN
+- operator explicitly approved continuation
+
+### Approved scope
+
+- D1 production entry-point discovery and activation contract
+- D2 Operator Review entry-point activation
+- D3 UI entry-point activation
+- D4 Report Archive entry-point activation
+- D5 registered artifact and cross-surface activation validation
+- D6 full-chain activation closeout
+
+### Approved branch
+
+sidecar-ai-comprehensive-report-consumer-activation-app-1
+
+### Required restrictions
+
+- P1-P47 frozen
+- no P48
+- no frozen core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- manual archive authorization required
+- no automatic approval
+- no automatic archive
+- no archive writing
+- no runtime model invocation
+- no prompt execution
+- no automatic routing
+- no real execution
+
+No tag, release, or deployment is approved.
+<!-- END FCF APPROVAL: AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1 -->
