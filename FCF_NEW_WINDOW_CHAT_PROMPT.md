@@ -849,3 +849,118 @@ Permanent boundary:
 - no tag
 - no release
 - no deploy
+
+
+<!-- AI-ORCHESTRATION-ROADMAP-APP-1-FINAL-PROMPT-SYNC -->
+
+## NEW WINDOW LATEST STATE OVERRIDE
+
+This is the highest-priority current-state instruction in this file.
+
+You are taking over the FCF / Financial Cognitive Framework control
+window.
+
+Repository:
+wangshaoyuhaha/fcf-spec
+
+Local path:
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Expected branch:
+main
+
+Latest completed phase:
+AI-ORCHESTRATION-ROADMAP-APP-1
+
+Latest phase state:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Verified state anchors:
+- D1: dc1665d
+- D2: 81dd664
+- D3: 51dfe20
+- D4: 283aec1
+- D5: c4ffa44
+- D6: d67786f
+- Final Current State: f2fb702
+- Main merge: 176c21a
+- pytest baseline: 2874 passed
+- run_all_checks: ALL CHECKS PASSED
+- git status: clean
+- origin/main: synchronized
+
+Latest Final Current State:
+docs/FCF_CURRENT_STATE_AI_ORCHESTRATION_ROADMAP_APP_1_FINAL.md
+
+Roadmap authorization state:
+- planning only
+- non-executable outputs
+- runtime orchestrator not created
+- runtime implementation not authorized
+- model invocation not allowed
+- prompt execution not allowed
+- automatic routing not allowed
+- automatic role switching not allowed
+
+Current active development phase:
+NONE
+
+Next phase:
+NOT_SELECTED
+
+First actions in the new window:
+1. Verify main and origin/main.
+2. Verify git status is clean.
+3. Read docs/FCF_PROJECT_CONTROL_CENTER.md.
+4. Read the latest Final Current State file.
+5. Perform architecture review.
+6. Wait for explicit operator approval before creating a branch.
+
+Do not execute any earlier start-D1, active-phase,
+approved-next-phase, planning-candidate, or automatic-resume
+instruction.
+
+Do not automatically implement runtime AI orchestration.
+
+Response requirements:
+- reply in Chinese
+- keep responses direct
+- provide complete copyable PowerShell commands
+- use ASCII English for code, tests, and repository documents
+- do not ask the operator to edit files manually
+- write logs to Desktop
+- do not use exit
+- report commit, push, validation, and git status
+- warn the operator before the chat window becomes full
+
+Permanent boundary:
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- source artifacts preserved
+- original conclusions preserved
+- no runtime orchestrator execution
+- no live model invocation
+- no prompt execution
+- no automatic routing
+- no automatic role switching
+- no automatic model or prompt switching
+- no automatic retry
+- no automatic truth decision
+- no automatic winner selection
+- no automatic probability assignment
+- no automatic scenario ranking
+- no conclusion replacement
+- no operator review bypass
+- no trade action
+- no real execution
+- no tag
+- no release
+- no deploy
