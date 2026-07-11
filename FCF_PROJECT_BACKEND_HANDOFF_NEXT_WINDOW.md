@@ -732,3 +732,97 @@ Permanent boundary:
 - no conclusion replacement
 - no trade action or real execution
 - no tag, release, or deploy
+
+<!-- MARKET-NARRATIVE-CONTEXT-APP-1-FINAL-HANDOFF-SYNC -->
+
+## LATEST CONFIRMED PROJECT HANDOFF
+
+This section overrides every earlier active-phase or next-phase
+instruction in this file.
+
+Project:
+FCF / Financial Cognitive Framework
+
+Repository:
+wangshaoyuhaha/fcf-spec
+
+Local path:
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Current branch:
+main
+
+Latest completed phase:
+MARKET-NARRATIVE-CONTEXT-APP-1
+
+Phase state:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+State anchor:
+- Main merge commit: e4e7836
+- Final Current State commit: 3a59150
+- Final sidecar commit: df46bb3
+- Final Current State file:
+  docs/FCF_CURRENT_STATE_MARKET_NARRATIVE_CONTEXT_APP_1_FINAL.md
+
+Completed commits:
+- D1: 2a14cc1
+- D2: d80e8d2
+- D3: 837b371
+- D4: d936a89
+- D5: ec0cd66
+- D6: df46bb3
+- Main merge: e4e7836
+- Final Current State: 3a59150
+
+Validation:
+- run_all_checks: ALL CHECKS PASSED
+- pytest: 2709 passed
+- git status: clean
+- main and origin/main: synchronized
+
+Current active development phase:
+NONE
+
+Next development phase:
+NOT SELECTED
+
+Required next-window procedure:
+1. Verify the actual main HEAD and origin/main.
+2. Verify git status is clean.
+3. Read docs/FCF_PROJECT_CONTROL_CENTER.md.
+4. Read the latest Final Current State file.
+5. Perform architecture review.
+6. Obtain explicit operator approval.
+7. Create a dedicated sidecar branch only after approval.
+
+Do not automatically resume:
+- AI-EVALUATION-DRIFT-REVIEW-APP-1
+- AI-CONTRARIAN-CHALLENGE-APP-1
+- DASHBOARD-CONTRADICTION-SCANNER-APP-1
+- any older approved or ready-to-start phase
+
+Permanent boundary:
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- original conclusions preserved
+- truth status remains UNDETERMINED
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no automatic truth or winner decision
+- no conclusion replacement
+- no operator review bypass
+- no trade action
+- no real execution
+- no tag
+- no release
+- no deploy

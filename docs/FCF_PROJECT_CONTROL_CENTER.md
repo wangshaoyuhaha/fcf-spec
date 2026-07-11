@@ -5107,3 +5107,106 @@ Permanent safety state:
 - no conclusion replacement
 - no real execution
 - no tag, release, or deploy
+
+<!-- MARKET-NARRATIVE-CONTEXT-APP-1-FINAL-CONTROL-SYNC -->
+
+## MARKET-NARRATIVE-CONTEXT-APP-1 FINAL CLOSEOUT
+
+This section overrides all earlier active-phase, approved-next-phase,
+planning-candidate, and validation-baseline statements.
+
+State:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Latest completed phase:
+MARKET-NARRATIVE-CONTEXT-APP-1
+
+Phase branch:
+sidecar-market-narrative-context-app-1
+
+Phase commits:
+- D1 boundary contract: 2a14cc1
+- D2 narrative source schema: d80e8d2
+- D3 deterministic linkage rules: 837b371
+- D4 narrative assessment: d936a89
+- D5 paper-only review packet: ec0cd66
+- D6 operator-review and archive handoff: df46bb3
+
+Main merge commit:
+e4e7836
+
+Final Current State commit:
+3a59150
+
+Final Current State file:
+docs/FCF_CURRENT_STATE_MARKET_NARRATIVE_CONTEXT_APP_1_FINAL.md
+
+Validation baseline:
+- python scripts/run_all_checks.py = ALL CHECKS PASSED
+- python -m pytest -q = 2709 passed
+- git status = clean
+- main and origin/main = synchronized
+
+Delivered capability:
+- registered narrative source metadata
+- deterministic source trust classification
+- narrative-to-research artifact linkage
+- contradiction detection
+- explicit uncertainty detection
+- freshness assessment
+- missing-evidence detection
+- shared-evidence reference assessment
+- paper-only governance review packet
+- operator-review and archive handoff
+
+Interpretation boundary:
+- narrative context is additional governance evidence only
+- truth status remains UNDETERMINED
+- original conclusions remain preserved
+- no narrative is automatically selected as correct
+- no research conclusion is automatically replaced
+- operator review remains mandatory
+
+Current active development phase:
+NONE
+
+Next development phase:
+NOT SELECTED
+
+Development gate:
+A new sidecar requires architecture review and explicit operator
+approval before branch creation or D1 implementation.
+
+All older sections describing another phase as active, approved,
+ready to start, next, or automatically resumable are historical and
+must not be executed unless explicitly re-approved by the operator.
+
+Permanent safety boundary:
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- original conclusions preserved
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no automatic truth decision
+- no automatic winner selection
+- no automatic conclusion replacement
+- no automatic model switching
+- no automatic prompt switching
+- no operator review bypass
+- no trade action
+- no real execution
+- no broker or exchange connection
+- no API keys
+- no wallet private keys
+- no tag
+- no release
+- no deploy

@@ -660,3 +660,91 @@ Permanent boundary:
 - no tag
 - no release
 - no deploy
+
+<!-- MARKET-NARRATIVE-CONTEXT-APP-1-FINAL-PROMPT-SYNC -->
+
+## NEW WINDOW LATEST STATE OVERRIDE
+
+This is the highest-priority current-state instruction in this file.
+
+You are taking over the FCF / Financial Cognitive Framework control
+window.
+
+Repository:
+wangshaoyuhaha/fcf-spec
+
+Local path:
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Expected branch:
+main
+
+Latest completed phase:
+MARKET-NARRATIVE-CONTEXT-APP-1
+
+Latest phase state:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Verified state anchor:
+- Main merge commit: e4e7836
+- Final Current State commit: 3a59150
+- Final sidecar commit: df46bb3
+- pytest baseline: 2709 passed
+- run_all_checks: ALL CHECKS PASSED
+- git status: clean
+- origin/main: synchronized
+
+Current active development phase:
+NONE
+
+Next phase:
+NOT SELECTED
+
+First actions in the new window:
+1. Verify main and origin/main.
+2. Verify the working tree is clean.
+3. Read docs/FCF_PROJECT_CONTROL_CENTER.md.
+4. Read
+   docs/FCF_CURRENT_STATE_MARKET_NARRATIVE_CONTEXT_APP_1_FINAL.md.
+5. Perform architecture review.
+6. Wait for explicit operator approval before creating a branch.
+
+Do not execute any earlier start-D1, active-phase, approved-next-phase,
+or planning-candidate instruction automatically.
+
+Response requirements:
+- reply in Chinese
+- keep responses direct
+- provide complete copyable PowerShell commands
+- use ASCII English for code, tests, and repository documents
+- do not ask the operator to edit files manually
+- write logs to Desktop
+- do not use exit
+- report commit, push, validation, and git status
+- warn the operator before the chat window becomes full
+
+Permanent boundary:
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- original conclusions preserved
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no automatic truth decision
+- no automatic winner selection
+- no automatic conclusion replacement
+- no automatic model or prompt switching
+- no operator review bypass
+- no trade action
+- no real execution
+- no tag
+- no release
+- no deploy
