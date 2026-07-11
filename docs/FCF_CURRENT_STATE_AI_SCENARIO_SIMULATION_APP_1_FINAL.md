@@ -181,3 +181,62 @@ NOT YET PERFORMED
 
 New-window prompt synchronization:
 NOT YET PERFORMED
+
+
+<!-- AI-SCENARIO-SIMULATION-APP-1-POST-MERGE-FINAL -->
+
+## Post-merge final state
+
+This section overrides the earlier pre-merge state in this file.
+
+State:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Branch:
+main
+
+D1-D6 commits:
+- D1: e46c569
+- D2: 2260dc2
+- D3: 5a2b381
+- D4: 6b8a4d3
+- D5: de52422
+- D6: d4b8876
+
+Final Current State commit:
+38fb6ab
+
+Main merge commit:
+4b945d6
+
+Validation:
+- python scripts/run_all_checks.py = ALL CHECKS PASSED
+- python -m pytest -q = 2786 passed
+- git status = clean
+- main and origin/main = synchronized
+
+Current active development phase:
+NONE
+
+Next development phase:
+NOT SELECTED
+
+No automatic next-phase start is authorized.
+
+Control Center synchronization:
+COMPLETED BY FINAL CONTROL SYNC COMMIT
+
+Backend handoff synchronization:
+COMPLETED BY FINAL CONTROL SYNC COMMIT
+
+New-window prompt synchronization:
+COMPLETED BY FINAL CONTROL SYNC COMMIT
+
+Tag:
+none
+
+Release:
+none
+
+Deploy:
+none

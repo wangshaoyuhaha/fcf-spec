@@ -826,3 +826,96 @@ Permanent boundary:
 - no tag
 - no release
 - no deploy
+
+
+<!-- AI-SCENARIO-SIMULATION-APP-1-FINAL-HANDOFF-SYNC -->
+
+## LATEST CONFIRMED PROJECT HANDOFF
+
+This section overrides every earlier active-phase, next-phase,
+approved-next-phase, and automatic-resume instruction in this file.
+
+Project:
+FCF / Financial Cognitive Framework
+
+Repository:
+wangshaoyuhaha/fcf-spec
+
+Local path:
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Current branch:
+main
+
+Latest completed phase:
+AI-SCENARIO-SIMULATION-APP-1
+
+Phase state:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+State anchors:
+- D1: e46c569
+- D2: 2260dc2
+- D3: 5a2b381
+- D4: 6b8a4d3
+- D5: de52422
+- D6: d4b8876
+- Final Current State: 38fb6ab
+- Main merge: 4b945d6
+
+Final Current State file:
+docs/FCF_CURRENT_STATE_AI_SCENARIO_SIMULATION_APP_1_FINAL.md
+
+Validation:
+- run_all_checks: ALL CHECKS PASSED
+- pytest: 2786 passed
+- git status: clean
+- main and origin/main: synchronized
+
+Current active development phase:
+NONE
+
+Next development phase:
+NOT SELECTED
+
+Required next-window procedure:
+1. Verify actual main and origin/main.
+2. Verify the working tree is clean.
+3. Read docs/FCF_PROJECT_CONTROL_CENTER.md.
+4. Read the latest Final Current State file.
+5. Perform the next architecture review.
+6. Obtain explicit operator approval.
+7. Create a dedicated sidecar branch only after approval.
+
+Do not automatically resume or start:
+- AI-ORCHESTRATION-ROADMAP
+- live AI orchestration
+- model invocation
+- prompt execution
+- any older candidate or approved phase
+
+Permanent boundary:
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- original conclusions preserved
+- truth status remains UNDETERMINED
+- no live model invocation
+- no prompt execution
+- no AI orchestrator execution
+- no automatic truth or winner decision
+- no automatic probability or ranking
+- no conclusion replacement
+- no operator review bypass
+- no trade action
+- no real execution
+- no tag
+- no release
+- no deploy
