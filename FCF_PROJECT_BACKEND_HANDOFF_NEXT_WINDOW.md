@@ -1022,3 +1022,89 @@ Permanent boundary:
 - no tag
 - no release
 - no deploy
+
+
+<!-- AI-CAUSAL-REASONING-CHAIN-APP-1-FINAL-HANDOFF-SYNC -->
+
+## LATEST CONFIRMED PROJECT HANDOFF
+
+This section overrides every earlier project-resume instruction.
+
+Project:
+FCF / Financial Cognitive Framework
+
+Repository:
+wangshaoyuhaha/fcf-spec
+
+Local path:
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Current branch:
+main
+
+Latest completed phase:
+AI-CAUSAL-REASONING-CHAIN-APP-1
+
+Phase state:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+State anchors:
+- D1: 60cf83f
+- D2: 4ea7ddb
+- D3: 4679243
+- D4: d4e2ddc
+- D5: eb5c62c
+- D6: a7db1a9
+- Final Current State: d09807d
+- Main merge: ec186e5
+
+Latest Final Current State:
+docs/FCF_CURRENT_STATE_AI_CAUSAL_REASONING_CHAIN_APP_1_FINAL.md
+
+Validation:
+- run_all_checks = ALL CHECKS PASSED
+- pytest = 2971 passed
+- git status = clean
+- main and origin/main = synchronized
+
+Current active development phase:
+NONE
+
+Next development phase:
+NOT_SELECTED
+
+Known future architecture candidate:
+AI-COMPREHENSIVE-REPORT-SYNTHESIS-APP-1
+
+Candidate state:
+NOT SELECTED / NOT APPROVED / NOT STARTED
+
+Required next-window procedure:
+1. Verify actual main and origin/main.
+2. Verify git status is clean.
+3. Read docs/FCF_PROJECT_CONTROL_CENTER.md.
+4. Read the latest Final Current State file.
+5. Perform architecture review.
+6. Obtain explicit operator approval.
+7. Create a dedicated sidecar branch only after approval.
+
+Do not automatically start a candidate or runtime implementation.
+
+Permanent boundary:
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- operator review required
+- causal truth remains UNDETERMINED
+- no probability or winner assignment
+- no conclusion replacement
+- no runtime AI execution
+- no trading or real execution
+- no tag
+- no release
+- no deploy

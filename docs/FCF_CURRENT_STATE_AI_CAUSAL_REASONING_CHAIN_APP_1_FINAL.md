@@ -190,3 +190,99 @@ NOT YET PERFORMED
 
 Next development phase:
 NOT_SELECTED
+
+
+<!-- AI-CAUSAL-REASONING-CHAIN-APP-1-POST-MERGE-FINAL -->
+
+## Post-merge final state
+
+This section overrides all earlier pre-merge statements.
+
+State:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Current branch:
+main
+
+Phase commits:
+- D1: 60cf83f
+- D2: 4ea7ddb
+- D3: 4679243
+- D4: d4e2ddc
+- D5: eb5c62c
+- D6: a7db1a9
+
+Final Current State commit:
+d09807d
+
+Main merge commit:
+ec186e5
+
+Validation:
+- run_all_checks = ALL CHECKS PASSED
+- pytest = 2971 passed
+- git status = clean
+- main and origin/main = synchronized
+
+Delivered capability:
+- registered causal claims and premises
+- registered supporting evidence
+- registered counterevidence
+- registered alternative explanations
+- deterministic causal-chain construction
+- disconnected-component detection
+- cycle detection
+- duplicate and reverse-edge detection
+- evidence-gap detection
+- governance review packet
+- operator action queue
+- manual archive handoff
+
+Interpretation state:
+- causal truth = UNDETERMINED
+- probability = NOT_ASSIGNED
+- winner = NOT_SELECTED
+- operator decision = PENDING
+- operator review = REQUIRED
+- source artifacts = PRESERVED
+- original conclusions = PRESERVED
+- archive execution = NOT_PERFORMED
+
+Runtime state:
+- runtime orchestrator = NOT_CREATED
+- runtime execution = NOT_ALLOWED
+- model invocation = NOT_ALLOWED
+- prompt execution = NOT_ALLOWED
+- automatic causal truth decision = NOT_ALLOWED
+- automatic probability assignment = NOT_ALLOWED
+- automatic winner selection = NOT_ALLOWED
+
+Current active development phase:
+NONE
+
+Next development phase:
+NOT_SELECTED
+
+Known future architecture candidate:
+AI-COMPREHENSIVE-REPORT-SYNTHESIS-APP-1
+
+Candidate state:
+NOT SELECTED / NOT APPROVED / NOT STARTED
+
+Control Center synchronization:
+COMPLETED BY FINAL CONTROL SYNC COMMIT
+
+Backend handoff synchronization:
+COMPLETED BY FINAL CONTROL SYNC COMMIT
+
+New-window prompt synchronization:
+COMPLETED BY FINAL CONTROL SYNC COMMIT
+
+Tag:
+none
+
+Release:
+none
+
+Deploy:
+none

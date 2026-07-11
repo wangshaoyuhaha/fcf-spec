@@ -5441,3 +5441,106 @@ Permanent safety boundary:
 - no tag
 - no release
 - no deploy
+
+
+<!-- AI-CAUSAL-REASONING-CHAIN-APP-1-FINAL-CONTROL-SYNC -->
+
+## AI-CAUSAL-REASONING-CHAIN-APP-1 FINAL CLOSEOUT
+
+This section overrides every earlier active-phase, next-phase,
+candidate, approval, automatic-resume, and validation statement.
+
+State:
+COMPLETED / MERGED / VALIDATED / PUSHED / CLEAN
+
+Latest completed phase:
+AI-CAUSAL-REASONING-CHAIN-APP-1
+
+State anchors:
+- D1: 60cf83f
+- D2: 4ea7ddb
+- D3: 4679243
+- D4: d4e2ddc
+- D5: eb5c62c
+- D6: a7db1a9
+- Final Current State: d09807d
+- Main merge: ec186e5
+
+Validation baseline:
+- run_all_checks = ALL CHECKS PASSED
+- pytest = 2971 passed
+- git status = clean
+- main and origin/main = synchronized
+
+Delivered capability:
+- registered causal evidence structure
+- deterministic causal-chain construction
+- structural conflict detection
+- evidence-gap detection
+- governance review packet
+- operator action queue
+- manual archive handoff
+
+Interpretation boundary:
+- correlation is not causation
+- causal truth remains UNDETERMINED
+- probability remains NOT_ASSIGNED
+- winner remains NOT_SELECTED
+- source artifacts remain preserved
+- original conclusions remain preserved
+- operator review remains mandatory
+
+Current active development phase:
+NONE
+
+Next development phase:
+NOT_SELECTED
+
+Known future architecture candidate:
+AI-COMPREHENSIVE-REPORT-SYNTHESIS-APP-1
+
+Candidate state:
+NOT SELECTED / NOT APPROVED / NOT STARTED
+
+Development gate:
+- verify main and origin/main
+- verify clean working tree
+- perform architecture review
+- obtain explicit operator approval
+- create a dedicated sidecar branch
+- add validation and governance controls
+
+Do not automatically start:
+- comprehensive report synthesis
+- runtime AI orchestration
+- live model invocation
+- prompt execution
+- automatic routing
+- automatic role switching
+- any historical candidate or approved phase
+
+Permanent boundary:
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- source artifacts preserved
+- original conclusions preserved
+- no claim or evidence invention
+- no causality inference from correlation
+- no automatic causal truth decision
+- no probability assignment
+- no winner selection
+- no conclusion replacement
+- no runtime AI execution
+- no trade action
+- no real execution
+- no tag
+- no release
+- no deploy
