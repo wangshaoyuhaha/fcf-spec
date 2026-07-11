@@ -22,6 +22,12 @@ from .d3_operator_review_adapter import (
     build_operator_review_packet,
     validate_operator_review_packet,
 )
+from .d4_ui_visibility_projection import (
+    UI_CONSUMER_APP_ID,
+    UI_PACKET_TYPE,
+    build_ui_visibility_packet,
+    validate_ui_visibility_packet,
+)
 
 __all__ = [
     "APP_ID",
@@ -31,6 +37,8 @@ __all__ = [
     "SOURCE_MODULE",
     "CONSUMER_APP_ID",
     "PACKET_TYPE",
+    "UI_CONSUMER_APP_ID",
+    "UI_PACKET_TYPE",
     "build_integration_boundary_contract",
     "validate_integration_boundary_contract",
     "build_registered_source_envelope",
@@ -40,4 +48,6 @@ __all__ = [
     "validate_registered_source_envelope",
     "build_operator_review_packet",
     "validate_operator_review_packet",
+    "build_ui_visibility_packet",
+    "validate_ui_visibility_packet",
 ]
