@@ -25,7 +25,7 @@ ACTIVATION_SURFACES = (
     REPORT_ARCHIVE_SURFACE,
 )
 
-PRODUCTION_ROOTS = ("app", "apps")
+PRODUCTION_ROOTS = ("app", "apps", "operator_review_app")
 
 _EXCLUDED_PARTS = {
     "__pycache__",
