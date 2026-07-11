@@ -33,6 +33,14 @@ from .d4_report_archive_binding import (
     build_report_archive_consumer_binding,
     validate_report_archive_consumer_binding,
 )
+from .d5_cross_consumer_consistency import (
+    CHECKED_CONSUMERS,
+    COMMON_CONTENT_FIELDS,
+    CONSISTENCY_PACKET_TYPE,
+    build_cross_consumer_binding_bundle,
+    validate_cross_consumer_binding_bundle,
+    validate_cross_consumer_bindings,
+)
 
 __all__ = [
     "APP_ID",
@@ -52,6 +60,9 @@ __all__ = [
     "ARCHIVE_BINDING_PACKET_TYPE",
     "ARCHIVE_CONSUMER_APP_ID",
     "REQUIRED_ARCHIVE_FIELDS",
+    "CHECKED_CONSUMERS",
+    "COMMON_CONTENT_FIELDS",
+    "CONSISTENCY_PACKET_TYPE",
     "build_consumer_binding_contract",
     "validate_consumer_binding_contract",
     "build_operator_review_consumer_binding",
@@ -60,4 +71,7 @@ __all__ = [
     "validate_ui_consumer_binding",
     "build_report_archive_consumer_binding",
     "validate_report_archive_consumer_binding",
+    "build_cross_consumer_binding_bundle",
+    "validate_cross_consumer_binding_bundle",
+    "validate_cross_consumer_bindings",
 ]
