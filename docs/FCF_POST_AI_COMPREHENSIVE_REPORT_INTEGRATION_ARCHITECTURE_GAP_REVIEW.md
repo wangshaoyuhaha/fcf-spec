@@ -50,7 +50,7 @@ considered operationally adopted.
 
 ## GAP-2 - Consumer surface binding
 
-Status: 
+Status: OPEN
 
 ### Operator Review bindings
 
@@ -116,7 +116,7 @@ archive transitions.
 
 ## GAP-4 - Cross-surface consistency guard
 
-Status: 
+Status: OPEN
 
 Evidence:
 
