@@ -26,6 +26,13 @@ from .d3_ui_binding import (
     build_ui_consumer_binding,
     validate_ui_consumer_binding,
 )
+from .d4_report_archive_binding import (
+    ARCHIVE_BINDING_PACKET_TYPE,
+    ARCHIVE_CONSUMER_APP_ID,
+    REQUIRED_ARCHIVE_FIELDS,
+    build_report_archive_consumer_binding,
+    validate_report_archive_consumer_binding,
+)
 
 __all__ = [
     "APP_ID",
@@ -42,10 +49,15 @@ __all__ = [
     "REQUIRED_VISIBLE_SECTION_IDS",
     "UI_BINDING_PACKET_TYPE",
     "UI_CONSUMER_APP_ID",
+    "ARCHIVE_BINDING_PACKET_TYPE",
+    "ARCHIVE_CONSUMER_APP_ID",
+    "REQUIRED_ARCHIVE_FIELDS",
     "build_consumer_binding_contract",
     "validate_consumer_binding_contract",
     "build_operator_review_consumer_binding",
     "validate_operator_review_consumer_binding",
     "build_ui_consumer_binding",
     "validate_ui_consumer_binding",
+    "build_report_archive_consumer_binding",
+    "validate_report_archive_consumer_binding",
 ]
