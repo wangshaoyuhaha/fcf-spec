@@ -19,6 +19,13 @@ from .d2_operator_review_binding import (
     build_operator_review_consumer_binding,
     validate_operator_review_consumer_binding,
 )
+from .d3_ui_binding import (
+    REQUIRED_VISIBLE_SECTION_IDS,
+    UI_BINDING_PACKET_TYPE,
+    UI_CONSUMER_APP_ID,
+    build_ui_consumer_binding,
+    validate_ui_consumer_binding,
+)
 
 __all__ = [
     "APP_ID",
@@ -32,8 +39,13 @@ __all__ = [
     "SOURCE_PACKET_TYPE",
     "BINDING_PACKET_TYPE",
     "CONSUMER_APP_ID",
+    "REQUIRED_VISIBLE_SECTION_IDS",
+    "UI_BINDING_PACKET_TYPE",
+    "UI_CONSUMER_APP_ID",
     "build_consumer_binding_contract",
     "validate_consumer_binding_contract",
     "build_operator_review_consumer_binding",
     "validate_operator_review_consumer_binding",
+    "build_ui_consumer_binding",
+    "validate_ui_consumer_binding",
 ]
