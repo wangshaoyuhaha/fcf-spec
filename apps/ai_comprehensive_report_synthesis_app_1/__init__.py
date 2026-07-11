@@ -7,6 +7,21 @@ from .d1_boundary_contract import (
     require_valid_d1_contract,
     validate_d1_contract,
 )
+from .d2_source_manifest import (
+    ALLOWED_ARTIFACT_TYPES,
+    MANIFEST_SCHEMA_VERSION,
+    REQUIRED_ARTIFACT_TYPES,
+    SOURCE_SCHEMA_VERSION,
+    ManifestViolation,
+    SourceRecordViolation,
+    build_source_manifest,
+    build_source_record,
+    build_version_lock,
+    require_valid_source_manifest,
+    require_valid_source_record,
+    validate_source_manifest,
+    validate_source_record,
+)
 
 __all__ = [
     "APP_ID",
@@ -16,4 +31,17 @@ __all__ = [
     "build_d1_contract",
     "require_valid_d1_contract",
     "validate_d1_contract",
+    "ALLOWED_ARTIFACT_TYPES",
+    "MANIFEST_SCHEMA_VERSION",
+    "REQUIRED_ARTIFACT_TYPES",
+    "SOURCE_SCHEMA_VERSION",
+    "ManifestViolation",
+    "SourceRecordViolation",
+    "build_source_manifest",
+    "build_source_record",
+    "build_version_lock",
+    "require_valid_source_manifest",
+    "require_valid_source_record",
+    "validate_source_manifest",
+    "validate_source_record",
 ]
