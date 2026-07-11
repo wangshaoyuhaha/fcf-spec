@@ -48,6 +48,14 @@ from .d4_governance_assessment import (
     require_valid_governance_assessment,
     validate_governance_assessment,
 )
+from .d5_governance_review_packet import (
+    REVIEW_CHECKLIST_ITEMS,
+    REVIEW_PACKET_SCHEMA_VERSION,
+    GovernanceReviewPacketViolation,
+    build_governance_review_packet,
+    require_valid_governance_review_packet,
+    validate_governance_review_packet,
+)
 
 __all__ = [
     "APP_ID",
@@ -92,4 +100,10 @@ __all__ = [
     "build_governance_assessment",
     "require_valid_governance_assessment",
     "validate_governance_assessment",
+    "REVIEW_CHECKLIST_ITEMS",
+    "REVIEW_PACKET_SCHEMA_VERSION",
+    "GovernanceReviewPacketViolation",
+    "build_governance_review_packet",
+    "require_valid_governance_review_packet",
+    "validate_governance_review_packet",
 ]
