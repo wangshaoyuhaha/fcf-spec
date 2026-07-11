@@ -41,6 +41,12 @@ from .d5_cross_consumer_consistency import (
     validate_cross_consumer_binding_bundle,
     validate_cross_consumer_bindings,
 )
+from .d6_full_chain_closeout import (
+    CLOSEOUT_PACKET_TYPE,
+    COMPLETED_STAGES,
+    build_consumer_binding_full_chain_closeout,
+    validate_consumer_binding_full_chain_closeout,
+)
 
 __all__ = [
     "APP_ID",
@@ -63,6 +69,8 @@ __all__ = [
     "CHECKED_CONSUMERS",
     "COMMON_CONTENT_FIELDS",
     "CONSISTENCY_PACKET_TYPE",
+    "CLOSEOUT_PACKET_TYPE",
+    "COMPLETED_STAGES",
     "build_consumer_binding_contract",
     "validate_consumer_binding_contract",
     "build_operator_review_consumer_binding",
@@ -74,4 +82,6 @@ __all__ = [
     "build_cross_consumer_binding_bundle",
     "validate_cross_consumer_binding_bundle",
     "validate_cross_consumer_bindings",
+    "build_consumer_binding_full_chain_closeout",
+    "validate_consumer_binding_full_chain_closeout",
 ]
