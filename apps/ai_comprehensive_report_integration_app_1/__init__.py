@@ -34,6 +34,11 @@ from .d5_manual_archive_projection import (
     build_manual_archive_candidate_packet,
     validate_manual_archive_candidate_packet,
 )
+from .d6_full_chain_closeout import (
+    CLOSEOUT_PACKET_TYPE,
+    build_full_chain_closeout_packet,
+    validate_full_chain_closeout_packet,
+)
 
 __all__ = [
     "APP_ID",
@@ -47,6 +52,7 @@ __all__ = [
     "UI_PACKET_TYPE",
     "ARCHIVE_CONSUMER_APP_ID",
     "ARCHIVE_PACKET_TYPE",
+    "CLOSEOUT_PACKET_TYPE",
     "build_integration_boundary_contract",
     "validate_integration_boundary_contract",
     "build_registered_source_envelope",
@@ -60,4 +66,6 @@ __all__ = [
     "validate_ui_visibility_packet",
     "build_manual_archive_candidate_packet",
     "validate_manual_archive_candidate_packet",
+    "build_full_chain_closeout_packet",
+    "validate_full_chain_closeout_packet",
 ]
