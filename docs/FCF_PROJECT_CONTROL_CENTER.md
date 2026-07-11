@@ -5757,3 +5757,76 @@ Run a post-integration architecture gap review.
 No next implementation phase is approved until that review is completed
 and explicitly approved by the operator.
 <!-- END AI-COMPREHENSIVE-REPORT-INTEGRATION-APP-1 FINAL SYNC -->
+
+<!-- BEGIN FCF SYNC: AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-APP-1 -->
+## Current State Sync - AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-APP-1
+
+Status: COMPLETE / VALIDATED / MERGED INTO MAIN
+
+Sync date: 2026-07-11 23:05:06 +08:00
+
+### Commit registry
+
+- D1: 4f0e09c1cca65aede3530d2fcf3947514b309cf8
+- D2: 0983bff88843976753a67e2b103b91831925f9dd
+- D3: 342bdce05217a1bce698837ff75084407c857a9e
+- D4: 79542ecd1e8374accea76c70ab47fd47969039d5
+- D5: 905135a3a2ffdbaa13a99005f583622540062289
+- D6: 85093d0b7c924a9423a09b1cfb32f4adb58b5b87
+- Final Current State: da84677f76af59296933085753ebc999f79ebd51
+- Main merge: eb87a586d05f251f08ee12ee8d540100894268fb
+
+### Delivered production consumer bindings
+
+- OPERATOR-REVIEW-APP-1 read-only binding
+- UI-APP-1 full risk and uncertainty visibility binding
+- REPORT-ARCHIVE-APP-1 manual-only archive binding
+- cross-consumer identity consistency validation
+- cross-consumer content consistency validation
+- deterministic full-chain closeout
+
+### Preserved state
+
+- operator review status: REVIEW_REQUIRED
+- operator decision: PENDING
+- UI display status: VISIBLE_READ_ONLY
+- archive status: PENDING_MANUAL_ARCHIVE
+- operator archive decision: PENDING
+- all bindings: BOUND_READ_ONLY
+
+### Validation baseline
+
+- targeted D1-D6 pytest: 77 passed
+- full pytest: 3211 passed
+- run_all_checks: PASSED
+- main synchronized with origin/main
+- working tree clean
+
+### Permanent boundary
+
+- P1-P47 frozen
+- no P48
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- manual archive authorization required
+- no runtime model invocation
+- no prompt execution
+- no automatic routing
+- no automatic approval
+- no automatic archive
+- no archive write
+- no real execution
+
+### Next action
+
+Post-phase architecture gap review.
+
+Approval state: NOT APPROVED.
+
+No tag, release, deployment, or sidecar branch deletion was performed.
+<!-- END FCF SYNC: AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-APP-1 -->
