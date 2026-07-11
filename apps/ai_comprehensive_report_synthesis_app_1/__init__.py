@@ -40,6 +40,14 @@ from .d3_report_assembly import (
     validate_report_sections,
     validate_source_payload,
 )
+from .d4_governance_assessment import (
+    GOVERNANCE_ASSESSMENT_SCHEMA_VERSION,
+    REGISTERED_ISSUE_CODES,
+    GovernanceAssessmentViolation,
+    build_governance_assessment,
+    require_valid_governance_assessment,
+    validate_governance_assessment,
+)
 
 __all__ = [
     "APP_ID",
@@ -78,4 +86,10 @@ __all__ = [
     "validate_content_item",
     "validate_report_sections",
     "validate_source_payload",
+    "GOVERNANCE_ASSESSMENT_SCHEMA_VERSION",
+    "REGISTERED_ISSUE_CODES",
+    "GovernanceAssessmentViolation",
+    "build_governance_assessment",
+    "require_valid_governance_assessment",
+    "validate_governance_assessment",
 ]
