@@ -28,6 +28,12 @@ from .d4_ui_visibility_projection import (
     build_ui_visibility_packet,
     validate_ui_visibility_packet,
 )
+from .d5_manual_archive_projection import (
+    ARCHIVE_CONSUMER_APP_ID,
+    ARCHIVE_PACKET_TYPE,
+    build_manual_archive_candidate_packet,
+    validate_manual_archive_candidate_packet,
+)
 
 __all__ = [
     "APP_ID",
@@ -39,6 +45,8 @@ __all__ = [
     "PACKET_TYPE",
     "UI_CONSUMER_APP_ID",
     "UI_PACKET_TYPE",
+    "ARCHIVE_CONSUMER_APP_ID",
+    "ARCHIVE_PACKET_TYPE",
     "build_integration_boundary_contract",
     "validate_integration_boundary_contract",
     "build_registered_source_envelope",
@@ -50,4 +58,6 @@ __all__ = [
     "validate_operator_review_packet",
     "build_ui_visibility_packet",
     "validate_ui_visibility_packet",
+    "build_manual_archive_candidate_packet",
+    "validate_manual_archive_candidate_packet",
 ]
