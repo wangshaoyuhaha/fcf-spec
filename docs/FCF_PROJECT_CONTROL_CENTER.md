@@ -5687,3 +5687,73 @@ Permanent safety boundary:
 - no deploy
 
 <!-- AI-COMPREHENSIVE-REPORT-SYNTHESIS-APP-1-FINAL-CONTROL-SYNC-END -->
+
+<!-- BEGIN AI-COMPREHENSIVE-REPORT-INTEGRATION-APP-1 FINAL SYNC -->
+## AI-COMPREHENSIVE-REPORT-INTEGRATION-APP-1 Final Sync
+
+### Status
+
+COMPLETE / MERGED / VALIDATED / PUSHED / CLEAN
+
+### Mainline
+
+- branch: main
+- phase merge commit: 3710a7c
+- sidecar final current state commit: cf1162e
+- origin/main synchronized: true
+- working tree clean: true
+
+### Stage commits
+
+- D1 boundary contract: a048453
+- D2 registered source loader: 9498085
+- D3 operator review adapter: 3b107b1
+- D4 UI visibility projection: a940946
+- D5 manual archive projection: 567a50e
+- D6 full-chain closeout: aba4cf9
+
+### Delivered integration chain
+
+1. registered comprehensive report synthesis artifact
+2. registered source envelope
+3. operator review packet
+4. UI risk and uncertainty visibility projection
+5. manual-only archive candidate packet
+6. deterministic full-chain closeout validation
+
+### Validation baseline
+
+- targeted D1-D6 pytest: 87 passed
+- full pytest: 3134 passed
+- run_all_checks: PASSED
+- main push: synchronized
+- git status: clean
+
+### Governance boundary
+
+- P1-P47 core frozen
+- no P48
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- manual archive authorization required
+- no runtime model invocation
+- no prompt execution
+- no automatic routing
+- no automatic truth, probability, or winner assignment
+- no real execution
+- no tag
+- no release
+- no deploy
+
+### Next controlled action
+
+Run a post-integration architecture gap review.
+
+No next implementation phase is approved until that review is completed
+and explicitly approved by the operator.
+<!-- END AI-COMPREHENSIVE-REPORT-INTEGRATION-APP-1 FINAL SYNC -->
