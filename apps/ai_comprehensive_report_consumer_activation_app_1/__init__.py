@@ -31,6 +31,13 @@ from .d4_report_archive_activation import (
     build_report_archive_activation_packet,
     validate_report_archive_activation_packet,
 )
+from .d5_cross_surface_activation_validation import (
+    CROSS_SURFACE_VALIDATION_ARTIFACT_TYPE,
+    CROSS_SURFACE_VALIDATION_STATUS,
+    RegisteredCrossSurfaceActivationArtifact,
+    build_registered_cross_surface_activation_artifact,
+    validate_registered_cross_surface_activation_artifact,
+)
 
 __all__ = [
     "ACTIVATION_SURFACES",
@@ -56,4 +63,9 @@ __all__ = [
     "ReportArchiveActivationPacket",
     "build_report_archive_activation_packet",
     "validate_report_archive_activation_packet",
+    "CROSS_SURFACE_VALIDATION_ARTIFACT_TYPE",
+    "CROSS_SURFACE_VALIDATION_STATUS",
+    "RegisteredCrossSurfaceActivationArtifact",
+    "build_registered_cross_surface_activation_artifact",
+    "validate_registered_cross_surface_activation_artifact",
 ]
