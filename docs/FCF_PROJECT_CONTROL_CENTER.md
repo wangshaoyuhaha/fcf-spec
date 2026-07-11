@@ -5830,3 +5830,88 @@ Approval state: NOT APPROVED.
 
 No tag, release, deployment, or sidecar branch deletion was performed.
 <!-- END FCF SYNC: AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-APP-1 -->
+
+<!-- BEGIN FCF SYNC: AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-POST-PHASE-GAP-REVIEW -->
+## Post-Phase Architecture Gap Review Sync - AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-APP-1
+
+Status: COMPLETE / REVIEW COMMITTED / NEXT PHASE NOT APPROVED
+
+Sync date: 2026-07-11 23:26:03 +08:00
+
+### Review commit
+
+- 91819d80a7d34190494b4e5011b9f5fff3ef5521
+- add post-phase architecture gap review after AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-APP-1
+
+### Review artifact
+
+- docs/ai_comprehensive_report_consumer_binding_app_1/POST_PHASE_ARCHITECTURE_GAP_REVIEW.md
+
+### Confirmed baseline
+
+- branch: main
+- HEAD and origin/main before this sync: 91819d80a7d34190494b4e5011b9f5fff3ef5521
+- targeted D1-D6 pytest: 77 passed
+- full pytest: 3211 passed
+- run_all_checks: PASSED
+- working tree before review: CLEAN
+
+### Architecture gap status
+
+- GAP-1 External production consumption: OPEN
+- GAP-2 Operator Review activation: OPEN
+- GAP-3 UI activation: OPEN
+- GAP-4 Report Archive activation: OPEN
+- GAP-5 Full bundle lifecycle activation: OPEN
+
+### Architecture conclusion
+
+The deterministic consumer-binding package is complete and validated.
+
+The repository scan found no production Python entry point outside the
+binding package that actively consumes the registered binding packet.
+
+The open gaps must remain visible until existing production entry points
+consume the registered packet without mutating frozen core behavior.
+
+### Recommended next phase
+
+AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1
+
+Priority: P1
+
+Approval state: NOT APPROVED
+
+### Recommended scope when approved
+
+- D1 production entry-point discovery and activation contract
+- D2 Operator Review entry-point activation
+- D3 UI entry-point activation
+- D4 Report Archive entry-point activation
+- D5 registered artifact and cross-surface activation validation
+- D6 full-chain activation closeout
+
+### Permanent restrictions
+
+- P1-P47 frozen
+- no P48
+- no frozen core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- manual archive authorization required
+- no automatic approval
+- no automatic archive
+- no archive writing
+- no runtime model invocation
+- no prompt execution
+- no automatic routing
+- no real execution
+
+No implementation branch, tag, release, deployment, or sidecar branch
+deletion is approved by this review sync.
+<!-- END FCF SYNC: AI-COMPREHENSIVE-REPORT-CONSUMER-BINDING-POST-PHASE-GAP-REVIEW -->
