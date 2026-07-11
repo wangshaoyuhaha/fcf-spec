@@ -24,6 +24,13 @@ from .d3_ui_activation import (
     build_ui_activation_packet,
     validate_ui_activation_packet,
 )
+from .d4_report_archive_activation import (
+    REPORT_ARCHIVE_CONSUMER_ID,
+    REPORT_ARCHIVE_STATUS,
+    ReportArchiveActivationPacket,
+    build_report_archive_activation_packet,
+    validate_report_archive_activation_packet,
+)
 
 __all__ = [
     "ACTIVATION_SURFACES",
@@ -44,4 +51,9 @@ __all__ = [
     "UiActivationPacket",
     "build_ui_activation_packet",
     "validate_ui_activation_packet",
+    "REPORT_ARCHIVE_CONSUMER_ID",
+    "REPORT_ARCHIVE_STATUS",
+    "ReportArchiveActivationPacket",
+    "build_report_archive_activation_packet",
+    "validate_report_archive_activation_packet",
 ]
