@@ -1,3 +1,118 @@
+<!-- FCF-AI-COMPREHENSIVE-REPORT-SYNTHESIS-CURRENT-TRUTH-BEGIN -->
+
+# FCF CURRENT AUTHORITATIVE BACKEND HANDOFF
+
+This header overrides every older active-phase, approved-next-phase,
+candidate, automatic-resume, branch-creation, D1-start, and validation
+statement appearing later in this file.
+
+Project:
+
+FCF / Financial Cognitive Framework
+
+Repository:
+
+wangshaoyuhaha/fcf-spec
+
+Local path:
+
+C:\Users\Admin\Desktop\btc_finance_platform
+
+Current true state:
+
+- branch: main
+- latest completed phase: AI-COMPREHENSIVE-REPORT-SYNTHESIS-APP-1
+- phase merge commit: 93e4977
+- Final Current State commit: 3caacd2
+- Final Current State file:
+  docs/ai_comprehensive_report_synthesis_app_1/FINAL_CURRENT_STATE.md
+- run_all_checks: ALL CHECKS PASSED
+- pytest: 3047 passed
+- git status: clean
+- main and origin/main: synchronized
+- tag: none
+- release: none
+- deploy: none
+
+Phase commits:
+
+- D1: 2b011d8
+- D2: 4469cba
+- D3: 9a464da
+- D4: 8b74359
+- D5: 935a5c4
+- D6: 370e6c5
+- Final Current State: 3caacd2
+- Main merge: 93e4977
+
+Delivered capability:
+
+- registered artifact source manifest
+- exact version locking
+- deterministic report section assembly
+- cross-artifact governance assessment
+- governance issue register
+- operator action queue
+- mandatory review checklist
+- explicit operator review receipt
+- manual-only archive handoff
+
+Interpretation state:
+
+- causal truth: UNDETERMINED
+- probability: NOT_ASSIGNED
+- winner: NOT_SELECTED
+- operator decision: PENDING
+- archive execution: NOT PERFORMED
+
+Current active development phase:
+
+NONE
+
+Next development phase:
+
+NOT SELECTED
+
+Continuation rule:
+
+Perform read-only verification first.
+Do not create a new branch or begin D1 without explicit operator approval.
+
+Permanent boundary:
+
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- source artifacts preserved
+- original conclusions preserved
+- no live model invocation
+- no prompt execution
+- no runtime orchestrator execution
+- no automatic routing
+- no automatic truth decision
+- no probability assignment
+- no winner selection
+- no automatic archive execution
+- no real trading
+- no real execution
+- no broker or exchange API
+- no API keys
+- no wallet private keys
+- no tag
+- no release
+- no deploy
+
+<!-- FCF-AI-COMPREHENSIVE-REPORT-SYNTHESIS-CURRENT-TRUTH-END -->
+
+---
+
 <!-- DASHBOARD-CONTRADICTION-SCANNER-STATE-RECONCILIATION-BEGIN -->
 
 ## Authoritative State Reconciliation: DASHBOARD-CONTRADICTION-SCANNER-APP-1

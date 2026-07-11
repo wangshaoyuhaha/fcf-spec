@@ -1,3 +1,131 @@
+<!-- FCF-AI-COMPREHENSIVE-REPORT-SYNTHESIS-NEW-WINDOW-TRUTH-BEGIN -->
+
+# FCF NEW WINDOW CURRENT AUTHORITATIVE PROMPT
+
+Continue only the FCF / Financial Cognitive Framework project.
+Do not switch to the football project.
+
+Reply in Chinese.
+Keep replies short and direct.
+Provide complete copyable PowerShell commands.
+Do not require manual file editing.
+Do not use exit.
+Write logs to the Desktop.
+At each phase end, report commit, push, validation, and git status.
+Do not tag, release, or deploy without explicit operator approval.
+
+This header overrides every older active-phase, approved-next-phase,
+candidate, branch-creation, D1-start, automatic-resume, and validation
+statement appearing later in this file.
+
+Project:
+
+- repository: wangshaoyuhaha/fcf-spec
+- local path: C:\Users\Admin\Desktop\btc_finance_platform
+- branch: main
+
+Current latest true state:
+
+- latest completed phase:
+  AI-COMPREHENSIVE-REPORT-SYNTHESIS-APP-1
+- phase merge commit: 93e4977
+- Final Current State commit: 3caacd2
+- Final Current State file:
+  docs/ai_comprehensive_report_synthesis_app_1/FINAL_CURRENT_STATE.md
+- run_all_checks: ALL CHECKS PASSED
+- pytest: 3047 passed
+- git status: clean
+- main and origin/main: synchronized
+- no tag
+- no release
+- no deploy
+
+Completed phase commits:
+
+- D1: 2b011d8
+- D2: 4469cba
+- D3: 9a464da
+- D4: 8b74359
+- D5: 935a5c4
+- D6: 370e6c5
+- Final Current State: 3caacd2
+- Main merge: 93e4977
+
+Completed capability:
+
+- exact registered source inventory
+- exact artifact version locks
+- deterministic comprehensive report assembly
+- contradiction and evidence-gap assessment
+- risk and uncertainty visibility assessment
+- governance issue registration
+- operator action queue
+- mandatory operator review checklist
+- explicit operator review receipt
+- manual-only archive handoff
+
+Permanent interpretation state:
+
+- causal truth: UNDETERMINED
+- probability: NOT_ASSIGNED
+- winner: NOT_SELECTED
+- operator decision: PENDING
+- operator review: REQUIRED
+- automatic approval: NOT ALLOWED
+- archive execution: NOT PERFORMED
+
+Current active development phase:
+
+NONE
+
+Next development phase:
+
+NOT SELECTED
+
+Required next action:
+
+1. Verify main, origin/main, and clean status.
+2. Review architecture gaps.
+3. Wait for explicit operator approval.
+4. Do not create a sidecar branch or begin D1 automatically.
+
+Permanent project boundary:
+
+- P1-P47 core frozen
+- no P48
+- no core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic-only
+- registered artifacts only
+- operator review required
+- no source mutation
+- no conclusion replacement
+- no live model invocation
+- no prompt execution
+- no runtime AI orchestration
+- no automatic routing
+- no automatic role switching
+- no automatic truth decision
+- no probability assignment
+- no winner selection
+- no automatic archive execution
+- no trade action
+- no real execution
+- no broker or exchange connection
+- no API keys
+- no wallet private keys
+- no real account or position access
+- no tag
+- no release
+- no deploy
+
+<!-- FCF-AI-COMPREHENSIVE-REPORT-SYNTHESIS-NEW-WINDOW-TRUTH-END -->
+
+---
+
 <!-- DASHBOARD-CONTRADICTION-SCANNER-STATE-RECONCILIATION-BEGIN -->
 
 ## Authoritative State Reconciliation: DASHBOARD-CONTRADICTION-SCANNER-APP-1
