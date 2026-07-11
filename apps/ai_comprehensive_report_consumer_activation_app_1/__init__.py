@@ -16,6 +16,14 @@ from .d2_operator_review_activation import (
     build_operator_review_activation_packet,
     validate_operator_review_activation_packet,
 )
+from .d3_ui_activation import (
+    UI_CONSUMER_ID,
+    UI_DISPLAY_STATE,
+    UI_RENDER_MODE,
+    UiActivationPacket,
+    build_ui_activation_packet,
+    validate_ui_activation_packet,
+)
 
 __all__ = [
     "ACTIVATION_SURFACES",
@@ -30,4 +38,10 @@ __all__ = [
     "OperatorReviewActivationPacket",
     "build_operator_review_activation_packet",
     "validate_operator_review_activation_packet",
+    "UI_CONSUMER_ID",
+    "UI_DISPLAY_STATE",
+    "UI_RENDER_MODE",
+    "UiActivationPacket",
+    "build_ui_activation_packet",
+    "validate_ui_activation_packet",
 ]
