@@ -34,6 +34,15 @@ from .slot_bindings import (
     build_role_model_slot_binding_manifest,
     validate_role_model_slot_binding_manifest,
 )
+from .policy_eligibility import (
+    POLICY_ELIGIBILITY_VERSION,
+    REQUIRED_EVALUATION_FIELDS,
+    REQUIRED_MANIFEST_FIELDS as REQUIRED_POLICY_MANIFEST_FIELDS,
+    STAGE_ID as POLICY_ELIGIBILITY_STAGE_ID,
+    PolicyEligibilityViolation,
+    build_policy_eligibility_manifest,
+    validate_policy_eligibility_manifest,
+)
 
 __all__ = [
     "APP_ID",
@@ -48,9 +57,13 @@ __all__ = [
     "NON_DUPLICATION_RULES",
     "OUTPUT_OWNERSHIP",
     "PLANNING_MODE",
+    "POLICY_ELIGIBILITY_STAGE_ID",
+    "POLICY_ELIGIBILITY_VERSION",
     "REQUIRED_CONTRACT_FIELDS",
+    "REQUIRED_EVALUATION_FIELDS",
     "REQUIRED_EXISTING_BINDINGS",
     "REQUIRED_FALSE_FLAGS",
+    "REQUIRED_POLICY_MANIFEST_FIELDS",
     "REQUIRED_ROLE_BINDING_FIELDS",
     "REQUIRED_SLOT_ASSIGNMENT_FIELDS",
     "REQUIRED_SLOT_MANIFEST_FIELDS",
@@ -61,9 +74,12 @@ __all__ = [
     "WORKFLOW_STATUS",
     "ModelSlotBindingViolation",
     "MultiModelWorkflowBoundaryViolation",
+    "PolicyEligibilityViolation",
     "build_model_slot_assignment",
     "build_multi_model_workflow_boundary_contract",
+    "build_policy_eligibility_manifest",
     "build_role_model_slot_binding_manifest",
     "validate_multi_model_workflow_boundary_contract",
+    "validate_policy_eligibility_manifest",
     "validate_role_model_slot_binding_manifest",
 ]
