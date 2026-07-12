@@ -1,3 +1,97 @@
+<!-- FCF-AI-ORCHESTRATION-RUNTIME-READINESS-CURRENT-TRUTH-BEGIN -->
+# FCF CURRENT AUTHORITATIVE STATE
+
+This header overrides every older state, phase, validation, branch,
+candidate, next-step, D1-start, and automatic-resume statement below.
+
+Project: FCF / Financial Cognitive Framework
+
+Repository: wangshaoyuhaha/fcf-spec
+
+Local path: C:\Users\Admin\Desktop\btc_finance_platform
+
+Current true state:
+
+- branch: main
+- latest completed phase:
+  AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+- phase merge commit: 4fa68e269fd97b3a29ed73048e647fb314378312
+- Final Current State commit: 78e62e1cc53bc3f46f27a33a9ce410a71f3fe72f
+- D6 final closeout commit: 454c20e053c14a063ed8cd39cc23caf7a35fe907
+- Final Current State file:
+  docs/ai_orchestration_runtime_readiness_app_1/FINAL_CURRENT_STATE.md
+- targeted pytest: 96 passed
+- full pytest: 3369 passed
+- run_all_checks: PASSED
+- git status: CLEAN
+- main and origin/main: synchronized before this synchronization
+- synchronization commit: the commit containing this header
+- tag: none
+- release: none
+- deploy: none
+
+Completed capability:
+
+- readiness-only boundary contract
+- machine-readable role contracts
+- deterministic routing eligibility
+- timeout, retry, fallback, and cost contracts
+- Policy and Config Snapshot linkage
+- BLOCKED and DEGRADED propagation
+- runtime readiness review packet
+- manual Operator handoff
+- final readiness closeout receipt
+
+Current active implementation phase:
+
+NONE
+
+Next planned phase:
+
+NOT SELECTED
+
+Continuation requires architecture review and explicit Operator approval.
+
+Permanent restrictions:
+
+- P1-P47 frozen
+- no P48
+- no Core mutation
+- paper-only
+- local-only
+- read-only
+- sidecar-only
+- deterministic authority preserved
+- registered artifacts only
+- Operator review required
+- manual archive authorization required
+- no model invocation
+- no Prompt execution
+- no automatic routing
+- no automatic retry
+- no automatic fallback
+- no automatic archive
+- no archive writing
+- no automatic learning activation
+- no automatic Champion promotion
+- no Shadow Trading
+- no real execution
+- no trading API or credentials
+- no tag, release, or deployment
+
+Execution rules:
+
+- reply in Chinese
+- keep replies short and direct
+- provide complete copyable PowerShell
+- do not require manual file editing
+- do not require downloaded PowerShell scripts
+- do not use exit
+- report commit, push, validation, and git status
+- do not tag, release, or deploy without explicit Operator approval
+<!-- FCF-AI-ORCHESTRATION-RUNTIME-READINESS-CURRENT-TRUTH-END -->
+
+---
 <!-- DASHBOARD-CONTRADICTION-SCANNER-STATE-RECONCILIATION-BEGIN -->
 
 ## Authoritative State Reconciliation: DASHBOARD-CONTRADICTION-SCANNER-APP-1
