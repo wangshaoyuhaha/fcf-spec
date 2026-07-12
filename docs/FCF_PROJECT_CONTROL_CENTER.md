@@ -1,4 +1,4 @@
-<!-- FCF-READ-ONLY-DATA-GATEWAY-PLANNING-COMPLETION-TRUTH-BEGIN -->
+<!-- FCF-API-GATEWAY-PLANNING-COMPLETION-TRUTH-BEGIN -->
 # FCF CURRENT AUTHORITATIVE STATE
 
 This header overrides every older state, phase, validation, branch,
@@ -11,20 +11,20 @@ FCF / Financial Cognitive Framework
 Current true state:
 
 - latest completed phase:
-  READ-ONLY-DATA-GATEWAY-PLANNING-APP-1
+  FCF-API-GATEWAY-PLANNING-APP-1
 - phase status:
   COMPLETE / MERGED / VALIDATED / PUSHED / CLEAN
 - branch: main
 - phase merge commit:
-  21fdf52b8cafbbed60c7e36648150756cb5b0be5
-- Final Current State commit:
-  06b3683d3bbcd4dc21c402601ee75e598586f733
+  4200750c037a9297ab9f399334540ce1fe21595f
+- initial Final Current State commit:
+  f5d9f77c6e26638c1dd045db7327f9e44349fc5f
 - D6 final Operator handoff commit:
-  9a0a222ddc2f1715d9eed4b61d540f6f38ac049f
+  3033c89b365b9e02428a2956abe1d70bfbabf327
 - Final Current State file:
-  docs/read_only_data_gateway_planning/FINAL_CURRENT_STATE.md
-- targeted D1-D6 pytest: 103 passed
-- full pytest: 3472 passed
+  docs/fcf_api_gateway_planning/FINAL_CURRENT_STATE.md
+- targeted D1-D6 pytest: 92 passed
+- full pytest: 3564 passed
 - run_all_checks: PASSED
 - generated runtime artifacts: restored
 - git status: CLEAN
@@ -37,13 +37,12 @@ Current true state:
 
 Delivered planning scope:
 
-- Read-Only Data Gateway boundary contract
-- normalized data envelope
-- evidence and checksum preservation
-- licensing and allowed-use policy
-- freshness and trust degradation
-- BLOCKED, DEGRADED, LOCAL_ONLY, and READY behavior
-- credential-isolation contract
+- API Gateway boundary and authority contract
+- deterministic request envelope
+- deterministic Policy Gate decision
+- deterministic response envelope
+- BLOCKED and Operator-confirmation propagation
+- correlation and source-artifact preservation
 - governance review packet
 - final manual Operator handoff
 - explicit main-merge review boundary
@@ -51,12 +50,10 @@ Delivered planning scope:
 Runtime authority:
 
 - planning mode: PLANNING_ONLY
-- real data gateway: NOT CREATED
-- live vendor connection: NOT ACTIVE
-- broker or exchange connection: NOT ACTIVE
-- credential access: NOT ALLOWED
-- balance or position access: NOT ALLOWED
-- wallet access: NOT ALLOWED
+- HTTP server: NOT CREATED
+- port listener: NOT ACTIVE
+- response transport: NOT ACTIVE
+- web framework installation: NOT PERFORMED
 - model invocation: NOT ALLOWED
 - Prompt execution: NOT ALLOWED
 - automatic routing: NOT ALLOWED
@@ -71,13 +68,16 @@ Permanent boundaries:
 - no P48
 - no frozen Core mutation
 - paper-only
-- read-only ingestion
-- sidecar-only extensions
+- read-only
+- sidecar-only
 - deterministic authority preserved
+- no broker or exchange connection
+- no credential access
+- no balance or position access
+- no wallet access
+- no order placement
 - no automatic approval
 - no automatic archive
-- no real trading
-- no order placement
 - no tag
 - no release
 - no deployment
@@ -86,10 +86,10 @@ Next action:
 
 - return to architecture and control review
 - no next development phase is currently approved
-- do not create a new branch
+- do not create a new development branch
 - do not write new phase code
-- wait for explicit Operator approval
-<!-- FCF-READ-ONLY-DATA-GATEWAY-PLANNING-COMPLETION-TRUTH-END -->
+- wait for explicit Operator approval of the next phase
+<!-- FCF-API-GATEWAY-PLANNING-COMPLETION-TRUTH-END -->
 
 ---<!-- FCF-READ-ONLY-DATA-GATEWAY-PLANNING-CURRENT-TRUTH-BEGIN -->
 # FCF CURRENT AUTHORITATIVE STATE

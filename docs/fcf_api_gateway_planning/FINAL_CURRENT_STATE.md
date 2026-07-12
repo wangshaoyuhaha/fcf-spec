@@ -2,7 +2,7 @@
 
 ## Status
 
-COMPLETE / VALIDATED / PUSHED / CLEAN / AWAITING OPERATOR MERGE APPROVAL
+COMPLETE / MERGED / VALIDATED / PUSHED / CLEAN
 
 ## Application
 
@@ -10,10 +10,11 @@ FCF-API-GATEWAY-PLANNING-APP-1
 
 ## Repository state
 
-- branch: sidecar-fcf-api-gateway-planning-app-1
-- origin sidecar branch: synchronized
-- git status before Final Current State: CLEAN
-- main merge: NOT YET PERFORMED
+- branch: main
+- main merge commit: 4200750c037a9297ab9f399334540ce1fe21595f
+- initial Final Current State commit: f5d9f77c6e26638c1dd045db7327f9e44349fc5f
+- origin/main: synchronized
+- git status: CLEAN
 - tag: none
 - release: none
 - deploy: none
@@ -142,15 +143,17 @@ The application does not:
 
 ## Main merge state
 
-- main merge: NOT YET PERFORMED
-- main validation: NOT YET PERFORMED
-- origin/main push: NOT YET PERFORMED
-- control center completion sync: NOT YET PERFORMED
-- architecture completion sync: NOT YET PERFORMED
-- handoff completion sync: NOT YET PERFORMED
+- main merge: COMPLETED
+- main validation: COMPLETED
+- origin/main push: COMPLETED
+- control center completion sync: COMPLETED BY SYNCHRONIZATION COMMIT
+- architecture completion sync: COMPLETED BY SYNCHRONIZATION COMMIT
+- handoff completion sync: COMPLETED BY SYNCHRONIZATION COMMIT
 
 ## Next action
 
-Wait for explicit Operator approval to merge the completed sidecar into main.
+Return to architecture and control review.
 
-Do not start another development phase.
+No next development phase is currently approved.
+
+Do not start another development phase without explicit Operator approval.
