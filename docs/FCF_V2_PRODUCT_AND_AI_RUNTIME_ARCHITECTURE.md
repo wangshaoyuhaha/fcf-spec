@@ -1,4 +1,97 @@
-# FCF V2 Product and AI Runtime Architecture
+<!-- FCF-READ-ONLY-DATA-GATEWAY-PLANNING-COMPLETION-TRUTH-BEGIN -->
+# FCF CURRENT AUTHORITATIVE STATE
+
+This header overrides every older state, phase, validation, branch,
+candidate, next-step, D1-start, and automatic-resume statement below.
+
+Project:
+
+FCF / Financial Cognitive Framework
+
+Current true state:
+
+- latest completed phase:
+  READ-ONLY-DATA-GATEWAY-PLANNING-APP-1
+- phase status:
+  COMPLETE / MERGED / VALIDATED / PUSHED / CLEAN
+- branch: main
+- phase merge commit:
+  21fdf52b8cafbbed60c7e36648150756cb5b0be5
+- Final Current State commit:
+  06b3683d3bbcd4dc21c402601ee75e598586f733
+- D6 final Operator handoff commit:
+  9a0a222ddc2f1715d9eed4b61d540f6f38ac049f
+- Final Current State file:
+  docs/read_only_data_gateway_planning/FINAL_CURRENT_STATE.md
+- targeted D1-D6 pytest: 103 passed
+- full pytest: 3472 passed
+- run_all_checks: PASSED
+- generated runtime artifacts: restored
+- git status: CLEAN
+- main and origin/main: synchronized before this synchronization
+- synchronization commit:
+  the commit containing this header
+- tag: none
+- release: none
+- deploy: none
+
+Delivered planning scope:
+
+- Read-Only Data Gateway boundary contract
+- normalized data envelope
+- evidence and checksum preservation
+- licensing and allowed-use policy
+- freshness and trust degradation
+- BLOCKED, DEGRADED, LOCAL_ONLY, and READY behavior
+- credential-isolation contract
+- governance review packet
+- final manual Operator handoff
+- explicit main-merge review boundary
+
+Runtime authority:
+
+- planning mode: PLANNING_ONLY
+- real data gateway: NOT CREATED
+- live vendor connection: NOT ACTIVE
+- broker or exchange connection: NOT ACTIVE
+- credential access: NOT ALLOWED
+- balance or position access: NOT ALLOWED
+- wallet access: NOT ALLOWED
+- model invocation: NOT ALLOWED
+- Prompt execution: NOT ALLOWED
+- automatic routing: NOT ALLOWED
+- runtime activation: NOT ALLOWED
+- archive writing: NOT ALLOWED
+- real execution: NOT ALLOWED
+- Operator review: REQUIRED
+
+Permanent boundaries:
+
+- P1-P47 frozen
+- no P48
+- no frozen Core mutation
+- paper-only
+- read-only ingestion
+- sidecar-only extensions
+- deterministic authority preserved
+- no automatic approval
+- no automatic archive
+- no real trading
+- no order placement
+- no tag
+- no release
+- no deployment
+
+Next action:
+
+- return to architecture and control review
+- no next development phase is currently approved
+- do not create a new branch
+- do not write new phase code
+- wait for explicit Operator approval
+<!-- FCF-READ-ONLY-DATA-GATEWAY-PLANNING-COMPLETION-TRUTH-END -->
+
+---# FCF V2 Product and AI Runtime Architecture
 
 ## 1. Document Status
 
