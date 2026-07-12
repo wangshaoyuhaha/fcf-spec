@@ -1,3 +1,72 @@
+<!-- FCF-READ-ONLY-DATA-GATEWAY-PLANNING-CURRENT-TRUTH-BEGIN -->
+# FCF CURRENT AUTHORITATIVE STATE
+
+This header overrides every older next-phase, candidate, branch-creation,
+D1-start, and automatic-resume statement below.
+
+Latest completed phase:
+
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+
+Current baseline:
+
+- branch: main
+- HEAD before this approval synchronization: 0a7470b
+- pytest: 3369 passed
+- run_all_checks: PASSED
+- git status: CLEAN
+- main and origin/main: synchronized
+- tag: none
+- release: none
+- deploy: none
+
+Approved next phase:
+
+READ-ONLY-DATA-GATEWAY-PLANNING-APP-1
+
+Status:
+
+APPROVED / NOT STARTED / PLANNING-ONLY
+
+Planned Sidecar branch:
+
+sidecar-read-only-data-gateway-planning-app-1
+
+D1 scope:
+
+- Read-Only Data Gateway boundary contract
+- allowed and prohibited data operations
+- normalized data envelope
+- evidence and checksum requirements
+- privacy, licensing, freshness, and trust requirements
+- credential isolation requirements
+- BLOCKED and DEGRADED behavior
+- Operator review boundary
+
+Forbidden in this phase:
+
+- no live vendor or exchange connection
+- no broker or exchange API
+- no API key or credential access
+- no balance or position access
+- no wallet access
+- no INSERT, UPDATE, or DELETE
+- no unrestricted file writing
+- no model invocation
+- no Prompt execution
+- no automatic routing
+- no archive writing
+- no Core mutation
+- no P48
+- no real execution
+- no tag, release, or deployment
+
+Next action:
+
+Create the approved Sidecar branch and begin D1 only.
+<!-- FCF-READ-ONLY-DATA-GATEWAY-PLANNING-CURRENT-TRUTH-END -->
+
+---
 <!-- FCF-AI-ORCHESTRATION-RUNTIME-READINESS-CURRENT-TRUTH-BEGIN -->
 # FCF CURRENT AUTHORITATIVE STATE
 
