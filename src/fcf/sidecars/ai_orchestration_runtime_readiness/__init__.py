@@ -1,4 +1,3 @@
-
 """Readiness-only AI orchestration runtime sidecar."""
 
 from .contract import (
@@ -100,6 +99,17 @@ from .policy_config_review import (
     validate_policy_config_snapshot_link,
     validate_runtime_readiness_review_packet,
 )
+from .final_closeout import (
+    FINAL_CLOSEOUT_TARGETS,
+    FINAL_CLOSEOUT_VERSION,
+    FINAL_HANDOFF_STATUSES,
+    FORBIDDEN_ACTION_FIELDS,
+    REQUIRED_FINAL_CLOSEOUT_FIELDS,
+    STAGE_ID as FINAL_CLOSEOUT_STAGE_ID,
+    FinalCloseoutViolation,
+    build_final_readiness_closeout,
+    validate_final_readiness_closeout,
+)
 
 __all__ = [
     "ALLOWED_INPUTS",
@@ -110,6 +120,11 @@ __all__ = [
     "COST_CONTRACT_VERSION",
     "COST_LIMIT_STATUSES",
     "FALLBACK_CONTRACT_VERSION",
+    "FINAL_CLOSEOUT_STAGE_ID",
+    "FINAL_CLOSEOUT_TARGETS",
+    "FINAL_CLOSEOUT_VERSION",
+    "FINAL_HANDOFF_STATUSES",
+    "FORBIDDEN_ACTION_FIELDS",
     "FORBIDDEN_CAPABILITIES",
     "HEALTH_STATUSES",
     "LINK_REGISTRATION_STATUSES",
@@ -130,6 +145,7 @@ __all__ = [
     "REQUIRED_COST_FIELDS",
     "REQUIRED_FALSE_FLAGS",
     "REQUIRED_FALLBACK_FIELDS",
+    "REQUIRED_FINAL_CLOSEOUT_FIELDS",
     "REQUIRED_HANDOFF_FIELDS",
     "REQUIRED_LINK_FIELDS",
     "REQUIRED_MANIFEST_FIELDS",
@@ -163,12 +179,14 @@ __all__ = [
     "STAGE_ID",
     "TERMINAL_OPERATOR_ROLE_ID",
     "TIMEOUT_CONTRACT_VERSION",
+    "FinalCloseoutViolation",
     "PolicyConfigReviewViolation",
     "RoleContractViolation",
     "RoutingEligibilityViolation",
     "RuntimeLimitContractViolation",
     "build_cost_contract",
     "build_fallback_contract",
+    "build_final_readiness_closeout",
     "build_machine_readable_role_contract_manifest",
     "build_operator_handoff",
     "build_policy_config_snapshot_link",
@@ -181,6 +199,7 @@ __all__ = [
     "build_timeout_contract",
     "validate_cost_contract",
     "validate_fallback_contract",
+    "validate_final_readiness_closeout",
     "validate_machine_readable_role_contract_manifest",
     "validate_operator_handoff",
     "validate_policy_config_snapshot_link",
