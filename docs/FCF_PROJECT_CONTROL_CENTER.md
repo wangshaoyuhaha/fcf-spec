@@ -6147,3 +6147,1001 @@ External model reports and community skills remain advisory only.
 
 No tag, release, or deployment is authorized.
 <!-- END FCF V2 CONSTITUTIONAL DECISION LOCK -->
+
+<!-- BEGIN FCF CONTROLLED LEARNING BACKTEST EVOLUTION ARCHITECTURE LOCK -->
+## FCF Controlled Learning, Backtesting, and Evolution Architecture Lock
+
+Status:
+
+APPROVED FUTURE ARCHITECTURE / AUTHORITATIVE STRUCTURAL BACKLOG /
+NOT YET IMPLEMENTED
+
+Planning baseline:
+
+- repository baseline before this governance update:
+  cd7a6284a339ae14ff8c611aa40ac6eeec21ea1a
+- external DeepSeek and Gemini reviews are advisory inputs only
+- accepted external findings have been corrected against FCF governance
+- repository truth and explicit Operator approval remain authoritative
+
+### 1. Constitutional Objective
+
+FCF must develop a controlled learning, deterministic backtesting, and
+governed evolution capability.
+
+Backtesting and learning belong to one closed governance loop.
+
+They must not be implemented as one mixed-authority component.
+
+Authoritative responsibility split:
+
+- backtesting proves and diagnoses
+- result registries preserve evidence
+- learning summarizes evidence and proposes candidates
+- experiments compare Champion and Challenger
+- governance gates approve or reject promotion
+- version control activates approved changes
+- monitoring detects degradation
+- rollback protects the approved baseline
+- the Operator retains final authority
+
+No result from backtesting, learning, AI evaluation, or model consensus
+may directly change production configuration.
+
+### 2. Permanent Authority Boundary
+
+Operator Policy
+    >
+FCF Hard Policy
+    >
+Deterministic Engine
+    >
+Validated Data and Evidence
+    >
+Experiment and Learning Orchestrator
+    >
+AI Models
+    >
+External Narrative
+
+Python and deterministic services own:
+
+- point-in-time data selection
+- historical replay
+- order and fill simulation
+- transaction-cost calculation
+- portfolio calculation
+- factor calculation
+- benchmark comparison
+- statistical evaluation
+- bias checks
+- validation gates
+- promotion eligibility calculations
+
+AI may:
+
+- explain results
+- identify possible causes
+- propose research hypotheses
+- propose Challenger candidates
+- compare preserved evidence
+- identify contradictions
+- summarize failure attribution
+- suggest additional experiments
+
+AI may not:
+
+- self-score as the only evaluator
+- alter backtest calculations
+- alter historical results
+- alter Outcome labels
+- change hard policy
+- change risk limits
+- change privacy rules
+- decide cloud eligibility
+- modify Core
+- replace Champion
+- approve promotion
+- activate configuration
+- delete failed experiments
+- delete audit history
+- place or route real orders
+
+### 3. Five-Layer Architecture
+
+The controlled learning and backtesting architecture contains five
+separate authority layers.
+
+#### Layer 1: Point-in-Time Data and Rule Foundation
+
+Required capabilities:
+
+- immutable data-source version locking
+- point-in-time data snapshots
+- market-calendar version registry
+- corporate-action version registry
+- benchmark version registry
+- strategy and runtime configuration snapshots
+- universe-membership history
+- delisting history
+- source licensing metadata
+- data freshness metadata
+- data availability metadata
+- checksums and content digests
+- code commit and dependency version recording
+
+Required time fields include:
+
+- event_time
+- published_at
+- available_at
+- ingested_at
+- as_of_time
+- retrieval_time
+- fiscal_period_end where applicable
+- report_release_time where applicable
+
+Backtesting may only use information with:
+
+available_at <= as_of_time
+
+A document date or fiscal-period date is not sufficient evidence that
+information was available to the system.
+
+#### Layer 2: Deterministic Unified Backtest Engine
+
+The backtest engine must remain deterministic and code-owned.
+
+Required capabilities:
+
+- historical point-in-time replay
+- train, validation, and final test separation
+- walk-forward validation
+- purged and embargoed time-series validation where applicable
+- regime-based evaluation
+- portfolio-level simulation
+- cost and slippage simulation
+- liquidity and capacity simulation
+- stress testing
+- parameter perturbation
+- data-delay perturbation
+- market-specific fill logic
+- deterministic failure attribution
+- reproducible random seeds where stochastic simulation is used
+
+AI must not calculate authoritative backtest values.
+
+#### Layer 3: Result, Outcome, and Attribution Registry
+
+Backtest results and subsequent real market outcomes must be immutable
+registered artifacts.
+
+Required registry classes:
+
+- backtest result
+- failed backtest result
+- validation result
+- walk-forward result
+- stress-test result
+- paper result
+- shadow result when later approved
+- Outcome label
+- factor attribution
+- portfolio attribution
+- model attribution
+- Prompt attribution
+- data-source attribution
+- failure attribution
+- bias-review result
+
+The learning layer has read-only access to these registries.
+
+It cannot rewrite or delete registered results.
+
+Failed, negative, blocked, and inconclusive results must be preserved.
+
+Outcome labels are required during V2 paper research.
+
+They must not be delayed until real trading or V3.
+
+Possible Outcome observation horizons include policy-approved:
+
+- short horizon
+- medium horizon
+- long horizon
+- event horizon
+- reporting-cycle horizon
+
+Every Outcome label must preserve the original prediction, observation
+window, actual result, data version, and evaluation policy.
+
+#### Layer 4: Controlled Learning and Challenger Experiment
+
+The learning layer may learn from:
+
+- data-source reliability
+- model-role performance
+- Prompt performance
+- factor and strategy performance
+- portfolio behavior
+- market regime
+- operator feedback
+- subsequent observed outcomes
+- operational failures
+- cost and latency
+- missing or contradictory evidence
+
+Learning outputs are candidates, not production changes.
+
+Supported candidate types:
+
+- model-role assignment candidate
+- fallback-model candidate
+- Prompt candidate
+- data-source policy candidate
+- factor candidate
+- strategy-configuration candidate
+- portfolio-control candidate
+- timeout or retry candidate
+- market-adapter rule candidate
+
+Every candidate must enter a sandbox experiment.
+
+#### Layer 5: Promotion, Monitoring, and Rollback Gate
+
+A Challenger may become Champion only after:
+
+1. static eligibility review
+2. hard-policy review
+3. data-license review
+4. future-information dependency review
+5. declared configuration-difference review
+6. historical backtesting
+7. independent out-of-sample testing
+8. walk-forward testing
+9. regime testing
+10. cost and liquidity testing
+11. bias review
+12. counterfactual and robustness testing
+13. Champion comparison
+14. risk review
+15. explicit Operator approval
+16. versioned activation
+17. post-activation monitoring
+18. rollback readiness
+
+Promotion must create a new version.
+
+Promotion must never overwrite the previous Champion.
+
+### 4. Configuration Snapshot Contract
+
+Every backtest and experiment must record a Config Snapshot.
+
+Required fields include:
+
+- config_snapshot_id
+- code_commit
+- deterministic-engine version
+- strategy version
+- factor version
+- factor weights
+- portfolio-policy version
+- market-adapter version
+- data-source versions
+- dataset digests
+- universe version
+- market-calendar version
+- corporate-action version
+- benchmark version
+- model-role assignments
+- model identifiers
+- model versions
+- known model-training cutoff where available
+- model-training-cutoff status when unknown
+- Prompt identifiers
+- Prompt versions
+- tool versions
+- policy version
+- output-schema version
+- fee assumptions
+- tax assumptions
+- slippage assumptions
+- liquidity assumptions
+- funding assumptions
+- roll assumptions where applicable
+- random seed where applicable
+- experiment variable manifest
+
+Champion and Challenger comparisons do not require identical snapshots.
+
+They require:
+
+- all unchanged variables to remain locked
+- every changed variable to be explicitly declared
+- single-variable experiments where practical
+- compound-experiment labeling when multiple variables change
+- no unsupported attribution of improvement to one variable when several
+  variables changed
+
+### 5. Challenger Qualification Review
+
+Before consuming backtest resources, each Challenger must pass static
+qualification.
+
+The qualification review must check:
+
+- no Core mutation
+- no P48
+- no hard-policy conflict
+- no unauthorized data source
+- no unlicensed data use
+- no unauthorized cloud processing
+- no future-data dependency
+- no hidden change to risk calculation
+- no hidden change to benchmark
+- no hidden change to costs
+- no undeclared model or Prompt change
+- no undeclared market-rule change
+- no real execution path
+- no automatic promotion authority
+
+Rejected qualification records must be preserved.
+
+### 6. Historical AI Replay Modes
+
+FCF must distinguish two AI replay modes.
+
+#### HISTORICAL_REPRODUCTION
+
+Purpose:
+
+Reproduce what the system could have produced at the historical time.
+
+Requirements:
+
+- historical data snapshot
+- historical Prompt version
+- historical configuration
+- historical policy
+- historical model version where available
+- no online search beyond the historical snapshot
+- no current external evidence
+- explicit as_of_time
+
+#### COUNTERFACTUAL_CURRENT_MODEL_EVALUATION
+
+Purpose:
+
+Evaluate a current model using only historical evidence.
+
+Requirements:
+
+- current model is explicitly identified
+- result is labeled counterfactual
+- result must not be represented as a historical production decision
+- historical evidence only
+- no live internet retrieval
+- knowledge-leakage probes
+- fact-alignment evaluation
+- separate comparison against deterministic-only baseline
+
+A Prompt instruction stating "do not use future information" is not a
+sufficient leakage control.
+
+Running a model locally is not a sufficient leakage control because the
+model may already contain later knowledge in its trained parameters.
+
+### 7. AI Knowledge-Leakage Guard
+
+Required protections include:
+
+- historical evidence isolation
+- no uncontrolled live search during replay
+- as_of_time enforcement
+- published_at and available_at enforcement
+- current-model counterfactual labeling
+- model-version registration
+- known or unknown training-cutoff status
+- future-event sentinel questions
+- synthetic false-future probes
+- unsupported-future-claim detection
+- evidence-link validation
+- retrieval-log validation
+- prompt and tool-call audit
+- critical leakage status = BLOCKED
+
+A replay containing demonstrated future-information leakage cannot be
+used for promotion.
+
+### 8. AI Fact and Reason Alignment
+
+Correct economic performance does not prove that AI reasoning was
+correct.
+
+Every important AI claim must be separately evaluated for:
+
+- evidence support
+- factual correctness
+- temporal availability
+- causal consistency
+- contradiction handling
+- unsupported assumptions
+- omitted risk
+- citation correctness
+- explanation stability
+- counterevidence visibility
+
+Critical unsupported claims must be zero for promotion eligibility.
+
+A profitable result with incorrect reasoning must be labeled:
+
+RESULT_CORRECT_REASONING_UNSUPPORTED
+
+It cannot be treated as evidence that the AI reasoning process improved.
+
+### 9. Counterfactual and Robustness Testing
+
+No single perturbation test is sufficient.
+
+The robustness suite should include policy-approved combinations of:
+
+- feature ablation
+- evidence ablation
+- negative-control variables
+- label permutation
+- time-block permutation
+- regime-transfer testing
+- parameter perturbation
+- execution-delay perturbation
+- data-availability-delay perturbation
+- cost and slippage stress
+- liquidity stress
+- missing-data stress
+- data-source failure
+- model failure
+- adversarial evidence
+- incorrect contextual narrative
+- removal of the strongest supporting evidence
+
+Randomly shuffling industry or macro labels may be one experiment.
+
+It must not be the sole promotion gate.
+
+### 10. Bias Guard
+
+Mandatory bias controls include:
+
+- look-ahead bias
+- survivorship bias
+- selection bias
+- universe-membership leakage
+- delisting omission
+- corporate-action errors
+- data revision leakage
+- publication-time leakage
+- availability-time leakage
+- benchmark leakage
+- target leakage
+- repeated holdout reuse
+- validation-set overfitting
+- hyperparameter overfitting
+- multiple testing
+- data snooping
+- cherry-picking
+- failed-result deletion
+- transaction-cost omission
+- liquidity omission
+- capacity omission
+
+Final holdout data must not be repeatedly reused for tuning.
+
+When the final holdout has influenced a design decision, it is no longer
+a final untouched holdout.
+
+### 11. Validation Structure
+
+Validation should use:
+
+- development data
+- validation data
+- final untouched test data
+- multiple non-overlapping time windows
+- walk-forward windows
+- market-regime partitions
+- stress scenarios
+- paper observation
+- later Shadow observation when separately approved
+
+The exact number of windows and thresholds must be configurable,
+versioned, and approved.
+
+No universal fixed threshold such as 30 percent conflict, 0.5 percent
+improvement, or a fixed number of months is part of the constitution.
+
+### 12. Benchmark Governance
+
+Each market and strategy must use a versioned benchmark policy.
+
+The Benchmark Registry must support:
+
+- primary benchmark
+- secondary benchmark
+- cash or risk-free reference
+- industry benchmark where relevant
+- asset-class benchmark
+- benchmark total-return methodology
+- currency treatment
+- benchmark rebalancing history
+- benchmark constituent history
+- benchmark availability time
+
+No specific index is permanently hardcoded into the constitution.
+
+Every report must distinguish:
+
+- absolute performance
+- gross performance
+- net performance
+- benchmark-relative performance
+- risk-adjusted performance
+
+### 13. Mandatory Evaluation Dimensions
+
+Financial and portfolio metrics should include:
+
+- gross return
+- net return after costs
+- benchmark excess return
+- maximum drawdown
+- volatility
+- downside risk
+- risk-adjusted return
+- turnover
+- transaction costs
+- liquidity usage
+- capacity
+- tail loss
+- worst regime
+- worst evaluation window
+- recovery time
+- stability across windows
+- out-of-sample decay
+
+Prediction and calibration metrics should include where applicable:
+
+- directional accuracy
+- precision and recall
+- calibration error
+- Brier score
+- false-positive rate
+- false-negative rate
+- confidence reliability
+
+AI-governance metrics should include:
+
+- supported-claim rate
+- critical unsupported-claim count
+- citation correctness
+- temporal-leakage count
+- risk-omission rate
+- contradiction-detection value
+- explanation stability
+- model disagreement
+- AI incremental value
+- AI incremental risk
+- cost and latency
+
+AI incremental value must compare at least:
+
+- deterministic-only baseline
+- deterministic plus AI
+- Champion
+- Challenger
+
+AI must demonstrate added value after costs and risk, not merely improved
+writing quality.
+
+### 14. Statistical Evidence Policy
+
+A single p-value is not a sufficient promotion criterion.
+
+Statistical evidence may include:
+
+- bootstrap confidence intervals
+- block bootstrap
+- probabilistic Sharpe ratio
+- deflated Sharpe ratio
+- multiple-testing correction
+- effect size
+- out-of-sample decay
+- parameter stability
+- regime stability
+- paired-window comparison
+
+Statistical significance does not override:
+
+- hard policy
+- unacceptable drawdown
+- critical unsupported AI claims
+- data leakage
+- licensing failure
+- operator rejection
+
+### 15. Multi-Market Backtest Rules
+
+Every market requires a versioned adapter and fill model.
+
+#### China A-Shares
+
+Required considerations:
+
+- point-in-time universe membership
+- T+1 sell restriction where applicable
+- limit-up and limit-down states
+- sealed-limit liquidity
+- queue and fill uncertainty
+- ST and special-treatment status
+- suspension
+- listing-board rules
+- fees and taxes
+- corporate actions
+- delisting
+- trading calendar
+
+A limit-up or limit-down day is not automatically classified as
+untradable in every direction.
+
+Fill logic must use market state, direction, price, available volume, and
+approved conservative assumptions.
+
+#### Hong Kong Equities
+
+Required considerations:
+
+- board lot by security and effective date
+- odd-lot handling
+- auction sessions
+- trading sessions
+- HKD and approved dual-counter structures
+- Stock Connect rules where applicable
+- fees and taxes
+- corporate actions
+- short-sale eligibility
+- currency effects
+- settlement
+- liquidity
+
+No fixed board-lot size may be hardcoded for all Hong Kong securities.
+
+#### United States Equities
+
+Required considerations:
+
+- regular session
+- pre-market and after-hours sessions
+- session-specific liquidity
+- exchange calendar
+- delisting
+- splits and dividends
+- corporate actions
+- short-borrow availability where applicable
+- fees
+- currency effects
+- settlement
+- point-in-time SEC and company filings
+
+#### Gold and Commodities
+
+Gold must distinguish:
+
+- spot gold
+- delivery futures
+- gold ETFs
+- gold-mining equities
+
+Required considerations include:
+
+- trading session
+- financing and carry
+- futures expiry
+- roll cost
+- ETF tracking difference
+- currency
+- contract specification
+- liquidity
+
+#### BTC and Digital Assets
+
+Required considerations include:
+
+- continuous trading
+- venue fragmentation
+- funding rates
+- mark price
+- index price
+- liquidation
+- margin
+- fees
+- order-book depth
+- exchange outage
+- custody and counterparty risk
+
+Perpetual contracts do not use traditional expiry roll logic.
+
+Delivery futures and dated contracts require expiry and roll treatment.
+
+#### Futures
+
+Required considerations include:
+
+- contract specification
+- contract multiplier
+- expiry
+- roll policy
+- margin
+- limit moves
+- settlement
+- basis
+- term structure
+- dominant-contract method
+- continuous-contract construction
+- liquidity migration
+- fees and slippage
+
+### 16. Human Feedback Governance
+
+Human feedback is evidence, not automatic truth.
+
+Required fields include:
+
+- feedback_id
+- operator_id
+- feedback_timestamp
+- related_artifact_ids
+- information available at feedback time
+- feedback type
+- reason
+- evidence
+- pre-outcome or post-hoc status
+- conflict status
+- review status
+
+Post-hoc feedback must be explicitly labeled.
+
+It must not be treated as if it was known at the original decision time.
+
+When human feedback conflicts with deterministic evaluation:
+
+- preserve both
+- create a HUMAN_AUTO_EVALUATION_CONFLICT artifact
+- record the evidence on both sides
+- require explicit conflict review
+- require a second confirmation by the Operator where no independent
+  second Operator exists
+- block promotion until conflict resolution
+
+No universal 30 percent conflict threshold is authorized.
+
+### 17. Feedback Pollution and Self-Reinforcement Guard
+
+The system must prevent:
+
+- a model evaluating itself as the only judge
+- one model family acting as proposer, evaluator, and approver
+- operator preference being mistaken for market truth
+- post-hoc information entering pre-outcome training labels
+- successful outcomes hiding incorrect reasoning
+- repeated use of the same validation period
+- promotion because a Challenger agrees with Champion
+- learning only from successful cases
+- deletion of failed experiments
+- automatic reinforcement of frequently selected models
+
+Evaluation should use deterministic metrics and, where appropriate,
+independent comparison models.
+
+No model consensus may replace evidence.
+
+### 18. Learning Pause, Monitor, and Restart
+
+Continuous experimentation is not always beneficial.
+
+The learning system must support:
+
+- ACTIVE_EXPERIMENT
+- MONITOR_ONLY
+- PAUSED_DATA_QUALITY
+- PAUSED_BUDGET
+- PAUSED_POLICY
+- PAUSED_REPEATED_FAILURE
+- RESTART_REQUIRED
+- OPERATOR_STOPPED
+
+Possible transition reasons include:
+
+- no material Challenger improvement
+- stable Champion
+- degraded data quality
+- stale data
+- unreliable benchmark
+- excessive experimentation cost
+- repeated overfitting
+- repeated validation failure
+- unresolved feedback conflict
+- model or data drift
+- Operator instruction
+
+Exact thresholds must remain configurable and versioned.
+
+Drift detection or explicit Operator approval may restart experiments.
+
+### 19. Read-Only Learning Evidence Flow
+
+Approved flow:
+
+Point-in-Time Data
+    ->
+Deterministic Backtest
+    ->
+Bias and Validation Review
+    ->
+Immutable Result Registry
+    ->
+Outcome and Attribution
+    ->
+Controlled Learning
+    ->
+Challenger Proposal
+    ->
+Sandbox Experiment
+    ->
+Promotion Gate
+    ->
+Operator Approval
+    ->
+Versioned Activation
+    ->
+Monitoring
+    ->
+Rollback When Required
+
+Forbidden flow:
+
+Learning Candidate
+    ->
+rewrite Backtest Result
+
+Forbidden flow:
+
+AI Recommendation
+    ->
+automatic Champion replacement
+
+Forbidden flow:
+
+Operator Preference
+    ->
+rewrite historical Outcome
+
+### 20. Canonical Structural Backlog
+
+The following capabilities must not be omitted.
+
+Related capabilities may be delivered in one larger Sidecar program, but
+their contracts and validations must remain explicit.
+
+#### P0: Point-in-Time and Version Foundation
+
+- DATA-SOURCE-VERSION-LOCK-APP-1
+- POINT-IN-TIME-SNAPSHOT-APP-1
+- MARKET-CALENDAR-REGISTRY-APP-1
+- CORPORATE-ACTION-REGISTRY-APP-1
+- CONFIG-SNAPSHOT-REGISTRY-APP-1
+- BENCHMARK-REGISTRY-APP-1
+
+#### P1: Deterministic Unified Backtest and Outcome Foundation
+
+- UNIFIED-MULTI-MARKET-BACKTEST-APP-1
+- BACKTEST-BIAS-GUARD-APP-1
+- WALK-FORWARD-VALIDATION-APP-1
+- BACKTEST-RESULT-REGISTRY-APP-1
+- OUTCOME-LABEL-REGISTRY-APP-1
+- FACTOR-AND-PORTFOLIO-ATTRIBUTION-APP-1
+
+#### P2: AI Historical Evaluation
+
+- AI-POINT-IN-TIME-REPLAY-APP-1
+- AI-KNOWLEDGE-LEAKAGE-GUARD-APP-1
+- AI-FACT-ALIGNMENT-EVALUATION-APP-1
+- MODEL-ROLE-PERFORMANCE-APP-1
+- AI-INCREMENTAL-VALUE-EVALUATION-APP-1
+
+#### P3: Controlled Learning and Evolution
+
+- HUMAN-FEEDBACK-LEARNING-APP-1
+- CHAMPION-CHALLENGER-EXPERIMENT-APP-1
+- CONTROLLED-EVOLUTION-GATE-APP-1
+- PROMOTION-ROLLBACK-APP-1
+- LEARNING-LOOP-AUDIT-APP-1
+
+#### P4: Deferred Enhancements
+
+- CASE-MEMORY-RETRIEVAL-APP-1
+- AUTOMATIC-CHALLENGER-PROPOSAL-APP-1
+- REALTIME-SHADOW-VALIDATION-APP-1
+- AUTOMATIC-EXPERIMENT-SCHEDULER-APP-1
+- SPECIALIST-MODEL-TRAINING-APP-1
+
+P4 items require a stable P0-P3 foundation.
+
+### 21. Delivery and Dependency Rules
+
+The immediate implementation phase remains unchanged:
+
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+
+This learning and backtesting architecture does not authorize immediate
+implementation of P0-P4.
+
+The current readiness phase remains:
+
+- readiness-only
+- no live model invocation
+- no Prompt execution
+- no automatic routing
+- no automatic archive
+- no archive writing
+- no real execution
+- no trading API
+- no trading credentials
+
+The future Read-Only Data Gateway must preserve the fields and contracts
+required by this architecture, including:
+
+- source version
+- availability time
+- point-in-time snapshot
+- license
+- checksum
+- market calendar
+- corporate action
+- universe membership
+- benchmark version
+- Config Snapshot linkage
+
+This requirement prevents future backtest rework.
+
+### 22. Scope and Supersession
+
+This block:
+
+- records the approved future architecture
+- preserves the six previously locked V2 constitutional decisions
+- preserves the current development order
+- does not mutate Core
+- does not start a new Sidecar
+- does not approve model invocation
+- does not approve automatic learning
+- does not approve automatic promotion
+- does not approve Shadow Trading
+- does not approve real execution
+- does not approve tag, release, or deployment
+
+External DeepSeek, Gemini, OpenAI, Claude, local-model, community-skill,
+or other opinions remain advisory inputs only.
+
+No external recommendation may silently change this architecture.
+
+Any future change requires:
+
+1. explicit Operator approval
+2. Architecture Decision Record
+3. impact analysis
+4. privacy and safety review
+5. migration and rollback plan
+6. validation
+7. Control Center update
+8. handoff update where required
+9. versioned activation
+<!-- END FCF CONTROLLED LEARNING BACKTEST EVOLUTION ARCHITECTURE LOCK -->
