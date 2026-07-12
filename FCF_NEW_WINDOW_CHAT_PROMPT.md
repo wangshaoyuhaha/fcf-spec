@@ -1,3 +1,126 @@
+<!-- BEGIN FCF V2 CURRENT NEW WINDOW TRUTH -->
+# FCF NEW WINDOW CURRENT AUTHORITATIVE PROMPT
+
+Continue only the FCF / Financial Cognitive Framework project.
+
+Reply in Chinese. Keep replies short and direct.
+
+Provide complete copyable PowerShell commands.
+
+Do not require manual file editing. Do not use exit.
+
+Write logs to the Desktop.
+
+Report commit, push, validation, and git status after each phase.
+
+Do not tag, release, or deploy without explicit Operator approval.
+
+This header overrides every older state, phase, validation, next-step, branch, candidate, D1-start, and automatic-resume statement below.
+
+Repository: wangshaoyuhaha/fcf-spec
+
+Local path: C:\Users\Admin\Desktop\btc_finance_platform
+
+
+Current governing baseline before this synchronization:
+
+- branch: main
+- governing architecture commit:
+  5290902b661ffdc12db6edf10bfe890a4c2411d5
+- pytest: 3273 passed
+- run_all_checks: PASSED
+- git status: CLEAN
+- main and origin/main: synchronized
+
+The synchronization commit is the commit containing this header.
+
+Latest completed implementation phase:
+
+AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1
+
+Active implementation phase:
+
+NONE
+
+Next planned phase:
+
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+
+Status:
+
+PLANNED / NOT STARTED / READINESS-ONLY
+
+
+Locked architecture includes:
+
+- custom Web Console
+- file upload
+- controlled research conversation
+- replaceable Dify backend
+- Hybrid deterministic privacy routing
+- Read-Only Data Gateway
+- Research Gateway
+- FCF API Gateway
+- A-share adapter
+- US-equity adapter
+- Hong Kong-equity adapter
+- gold adapter
+- digital-asset adapter
+- futures adapter
+- deterministic Portfolio Construction
+- controlled learning
+- deterministic unified backtesting
+- Outcome and attribution registries
+- historical AI replay
+- AI knowledge-leakage guards
+- Champion and Challenger
+- promotion, monitoring, and rollback
+- machine-readable runtime policy
+- separate future execution project
+- no real order placement in FCF V2
+
+
+Required read order:
+
+1. docs/FCF_PROJECT_CONTROL_CENTER.md
+2. docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md
+3. FCF_CURRENT_STATE_MASTER_FINAL.md
+4. FCF_FINAL_ARCHITECTURE_GAP_AUDIT_REPORT.md
+5. FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md
+6. FCF_NEW_WINDOW_CHAT_PROMPT.md
+7. docs/HANDOFF_PROMPT.md
+
+If active authority files conflict, stop and report the conflict.
+
+Do not silently select an older state.
+
+
+Current restrictions:
+
+- P1-P47 frozen
+- no P48
+- no Core mutation
+- paper-only
+- sidecar-only extensions
+- deterministic authority
+- operator review required
+- no current model invocation
+- no Prompt execution
+- no automatic routing
+- no automatic production evolution
+- no automatic archive
+- no archive writing
+- no real execution
+- no trading or withdrawal credentials
+- no tag
+- no release
+- no deployment
+
+Do not create a branch or start D1 without explicit Operator approval.
+<!-- END FCF V2 CURRENT NEW WINDOW TRUTH -->
+
+---
+
 <!-- FCF-AI-COMPREHENSIVE-REPORT-SYNTHESIS-NEW-WINDOW-TRUTH-BEGIN -->
 
 # FCF NEW WINDOW CURRENT AUTHORITATIVE PROMPT

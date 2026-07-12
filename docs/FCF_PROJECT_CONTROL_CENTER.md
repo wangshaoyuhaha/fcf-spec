@@ -7145,3 +7145,394 @@ Any future change requires:
 8. handoff update where required
 9. versioned activation
 <!-- END FCF CONTROLLED LEARNING BACKTEST EVOLUTION ARCHITECTURE LOCK -->
+
+<!-- BEGIN FCF V2 COMPLETE DISCUSSION RUNTIME GOVERNANCE LOCK -->
+## FCF V2 Complete Discussion and Runtime Governance Lock
+
+Status:
+
+APPROVED / AUTHORITATIVE / STRUCTURALLY COMPLETE /
+NOT YET IMPLEMENTED
+
+This block consolidates all architecture decisions produced in the
+current V2 architecture discussion.
+
+It does not start implementation.
+
+### 1. Product Surface
+
+FCF V2 requires a custom browser-based FCF Web Console.
+
+Required capabilities:
+
+- PDF upload
+- Excel upload
+- CSV upload
+- JSON upload
+- text input
+- URL input
+- multi-file upload
+- controlled research conversation
+- workflow monitoring
+- evidence inspection
+- model comparison
+- disagreement visibility
+- risk-flag visibility
+- Portfolio Construction display
+- Paper portfolio display
+- comprehensive reports
+- operator approval and rejection
+- re-analysis
+- additional-evidence requests
+- explicit override reasons
+- one-click start and stop
+- health, cost, failure, and degradation visibility
+
+Normal product use must not require Python or PowerShell.
+
+### 2. Workflow and Models
+
+- Dify is a replaceable background workflow implementation.
+- Open WebUI is development-only.
+- FCF uses a stable API boundary.
+- Model roles are vendor-neutral.
+- Hybrid is the default mode.
+- Deterministic policy controls cloud eligibility.
+- Models cannot choose their own permissions.
+- Structured output is mandatory.
+- Model and Prompt versions are registered.
+- Retry, fallback, timeout, cost, and cancellation are governed.
+- Disagreement remains visible.
+- System confidence is deterministic.
+- AI does not own truth, approval, archive, policy, or execution.
+
+### 3. Data, Research, and Credentials
+
+Required boundaries:
+
+- isolated Read-Only Data Gateway
+- isolated Research Gateway
+- credential-owning collector boundary
+- Class A, B, and C source governance
+- licensing metadata
+- permitted-use metadata
+- freshness metadata
+- available-time metadata
+- checksums
+- evidence identifiers
+- citation traceability
+- retrieval traceability
+
+Approved read-only credentials may exist only inside the isolated
+gateway.
+
+They must be encrypted, masked, and excluded from AI context, reports,
+and normal logs.
+
+Prohibited:
+
+- trading credentials
+- withdrawal credentials
+- wallet credentials
+- account-changing credentials
+- unrestricted AI database writes
+
+### 4. Market Coverage
+
+Mandatory versioned adapters:
+
+- China A-shares
+- United States equities
+- Hong Kong equities
+- gold and commodities
+- BTC and digital assets
+- futures
+
+Market adapters must preserve market-specific:
+
+- calendars
+- sessions
+- auctions
+- settlement
+- fees
+- taxes
+- currency
+- corporate actions
+- universe membership
+- liquidity
+- capacity
+- fill rules
+
+Specific requirements include:
+
+- A-share T+1 and price-limit behavior
+- Hong Kong board-lot and odd-lot behavior
+- United States regular and extended sessions
+- BTC funding, mark price, liquidation, and venue fragmentation
+- futures expiry, margin, basis, and roll rules
+
+Perpetual contracts do not use traditional expiry-roll assumptions.
+
+### 5. Portfolio Construction
+
+Portfolio Construction is mandatory after deterministic ranking.
+
+It is not a seventh selection factor.
+
+Deterministic, configurable, and versioned controls include:
+
+- asset concentration
+- industry concentration
+- theme concentration
+- factor concentration
+- correlation
+- beta
+- volatility
+- liquidity
+- drawdown
+- turnover
+- transaction costs
+- risk budget
+- Paper position sizing
+
+No constitutional percentage is permanently hardcoded.
+
+AI may explain risk.
+
+AI may not calculate, modify, or approve authoritative weights.
+
+### 6. Execution Boundary
+
+FCF V2 ends at:
+
+- research
+- evidence
+- analysis
+- reports
+- Paper portfolios
+- human review
+
+FCF V2 contains no real order placement.
+
+Any future execution capability requires a separate:
+
+- repository
+- permission domain
+- credential domain
+- deployment boundary
+- audit boundary
+- risk-control boundary
+
+A future execution gateway may reject, delay, cancel, block, or reduce
+approved risk.
+
+It may never increase risk, increase quantity, relax limits, change the
+asset, bypass approval, or weaken a Kill Switch.
+
+### 7. Controlled Learning and Backtesting
+
+The complete 22-section learning, deterministic-backtesting, and
+governed-evolution architecture already recorded in this Control Center
+is authoritative.
+
+It includes:
+
+- point-in-time snapshots
+- data-source version locking
+- market-calendar registration
+- corporate-action registration
+- Benchmark Registry
+- Config Snapshot
+- deterministic multi-market backtesting
+- Bias Guard
+- train, validation, final holdout, and Walk-forward separation
+- regime, stress, cost, liquidity, and capacity tests
+- immutable successful and failed results
+- Outcome labels during V2 Paper research
+- factor, portfolio, model, Prompt, source, and failure attribution
+- HISTORICAL_REPRODUCTION
+- COUNTERFACTUAL_CURRENT_MODEL_EVALUATION
+- AI knowledge-leakage protection
+- factual and reasoning alignment evaluation
+- AI incremental-value evaluation
+- human feedback governance
+- post-hoc feedback labeling
+- HUMAN_AUTO_EVALUATION_CONFLICT
+- Champion and Challenger experiments
+- promotion gates
+- monitoring
+- rollback
+- pause and restart
+- explicit Operator approval
+- no automatic production evolution
+
+### 8. Active Authority Set
+
+Active authority files:
+
+1. docs/FCF_PROJECT_CONTROL_CENTER.md
+2. docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md
+3. docs/HANDOFF_PROMPT.md
+4. FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md
+5. FCF_NEW_WINDOW_CHAT_PROMPT.md
+
+Historical Master Final, Final Current State, audit, and old handoff
+documents remain immutable historical evidence.
+
+### 9. Runtime Governance Materialization
+
+The Control Center is authoritative for human and engineering
+governance.
+
+Markdown alone is not runtime enforcement.
+
+Future implementation must create:
+
+- machine-readable policy manifests
+- stable policy identifiers
+- policy versions
+- policy content digests
+- Config Snapshot policy linkage
+- startup policy checks
+- pre-workflow policy checks
+- fail-closed behavior
+- privacy-routing blocks
+- missing-evidence blocks
+- promotion blocks
+- archive-authorization blocks
+- execution-path blocks inside fcf-spec
+- Web Console policy status
+- BLOCKED and DEGRADED states
+- policy audit records
+- Markdown-to-runtime drift detection
+- approved policy activation
+- policy rollback
+
+AI may read approved policy.
+
+AI may not modify, activate, weaken, or bypass policy.
+
+### 10. Mandatory Runtime-Governance Backlog
+
+The following requirements must not be omitted:
+
+- CONTROL-CENTER-MACHINE-READABLE-MANIFEST-APP-1
+- GOVERNANCE-POLICY-REGISTRY-APP-1
+- GOVERNANCE-CONTRACT-CI-GUARD-APP-1
+- CONTROL-HANDOFF-TRUTH-SYNC-GUARD-APP-1
+- ARCHITECTURE-BACKLOG-DEPENDENCY-GUARD-APP-1
+- RUNTIME-POLICY-GATE-APP-1
+- STARTUP-CONFIG-VERSION-CHECK-APP-1
+- POLICY-VIOLATION-BLOCK-APP-1
+- CONSOLE-GOVERNANCE-STATUS-APP-1
+- POLICY-AUDIT-ROLLBACK-APP-1
+
+These contracts may be delivered inside larger Sidecar phases, but their
+contracts and tests must remain explicit.
+
+### 11. Dependency Requirements
+
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1 must prepare:
+
+- machine-readable role contracts
+- policy identifiers
+- routing eligibility
+- timeout, retry, fallback, and cost contracts
+- BLOCKED and DEGRADED states
+- policy and Config Snapshot linkage
+
+It remains readiness-only:
+
+- no model invocation
+- no Prompt execution
+- no automatic routing
+
+Read-Only Data Gateway must preserve:
+
+- source version
+- published time
+- available time
+- ingestion time
+- checksum
+- license
+- retention permission
+- cloud-processing permission
+- market calendar
+- universe membership
+- corporate actions
+- benchmark version
+- point-in-time snapshot linkage
+
+FCF API Gateway must enforce:
+
+- authentication
+- authorization
+- policy
+- schemas
+- correlation
+- idempotency where required
+- rate and cost limits
+- audit emission
+- fail-closed behavior
+
+Multi-Model Workflow routes only through approved policy gates.
+
+Web Console displays policy, evidence, disagreement, risk, cost, health,
+degradation, and review status.
+
+Backtesting and learning use the same registered policy, data, code,
+model, Prompt, market-adapter, and Config Snapshot versions.
+
+### 12. Cross-Document Synchronization
+
+A major architectural decision is incomplete until all active authority
+files are synchronized.
+
+Future synchronization must verify:
+
+- current Control Center truth
+- current V2 architecture truth
+- current docs handoff truth
+- current backend handoff truth
+- current new-window truth
+- current validation baseline
+- current restrictions
+- current next phase
+- absence of contradictory active headers
+
+The newest explicit top truth header overrides older historical sections.
+
+### 13. Current Development Order
+
+Immediate next phase:
+
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+
+Status:
+
+PLANNED / NOT STARTED / READINESS-ONLY
+
+Not currently authorized:
+
+- live model invocation
+- Prompt execution
+- automatic routing
+- automatic archive
+- archive writing
+- automatic learning activation
+- automatic Champion promotion
+- Shadow Trading
+- real execution
+- trading APIs
+- trading credentials
+- tag
+- release
+- deployment
+
+### 14. Supersession
+
+External models, reports, slides, community skills, workflow tools, and
+future chat windows are advisory only.
+
+They cannot silently remove, weaken, or replace these requirements.
+<!-- END FCF V2 COMPLETE DISCUSSION RUNTIME GOVERNANCE LOCK -->
