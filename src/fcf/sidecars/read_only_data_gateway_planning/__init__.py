@@ -39,6 +39,11 @@ from .source_policy import (
     build_source_policy_decision,
     validate_source_policy_decision,
 )
+from .credential_isolation import (
+    CredentialIsolationContractViolation,
+    build_credential_isolation_contract,
+    validate_credential_isolation_contract,
+)
 
 __all__ = [
     "ALLOWED_OPERATIONS",
@@ -65,12 +70,15 @@ __all__ = [
     "SOURCE_CLASSES",
     "STAGE_ID",
     "TRUST_LEVELS",
+    "CredentialIsolationContractViolation",
     "NormalizedDataEnvelopeViolation",
     "ReadOnlyGatewayBoundaryViolation",
     "SourcePolicyDecisionViolation",
+    "build_credential_isolation_contract",
     "build_normalized_data_envelope",
     "build_read_only_data_gateway_boundary_contract",
     "build_source_policy_decision",
+    "validate_credential_isolation_contract",
     "validate_normalized_data_envelope",
     "validate_read_only_data_gateway_boundary_contract",
     "validate_source_policy_decision",
