@@ -49,6 +49,11 @@ from .review_packet import (
     build_governance_review_packet,
     validate_governance_review_packet,
 )
+from .operator_handoff import (
+    FinalOperatorHandoffViolation,
+    build_final_operator_handoff,
+    validate_final_operator_handoff,
+)
 
 __all__ = [
     "ALLOWED_OPERATIONS",
@@ -76,16 +81,19 @@ __all__ = [
     "STAGE_ID",
     "TRUST_LEVELS",
     "CredentialIsolationContractViolation",
+    "FinalOperatorHandoffViolation",
     "GovernanceReviewPacketViolation",
     "NormalizedDataEnvelopeViolation",
     "ReadOnlyGatewayBoundaryViolation",
     "SourcePolicyDecisionViolation",
     "build_credential_isolation_contract",
+    "build_final_operator_handoff",
     "build_governance_review_packet",
     "build_normalized_data_envelope",
     "build_read_only_data_gateway_boundary_contract",
     "build_source_policy_decision",
     "validate_credential_isolation_contract",
+    "validate_final_operator_handoff",
     "validate_governance_review_packet",
     "validate_normalized_data_envelope",
     "validate_read_only_data_gateway_boundary_contract",
