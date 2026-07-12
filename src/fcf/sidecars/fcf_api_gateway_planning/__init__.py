@@ -21,6 +21,15 @@ from .contract import (
     build_fcf_api_gateway_boundary_contract,
     validate_fcf_api_gateway_boundary_contract,
 )
+from .request_envelope import (
+    REQUEST_ENVELOPE_VERSION,
+    REQUEST_STATUSES,
+    REQUIRED_REQUEST_ENVELOPE_FIELDS,
+    STAGE_ID as REQUEST_ENVELOPE_STAGE_ID,
+    FcfApiGatewayRequestEnvelopeViolation,
+    build_fcf_api_gateway_request_envelope,
+    validate_fcf_api_gateway_request_envelope,
+)
 
 __all__ = [
     "ALLOWED_REQUEST_CLASSES",
@@ -30,16 +39,23 @@ __all__ = [
     "AUTHORITY_HIERARCHY",
     "CONTRACT_VERSION",
     "FcfApiGatewayBoundaryViolation",
+    "FcfApiGatewayRequestEnvelopeViolation",
     "GATEWAY_STATUS",
     "PLANNING_MODE",
     "PROHIBITED_REQUEST_CLASSES",
     "PROHIBITED_RESPONSIBILITIES",
+    "REQUEST_ENVELOPE_STAGE_ID",
+    "REQUEST_ENVELOPE_VERSION",
+    "REQUEST_STATUSES",
     "REQUIRED_CONTRACT_FIELDS",
     "REQUIRED_FALSE_FLAGS",
+    "REQUIRED_REQUEST_ENVELOPE_FIELDS",
     "REQUIRED_REQUEST_METADATA",
     "REQUIRED_RESPONSE_METADATA",
     "REQUIRED_TRUE_FLAGS",
     "STAGE_ID",
     "build_fcf_api_gateway_boundary_contract",
+    "build_fcf_api_gateway_request_envelope",
     "validate_fcf_api_gateway_boundary_contract",
+    "validate_fcf_api_gateway_request_envelope",
 ]
