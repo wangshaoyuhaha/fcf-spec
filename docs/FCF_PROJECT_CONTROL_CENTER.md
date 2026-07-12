@@ -6106,3 +6106,44 @@ block.
 
 No tag, release, or deployment is authorized.
 <!-- END FCF V2 PRODUCT AND AI RUNTIME ARCHITECTURE LOCK -->
+
+<!-- BEGIN FCF V2 CONSTITUTIONAL DECISION LOCK -->
+## FCF V2 Constitutional Decision Lock
+
+Status:
+
+APPROVED / AUTHORITATIVE / CURRENT
+
+Authoritative document:
+
+docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md
+
+Locked decisions:
+
+1. Custom FCF Web Console is the permanent interface.
+2. Upload and controlled research conversation are mandatory.
+3. Dify is a replaceable background workflow implementation.
+4. Hybrid is the default mode.
+5. Deterministic policy controls cloud eligibility.
+6. Equities are the primary market family.
+7. A-share, US-equity, and Hong Kong-equity adapters are mandatory.
+8. Gold, digital-asset, and futures adapters are mandatory compatible
+   architecture components.
+9. Portfolio Construction is mandatory after ranking.
+10. Future execution remains in a separate project and security boundary.
+11. A future gateway may reduce risk but never increase it.
+12. V2 ends at reviewed research and paper portfolios.
+13. Read-only credentials may exist only in an isolated data gateway.
+14. Trading and withdrawal credentials remain prohibited.
+15. Constitutional changes require an ADR and explicit approval.
+
+Immediate next implementation phase:
+
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+
+Development has not yet resumed.
+
+External model reports and community skills remain advisory only.
+
+No tag, release, or deployment is authorized.
+<!-- END FCF V2 CONSTITUTIONAL DECISION LOCK -->

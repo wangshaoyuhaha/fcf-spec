@@ -2,18 +2,24 @@
 
 ## 1. Document Status
 
-Status: AUTHORITATIVE PLANNING BASELINE
+Status: AUTHORITATIVE CONSTITUTIONAL PLANNING BASELINE
 
-This document locks the confirmed FCF V2 product, data, AI governance,
-orchestration, usability, validation, and long-term trading evolution
-directions.
+This document locks the approved FCF V2 product, AI runtime, data,
+multi-market, portfolio, usability, governance, validation, and
+long-term execution-boundary architecture.
 
-The six decisions listed in Section 32 remain pending explicit Operator
-approval. They must not be silently inferred or implemented.
+The six former pending Operator decisions are approved in Section 32.
 
-External DeepSeek and Gemini materials are planning inputs only. They do
-not override repository truth, Git history, tests, the Control Center, or
-the permanent safety boundaries.
+External model reports, slides, community skills, and architecture
+opinions are advisory inputs only.
+
+They cannot override:
+
+1. explicit Operator approval
+2. repository truth
+3. deterministic policy
+4. validated evidence
+5. tests and immutable audit history
 
 ## 2. Current Repository Truth
 
@@ -23,10 +29,10 @@ Local repository:
 
 C:\Users\Admin\Desktop\btc_finance_platform
 
-Current authoritative baseline before this architecture lock:
+Authoritative baseline before this constitutional-decision commit:
 
 - branch: main
-- HEAD: 6be27c7889ee3b2b019ee5e8e7b646de68b2467b
+- HEAD: eeeca0f482d24eb3c51db32a92a558a3ae573034
 - origin/main: synchronized
 - pytest: 3273 passed
 - run_all_checks: PASSED
@@ -38,7 +44,7 @@ Current authoritative baseline before this architecture lock:
 AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1 is complete,
 validated, merged, synchronized, and closed.
 
-GAP-1 through GAP-5 from that phase are CLOSED.
+GAP-1 through GAP-5 are CLOSED.
 
 ## 3. Product Vision
 
@@ -112,74 +118,125 @@ Examples:
 
 ## 6. Target Product Experience
 
-The target product contains three primary user surfaces.
+The permanent formal product interface is a custom browser-based FCF Web
+Console.
 
-### 6.1 Data Ingestion
+The Operator must not need to operate Python, PowerShell, pytest, Git, or
+Dify internals during normal use.
 
-The Operator can:
+### 6.1 File and Data Upload
 
-- upload PDF
-- upload Excel
-- upload CSV
-- upload JSON
-- paste text
-- select local files
-- select approved read-only sources
-- later connect approved read-only data gateways
+The Web Console must support:
 
-The ingestion process must:
+- PDF upload
+- Excel upload
+- CSV upload
+- JSON upload
+- text input
+- multi-file upload
+- approved URL input
+- approved local-file selection
+- approved read-only dataset connections
+- approved read-only market and research gateways
 
-- validate file type
-- scan and quarantine unsafe content
-- remove credentials and personal data where required
-- normalize data
-- assign evidence identifiers
-- generate checksums
-- assign source trust level
-- assign freshness status
-- pass data-quality gates
+Uploaded data must pass:
 
-### 6.2 Process Monitoring
+- format validation
+- unsafe-content quarantine
+- credential detection
+- privacy redaction
+- normalization
+- checksum generation
+- evidence registration
+- source classification
+- trust classification
+- freshness classification
+- licensing checks
+- data-quality gates
 
-The Operator can see:
+### 6.2 Controlled Research Conversation
 
-- workflow step
-- workflow status
-- start time
-- elapsed time
-- active model role
-- model identifier
+The Web Console must contain a controlled research conversation surface.
+
+The Operator may:
+
+- ask questions about uploaded evidence
+- request explanations
+- compare model conclusions
+- request additional evidence
+- request re-analysis
+- select approved runtime mode
+- inspect disagreement and risks
+- mark sources as untrusted
+- stop workflows
+
+Conversation cannot:
+
+- bypass hard policy
+- modify deterministic scores
+- modify live weights
+- remove risk flags
+- silently modify reports
+- expose credentials
+- authorize archives
+- send restricted data to cloud models
+- create or transmit real orders
+
+State-changing, high-cost, archive-sensitive, or policy-sensitive
+requests require explicit confirmation and audit recording.
+
+### 6.3 Process Monitoring
+
+The Web Console must display:
+
+- workflow step and status
+- start time and elapsed time
+- active role and model
 - prompt version
 - input artifact version
-- retry count
-- failure reason
-- cost consumption
+- retries and fallbacks
+- failure reasons
+- cost
 - data freshness
 - model disagreement
 - risk flags
-- waiting-for-review status
+- policy decisions
+- human-review status
 
-### 6.3 Final Insight
+### 6.4 Final Insight and Human Review
 
-The final surface must display:
+The Web Console must display:
 
 - deterministic calculations
-- market state
 - candidate ranking
+- market state
 - causal reasoning
-- supporting evidence
-- contradicting evidence
+- supporting and contradicting evidence
 - assumptions
 - uncertainty
-- model disagreement
+- disagreement
 - risk flags
 - scenario results
+- portfolio construction
+- paper position proposals
 - comprehensive report
 - evidence references
-- human review controls
 
-No real buy, sell, position, or order button is part of the current FCF
-V2 scope.
+The Operator controls must include:
+
+- Approve for Research Archive
+- Reject
+- Request Re-analysis
+- Request More Evidence
+- Mark Data as Untrusted
+- Compare Models
+- Override with Reason
+- Freeze Report
+- Export
+- Stop Workflow
+
+FCF V2 contains no real buy, sell, cancel, withdrawal, position-
+management, or order-transmission control.
 
 ## 7. Service Architecture
 
@@ -296,35 +353,45 @@ Model vendors must not be hardcoded into the architecture.
 
 ## 10. Local and Cloud Model Policy
 
-The architecture is model-agnostic and supports policy-controlled local
-and cloud execution.
+The approved default mode is Hybrid.
+
+Supported modes:
+
+- Local Only
+- Hybrid
+- Cloud Enhanced
+
+Deterministic privacy, licensing, source, and data-classification policy
+decides whether data may leave the local environment.
+
+AI cannot decide its own permissions, provider, privacy mode, or cloud
+eligibility.
 
 Data that must remain local includes:
 
-- API credentials
-- exchange credentials
+- credentials
+- trading and withdrawal credentials
 - wallet data
 - account identifiers
 - balances
 - positions
 - private personal data
-- unauthorized private reports
+- restricted private reports
 - raw sensitive files
 - data awaiting redaction
+- licensed content that forbids cloud use
 
-Cloud processing may be considered only for:
+Cloud processing may be considered only for policy-approved:
 
-- approved public information
+- public information
 - redacted structured data
 - public filings
 - public news
 - public macroeconomic information
-- policy-approved causal reasoning
-- policy-approved long-context synthesis
+- causal reasoning
+- long-context synthesis
 
-No model may choose its own provider or privacy mode.
-
-The final default operating mode remains pending Operator decision.
+Cloud Enhanced cannot override hard restrictions.
 
 ## 11. Network Research Governance
 
@@ -571,7 +638,19 @@ The Report Synthesizer may explain disagreement but may not erase it.
 
 ## 19. Stock and Asset Selection Architecture
 
-The candidate-selection pipeline may include:
+The approved primary market family is Equities.
+
+Mandatory equity-market adapters:
+
+- China A-shares
+- United States equities
+- Hong Kong equities
+
+All three are required target-architecture components.
+
+Implementation order may differ, but none may be removed.
+
+### 19.1 Shared Candidate Pipeline
 
 1. exclusion and data-quality filtering
 2. fundamental factors
@@ -581,15 +660,14 @@ The candidate-selection pipeline may include:
 6. market-regime adjustment
 7. deterministic composite ranking
 
-Python and deterministic services own:
+Deterministic services own:
 
 - exclusions
-- factor calculations
+- factors
 - scoring
 - ranking
 - risk deductions
 - versioned weighting
-- repeatable calculations
 
 AI owns:
 
@@ -601,43 +679,153 @@ AI owns:
 - uncertainty explanation
 - report synthesis
 
-AI cannot directly change scores or live weights.
+AI cannot directly change scores or active weights.
 
-A proposed weight change requires:
+A weight change requires evidence, explicit approval, versioned
+configuration, backtesting, evaluation, and controlled activation.
 
-1. documented recommendation
-2. evidence
-3. human approval
-4. versioned configuration
-5. backtesting
-6. evaluation
-7. controlled activation
+### 19.2 China A-Share Adapter
 
-The exact primary market remains pending Operator decision.
+Required versioned rules include:
+
+- trading calendar and sessions
+- T+1 constraints where applicable
+- price limits
+- ST and special-treatment status
+- suspension
+- listing-board differences
+- corporate actions
+- approved capital-flow data
+- liquidity
+- fees and settlement
+- market-specific risks
+
+### 19.3 United States Equity Adapter
+
+Required versioned rules include:
+
+- trading calendar
+- regular, pre-market, and after-hours sessions
+- SEC and company filings
+- corporate actions
+- splits and dividends
+- approved options and institutional data
+- rate and currency context
+- liquidity
+- fees and settlement
+- market-specific risks
+
+### 19.4 Hong Kong Equity Adapter
+
+Required versioned rules include:
+
+- HKEX structures
+- trading calendar
+- sessions and auctions
+- board lots
+- odd lots
+- HKD and approved counter structures
+- corporate actions
+- Stock Connect
+- approved capital-flow data
+- short-sale eligibility where applicable
+- fees
+- taxes
+- settlement
+- liquidity
+- market-specific risks
+
+Numeric market rules must not be permanently hardcoded in the
+constitution.
+
+They must be configurable, versioned, traceable, and validated against
+approved sources.
+
+### 19.5 Compatible Asset Families
+
+Mandatory compatible architecture families:
+
+- gold and commodities
+- BTC and digital assets
+- futures
+
+Gold support must distinguish:
+
+- spot gold
+- gold futures
+- gold ETFs
+- gold-mining equities
+
+BTC and digital assets require handling for:
+
+- continuous trading
+- funding rates
+- open interest
+- liquidation data
+- approved on-chain data
+- exchange flows
+- venue fragmentation
+- custody and counterparty risk
+
+Futures require handling for:
+
+- contract expiry
+- roll rules
+- dominant-contract identification
+- margin
+- basis
+- term structure
+- settlement
+- exchange-specific rules
+
+Each family requires a separate deterministic adapter and validation
+profile.
 
 ## 20. Portfolio Construction
 
-Portfolio construction is a recommended architecture capability pending
-final Operator decision.
+Portfolio Construction is mandatory after deterministic candidate
+ranking.
 
-Candidate deterministic controls:
+It is an independent stage, not a seventh selection factor.
 
+Approved flow:
+
+candidate screening
+    ->
+deterministic ranking
+    ->
+portfolio construction
+    ->
+stress testing
+    ->
+paper position proposal
+    ->
+operator review
+
+Required deterministic, configurable, versioned controls include:
+
+- single-asset concentration
 - industry concentration
 - theme concentration
 - factor concentration
-- asset correlation
+- correlation
 - beta
 - volatility
 - liquidity
 - maximum drawdown
-- single-asset limit
-- portfolio risk budget
 - turnover
-- transaction-cost estimates
+- transaction-cost assumptions
+- portfolio risk budget
+- paper position sizing
+
+The constitution does not permanently hardcode percentages.
+
+Thresholds require configuration, market rules, backtesting, evaluation,
+Operator approval, and versioned activation.
 
 AI may explain portfolio risks.
 
-AI may not calculate or silently modify final portfolio weights.
+AI may not calculate, silently modify, or approve final weights.
 
 ## 21. Backtesting and Forward Validation
 
@@ -806,34 +994,58 @@ Human approval cannot remove immutable audit history.
 
 ## 28. Dify, Open WebUI, and Product UI
 
-Confirmed roles:
-
 ### Dify
 
+Dify is the preferred initial background workflow implementation.
+
+Approved uses:
+
 - workflow prototyping
-- model-node orchestration
+- model orchestration
 - HTTP integration
 - retry and fallback coordination
-- internal workflow operations
+- structured-output handling
+- internal workflow operation
+
+Dify is replaceable.
+
+FCF must not permanently depend on Dify or another single workflow
+vendor.
 
 ### Open WebUI
+
+Open WebUI is limited to:
 
 - model testing
 - prompt experiments
 - local-model sandbox
-- development-only comparisons
+- development comparisons
 
-Open WebUI must not control the formal FCF production chain.
+It must not control the formal FCF chain.
 
-### Product UI
+### Custom FCF Web Console
 
-A browser-accessible product surface is required.
+The permanent formal interface is a custom FCF Web Console.
 
-Whether the final permanent surface is a custom FCF Web Console or Dify
-remains pending Operator decision.
+It must support:
 
-The architecture must avoid permanent dependency on a single low-code
-platform.
+- upload
+- controlled conversation
+- workflow control
+- process monitoring
+- model comparison
+- evidence inspection
+- risk visibility
+- portfolio display
+- reports
+- human review
+- system configuration
+- data-source configuration
+- health and cost visibility
+
+The Console communicates through stable FCF APIs.
+
+Replacing Dify must not require rebuilding the product interface.
 
 ## 29. Deployment and One-Click Operation
 
@@ -863,44 +1075,80 @@ Required operational capabilities:
 
 The Operator must not need to manually run Python for normal use.
 
-## 30. Trading Evolution
-
-Candidate long-term levels:
+## 30. Trading Evolution and Independent Execution Boundary
 
 ### Level 1: Paper Trading
 
-- current allowed research boundary
+- FCF V2 boundary
 - simulated entries and exits
-- simulated positions
-- simulated performance
+- paper positions
+- paper performance
 - no real money
 
 ### Level 2: Shadow Trading
 
-- live market observation
+- future planning candidate
+- live observation
 - simulated orders
-- no real order transmission
+- no order transmission
 - execution-quality comparison
 
 ### Level 3: Human-Confirmed Trading
 
-- system creates an order draft
-- human confirmation is mandatory
-- an independent gateway transmits approved orders
+- future independent-project candidate
+- human-approved order intent
+- independent execution-gateway risk validation
+- no order transmission by fcf-spec
 
 ### Level 4: Restricted Automatic Trading
 
-- hardcoded limits
+- future independent-project candidate
+- hard limits
 - white-listed assets
 - independent risk controls
 - independent Kill Switch
-- independent execution logs
-- no model control over hard limits
+- independent audit
+- no model control of limits
 
-The current FCF repository contains no real execution.
+Any future execution capability must use a separate:
 
-Whether any future execution gateway must be a separate repository and
-separate security boundary remains pending final Operator decision.
+- repository
+- permission domain
+- credential domain
+- deployment boundary
+- audit boundary
+- risk-control boundary
+
+The current fcf-spec repository permanently excludes:
+
+- order placement
+- order cancellation
+- broker execution
+- exchange execution
+- live position management
+- trading credentials
+- withdrawal credentials
+
+A future execution gateway may:
+
+- reject
+- reduce quantity
+- reduce risk
+- delay
+- cancel
+- block
+- activate a Kill Switch
+
+It may never:
+
+- increase risk
+- increase quantity
+- relax limits
+- change the approved asset
+- bypass approval
+- weaken a stop
+- weaken a Kill Switch
+- silently change an approved intent
 
 ## 31. Locked Delivery Sequence
 
@@ -930,78 +1178,144 @@ AI-ORCHESTRATION-RUNTIME-READINESS-APP-1 must remain readiness-only:
 - no trading API
 - no credentials
 
-## 32. Pending Operator Decisions
+## 32. Approved Constitutional Decisions
 
-The following six decisions are explicitly unresolved.
+Status:
 
-They must be discussed with the Operator in the next planning discussion.
+APPROVED / AUTHORITATIVE / SUPERSEDES ALL SIX PENDING DECISIONS
 
-### Decision 1
+### Decision 1: Formal Product Interface
 
-Should the permanent formal user interface be a custom FCF Web Console,
-with Dify operating only as the background workflow engine?
+A custom FCF Web Console is the permanent formal interface.
 
-Status: PENDING OPERATOR DECISION
+It must provide file upload, controlled research conversation, process
+monitoring, model comparison, evidence inspection, risk visibility,
+reports, and human review.
 
-### Decision 2
+Dify is a replaceable background workflow implementation.
 
-Should the default model mode be Hybrid, with sensitive data processed
-locally and approved public or redacted data eligible for cloud models?
+### Decision 2: Default Model Mode
 
-Status: PENDING OPERATOR DECISION
+Hybrid is the default mode.
 
-### Decision 3
+Deterministic policy controls cloud eligibility.
 
-Should stocks be the first primary market, with BTC and futures retained
-as compatible markets?
+AI cannot determine its own permissions.
 
-Status: PENDING OPERATOR DECISION
+Supported modes:
 
-### Decision 4
+- Local Only
+- Hybrid
+- Cloud Enhanced
 
-Should Portfolio Construction become a formal required stage after
-candidate selection and ranking?
+### Decision 3: Markets
 
-Status: PENDING OPERATOR DECISION
+Equities are the primary market family.
 
-### Decision 5
+Mandatory equity adapters:
 
-Should every future trading-execution capability be placed in an
-independent project, gateway, permission domain, and deployment boundary?
+- China A-shares
+- United States equities
+- Hong Kong equities
 
-Status: PENDING OPERATOR DECISION
+Mandatory compatible families:
 
-### Decision 6
+- gold and commodities
+- BTC and digital assets
+- futures
 
-Should the FCF V2 delivery endpoint be:
+Each market requires versioned market-specific rules.
 
-- upload data
-- retrieve approved online data
-- invoke approved local and cloud models
-- display a traceable comprehensive report
-- support human review
-- perform no real order placement
+### Decision 4: Portfolio Construction
 
-Status: PENDING OPERATOR DECISION
+Portfolio Construction is mandatory after ranking.
+
+It is an independent deterministic stage.
+
+Required controls are mandatory; numeric thresholds remain configurable,
+validated, approved, and versioned.
+
+### Decision 5: Independent Execution
+
+Any future execution system must be a separate project and security
+boundary.
+
+It may reject or reduce approved risk.
+
+It may never increase risk or bypass approval.
+
+### Decision 6: V2 Delivery Endpoint
+
+FCF V2 ends at a complete, operator-reviewed research and paper-
+portfolio workflow.
+
+Required capabilities include:
+
+- browser upload
+- approved online research
+- approved read-only data
+- local models
+- approved cloud models
+- controlled conversation
+- multi-model collaboration
+- disagreement display
+- deterministic confidence
+- traceable reports
+- portfolio construction
+- paper proposals
+- human review
+- correlation_id traceability
+- one-click start
+- health checks
+
+FCF V2 contains no real order placement.
+
+Read-only credentials may exist only inside the isolated read-only data
+gateway.
+
+Trading, withdrawal, wallet, and real-account-changing credentials remain
+prohibited.
+
+### Constitutional Change Procedure
+
+These decisions are constitutional-level but not technically
+irreversible.
+
+Any change requires:
+
+1. explicit Operator approval
+2. Architecture Decision Record
+3. impact analysis
+4. safety and privacy review
+5. migration and rollback plan
+6. validation
+7. Control Center update
+8. handoff update
+9. versioned activation
+
+No AI model, workflow engine, code generator, external report, or
+community skill may silently change them.
 
 ## 33. Explicit Non-Goals for the Current Stage
 
 The current stage does not:
 
-- connect a real model runtime
+- invoke real models
 - execute prompts
 - create automatic routing
-- connect exchange trading APIs
-- access balances
-- access positions
+- implement adapters
+- implement Portfolio Construction
+- implement the Web Console
+- implement the Data Gateway
+- connect trading-capable APIs
+- access balances or positions
 - access wallet keys
 - place orders
 - create Shadow Trading
 - create automatic trading
-- select final model vendors
-- decide the six pending Operator decisions
+- select final vendors
 - modify frozen core
-- change Python production behavior
+- modify Python production behavior
 
 ## 34. Truth and Supersession Rules
 
@@ -1024,3 +1338,75 @@ supersedes older contradictory markers.
 
 Historical content may remain for audit purposes but must not be treated
 as current project state.
+
+<!-- BEGIN FCF V2 LOCKED FUTURE DELIVERY BACKLOG -->
+## 35. Locked Future Delivery Backlog
+
+Status:
+
+AUTHORITATIVE STRUCTURAL BACKLOG
+
+Immediate next phase:
+
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+
+It remains readiness-only:
+
+- no model invocation
+- no prompt execution
+- no automatic routing
+- no archive writing
+- no trading API
+- no trading credentials
+- no real execution
+
+### Runtime and Product Foundation
+
+1. AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+2. READ-ONLY-DATA-GATEWAY-APP-1
+3. RESEARCH-GATEWAY-APP-1
+4. FCF-API-GATEWAY-APP-1
+5. MULTI-MODEL-WORKFLOW-APP-1
+6. FCF-WEB-CONSOLE-APP-1
+7. ONE-CLICK-LOCAL-OPERATIONS-APP-1
+
+### Mandatory Equity Adapters
+
+- CHINA-A-SHARE-MARKET-ADAPTER-APP-1
+- US-EQUITY-MARKET-ADAPTER-APP-1
+- HONG-KONG-EQUITY-MARKET-ADAPTER-APP-1
+
+### Mandatory Compatible Adapters
+
+- GOLD-COMMODITY-MARKET-ADAPTER-APP-1
+- DIGITAL-ASSET-MARKET-ADAPTER-APP-1
+- FUTURES-MARKET-ADAPTER-APP-1
+
+### Data and Research Infrastructure
+
+- SOURCE-LICENSE-GOVERNANCE-APP-1
+- DATA-FRESHNESS-POLICY-APP-1
+- READ-ONLY-CREDENTIAL-VAULT-APP-1
+- ONLINE-EVIDENCE-TRACEABILITY-APP-1
+
+### Portfolio and Validation
+
+- PORTFOLIO-CONSTRUCTION-APP-1
+- PORTFOLIO-STRESS-TEST-APP-1
+- MULTI-MARKET-VALIDATION-MATRIX-APP-1
+- PAPER-PORTFOLIO-REVIEW-APP-1
+- SHADOW-VALIDATION-PLANNING-APP-1
+
+### Long-Term Independent Execution
+
+Any execution work remains outside fcf-spec.
+
+Candidate project:
+
+fcf-execution-gateway
+
+It requires separate approval, repository, credentials, deployment,
+audit, risk engine, and Kill Switch.
+
+No execution implementation is authorized by this backlog.
+<!-- END FCF V2 LOCKED FUTURE DELIVERY BACKLOG -->

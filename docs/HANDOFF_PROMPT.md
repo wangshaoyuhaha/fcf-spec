@@ -442,60 +442,38 @@ No tag, release, or deployment was performed.
 
 Current mode:
 
-PLANNING DISCUSSION COMPLETE ENOUGH FOR ARCHITECTURE LOCK
+CONSTITUTIONAL DECISIONS APPROVED / DEVELOPMENT NOT YET RESUMED
 
-Authoritative architecture document:
+Locked structure:
 
-docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md
+- custom Web Console
+- file upload
+- controlled research conversation
+- replaceable Dify backend
+- default Hybrid mode
+- deterministic cloud eligibility
+- A-share adapter
+- US-equity adapter
+- Hong Kong-equity adapter
+- gold adapter
+- digital-asset adapter
+- futures adapter
+- mandatory Portfolio Construction
+- independent future execution project
+- reviewed research and paper portfolios only
+- no real order placement
 
-Current completed phase:
-
-AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1
-
-Status:
-
-COMPLETE / MERGED / VALIDATED
-
-Current baseline before the architecture documentation commit:
-
-- main
-- HEAD and origin/main:
-  6be27c7889ee3b2b019ee5e8e7b646de68b2467b
-- pytest: 3273 passed
-- run_all_checks: PASSED
-- git status: CLEAN
-
-Next fixed implementation phase:
+Immediate next phase:
 
 AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
 
-Do not begin it until the Operator explicitly resumes development.
+Do not begin until the Operator resumes development.
 
-Readiness restrictions:
+No model invocation, prompt execution, automatic routing, archive
+writing, trading API, trading credential, or real execution is
+authorized.
 
-- no model invocation
-- no prompt execution
-- no automatic routing
-- no archive writing
-- no trading API
-- no credentials
-- no real execution
-
-Six pending decisions require direct Operator discussion:
-
-1. permanent custom Web Console versus Dify as the formal user surface
-2. default Hybrid model policy
-3. stocks as the first primary market
-4. Portfolio Construction as a required stage
-5. future execution in an independent project and security boundary
-6. V2 endpoint ending at reviewed research with no real order placement
-
-Do not infer answers.
-
-Do not alter repository architecture based on an unresolved decision.
-
-Older contradictory OPEN, ACTIVE, NOT APPROVED, or READY FOR MAIN MERGE
-markers are historical and superseded by the latest authoritative block.
+External model opinions remain advisory.
 
 No tag, release, or deployment is authorized.
 <!-- END FCF V2 ARCHITECTURE DISCUSSION HANDOFF -->
