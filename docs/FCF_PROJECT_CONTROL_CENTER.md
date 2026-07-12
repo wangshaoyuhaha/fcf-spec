@@ -7699,3 +7699,143 @@ future chat windows are advisory only.
 
 They cannot silently remove, weaken, or replace these requirements.
 <!-- END FCF V2 COMPLETE DISCUSSION RUNTIME GOVERNANCE LOCK -->
+
+<!-- FCF-POWERSHELL-EXECUTION-SAFETY-CONTRACT-BEGIN -->
+## PowerShell Execution Safety Contract
+
+Status:
+
+MANDATORY / BLOCKING / APPLIES TO ALL FUTURE WINDOWS
+
+### 1. Shell compatibility
+
+- Treat the Operator shell as Windows PowerShell 5.1 unless
+  PSVersionTable proves otherwise.
+- Never assume PowerShell 7 behavior.
+- Record shell edition and version during every new execution-window
+  precheck.
+
+### 2. Native command result authority
+
+- Git, Python, pytest, and other native-command success or failure is
+  determined by LASTEXITCODE.
+- Native stderr output is not automatically a failure.
+- Git LF or CRLF warnings must not stop a workflow when the native exit
+  code is zero.
+- Do not combine native stderr with the PowerShell error pipeline unless
+  the behavior has already passed an isolated smoke test.
+
+### 3. Structured helper output
+
+- A helper returning a structured result must emit exactly one object.
+- Logging text must never leak into the PowerShell success pipeline.
+- Tee-Object must not be used inside a structured-return helper unless
+  its pipeline output is explicitly suppressed.
+- A native-command result object must contain an exit code, output, and
+  command identity.
+
+### 4. Mandatory helper smoke test
+
+Before any project file is written, every new or modified execution
+helper must independently prove:
+
+- zero exit with no output
+- zero exit with stdout
+- zero exit with stderr warning
+- nonzero exit
+- exactly one returned object
+- required result properties exist
+- logging does not change the returned value
+
+Project implementation must not begin until this smoke test passes.
+
+### 5. Two-phase execution
+
+Every new development step must begin with a separate precheck phase:
+
+- read PowerShell version
+- read branch
+- read HEAD
+- read origin branch HEAD
+- read git status
+- verify required files
+- run the existing baseline tests
+- write no project files
+- create no commit
+- perform no push
+
+Only after precheck success may the minimum implementation phase begin.
+
+### 6. Incremental implementation
+
+- Start with the smallest implementation and the smallest corresponding
+  test.
+- Add one decision branch or one behavior group at a time.
+- Run the corresponding targeted test after each increment.
+- Do not create an unverified monolithic script containing helper
+  creation, project implementation, all tests, commit, and push.
+- Full pytest must not run while targeted tests are failing.
+
+### 7. Failure behavior
+
+Before commit, any failure requires:
+
+- stop immediately
+- no full pytest
+- no commit
+- no push
+- restore only files touched by the current step
+- inspect staged files
+- inspect untracked files
+- verify HEAD
+- verify git status
+- require clean rollback evidence
+
+After commit, no automatic reset, rebase, force push, or history rewrite
+is allowed. Report the exact commit and wait for the Operator.
+
+### 8. Rejected-script rule
+
+- A script that caused a failure is rejected.
+- A rejected script must never be rerun unchanged.
+- The exact failure mechanism must be identified.
+- The repaired mechanism must pass an isolated smoke test before project
+  work resumes.
+
+### 9. Completion evidence
+
+A phase is complete only when all evidence agrees:
+
+- expected files exist
+- expected targeted tests pass
+- the commit contains exactly the expected files
+- push succeeds
+- local and origin branch HEAD values match
+- git status is clean
+
+A COMPLETE line inside a log is never sufficient by itself.
+
+### 10. Command and documentation separation
+
+- Only executable PowerShell may be placed in a copyable PowerShell code
+  block.
+- Documentation, explanations, governance text, and expected output must
+  never be presented as commands for the Operator to paste.
+- Every command block must state whether it is read-only, file-changing,
+  committing, or pushing.
+
+### 11. Dirty-tree blocking
+
+- Do not begin an unrelated governance or implementation change while
+  another step has staged, modified, or untracked files.
+- Expected dirty files must be explicitly enumerated before continuing.
+- Any unexpected dirty file blocks the workflow.
+
+### 12. Operator protection
+
+- The Operator must not be used as the test runner for unverified shell
+  infrastructure.
+- Execution mechanics must be validated before the Operator is asked to
+  run a project-changing script.
+- No stage may automatically continue into the next D-step.
+<!-- FCF-POWERSHELL-EXECUTION-SAFETY-CONTRACT-END -->
