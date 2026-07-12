@@ -2,7 +2,7 @@
 
 ## Status
 
-COMPLETE / VALIDATED / READY FOR MAIN MERGE
+COMPLETE / MERGED / VALIDATED
 
 ## Commits
 
@@ -59,3 +59,30 @@ COMPLETE / VALIDATED / READY FOR MAIN MERGE
 - tag: none
 - release: none
 - deploy: none
+
+<!-- BEGIN POST-MERGE RECONCILIATION -->
+## Post-Merge Reconciliation
+
+Authoritative status:
+
+COMPLETE / MERGED / VALIDATED
+
+Main merge commit:
+
+fa6e464f6db64947af6b9777c16a7e7ee309e3e6
+
+Control and handoff synchronization commit:
+
+6be27c7889ee3b2b019ee5e8e7b646de68b2467b
+
+Validated baseline:
+
+- targeted pytest: 62 passed
+- full pytest: 3273 passed
+- run_all_checks: PASSED
+- git status: CLEAN
+- origin/main: synchronized
+
+Any earlier READY FOR MAIN MERGE or OPEN marker is historical and
+superseded by this reconciliation.
+<!-- END POST-MERGE RECONCILIATION -->

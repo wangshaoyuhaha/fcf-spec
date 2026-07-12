@@ -6008,3 +6008,101 @@ no real execution.
 
 No tag, release, or deployment was performed.
 <!-- END FCF COMPLETE: AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1 -->
+
+<!-- BEGIN FCF V2 PRODUCT AND AI RUNTIME ARCHITECTURE LOCK -->
+## FCF V2 Product and AI Runtime Architecture Lock
+
+Status:
+
+AUTHORITATIVE PLANNING BASELINE / CURRENT
+
+Detailed architecture document:
+
+docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md
+
+Current repository baseline before this documentation commit:
+
+- branch: main
+- HEAD: 6be27c7889ee3b2b019ee5e8e7b646de68b2467b
+- origin/main: synchronized
+- pytest: 3273 passed
+- run_all_checks: PASSED
+- git status: CLEAN
+
+AI-COMPREHENSIVE-REPORT-CONSUMER-ACTIVATION-APP-1:
+
+COMPLETE / MERGED / VALIDATED
+
+Architecture direction locked:
+
+- normal users operate a browser product, not Python
+- Python remains the deterministic backend engine
+- target product flow is Data Ingestion, Process Monitoring, Final Insight
+- authority order is Operator, Policy, Deterministic Engine, Validated
+  Evidence, Orchestrator, AI Models, External Narrative
+- Orchestrator coordinates but does not own truth, approval, archive, or
+  execution authority
+- model roles are capability-based and vendor-neutral
+- local and cloud execution is policy-controlled
+- sensitive data remains local
+- online research uses an approved Research Gateway
+- external market and research data uses a read-only gateway
+- data sources use Class A, Class B, and Class C governance
+- every source requires evidence, checksum, freshness, trust, and license
+  metadata
+- AI outputs require structured schemas
+- model confidence is not the final system confidence
+- model disagreement is preserved and reviewed
+- deterministic code owns factors, scores, rankings, and hard risk limits
+- AI owns extraction, narrative, causal reasoning, challenge, simulation,
+  and synthesis
+- model-supported weight changes require approval, versioning, backtesting,
+  and controlled activation
+- continuous model evaluation is mandatory
+- failures must degrade visibly or block the workflow
+- observability, cost limits, caching, audit, and human review are required
+- Dify is an orchestration and prototype tool
+- Open WebUI is a model-development sandbox
+- a browser product surface is mandatory
+- normal operation targets one-click start and health checks
+- current FCF contains no real trading execution
+
+Locked delivery sequence:
+
+1. post-phase state reconciliation and architecture lock
+2. AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+3. Read-Only Data Gateway
+4. FCF API Gateway
+5. Multi-Model Workflow
+6. Browser Product Console
+7. Paper and Shadow validation planning
+8. long-term execution capability evaluation
+
+The next implementation phase remains:
+
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1
+
+It must remain readiness-only:
+
+- no model invocation
+- no prompt execution
+- no automatic routing
+- no archive writing
+- no real execution
+- no trading API
+- no credentials
+
+Six unresolved product decisions are recorded in Section 32 of the
+architecture document as PENDING OPERATOR DECISION.
+
+They must not be silently decided or implemented.
+
+Authoritative supersession rule:
+
+Any earlier OPEN, NOT APPROVED, APPROVED ACTIVE, READY FOR MAIN MERGE, or
+other contradictory marker for a phase now marked complete is historical
+only and superseded by the latest explicit authoritative current-state
+block.
+
+No tag, release, or deployment is authorized.
+<!-- END FCF V2 PRODUCT AND AI RUNTIME ARCHITECTURE LOCK -->
