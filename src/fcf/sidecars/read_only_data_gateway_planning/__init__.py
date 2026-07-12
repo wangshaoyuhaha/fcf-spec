@@ -34,6 +34,11 @@ from .normalized_envelope import (
     build_normalized_data_envelope,
     validate_normalized_data_envelope,
 )
+from .source_policy import (
+    SourcePolicyDecisionViolation,
+    build_source_policy_decision,
+    validate_source_policy_decision,
+)
 
 __all__ = [
     "ALLOWED_OPERATIONS",
@@ -62,8 +67,11 @@ __all__ = [
     "TRUST_LEVELS",
     "NormalizedDataEnvelopeViolation",
     "ReadOnlyGatewayBoundaryViolation",
+    "SourcePolicyDecisionViolation",
     "build_normalized_data_envelope",
     "build_read_only_data_gateway_boundary_contract",
+    "build_source_policy_decision",
     "validate_normalized_data_envelope",
     "validate_read_only_data_gateway_boundary_contract",
+    "validate_source_policy_decision",
 ]
