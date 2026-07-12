@@ -38,6 +38,13 @@ from .d5_cross_surface_activation_validation import (
     build_registered_cross_surface_activation_artifact,
     validate_registered_cross_surface_activation_artifact,
 )
+from .d6_full_chain_activation_closeout import (
+    FULL_CHAIN_CLOSEOUT_ARTIFACT_TYPE,
+    FULL_CHAIN_CLOSEOUT_STATUS,
+    FullChainActivationCloseoutReceipt,
+    build_full_chain_activation_closeout_receipt,
+    validate_full_chain_activation_closeout_receipt,
+)
 
 __all__ = [
     "ACTIVATION_SURFACES",
@@ -68,4 +75,9 @@ __all__ = [
     "RegisteredCrossSurfaceActivationArtifact",
     "build_registered_cross_surface_activation_artifact",
     "validate_registered_cross_surface_activation_artifact",
+    "FULL_CHAIN_CLOSEOUT_ARTIFACT_TYPE",
+    "FULL_CHAIN_CLOSEOUT_STATUS",
+    "FullChainActivationCloseoutReceipt",
+    "build_full_chain_activation_closeout_receipt",
+    "validate_full_chain_activation_closeout_receipt",
 ]
