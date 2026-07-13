@@ -1,3 +1,105 @@
+<!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-APP-1 APPROVAL START -->
+
+## BROWSER-PRODUCT-CONSOLE-RUNTIME-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved parent:
+
+13582ef6f0bd5be13f24d1074fbfd67526278f25
+
+Planned branch:
+
+sidecar-browser-product-console-runtime-app-1
+
+Purpose:
+
+Implement the local browser product console runtime defined by the completed
+BROWSER-PRODUCT-CONSOLE-DESIGN-APP-1 package.
+
+Allowed runtime scope:
+
+- local browser user interface
+- loopback-only HTTP runtime
+- bind address restricted to 127.0.0.1
+- local registered artifact loading
+- read-only research result presentation
+- stock candidate ranked watchlist presentation
+- score breakdown presentation
+- reason code presentation
+- risk flag presentation
+- contradiction evidence presentation
+- AI explanation presentation
+- Paper Validation presentation
+- Shadow Observation presentation
+- Operator review presentation
+- governed paper-only commands
+- local audit records
+- deterministic read models
+- explicit failure states
+
+Required delivery order:
+
+- D1 runtime boundary, configuration, and loopback security contract
+- D2 registered artifact index and deterministic read model
+- D3 browser shell, navigation, and read-only stock workspaces
+- D4 governed Operator review commands and local API boundary
+- D5 runtime coordinator, audit, idempotency, and failure handling
+- D6 acceptance, closeout, merge, and authority synchronization
+
+Explicitly prohibited:
+
+- external network binding
+- remote browser access
+- public Internet exposure
+- cloud deployment
+- broker connectivity
+- exchange connectivity
+- trading credentials
+- API key storage
+- wallet key access
+- account access
+- balance access
+- position access
+- order creation
+- order placement
+- order cancellation
+- real execution
+- automatic approval
+- automatic promotion
+- automatic baseline replacement
+- automatic model activation
+- automatic Prompt activation
+- automatic learning activation
+- automatic archive
+- P1-P47 Core mutation
+- P48 creation
+- tag
+- release
+- deployment
+
+Authority:
+
+- Operator Policy remains highest authority
+- FCF Hard Policy remains binding
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- Operator review remains mandatory
+- AI remains advisory only
+
+Permanent architecture boundary:
+
+- paper-only
+- local-only
+- loopback-only
+- sidecar-only
+- registered-artifact-only
+- no frozen Core mutation
+
+<!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-APP-1 APPROVAL END -->
+
 <!-- SHADOW-OBSERVATION-RUNTIME-APP-1 FINAL SYNC START -->
 
 ## SHADOW-OBSERVATION-RUNTIME-APP-1 Final State
