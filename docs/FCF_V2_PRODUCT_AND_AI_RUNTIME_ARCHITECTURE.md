@@ -1,4 +1,4 @@
-<!-- FCF-API-GATEWAY-PLANNING-COMPLETION-TRUTH-BEGIN -->
+<!-- FCF-AI-MULTI-MODEL-WORKFLOW-PLANNING-COMPLETION-TRUTH-BEGIN -->
 # FCF CURRENT AUTHORITATIVE STATE
 
 This header overrides every older state, phase, validation, branch,
@@ -11,20 +11,20 @@ FCF / Financial Cognitive Framework
 Current true state:
 
 - latest completed phase:
-  FCF-API-GATEWAY-PLANNING-APP-1
+  AI-MULTI-MODEL-WORKFLOW-PLANNING-APP-1
 - phase status:
   COMPLETE / MERGED / VALIDATED / PUSHED / CLEAN
 - branch: main
 - phase merge commit:
-  4200750c037a9297ab9f399334540ce1fe21595f
+  7a0c01d31737ebf23f24a1c5e724b9de304b1e66
 - initial Final Current State commit:
-  f5d9f77c6e26638c1dd045db7327f9e44349fc5f
+  27a1b19b2f3edea3415d092ffaee9484919462e3
 - D6 final Operator handoff commit:
-  3033c89b365b9e02428a2956abe1d70bfbabf327
+  c3cd1d182847d4d758d4b198e7f5ca654fdb3622
 - Final Current State file:
-  docs/fcf_api_gateway_planning/FINAL_CURRENT_STATE.md
-- targeted D1-D6 pytest: 92 passed
-- full pytest: 3564 passed
+  docs/ai_multi_model_workflow_planning/FINAL_CURRENT_STATE.md
+- targeted D1-D6 pytest: 85 passed
+- full pytest: 3649 passed
 - run_all_checks: PASSED
 - generated runtime artifacts: restored
 - git status: CLEAN
@@ -37,12 +37,15 @@ Current true state:
 
 Delivered planning scope:
 
-- API Gateway boundary and authority contract
-- deterministic request envelope
-- deterministic Policy Gate decision
-- deterministic response envelope
-- BLOCKED and Operator-confirmation propagation
-- correlation and source-artifact preservation
+- Multi-Model Workflow boundary and authority contract
+- governed role-to-model-slot binding manifest
+- PRIMARY, FALLBACK, COMPARISON, LOCAL_ONLY, and CLOUD_APPROVED slots
+- registered model and Prompt version linkage
+- deterministic Policy Eligibility evaluation
+- Config Snapshot and source-candidate preservation
+- privacy, licensing, provider-health, and cost-status preservation
+- output Schema and evaluation baseline linkage
+- timeout, bounded retry, Operator-presented Fallback, and cost contracts
 - governance review packet
 - final manual Operator handoff
 - explicit main-merge review boundary
@@ -50,13 +53,13 @@ Delivered planning scope:
 Runtime authority:
 
 - planning mode: PLANNING_ONLY
-- HTTP server: NOT CREATED
-- port listener: NOT ACTIVE
-- response transport: NOT ACTIVE
-- web framework installation: NOT PERFORMED
+- automatic model selection: NOT ALLOWED
+- automatic model switching: NOT ALLOWED
+- automatic routing: NOT ALLOWED
+- automatic retry: NOT ALLOWED
+- automatic Fallback: NOT ALLOWED
 - model invocation: NOT ALLOWED
 - Prompt execution: NOT ALLOWED
-- automatic routing: NOT ALLOWED
 - runtime activation: NOT ALLOWED
 - archive writing: NOT ALLOWED
 - real execution: NOT ALLOWED
@@ -71,6 +74,7 @@ Permanent boundaries:
 - read-only
 - sidecar-only
 - deterministic authority preserved
+- registered artifacts only
 - no broker or exchange connection
 - no credential access
 - no balance or position access
@@ -89,7 +93,7 @@ Next action:
 - do not create a new development branch
 - do not write new phase code
 - wait for explicit Operator approval of the next phase
-<!-- FCF-API-GATEWAY-PLANNING-COMPLETION-TRUTH-END -->
+<!-- FCF-AI-MULTI-MODEL-WORKFLOW-PLANNING-COMPLETION-TRUTH-END -->
 
 ---# FCF V2 Product and AI Runtime Architecture
 
