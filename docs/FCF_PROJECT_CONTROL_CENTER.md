@@ -1,3 +1,97 @@
+<!-- FCF-PAPER-AND-SHADOW-VALIDATION-PLANNING-APPROVAL-TRUTH-BEGIN -->
+# FCF CURRENT AUTHORITATIVE STATE
+
+This header overrides every older next-phase, candidate, branch-creation,
+D1-start, and automatic-resume statement below.
+
+Project:
+
+FCF / Financial Cognitive Framework
+
+Latest completed product phase:
+
+BROWSER-PRODUCT-CONSOLE-DESIGN-APP-1
+
+Completed baseline:
+
+- branch: main
+- HEAD before this approval synchronization:
+  21e432eb34c800062d6e383cb1d5ba47a5f4e5d9
+- product phase status:
+  COMPLETE / MERGED / VALIDATED / PUSHED / CLEAN
+- full pytest: 3671 passed
+- run_all_checks: PASSED
+- git status: CLEAN
+- main and origin/main: synchronized
+- tag: none
+- release: none
+- deploy: none
+
+Approved next phase:
+
+PAPER-AND-SHADOW-VALIDATION-PLANNING-APP-1
+
+Approval status:
+
+APPROVED / NOT STARTED / PLANNING-ONLY
+
+Planned Sidecar branch:
+
+sidecar-paper-and-shadow-validation-planning-app-1
+
+Purpose:
+
+Define the governed paper and shadow validation architecture for FCF without
+creating trading execution, live account access, automatic model authority, or
+automatic promotion.
+
+Planned D1 scope:
+
+- paper validation boundary
+- shadow observation boundary
+- historical replay versus forward observation separation
+- deterministic benchmark authority
+- baseline and candidate comparison boundary
+- registered artifact input and output requirements
+- correlation_id traceability
+- Operator review requirements
+- BLOCKED, DEGRADED, and INVALID behavior
+- permanent execution prohibitions
+
+Permanent restrictions:
+
+- P1-P47 remain frozen
+- no P48
+- no frozen Core mutation
+- paper-only
+- read-only
+- sidecar-only
+- deterministic authority preserved
+- Operator review required
+- no real broker or exchange connection
+- no trading credentials
+- no balance or position access
+- no wallet access
+- no order placement
+- no real execution
+- no automatic model selection
+- no automatic provider routing
+- no automatic Champion promotion
+- no automatic learning activation
+- no automatic approval
+- no automatic archive
+- no tag
+- no release
+- no deployment
+
+Next action:
+
+- complete this approval synchronization
+- do not start D1 before approval synchronization is committed and pushed
+- after synchronization, create the approved Sidecar branch
+- begin D1 only
+<!-- FCF-PAPER-AND-SHADOW-VALIDATION-PLANNING-APPROVAL-TRUTH-END -->
+
 <!-- FCF-BROWSER-PRODUCT-CONSOLE-DESIGN-COMPLETION-TRUTH-BEGIN -->
 # FCF CURRENT AUTHORITATIVE STATE
 
