@@ -1,3 +1,97 @@
+<!-- PAPER-AND-SHADOW-VALIDATION-PLANNING-APP-1 FINAL SYNC START -->
+
+## PAPER-AND-SHADOW-VALIDATION-PLANNING-APP-1 Final Synchronization
+
+Status:
+
+COMPLETED_MERGED_VALIDATED_PUSHED_CLEAN
+
+Main merge commit:
+
+ca0e54159ddaaca48c9689fb790cb34f5bc422c8
+
+Final Sidecar commit:
+
+91baa1c2b1a13f5501b50325493427bace3dc34c
+
+Validation:
+
+- python -m pytest -q = 3702 passed
+- python scripts/run_all_checks.py = PASSED
+- generated validation outputs restored
+- git status clean
+- origin/main synchronized
+
+Completed scope:
+
+- D1 paper and passive shadow boundary contract
+- D2 registered inputs, evaluation windows, and leakage controls
+- D3 deterministic metric registry and comparison contract
+- D4 risk, contradiction, and Operator review contract
+- D5 validation plan, lifecycle, stop condition, and handoff contract
+- D6 final planning closeout
+
+Runtime status:
+
+- planning only
+- no paper validation runtime
+- no forward observation runtime
+- no scheduler
+- no worker
+- no queue
+- no listener
+- no web server
+- no API endpoint
+- no network port
+- no external data fetcher
+- no model invocation runtime
+- no archive writer
+- no broker or exchange connector
+- no order path
+
+Authority remains:
+
+1. Operator Policy
+2. FCF Hard Policy
+3. Deterministic Engine
+4. Validated Data and Registered Evidence
+5. Validation Coordinator
+6. AI Models
+7. External Narrative
+
+Permanent boundaries:
+
+- P1-P47 frozen
+- no P48
+- paper-only
+- read-only
+- sidecar-only
+- Operator review required
+- no automatic approval
+- no automatic Champion promotion
+- no automatic baseline replacement
+- no automatic learning activation
+- no automatic archive
+- no real trading
+- no real execution
+- no broker or exchange connectivity
+- no credential access
+- no wallet, account, balance, or position access
+- no order placement
+- no tag
+- no release
+- no deployment
+
+Next-phase status:
+
+NOT_SELECTED
+
+NOT_APPROVED
+
+No next phase may start automatically.
+
+<!-- PAPER-AND-SHADOW-VALIDATION-PLANNING-APP-1 FINAL SYNC END -->
+
 <!-- FCF-PAPER-AND-SHADOW-VALIDATION-PLANNING-APPROVAL-TRUTH-BEGIN -->
 # FCF CURRENT AUTHORITATIVE STATE
 
