@@ -1,3 +1,106 @@
+<!-- SHADOW-OBSERVATION-RUNTIME-APP-1 APPROVAL START -->
+
+## SHADOW-OBSERVATION-RUNTIME-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved parent:
+
+dbdf3b399c23e9139fdbde97154864c527514484
+
+Planned branch:
+
+sidecar-shadow-observation-runtime-app-1
+
+Purpose:
+
+Implement an Operator-triggered local passive forward-observation runtime.
+
+The runtime may compare registered baseline and candidate observations with
+subsequently registered outcomes.
+
+Allowed scope:
+
+- local registered input artifacts
+- passive forward observation
+- baseline and candidate parallel comparison
+- explicit observation-window identity
+- content hash verification
+- allowed-root containment
+- symbolic-link rejection
+- deterministic drift measurement
+- candidate coverage measurement
+- required segment checks
+- risk flag preservation
+- contradiction evidence preservation
+- Operator review packets
+- local controlled output
+- fail-closed lifecycle
+- manual invocation only
+
+Required delivery order:
+
+- D1 runtime boundary and typed domain model
+- D2 registered local observation loader
+- D3 deterministic observation and drift engine
+- D4 risk, contradiction, and Operator review packet
+- D5 lifecycle coordinator and atomic local output
+- D6 final closeout, merge, validation, and authority sync
+
+Explicitly prohibited:
+
+- background scheduler
+- queue
+- daemon
+- listener
+- web server
+- API endpoint
+- network port
+- external market-data fetch
+- broker connectivity
+- exchange connectivity
+- credential access
+- account access
+- balance access
+- position access
+- wallet access
+- order creation
+- order placement
+- real execution
+- automatic approval
+- automatic candidate promotion
+- automatic baseline replacement
+- automatic model activation
+- automatic Prompt activation
+- automatic learning activation
+- automatic archive
+- tag
+- release
+- deployment
+
+Authority:
+
+- Operator Policy remains highest authority
+- FCF Hard Policy remains binding
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- Operator review remains mandatory
+- AI remains advisory only
+
+Architecture boundary:
+
+- P1-P47 remain frozen
+- P48 is not created
+- paper-only
+- local-only
+- read-only inputs
+- sidecar-only implementation
+- no frozen Core mutation
+
+<!-- SHADOW-OBSERVATION-RUNTIME-APP-1 APPROVAL END -->
+
 <!-- PAPER-VALIDATION-RUNTIME-APP-1 FINAL SYNC START -->
 
 ## PAPER-VALIDATION-RUNTIME-APP-1 Final State
