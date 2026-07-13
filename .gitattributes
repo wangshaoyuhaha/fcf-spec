@@ -1,0 +1,7 @@
+# Scope is intentionally limited to execution-safety maintenance files.
+# Existing repository files are not globally renormalized by this change.
+
+.gitattributes text eol=lf
+scripts/fcf_safe_runner.ps1 text eol=crlf
+tests/test_fcf_safe_runner_contract.py text eol=lf
+docs/FCF_EXECUTION_SAFETY_PROTOCOL.md text eol=lf
