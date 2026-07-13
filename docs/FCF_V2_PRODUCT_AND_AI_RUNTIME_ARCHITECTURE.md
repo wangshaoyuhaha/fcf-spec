@@ -1,71 +1,83 @@
-<!-- FCF-AI-MULTI-MODEL-WORKFLOW-PLANNING-COMPLETION-TRUTH-BEGIN -->
+<!-- FCF-EXECUTION-SAFETY-PROTOCOL-COMPLETION-TRUTH-BEGIN -->
 # FCF CURRENT AUTHORITATIVE STATE
 
-This header overrides every older state, phase, validation, branch,
-candidate, next-step, D1-start, and automatic-resume statement below.
+This header overrides every older state, validation, branch,
+candidate, next-step, and automatic-resume statement below.
 
 Project:
 
 FCF / Financial Cognitive Framework
 
-Current true state:
+Current product state:
 
-- latest completed phase:
+- latest completed product phase:
   AI-MULTI-MODEL-WORKFLOW-PLANNING-APP-1
-- phase status:
+- product phase status:
   COMPLETE / MERGED / VALIDATED / PUSHED / CLEAN
-- branch: main
-- phase merge commit:
+- product phase merge commit:
   7a0c01d31737ebf23f24a1c5e724b9de304b1e66
-- initial Final Current State commit:
-  27a1b19b2f3edea3415d092ffaee9484919462e3
-- D6 final Operator handoff commit:
-  c3cd1d182847d4d758d4b198e7f5ca654fdb3622
-- Final Current State file:
-  docs/ai_multi_model_workflow_planning/FINAL_CURRENT_STATE.md
-- targeted D1-D6 pytest: 85 passed
-- full pytest: 3649 passed
-- run_all_checks: PASSED
-- generated runtime artifacts: restored
+- product phase synchronization commit:
+  984297743b87d6d9bb2b326ec0f4d4852feb0438
+
+Execution safety maintenance:
+
+- status:
+  COMPLETE / MERGED / VALIDATED / PUSHED / CLEAN
+- maintenance branch commit:
+  5b28ae61d307898024953384b8d621a48d9ef66f
+- main merge commit:
+  490d66af87a4feb1e06391adc1702365171c6d1f
+- protocol:
+  docs/FCF_EXECUTION_SAFETY_PROTOCOL.md
+- safe process runner:
+  scripts/fcf_safe_runner.ps1
+- contract tests:
+  tests/test_fcf_safe_runner_contract.py
+- line-ending rules:
+  .gitattributes
+- safe runner self-test: PASSED
+- targeted contract pytest: 4 passed
+- full pytest at Boundary C: 3653 passed
+- run_all_checks at Boundary C: PASSED
+- generated runtime artifacts: RESTORED
+- branch: main
 - git status: CLEAN
-- main and origin/main: synchronized before this synchronization
-- synchronization commit:
-  the commit containing this header
+- main and origin/main:
+  synchronized by the commit containing this header
 - tag: none
 - release: none
 - deploy: none
 
-Delivered planning scope:
+Mandatory execution workflow:
 
-- Multi-Model Workflow boundary and authority contract
-- governed role-to-model-slot binding manifest
-- PRIMARY, FALLBACK, COMPARISON, LOCAL_ONLY, and CLOUD_APPROVED slots
-- registered model and Prompt version linkage
-- deterministic Policy Eligibility evaluation
-- Config Snapshot and source-candidate preservation
-- privacy, licensing, provider-health, and cost-status preservation
-- output Schema and evaluation baseline linkage
-- timeout, bounded retry, Operator-presented Fallback, and cost contracts
-- governance review packet
-- final manual Operator handoff
-- explicit main-merge review boundary
+1. Boundary A:
+   local preflight, file writes, targeted validation,
+   no network, no commit, no push
+2. Boundary B:
+   explicit staging, cached diff validation, local commit,
+   bounded push retries
+3. Boundary C:
+   main merge, targeted validation, full pytest,
+   run_all_checks, generated-file restoration, push main
+4. Boundary D:
+   authoritative document synchronization,
+   validation, commit, push
 
-Runtime authority:
+Permanent execution safeguards:
 
-- planning mode: PLANNING_ONLY
-- automatic model selection: NOT ALLOWED
-- automatic model switching: NOT ALLOWED
-- automatic routing: NOT ALLOWED
-- automatic retry: NOT ALLOWED
-- automatic Fallback: NOT ALLOWED
-- model invocation: NOT ALLOWED
-- Prompt execution: NOT ALLOWED
-- runtime activation: NOT ALLOWED
-- archive writing: NOT ALLOWED
-- real execution: NOT ALLOWED
-- Operator review: REQUIRED
+- command success is determined by process exit code
+- stdout and stderr are captured separately
+- stderr warning with exit code zero is not a failure
+- no network preflight as a local write gate
+- no temporary core.autocrlf override
+- no repository-wide destructive cleanup
+- stage only explicit expected paths
+- push failure resumes with push only
+- completed boundaries must not be repeated
+- long workflows must use checkpoints
+- all future generated PowerShell must use the safe runner
 
-Permanent boundaries:
+Permanent project boundaries:
 
 - P1-P47 frozen
 - no P48
@@ -74,7 +86,7 @@ Permanent boundaries:
 - read-only
 - sidecar-only
 - deterministic authority preserved
-- registered artifacts only
+- Operator review required
 - no broker or exchange connection
 - no credential access
 - no balance or position access
@@ -88,12 +100,15 @@ Permanent boundaries:
 
 Next action:
 
+- execution safety repair is closed
 - return to architecture and control review
-- no next development phase is currently approved
+- next candidate:
+  Browser Product Console design
+- next development phase is not yet approved
 - do not create a new development branch
 - do not write new phase code
-- wait for explicit Operator approval of the next phase
-<!-- FCF-AI-MULTI-MODEL-WORKFLOW-PLANNING-COMPLETION-TRUTH-END -->
+- wait for explicit Operator approval
+<!-- FCF-EXECUTION-SAFETY-PROTOCOL-COMPLETION-TRUTH-END -->
 
 ---# FCF V2 Product and AI Runtime Architecture
 
