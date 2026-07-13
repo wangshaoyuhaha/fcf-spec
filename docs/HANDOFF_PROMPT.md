@@ -1,3 +1,101 @@
+<!-- PAPER-VALIDATION-RUNTIME-APP-1 APPROVAL START -->
+
+## PAPER-VALIDATION-RUNTIME-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved parent:
+
+1ac2900a56738298b90cf07715df11394e17e0c2
+
+Purpose:
+
+Implement a local, deterministic, Operator-triggered paper validation runtime
+from the completed PAPER-AND-SHADOW-VALIDATION-PLANNING-APP-1 contracts.
+
+Allowed scope:
+
+- local historical replay only
+- registered local input artifacts
+- immutable source manifests and content hashes
+- explicit evaluation-window identity
+- deterministic metric execution
+- baseline and candidate comparison
+- sample-sufficiency checks
+- required segment checks
+- risk-flag preservation
+- contradiction preservation
+- validation result packet generation
+- Operator review packet generation
+- correlation_id propagation
+- local file output only after explicit invocation
+- fail-closed lifecycle transitions
+- manual command execution only
+
+Required delivery order:
+
+- D1 runtime boundary and typed domain model
+- D2 registered input and evaluation-window loader
+- D3 deterministic metric and comparison engine
+- D4 risk, contradiction, and Operator review packet
+- D5 lifecycle coordinator and controlled local output
+- D6 final closeout, merge, validation, and authority sync
+
+Explicitly prohibited:
+
+- background scheduler
+- queue
+- daemon
+- listener
+- web server
+- API endpoint
+- network port
+- external market-data fetch
+- broker connectivity
+- exchange connectivity
+- account access
+- balance access
+- position access
+- credential access
+- wallet access
+- order creation
+- order placement
+- real execution
+- automatic validation approval
+- automatic Champion promotion
+- automatic baseline replacement
+- automatic model activation
+- automatic Prompt activation
+- automatic learning activation
+- automatic archive
+- shadow observation runtime
+- tag
+- release
+- deployment
+
+Authority:
+
+- Operator Policy remains highest authority
+- FCF Hard Policy remains binding
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- Operator review remains mandatory
+- AI remains advisory only
+
+Architecture boundary:
+
+- P1-P47 remain frozen
+- P48 is not created
+- paper-only
+- local-only
+- read-only inputs
+- sidecar-only implementation
+- no frozen Core mutation
+
+<!-- PAPER-VALIDATION-RUNTIME-APP-1 APPROVAL END -->
+
 <!-- PAPER-AND-SHADOW-VALIDATION-PLANNING-APP-1 FINAL SYNC START -->
 
 ## PAPER-AND-SHADOW-VALIDATION-PLANNING-APP-1 Final Synchronization
