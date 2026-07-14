@@ -9,12 +9,21 @@ from typing import Any, Mapping, Tuple
 
 
 SUPPORTED_ARTIFACT_TYPES = {
+    "data_snapshot",
+    "data_quality",
+    "research_run",
+    "workflow_status",
     "ranked_watchlist",
     "ai_explanation",
+    "ai_evaluation",
     "paper_validation",
     "shadow_observation",
     "operator_review",
     "report_archive",
+    "model_governance",
+    "policy_snapshot",
+    "audit_receipt",
+    "manifest",
 }
 
 
