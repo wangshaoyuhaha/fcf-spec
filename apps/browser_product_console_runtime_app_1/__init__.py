@@ -36,6 +36,17 @@ from .read_model import (
     StockCandidateCard,
     build_console_read_model,
 )
+from .research_workspace import (
+    BROWSER_PRODUCT_CONSOLE_RESEARCH_WORKSPACE_BOUNDARY,
+    BROWSER_PRODUCT_CONSOLE_RESEARCH_WORKSPACE_CONTRACT,
+    BROWSER_PRODUCT_CONSOLE_RESEARCH_WORKSPACE_ROUTES,
+    RESEARCH_WORKSPACE_ROUTE_REGISTRY,
+    ResearchWorkspaceBoundary,
+    ResearchWorkspaceContract,
+    ResearchWorkspaceRoute,
+    ResearchWorkspaceRouteRegistry,
+    WorkspaceRole,
+)
 from .runtime_coordinator import (
     ConsoleRuntimeCoordinator,
     ConsoleRuntimeResult,
@@ -49,6 +60,9 @@ from .web_console import (
 __all__ = [
     "ALLOWED_OPERATOR_DECISIONS",
     "BROWSER_CONSOLE_OPERATOR_COMMAND_BOUNDARY",
+    "BROWSER_PRODUCT_CONSOLE_RESEARCH_WORKSPACE_BOUNDARY",
+    "BROWSER_PRODUCT_CONSOLE_RESEARCH_WORKSPACE_CONTRACT",
+    "BROWSER_PRODUCT_CONSOLE_RESEARCH_WORKSPACE_ROUTES",
     "BROWSER_PRODUCT_CONSOLE_RUNTIME_BOUNDARY",
     "BrowserConsoleRuntime",
     "BrowserConsoleRuntimeAcceptance",
@@ -66,9 +80,15 @@ __all__ = [
     "LoadedConsoleArtifactIndex",
     "OperatorApiResponse",
     "OperatorReviewCommand",
+    "RESEARCH_WORKSPACE_ROUTE_REGISTRY",
     "RegisteredConsoleArtifact",
+    "ResearchWorkspaceBoundary",
+    "ResearchWorkspaceContract",
+    "ResearchWorkspaceRoute",
+    "ResearchWorkspaceRouteRegistry",
     "StockCandidateCard",
     "ValidatedOperatorReviewCommand",
+    "WorkspaceRole",
     "build_browser_console_runtime",
     "build_browser_console_runtime_acceptance",
     "build_console_read_model",
