@@ -41,6 +41,13 @@ from .evidence_audit_graph import (
     build_evidence_correlation_lineage,
     build_evidence_provenance_chain,
 )
+from .evidence_audit_risk_ai import (
+    EvidenceAIDrilldown,
+    EvidenceContradictionFinding,
+    EvidenceRiskAIDossier,
+    EvidenceRiskFinding,
+    build_evidence_risk_ai_dossier,
+)
 from .launcher import (
     BrowserConsoleRuntime,
     build_browser_console_runtime,
@@ -109,6 +116,11 @@ from .research_workspace_integration import (
 )
 
 __all__ = [
+    "EvidenceAIDrilldown",
+    "EvidenceContradictionFinding",
+    "EvidenceRiskAIDossier",
+    "EvidenceRiskFinding",
+    "build_evidence_risk_ai_dossier",
     "EvidenceArtifactGraph",
     "EvidenceCorrelationLineage",
     "EvidenceProvenanceChain",
