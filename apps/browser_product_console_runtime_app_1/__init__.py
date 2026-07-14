@@ -32,6 +32,7 @@ from .operator_commands import (
     handle_operator_api_request,
 )
 from .read_model import (
+    ConsoleArtifactRecord,
     ConsoleReadModel,
     StockCandidateCard,
     build_console_read_model,
@@ -46,6 +47,13 @@ from .research_workspace import (
     ResearchWorkspaceRoute,
     ResearchWorkspaceRouteRegistry,
     WorkspaceRole,
+)
+from .research_workspace_views import (
+    DataWorkspaceItem,
+    DataWorkspaceModel,
+    OverviewWorkspaceModel,
+    build_data_workspace_model,
+    build_overview_workspace_model,
 )
 from .runtime_coordinator import (
     ConsoleRuntimeCoordinator,
@@ -68,6 +76,7 @@ __all__ = [
     "BrowserConsoleRuntimeAcceptance",
     "BrowserProductConsoleApplication",
     "ConsoleArtifactIndex",
+    "ConsoleArtifactRecord",
     "ConsoleOperatorCommandBoundary",
     "ConsoleReadModel",
     "ConsoleResponse",
@@ -75,11 +84,14 @@ __all__ = [
     "ConsoleRuntimeConfig",
     "ConsoleRuntimeCoordinator",
     "ConsoleRuntimeResult",
+    "DataWorkspaceItem",
+    "DataWorkspaceModel",
     "GovernedOperatorCommandService",
     "LoadedConsoleArtifact",
     "LoadedConsoleArtifactIndex",
     "OperatorApiResponse",
     "OperatorReviewCommand",
+    "OverviewWorkspaceModel",
     "RESEARCH_WORKSPACE_ROUTE_REGISTRY",
     "RegisteredConsoleArtifact",
     "ResearchWorkspaceBoundary",
@@ -92,6 +104,8 @@ __all__ = [
     "build_browser_console_runtime",
     "build_browser_console_runtime_acceptance",
     "build_console_read_model",
+    "build_data_workspace_model",
+    "build_overview_workspace_model",
     "create_loopback_server",
     "handle_operator_api_request",
     "is_loopback_host",

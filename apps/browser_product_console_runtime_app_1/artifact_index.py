@@ -9,6 +9,8 @@ from typing import Any, Mapping, Tuple
 
 
 SUPPORTED_ARTIFACT_TYPES = {
+    "data_snapshot",
+    "data_quality",
     "ranked_watchlist",
     "ai_explanation",
     "paper_validation",

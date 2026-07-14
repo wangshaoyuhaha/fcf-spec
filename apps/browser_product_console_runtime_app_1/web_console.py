@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import html
@@ -10,6 +9,11 @@ from urllib.parse import urlsplit
 
 from .boundary import ConsoleRuntimeConfig
 from .read_model import ConsoleReadModel, StockCandidateCard
+from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
+from .research_workspace_views import (
+    build_data_workspace_model,
+    build_overview_workspace_model,
+)
 
 
 @dataclass(frozen=True)
@@ -26,13 +30,21 @@ class ConsoleResponse:
             raise ValueError("content_type is required")
 
 
-_NAVIGATION = (
-    ("/", "Overview"),
-    ("/stocks", "Stock Candidates"),
-    ("/risk", "Evidence and Risk"),
-    ("/validation", "Paper and Shadow Validation"),
-    ("/review", "Operator Review"),
-    ("/reports", "Reports and Archive"),
+_D2_IMPLEMENTED_PATHS = frozenset(
+    {
+        "/",
+        "/data",
+        "/stocks",
+        "/risk",
+        "/validation",
+        "/review",
+        "/reports",
+    }
+)
+_NAVIGATION = tuple(
+    (route.path, route.title)
+    for route in RESEARCH_WORKSPACE_ROUTE_REGISTRY.routes
+    if route.path in _D2_IMPLEMENTED_PATHS
 )
 
 
@@ -63,13 +75,15 @@ nav a{{color:#d1d5db;text-decoration:none;padding:8px 10px;border-radius:6px}}
 nav a.active{{background:#374151;color:#fff}}
 main{{padding:24px;max-width:1280px;margin:auto}}
 .card{{background:#fff;border:1px solid #d8dee6;border-radius:10px;padding:18px;margin-bottom:16px}}
+.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}}
 .badge{{display:inline-block;background:#e8eef7;border-radius:999px;padding:4px 8px;margin:2px;font-size:12px}}
 .risk{{background:#fff1f2}}
+.state{{font-weight:bold}}
 table{{border-collapse:collapse;width:100%}}
 th,td{{border-bottom:1px solid #e5e7eb;text-align:left;padding:10px;vertical-align:top}}
 th{{background:#f8fafc}}
 .notice{{border-left:4px solid #b45309;background:#fffbeb;padding:12px}}
-code{{white-space:pre-wrap}}
+code{{white-space:pre-wrap;overflow-wrap:anywhere}}
 </style>
 </head>
 <body>
@@ -150,6 +164,7 @@ class BrowserProductConsoleApplication:
 
         page_builders = {
             "/": self._overview_page,
+            "/data": self._data_page,
             "/stocks": self._stocks_page,
             "/risk": self._risk_page,
             "/validation": self._validation_page,
@@ -167,7 +182,10 @@ class BrowserProductConsoleApplication:
             headers=(
                 ("Cache-Control", "no-store"),
                 ("X-Content-Type-Options", "nosniff"),
-                ("Content-Security-Policy", "default-src 'self'; style-src 'unsafe-inline'"),
+                (
+                    "Content-Security-Policy",
+                    "default-src 'self'; style-src 'unsafe-inline'",
+                ),
             ),
         )
         return self._finalize(normalized_method, response)
@@ -192,22 +210,46 @@ class BrowserProductConsoleApplication:
         )
 
     def _overview_page(self, path: str) -> bytes:
-        section_counts = "".join(
-            (
-                f"<li>{_escape(name)}: {len(items)}</li>"
-            )
-            for name, items in self._read_model.sections.items()
+        model = build_overview_workspace_model(self._read_model)
+        type_counts = "".join(
+            f"<li>{_escape(name)}: {count}</li>"
+            for name, count in model.artifact_type_counts.items()
+        )
+        available = "".join(
+            f"<li><code>{_escape(route)}</code></li>"
+            for route in model.available_workspace_paths
+        )
+        planned = "".join(
+            f"<li><code>{_escape(route)}</code></li>"
+            for route in model.planned_workspace_paths
         )
         body = f"""
+<section class="grid">
 <section class="card">
 <h1>Overview</h1>
-<p>Correlation ID: <code>{_escape(self._read_model.correlation_id)}</code></p>
-<p>Registered artifacts: {len(self._read_model.source_artifact_ids)}</p>
-<p>Stock candidates: {len(self._read_model.candidates)}</p>
+<p>Correlation ID: <code>{_escape(model.correlation_id)}</code></p>
+<p>Registered artifacts: {model.registered_artifact_count}</p>
+<p>Stock candidates: {model.stock_candidate_count}</p>
 </section>
 <section class="card">
-<h2>Available evidence</h2>
-<ul>{section_counts or "<li>No registered sections</li>"}</ul>
+<h2>Workspace state</h2>
+<p>Available: {len(model.available_workspace_paths)}</p>
+<p>Planned: {len(model.planned_workspace_paths)}</p>
+</section>
+</section>
+<section class="card">
+<h2>Registered artifact types</h2>
+<ul>{type_counts or "<li>No registered artifact records</li>"}</ul>
+</section>
+<section class="grid">
+<section class="card">
+<h2>Available workspaces</h2>
+<ul>{available}</ul>
+</section>
+<section class="card">
+<h2>Planned workspaces</h2>
+<ul>{planned or "<li>None</li>"}</ul>
+</section>
 </section>
 <section class="notice">
 This console does not provide trading, order, broker, exchange, account,
@@ -215,6 +257,65 @@ balance, position, wallet, promotion, or automatic approval authority.
 </section>
 """
         return _layout("FCF Overview", path, body)
+
+    def _data_page(self, path: str) -> bytes:
+        model = build_data_workspace_model(self._read_model)
+        rows = []
+        for item in model.items:
+            serialized = json.dumps(
+                dict(item.payload),
+                indent=2,
+                sort_keys=True,
+                ensure_ascii=True,
+            )
+            rows.append(
+                (
+                    "<tr>"
+                    f"<td>{_escape(item.artifact_id)}</td>"
+                    f"<td>{_escape(item.artifact_type)}</td>"
+                    f"<td>{_escape(item.relative_path)}</td>"
+                    f"<td><code>{_escape(item.content_sha256)}</code></td>"
+                    f"<td><code>{_escape(serialized)}</code></td>"
+                    "</tr>"
+                )
+            )
+        table = (
+            """
+<section class="card">
+<table>
+<thead><tr>
+<th>Artifact ID</th><th>Type</th><th>Registered path</th>
+<th>SHA-256</th><th>Payload</th>
+</tr></thead>
+<tbody>{rows}</tbody>
+</table>
+</section>
+""".format(rows="".join(rows))
+            if rows
+            else (
+                '<section class="card">'
+                "No registered data_snapshot or data_quality artifacts."
+                "</section>"
+            )
+        )
+        counts = "".join(
+            f'<span class="badge">{_escape(name)}: {count}</span>'
+            for name, count in model.artifact_type_counts.items()
+        ) or '<span class="badge">No registered data artifacts</span>'
+        body = f"""
+<section class="card">
+<h1>Data Workspace</h1>
+<p>Correlation ID: <code>{_escape(model.correlation_id)}</code></p>
+<p>State: <span class="state">{_escape(model.state)}</span></p>
+<p>{counts}</p>
+</section>
+{table}
+<section class="notice">
+Registered-artifact-only and read-only. External data fetching, mutation,
+automatic promotion, and execution are prohibited.
+</section>
+"""
+        return _layout("FCF Data Workspace", path, body)
 
     def _stocks_page(self, path: str) -> bytes:
         rows = "".join(
@@ -249,7 +350,10 @@ Candidate information is research evidence only. Operator review is required.
     ) -> bytes:
         cards = []
         for artifact_type in artifact_types:
-            for payload in self._read_model.sections.get(artifact_type, ()):
+            for payload in self._read_model.sections.get(
+                artifact_type,
+                (),
+            ):
                 serialized = json.dumps(
                     payload,
                     indent=2,
@@ -266,7 +370,11 @@ Candidate information is research evidence only. Operator review is required.
                 )
         body = (
             f"<h1>{_escape(title)}</h1>"
-            + ("".join(cards) if cards else '<section class="card">No registered evidence</section>')
+            + (
+                "".join(cards)
+                if cards
+                else '<section class="card">No registered evidence</section>'
+            )
         )
         return _layout(f"FCF {title}", path, body)
 
@@ -327,7 +435,10 @@ def create_loopback_server(
         def log_message(self, format: str, *args: object) -> None:
             return
 
-    server = ThreadingHTTPServer((config.host, config.port), ConsoleRequestHandler)
+    server = ThreadingHTTPServer(
+        (config.host, config.port),
+        ConsoleRequestHandler,
+    )
     if server.server_address[0] != "127.0.0.1":
         server.server_close()
         raise RuntimeError("console server did not bind to loopback")

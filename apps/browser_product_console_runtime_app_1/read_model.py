@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -90,11 +89,54 @@ class StockCandidateCard:
 
 
 @dataclass(frozen=True)
+class ConsoleArtifactRecord:
+    artifact_id: str
+    artifact_type: str
+    relative_path: str
+    content_sha256: str
+    payload: Mapping[str, Any]
+
+    def __post_init__(self) -> None:
+        object.__setattr__(
+            self,
+            "artifact_id",
+            _require_text(self.artifact_id, "artifact_id"),
+        )
+        object.__setattr__(
+            self,
+            "artifact_type",
+            _require_text(self.artifact_type, "artifact_type"),
+        )
+        object.__setattr__(
+            self,
+            "relative_path",
+            _require_text(self.relative_path, "relative_path"),
+        )
+        digest = _require_text(self.content_sha256, "content_sha256").lower()
+        if len(digest) != 64 or any(
+            character not in "0123456789abcdef"
+            for character in digest
+        ):
+            raise ValueError("content_sha256 must be a SHA-256 digest")
+        if not isinstance(self.payload, Mapping):
+            raise ValueError("artifact record payload must be a mapping")
+        object.__setattr__(self, "content_sha256", digest)
+        object.__setattr__(
+            self,
+            "payload",
+            MappingProxyType(dict(self.payload)),
+        )
+
+
+@dataclass(frozen=True)
 class ConsoleReadModel:
     correlation_id: str
     candidates: Tuple[StockCandidateCard, ...]
     sections: Mapping[str, Tuple[Mapping[str, Any], ...]]
     source_artifact_ids: Tuple[str, ...]
+    artifact_records: Tuple[ConsoleArtifactRecord, ...] = field(
+        default_factory=tuple
+    )
     paper_only: bool = True
     read_only: bool = True
     operator_review_required: bool = True
@@ -105,6 +147,31 @@ class ConsoleReadModel:
             "correlation_id",
             _require_text(self.correlation_id, "correlation_id"),
         )
+        object.__setattr__(self, "candidates", tuple(self.candidates))
+        object.__setattr__(
+            self,
+            "source_artifact_ids",
+            tuple(self.source_artifact_ids),
+        )
+        object.__setattr__(
+            self,
+            "artifact_records",
+            tuple(self.artifact_records),
+        )
+        if len(set(self.source_artifact_ids)) != len(
+            self.source_artifact_ids
+        ):
+            raise ValueError("source_artifact_ids must be unique")
+        if self.artifact_records:
+            record_ids = tuple(
+                record.artifact_id for record in self.artifact_records
+            )
+            if len(set(record_ids)) != len(record_ids):
+                raise ValueError("artifact record ids must be unique")
+            if set(record_ids) != set(self.source_artifact_ids):
+                raise ValueError(
+                    "artifact records must match source_artifact_ids"
+                )
         if not self.paper_only or not self.read_only:
             raise ValueError("read model must remain paper-only and read-only")
         if not self.operator_review_required:
@@ -142,17 +209,30 @@ def build_console_read_model(
     loaded_index: LoadedConsoleArtifactIndex,
 ) -> ConsoleReadModel:
     candidates = []
+    records = []
     sections: dict[str, list[Mapping[str, Any]]] = {}
 
     for artifact in loaded_index.artifacts:
-        artifact_type = artifact.registration.artifact_type
+        registration = artifact.registration
+        artifact_type = registration.artifact_type
         payload = artifact.payload
         sections.setdefault(artifact_type, []).append(payload)
+        records.append(
+            ConsoleArtifactRecord(
+                artifact_id=registration.artifact_id,
+                artifact_type=artifact_type,
+                relative_path=registration.relative_path,
+                content_sha256=registration.content_sha256,
+                payload=payload,
+            )
+        )
 
         if artifact_type == "ranked_watchlist":
             raw_candidates = payload.get("candidates")
             if not isinstance(raw_candidates, list):
-                raise ValueError("ranked_watchlist candidates must be an array")
+                raise ValueError(
+                    "ranked_watchlist candidates must be an array"
+                )
             candidates.extend(
                 _candidate_from_payload(item)
                 for item in raw_candidates
@@ -163,10 +243,18 @@ def build_console_read_model(
         for candidate in candidates
     )
     if len(set(candidate_keys)) != len(candidate_keys):
-        raise ValueError("candidate rank and symbol identities must be unique")
+        raise ValueError(
+            "candidate rank and symbol identities must be unique"
+        )
 
     ordered_candidates = tuple(
         sorted(candidates, key=lambda item: (item.rank, item.symbol))
+    )
+    ordered_records = tuple(
+        sorted(
+            records,
+            key=lambda item: (item.artifact_type, item.artifact_id),
+        )
     )
     frozen_sections = MappingProxyType(
         {
@@ -183,4 +271,5 @@ def build_console_read_model(
             artifact.registration.artifact_id
             for artifact in loaded_index.artifacts
         ),
+        artifact_records=ordered_records,
     )
