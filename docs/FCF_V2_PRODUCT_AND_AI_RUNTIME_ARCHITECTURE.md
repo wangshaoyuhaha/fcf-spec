@@ -1,3 +1,122 @@
+<!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 APPROVAL START -->
+
+## BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved parent:
+
+5624566b4df94e2e4795a6dbb7622845f8b04cd1
+
+Planned branch:
+
+sidecar-browser-product-console-runtime-hardening-app-1
+
+Purpose:
+
+Harden the completed loopback-only Browser Product Console runtime against
+malformed local requests, lifecycle faults, bounded resource abuse, path
+escape, registered-artifact integrity drift, and nondeterministic failures.
+
+This phase must not add product capability, mutation authority, workflow
+dispatch, external connectivity, or real execution.
+
+Allowed scope:
+
+- loopback-only binding enforcement
+- deterministic Host validation
+- fail-closed startup and shutdown behavior
+- deterministic port-collision handling
+- bounded request target, query, and header handling
+- GET and HEAD only enforcement
+- request body rejection
+- timeout and concurrency limits
+- bounded local runtime resource consumption
+- canonical route and query normalization
+- traversal and encoded traversal rejection
+- symlink escape and path containment rejection
+- registered-artifact-only loading
+- registered path, size, and SHA-256 verification
+- deterministic missing, stale, oversized, incomplete, and tampered states
+- deterministic HTTP error responses
+- no-store, nosniff, and content security policy preservation
+- read-only runtime diagnostics
+- negative-path and fault-injection tests
+- local-only runtime hardening acceptance
+
+Required delivery order:
+
+- D1 runtime hardening boundary, threat model, and security contracts
+- D2 loopback binding, Host validation, lifecycle, and port-collision controls
+- D3 bounded HTTP parsing, timeout, concurrency, and resource controls
+- D4 registered-artifact containment, integrity, size, and symlink defenses
+- D5 deterministic fault isolation, diagnostics, negative paths, and integration hardening
+- D6 acceptance, closeout, merge, and authority synchronization
+
+Required successor order:
+
+1. BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1
+
+The successor phase requires separate explicit approval and must not start
+automatically.
+
+Explicitly prohibited:
+
+- P1-P47 Core mutation
+- P48 creation
+- new product or research capability
+- evidence mutation
+- source artifact mutation
+- record deletion
+- command dispatch
+- workflow dispatch
+- external data fetching
+- external network binding
+- public Internet exposure
+- remote browser access
+- cloud deployment
+- broker or exchange connectivity
+- credential or key access
+- account, balance, position, or wallet access
+- order creation, placement, cancellation, or execution
+- forms, write controls, trading controls, or executable product actions
+- automatic approval
+- automatic promotion
+- automatic baseline replacement
+- automatic model or Prompt activation
+- automatic learning activation
+- automatic archive
+- tag
+- release
+- deployment
+
+Authority:
+
+- Operator Policy remains highest authority
+- FCF Hard Policy remains binding
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- Operator review remains mandatory
+- AI remains advisory only
+
+Permanent architecture boundary:
+
+- P1-P47 frozen
+- no P48
+- paper-only
+- local-only
+- loopback-only
+- sidecar-only
+- registered-artifact-only
+- read-only product presentation
+- no frozen Core mutation
+
+No D1 implementation is included in this approval.
+
+<!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 APPROVAL END -->
+
 <!-- BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1 APPROVAL START -->
 
 ## BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1 Approval
