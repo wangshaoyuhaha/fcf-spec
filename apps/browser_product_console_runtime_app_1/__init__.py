@@ -41,6 +41,12 @@ from .evidence_audit_graph import (
     build_evidence_correlation_lineage,
     build_evidence_provenance_chain,
 )
+from .evidence_audit_lifecycle import (
+    EvidenceLifecycleDossier,
+    EvidenceLifecycleItem,
+    EvidenceLifecycleLink,
+    build_evidence_lifecycle_dossier,
+)
 from .evidence_audit_risk_ai import (
     EvidenceAIDrilldown,
     EvidenceContradictionFinding,
@@ -116,6 +122,10 @@ from .research_workspace_integration import (
 )
 
 __all__ = [
+    "EvidenceLifecycleDossier",
+    "EvidenceLifecycleItem",
+    "EvidenceLifecycleLink",
+    "build_evidence_lifecycle_dossier",
     "EvidenceAIDrilldown",
     "EvidenceContradictionFinding",
     "EvidenceRiskAIDossier",
