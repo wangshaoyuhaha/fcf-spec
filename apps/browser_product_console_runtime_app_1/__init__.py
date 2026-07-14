@@ -16,6 +16,22 @@ from .boundary import (
     ConsoleRuntimeConfig,
     is_loopback_host,
 )
+from .evidence_audit_explorer import (
+    BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_BOUNDARY,
+    BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_CONTRACT,
+    BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_ROUTES,
+    EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY,
+    EvidenceArtifactNode,
+    EvidenceAuditExplorerBoundary,
+    EvidenceAuditExplorerContract,
+    EvidenceAuditExplorerRoute,
+    EvidenceAuditExplorerRouteRegistry,
+    EvidenceAuditQuery,
+    EvidenceExplorerRole,
+    EvidenceIntegrityState,
+    EvidenceRelation,
+    EvidenceRelationship,
+)
 from .launcher import (
     BrowserConsoleRuntime,
     build_browser_console_runtime,
@@ -84,6 +100,20 @@ from .research_workspace_integration import (
 )
 
 __all__ = [
+    "BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_BOUNDARY",
+    "BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_CONTRACT",
+    "BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_ROUTES",
+    "EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY",
+    "EvidenceArtifactNode",
+    "EvidenceAuditExplorerBoundary",
+    "EvidenceAuditExplorerContract",
+    "EvidenceAuditExplorerRoute",
+    "EvidenceAuditExplorerRouteRegistry",
+    "EvidenceAuditQuery",
+    "EvidenceExplorerRole",
+    "EvidenceIntegrityState",
+    "EvidenceRelation",
+    "EvidenceRelationship",
     "AIComparisonItem",
     "AIComparisonWorkspaceModel",
     "AuditHistoryItem",
