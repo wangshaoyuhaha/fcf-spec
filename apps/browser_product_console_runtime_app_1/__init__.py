@@ -16,6 +16,49 @@ from .boundary import (
     ConsoleRuntimeConfig,
     is_loopback_host,
 )
+from .evidence_audit_explorer import (
+    BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_BOUNDARY,
+    BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_CONTRACT,
+    BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_ROUTES,
+    EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY,
+    EvidenceArtifactNode,
+    EvidenceAuditExplorerBoundary,
+    EvidenceAuditExplorerContract,
+    EvidenceAuditExplorerRoute,
+    EvidenceAuditExplorerRouteRegistry,
+    EvidenceAuditQuery,
+    EvidenceExplorerRole,
+    EvidenceIntegrityState,
+    EvidenceRelation,
+    EvidenceRelationship,
+)
+from .evidence_audit_graph import (
+    EvidenceArtifactGraph,
+    EvidenceCorrelationLineage,
+    EvidenceProvenanceChain,
+    EvidenceProvenanceStep,
+    build_evidence_artifact_graph,
+    build_evidence_correlation_lineage,
+    build_evidence_provenance_chain,
+)
+from .evidence_audit_lifecycle import (
+    EvidenceLifecycleDossier,
+    EvidenceLifecycleItem,
+    EvidenceLifecycleLink,
+    build_evidence_lifecycle_dossier,
+)
+from .evidence_audit_risk_ai import (
+    EvidenceAIDrilldown,
+    EvidenceContradictionFinding,
+    EvidenceRiskAIDossier,
+    EvidenceRiskFinding,
+    build_evidence_risk_ai_dossier,
+)
+from .evidence_audit_views import (
+    EvidenceAuditExplorerPageModel,
+    build_evidence_audit_explorer_page,
+    parse_evidence_audit_query,
+)
 from .launcher import (
     BrowserConsoleRuntime,
     build_browser_console_runtime,
@@ -76,6 +119,12 @@ from .web_console import (
     ConsoleResponse,
     create_loopback_server,
 )
+from .evidence_audit_integration import (
+    EVIDENCE_AUDIT_UNSAFE_HTTP_METHODS,
+    REQUIRED_EVIDENCE_AUDIT_EXPLORER_PATHS,
+    EvidenceAuditExplorerIntegrationAcceptance,
+    build_evidence_audit_explorer_integration_acceptance,
+)
 from .research_workspace_integration import (
     REQUIRED_RESEARCH_WORKSPACE_PATHS,
     UNSAFE_HTTP_METHODS,
@@ -84,6 +133,43 @@ from .research_workspace_integration import (
 )
 
 __all__ = [
+    "EVIDENCE_AUDIT_UNSAFE_HTTP_METHODS",
+    "REQUIRED_EVIDENCE_AUDIT_EXPLORER_PATHS",
+    "EvidenceAuditExplorerIntegrationAcceptance",
+    "EvidenceAuditExplorerPageModel",
+    "build_evidence_audit_explorer_integration_acceptance",
+    "build_evidence_audit_explorer_page",
+    "parse_evidence_audit_query",
+    "EvidenceLifecycleDossier",
+    "EvidenceLifecycleItem",
+    "EvidenceLifecycleLink",
+    "build_evidence_lifecycle_dossier",
+    "EvidenceAIDrilldown",
+    "EvidenceContradictionFinding",
+    "EvidenceRiskAIDossier",
+    "EvidenceRiskFinding",
+    "build_evidence_risk_ai_dossier",
+    "EvidenceArtifactGraph",
+    "EvidenceCorrelationLineage",
+    "EvidenceProvenanceChain",
+    "EvidenceProvenanceStep",
+    "build_evidence_artifact_graph",
+    "build_evidence_correlation_lineage",
+    "build_evidence_provenance_chain",
+    "BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_BOUNDARY",
+    "BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_CONTRACT",
+    "BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_ROUTES",
+    "EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY",
+    "EvidenceArtifactNode",
+    "EvidenceAuditExplorerBoundary",
+    "EvidenceAuditExplorerContract",
+    "EvidenceAuditExplorerRoute",
+    "EvidenceAuditExplorerRouteRegistry",
+    "EvidenceAuditQuery",
+    "EvidenceExplorerRole",
+    "EvidenceIntegrityState",
+    "EvidenceRelation",
+    "EvidenceRelationship",
     "AIComparisonItem",
     "AIComparisonWorkspaceModel",
     "AuditHistoryItem",
