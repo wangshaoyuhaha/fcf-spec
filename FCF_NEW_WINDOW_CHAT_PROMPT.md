@@ -2977,3 +2977,84 @@ Permanent boundary:
 - no tag, release, or deployment
 
 <!-- BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1 FINAL SYNC END -->
+
+<!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 FINAL SYNC START -->
+
+## BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 Final State
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Approval commit:
+
+410ec2a49c40d6c1f7224a93c5267d7295fec0ef
+
+Delivery commits:
+
+- D1: f1265c6431d6464b0f3c65dc629dc6dcee47789e
+- D2: 34dc7354e43513913521b18a6308d89a94616dd2
+- D3: ab229eac56e1a7400849dc217b67cf8ca2763957
+- D4: 0af85432900f7aed4986dd87240c3cef850bda27
+- D5: 99ae80def5f2e29afc6362f5a0b5dbc1107b3f22
+- D6: 49b5f817724c3df98ad5835011ec8b091efda414
+
+Main merge commit:
+
+6b75cae4aedd41fb8ad8c51cdc1dc319e5f20e47
+
+Final merged validation:
+
+- targeted pytest: 359 passed, 3 skipped in 1.89s
+- full pytest: 4123 passed, 3 skipped in 68.39s (0:01:08)
+- run_all_checks.py: PASSED
+- generated outputs: RESTORED
+- git status: CLEAN before authority synchronization
+
+Delivered hardening capability:
+
+- exact loopback binding and deterministic Host validation
+- deterministic lifecycle and port collision behavior
+- bounded request target, headers, timeout, and concurrency
+- GET and HEAD only with request body rejection
+- deterministic fail-closed HTTP rejection states
+- canonical registered artifact paths and allowed-root containment
+- symbolic path rejection and registered artifact size bounds
+- stable artifact snapshots and registered SHA-256 verification
+- bounded immutable diagnostics and deterministic fault codes
+- sanitized HTTP 500 handling without raw exception leakage
+- local failure isolation and subsequent read-only service recovery
+- research workspace and Evidence Audit Explorer acceptance preservation
+
+Required successor:
+
+1. BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1
+
+The successor requires separate explicit approval and must not start
+automatically.
+
+Permanent boundary:
+
+- P1-P47 frozen
+- no P48
+- paper-only
+- local-only
+- loopback-only
+- sidecar-only
+- registered-artifact-only
+- read-only product presentation
+- Operator review mandatory
+- Deterministic Engine authority preserved
+- Registered Evidence remains evidence authority
+- AI advisory only
+- no evidence or source artifact mutation
+- no command or workflow dispatch
+- no external data fetching
+- no external or public network binding
+- no broker, exchange, credentials, account, balance, position, wallet,
+  order, or real execution path
+- no automatic approval, promotion, baseline replacement, model activation,
+  Prompt activation, learning activation, or archive
+- no tag, release, or deployment
+
+<!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 FINAL SYNC END -->
