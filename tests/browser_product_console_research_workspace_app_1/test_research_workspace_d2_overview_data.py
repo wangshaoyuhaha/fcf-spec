@@ -94,11 +94,10 @@ def test_d2_overview_counts_are_deterministic():
         "/validation",
         "/review",
         "/reports",
-    )
-    assert overview.planned_workspace_paths == (
         "/governance",
         "/audit",
     )
+    assert overview.planned_workspace_paths == ()
 
 
 def test_d2_data_workspace_available_with_snapshot_and_quality():
@@ -222,8 +221,8 @@ def test_d2_overview_route_reports_available_and_planned_workspaces():
 
     body = application.dispatch("GET", "/").body.decode("utf-8")
 
-    assert "Available: 9" in body
-    assert "Planned: 2" in body
+    assert "Available: 11" in body
+    assert "Planned: 0" in body
     assert 'href="/data"' in body
 
 

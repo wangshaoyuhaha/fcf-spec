@@ -12,7 +12,9 @@ from .read_model import ConsoleReadModel, StockCandidateCard
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
 from .research_workspace_views import (
     build_ai_comparison_workspace_model,
+    build_audit_history_workspace_model,
     build_data_workspace_model,
+    build_governance_workspace_model,
     build_overview_workspace_model,
     build_research_runs_workspace_model,
 )
@@ -32,7 +34,7 @@ class ConsoleResponse:
             raise ValueError("content_type is required")
 
 
-_D3_IMPLEMENTED_PATHS = frozenset(
+_D4_IMPLEMENTED_PATHS = frozenset(
     {
         "/",
         "/data",
@@ -43,12 +45,14 @@ _D3_IMPLEMENTED_PATHS = frozenset(
         "/validation",
         "/review",
         "/reports",
+        "/governance",
+        "/audit",
     }
 )
 _NAVIGATION = tuple(
     (route.path, route.title)
     for route in RESEARCH_WORKSPACE_ROUTE_REGISTRY.routes
-    if route.path in _D3_IMPLEMENTED_PATHS
+    if route.path in _D4_IMPLEMENTED_PATHS
 )
 
 
@@ -176,6 +180,8 @@ class BrowserProductConsoleApplication:
             "/validation": self._validation_page,
             "/review": self._review_page,
             "/reports": self._reports_page,
+            "/governance": self._governance_page,
+            "/audit": self._audit_page,
         }
         builder = page_builders.get(path)
         if builder is None:
@@ -474,6 +480,134 @@ Candidate information is research evidence only. Operator review is required.
 </section>
 """
         return _layout("FCF Stock Candidates", path, body)
+
+
+    def _governance_page(self, path: str) -> bytes:
+        model = build_governance_workspace_model(self._read_model)
+        rows = []
+        for item in model.items:
+            serialized = json.dumps(
+                dict(item.payload),
+                indent=2,
+                sort_keys=True,
+                ensure_ascii=True,
+            )
+            rows.append(
+                (
+                    "<tr>"
+                    f"<td>{_escape(item.artifact_id)}</td>"
+                    f"<td>{_escape(item.artifact_type)}</td>"
+                    f"<td>{_escape(item.subject)}</td>"
+                    f"<td>{_escape(item.version)}</td>"
+                    f"<td>{_escape(item.decision)}</td>"
+                    f"<td>{_escape(item.relative_path)}</td>"
+                    f"<td><code>{_escape(item.content_sha256)}</code></td>"
+                    f"<td><code>{_escape(serialized)}</code></td>"
+                    "</tr>"
+                )
+            )
+        table = (
+            """
+<section class="card">
+<table>
+<thead><tr>
+<th>Artifact ID</th><th>Type</th><th>Subject</th>
+<th>Version</th><th>Decision</th><th>Registered path</th>
+<th>SHA-256</th><th>Payload</th>
+</tr></thead>
+<tbody>{rows}</tbody>
+</table>
+</section>
+""".format(rows="".join(rows))
+            if rows
+            else (
+                '<section class="card">'
+                "No registered model_governance or policy_snapshot artifacts."
+                "</section>"
+            )
+        )
+        counts = "".join(
+            f'<span class="badge">{_escape(name)}: {count}</span>'
+            for name, count in model.artifact_type_counts.items()
+        ) or '<span class="badge">No registered governance artifacts</span>'
+        body = f"""
+<section class="card">
+<h1>Governance</h1>
+<p>Correlation ID: <code>{_escape(model.correlation_id)}</code></p>
+<p>State: <span class="state">{_escape(model.state)}</span></p>
+<p>{counts}</p>
+</section>
+{table}
+<section class="notice">
+Governance evidence is registered-artifact-only and read-only. Deterministic
+Engine authority and mandatory Operator review remain unchanged. This page
+cannot approve, promote, replace a baseline, activate learning, or execute.
+</section>
+"""
+        return _layout("FCF Governance", path, body)
+
+    def _audit_page(self, path: str) -> bytes:
+        model = build_audit_history_workspace_model(self._read_model)
+        rows = []
+        for item in model.items:
+            serialized = json.dumps(
+                dict(item.payload),
+                indent=2,
+                sort_keys=True,
+                ensure_ascii=True,
+            )
+            rows.append(
+                (
+                    "<tr>"
+                    f"<td>{_escape(item.artifact_id)}</td>"
+                    f"<td>{_escape(item.artifact_type)}</td>"
+                    f"<td>{_escape(item.event_id)}</td>"
+                    f"<td>{_escape(item.event_time)}</td>"
+                    f"<td>{_escape(item.action)}</td>"
+                    f"<td>{_escape(item.actor)}</td>"
+                    f"<td>{_escape(item.relative_path)}</td>"
+                    f"<td><code>{_escape(serialized)}</code></td>"
+                    "</tr>"
+                )
+            )
+        table = (
+            """
+<section class="card">
+<table>
+<thead><tr>
+<th>Artifact ID</th><th>Type</th><th>Event ID</th>
+<th>Event time</th><th>Action</th><th>Actor</th>
+<th>Registered path</th><th>Payload</th>
+</tr></thead>
+<tbody>{rows}</tbody>
+</table>
+</section>
+""".format(rows="".join(rows))
+            if rows
+            else (
+                '<section class="card">'
+                "No registered audit_receipt or manifest artifacts."
+                "</section>"
+            )
+        )
+        counts = "".join(
+            f'<span class="badge">{_escape(name)}: {count}</span>'
+            for name, count in model.artifact_type_counts.items()
+        ) or '<span class="badge">No registered audit artifacts</span>'
+        body = f"""
+<section class="card">
+<h1>Audit History</h1>
+<p>Correlation ID: <code>{_escape(model.correlation_id)}</code></p>
+<p>State: <span class="state">{_escape(model.state)}</span></p>
+<p>{counts}</p>
+</section>
+{table}
+<section class="notice">
+Audit History is an append-only evidence presentation. It cannot mutate,
+delete, approve, promote, archive automatically, or execute financial actions.
+</section>
+"""
+        return _layout("FCF Audit History", path, body)
 
     def _section_page(
         self,

@@ -20,6 +20,10 @@ SUPPORTED_ARTIFACT_TYPES = {
     "shadow_observation",
     "operator_review",
     "report_archive",
+    "model_governance",
+    "policy_snapshot",
+    "audit_receipt",
+    "manifest",
 }
 
 

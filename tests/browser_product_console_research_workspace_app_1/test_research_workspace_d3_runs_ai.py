@@ -80,11 +80,10 @@ def test_d3_overview_reports_new_routes_available():
         "/validation",
         "/review",
         "/reports",
-    )
-    assert overview.planned_workspace_paths == (
         "/governance",
         "/audit",
     )
+    assert overview.planned_workspace_paths == ()
 
 
 def test_d3_research_runs_available_with_run_and_status():
