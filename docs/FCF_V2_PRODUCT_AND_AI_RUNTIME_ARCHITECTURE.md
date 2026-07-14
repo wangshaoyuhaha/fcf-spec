@@ -1,3 +1,115 @@
+<!-- BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 APPROVAL START -->
+
+## BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved parent:
+
+812d31bc688ec3530770b6bb27ef9670aa860342
+
+Planned branch:
+
+sidecar-browser-product-console-integration-acceptance-app-1
+
+Purpose:
+
+Perform deterministic end-to-end integration acceptance for the completed
+read-only Browser Product Console, Research Workspace, Evidence Audit Explorer,
+and Runtime Hardening layers.
+
+This phase validates the integrated product boundary. It must not add research,
+mutation, dispatch, networking, execution, or product authority.
+
+Allowed scope:
+
+- integrated route and workspace acceptance
+- GET and HEAD only acceptance
+- read-only product navigation acceptance
+- registered artifact identity, path, SHA-256, lineage, and relationship acceptance
+- explicit risk flag and contradiction evidence acceptance
+- advisory AI evidence acceptance
+- Paper Validation, Shadow Observation, Operator Review, and Report Archive acceptance
+- loopback binding, Host validation, lifecycle, and port collision acceptance
+- bounded request, header, timeout, concurrency, and resource acceptance
+- registered artifact containment, size, symlink, and integrity acceptance
+- deterministic fault isolation and read-only diagnostics acceptance
+- malformed query, unknown route, traversal, and write-method rejection acceptance
+- security header and no-store acceptance
+- deterministic acceptance matrices, fixtures, manifests, reports, and tests
+- reproducibility and generated-output restoration acceptance
+
+Required delivery order:
+
+- D1 integration acceptance boundary, system matrix, and fixture registry
+- D2 end-to-end route, workspace, and registered evidence acceptance
+- D3 runtime security, fault isolation, and negative-path acceptance
+- D4 cross-layer authority, invariant, and reproducibility acceptance
+- D5 Operator acceptance package and full regression acceptance
+- D6 final closeout, merge, validation, and authority synchronization
+
+Successor policy:
+
+No successor phase is approved by this record. Any later phase requires a new
+proposal and separate explicit approval and must not start automatically.
+
+Explicitly prohibited:
+
+- P1-P47 Core mutation
+- P48 creation
+- new product or research capability
+- evidence mutation
+- source artifact mutation
+- record deletion
+- command dispatch
+- workflow dispatch
+- external data fetching
+- external network binding
+- public Internet exposure
+- remote browser access
+- cloud deployment
+- broker or exchange connectivity
+- credential or key access
+- account, balance, position, or wallet access
+- order creation, placement, cancellation, or execution
+- forms, write controls, trading controls, or executable product actions
+- automatic approval
+- automatic promotion
+- automatic baseline replacement
+- automatic model or Prompt activation
+- automatic learning activation
+- automatic archive
+- tag
+- release
+- deployment
+
+Authority:
+
+- Operator Policy remains highest authority
+- FCF Hard Policy remains binding
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- Operator review remains mandatory
+- AI remains advisory only
+
+Permanent architecture boundary:
+
+- P1-P47 frozen
+- no P48
+- paper-only
+- local-only
+- loopback-only
+- sidecar-only
+- registered-artifact-only
+- read-only product presentation
+- no frozen Core mutation
+
+No D1 implementation is included in this approval.
+
+<!-- BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 APPROVAL END -->
+
 <!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 APPROVAL START -->
 
 ## BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 Approval
