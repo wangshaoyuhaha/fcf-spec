@@ -76,6 +76,12 @@ from .web_console import (
     ConsoleResponse,
     create_loopback_server,
 )
+from .research_workspace_integration import (
+    REQUIRED_RESEARCH_WORKSPACE_PATHS,
+    UNSAFE_HTTP_METHODS,
+    ResearchWorkspaceIntegrationAcceptance,
+    build_research_workspace_integration_acceptance,
+)
 
 __all__ = [
     "AIComparisonItem",
@@ -110,15 +116,18 @@ __all__ = [
     "OperatorApiResponse",
     "OperatorReviewCommand",
     "OverviewWorkspaceModel",
+    "REQUIRED_RESEARCH_WORKSPACE_PATHS",
     "RESEARCH_WORKSPACE_ROUTE_REGISTRY",
     "RegisteredConsoleArtifact",
     "ResearchRunWorkspaceItem",
     "ResearchRunsWorkspaceModel",
+    "ResearchWorkspaceIntegrationAcceptance",
     "ResearchWorkspaceBoundary",
     "ResearchWorkspaceContract",
     "ResearchWorkspaceRoute",
     "ResearchWorkspaceRouteRegistry",
     "StockCandidateCard",
+    "UNSAFE_HTTP_METHODS",
     "ValidatedOperatorReviewCommand",
     "WorkspaceRole",
     "build_ai_comparison_workspace_model",
@@ -130,6 +139,7 @@ __all__ = [
     "build_governance_workspace_model",
     "build_overview_workspace_model",
     "build_research_runs_workspace_model",
+    "build_research_workspace_integration_acceptance",
     "create_loopback_server",
     "handle_operator_api_request",
     "is_loopback_host",
