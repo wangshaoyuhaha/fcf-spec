@@ -3,11 +3,16 @@ from __future__ import annotations
 import html
 import json
 from dataclasses import dataclass
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler
 from typing import Mapping, Tuple
 from urllib.parse import urlsplit
 
 from .boundary import ConsoleRuntimeConfig
+from .runtime_lifecycle import (
+    HardenedLoopbackHTTPServer,
+    create_hardened_loopback_server,
+    host_header_is_valid,
+)
 from .evidence_audit_explorer import (
     EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY,
 )
@@ -738,18 +743,95 @@ delete, approve, promote, archive automatically, or execute financial actions.
 def create_loopback_server(
     config: ConsoleRuntimeConfig,
     application: BrowserProductConsoleApplication,
-) -> ThreadingHTTPServer:
+) -> HardenedLoopbackHTTPServer:
     config.resolve_allowed_root()
 
     class ConsoleRequestHandler(BaseHTTPRequestHandler):
+        server_version = "FCFConsole"
+        sys_version = ""
+        protocol_version = "HTTP/1.1"
+
+        def _send_runtime_rejection(
+            self,
+            status: int,
+            message: str,
+        ) -> None:
+            body = message.encode("ascii")
+
+            self.send_response(status)
+            self.send_header(
+                "Content-Type",
+                "text/plain; charset=utf-8",
+            )
+            self.send_header(
+                "Content-Length",
+                str(len(body)),
+            )
+
+            for name, value in _SECURITY_HEADERS:
+                self.send_header(name, value)
+
+            self.send_header(
+                "Connection",
+                "close",
+            )
+            self.end_headers()
+
+            if self.command != "HEAD":
+                self.wfile.write(body)
+
+            self.close_connection = True
+
+        def _host_is_valid(self) -> bool:
+            values = tuple(
+                self.headers.get_all(
+                    "Host",
+                    [],
+                )
+            )
+
+            return host_header_is_valid(
+                values,
+                config.port,
+            )
+
         def _handle(self) -> None:
-            response = application.dispatch(self.command, self.path)
+            if not self._host_is_valid():
+                self._send_runtime_rejection(
+                    400,
+                    "Bad Request",
+                )
+                return
+
+            response = application.dispatch(
+                self.command,
+                self.path,
+            )
+
             self.send_response(response.status)
-            self.send_header("Content-Type", response.content_type)
-            self.send_header("Content-Length", str(len(response.body)))
+            self.send_header(
+                "Content-Type",
+                response.content_type,
+            )
+            self.send_header(
+                "Content-Length",
+                str(len(response.body)),
+            )
+
+            response_header_names = {
+                name.lower()
+                for name, _ in response.headers
+            }
+
             for name, value in response.headers:
                 self.send_header(name, value)
+
+            for name, value in _SECURITY_HEADERS:
+                if name.lower() not in response_header_names:
+                    self.send_header(name, value)
+
             self.end_headers()
+
             if self.command != "HEAD":
                 self.wfile.write(response.body)
 
@@ -760,14 +842,26 @@ def create_loopback_server(
         do_DELETE = _handle
         do_PATCH = _handle
 
-        def log_message(self, format: str, *args: object) -> None:
+        def log_message(
+            self,
+            format: str,
+            *args: object,
+        ) -> None:
             return
 
-    server = ThreadingHTTPServer(
-        (config.host, config.port),
+    server = create_hardened_loopback_server(
+        config.host,
+        config.port,
         ConsoleRequestHandler,
     )
-    if server.server_address[0] != "127.0.0.1":
+
+    if server.server_address != (
+        "127.0.0.1",
+        config.port,
+    ):
         server.server_close()
-        raise RuntimeError("console server did not bind to loopback")
+        raise RuntimeError(
+            "console server did not bind to exact loopback"
+        )
+
     return server

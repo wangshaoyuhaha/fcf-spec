@@ -121,6 +121,14 @@ from .runtime_hardening import (
     RuntimeHardeningLimits,
     RuntimeHardeningThreatControl,
 )
+from .runtime_lifecycle import (
+    HardenedLoopbackHTTPServer,
+    RuntimeLifecycleSnapshot,
+    RuntimeLifecycleState,
+    create_hardened_loopback_server,
+    host_header_is_valid,
+    normalize_loopback_host_authority,
+)
 from .runtime_coordinator import (
     ConsoleRuntimeCoordinator,
     ConsoleRuntimeResult,
@@ -153,6 +161,12 @@ __all__ = [
     "RuntimeHardeningContract",
     "RuntimeHardeningLimits",
     "RuntimeHardeningThreatControl",
+    "HardenedLoopbackHTTPServer",
+    "RuntimeLifecycleSnapshot",
+    "RuntimeLifecycleState",
+    "create_hardened_loopback_server",
+    "host_header_is_valid",
+    "normalize_loopback_host_authority",
     "EVIDENCE_AUDIT_UNSAFE_HTTP_METHODS",
     "REQUIRED_EVIDENCE_AUDIT_EXPLORER_PATHS",
     "EvidenceAuditExplorerIntegrationAcceptance",
