@@ -2807,3 +2807,89 @@ Permanent boundary:
 - no tag, release, or deployment
 
 <!-- BROWSER-PRODUCT-CONSOLE-RESEARCH-WORKSPACE-APP-1 FINAL SYNC END -->
+
+<!-- BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1 FINAL SYNC START -->
+
+## BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1 Final State
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Approval commit:
+
+be2ac7d51b25ba8ebedd16efd1f6e2beb7587be3
+
+Delivery commits:
+
+- D1: 8af115ccbdb2c985931fc5ef259fc51eca416786
+- D2: c8ec759754af8cf14f1ecc8954567646ddb72407
+- D3: 170f37809ac07284f0d74e44dceff78f19b65bd5
+- D4: c9532692e8008984e3b835b13f94fa1b9320d1c0
+- D5: b706c5877bde37d714bbc5ae7dc70398bf6ee54a
+- D6: 6ab5e34c2e870dfaef4b90bd8a09e3cea78ea3bb
+
+Main merge commit:
+
+e579501364e09873af33cec2e6c09ba1f1f81f06
+
+Final merged validation:
+
+- targeted pytest: 199 passed in 0.60s
+- full pytest: 3963 passed in 71.45s (0:01:11)
+- run_all_checks.py: PASSED
+- generated outputs: RESTORED
+- git status: CLEAN before authority sync
+
+Delivered product capability:
+
+- seven registered Evidence Audit Explorer routes
+- deterministic registered-artifact-only read models
+- registered artifact identity, path, and SHA-256 visibility
+- deterministic correlation lineage and typed relationships
+- explicit unresolved registered-reference visibility
+- explicit risk flag and contradiction code visibility
+- advisory AI evidence identity and metadata
+- Paper Validation and Shadow Observation lifecycle visibility
+- mandatory Operator review lifecycle visibility
+- Report Archive lifecycle visibility
+- deterministic bounded query filtering
+- malformed and unsafe query rejection with HTTP 400
+- GET and HEAD only behavior
+- fail-closed unknown and traversal routes
+- no-store, nosniff, and content security policy enforcement
+- immutable cross-route integration acceptance
+
+Required successor order:
+
+1. BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1
+2. BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1
+
+Each successor phase requires separate explicit approval and must not start
+automatically.
+
+Permanent boundary:
+
+- P1-P47 frozen
+- no P48
+- paper-only
+- local-only
+- loopback-only
+- sidecar-only
+- registered-artifact-only
+- read-only product presentation
+- Operator review mandatory
+- Deterministic Engine authority preserved
+- Registered Evidence remains evidence authority
+- AI advisory only
+- no evidence or source artifact mutation
+- no command or workflow dispatch
+- no public network exposure
+- no external data fetching
+- no broker, exchange, credentials, account, balance, position, wallet,
+  order, or real execution path
+- no automatic approval, promotion, baseline replacement, model activation,
+  Prompt activation, learning activation, or archive
+- no tag, release, or deployment
+
+<!-- BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1 FINAL SYNC END -->
