@@ -129,6 +129,10 @@ from .runtime_lifecycle import (
     host_header_is_valid,
     normalize_loopback_host_authority,
 )
+from .runtime_http import (
+    RuntimeRequestAssessment,
+    assess_runtime_request,
+)
 from .runtime_coordinator import (
     ConsoleRuntimeCoordinator,
     ConsoleRuntimeResult,
@@ -167,6 +171,8 @@ __all__ = [
     "create_hardened_loopback_server",
     "host_header_is_valid",
     "normalize_loopback_host_authority",
+    "RuntimeRequestAssessment",
+    "assess_runtime_request",
     "EVIDENCE_AUDIT_UNSAFE_HTTP_METHODS",
     "REQUIRED_EVIDENCE_AUDIT_EXPLORER_PATHS",
     "EvidenceAuditExplorerIntegrationAcceptance",

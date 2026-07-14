@@ -4,8 +4,13 @@ import ipaddress
 from dataclasses import dataclass
 from enum import Enum
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from threading import RLock
+from threading import BoundedSemaphore, RLock
 from typing import Sequence, Type
+
+from .runtime_hardening import (
+    BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS,
+    RuntimeHardeningLimits,
+)
 
 
 _EXACT_BIND_HOST = "127.0.0.1"
@@ -194,11 +199,26 @@ class HardenedLoopbackHTTPServer(
         self,
         server_address: tuple[str, int],
         handler_class: Type[BaseHTTPRequestHandler],
+        *,
+        limits: RuntimeHardeningLimits = (
+            BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS
+        ),
     ) -> None:
         host, port = server_address
 
         validated_host = _validated_bind_host(host)
         validated_port = _validated_port(port)
+
+        if not isinstance(limits, RuntimeHardeningLimits):
+            raise ValueError("limits must be RuntimeHardeningLimits")
+
+        self._limits = limits
+        self._request_slots = BoundedSemaphore(
+            limits.max_concurrent_requests
+        )
+        self._resource_lock = RLock()
+        self._active_request_count = 0
+        self._rejected_request_count = 0
 
         self._lifecycle_lock = RLock()
         self._lifecycle_state = (
@@ -238,6 +258,77 @@ class HardenedLoopbackHTTPServer(
         self._set_lifecycle_state(
             RuntimeLifecycleState.READY
         )
+
+    @property
+    def socket_timeout_seconds(self) -> float:
+        return self._limits.socket_timeout_seconds
+
+    @property
+    def max_concurrent_requests(self) -> int:
+        return self._limits.max_concurrent_requests
+
+    @property
+    def active_request_count(self) -> int:
+        with self._resource_lock:
+            return self._active_request_count
+
+    @property
+    def rejected_request_count(self) -> int:
+        with self._resource_lock:
+            return self._rejected_request_count
+
+    def get_request(self):
+        request, client_address = super().get_request()
+        request.settimeout(self._limits.socket_timeout_seconds)
+        return request, client_address
+
+    @staticmethod
+    def _send_capacity_rejection(request) -> None:
+        response = (
+            b"HTTP/1.1 503 Service Unavailable\r\n"
+            b"Content-Type: text/plain; charset=utf-8\r\n"
+            b"Content-Length: 19\r\n"
+            b"Cache-Control: no-store\r\n"
+            b"X-Content-Type-Options: nosniff\r\n"
+            b"Content-Security-Policy: "
+            b"default-src 'self'; style-src 'unsafe-inline'\r\n"
+            b"Connection: close\r\n"
+            b"\r\n"
+            b"Service Unavailable"
+        )
+        try:
+            request.sendall(response)
+        except OSError:
+            return
+
+    def process_request(self, request, client_address) -> None:
+        acquired = self._request_slots.acquire(blocking=False)
+
+        if not acquired:
+            with self._resource_lock:
+                self._rejected_request_count += 1
+            self._send_capacity_rejection(request)
+            self.shutdown_request(request)
+            return
+
+        with self._resource_lock:
+            self._active_request_count += 1
+
+        try:
+            super().process_request(request, client_address)
+        except BaseException:
+            with self._resource_lock:
+                self._active_request_count -= 1
+            self._request_slots.release()
+            raise
+
+    def process_request_thread(self, request, client_address) -> None:
+        try:
+            super().process_request_thread(request, client_address)
+        finally:
+            with self._resource_lock:
+                self._active_request_count -= 1
+            self._request_slots.release()
 
     def _set_lifecycle_state(
         self,
@@ -333,6 +424,10 @@ def create_hardened_loopback_server(
     host: str,
     port: int,
     handler_class: Type[BaseHTTPRequestHandler],
+    *,
+    limits: RuntimeHardeningLimits = (
+        BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS
+    ),
 ) -> HardenedLoopbackHTTPServer:
     validated_host = _validated_bind_host(host)
     validated_port = _validated_port(port)
@@ -344,6 +439,7 @@ def create_hardened_loopback_server(
                 validated_port,
             ),
             handler_class,
+            limits=limits,
         )
     except OSError as exc:
         raise RuntimeError(

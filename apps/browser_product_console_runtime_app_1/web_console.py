@@ -13,6 +13,10 @@ from .runtime_lifecycle import (
     create_hardened_loopback_server,
     host_header_is_valid,
 )
+from .runtime_hardening import (
+    BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS,
+)
+from .runtime_http import assess_runtime_request
 from .evidence_audit_explorer import (
     EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY,
 )
@@ -746,6 +750,10 @@ def create_loopback_server(
 ) -> HardenedLoopbackHTTPServer:
     config.resolve_allowed_root()
 
+    limits = (
+        BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS
+    )
+
     class ConsoleRequestHandler(BaseHTTPRequestHandler):
         server_version = "FCFConsole"
         sys_version = ""
@@ -755,6 +763,10 @@ def create_loopback_server(
             self,
             status: int,
             message: str,
+            extra_headers: Tuple[
+                Tuple[str, str],
+                ...,
+            ] = (),
         ) -> None:
             body = message.encode("ascii")
 
@@ -768,8 +780,15 @@ def create_loopback_server(
                 str(len(body)),
             )
 
-            for name, value in _SECURITY_HEADERS:
+            emitted = set()
+
+            for name, value in extra_headers:
                 self.send_header(name, value)
+                emitted.add(name.lower())
+
+            for name, value in _SECURITY_HEADERS:
+                if name.lower() not in emitted:
+                    self.send_header(name, value)
 
             self.send_header(
                 "Connection",
@@ -795,7 +814,33 @@ def create_loopback_server(
                 config.port,
             )
 
+        def _raw_headers(
+            self,
+        ) -> Tuple[Tuple[str, str], ...]:
+            return tuple(
+                (
+                    str(name),
+                    str(value),
+                )
+                for name, value in self.headers.raw_items()
+            )
+
         def _handle(self) -> None:
+            assessment = assess_runtime_request(
+                self.command,
+                self.path,
+                self._raw_headers(),
+                limits,
+            )
+
+            if not assessment.accepted:
+                self._send_runtime_rejection(
+                    assessment.status,
+                    assessment.message,
+                    assessment.response_headers,
+                )
+                return
+
             if not self._host_is_valid():
                 self._send_runtime_rejection(
                     400,
@@ -830,10 +875,16 @@ def create_loopback_server(
                 if name.lower() not in response_header_names:
                     self.send_header(name, value)
 
+            self.send_header(
+                "Connection",
+                "close",
+            )
             self.end_headers()
 
             if self.command != "HEAD":
                 self.wfile.write(response.body)
+
+            self.close_connection = True
 
         do_GET = _handle
         do_HEAD = _handle
@@ -841,6 +892,14 @@ def create_loopback_server(
         do_PUT = _handle
         do_DELETE = _handle
         do_PATCH = _handle
+        do_OPTIONS = _handle
+        do_TRACE = _handle
+        do_CONNECT = _handle
+
+        def __getattr__(self, name: str):
+            if name.startswith("do_"):
+                return self._handle
+            raise AttributeError(name)
 
         def log_message(
             self,
@@ -853,6 +912,7 @@ def create_loopback_server(
         config.host,
         config.port,
         ConsoleRequestHandler,
+        limits=limits,
     )
 
     if server.server_address != (
