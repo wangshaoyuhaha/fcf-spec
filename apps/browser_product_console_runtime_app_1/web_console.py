@@ -11,8 +11,10 @@ from .boundary import ConsoleRuntimeConfig
 from .read_model import ConsoleReadModel, StockCandidateCard
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
 from .research_workspace_views import (
+    build_ai_comparison_workspace_model,
     build_data_workspace_model,
     build_overview_workspace_model,
+    build_research_runs_workspace_model,
 )
 
 
@@ -30,11 +32,13 @@ class ConsoleResponse:
             raise ValueError("content_type is required")
 
 
-_D2_IMPLEMENTED_PATHS = frozenset(
+_D3_IMPLEMENTED_PATHS = frozenset(
     {
         "/",
         "/data",
         "/stocks",
+        "/runs",
+        "/ai-comparison",
         "/risk",
         "/validation",
         "/review",
@@ -44,7 +48,7 @@ _D2_IMPLEMENTED_PATHS = frozenset(
 _NAVIGATION = tuple(
     (route.path, route.title)
     for route in RESEARCH_WORKSPACE_ROUTE_REGISTRY.routes
-    if route.path in _D2_IMPLEMENTED_PATHS
+    if route.path in _D3_IMPLEMENTED_PATHS
 )
 
 
@@ -166,6 +170,8 @@ class BrowserProductConsoleApplication:
             "/": self._overview_page,
             "/data": self._data_page,
             "/stocks": self._stocks_page,
+            "/runs": self._runs_page,
+            "/ai-comparison": self._ai_comparison_page,
             "/risk": self._risk_page,
             "/validation": self._validation_page,
             "/review": self._review_page,
@@ -316,6 +322,133 @@ automatic promotion, and execution are prohibited.
 </section>
 """
         return _layout("FCF Data Workspace", path, body)
+
+
+    def _runs_page(self, path: str) -> bytes:
+        model = build_research_runs_workspace_model(self._read_model)
+        rows = []
+        for item in model.items:
+            serialized = json.dumps(
+                dict(item.payload),
+                indent=2,
+                sort_keys=True,
+                ensure_ascii=True,
+            )
+            rows.append(
+                (
+                    "<tr>"
+                    f"<td>{_escape(item.artifact_id)}</td>"
+                    f"<td>{_escape(item.artifact_type)}</td>"
+                    f"<td>{_escape(item.run_id)}</td>"
+                    f"<td>{_escape(item.workflow_state)}</td>"
+                    f"<td>{_escape(item.relative_path)}</td>"
+                    f"<td><code>{_escape(item.content_sha256)}</code></td>"
+                    f"<td><code>{_escape(serialized)}</code></td>"
+                    "</tr>"
+                )
+            )
+        table = (
+            """
+<section class="card">
+<table>
+<thead><tr>
+<th>Artifact ID</th><th>Type</th><th>Run ID</th>
+<th>Workflow state</th><th>Registered path</th>
+<th>SHA-256</th><th>Payload</th>
+</tr></thead>
+<tbody>{rows}</tbody>
+</table>
+</section>
+""".format(rows="".join(rows))
+            if rows
+            else (
+                '<section class="card">'
+                "No registered research_run or workflow_status artifacts."
+                "</section>"
+            )
+        )
+        counts = "".join(
+            f'<span class="badge">{_escape(name)}: {count}</span>'
+            for name, count in model.artifact_type_counts.items()
+        ) or '<span class="badge">No registered run artifacts</span>'
+        body = f"""
+<section class="card">
+<h1>Research Runs</h1>
+<p>Correlation ID: <code>{_escape(model.correlation_id)}</code></p>
+<p>State: <span class="state">{_escape(model.state)}</span></p>
+<p>{counts}</p>
+</section>
+{table}
+<section class="notice">
+Research run evidence is registered-artifact-only and read-only. This page
+cannot dispatch workflows, mutate run state, promote artifacts, or execute
+financial actions.
+</section>
+"""
+        return _layout("FCF Research Runs", path, body)
+
+    def _ai_comparison_page(self, path: str) -> bytes:
+        model = build_ai_comparison_workspace_model(self._read_model)
+        rows = []
+        for item in model.items:
+            serialized = json.dumps(
+                dict(item.payload),
+                indent=2,
+                sort_keys=True,
+                ensure_ascii=True,
+            )
+            rows.append(
+                (
+                    "<tr>"
+                    f"<td>{_escape(item.artifact_id)}</td>"
+                    f"<td>{_escape(item.artifact_type)}</td>"
+                    f"<td>{_escape(item.model_label)}</td>"
+                    f"<td>{_escape(item.prompt_version)}</td>"
+                    f"<td>{_escape(item.evaluation_state)}</td>"
+                    f"<td>{_escape(item.relative_path)}</td>"
+                    f"<td><code>{_escape(serialized)}</code></td>"
+                    "</tr>"
+                )
+            )
+        table = (
+            """
+<section class="card">
+<table>
+<thead><tr>
+<th>Artifact ID</th><th>Type</th><th>Model</th>
+<th>Prompt version</th><th>Evaluation state</th>
+<th>Registered path</th><th>Payload</th>
+</tr></thead>
+<tbody>{rows}</tbody>
+</table>
+</section>
+""".format(rows="".join(rows))
+            if rows
+            else (
+                '<section class="card">'
+                "No registered ai_explanation or ai_evaluation artifacts."
+                "</section>"
+            )
+        )
+        counts = "".join(
+            f'<span class="badge">{_escape(name)}: {count}</span>'
+            for name, count in model.artifact_type_counts.items()
+        ) or '<span class="badge">No registered AI artifacts</span>'
+        body = f"""
+<section class="card">
+<h1>AI Comparison</h1>
+<p>Correlation ID: <code>{_escape(model.correlation_id)}</code></p>
+<p>State: <span class="state">{_escape(model.state)}</span></p>
+<p>{counts}</p>
+</section>
+{table}
+<section class="notice">
+AI output is advisory-only. Deterministic Engine authority and mandatory
+Operator review remain unchanged. No automatic approval, promotion,
+baseline replacement, learning activation, archive, or execution is allowed.
+</section>
+"""
+        return _layout("FCF AI Comparison", path, body)
 
     def _stocks_page(self, path: str) -> bytes:
         rows = "".join(

@@ -8,11 +8,13 @@ from .read_model import ConsoleArtifactRecord, ConsoleReadModel
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
 
 
-_D2_IMPLEMENTED_PATHS = frozenset(
+_D3_IMPLEMENTED_PATHS = frozenset(
     {
         "/",
         "/data",
         "/stocks",
+        "/runs",
+        "/ai-comparison",
         "/risk",
         "/validation",
         "/review",
@@ -20,6 +22,12 @@ _D2_IMPLEMENTED_PATHS = frozenset(
     }
 )
 _DATA_ARTIFACT_TYPES = frozenset({"data_snapshot", "data_quality"})
+_RESEARCH_RUN_ARTIFACT_TYPES = frozenset(
+    {"research_run", "workflow_status"}
+)
+_AI_COMPARISON_ARTIFACT_TYPES = frozenset(
+    {"ai_explanation", "ai_evaluation"}
+)
 
 
 @dataclass(frozen=True)
@@ -117,6 +125,149 @@ class DataWorkspaceModel:
         )
 
 
+def _payload_label(
+    payload: Mapping[str, Any],
+    keys: Tuple[str, ...],
+    default: str,
+) -> str:
+    for key in keys:
+        value = payload.get(key)
+        if isinstance(value, (str, int, float, bool)):
+            normalized = str(value).strip()
+            if normalized:
+                return normalized
+    return default
+
+
+@dataclass(frozen=True)
+class ResearchRunWorkspaceItem:
+    artifact_id: str
+    artifact_type: str
+    relative_path: str
+    content_sha256: str
+    run_id: str
+    workflow_state: str
+    payload: Mapping[str, Any]
+
+    def __post_init__(self) -> None:
+        if self.artifact_type not in _RESEARCH_RUN_ARTIFACT_TYPES:
+            raise ValueError("unsupported Research Runs artifact type")
+        if not self.artifact_id.strip():
+            raise ValueError("artifact_id is required")
+        if not self.relative_path.strip():
+            raise ValueError("relative_path is required")
+        if len(self.content_sha256) != 64:
+            raise ValueError("content_sha256 must be a SHA-256 digest")
+        if not self.run_id.strip():
+            raise ValueError("run_id is required")
+        if not self.workflow_state.strip():
+            raise ValueError("workflow_state is required")
+        object.__setattr__(
+            self,
+            "payload",
+            MappingProxyType(dict(self.payload)),
+        )
+
+
+@dataclass(frozen=True)
+class ResearchRunsWorkspaceModel:
+    correlation_id: str
+    state: str
+    items: Tuple[ResearchRunWorkspaceItem, ...]
+    artifact_type_counts: Mapping[str, int]
+    registered_artifact_only: bool = True
+    read_only: bool = True
+    operator_review_required: bool = True
+
+    def __post_init__(self) -> None:
+        if self.state not in {
+            "AVAILABLE",
+            "INCOMPLETE",
+            "NO_REGISTERED_RUNS",
+        }:
+            raise ValueError("unsupported Research Runs state")
+        if not self.registered_artifact_only or not self.read_only:
+            raise ValueError(
+                "Research Runs must remain registered-artifact-only "
+                "and read-only"
+            )
+        if not self.operator_review_required:
+            raise ValueError("Operator review must remain required")
+        object.__setattr__(self, "items", tuple(self.items))
+        object.__setattr__(
+            self,
+            "artifact_type_counts",
+            MappingProxyType(dict(self.artifact_type_counts)),
+        )
+
+
+@dataclass(frozen=True)
+class AIComparisonItem:
+    artifact_id: str
+    artifact_type: str
+    relative_path: str
+    content_sha256: str
+    model_label: str
+    prompt_version: str
+    evaluation_state: str
+    payload: Mapping[str, Any]
+
+    def __post_init__(self) -> None:
+        if self.artifact_type not in _AI_COMPARISON_ARTIFACT_TYPES:
+            raise ValueError("unsupported AI Comparison artifact type")
+        for field_name in (
+            "artifact_id",
+            "relative_path",
+            "model_label",
+            "prompt_version",
+            "evaluation_state",
+        ):
+            if not str(getattr(self, field_name)).strip():
+                raise ValueError(f"{field_name} is required")
+        if len(self.content_sha256) != 64:
+            raise ValueError("content_sha256 must be a SHA-256 digest")
+        object.__setattr__(
+            self,
+            "payload",
+            MappingProxyType(dict(self.payload)),
+        )
+
+
+@dataclass(frozen=True)
+class AIComparisonWorkspaceModel:
+    correlation_id: str
+    state: str
+    items: Tuple[AIComparisonItem, ...]
+    artifact_type_counts: Mapping[str, int]
+    registered_artifact_only: bool = True
+    read_only: bool = True
+    ai_advisory_only: bool = True
+    operator_review_required: bool = True
+
+    def __post_init__(self) -> None:
+        if self.state not in {
+            "COMPARISON_READY",
+            "INCOMPLETE",
+            "NO_REGISTERED_AI_ARTIFACTS",
+        }:
+            raise ValueError("unsupported AI Comparison state")
+        if not self.registered_artifact_only or not self.read_only:
+            raise ValueError(
+                "AI Comparison must remain registered-artifact-only "
+                "and read-only"
+            )
+        if not self.ai_advisory_only:
+            raise ValueError("AI must remain advisory-only")
+        if not self.operator_review_required:
+            raise ValueError("Operator review must remain required")
+        object.__setattr__(self, "items", tuple(self.items))
+        object.__setattr__(
+            self,
+            "artifact_type_counts",
+            MappingProxyType(dict(self.artifact_type_counts)),
+        )
+
+
 def _type_counts(
     records: Tuple[ConsoleArtifactRecord, ...],
 ) -> Mapping[str, int]:
@@ -134,12 +285,12 @@ def build_overview_workspace_model(
     available = tuple(
         route.path
         for route in RESEARCH_WORKSPACE_ROUTE_REGISTRY.routes
-        if route.path in _D2_IMPLEMENTED_PATHS
+        if route.path in _D3_IMPLEMENTED_PATHS
     )
     planned = tuple(
         route.path
         for route in RESEARCH_WORKSPACE_ROUTE_REGISTRY.routes
-        if route.path not in _D2_IMPLEMENTED_PATHS
+        if route.path not in _D3_IMPLEMENTED_PATHS
     )
     return OverviewWorkspaceModel(
         correlation_id=read_model.correlation_id,
@@ -184,6 +335,142 @@ def build_data_workspace_model(
         state = "INCOMPLETE"
 
     return DataWorkspaceModel(
+        correlation_id=read_model.correlation_id,
+        state=state,
+        items=items,
+        artifact_type_counts=counts,
+    )
+
+
+def build_research_runs_workspace_model(
+    read_model: ConsoleReadModel,
+) -> ResearchRunsWorkspaceModel:
+    records = tuple(
+        sorted(
+            (
+                record
+                for record in read_model.artifact_records
+                if record.artifact_type
+                in _RESEARCH_RUN_ARTIFACT_TYPES
+            ),
+            key=lambda item: (item.artifact_type, item.artifact_id),
+        )
+    )
+    items = tuple(
+        ResearchRunWorkspaceItem(
+            artifact_id=record.artifact_id,
+            artifact_type=record.artifact_type,
+            relative_path=record.relative_path,
+            content_sha256=record.content_sha256,
+            run_id=_payload_label(
+                record.payload,
+                (
+                    "run_id",
+                    "research_run_id",
+                    "workflow_id",
+                    "correlation_id",
+                ),
+                record.artifact_id,
+            ),
+            workflow_state=_payload_label(
+                record.payload,
+                (
+                    "workflow_status",
+                    "status",
+                    "state",
+                    "decision",
+                ),
+                "UNSPECIFIED",
+            ),
+            payload=record.payload,
+        )
+        for record in records
+    )
+    counts = _type_counts(records)
+    present_types = frozenset(counts)
+
+    if not items:
+        state = "NO_REGISTERED_RUNS"
+    elif present_types == _RESEARCH_RUN_ARTIFACT_TYPES:
+        state = "AVAILABLE"
+    else:
+        state = "INCOMPLETE"
+
+    return ResearchRunsWorkspaceModel(
+        correlation_id=read_model.correlation_id,
+        state=state,
+        items=items,
+        artifact_type_counts=counts,
+    )
+
+
+def build_ai_comparison_workspace_model(
+    read_model: ConsoleReadModel,
+) -> AIComparisonWorkspaceModel:
+    records = tuple(
+        sorted(
+            (
+                record
+                for record in read_model.artifact_records
+                if record.artifact_type
+                in _AI_COMPARISON_ARTIFACT_TYPES
+            ),
+            key=lambda item: (item.artifact_type, item.artifact_id),
+        )
+    )
+    items = tuple(
+        AIComparisonItem(
+            artifact_id=record.artifact_id,
+            artifact_type=record.artifact_type,
+            relative_path=record.relative_path,
+            content_sha256=record.content_sha256,
+            model_label=_payload_label(
+                record.payload,
+                (
+                    "model_name",
+                    "model_id",
+                    "provider",
+                    "model",
+                    "evaluator_model",
+                ),
+                "UNSPECIFIED",
+            ),
+            prompt_version=_payload_label(
+                record.payload,
+                (
+                    "prompt_version",
+                    "prompt_id",
+                    "prompt_model_version",
+                    "schema_version",
+                ),
+                "UNSPECIFIED",
+            ),
+            evaluation_state=_payload_label(
+                record.payload,
+                (
+                    "evaluation_status",
+                    "status",
+                    "result",
+                    "decision",
+                    "outcome",
+                ),
+                "UNSPECIFIED",
+            ),
+            payload=record.payload,
+        )
+        for record in records
+    )
+    counts = _type_counts(records)
+    present_types = frozenset(counts)
+
+    if not items:
+        state = "NO_REGISTERED_AI_ARTIFACTS"
+    elif present_types == _AI_COMPARISON_ARTIFACT_TYPES:
+        state = "COMPARISON_READY"
+    else:
+        state = "INCOMPLETE"
+
+    return AIComparisonWorkspaceModel(
         correlation_id=read_model.correlation_id,
         state=state,
         items=items,

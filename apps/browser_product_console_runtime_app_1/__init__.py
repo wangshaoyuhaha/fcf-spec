@@ -49,11 +49,17 @@ from .research_workspace import (
     WorkspaceRole,
 )
 from .research_workspace_views import (
+    AIComparisonItem,
+    AIComparisonWorkspaceModel,
     DataWorkspaceItem,
     DataWorkspaceModel,
     OverviewWorkspaceModel,
+    ResearchRunWorkspaceItem,
+    ResearchRunsWorkspaceModel,
+    build_ai_comparison_workspace_model,
     build_data_workspace_model,
     build_overview_workspace_model,
+    build_research_runs_workspace_model,
 )
 from .runtime_coordinator import (
     ConsoleRuntimeCoordinator,
@@ -66,6 +72,8 @@ from .web_console import (
 )
 
 __all__ = [
+    "AIComparisonItem",
+    "AIComparisonWorkspaceModel",
     "ALLOWED_OPERATOR_DECISIONS",
     "BROWSER_CONSOLE_OPERATOR_COMMAND_BOUNDARY",
     "BROWSER_PRODUCT_CONSOLE_RESEARCH_WORKSPACE_BOUNDARY",
@@ -94,6 +102,8 @@ __all__ = [
     "OverviewWorkspaceModel",
     "RESEARCH_WORKSPACE_ROUTE_REGISTRY",
     "RegisteredConsoleArtifact",
+    "ResearchRunWorkspaceItem",
+    "ResearchRunsWorkspaceModel",
     "ResearchWorkspaceBoundary",
     "ResearchWorkspaceContract",
     "ResearchWorkspaceRoute",
@@ -101,11 +111,13 @@ __all__ = [
     "StockCandidateCard",
     "ValidatedOperatorReviewCommand",
     "WorkspaceRole",
+    "build_ai_comparison_workspace_model",
     "build_browser_console_runtime",
     "build_browser_console_runtime_acceptance",
     "build_console_read_model",
     "build_data_workspace_model",
     "build_overview_workspace_model",
+    "build_research_runs_workspace_model",
     "create_loopback_server",
     "handle_operator_api_request",
     "is_loopback_host",
