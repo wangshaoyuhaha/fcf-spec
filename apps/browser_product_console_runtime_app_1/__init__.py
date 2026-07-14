@@ -32,6 +32,15 @@ from .evidence_audit_explorer import (
     EvidenceRelation,
     EvidenceRelationship,
 )
+from .evidence_audit_graph import (
+    EvidenceArtifactGraph,
+    EvidenceCorrelationLineage,
+    EvidenceProvenanceChain,
+    EvidenceProvenanceStep,
+    build_evidence_artifact_graph,
+    build_evidence_correlation_lineage,
+    build_evidence_provenance_chain,
+)
 from .launcher import (
     BrowserConsoleRuntime,
     build_browser_console_runtime,
@@ -100,6 +109,13 @@ from .research_workspace_integration import (
 )
 
 __all__ = [
+    "EvidenceArtifactGraph",
+    "EvidenceCorrelationLineage",
+    "EvidenceProvenanceChain",
+    "EvidenceProvenanceStep",
+    "build_evidence_artifact_graph",
+    "build_evidence_correlation_lineage",
+    "build_evidence_provenance_chain",
     "BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_BOUNDARY",
     "BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_CONTRACT",
     "BROWSER_PRODUCT_CONSOLE_EVIDENCE_AUDIT_EXPLORER_ROUTES",
