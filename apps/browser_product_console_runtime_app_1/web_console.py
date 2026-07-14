@@ -8,6 +8,12 @@ from typing import Mapping, Tuple
 from urllib.parse import urlsplit
 
 from .boundary import ConsoleRuntimeConfig
+from .evidence_audit_explorer import (
+    EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY,
+)
+from .evidence_audit_views import (
+    build_evidence_audit_explorer_page,
+)
 from .read_model import ConsoleReadModel, StockCandidateCard
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
 from .research_workspace_views import (
@@ -49,10 +55,25 @@ _D4_IMPLEMENTED_PATHS = frozenset(
         "/audit",
     }
 )
-_NAVIGATION = tuple(
-    (route.path, route.title)
-    for route in RESEARCH_WORKSPACE_ROUTE_REGISTRY.routes
-    if route.path in _D4_IMPLEMENTED_PATHS
+_NAVIGATION = (
+    tuple(
+        (route.path, route.title)
+        for route in RESEARCH_WORKSPACE_ROUTE_REGISTRY.routes
+        if route.path in _D4_IMPLEMENTED_PATHS
+    )
+    + EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY.navigation()
+)
+_EVIDENCE_AUDIT_PATHS = frozenset(
+    route.path
+    for route in EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY.routes
+)
+_SECURITY_HEADERS = (
+    ("Cache-Control", "no-store"),
+    ("X-Content-Type-Options", "nosniff"),
+    (
+        "Content-Security-Policy",
+        "default-src 'self'; style-src 'unsafe-inline'",
+    ),
 )
 
 
@@ -145,7 +166,8 @@ class BrowserProductConsoleApplication:
 
     def dispatch(self, method: str, raw_path: str) -> ConsoleResponse:
         normalized_method = method.upper().strip()
-        path = urlsplit(raw_path).path or "/"
+        split_result = urlsplit(raw_path)
+        path = split_result.path or "/"
 
         if normalized_method not in {"GET", "HEAD"}:
             return self._text_response(405, "Method Not Allowed")
@@ -170,6 +192,52 @@ class BrowserProductConsoleApplication:
                 ),
             )
 
+        if path in _EVIDENCE_AUDIT_PATHS:
+            try:
+                page = build_evidence_audit_explorer_page(
+                    self._read_model,
+                    path,
+                    split_result.query,
+                )
+                response = ConsoleResponse(
+                    status=200,
+                    content_type="text/html; charset=utf-8",
+                    body=_layout(
+                        page.title,
+                        path,
+                        page.body_html,
+                    ),
+                    headers=_SECURITY_HEADERS,
+                )
+            except ValueError as exc:
+                rejected_body = (
+                    '<section class="card">'
+                    "<h1>Evidence Audit query rejected</h1>"
+                    '<p>State: <span class="state">'
+                    "REJECTED_QUERY"
+                    "</span></p>"
+                    f"<p>{_escape(exc)}</p>"
+                    "</section>"
+                    '<section class="notice">'
+                    "The query failed closed. No evidence was mutated, "
+                    "approved, promoted, archived, or executed."
+                    "</section>"
+                )
+                response = ConsoleResponse(
+                    status=400,
+                    content_type="text/html; charset=utf-8",
+                    body=_layout(
+                        "FCF Evidence Audit Query Rejected",
+                        path,
+                        rejected_body,
+                    ),
+                    headers=_SECURITY_HEADERS,
+                )
+            return self._finalize(
+                normalized_method,
+                response,
+            )
+
         page_builders = {
             "/": self._overview_page,
             "/data": self._data_page,
@@ -191,14 +259,7 @@ class BrowserProductConsoleApplication:
             status=200,
             content_type="text/html; charset=utf-8",
             body=builder(path),
-            headers=(
-                ("Cache-Control", "no-store"),
-                ("X-Content-Type-Options", "nosniff"),
-                (
-                    "Content-Security-Policy",
-                    "default-src 'self'; style-src 'unsafe-inline'",
-                ),
-            ),
+            headers=_SECURITY_HEADERS,
         )
         return self._finalize(normalized_method, response)
 
