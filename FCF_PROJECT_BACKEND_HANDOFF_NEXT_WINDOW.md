@@ -1,3 +1,112 @@
+<!-- BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1 APPROVAL START -->
+
+## BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved parent:
+
+04914f8e2f74dc2e7e69a274674ae4b0ea63ae3b
+
+Planned branch:
+
+sidecar-browser-product-console-evidence-audit-explorer-app-1
+
+Purpose:
+
+Implement a governed read-only Evidence Audit Explorer on top of the completed
+Browser Product Console Research Workspace.
+
+Allowed scope:
+
+- registered evidence chain inspection
+- correlation lineage inspection
+- artifact provenance inspection
+- deterministic artifact relationship graph
+- risk flag inspection
+- contradiction evidence inspection
+- AI explanation and evaluation evidence inspection
+- Paper Validation evidence inspection
+- Shadow Observation evidence inspection
+- Operator review evidence inspection
+- report and archive evidence inspection
+- content SHA-256 and registered-path visibility
+- explicit missing, incomplete, rejected, and tampered states
+- deterministic local filtering and navigation
+- read-only GET and HEAD presentation
+- fail-closed route and query behavior
+
+Required delivery order:
+
+- D1 explorer boundary, typed evidence domain model, route and query contracts
+- D2 correlation lineage, provenance chain, and registered artifact graph
+- D3 risk flags, contradiction evidence, and AI evidence drill-down
+- D4 Paper Validation, Shadow Observation, Operator review, and archive linkage
+- D5 integrity verification, failure states, filtering, and explorer integration
+- D6 acceptance, closeout, merge, and authority synchronization
+
+Required successor order:
+
+1. BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1
+2. BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1
+
+Each successor phase requires a separate explicit approval and must not start
+automatically.
+
+Explicitly prohibited:
+
+- P1-P47 Core mutation
+- P48 creation
+- evidence mutation
+- source artifact mutation
+- record deletion
+- command dispatch
+- workflow dispatch
+- external data fetching
+- external network binding
+- public Internet exposure
+- broker or exchange connectivity
+- credential or key access
+- account, balance, position, or wallet access
+- order creation, placement, cancellation, or execution
+- automatic approval
+- automatic promotion
+- automatic baseline replacement
+- automatic model or Prompt activation
+- automatic learning activation
+- automatic archive
+- tag
+- release
+- deployment
+
+Authority:
+
+- Operator Policy remains highest authority
+- FCF Hard Policy remains binding
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- Operator review remains mandatory
+- AI remains advisory only
+
+Permanent architecture boundary:
+
+- P1-P47 frozen
+- no P48
+- paper-only
+- local-only
+- loopback-only
+- sidecar-only
+- registered-artifact-only
+- read-only product presentation
+- no frozen Core mutation
+
+No D1 implementation is included in this approval.
+
+<!-- BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1 APPROVAL END -->
+
+
 <!-- BROWSER-PRODUCT-CONSOLE-RESEARCH-WORKSPACE-APP-1 APPROVAL START -->
 
 ## BROWSER-PRODUCT-CONSOLE-RESEARCH-WORKSPACE-APP-1 Approval
