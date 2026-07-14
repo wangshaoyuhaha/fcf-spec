@@ -116,6 +116,12 @@ from .runtime_artifact_integrity import (
     read_runtime_artifact_snapshot,
     resolve_runtime_artifact_path,
 )
+from .runtime_diagnostics import (
+    RuntimeDiagnosticsSnapshot,
+    RuntimeFaultCode,
+    RuntimeFaultLedger,
+    RuntimeFaultRecord,
+)
 from .runtime_hardening import (
     BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_BOUNDARY,
     BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_CONTRACT,
@@ -172,6 +178,10 @@ __all__ = [
     "RuntimeHardeningLimits",
     "RuntimeHardeningThreatControl",
     "RuntimeArtifactSnapshot",
+    "RuntimeDiagnosticsSnapshot",
+    "RuntimeFaultCode",
+    "RuntimeFaultLedger",
+    "RuntimeFaultRecord",
     "normalize_registered_relative_path",
     "read_runtime_artifact_snapshot",
     "resolve_runtime_artifact_path",

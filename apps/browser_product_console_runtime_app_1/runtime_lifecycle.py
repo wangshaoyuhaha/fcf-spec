@@ -7,6 +7,11 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from threading import BoundedSemaphore, RLock
 from typing import Sequence, Type
 
+from .runtime_diagnostics import (
+    RuntimeDiagnosticsSnapshot,
+    RuntimeFaultCode,
+    RuntimeFaultLedger,
+)
 from .runtime_hardening import (
     BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS,
     RuntimeHardeningLimits,
@@ -219,6 +224,9 @@ class HardenedLoopbackHTTPServer(
         self._resource_lock = RLock()
         self._active_request_count = 0
         self._rejected_request_count = 0
+        self._fault_ledger = RuntimeFaultLedger(
+            capacity=32
+        )
 
         self._lifecycle_lock = RLock()
         self._lifecycle_state = (
@@ -277,6 +285,34 @@ class HardenedLoopbackHTTPServer(
         with self._resource_lock:
             return self._rejected_request_count
 
+    def record_runtime_fault(
+        self,
+        code: RuntimeFaultCode,
+    ):
+        return self._fault_ledger.record(
+            code,
+            self.lifecycle_state.value,
+        )
+
+    def diagnostics_snapshot(
+        self,
+    ) -> RuntimeDiagnosticsSnapshot:
+        with self._resource_lock:
+            active_request_count = (
+                self._active_request_count
+            )
+            rejected_request_count = (
+                self._rejected_request_count
+            )
+
+        return self._fault_ledger.snapshot(
+            lifecycle_state=self.lifecycle_state.value,
+            host=str(self.server_address[0]),
+            port=int(self.server_address[1]),
+            active_request_count=active_request_count,
+            rejected_request_count=rejected_request_count,
+        )
+
     def get_request(self):
         request, client_address = super().get_request()
         request.settimeout(self._limits.socket_timeout_seconds)
@@ -307,6 +343,9 @@ class HardenedLoopbackHTTPServer(
         if not acquired:
             with self._resource_lock:
                 self._rejected_request_count += 1
+            self.record_runtime_fault(
+                RuntimeFaultCode.CAPACITY_REJECTED
+            )
             self._send_capacity_rejection(request)
             self.shutdown_request(request)
             return
@@ -329,6 +368,15 @@ class HardenedLoopbackHTTPServer(
             with self._resource_lock:
                 self._active_request_count -= 1
             self._request_slots.release()
+
+    def handle_error(
+        self,
+        request,
+        client_address,
+    ) -> None:
+        self.record_runtime_fault(
+            RuntimeFaultCode.REQUEST_HANDLER_FAILURE
+        )
 
     def _set_lifecycle_state(
         self,
@@ -378,6 +426,9 @@ class HardenedLoopbackHTTPServer(
             self._set_lifecycle_state(
                 RuntimeLifecycleState.FAILED
             )
+            self.record_runtime_fault(
+                RuntimeFaultCode.SERVER_LOOP_FAILURE
+            )
             raise
         finally:
             with self._lifecycle_lock:
@@ -401,6 +452,9 @@ class HardenedLoopbackHTTPServer(
                 self._lifecycle_state
                 is not RuntimeLifecycleState.SERVING
             ):
+                self.record_runtime_fault(
+                    RuntimeFaultCode.SHUTDOWN_FAILURE
+                )
                 raise RuntimeError(
                     "runtime server is not serving"
                 )
@@ -414,6 +468,11 @@ class HardenedLoopbackHTTPServer(
     def server_close(self) -> None:
         try:
             super().server_close()
+        except BaseException:
+            self.record_runtime_fault(
+                RuntimeFaultCode.SHUTDOWN_FAILURE
+            )
+            raise
         finally:
             self._set_lifecycle_state(
                 RuntimeLifecycleState.CLOSED

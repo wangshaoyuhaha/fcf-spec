@@ -13,6 +13,7 @@ from .runtime_lifecycle import (
     create_hardened_loopback_server,
     host_header_is_valid,
 )
+from .runtime_diagnostics import RuntimeFaultCode
 from .runtime_hardening import (
     BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS,
 )
@@ -848,10 +849,27 @@ def create_loopback_server(
                 )
                 return
 
-            response = application.dispatch(
-                self.command,
-                self.path,
-            )
+            try:
+                response = application.dispatch(
+                    self.command,
+                    self.path,
+                )
+            except Exception:
+                server = self.server
+
+                if isinstance(
+                    server,
+                    HardenedLoopbackHTTPServer,
+                ):
+                    server.record_runtime_fault(
+                        RuntimeFaultCode.APPLICATION_DISPATCH_FAILURE
+                    )
+
+                self._send_runtime_rejection(
+                    500,
+                    "Internal Server Error",
+                )
+                return
 
             self.send_response(response.status)
             self.send_header(
