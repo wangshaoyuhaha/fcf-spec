@@ -1763,3 +1763,81 @@ External model opinions remain advisory.
 
 No tag, release, or deployment is authorized.
 <!-- END FCF V2 ARCHITECTURE DISCUSSION HANDOFF -->
+
+<!-- BROWSER-PRODUCT-CONSOLE-RESEARCH-WORKSPACE-APP-1 FINAL SYNC START -->
+
+## BROWSER-PRODUCT-CONSOLE-RESEARCH-WORKSPACE-APP-1 Final State
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Approval commit:
+
+b910e2d69f6d327351029178fcff6f3de590932b
+
+Delivery commits:
+
+- D1: 6d45eb59b82d9281ab87cedc420ada9a0599723f
+- D2: 8789901b53c9f0eaceb4e8f0d0000ec3a58ae09e
+- D3: f00d9381131e43003cb261122742fa02f101d684
+- D4: cf1b569999ef21d190586fb83c41a5884bb62bad
+- D5: ea2539731592b89aa35c14417d29a26c4afb651b
+- D6: 93ed0ab3ca82858c3880e666e10b84d039dddf95
+
+Main merge commit:
+
+5e87d8e44e1dade1617267be6455c9f533a2ba14
+
+Final merged validation:
+
+- targeted pytest: 101 passed in 0.51s
+- full pytest: 3865 passed in 70.20s (0:01:10)
+- run_all_checks.py: PASSED
+- generated outputs: RESTORED
+- git status: CLEAN before authority sync
+
+Delivered product capability:
+
+- eleven registered research workspace routes
+- deterministic registered-artifact-only read models
+- complete read-only navigation
+- explicit unavailable, incomplete, rejected, and empty states
+- Research Runs and AI Comparison presentation
+- Governance and Audit History presentation
+- correlation, provenance, risk, and evidence visibility
+- immutable cross-workspace integration acceptance
+- GET and HEAD only workspace behavior
+- fail-closed unknown and traversal routes
+- no-store, nosniff, and content security policy enforcement
+
+Required successor order:
+
+1. BROWSER-PRODUCT-CONSOLE-EVIDENCE-AUDIT-EXPLORER-APP-1
+2. BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1
+3. BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1
+
+Each successor phase requires separate explicit approval and must not start
+automatically.
+
+Permanent boundary:
+
+- P1-P47 frozen
+- no P48
+- paper-only
+- local-only
+- loopback-only
+- sidecar-only
+- registered-artifact-only
+- read-only product presentation
+- Operator review mandatory
+- Deterministic Engine authority preserved
+- AI advisory only
+- no public network exposure
+- no external data fetching
+- no broker, exchange, credentials, account, balance, position, wallet,
+  order, or real execution path
+- no automatic approval, promotion, baseline replacement, learning, or archive
+- no tag, release, or deployment
+
+<!-- BROWSER-PRODUCT-CONSOLE-RESEARCH-WORKSPACE-APP-1 FINAL SYNC END -->
