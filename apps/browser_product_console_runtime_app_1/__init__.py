@@ -110,6 +110,12 @@ from .research_workspace_views import (
     build_overview_workspace_model,
     build_research_runs_workspace_model,
 )
+from .runtime_artifact_integrity import (
+    RuntimeArtifactSnapshot,
+    normalize_registered_relative_path,
+    read_runtime_artifact_snapshot,
+    resolve_runtime_artifact_path,
+)
 from .runtime_hardening import (
     BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_BOUNDARY,
     BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_CONTRACT,
@@ -165,6 +171,10 @@ __all__ = [
     "RuntimeHardeningContract",
     "RuntimeHardeningLimits",
     "RuntimeHardeningThreatControl",
+    "RuntimeArtifactSnapshot",
+    "normalize_registered_relative_path",
+    "read_runtime_artifact_snapshot",
+    "resolve_runtime_artifact_path",
     "HardenedLoopbackHTTPServer",
     "RuntimeLifecycleSnapshot",
     "RuntimeLifecycleState",

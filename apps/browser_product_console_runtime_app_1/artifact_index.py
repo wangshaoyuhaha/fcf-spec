@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import hashlib
@@ -6,6 +5,16 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Mapping, Tuple
+
+from .runtime_artifact_integrity import (
+    normalize_registered_relative_path,
+    read_runtime_artifact_snapshot,
+    resolve_runtime_artifact_path,
+)
+from .runtime_hardening import (
+    BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS,
+    RuntimeHardeningLimits,
+)
 
 
 SUPPORTED_ARTIFACT_TYPES = {
@@ -42,18 +51,43 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def _resolve_registered_file(path: Path, allowed_root: Path) -> Path:
-    root = allowed_root.resolve(strict=True)
-    if path.is_symlink():
-        raise ValueError("symbolic artifact paths are not permitted")
-    resolved = path.resolve(strict=True)
+def _resolve_registered_file(
+    path: Path,
+    allowed_root: Path,
+    limits: RuntimeHardeningLimits = (
+        BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS
+    ),
+) -> Path:
+    return resolve_runtime_artifact_path(
+        path,
+        allowed_root,
+        limits,
+    )
+
+
+def _load_json_bytes(
+    content: bytes,
+) -> Mapping[str, Any]:
     try:
-        resolved.relative_to(root)
-    except ValueError as exc:
-        raise ValueError("artifact path is outside the allowed root") from exc
-    if not resolved.is_file():
-        raise ValueError("registered artifact path must be a file")
-    return resolved
+        decoded = content.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise ValueError(
+            "artifact must be UTF-8 JSON"
+        ) from exc
+
+    try:
+        value = json.loads(decoded)
+    except json.JSONDecodeError as exc:
+        raise ValueError(
+            "artifact contains invalid JSON"
+        ) from exc
+
+    if not isinstance(value, dict):
+        raise ValueError(
+            "artifact JSON must be an object"
+        )
+
+    return value
 
 
 @dataclass(frozen=True)
@@ -69,21 +103,48 @@ class RegisteredConsoleArtifact:
             "artifact_id",
             "artifact_type",
             "correlation_id",
-            "relative_path",
         ):
             object.__setattr__(
                 self,
                 field_name,
-                _require_text(getattr(self, field_name), field_name),
+                _require_text(
+                    getattr(self, field_name),
+                    field_name,
+                ),
             )
+
+        object.__setattr__(
+            self,
+            "relative_path",
+            normalize_registered_relative_path(
+                self.relative_path
+            ),
+        )
+
         if self.artifact_type not in SUPPORTED_ARTIFACT_TYPES:
-            raise ValueError(f"unsupported artifact_type: {self.artifact_type}")
-        digest = self.content_sha256.strip().lower()
+            raise ValueError(
+                f"unsupported artifact_type: "
+                f"{self.artifact_type}"
+            )
+
+        digest = _require_text(
+            self.content_sha256,
+            "content_sha256",
+        ).lower()
+
         if len(digest) != 64 or any(
-            character not in "0123456789abcdef" for character in digest
+            character not in "0123456789abcdef"
+            for character in digest
         ):
-            raise ValueError("content_sha256 must be a SHA-256 digest")
-        object.__setattr__(self, "content_sha256", digest)
+            raise ValueError(
+                "content_sha256 must be a SHA-256 digest"
+            )
+
+        object.__setattr__(
+            self,
+            "content_sha256",
+            digest,
+        )
 
 
 @dataclass(frozen=True)
@@ -94,7 +155,9 @@ class LoadedConsoleArtifact:
 
     def __post_init__(self) -> None:
         if not isinstance(self.payload, dict):
-            raise ValueError("artifact payload must be an object")
+            raise ValueError(
+                "artifact payload must be an object"
+            )
 
 
 @dataclass(frozen=True)
@@ -104,24 +167,52 @@ class ConsoleArtifactIndex:
     entries: Tuple[RegisteredConsoleArtifact, ...]
 
     def __post_init__(self) -> None:
-        if self.schema_version != "fcf.browser_console.artifact_index.v1":
-            raise ValueError("unsupported artifact index schema")
+        if (
+            self.schema_version
+            != "fcf.browser_console.artifact_index.v1"
+        ):
+            raise ValueError(
+                "unsupported artifact index schema"
+            )
+
         object.__setattr__(
             self,
             "correlation_id",
-            _require_text(self.correlation_id, "correlation_id"),
+            _require_text(
+                self.correlation_id,
+                "correlation_id",
+            ),
         )
+
         if not self.entries:
-            raise ValueError("artifact index must contain entries")
-        artifact_ids = tuple(item.artifact_id for item in self.entries)
-        relative_paths = tuple(item.relative_path for item in self.entries)
+            raise ValueError(
+                "artifact index must contain entries"
+            )
+
+        artifact_ids = tuple(
+            item.artifact_id
+            for item in self.entries
+        )
+        relative_paths = tuple(
+            item.relative_path
+            for item in self.entries
+        )
+
         if len(set(artifact_ids)) != len(artifact_ids):
-            raise ValueError("artifact_id values must be unique")
+            raise ValueError(
+                "artifact_id values must be unique"
+            )
+
         if len(set(relative_paths)) != len(relative_paths):
-            raise ValueError("relative_path values must be unique")
+            raise ValueError(
+                "relative_path values must be unique"
+            )
+
         for entry in self.entries:
             if entry.correlation_id != self.correlation_id:
-                raise ValueError("artifact correlation_id mismatch")
+                raise ValueError(
+                    "artifact correlation_id mismatch"
+                )
 
 
 @dataclass(frozen=True)
@@ -130,79 +221,141 @@ class LoadedConsoleArtifactIndex:
     index_path: str
     artifacts: Tuple[LoadedConsoleArtifact, ...]
 
-    def by_type(self, artifact_type: str) -> Tuple[LoadedConsoleArtifact, ...]:
+    def by_type(
+        self,
+        artifact_type: str,
+    ) -> Tuple[LoadedConsoleArtifact, ...]:
         return tuple(
             artifact
             for artifact in self.artifacts
-            if artifact.registration.artifact_type == artifact_type
+            if (
+                artifact.registration.artifact_type
+                == artifact_type
+            )
         )
-
-
-def _load_json_object(path: Path) -> Mapping[str, Any]:
-    try:
-        value = json.loads(path.read_text(encoding="utf-8"))
-    except UnicodeDecodeError as exc:
-        raise ValueError("artifact must be UTF-8 JSON") from exc
-    except json.JSONDecodeError as exc:
-        raise ValueError("artifact contains invalid JSON") from exc
-    if not isinstance(value, dict):
-        raise ValueError("artifact JSON must be an object")
-    return value
 
 
 def load_console_artifact_index(
     index_path: Path,
     allowed_root: Path,
+    *,
+    limits: RuntimeHardeningLimits = (
+        BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS
+    ),
 ) -> LoadedConsoleArtifactIndex:
-    root = Path(allowed_root)
-    if root.is_symlink():
-        raise ValueError("symbolic allowed roots are not permitted")
-    resolved_root = root.resolve(strict=True)
-    if not resolved_root.is_dir():
-        raise ValueError("allowed_root must be a directory")
+    if not isinstance(limits, RuntimeHardeningLimits):
+        raise ValueError(
+            "limits must be RuntimeHardeningLimits"
+        )
 
-    resolved_index = _resolve_registered_file(index_path, resolved_root)
-    payload = _load_json_object(resolved_index)
+    root = Path(allowed_root)
+
+    if root.is_symlink():
+        raise ValueError(
+            "symbolic allowed roots are not permitted"
+        )
+
+    resolved_root = root.resolve(strict=True)
+
+    if not resolved_root.is_dir():
+        raise ValueError(
+            "allowed_root must be a directory"
+        )
+
+    resolved_index = _resolve_registered_file(
+        index_path,
+        resolved_root,
+        limits,
+    )
+    index_snapshot = read_runtime_artifact_snapshot(
+        resolved_index,
+        resolved_root,
+        limits=limits,
+    )
+    payload = _load_json_bytes(
+        index_snapshot.content
+    )
     raw_entries = payload.get("entries")
+
     if not isinstance(raw_entries, list):
-        raise ValueError("entries must be an array")
+        raise ValueError(
+            "entries must be an array"
+        )
 
     entries = tuple(
         RegisteredConsoleArtifact(
             artifact_id=item.get("artifact_id", ""),
-            artifact_type=item.get("artifact_type", ""),
-            correlation_id=item.get("correlation_id", ""),
-            relative_path=item.get("relative_path", ""),
-            content_sha256=item.get("content_sha256", ""),
+            artifact_type=item.get(
+                "artifact_type",
+                "",
+            ),
+            correlation_id=item.get(
+                "correlation_id",
+                "",
+            ),
+            relative_path=item.get(
+                "relative_path",
+                "",
+            ),
+            content_sha256=item.get(
+                "content_sha256",
+                "",
+            ),
         )
         for item in raw_entries
         if isinstance(item, dict)
     )
+
     if len(entries) != len(raw_entries):
-        raise ValueError("every artifact index entry must be an object")
+        raise ValueError(
+            "every artifact index entry "
+            "must be an object"
+        )
 
     index = ConsoleArtifactIndex(
-        schema_version=str(payload.get("schema_version", "")),
-        correlation_id=str(payload.get("correlation_id", "")),
+        schema_version=str(
+            payload.get("schema_version", "")
+        ),
+        correlation_id=str(
+            payload.get("correlation_id", "")
+        ),
         entries=entries,
     )
 
     loaded = []
+
     for entry in index.entries:
-        source = _resolve_registered_file(
-            resolved_root / entry.relative_path,
-            resolved_root,
-        )
-        actual_sha256 = sha256_file(source)
-        if actual_sha256 != entry.content_sha256:
-            raise ValueError(
-                f"artifact SHA-256 mismatch: {entry.artifact_id}"
+        try:
+            source_snapshot = (
+                read_runtime_artifact_snapshot(
+                    resolved_root
+                    / entry.relative_path,
+                    resolved_root,
+                    expected_sha256=(
+                        entry.content_sha256
+                    ),
+                    limits=limits,
+                )
             )
+        except ValueError as exc:
+            if str(exc) == (
+                "registered artifact SHA-256 mismatch"
+            ):
+                raise ValueError(
+                    "artifact SHA-256 mismatch: "
+                    f"{entry.artifact_id}"
+                ) from exc
+            raise
+
         loaded.append(
             LoadedConsoleArtifact(
                 registration=entry,
-                source_path=str(source),
-                payload=_load_json_object(source),
+                source_path=(
+                    source_snapshot.resolved_path
+                ),
+                payload=_load_json_bytes(
+                    source_snapshot.content
+                ),
             )
         )
 
