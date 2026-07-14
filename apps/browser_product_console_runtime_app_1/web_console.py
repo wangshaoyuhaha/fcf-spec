@@ -3,11 +3,21 @@ from __future__ import annotations
 import html
 import json
 from dataclasses import dataclass
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler
 from typing import Mapping, Tuple
 from urllib.parse import urlsplit
 
 from .boundary import ConsoleRuntimeConfig
+from .runtime_lifecycle import (
+    HardenedLoopbackHTTPServer,
+    create_hardened_loopback_server,
+    host_header_is_valid,
+)
+from .runtime_diagnostics import RuntimeFaultCode
+from .runtime_hardening import (
+    BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS,
+)
+from .runtime_http import assess_runtime_request
 from .evidence_audit_explorer import (
     EVIDENCE_AUDIT_EXPLORER_ROUTE_REGISTRY,
 )
@@ -738,20 +748,161 @@ delete, approve, promote, archive automatically, or execute financial actions.
 def create_loopback_server(
     config: ConsoleRuntimeConfig,
     application: BrowserProductConsoleApplication,
-) -> ThreadingHTTPServer:
+) -> HardenedLoopbackHTTPServer:
     config.resolve_allowed_root()
 
+    limits = (
+        BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS
+    )
+
     class ConsoleRequestHandler(BaseHTTPRequestHandler):
+        server_version = "FCFConsole"
+        sys_version = ""
+        protocol_version = "HTTP/1.1"
+
+        def _send_runtime_rejection(
+            self,
+            status: int,
+            message: str,
+            extra_headers: Tuple[
+                Tuple[str, str],
+                ...,
+            ] = (),
+        ) -> None:
+            body = message.encode("ascii")
+
+            self.send_response(status)
+            self.send_header(
+                "Content-Type",
+                "text/plain; charset=utf-8",
+            )
+            self.send_header(
+                "Content-Length",
+                str(len(body)),
+            )
+
+            emitted = set()
+
+            for name, value in extra_headers:
+                self.send_header(name, value)
+                emitted.add(name.lower())
+
+            for name, value in _SECURITY_HEADERS:
+                if name.lower() not in emitted:
+                    self.send_header(name, value)
+
+            self.send_header(
+                "Connection",
+                "close",
+            )
+            self.end_headers()
+
+            if self.command != "HEAD":
+                self.wfile.write(body)
+
+            self.close_connection = True
+
+        def _host_is_valid(self) -> bool:
+            values = tuple(
+                self.headers.get_all(
+                    "Host",
+                    [],
+                )
+            )
+
+            return host_header_is_valid(
+                values,
+                config.port,
+            )
+
+        def _raw_headers(
+            self,
+        ) -> Tuple[Tuple[str, str], ...]:
+            return tuple(
+                (
+                    str(name),
+                    str(value),
+                )
+                for name, value in self.headers.raw_items()
+            )
+
         def _handle(self) -> None:
-            response = application.dispatch(self.command, self.path)
+            assessment = assess_runtime_request(
+                self.command,
+                self.path,
+                self._raw_headers(),
+                limits,
+            )
+
+            if not assessment.accepted:
+                self._send_runtime_rejection(
+                    assessment.status,
+                    assessment.message,
+                    assessment.response_headers,
+                )
+                return
+
+            if not self._host_is_valid():
+                self._send_runtime_rejection(
+                    400,
+                    "Bad Request",
+                )
+                return
+
+            try:
+                response = application.dispatch(
+                    self.command,
+                    self.path,
+                )
+            except Exception:
+                server = self.server
+
+                if isinstance(
+                    server,
+                    HardenedLoopbackHTTPServer,
+                ):
+                    server.record_runtime_fault(
+                        RuntimeFaultCode.APPLICATION_DISPATCH_FAILURE
+                    )
+
+                self._send_runtime_rejection(
+                    500,
+                    "Internal Server Error",
+                )
+                return
+
             self.send_response(response.status)
-            self.send_header("Content-Type", response.content_type)
-            self.send_header("Content-Length", str(len(response.body)))
+            self.send_header(
+                "Content-Type",
+                response.content_type,
+            )
+            self.send_header(
+                "Content-Length",
+                str(len(response.body)),
+            )
+
+            response_header_names = {
+                name.lower()
+                for name, _ in response.headers
+            }
+
             for name, value in response.headers:
                 self.send_header(name, value)
+
+            for name, value in _SECURITY_HEADERS:
+                if name.lower() not in response_header_names:
+                    self.send_header(name, value)
+
+            self.send_header(
+                "Connection",
+                "close",
+            )
             self.end_headers()
+
             if self.command != "HEAD":
                 self.wfile.write(response.body)
+
+            self.close_connection = True
 
         do_GET = _handle
         do_HEAD = _handle
@@ -759,15 +910,36 @@ def create_loopback_server(
         do_PUT = _handle
         do_DELETE = _handle
         do_PATCH = _handle
+        do_OPTIONS = _handle
+        do_TRACE = _handle
+        do_CONNECT = _handle
 
-        def log_message(self, format: str, *args: object) -> None:
+        def __getattr__(self, name: str):
+            if name.startswith("do_"):
+                return self._handle
+            raise AttributeError(name)
+
+        def log_message(
+            self,
+            format: str,
+            *args: object,
+        ) -> None:
             return
 
-    server = ThreadingHTTPServer(
-        (config.host, config.port),
+    server = create_hardened_loopback_server(
+        config.host,
+        config.port,
         ConsoleRequestHandler,
+        limits=limits,
     )
-    if server.server_address[0] != "127.0.0.1":
+
+    if server.server_address != (
+        "127.0.0.1",
+        config.port,
+    ):
         server.server_close()
-        raise RuntimeError("console server did not bind to loopback")
+        raise RuntimeError(
+            "console server did not bind to exact loopback"
+        )
+
     return server

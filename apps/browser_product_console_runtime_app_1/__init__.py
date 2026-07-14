@@ -110,6 +110,41 @@ from .research_workspace_views import (
     build_overview_workspace_model,
     build_research_runs_workspace_model,
 )
+from .runtime_artifact_integrity import (
+    RuntimeArtifactSnapshot,
+    normalize_registered_relative_path,
+    read_runtime_artifact_snapshot,
+    resolve_runtime_artifact_path,
+)
+from .runtime_diagnostics import (
+    RuntimeDiagnosticsSnapshot,
+    RuntimeFaultCode,
+    RuntimeFaultLedger,
+    RuntimeFaultRecord,
+)
+from .runtime_hardening import (
+    BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_BOUNDARY,
+    BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_CONTRACT,
+    BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS,
+    BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_THREATS,
+    REQUIRED_RUNTIME_HARDENING_THREAT_IDS,
+    RuntimeHardeningBoundary,
+    RuntimeHardeningContract,
+    RuntimeHardeningLimits,
+    RuntimeHardeningThreatControl,
+)
+from .runtime_lifecycle import (
+    HardenedLoopbackHTTPServer,
+    RuntimeLifecycleSnapshot,
+    RuntimeLifecycleState,
+    create_hardened_loopback_server,
+    host_header_is_valid,
+    normalize_loopback_host_authority,
+)
+from .runtime_http import (
+    RuntimeRequestAssessment,
+    assess_runtime_request,
+)
 from .runtime_coordinator import (
     ConsoleRuntimeCoordinator,
     ConsoleRuntimeResult,
@@ -133,6 +168,31 @@ from .research_workspace_integration import (
 )
 
 __all__ = [
+    "BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_BOUNDARY",
+    "BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_CONTRACT",
+    "BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS",
+    "BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_THREATS",
+    "REQUIRED_RUNTIME_HARDENING_THREAT_IDS",
+    "RuntimeHardeningBoundary",
+    "RuntimeHardeningContract",
+    "RuntimeHardeningLimits",
+    "RuntimeHardeningThreatControl",
+    "RuntimeArtifactSnapshot",
+    "RuntimeDiagnosticsSnapshot",
+    "RuntimeFaultCode",
+    "RuntimeFaultLedger",
+    "RuntimeFaultRecord",
+    "normalize_registered_relative_path",
+    "read_runtime_artifact_snapshot",
+    "resolve_runtime_artifact_path",
+    "HardenedLoopbackHTTPServer",
+    "RuntimeLifecycleSnapshot",
+    "RuntimeLifecycleState",
+    "create_hardened_loopback_server",
+    "host_header_is_valid",
+    "normalize_loopback_host_authority",
+    "RuntimeRequestAssessment",
+    "assess_runtime_request",
     "EVIDENCE_AUDIT_UNSAFE_HTTP_METHODS",
     "REQUIRED_EVIDENCE_AUDIT_EXPLORER_PATHS",
     "EvidenceAuditExplorerIntegrationAcceptance",
