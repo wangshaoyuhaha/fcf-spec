@@ -1,0 +1,10 @@
+{
+  "action": "DEMONSTRATION_PACKAGE_REGISTERED",
+  "actor": "SYSTEM_FIXTURE",
+  "audit_status": "RECORDED",
+  "data_classification": "DEMONSTRATION_ONLY",
+  "event_id": "demo-audit-event-1",
+  "event_time": "2026-07-15T05:00:00Z",
+  "operator_review_required": true,
+  "source_artifact_id": "demo-report-archive"
+}

@@ -9199,6 +9199,34 @@ A COMPLETE line inside a log is never sufficient by itself.
   authorized continuous execution through a stated delivery range.
 - Continuous authorization does not permit skipping required tests, commits,
   push verification, permanent product boundaries, or merge validation.
+
+### 13. Windows pytest and recoverable environment operations
+
+- Pytest scratch data must use a verified writable directory outside the
+  repository.
+- Prefer verified `TEMP` and `TMP` values inherited by the pytest process.
+- If `--basetemp` is required, pass it as a direct process argument.
+- An absolute Windows `--basetemp` value must not be passed through
+  `PYTEST_ADDOPTS`; shell parsing may remove drive or path separators.
+- A writable probe directory must be created and removed before the run.
+- After the run, verify that no pytest temporary directory was created in the
+  repository root.
+- Generated tracked outputs may be restored only through an explicit
+  allowlist.
+- An inaccessible generated directory requires exact absolute-path and parent
+  validation before ACL recovery, quarantine, move, or deletion.
+- Administrator cleanup requires explicit UAC confirmation and must target
+  only the validated generated directory.
+- Generated paths must not be hidden with ignore or exclude rules.
+- A recoverable shell, temporary-directory, ACL, quoting, or transient network
+  failure does not invalidate already passed project tests when no project,
+  safety, or integrity assertion failed.
+- After identifying the first actual exception, repair the execution mechanism
+  and resume from the last verified checkpoint.
+- Do not roll back verified project changes solely because a later recoverable
+  environment operation failed.
+- Commit and push remain blocked until required generated-output cleanup and
+  exact changed-path verification succeed.
 <!-- FCF-POWERSHELL-EXECUTION-SAFETY-CONTRACT-END -->
 
 <!-- BROWSER-PRODUCT-CONSOLE-RESEARCH-WORKSPACE-APP-1 FINAL SYNC START -->

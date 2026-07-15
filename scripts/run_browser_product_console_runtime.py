@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+import webbrowser
 from pathlib import Path
 from typing import Sequence
 
@@ -10,7 +11,13 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from apps.browser_product_console_runtime_app_1 import (  # noqa: E402
-    serve_browser_console_runtime,
+    OPERATOR_LAUNCH_DEFAULT_TITLE,
+    STARTER_DATA_CLASSIFICATION,
+    OperatorLaunchProfile,
+    build_default_operator_launch_profile,
+    build_operator_launch_preflight,
+    classify_operator_launch_error,
+    open_operator_browser,
 )
 
 
@@ -22,15 +29,19 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--allowed-root",
-        required=True,
         type=Path,
-        help="Local registered-artifact root directory.",
+        help=(
+            "Custom local registered-artifact root. Omit with --index to "
+            "use the demonstrative starter package."
+        ),
     )
     parser.add_argument(
         "--index",
-        required=True,
         type=Path,
-        help="Registered browser console artifact index.",
+        help=(
+            "Custom registered browser console artifact index. Omit with "
+            "--allowed-root to use the demonstrative starter package."
+        ),
     )
     parser.add_argument(
         "--port",
@@ -40,29 +51,114 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--title",
-        default="FCF Browser Product Console",
         help="Local browser page title.",
+    )
+    parser.add_argument(
+        "--no-browser",
+        action="store_true",
+        help="Start the console without opening the default browser.",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Validate startup and registered artifacts without serving.",
     )
     return parser
 
 
-def main(argv: Sequence[str] | None = None) -> None:
+def resolve_profile(args: argparse.Namespace) -> OperatorLaunchProfile:
+    if (args.allowed_root is None) != (args.index is None):
+        raise ValueError("--allowed-root and --index must be provided together")
+
+    if args.allowed_root is None:
+        profile = build_default_operator_launch_profile(
+            project_root=ROOT,
+            port=args.port,
+            open_browser=not args.no_browser,
+        )
+        if args.title:
+            profile = OperatorLaunchProfile(
+                allowed_root=profile.allowed_root,
+                index_path=profile.index_path,
+                port=profile.port,
+                title=args.title,
+                open_browser=profile.open_browser,
+            )
+        return profile
+
+    root = args.allowed_root
+    index = args.index
+    if not index.is_absolute():
+        index = root / index
+    return OperatorLaunchProfile(
+        allowed_root=root,
+        index_path=index,
+        port=args.port,
+        title=args.title or "FCF Browser Product Console",
+        open_browser=not args.no_browser,
+        data_classification="REGISTERED_EVIDENCE",
+    )
+
+
+def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    try:
+        profile = resolve_profile(args)
+    except ValueError as exc:
+        code, message, remediation = classify_operator_launch_error(exc)
+        print(f"{code.value}: {message}", file=sys.stderr)
+        print(f"Guidance: {remediation}", file=sys.stderr)
+        return 2
+
+    preflight = build_operator_launch_preflight(profile)
+    if preflight.status != "READY" or preflight.session is None:
+        print(
+            f"{preflight.code.value}: {preflight.message}",
+            file=sys.stderr,
+        )
+        print(f"Guidance: {preflight.remediation}", file=sys.stderr)
+        return 2
+    session = preflight.session
+
     print(
-        f"FCF browser console: http://127.0.0.1:{args.port}",
+        f"FCF browser console: {session.url}",
         flush=True,
     )
     print(
         "Paper-only / Local loopback / Operator review required",
         flush=True,
     )
-    serve_browser_console_runtime(
-        allowed_root=args.allowed_root,
-        index_path=args.index,
-        port=args.port,
-        title=args.title,
+    print(
+        f"Data classification: {profile.data_classification}",
+        flush=True,
     )
+    print(f"Registered artifacts: {session.artifact_count}", flush=True)
+
+    if args.check:
+        print(
+            f"Startup preflight: PASS ({preflight.code.value})",
+            flush=True,
+        )
+        return 0
+
+    try:
+        server = session.create_server()
+    except (OSError, RuntimeError, ValueError) as exc:
+        code, message, remediation = classify_operator_launch_error(exc)
+        print(f"{code.value}: {message}", file=sys.stderr)
+        print(f"Guidance: {remediation}", file=sys.stderr)
+        return 2
+
+    try:
+        if profile.open_browser:
+            open_operator_browser(session.url, opener=webbrowser.open)
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("FCF browser console stopped by Operator.", flush=True)
+    finally:
+        server.server_close()
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

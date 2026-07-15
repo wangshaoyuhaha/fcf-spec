@@ -1,0 +1,7 @@
+{
+  "data_classification": "DEMONSTRATION_ONLY",
+  "operator_review_required": true,
+  "source_artifact_id": "demo-research-run",
+  "workflow_id": "demo-workflow-1",
+  "workflow_status": "PRESENTATION_ONLY"
+}

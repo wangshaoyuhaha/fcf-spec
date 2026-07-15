@@ -1,0 +1,7 @@
+{
+  "data_classification": "DEMONSTRATION_ONLY",
+  "input_artifact_id": "demo-data-quality",
+  "operator_review_required": true,
+  "run_id": "demo-research-run-1",
+  "run_status": "COMPLETE_DEMONSTRATION"
+}

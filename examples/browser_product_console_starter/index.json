@@ -1,0 +1,104 @@
+{
+  "correlation_id": "corr-operator-launch-demo-v1",
+  "entries": [
+    {
+      "artifact_id": "demo-data-snapshot",
+      "artifact_type": "data_snapshot",
+      "content_sha256": "1d23ffd774229d6e912c6af80a8fedc8152099400fde6ada41061e2c311427bf",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/data-snapshot.json"
+    },
+    {
+      "artifact_id": "demo-data-quality",
+      "artifact_type": "data_quality",
+      "content_sha256": "8e8b1056a7805415dfe4ea5b3e986736ac14a4a2a403c3b3c4ce8534f11e54bc",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/data-quality.json"
+    },
+    {
+      "artifact_id": "demo-research-run",
+      "artifact_type": "research_run",
+      "content_sha256": "da4e5ed3df228d51c78304142c9265baac7c89ddf97be8de134f1a9255cbc2fe",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/research-run.json"
+    },
+    {
+      "artifact_id": "demo-workflow-status",
+      "artifact_type": "workflow_status",
+      "content_sha256": "0653831dffe9ded43a962ac24998387285e0039e986fb24f558bb10e4a19da4e",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/workflow-status.json"
+    },
+    {
+      "artifact_id": "demo-ranked-watchlist",
+      "artifact_type": "ranked_watchlist",
+      "content_sha256": "52856c89f026d74361f947cfd442289c9c424c28c3ccb359092382d9267535c1",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/ranked-watchlist.json"
+    },
+    {
+      "artifact_id": "demo-ai-explanation",
+      "artifact_type": "ai_explanation",
+      "content_sha256": "86dac21ecad8b559fdf531e10fc1dfd6ef59b15ea8009147a35928c728395e9b",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/ai-explanation.json"
+    },
+    {
+      "artifact_id": "demo-ai-evaluation",
+      "artifact_type": "ai_evaluation",
+      "content_sha256": "92c6a5cc88d953c35c2f1a1e3723259adf59e6495b87c80c6053b609f1ef4c5a",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/ai-evaluation.json"
+    },
+    {
+      "artifact_id": "demo-paper-validation",
+      "artifact_type": "paper_validation",
+      "content_sha256": "78629cc6164932812d9387886277338d2487b034f6a2bf7b23a607dcfd9f4b1f",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/paper-validation.json"
+    },
+    {
+      "artifact_id": "demo-shadow-observation",
+      "artifact_type": "shadow_observation",
+      "content_sha256": "e911182acf8a8be3ab7ba821c06a5bfec4c9621e89cbca5e86bb637a30df57a0",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/shadow-observation.json"
+    },
+    {
+      "artifact_id": "demo-operator-review",
+      "artifact_type": "operator_review",
+      "content_sha256": "25ac0d5a3f6e9383008daf60e0b14bbc85ed34dd59f61386da4bdf00d04d0c7f",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/operator-review.json"
+    },
+    {
+      "artifact_id": "demo-report-archive",
+      "artifact_type": "report_archive",
+      "content_sha256": "80fc3884735aea6ef5a838b77b1c040a5c025b5c721ece1af116f7637655dd29",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/report-archive.json"
+    },
+    {
+      "artifact_id": "demo-policy-snapshot",
+      "artifact_type": "policy_snapshot",
+      "content_sha256": "0c177b0f8606228f4c7bc3a0d712c064fa2a2b1d91e5fa975e2d2a43b3dd0582",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/policy-snapshot.json"
+    },
+    {
+      "artifact_id": "demo-audit-receipt",
+      "artifact_type": "audit_receipt",
+      "content_sha256": "cb0361d9132feacb42354a558f9523bd764f4d8738f66e43bda603342ebad01e",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/audit-receipt.json"
+    },
+    {
+      "artifact_id": "demo-manifest",
+      "artifact_type": "manifest",
+      "content_sha256": "4d76a366f57eb26b0528f2ec31a5b3c94f68dc87aa23cd0b9346314f23681761",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/manifest.json"
+    }
+  ],
+  "schema_version": "fcf.browser_console.artifact_index.v1"
+}

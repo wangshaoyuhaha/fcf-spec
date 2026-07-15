@@ -142,6 +142,51 @@ Forbidden cleanup:
 
 Generated runtime files may be restored only through an explicit allowlist.
 
+## Windows pytest temporary roots
+
+On Windows, pytest temporary-root arguments must preserve drive and path
+separators exactly.
+
+Required behavior:
+
+- prefer setting `TEMP` and `TMP` to a verified writable scratch directory
+  outside the repository
+- when `--basetemp` is required, pass it as a direct process argument
+- validate the absolute scratch parent before pytest starts
+- create and remove a probe directory before the test run
+- verify after the run that pytest created no repository-root temporary path
+- never pass an absolute Windows `--basetemp` value through
+  `PYTEST_ADDOPTS`
+- never construct a pytest temporary path by shell string concatenation that
+  can remove backslashes or a drive separator
+
+If a test intentionally creates an inaccessible ACL state, cleanup must:
+
+- validate the exact absolute target and its expected parent
+- restore only allowlisted tracked generated outputs
+- use the narrowest available ACL recovery
+- request an explicit UAC confirmation only for that exact generated target
+- never hide the target with `.gitignore` or an exclude rule
+- never commit while a generated repository path remains unresolved
+
+## Recoverable environment failures
+
+A shell, temporary-directory, ACL, quoting, or transient network failure is
+not a project-code failure unless a project assertion, integrity check, or
+safety contract also fails.
+
+After the first actual exception is identified, the workflow may repair the
+execution mechanism and continue from the last verified checkpoint when:
+
+- project changes remain exactly within the expected path set
+- completed targeted tests remain valid
+- no safety or integrity assertion failed
+- no unclassified dirty file exists
+- commit and push remain blocked until required cleanup succeeds
+
+Verified project changes must not be rolled back solely because a later
+recoverable execution-environment operation failed.
+
 ## Workflow separation
 
 A development phase must be separated into these boundaries:
