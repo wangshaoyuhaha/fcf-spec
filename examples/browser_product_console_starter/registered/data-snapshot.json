@@ -1,0 +1,8 @@
+{
+  "as_of_utc": "2026-07-15T00:00:00Z",
+  "data_classification": "DEMONSTRATION_ONLY",
+  "market_scope": ["A_SHARE", "US_EQUITY", "BTC"],
+  "operator_review_required": true,
+  "snapshot_id": "demo-snapshot-1",
+  "status": "REGISTERED"
+}

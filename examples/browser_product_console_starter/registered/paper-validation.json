@@ -1,0 +1,7 @@
+{
+  "data_classification": "DEMONSTRATION_ONLY",
+  "operator_review_required": true,
+  "validated_at_utc": "2026-07-15T01:00:00Z",
+  "validates_artifact_id": "demo-ranked-watchlist",
+  "validation_status": "PASS_WITH_REVIEW_DEMONSTRATION"
+}

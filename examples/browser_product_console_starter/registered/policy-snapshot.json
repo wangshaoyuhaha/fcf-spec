@@ -1,0 +1,8 @@
+{
+  "data_classification": "DEMONSTRATION_ONLY",
+  "decision": "PRESENTATION_ONLY",
+  "operator_review_required": true,
+  "policy_id": "demo-read-only-policy",
+  "policy_version": "v1",
+  "subject": "browser-product-console"
+}

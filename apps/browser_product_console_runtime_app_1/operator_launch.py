@@ -3,9 +3,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
+from .artifact_index import LoadedConsoleArtifactIndex, load_console_artifact_index
+
 
 APP_ID = "BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1"
 LAUNCH_STAGE_ID = "D1"
+STARTER_PACKAGE_STAGE_ID = "D2"
 STARTER_DATA_CLASSIFICATION = "DEMONSTRATION_ONLY"
 DEFAULT_PORT = 8765
 DEFAULT_TITLE = "FCF Browser Product Console - Demonstration Data"
@@ -92,6 +95,30 @@ class OperatorLaunchProfile:
         return f"http://127.0.0.1:{self.port}/"
 
 
+@dataclass(frozen=True)
+class StarterArtifactPackage:
+    correlation_id: str
+    artifact_count: int
+    artifact_ids: tuple[str, ...]
+    artifact_types: tuple[str, ...]
+    data_classification: str = STARTER_DATA_CLASSIFICATION
+    operator_review_required: bool = True
+
+    def __post_init__(self) -> None:
+        if not self.correlation_id.strip():
+            raise ValueError("correlation_id is required")
+        if self.artifact_count < 1:
+            raise ValueError("starter package must contain artifacts")
+        if self.artifact_count != len(self.artifact_ids):
+            raise ValueError("starter artifact count mismatch")
+        if len(set(self.artifact_ids)) != len(self.artifact_ids):
+            raise ValueError("starter artifact ids must be unique")
+        if self.data_classification != STARTER_DATA_CLASSIFICATION:
+            raise ValueError("starter data must remain demonstrative")
+        if not self.operator_review_required:
+            raise ValueError("Operator review must remain required")
+
+
 def default_starter_root(project_root: Path | None = None) -> Path:
     root = (
         Path(project_root)
@@ -114,3 +141,39 @@ def build_default_operator_launch_profile(
         port=port,
         open_browser=open_browser,
     )
+
+
+def load_starter_artifact_package(
+    profile: OperatorLaunchProfile,
+) -> tuple[StarterArtifactPackage, LoadedConsoleArtifactIndex]:
+    loaded = load_console_artifact_index(
+        profile.index_path,
+        profile.allowed_root,
+    )
+
+    for artifact in loaded.artifacts:
+        payload = artifact.payload
+        if payload.get("data_classification") != STARTER_DATA_CLASSIFICATION:
+            raise ValueError(
+                "starter artifact must be classified DEMONSTRATION_ONLY"
+            )
+        if payload.get("operator_review_required") is not True:
+            raise ValueError("starter artifact must require Operator review")
+
+    package = StarterArtifactPackage(
+        correlation_id=loaded.index.correlation_id,
+        artifact_count=len(loaded.artifacts),
+        artifact_ids=tuple(
+            artifact.registration.artifact_id
+            for artifact in loaded.artifacts
+        ),
+        artifact_types=tuple(
+            sorted(
+                {
+                    artifact.registration.artifact_type
+                    for artifact in loaded.artifacts
+                }
+            )
+        ),
+    )
+    return package, loaded

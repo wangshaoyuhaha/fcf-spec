@@ -1,0 +1,9 @@
+{
+  "correlates_with_artifact_id": "demo-policy-snapshot",
+  "data_classification": "DEMONSTRATION_ONLY",
+  "event_id": "demo-manifest-event-1",
+  "event_time": "2026-07-15T06:00:00Z",
+  "manifest_status": "REGISTERED_DEMONSTRATION",
+  "operator_review_required": true,
+  "source_artifact_id": "demo-audit-receipt"
+}

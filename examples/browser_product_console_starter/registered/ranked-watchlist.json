@@ -1,0 +1,46 @@
+{
+  "candidates": [
+    {
+      "confidence_level": "DEMONSTRATION",
+      "data_quality_state": "PASS_DEMONSTRATION",
+      "market": "A_SHARE",
+      "name": "Demonstration A Share",
+      "operator_review_required": true,
+      "rank": 1,
+      "reason_codes": ["DEMO_MULTI_FACTOR"],
+      "risk_flags": ["DEMONSTRATION_DATA", "NOT_CURRENT_MARKET_DATA"],
+      "score_breakdown": {"momentum": 84.0, "quality": 82.0},
+      "symbol": "DEMO-600000",
+      "total_score": 83.0
+    },
+    {
+      "confidence_level": "DEMONSTRATION",
+      "data_quality_state": "PASS_DEMONSTRATION",
+      "market": "US_EQUITY",
+      "name": "Demonstration US Equity",
+      "operator_review_required": true,
+      "rank": 2,
+      "reason_codes": ["DEMO_QUALITY_GROWTH"],
+      "risk_flags": ["DEMONSTRATION_DATA", "NOT_CURRENT_MARKET_DATA"],
+      "score_breakdown": {"growth": 81.0, "quality": 83.0},
+      "symbol": "DEMO-AAPL",
+      "total_score": 82.0
+    },
+    {
+      "confidence_level": "DEMONSTRATION",
+      "data_quality_state": "PASS_DEMONSTRATION",
+      "market": "BTC",
+      "name": "Demonstration Bitcoin",
+      "operator_review_required": true,
+      "rank": 3,
+      "reason_codes": ["DEMO_DIGITAL_ASSET_REGIME"],
+      "risk_flags": ["DEMONSTRATION_DATA", "HIGH_VOLATILITY", "NOT_CURRENT_MARKET_DATA"],
+      "score_breakdown": {"liquidity": 80.0, "regime": 78.0},
+      "symbol": "DEMO-BTC-USD",
+      "total_score": 79.0
+    }
+  ],
+  "data_classification": "DEMONSTRATION_ONLY",
+  "derived_from_artifact_id": "demo-research-run",
+  "operator_review_required": true
+}

@@ -1,0 +1,8 @@
+{
+  "data_classification": "DEMONSTRATION_ONLY",
+  "evaluation_status": "REVIEW_REQUIRED",
+  "model_name": "demonstration-evaluator",
+  "operator_review_required": true,
+  "prompt_version": "demo-evaluation-v1",
+  "source_artifact_id": "demo-ai-explanation"
+}

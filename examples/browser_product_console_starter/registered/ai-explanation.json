@@ -1,0 +1,12 @@
+{
+  "contradiction_codes": ["DEMO_THESIS_CONFLICT"],
+  "contradicts_artifact_id": "demo-ranked-watchlist",
+  "data_classification": "DEMONSTRATION_ONLY",
+  "evaluation_status": "REVIEW_REQUIRED",
+  "model_name": "demonstration-advisory-model",
+  "operator_review_required": true,
+  "prompt_version": "demo-prompt-v1",
+  "risk_flags": ["DEMONSTRATION_DATA"],
+  "risk_level": "REVIEW_REQUIRED",
+  "subject": "demonstration-only-evidence"
+}
