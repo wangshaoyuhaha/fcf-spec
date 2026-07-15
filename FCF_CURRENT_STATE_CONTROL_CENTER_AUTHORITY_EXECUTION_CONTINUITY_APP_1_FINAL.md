@@ -2,7 +2,7 @@
 
 ## Status
 
-COMPLETED_VALIDATED_READY_FOR_MAIN_MERGE
+COMPLETED_MERGED_VALIDATED
 
 ## Branch
 
@@ -11,6 +11,14 @@ sidecar-control-center-authority-execution-continuity-app-1
 ## Approval commit
 
 85c300560b21b3e61b3278b71b1e651f0e3b5336
+
+## Delivery commit
+
+74da5766f23a4de4d5f209681d4f3012b843284b
+
+## Main merge commit
+
+10c4e8a7818505466b500a34ec6ee61df73135af
 
 ## Validation
 
@@ -45,5 +53,4 @@ withdrawal, real execution, tag, release, or deployment is authorized.
 
 READ-ONLY-DATA-GATEWAY-APP-1
 
-Separate runtime approval is required after this maintenance phase is merged
-and synchronized.
+Separate runtime approval is required before implementation.
