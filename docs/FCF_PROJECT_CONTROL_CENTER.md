@@ -9683,7 +9683,6 @@ NOT_SELECTED
 NOT_APPROVED
 
 <!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 FINAL SYNC END -->
-+
 
 <!-- CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1 APPROVAL START -->
 
@@ -9760,3 +9759,43 @@ Permanent product boundary:
 No product runtime implementation is included in this approval record.
 
 <!-- CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1 APPROVAL END -->
+
+
+<!-- FCF V2 CURRENT IMPLEMENTATION ORDER START -->
+
+## FCF V2 Current Implementation Order
+
+Status:
+
+ACTIVE_DEPENDENCY_ORDER
+
+Current maintenance phase:
+
+CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1
+
+First product runtime after maintenance:
+
+READ-ONLY-DATA-GATEWAY-APP-1
+
+Required order:
+
+1. Read-Only Data Gateway runtime
+2. source licensing, freshness, and isolated read-only credential governance
+3. Research Gateway and online evidence traceability
+4. FCF API Gateway runtime
+5. governed Multi-Model Workflow runtime
+6. six mandatory market adapters
+7. Portfolio Construction and Portfolio Stress Test
+8. interactive FCF Web Console
+9. non-technical one-click local operations
+10. multi-market, Paper portfolio, and Shadow validation
+11. controlled learning and deterministic backtesting P0-P3
+12. deferred learning enhancements P4 only after stable P0-P3
+
+This order supersedes the stale statement that
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1 is not started. That readiness-only
+phase and the subsequent planning chain are historical completed foundations.
+
+No later stage may silently omit an earlier dependency.
+
+<!-- FCF V2 CURRENT IMPLEMENTATION ORDER END -->

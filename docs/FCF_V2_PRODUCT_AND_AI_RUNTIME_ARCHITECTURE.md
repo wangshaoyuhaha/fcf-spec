@@ -4422,7 +4422,6 @@ Planned branch: sidecar-browser-product-console-operator-launch-app-1
 No successor phase is approved. No D1 implementation is included here.
 
 <!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 APPROVAL END -->
-+
 
 <!-- CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1 APPROVAL START -->
 
@@ -4499,3 +4498,85 @@ Permanent product boundary:
 No product runtime implementation is included in this approval record.
 
 <!-- CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1 APPROVAL END -->
+
+
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 FINAL SYNC START -->
+
+## BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 Final State
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Approval commit:
+
+20cbd7b62db5e7e87387e84d1196c74ff7ec049c
+
+Delivery commits:
+
+- D1: af31949dc4673d2be6aeb6b3807639b478bed46e
+- D2: 2c707d342e8f639c1f2175d70d6366cbaf5badeb
+- D2 artifact integrity fix: c996f66bc4fa82c7a0e8ee48c53b8f3b26531a3b
+- D3: 312b2ebf04a88ec6c11089c3e57f2cf473b6f12b
+- D4: a5ce0862115dd67dabb771c484704f234eb09404
+- D5: 4c2ca5f3e313e1b9fd9a369e3c03bf85a3475253
+- D6: 7083f16e7a1bb030f03f09b63f53c9fc7a110f83
+
+Main merge commit:
+
+2cfe860ac8c9847819557da1fbb405b7e3952eaa
+
+Final merged validation:
+
+- targeted pytest: 520 passed, 3 skipped
+- full pytest: 4266 passed, 3 skipped
+- scripts/run_all_checks.py: PASSED
+- generated outputs: RESTORED
+- git diff check: PASSED
+
+Next phase:
+
+CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1
+
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 FINAL SYNC END -->
+
+
+
+<!-- FCF V2 CURRENT IMPLEMENTATION ORDER START -->
+
+## FCF V2 Current Implementation Order
+
+Status:
+
+ACTIVE_DEPENDENCY_ORDER
+
+Current maintenance phase:
+
+CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1
+
+First product runtime after maintenance:
+
+READ-ONLY-DATA-GATEWAY-APP-1
+
+Required order:
+
+1. Read-Only Data Gateway runtime
+2. source licensing, freshness, and isolated read-only credential governance
+3. Research Gateway and online evidence traceability
+4. FCF API Gateway runtime
+5. governed Multi-Model Workflow runtime
+6. six mandatory market adapters
+7. Portfolio Construction and Portfolio Stress Test
+8. interactive FCF Web Console
+9. non-technical one-click local operations
+10. multi-market, Paper portfolio, and Shadow validation
+11. controlled learning and deterministic backtesting P0-P3
+12. deferred learning enhancements P4 only after stable P0-P3
+
+This order supersedes the stale statement that
+AI-ORCHESTRATION-RUNTIME-READINESS-APP-1 is not started. That readiness-only
+phase and the subsequent planning chain are historical completed foundations.
+
+No later stage may silently omit an earlier dependency.
+
+<!-- FCF V2 CURRENT IMPLEMENTATION ORDER END -->

@@ -240,6 +240,55 @@ function Invoke-FcfProcess {
 }
 
 
+function Assert-FcfProcessSucceeded {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)]
+        [psobject]$Result
+    )
+
+    if (-not $Result.Succeeded) {
+        throw (
+            "Required process failed: " +
+            "$($Result.Operation) exit=$($Result.ExitCode)"
+        )
+    }
+
+    return $Result
+}
+
+
+function Invoke-FcfRequiredProcess {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$FilePath,
+
+        [string[]]$ArgumentList = @(),
+
+        [Parameter(Mandatory = $true)]
+        [string]$WorkingDirectory,
+
+        [Parameter(Mandatory = $true)]
+        [string]$LogPath,
+
+        [int[]]$AllowedExitCodes = @(0),
+
+        [string]$Operation = "REQUIRED-PROCESS"
+    )
+
+    $Result = Invoke-FcfProcess `
+        -FilePath $FilePath `
+        -ArgumentList $ArgumentList `
+        -WorkingDirectory $WorkingDirectory `
+        -LogPath $LogPath `
+        -AllowedExitCodes $AllowedExitCodes `
+        -Operation $Operation
+
+    return Assert-FcfProcessSucceeded -Result $Result
+}
+
+
 function Invoke-FcfProcessWithRetry {
     [CmdletBinding()]
     param(
@@ -615,6 +664,18 @@ function Invoke-FcfSafeRunnerSelfTest {
             ) `
             -Message "nonzero exit code was not preserved"
 
+        $RequiredGuardBlocked = $false
+        try {
+            Assert-FcfProcessSucceeded -Result $FailureResult |
+                Out-Null
+        } catch {
+            $RequiredGuardBlocked = $true
+        }
+
+        Assert-FcfSelfTest `
+            -Condition $RequiredGuardBlocked `
+            -Message "required process guard did not block failure"
+
         $TransientScript = Join-Path `
             $TemporaryRoot `
             "transient_retry.py"
@@ -749,6 +810,7 @@ function Invoke-FcfSafeRunnerSelfTest {
         Write-Output "LINE_ENDING_NORMALIZATION=PASSED"
         Write-Output "IDEMPOTENT_WRITE=PASSED"
         Write-Output "CHECKPOINT_RESUME=PASSED"
+        Write-Output "REQUIRED_PROCESS_GUARD=PASSED"
     } finally {
         Remove-Item `
             -Path $TemporaryRoot `

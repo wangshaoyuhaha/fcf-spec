@@ -254,3 +254,101 @@ This tooling must not:
 - create releases
 - create tags
 - deploy
+
+## Continuous execution authority
+
+The development workflow must continue from the last verified checkpoint
+after a recoverable environment problem.
+
+Recoverable problems include:
+
+- shell quoting or interpolation errors
+- tool-access failure on an unrelated ignored path
+- temporary-root creation or cleanup failure
+- Git stat-only working-tree reports
+- transient network or remote push failure
+- stderr warnings with native exit code zero
+- sandbox or ACL denial that can be repaired through an exact-path operation
+
+A recoverable problem does not invalidate completed code writes, tests,
+commits, pushes, or merges.
+
+The workflow stops only when there is a real:
+
+- project assertion failure
+- test failure
+- integrity failure
+- safety-boundary failure
+- unexpected changed path
+- unresolved generated repository artifact
+- unclassified working-tree difference
+
+## Native command sequence guard
+
+PowerShell does not stop a semicolon-separated sequence merely because a
+native command returned a nonzero exit code.
+
+Every required native command must therefore use one of these mechanisms:
+
+- Invoke-FcfRequiredProcess
+- Assert-FcfProcessSucceeded
+- an immediate explicit `$LASTEXITCODE` check followed by `exit` or
+  `throw`
+
+A later successful command must never hide an earlier native failure.
+
+Validation, staging, commit, merge, and push must not appear in one unguarded
+semicolon-separated chain.
+
+## Git stat-only state repair
+
+When Git reports a modified path but both `git diff -- <path>` and the
+content-hash comparison show no content difference:
+
+1. verify the exact single path
+2. compare the working-tree content hash with the index blob hash
+3. refresh the Git index
+4. if the stat-only report persists, stage only that exact path
+5. verify the cached diff is empty
+6. verify the working tree is clean
+
+This operation repairs metadata only. It must not replace, restore, or rewrite
+the file.
+
+## Tool-access fallback
+
+A tool-access failure on an ignored or inaccessible path must not stop
+repository inspection.
+
+Required fallback order:
+
+1. use `git ls-files` for tracked repository discovery
+2. use exact known paths
+3. exclude the inaccessible unrelated path from read-only traversal
+4. request exact-path elevation only when the path is required
+
+Never perform repository-wide recursive ACL or cleanup operations.
+
+## Authority synchronization checkpoint
+
+Every phase must record its approved order in all active authority files
+before implementation starts.
+
+After merge, the phase is incomplete until all active authority files contain:
+
+- completed phase identity
+- D6 commit
+- main merge commit
+- validation baseline
+- next phase status
+- permanent restrictions
+
+The active authority files are:
+
+- docs/FCF_PROJECT_CONTROL_CENTER.md
+- docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md
+- docs/HANDOFF_PROMPT.md
+- FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md
+- FCF_NEW_WINDOW_CHAT_PROMPT.md
+
+The active authority synchronization guard must pass before final push.
