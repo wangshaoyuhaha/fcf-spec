@@ -9445,3 +9445,84 @@ Permanent boundary:
 - no tag, release, or deployment
 
 <!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 FINAL SYNC END -->
+
+<!-- BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 FINAL SYNC START -->
+
+## BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 Final State
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Approval commit:
+
+e5608df8773e8f32675bd3a02dd25a9f9be64c10
+
+Delivery commits:
+
+- D1: 10564f2a5e71f9252db550dcb5ca636c0517afbd
+- D2: e4ca40186d4001fb012b9d27227724c4cdba159c
+- D3: eb3f870572729c76663034e263029f5e05693394
+- D4: 1e0beaaaa0abd1feef1cefb4911a4365af7878ae
+- D5: d34002c2cd970dce331347b26f61f83803cb1853
+- D6: a3208e17776a325536b2b73b7bcd175c2e302631
+
+Main merge commit:
+
+31aa9b94518ab4c6e8864bea6baf75879fddc705
+
+Final merged validation:
+
+- targeted pytest: 464 passed, 3 skipped
+- full pytest: 4228 passed, 3 skipped
+- scripts/run_all_checks.py: PASSED
+- generated outputs: RESTORED
+- git diff check: PASSED
+- git status: CLEAN before authority synchronization
+
+Delivered product acceptance:
+
+- deterministic end-to-end Browser Product Console acceptance
+- complete read-only Research Workspace acceptance
+- complete registered Evidence Audit Explorer acceptance
+- loopback runtime security and lifecycle acceptance
+- bounded request, header, timeout, concurrency, and resource acceptance
+- deterministic fault isolation and negative-path acceptance
+- registered artifact containment, size, and SHA-256 acceptance
+- Deterministic Engine and Registered Evidence authority acceptance
+- reproducible registered input and product output acceptance
+- immutable read-only Operator acceptance package
+- explicit unresolved and BLOCKED states
+- mandatory Operator review without automatic approval
+- Windows-stable deterministic HTTP 503 capacity rejection
+
+Permanent boundary:
+
+- P1-P47 frozen
+- no P48
+- paper-only
+- local-only
+- loopback-only
+- registered-artifact-only
+- read-only product presentation
+- Operator review mandatory
+- Deterministic Engine authority preserved
+- Registered Evidence remains evidence authority
+- AI advisory only
+- no evidence or source artifact mutation
+- no command or workflow dispatch
+- no external data fetching
+- no external or public network binding
+- no broker, exchange, credentials, account, balance, position, wallet,
+  order, or real execution path
+- no automatic approval, promotion, baseline replacement, model activation,
+  Prompt activation, learning activation, or archive
+- no tag, release, or deployment
+
+Next phase:
+
+NOT_SELECTED
+
+NOT_APPROVED
+
+<!-- BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 FINAL SYNC END -->
