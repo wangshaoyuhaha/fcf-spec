@@ -74,6 +74,18 @@ from .operator_commands import (
     ValidatedOperatorReviewCommand,
     handle_operator_api_request,
 )
+from .operator_launch import (
+    APP_ID as OPERATOR_LAUNCH_APP_ID,
+    DEFAULT_PORT as OPERATOR_LAUNCH_DEFAULT_PORT,
+    DEFAULT_TITLE as OPERATOR_LAUNCH_DEFAULT_TITLE,
+    LAUNCH_STAGE_ID,
+    OPERATOR_LAUNCH_BOUNDARY,
+    STARTER_DATA_CLASSIFICATION,
+    OperatorLaunchBoundary,
+    OperatorLaunchProfile,
+    build_default_operator_launch_profile,
+    default_starter_root,
+)
 from .read_model import (
     ConsoleArtifactRecord,
     ConsoleReadModel,
@@ -168,6 +180,14 @@ from .research_workspace_integration import (
 )
 
 __all__ = [
+    "LAUNCH_STAGE_ID",
+    "OPERATOR_LAUNCH_APP_ID",
+    "OPERATOR_LAUNCH_BOUNDARY",
+    "OPERATOR_LAUNCH_DEFAULT_PORT",
+    "OPERATOR_LAUNCH_DEFAULT_TITLE",
+    "STARTER_DATA_CLASSIFICATION",
+    "OperatorLaunchBoundary",
+    "OperatorLaunchProfile",
     "BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_BOUNDARY",
     "BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_CONTRACT",
     "BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_LIMITS",
@@ -280,6 +300,7 @@ __all__ = [
     "build_audit_history_workspace_model",
     "build_browser_console_runtime",
     "build_browser_console_runtime_acceptance",
+    "build_default_operator_launch_profile",
     "build_console_read_model",
     "build_data_workspace_model",
     "build_governance_workspace_model",
@@ -287,6 +308,7 @@ __all__ = [
     "build_research_runs_workspace_model",
     "build_research_workspace_integration_acceptance",
     "create_loopback_server",
+    "default_starter_root",
     "handle_operator_api_request",
     "is_loopback_host",
     "load_console_artifact_index",
