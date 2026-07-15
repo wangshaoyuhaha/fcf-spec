@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from enum import Enum
 from pathlib import Path
-from typing import Callable
+from typing import Callable, Optional
 from urllib.parse import urlsplit
 
 from .artifact_index import LoadedConsoleArtifactIndex, load_console_artifact_index
@@ -13,6 +14,7 @@ APP_ID = "BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1"
 LAUNCH_STAGE_ID = "D1"
 STARTER_PACKAGE_STAGE_ID = "D2"
 GUIDED_LAUNCH_STAGE_ID = "D3"
+DIAGNOSTIC_STAGE_ID = "D4"
 STARTER_DATA_CLASSIFICATION = "DEMONSTRATION_ONLY"
 DEFAULT_PORT = 8765
 DEFAULT_TITLE = "FCF Browser Product Console - Demonstration Data"
@@ -145,6 +147,38 @@ class OperatorLaunchSession:
         return self.runtime.create_server()
 
 
+class OperatorLaunchDiagnosticCode(str, Enum):
+    READY = "FCF-LAUNCH-READY"
+    ARTIFACT_MISSING = "FCF-LAUNCH-ARTIFACT-MISSING"
+    ARTIFACT_INTEGRITY_FAILURE = "FCF-LAUNCH-ARTIFACT-INTEGRITY"
+    ARTIFACT_REGISTRATION_FAILURE = "FCF-LAUNCH-ARTIFACT-REGISTRATION"
+    FILE_ACCESS_DENIED = "FCF-LAUNCH-FILE-ACCESS"
+    PORT_UNAVAILABLE = "FCF-LAUNCH-PORT-UNAVAILABLE"
+    STARTUP_REJECTED = "FCF-LAUNCH-STARTUP-REJECTED"
+
+
+@dataclass(frozen=True)
+class OperatorLaunchPreflight:
+    status: str
+    code: OperatorLaunchDiagnosticCode
+    message: str
+    remediation: str
+    session: Optional[OperatorLaunchSession] = None
+
+    def __post_init__(self) -> None:
+        if self.status not in {"READY", "BLOCKED"}:
+            raise ValueError("invalid preflight status")
+        if not self.message.strip() or not self.remediation.strip():
+            raise ValueError("preflight guidance is required")
+        if self.status == "READY":
+            if self.code is not OperatorLaunchDiagnosticCode.READY:
+                raise ValueError("ready preflight requires ready code")
+            if self.session is None:
+                raise ValueError("ready preflight requires a launch session")
+        elif self.session is not None:
+            raise ValueError("blocked preflight cannot contain a session")
+
+
 def default_starter_root(project_root: Path | None = None) -> Path:
     root = (
         Path(project_root)
@@ -254,3 +288,87 @@ def open_operator_browser(
     if port is None or not 1024 <= port <= 65535:
         raise ValueError("browser URL must contain an allowed loopback port")
     return bool(opener(url))
+
+
+def classify_operator_launch_error(
+    error: BaseException,
+) -> tuple[OperatorLaunchDiagnosticCode, str, str]:
+    message = str(error)
+    cause: BaseException = error
+    while cause.__cause__ is not None:
+        cause = cause.__cause__
+    if isinstance(error, FileNotFoundError):
+        return (
+            OperatorLaunchDiagnosticCode.ARTIFACT_MISSING,
+            "A required registered artifact or index is missing.",
+            "Restore the registered package or select a valid custom root and index.",
+        )
+    if isinstance(error, PermissionError):
+        return (
+            OperatorLaunchDiagnosticCode.FILE_ACCESS_DENIED,
+            "The registered artifact package is not readable.",
+            "Grant read access to the local package and run the preflight again.",
+        )
+    if (
+        message == "console loopback port is unavailable"
+        or (
+            isinstance(cause, OSError)
+            and (
+                getattr(cause, "winerror", None) == 10048
+                or getattr(cause, "errno", None) in {48, 98, 10048}
+            )
+        )
+    ):
+        return (
+            OperatorLaunchDiagnosticCode.PORT_UNAVAILABLE,
+            "The selected loopback port is already in use.",
+            "Stop the other local service or choose another port with --port.",
+        )
+    if "SHA-256" in message or "tampered" in message.lower():
+        return (
+            OperatorLaunchDiagnosticCode.ARTIFACT_INTEGRITY_FAILURE,
+            "Registered artifact integrity validation failed.",
+            "Restore the original registered artifact package; do not bypass the digest.",
+        )
+    if isinstance(error, ValueError) and (
+        "artifact" in message.lower()
+        or "index" in message.lower()
+        or "allowed_root" in message.lower()
+    ):
+        return (
+            OperatorLaunchDiagnosticCode.ARTIFACT_REGISTRATION_FAILURE,
+            "The artifact root or registration index is invalid.",
+            "Use a contained registered index with supported artifact contracts.",
+        )
+    return (
+        OperatorLaunchDiagnosticCode.STARTUP_REJECTED,
+        "The local read-only console startup was rejected.",
+        "Review the launch profile and run --check before starting the server.",
+    )
+
+
+def build_operator_launch_preflight(
+    profile: OperatorLaunchProfile,
+    *,
+    check_port: bool = True,
+) -> OperatorLaunchPreflight:
+    try:
+        session = prepare_operator_launch(profile)
+        if check_port:
+            server = session.create_server()
+            server.server_close()
+    except (OSError, RuntimeError, ValueError) as exc:
+        code, message, remediation = classify_operator_launch_error(exc)
+        return OperatorLaunchPreflight(
+            status="BLOCKED",
+            code=code,
+            message=message,
+            remediation=remediation,
+        )
+    return OperatorLaunchPreflight(
+        status="READY",
+        code=OperatorLaunchDiagnosticCode.READY,
+        message="Registered artifacts and exact loopback startup are ready.",
+        remediation="Run the explicit Operator launch command to open the console.",
+        session=session,
+    )

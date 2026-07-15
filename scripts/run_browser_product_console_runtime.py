@@ -15,8 +15,9 @@ from apps.browser_product_console_runtime_app_1 import (  # noqa: E402
     STARTER_DATA_CLASSIFICATION,
     OperatorLaunchProfile,
     build_default_operator_launch_profile,
+    build_operator_launch_preflight,
+    classify_operator_launch_error,
     open_operator_browser,
-    prepare_operator_launch,
 )
 
 
@@ -103,10 +104,21 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
         profile = resolve_profile(args)
-        session = prepare_operator_launch(profile)
-    except (OSError, ValueError) as exc:
-        print(f"FCF console startup rejected: {exc}", file=sys.stderr)
+    except ValueError as exc:
+        code, message, remediation = classify_operator_launch_error(exc)
+        print(f"{code.value}: {message}", file=sys.stderr)
+        print(f"Guidance: {remediation}", file=sys.stderr)
         return 2
+
+    preflight = build_operator_launch_preflight(profile)
+    if preflight.status != "READY" or preflight.session is None:
+        print(
+            f"{preflight.code.value}: {preflight.message}",
+            file=sys.stderr,
+        )
+        print(f"Guidance: {preflight.remediation}", file=sys.stderr)
+        return 2
+    session = preflight.session
 
     print(
         f"FCF browser console: {session.url}",
@@ -123,13 +135,18 @@ def main(argv: Sequence[str] | None = None) -> int:
     print(f"Registered artifacts: {session.artifact_count}", flush=True)
 
     if args.check:
-        print("Startup preflight: PASS", flush=True)
+        print(
+            f"Startup preflight: PASS ({preflight.code.value})",
+            flush=True,
+        )
         return 0
 
     try:
         server = session.create_server()
-    except (OSError, ValueError) as exc:
-        print(f"FCF console server rejected: {exc}", file=sys.stderr)
+    except (OSError, RuntimeError, ValueError) as exc:
+        code, message, remediation = classify_operator_launch_error(exc)
+        print(f"{code.value}: {message}", file=sys.stderr)
+        print(f"Guidance: {remediation}", file=sys.stderr)
         return 2
 
     try:
