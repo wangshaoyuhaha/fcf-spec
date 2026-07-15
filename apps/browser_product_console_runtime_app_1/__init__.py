@@ -78,16 +78,20 @@ from .operator_launch import (
     APP_ID as OPERATOR_LAUNCH_APP_ID,
     DEFAULT_PORT as OPERATOR_LAUNCH_DEFAULT_PORT,
     DEFAULT_TITLE as OPERATOR_LAUNCH_DEFAULT_TITLE,
+    GUIDED_LAUNCH_STAGE_ID,
     LAUNCH_STAGE_ID,
     OPERATOR_LAUNCH_BOUNDARY,
     STARTER_PACKAGE_STAGE_ID,
     STARTER_DATA_CLASSIFICATION,
     OperatorLaunchBoundary,
     OperatorLaunchProfile,
+    OperatorLaunchSession,
     StarterArtifactPackage,
     build_default_operator_launch_profile,
     default_starter_root,
     load_starter_artifact_package,
+    open_operator_browser,
+    prepare_operator_launch,
 )
 from .read_model import (
     ConsoleArtifactRecord,
@@ -184,6 +188,7 @@ from .research_workspace_integration import (
 
 __all__ = [
     "LAUNCH_STAGE_ID",
+    "GUIDED_LAUNCH_STAGE_ID",
     "OPERATOR_LAUNCH_APP_ID",
     "OPERATOR_LAUNCH_BOUNDARY",
     "OPERATOR_LAUNCH_DEFAULT_PORT",
@@ -192,6 +197,7 @@ __all__ = [
     "STARTER_PACKAGE_STAGE_ID",
     "OperatorLaunchBoundary",
     "OperatorLaunchProfile",
+    "OperatorLaunchSession",
     "StarterArtifactPackage",
     "BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_BOUNDARY",
     "BROWSER_PRODUCT_CONSOLE_RUNTIME_HARDENING_CONTRACT",
@@ -318,6 +324,8 @@ __all__ = [
     "is_loopback_host",
     "load_console_artifact_index",
     "load_starter_artifact_package",
+    "open_operator_browser",
+    "prepare_operator_launch",
     "serve_browser_console_runtime",
     "sha256_file",
 ]

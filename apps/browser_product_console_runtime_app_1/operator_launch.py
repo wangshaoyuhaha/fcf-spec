@@ -2,13 +2,17 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Callable
+from urllib.parse import urlsplit
 
 from .artifact_index import LoadedConsoleArtifactIndex, load_console_artifact_index
+from .launcher import BrowserConsoleRuntime, build_browser_console_runtime
 
 
 APP_ID = "BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1"
 LAUNCH_STAGE_ID = "D1"
 STARTER_PACKAGE_STAGE_ID = "D2"
+GUIDED_LAUNCH_STAGE_ID = "D3"
 STARTER_DATA_CLASSIFICATION = "DEMONSTRATION_ONLY"
 DEFAULT_PORT = 8765
 DEFAULT_TITLE = "FCF Browser Product Console - Demonstration Data"
@@ -119,6 +123,28 @@ class StarterArtifactPackage:
             raise ValueError("Operator review must remain required")
 
 
+@dataclass(frozen=True)
+class OperatorLaunchSession:
+    profile: OperatorLaunchProfile
+    runtime: BrowserConsoleRuntime
+    artifact_count: int
+
+    def __post_init__(self) -> None:
+        if self.runtime.config.host != "127.0.0.1":
+            raise ValueError("operator launch must remain exact loopback")
+        if self.runtime.config.port != self.profile.port:
+            raise ValueError("operator launch port mismatch")
+        if self.artifact_count < 1:
+            raise ValueError("operator launch requires registered artifacts")
+
+    @property
+    def url(self) -> str:
+        return self.profile.url
+
+    def create_server(self):
+        return self.runtime.create_server()
+
+
 def default_starter_root(project_root: Path | None = None) -> Path:
     root = (
         Path(project_root)
@@ -177,3 +203,54 @@ def load_starter_artifact_package(
         ),
     )
     return package, loaded
+
+
+def prepare_operator_launch(
+    profile: OperatorLaunchProfile,
+) -> OperatorLaunchSession:
+    if profile.data_classification == STARTER_DATA_CLASSIFICATION:
+        package, _ = load_starter_artifact_package(profile)
+        artifact_count = package.artifact_count
+    else:
+        loaded = load_console_artifact_index(
+            profile.index_path,
+            profile.allowed_root,
+        )
+        artifact_count = len(loaded.artifacts)
+
+    runtime = build_browser_console_runtime(
+        allowed_root=profile.allowed_root,
+        index_path=profile.index_path,
+        port=profile.port,
+        title=profile.title,
+    )
+    return OperatorLaunchSession(
+        profile=profile,
+        runtime=runtime,
+        artifact_count=artifact_count,
+    )
+
+
+def open_operator_browser(
+    url: str,
+    *,
+    opener: Callable[[str], object],
+) -> bool:
+    parsed = urlsplit(url)
+    if (
+        parsed.scheme != "http"
+        or parsed.hostname != "127.0.0.1"
+        or parsed.username is not None
+        or parsed.password is not None
+        or parsed.path != "/"
+        or parsed.query
+        or parsed.fragment
+    ):
+        raise ValueError("browser URL must remain exact local loopback")
+    try:
+        port = parsed.port
+    except ValueError as exc:
+        raise ValueError("browser URL contains an invalid port") from exc
+    if port is None or not 1024 <= port <= 65535:
+        raise ValueError("browser URL must contain an allowed loopback port")
+    return bool(opener(url))
