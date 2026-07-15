@@ -4404,3 +4404,21 @@ Permanent boundary:
 - no tag, release, or deployment
 
 <!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 FINAL SYNC END -->
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 APPROVAL START -->
+
+## BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+This phase adds the explicit local Operator entry point and usability layer for
+the accepted read-only Browser Product Console. It may add registered
+demonstrative starter artifacts, guided loopback launch, explicit browser
+opening, deterministic diagnostics, and documentation. It may not add data
+fetching, workflow execution, financial execution, product mutation authority,
+automatic learning, or public network exposure.
+
+Planned branch: sidecar-browser-product-console-operator-launch-app-1
+
+No successor phase is approved. No D1 implementation is included here.
+
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 APPROVAL END -->

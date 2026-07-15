@@ -9526,3 +9526,62 @@ NOT_SELECTED
 NOT_APPROVED
 
 <!-- BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 FINAL SYNC END -->
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 APPROVAL START -->
+
+## BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved parent:
+
+8c86b8bcfb6d5659ed522a62a5cd71d9e2a0bce5
+
+Planned branch:
+
+sidecar-browser-product-console-operator-launch-app-1
+
+Purpose:
+
+Provide an explicit, operator-invoked local product entry point for the
+validated read-only Browser Product Console.
+
+Allowed scope:
+
+- deterministic startup profile and launch boundary
+- registered demonstrative starter artifact package with SHA-256 linkage
+- guided one-command loopback startup
+- optional browser opening after explicit Operator invocation
+- deterministic preflight diagnostics and failure guidance
+- clear demonstrative-data labeling
+- Operator runbook and end-to-end local usability acceptance
+
+Required delivery order:
+
+- D1 launch boundary, startup profile, and product entry contracts
+- D2 registered starter artifact package and provenance validation
+- D3 guided one-command loopback launch and optional browser opening
+- D4 deterministic startup diagnostics and failure-state guidance
+- D5 end-to-end Operator usability and product acceptance
+- D6 final closeout, merge validation, and authority synchronization
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, and sidecar-only
+- registered-artifact-only and read-only product presentation
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory only
+- no evidence mutation, external data fetching, or public network exposure
+- no broker, exchange, credentials, account, balance, position, wallet,
+  order, or real execution path
+- no automatic approval, promotion, baseline replacement, model activation,
+  Prompt activation, learning activation, or archive
+- no tag, release, or deployment
+
+No successor phase is approved. No D1 implementation is included in this
+approval record.
+
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 APPROVAL END -->

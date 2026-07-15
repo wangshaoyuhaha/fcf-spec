@@ -2348,3 +2348,30 @@ Permanent boundary:
 - no tag, release, or deployment
 
 <!-- BROWSER-PRODUCT-CONSOLE-RUNTIME-HARDENING-APP-1 FINAL SYNC END -->
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 APPROVAL START -->
+
+## BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved parent: 8c86b8bcfb6d5659ed522a62a5cd71d9e2a0bce5
+
+Planned branch: sidecar-browser-product-console-operator-launch-app-1
+
+Purpose: deliver an explicit Operator-invoked local entry point, registered
+demonstrative starter artifacts, guided loopback launch, deterministic
+diagnostics, browser opening, and a product runbook for the accepted read-only
+Browser Product Console.
+
+Required order: D1 launch contracts; D2 registered starter package; D3 guided
+launch; D4 diagnostics; D5 usability acceptance; D6 closeout and merge.
+
+Permanent boundary: P1-P47 frozen; no P48; paper-only; local-only;
+loopback-only; sidecar-only; registered-artifact-only; read-only; Operator
+review required; Deterministic Engine and Registered Evidence authority
+preserved; AI advisory only; no external data, public exposure, credentials,
+account, wallet, order, execution, automatic learning, tag, release, or deploy.
+
+No successor phase is approved. No D1 implementation is included here.
+
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 APPROVAL END -->
