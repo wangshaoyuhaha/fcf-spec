@@ -10,6 +10,11 @@ from .contracts import (
     IntegrationAcceptanceFixture,
     IntegrationAcceptanceMatrixRow,
 )
+from .operator_acceptance import (
+    BrowserConsoleIntegrationOperatorAcceptance,
+    IntegrationValidationSummary,
+    build_browser_console_integration_operator_acceptance,
+)
 
 
 __all__ = [
@@ -23,4 +28,7 @@ __all__ = [
     "IntegrationAcceptanceContract",
     "IntegrationAcceptanceFixture",
     "IntegrationAcceptanceMatrixRow",
+    "BrowserConsoleIntegrationOperatorAcceptance",
+    "IntegrationValidationSummary",
+    "build_browser_console_integration_operator_acceptance",
 ]
