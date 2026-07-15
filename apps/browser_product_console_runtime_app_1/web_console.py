@@ -91,7 +91,13 @@ def _escape(value: object) -> str:
     return html.escape(str(value), quote=True)
 
 
-def _layout(title: str, active_path: str, body: str) -> bytes:
+def _layout(
+    title: str,
+    active_path: str,
+    body: str,
+    *,
+    data_classification: str = "REGISTERED_EVIDENCE",
+) -> bytes:
     links = "".join(
         (
             f'<a class="{"active" if path == active_path else ""}" '
@@ -122,6 +128,7 @@ table{{border-collapse:collapse;width:100%}}
 th,td{{border-bottom:1px solid #e5e7eb;text-align:left;padding:10px;vertical-align:top}}
 th{{background:#f8fafc}}
 .notice{{border-left:4px solid #b45309;background:#fffbeb;padding:12px}}
+.classification{{border-left:4px solid #b91c1c;background:#fef2f2;padding:12px;margin-bottom:16px}}
 code{{white-space:pre-wrap;overflow-wrap:anywhere}}
 </style>
 </head>
@@ -131,7 +138,13 @@ code{{white-space:pre-wrap;overflow-wrap:anywhere}}
 <small>Paper-only / Local loopback / Operator review required</small>
 </header>
 <nav>{links}</nav>
-<main>{body}</main>
+<main>
+<section class="classification">
+Data classification: <strong>{_escape(data_classification)}</strong>.
+Verify registered evidence and complete Operator review before any decision.
+</section>
+{body}
+</main>
 </body>
 </html>
 """
@@ -169,10 +182,33 @@ def _candidate_row(candidate: StockCandidateCard) -> str:
 class BrowserProductConsoleApplication:
     def __init__(self, read_model: ConsoleReadModel) -> None:
         self._read_model = read_model
+        classifications = {
+            str(payload.get("data_classification", "")).strip()
+            for payloads in read_model.sections.values()
+            for payload in payloads
+            if str(payload.get("data_classification", "")).strip()
+        }
+        self._data_classification = (
+            next(iter(classifications))
+            if len(classifications) == 1
+            else (
+                "MIXED_REGISTERED_EVIDENCE"
+                if classifications
+                else "REGISTERED_EVIDENCE"
+            )
+        )
 
     @property
     def read_model(self) -> ConsoleReadModel:
         return self._read_model
+
+    def _render_layout(self, title: str, path: str, body: str) -> bytes:
+        return _layout(
+            title,
+            path,
+            body,
+            data_classification=self._data_classification,
+        )
 
     def dispatch(self, method: str, raw_path: str) -> ConsoleResponse:
         normalized_method = method.upper().strip()
@@ -212,7 +248,7 @@ class BrowserProductConsoleApplication:
                 response = ConsoleResponse(
                     status=200,
                     content_type="text/html; charset=utf-8",
-                    body=_layout(
+                    body=self._render_layout(
                         page.title,
                         path,
                         page.body_html,
@@ -236,7 +272,7 @@ class BrowserProductConsoleApplication:
                 response = ConsoleResponse(
                     status=400,
                     content_type="text/html; charset=utf-8",
-                    body=_layout(
+                    body=self._render_layout(
                         "FCF Evidence Audit Query Rejected",
                         path,
                         rejected_body,
@@ -339,7 +375,7 @@ This console does not provide trading, order, broker, exchange, account,
 balance, position, wallet, promotion, or automatic approval authority.
 </section>
 """
-        return _layout("FCF Overview", path, body)
+        return self._render_layout("FCF Overview", path, body)
 
     def _data_page(self, path: str) -> bytes:
         model = build_data_workspace_model(self._read_model)
@@ -398,7 +434,7 @@ Registered-artifact-only and read-only. External data fetching, mutation,
 automatic promotion, and execution are prohibited.
 </section>
 """
-        return _layout("FCF Data Workspace", path, body)
+        return self._render_layout("FCF Data Workspace", path, body)
 
 
     def _runs_page(self, path: str) -> bytes:
@@ -462,7 +498,7 @@ cannot dispatch workflows, mutate run state, promote artifacts, or execute
 financial actions.
 </section>
 """
-        return _layout("FCF Research Runs", path, body)
+        return self._render_layout("FCF Research Runs", path, body)
 
     def _ai_comparison_page(self, path: str) -> bytes:
         model = build_ai_comparison_workspace_model(self._read_model)
@@ -525,7 +561,7 @@ Operator review remain unchanged. No automatic approval, promotion,
 baseline replacement, learning activation, archive, or execution is allowed.
 </section>
 """
-        return _layout("FCF AI Comparison", path, body)
+        return self._render_layout("FCF AI Comparison", path, body)
 
     def _stocks_page(self, path: str) -> bytes:
         rows = "".join(
@@ -550,7 +586,7 @@ baseline replacement, learning activation, archive, or execution is allowed.
 Candidate information is research evidence only. Operator review is required.
 </section>
 """
-        return _layout("FCF Stock Candidates", path, body)
+        return self._render_layout("FCF Stock Candidates", path, body)
 
 
     def _governance_page(self, path: str) -> bytes:
@@ -615,7 +651,7 @@ Engine authority and mandatory Operator review remain unchanged. This page
 cannot approve, promote, replace a baseline, activate learning, or execute.
 </section>
 """
-        return _layout("FCF Governance", path, body)
+        return self._render_layout("FCF Governance", path, body)
 
     def _audit_page(self, path: str) -> bytes:
         model = build_audit_history_workspace_model(self._read_model)
@@ -678,7 +714,7 @@ Audit History is an append-only evidence presentation. It cannot mutate,
 delete, approve, promote, archive automatically, or execute financial actions.
 </section>
 """
-        return _layout("FCF Audit History", path, body)
+        return self._render_layout("FCF Audit History", path, body)
 
     def _section_page(
         self,
@@ -714,7 +750,7 @@ delete, approve, promote, archive automatically, or execute financial actions.
                 else '<section class="card">No registered evidence</section>'
             )
         )
-        return _layout(f"FCF {title}", path, body)
+        return self._render_layout(f"FCF {title}", path, body)
 
     def _risk_page(self, path: str) -> bytes:
         return self._section_page(

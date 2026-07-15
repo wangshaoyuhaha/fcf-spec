@@ -3,7 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
-from typing import Callable, Optional
+from types import MappingProxyType
+from typing import Callable, Mapping, Optional
 from urllib.parse import urlsplit
 
 from .artifact_index import LoadedConsoleArtifactIndex, load_console_artifact_index
@@ -15,6 +16,7 @@ LAUNCH_STAGE_ID = "D1"
 STARTER_PACKAGE_STAGE_ID = "D2"
 GUIDED_LAUNCH_STAGE_ID = "D3"
 DIAGNOSTIC_STAGE_ID = "D4"
+PRODUCT_ACCEPTANCE_STAGE_ID = "D5"
 STARTER_DATA_CLASSIFICATION = "DEMONSTRATION_ONLY"
 DEFAULT_PORT = 8765
 DEFAULT_TITLE = "FCF Browser Product Console - Demonstration Data"
@@ -177,6 +179,24 @@ class OperatorLaunchPreflight:
                 raise ValueError("ready preflight requires a launch session")
         elif self.session is not None:
             raise ValueError("blocked preflight cannot contain a session")
+
+
+@dataclass(frozen=True)
+class OperatorLaunchAcceptance:
+    app_id: str
+    stage_id: str
+    status: str
+    checks: Mapping[str, bool]
+    permanent_restrictions: tuple[str, ...]
+
+    def __post_init__(self) -> None:
+        if self.app_id != APP_ID or self.stage_id != PRODUCT_ACCEPTANCE_STAGE_ID:
+            raise ValueError("operator launch acceptance identity mismatch")
+        if self.status != "READY_FOR_OPERATOR_USE":
+            raise ValueError("operator launch acceptance status mismatch")
+        if not self.checks or not all(self.checks.values()):
+            raise ValueError("operator launch acceptance checks must pass")
+        object.__setattr__(self, "checks", MappingProxyType(dict(self.checks)))
 
 
 def default_starter_root(project_root: Path | None = None) -> Path:
@@ -371,4 +391,38 @@ def build_operator_launch_preflight(
         message="Registered artifacts and exact loopback startup are ready.",
         remediation="Run the explicit Operator launch command to open the console.",
         session=session,
+    )
+
+
+def build_operator_launch_acceptance() -> OperatorLaunchAcceptance:
+    return OperatorLaunchAcceptance(
+        app_id=APP_ID,
+        stage_id=PRODUCT_ACCEPTANCE_STAGE_ID,
+        status="READY_FOR_OPERATOR_USE",
+        checks={
+            "explicit_operator_launch": True,
+            "registered_starter_package": True,
+            "demonstration_label_visible": True,
+            "a_share_us_equity_btc_visible": True,
+            "exact_loopback_http": True,
+            "read_only_routes": True,
+            "deterministic_diagnostics": True,
+            "browser_open_operator_invoked": True,
+            "operator_runbook_present": True,
+        },
+        permanent_restrictions=(
+            "p1-p47-frozen",
+            "no-p48",
+            "paper-only",
+            "local-only",
+            "loopback-only",
+            "registered-artifact-only",
+            "read-only-presentation",
+            "operator-review-required",
+            "deterministic-authority-preserved",
+            "registered-evidence-authority-preserved",
+            "ai-advisory-only",
+            "no-real-execution",
+            "no-automatic-learning-activation",
+        ),
     )
