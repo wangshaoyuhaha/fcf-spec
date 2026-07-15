@@ -693,7 +693,7 @@ delete, approve, promote, archive automatically, or execute financial actions.
                 (),
             ):
                 serialized = json.dumps(
-                    payload,
+                    dict(payload),
                     indent=2,
                     sort_keys=True,
                     ensure_ascii=True,

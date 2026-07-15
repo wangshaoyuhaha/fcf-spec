@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ipaddress
+import socket
 from dataclasses import dataclass
 from enum import Enum
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -318,8 +319,44 @@ class HardenedLoopbackHTTPServer(
         request.settimeout(self._limits.socket_timeout_seconds)
         return request, client_address
 
-    @staticmethod
-    def _send_capacity_rejection(request) -> None:
+    def _drain_capacity_request(self, request) -> None:
+        original_timeout = request.gettimeout()
+        drain_timeout = min(
+            self._limits.socket_timeout_seconds,
+            0.25,
+        )
+        maximum_bytes = (
+            self._limits.request_target_max_bytes
+            + (
+                self._limits.header_count_max
+                * (self._limits.header_line_max_bytes + 2)
+            )
+            + 4
+        )
+        received = b""
+
+        try:
+            request.settimeout(drain_timeout)
+
+            while (
+                b"\r\n\r\n" not in received
+                and len(received) < maximum_bytes
+            ):
+                chunk = request.recv(
+                    min(4096, maximum_bytes - len(received))
+                )
+                if not chunk:
+                    break
+                received += chunk
+        except OSError:
+            return
+        finally:
+            try:
+                request.settimeout(original_timeout)
+            except OSError:
+                pass
+
+    def _send_capacity_rejection(self, request) -> None:
         response = (
             b"HTTP/1.1 503 Service Unavailable\r\n"
             b"Content-Type: text/plain; charset=utf-8\r\n"
@@ -332,8 +369,10 @@ class HardenedLoopbackHTTPServer(
             b"\r\n"
             b"Service Unavailable"
         )
+        self._drain_capacity_request(request)
         try:
             request.sendall(response)
+            request.shutdown(socket.SHUT_WR)
         except OSError:
             return
 

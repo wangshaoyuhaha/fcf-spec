@@ -9130,29 +9130,35 @@ Only after precheck success may the minimum implementation phase begin.
 
 ### 7. Failure behavior
 
-Before commit, any failure requires:
+Failures must be classified before deciding whether to stop:
 
-- stop immediately
-- no full pytest
-- no commit
-- no push
-- restore only files touched by the current step
-- inspect staged files
-- inspect untracked files
-- verify HEAD
-- verify git status
-- require clean rollback evidence
+- a project test, safety check, integrity check, or validation failure blocks
+  commit and push until it is fixed and the affected checks pass
+- a non-mutating inspection typo, missing optional reference, shell quoting
+  error, or helper type mismatch may be corrected and continued without
+  rolling back unrelated verified work
+- a patch-format rejection that writes no project file may be corrected and
+  retried in smaller verified patches
+- verified project changes do not require rollback solely because a later
+  non-mutating command or reporting helper failed
+- unexpected dirty files, destructive ambiguity, integrity drift, or an
+  unresolved project failure still require an immediate stop
+- full pytest must not run while affected targeted tests are failing
+- commit and push require all required validation evidence to pass
 
 After commit, no automatic reset, rebase, force push, or history rewrite
 is allowed. Report the exact commit and wait for the Operator.
 
-### 8. Rejected-script rule
+### 8. Repaired-command rule
 
-- A script that caused a failure is rejected.
-- A rejected script must never be rerun unchanged.
-- The exact failure mechanism must be identified.
-- The repaired mechanism must pass an isolated smoke test before project
-  work resumes.
+- A project-changing script that caused a project or safety failure must not
+  be rerun unchanged.
+- The failure mechanism must be identified and the repaired mechanism must
+  pass an appropriately scoped check.
+- Read-only commands that failed only because of spelling, optional paths,
+  quoting, or shell collection semantics may be corrected and continued.
+- Stable tests may be rerun unchanged after an independently identified and
+  repaired production defect.
 
 ### 9. Completion evidence
 
@@ -9189,7 +9195,10 @@ A COMPLETE line inside a log is never sufficient by itself.
   infrastructure.
 - Execution mechanics must be validated before the Operator is asked to
   run a project-changing script.
-- No stage may automatically continue into the next D-step.
+- A stage may continue into the next D-step when the Operator has explicitly
+  authorized continuous execution through a stated delivery range.
+- Continuous authorization does not permit skipping required tests, commits,
+  push verification, permanent product boundaries, or merge validation.
 <!-- FCF-POWERSHELL-EXECUTION-SAFETY-CONTRACT-END -->
 
 <!-- BROWSER-PRODUCT-CONSOLE-RESEARCH-WORKSPACE-APP-1 FINAL SYNC START -->
