@@ -2409,7 +2409,6 @@ Next phase: NOT_SELECTED and NOT_APPROVED. Do not start work automatically.
 Do not tag, release, or deploy.
 
 <!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 FINAL SYNC END -->
-+
 
 <!-- CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1 APPROVAL START -->
 

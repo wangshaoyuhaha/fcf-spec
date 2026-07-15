@@ -17,6 +17,8 @@ def test_required_safe_runner_functions_exist() -> None:
     required = (
         "function Invoke-FcfProcess",
         "function Invoke-FcfProcessWithRetry",
+        "function Assert-FcfProcessSucceeded",
+        "function Invoke-FcfRequiredProcess",
         "function Get-FcfRepositoryState",
         "function Assert-FcfRepositoryState",
         "function Assert-FcfChangedPaths",
@@ -101,6 +103,7 @@ def test_safe_runner_self_test_passes() -> None:
     assert "LINE_ENDING_NORMALIZATION=PASSED" in completed.stdout
     assert "IDEMPOTENT_WRITE=PASSED" in completed.stdout
     assert "CHECKPOINT_RESUME=PASSED" in completed.stdout
+    assert "REQUIRED_PROCESS_GUARD=PASSED" in completed.stdout
 
 def test_self_test_switch_uses_non_conflicting_variable() -> None:
     text = RUNNER.read_text(encoding="utf-8")
