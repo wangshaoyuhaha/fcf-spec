@@ -2409,3 +2409,80 @@ Next phase: NOT_SELECTED and NOT_APPROVED. Do not start work automatically.
 Do not tag, release, or deploy.
 
 <!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 FINAL SYNC END -->
++
+
+<!-- CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1 APPROVAL START -->
+
+## CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved baseline:
+
+- branch: main
+- parent: 3f9ac570f176471d0e8491c03e611421f0e01919
+- planned branch: sidecar-control-center-authority-execution-continuity-app-1
+
+Purpose:
+
+Reconcile the five active authority files with repository truth, repair missing
+completion records, make authority drift machine-detectable, and adapt the
+development execution protocol for reliable continuous Codex operation on
+Windows.
+
+Required delivery order:
+
+- D1 authoritative truth snapshot and reconciliation contract
+- D2 five-source synchronization guard and missing completion record repair
+- D3 recoverable-environment continuity and Windows execution protocol
+- D4 dependency-ordered V2 implementation registry
+- D5 full governance acceptance and regression guard
+- D6 closeout, merge validation, and final authority synchronization
+
+Authorized execution behavior:
+
+- recover shell, quoting, temporary-path, ACL, Git stat-cache, and transient
+  network problems from the last verified checkpoint
+- do not classify warnings or environment faults as project failures when the
+  native exit code and project assertions pass
+- do not repeat completed writes, commits, merges, or validations
+- stage and restore only exact allowlisted paths
+- keep tests and generated scratch outside the repository on Windows
+- block commit only for real code, test, integrity, safety, or unclassified
+  repository-state failures
+
+Post-maintenance implementation order:
+
+1. READ-ONLY-DATA-GATEWAY-APP-1
+2. SOURCE-LICENSE-GOVERNANCE-APP-1,
+   DATA-FRESHNESS-POLICY-APP-1, and READ-ONLY-CREDENTIAL-VAULT-APP-1
+3. RESEARCH-GATEWAY-APP-1 and ONLINE-EVIDENCE-TRACEABILITY-APP-1
+4. FCF-API-GATEWAY-APP-1
+5. MULTI-MODEL-WORKFLOW-APP-1
+6. China A-share, US-equity, Hong Kong-equity, gold/commodity,
+   digital-asset, and futures market adapters
+7. PORTFOLIO-CONSTRUCTION-APP-1 and PORTFOLIO-STRESS-TEST-APP-1
+8. FCF-WEB-CONSOLE-APP-1
+9. ONE-CLICK-LOCAL-OPERATIONS-APP-1
+10. multi-market, Paper portfolio, and Shadow validation
+11. controlled learning and deterministic backtesting P0-P3
+12. deferred learning enhancements P4 only after a stable P0-P3 foundation
+
+Permanent product boundary:
+
+- P1-P47 frozen and no P48
+- paper-only research and Paper portfolios
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory unless a later explicitly approved runtime phase authorizes
+  bounded model invocation
+- no broker, exchange, trading credential, wallet, order, withdrawal, or real
+  execution path inside fcf-spec
+- no automatic approval, promotion, baseline replacement, or live trading
+- no tag, release, or deployment in this phase
+
+No product runtime implementation is included in this approval record.
+
+<!-- CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1 APPROVAL END -->
