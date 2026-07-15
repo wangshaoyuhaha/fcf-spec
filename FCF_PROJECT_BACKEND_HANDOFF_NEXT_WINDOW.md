@@ -3228,3 +3228,42 @@ execution, automatic learning, tag, release, or deploy.
 No successor phase is approved. No D1 implementation is included here.
 
 <!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 APPROVAL END -->
+
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 FINAL SYNC START -->
+
+## Latest Authoritative State
+
+BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 is
+COMPLETED_MERGED_VALIDATED.
+
+Approval commit: 20cbd7b62db5e7e87387e84d1196c74ff7ec049c
+
+Delivery commits: D1 af31949dc4673d2be6aeb6b3807639b478bed46e;
+D2 2c707d342e8f639c1f2175d70d6366cbaf5badeb; D2 integrity fix
+c996f66bc4fa82c7a0e8ee48c53b8f3b26531a3b; D3
+312b2ebf04a88ec6c11089c3e57f2cf473b6f12b; D4
+a5ce0862115dd67dabb771c484704f234eb09404; D5
+4c2ca5f3e313e1b9fd9a369e3c03bf85a3475253; D6
+7083f16e7a1bb030f03f09b63f53c9fc7a110f83.
+
+Main merge commit: 2cfe860ac8c9847819557da1fbb405b7e3952eaa
+
+Validation: targeted pytest 520 passed, 3 skipped; full pytest 4266 passed,
+3 skipped; scripts/run_all_checks.py PASSED; generated outputs RESTORED; git
+diff check PASSED; clean before authority synchronization.
+
+Delivered: explicit Windows double-click launch, governed no-argument
+loopback startup, SHA-256-registered DEMONSTRATION_ONLY starter artifacts for
+A-share, US equity, and BTC, optional browser opening after Operator action,
+deterministic diagnostics, visible data classification, and an Operator guide.
+
+Permanent boundary: P1-P47 frozen; no P48; paper-only; local-only;
+loopback-only; sidecar-only; registered-artifact-only; read-only; Operator
+review mandatory; Deterministic Engine and Registered Evidence authority
+preserved; AI advisory only; no broker, exchange, credentials, account,
+balance, position, wallet, order, execution, automatic activation, tag,
+release, or deploy.
+
+Next phase: NOT_SELECTED and NOT_APPROVED. Do not start automatically.
+
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 FINAL SYNC END -->

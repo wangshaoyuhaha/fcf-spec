@@ -9613,3 +9613,73 @@ No successor phase is approved. No D1 implementation is included in this
 approval record.
 
 <!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 APPROVAL END -->
+
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 FINAL SYNC START -->
+
+## BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 Final State
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Approval commit:
+
+20cbd7b62db5e7e87387e84d1196c74ff7ec049c
+
+Delivery commits:
+
+- D1: af31949dc4673d2be6aeb6b3807639b478bed46e
+- D2: 2c707d342e8f639c1f2175d70d6366cbaf5badeb
+- D2 artifact integrity fix: c996f66bc4fa82c7a0e8ee48c53b8f3b26531a3b
+- D3: 312b2ebf04a88ec6c11089c3e57f2cf473b6f12b
+- D4: a5ce0862115dd67dabb771c484704f234eb09404
+- D5: 4c2ca5f3e313e1b9fd9a369e3c03bf85a3475253
+- D6: 7083f16e7a1bb030f03f09b63f53c9fc7a110f83
+
+Main merge commit:
+
+2cfe860ac8c9847819557da1fbb405b7e3952eaa
+
+Final merged validation:
+
+- targeted pytest: 520 passed, 3 skipped
+- full pytest: 4266 passed, 3 skipped
+- scripts/run_all_checks.py: PASSED
+- generated outputs: RESTORED
+- git diff check: PASSED
+- git status: CLEAN before authority synchronization
+
+Delivered Operator launch capability:
+
+- explicit double-click Windows launch entry
+- deterministic no-argument starter profile
+- SHA-256-registered demonstrative artifact package
+- A-share, US equity, and BTC demonstrative examples
+- optional browser opening only after explicit Operator invocation
+- deterministic preflight diagnostics and bounded failure guidance
+- visible DEMONSTRATION_ONLY data classification
+- complete local Operator guide and acceptance coverage
+- repository-external Windows pytest scratch-path safety contract
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, and sidecar-only
+- registered-artifact-only and read-only product presentation
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory only
+- no evidence mutation, external data fetching, or public network exposure
+- no broker, exchange, credentials, account, balance, position, wallet,
+  order, or real execution path
+- no automatic approval, promotion, baseline replacement, model activation,
+  Prompt activation, learning activation, or archive
+- no tag, release, or deployment
+
+Next phase:
+
+NOT_SELECTED
+
+NOT_APPROVED
+
+<!-- BROWSER-PRODUCT-CONSOLE-OPERATOR-LAUNCH-APP-1 FINAL SYNC END -->
