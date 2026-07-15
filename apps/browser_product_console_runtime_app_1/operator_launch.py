@@ -17,6 +17,7 @@ STARTER_PACKAGE_STAGE_ID = "D2"
 GUIDED_LAUNCH_STAGE_ID = "D3"
 DIAGNOSTIC_STAGE_ID = "D4"
 PRODUCT_ACCEPTANCE_STAGE_ID = "D5"
+FINAL_CLOSEOUT_STAGE_ID = "D6"
 STARTER_DATA_CLASSIFICATION = "DEMONSTRATION_ONLY"
 DEFAULT_PORT = 8765
 DEFAULT_TITLE = "FCF Browser Product Console - Demonstration Data"
@@ -197,6 +198,34 @@ class OperatorLaunchAcceptance:
         if not self.checks or not all(self.checks.values()):
             raise ValueError("operator launch acceptance checks must pass")
         object.__setattr__(self, "checks", MappingProxyType(dict(self.checks)))
+
+
+@dataclass(frozen=True)
+class OperatorLaunchFinalCloseout:
+    app_id: str
+    stage_id: str
+    status: str
+    completed_stages: tuple[str, ...]
+    product_acceptance_status: str
+    main_merge_authorized: bool
+    operator_review_required: bool
+    successor_phase: str
+
+    def __post_init__(self) -> None:
+        if self.app_id != APP_ID or self.stage_id != FINAL_CLOSEOUT_STAGE_ID:
+            raise ValueError("operator launch closeout identity mismatch")
+        if self.status != "READY_FOR_MAIN_MERGE":
+            raise ValueError("operator launch closeout status mismatch")
+        if self.completed_stages != ("D1", "D2", "D3", "D4", "D5", "D6"):
+            raise ValueError("operator launch closeout stage chain mismatch")
+        if self.product_acceptance_status != "READY_FOR_OPERATOR_USE":
+            raise ValueError("operator launch product acceptance is incomplete")
+        if not self.main_merge_authorized:
+            raise ValueError("operator launch main merge is not authorized")
+        if not self.operator_review_required:
+            raise ValueError("Operator review must remain required")
+        if self.successor_phase != "NOT_SELECTED":
+            raise ValueError("operator launch successor must remain unselected")
 
 
 def default_starter_root(project_root: Path | None = None) -> Path:
@@ -425,4 +454,18 @@ def build_operator_launch_acceptance() -> OperatorLaunchAcceptance:
             "no-real-execution",
             "no-automatic-learning-activation",
         ),
+    )
+
+
+def build_operator_launch_final_closeout() -> OperatorLaunchFinalCloseout:
+    acceptance = build_operator_launch_acceptance()
+    return OperatorLaunchFinalCloseout(
+        app_id=APP_ID,
+        stage_id=FINAL_CLOSEOUT_STAGE_ID,
+        status="READY_FOR_MAIN_MERGE",
+        completed_stages=("D1", "D2", "D3", "D4", "D5", "D6"),
+        product_acceptance_status=acceptance.status,
+        main_merge_authorized=True,
+        operator_review_required=True,
+        successor_phase="NOT_SELECTED",
     )
