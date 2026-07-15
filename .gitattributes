@@ -5,3 +5,5 @@
 scripts/fcf_safe_runner.ps1 text eol=crlf
 tests/test_fcf_safe_runner_contract.py text eol=lf
 docs/FCF_EXECUTION_SAFETY_PROTOCOL.md text eol=lf
+examples/browser_product_console_starter/*.json text eol=lf
+examples/browser_product_console_starter/registered/*.json text eol=lf
