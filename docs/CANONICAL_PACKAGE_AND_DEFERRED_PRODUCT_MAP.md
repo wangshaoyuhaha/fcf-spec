@@ -24,6 +24,18 @@ until incremental migration tests prove removal is safe.
 - persistent backend execution of Console actions
 - full package consolidation
 - public deployment and real financial execution
+- V2 Factor Registry and forecast-target runtime
+- V2 State-Sync and macro-to-micro transmission runtime
+- V2 realtime ingestion, order-book, and anomaly-radar runtime
+- V2 asynchronous cognitive shield and Paper simulation research
+
+Canonical future-architecture sources:
+
+- `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`
+- `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md`
+- `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md`
+
+These sources are accepted architecture, not delivered product capability.
 
 ## Generated Output Policy
 
