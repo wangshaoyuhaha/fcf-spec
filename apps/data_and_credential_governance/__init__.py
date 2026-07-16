@@ -23,6 +23,12 @@ from .freshness import (
     StaleAction,
     evaluate_data_freshness,
 )
+from .credential_reference import (
+    CredentialReferenceMetadata,
+    CredentialReferenceRegistry,
+    CredentialReferenceStatus,
+    evaluate_credential_reference,
+)
 
 __all__ = (
     "DATA_AND_CREDENTIAL_GOVERNANCE_BOUNDARY",
@@ -42,4 +48,8 @@ __all__ = (
     "FreshnessPolicyRegistry",
     "StaleAction",
     "evaluate_data_freshness",
+    "CredentialReferenceMetadata",
+    "CredentialReferenceRegistry",
+    "CredentialReferenceStatus",
+    "evaluate_credential_reference",
 )
