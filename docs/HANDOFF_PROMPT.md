@@ -2530,3 +2530,49 @@ READ-ONLY-DATA-GATEWAY-APP-1
 The next phase requires a separate runtime approval before implementation.
 
 <!-- CONTROL-CENTER-AUTHORITY-EXECUTION-CONTINUITY-APP-1 FINAL SYNC END -->
+
+<!-- READ-ONLY-DATA-GATEWAY-APP-1 APPROVAL START -->
+
+## READ-ONLY-DATA-GATEWAY-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved baseline:
+
+- branch: main
+- parent: 0f66aafe3bd7f661753eafea4e98e3d26a7803a0
+- planned branch: sidecar-read-only-data-gateway-app-1
+
+Required delivery order:
+
+- D1 runtime boundary, registered-source registry, request, and result contracts
+- D2 fail-closed local artifact resolver and bounded byte reader
+- D3 deterministic CSV and JSON normalization with evidence-linked envelopes
+- D4 read-only gateway query service and source-policy gate
+- D5 Operator review read model and read-only product presentation adapter
+- D6 integration acceptance, closeout, merge validation, and authority sync
+
+Deferred to separately approved phases:
+
+- detailed source licensing and freshness policy
+- any isolated read-only credential capability
+- online retrieval and public API runtime
+- interactive Web Console controls
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only and read-only product presentation
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory only
+- no network, live vendor, credential, account, wallet, broker, exchange, order,
+  or execution path
+- no automatic approval, promotion, baseline replacement, archive, or learning
+  activation
+- no tag, release, or deployment
+
+<!-- READ-ONLY-DATA-GATEWAY-APP-1 APPROVAL END -->
