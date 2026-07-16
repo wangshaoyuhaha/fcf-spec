@@ -333,10 +333,17 @@ document.querySelectorAll("[data-action-form]").forEach(form => {{
                     "portfolio_construction_outcome",
                     "portfolio_stress",
                     "stress_scenario",
+                    "multi_market_validation",
                 )
             ),
             "/paper-portfolio": lambda: self._artifact_page(
-                ("paper_position", "paper_position_proposal", "paper_validation")
+                (
+                    "paper_position",
+                    "paper_position_proposal",
+                    "paper_validation",
+                    "paper_portfolio_validation",
+                    "shadow_market_observation",
+                )
             ),
             "/reports": lambda: self._artifact_page(
                 ("comprehensive_report", "report_archive", "audit_receipt")
