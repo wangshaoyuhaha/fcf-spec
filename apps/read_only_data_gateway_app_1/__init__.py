@@ -33,6 +33,13 @@ from .service import (
     SourcePolicyStatus,
     evaluate_source_policy,
 )
+from .presentation import (
+    GatewayOperatorReviewPacket,
+    GatewayPresentationModel,
+    GatewaySourcePresentation,
+    build_gateway_operator_review_packet,
+    build_gateway_presentation_model,
+)
 
 __all__ = [
     "ArtifactFormat",
@@ -43,6 +50,9 @@ __all__ = [
     "GatewayReadRequest",
     "GatewayReadStatus",
     "GatewayQueryOutcome",
+    "GatewayOperatorReviewPacket",
+    "GatewayPresentationModel",
+    "GatewaySourcePresentation",
     "READ_ONLY_DATA_GATEWAY_BOUNDARY",
     "LocalRegisteredArtifactReader",
     "NormalizedArtifactEnvelope",
@@ -57,5 +67,7 @@ __all__ = [
     "normalize_registered_relative_path",
     "normalize_verified_artifact",
     "evaluate_source_policy",
+    "build_gateway_operator_review_packet",
+    "build_gateway_presentation_model",
     "resolve_registered_artifact_path",
 ]
