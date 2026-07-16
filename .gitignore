@@ -12,3 +12,4 @@ artifacts/
 # Local logs
 *_log.txt
 btc_*_log.txt
+runtime/one_click_local_operations/
