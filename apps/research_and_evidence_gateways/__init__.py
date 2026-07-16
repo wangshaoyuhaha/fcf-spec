@@ -6,6 +6,15 @@ from .contracts import (
     SourceClass,
     require_https_url,
 )
+from .gateway import (
+    EvidenceTrace,
+    ResearchGatewayOutcome,
+    ResearchGatewayService,
+    ResearchReviewPacket,
+    ResearchSourceRegistry,
+    RetrievalReceipt,
+    validate_research_acceptance,
+)
 
 __all__ = (
     "RESEARCH_AND_EVIDENCE_BOUNDARY",
@@ -15,4 +24,11 @@ __all__ = (
     "ResearchSource",
     "SourceClass",
     "require_https_url",
+    "EvidenceTrace",
+    "ResearchGatewayOutcome",
+    "ResearchGatewayService",
+    "ResearchReviewPacket",
+    "ResearchSourceRegistry",
+    "RetrievalReceipt",
+    "validate_research_acceptance",
 )
