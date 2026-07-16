@@ -29,6 +29,8 @@ from .credential_reference import (
     CredentialReferenceStatus,
     evaluate_credential_reference,
 )
+from .service import GovernanceEvaluationOutcome, UnifiedGovernanceService
+from .presentation import GovernanceReviewPacket, build_governance_review_packet
 
 __all__ = (
     "DATA_AND_CREDENTIAL_GOVERNANCE_BOUNDARY",
@@ -52,4 +54,8 @@ __all__ = (
     "CredentialReferenceRegistry",
     "CredentialReferenceStatus",
     "evaluate_credential_reference",
+    "GovernanceEvaluationOutcome",
+    "UnifiedGovernanceService",
+    "GovernanceReviewPacket",
+    "build_governance_review_packet",
 )
