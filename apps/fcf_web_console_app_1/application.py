@@ -322,7 +322,13 @@ document.querySelectorAll("[data-action-form]").forEach(form => {{
             ),
             "/evidence": lambda: self._artifact_page(tuple(self._snapshot.sections)),
             "/models": lambda: self._artifact_page(
-                ("ai_explanation", "ai_evaluation", "model_comparison", "disagreement")
+                (
+                    "ai_explanation",
+                    "ai_evaluation",
+                    "model_comparison",
+                    "disagreement",
+                    "ai_historical_evaluation",
+                )
             ),
             "/risk": lambda: self._artifact_page(
                 ("risk_flags", "ranked_watchlist", "policy_snapshot", "contradiction")
@@ -346,7 +352,14 @@ document.querySelectorAll("[data-action-form]").forEach(form => {{
                 )
             ),
             "/reports": lambda: self._artifact_page(
-                ("comprehensive_report", "report_archive", "audit_receipt")
+                (
+                    "comprehensive_report",
+                    "report_archive",
+                    "audit_receipt",
+                    "deterministic_backtest",
+                    "challenger_experiment",
+                    "controlled_evolution_gate",
+                )
             ),
             "/operator-review": self._operator_page,
             "/operations": self._operations_page,
