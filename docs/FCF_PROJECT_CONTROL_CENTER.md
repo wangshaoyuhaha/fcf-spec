@@ -11151,3 +11151,39 @@ Next phase not started: local AI runtime and Dify configuration governance.
 P1-P47 remain frozen; no P48. No tag, release, or deploy was run.
 
 <!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 FINAL SYNC END -->
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL START -->
+
+## System Integrity and Product Hardening Stage 13 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline:
+
+- branch: main
+- parent: `018b25c1cbe6fa4389eb33e67168ed6676cff9fd`
+- planned branch: `sidecar-system-integrity-product-hardening-stage-13`
+
+Mandatory closure set:
+
+- enforce evidence-id membership and evidence availability at every decision
+- implement explicit append-only P0/P1 registries and bind acceptance identities
+  to concrete implementations
+- require complete P4 allowlist containment and training dataset lineage
+- validate all audit times as UTC and reject NaN or infinity
+- add absolute Shadow error and direction metrics
+- declare every Challenger change and validate schedule dependencies
+- add same-origin POST, anti-framing, nonce CSP, and registered Operator
+  attestation before future backend action execution
+- label current Console actions as validation receipts, not executed controls
+- replace stale project identity and progress documents
+- pin the active development dependency and add active-surface quality guards
+- account explicitly for Windows symlink coverage and generated-output cleanup
+- record Dify/model runtime, data connectors, training execution, backend action
+  execution, package consolidation, and LICENSE choice as uncompleted work
+
+Permanent restrictions remain unchanged. No live retrieval, model invocation,
+Prompt execution, training execution, credentials, real-world execution, tag,
+release, or deploy is authorized.
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL END -->

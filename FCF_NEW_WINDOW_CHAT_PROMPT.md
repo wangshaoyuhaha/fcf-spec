@@ -4354,3 +4354,20 @@ All five bounded P4 structures and read-only Console integration are complete.
 Next phase not started: local AI runtime and Dify configuration governance.
 
 <!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 FINAL SYNC END -->
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL START -->
+
+## System Integrity and Product Hardening Stage 13 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `018b25c1cbe6fa4389eb33e67168ed6676cff9fd`; branch
+`sidecar-system-integrity-product-hardening-stage-13`.
+
+Close every actionable audit finding: evidence lineage, explicit registries,
+implementation-bound acceptance, P4 scope and training lineage, finite/UTC
+contracts, Shadow/proposal/schedule integrity, Web origin/framing/CSP/Operator
+attestation, truthful product documentation, pinned dependency, and active
+engineering guards. Deferred capabilities must remain explicit and unclaimed.
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL END -->

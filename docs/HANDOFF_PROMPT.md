@@ -3532,3 +3532,17 @@ P4 bounded structures are complete. Local AI runtime and Dify configuration
 governance is next and has not started.
 
 <!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 FINAL SYNC END -->
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL START -->
+
+## System Integrity and Product Hardening Stage 13 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `018b25c1cbe6fa4389eb33e67168ed6676cff9fd`; branch
+`sidecar-system-integrity-product-hardening-stage-13`.
+
+Close all actionable audit findings and record non-authorized future product
+capabilities as explicit backlog, never as completed behavior.
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL END -->

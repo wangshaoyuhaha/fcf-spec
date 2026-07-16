@@ -5727,3 +5727,25 @@ Next phase not started: local AI runtime and Dify configuration governance.
 No model invocation or authority transition was added.
 
 <!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 FINAL SYNC END -->
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL START -->
+
+## System Integrity and Product Hardening Stage 13 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `018b25c1cbe6fa4389eb33e67168ed6676cff9fd`; planned branch
+`sidecar-system-integrity-product-hardening-stage-13`.
+
+Delivery order:
+
+- D1 evidence lineage, explicit registries, and implementation-bound acceptance
+- D2 P4 allowlist, training lineage, Shadow, proposal, and schedule hardening
+- D3 Web origin, framing, CSP, Operator attestation, and receipt-only semantics
+- D4 UTC, finite-number, deterministic JSON, and audit integrity
+- D5 product-state, dependency, canonical-package, and engineering guards
+- D6 regression, full checks, merge, final authority sync, and remote audit
+
+No deferred runtime capability is authorized by this remediation phase.
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL END -->

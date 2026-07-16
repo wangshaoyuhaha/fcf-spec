@@ -4393,3 +4393,19 @@ execution or authority transition. Next phase not started: local AI runtime
 and Dify configuration governance.
 
 <!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 FINAL SYNC END -->
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL START -->
+
+## System Integrity and Product Hardening Stage 13 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `018b25c1cbe6fa4389eb33e67168ed6676cff9fd`; branch
+`sidecar-system-integrity-product-hardening-stage-13`.
+
+Remediate the complete audit finding set without crossing permanent boundaries.
+Acceptance must bind capability identities to concrete contracts and services,
+not count names only. Product documentation must distinguish implemented,
+structural-only, deferred, and legally undecided items.
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL END -->
