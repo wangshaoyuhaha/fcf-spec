@@ -2848,3 +2848,54 @@ Permanent boundary:
   account, wallet, broker, exchange, order, execution, tag, release, or deploy
 
 <!-- RESEARCH-AND-EVIDENCE-GATEWAYS FINAL SYNC END -->
+
+
+<!-- FCF-API-GATEWAY-APP-1 APPROVAL START -->
+
+## FCF-API-GATEWAY-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved baseline:
+
+- branch: main
+- parent: e3cf199d41fa0ae66469e859e4235409bf3ea4b0
+- planned branch: sidecar-fcf-api-gateway-app-1
+
+Required delivery order:
+
+- D1 immutable loopback API boundary, request, response, and route contracts
+- D2 registered local-principal authentication, authorization, policy, and schema gates
+- D3 deterministic correlation and idempotency ledger
+- D4 deterministic rate and declared-cost budget enforcement
+- D5 fail-closed dispatch service, audit emission, and Operator review packet
+- D6 integration acceptance, closeout, merge validation, and authority sync
+
+Local authentication rule:
+
+- identity is a pre-registered loopback process assertion, not secret material
+- no password, API key, bearer token, credential file, or environment secret
+- no external binding, remote client, public Internet, or authenticated vendor request
+- all routes remain read-only and Operator-reviewable
+
+Deferred until separately approved:
+
+- MULTI-MODEL-WORKFLOW-APP-1
+- market adapters
+- interactive Web Console controls
+- external authentication providers and public API exposure
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only and read-only product presentation
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory only
+- no credential material, account, wallet, broker, exchange, order, execution,
+  withdrawal, transfer, real-money, tag, release, or deployment path
+
+<!-- FCF-API-GATEWAY-APP-1 APPROVAL END -->
