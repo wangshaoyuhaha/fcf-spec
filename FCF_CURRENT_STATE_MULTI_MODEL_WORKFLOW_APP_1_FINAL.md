@@ -2,7 +2,7 @@
 
 ## Status
 
-COMPLETED_VALIDATED_READY_FOR_MAIN_MERGE
+COMPLETED_MERGED_VALIDATED
 
 ## Branch
 
@@ -14,7 +14,11 @@ sidecar-multi-model-workflow-app-1
 
 ## Delivery commits
 
-- D1-D6: pending current delivery commit
+- D1-D6: `078037c2414e929fb4fe9e456ed6748d98633e1d`
+
+## Main merge commit
+
+`a9b1adec4735bbef7d9ead196d71627d47c7a7c1`
 
 ## Completed scope
 
@@ -25,7 +29,7 @@ sidecar-multi-model-workflow-app-1
 - visible disagreement with preserved original outputs
 - immutable Operator review packet and final acceptance
 
-## Sidecar validation
+## Merged validation
 
 - targeted pytest: 272 passed, 2 skipped
 - full pytest: 4446 passed, 5 skipped

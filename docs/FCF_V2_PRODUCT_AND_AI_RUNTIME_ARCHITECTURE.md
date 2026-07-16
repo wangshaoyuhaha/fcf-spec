@@ -5093,3 +5093,55 @@ Permanent boundary:
   tag, release, or deployment path
 
 <!-- MULTI-MODEL-WORKFLOW-APP-1 APPROVAL END -->
+
+<!-- MULTI-MODEL-WORKFLOW-APP-1 FINAL SYNC START -->
+
+## MULTI-MODEL-WORKFLOW-APP-1 Final Sync
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: `7b78e0de2d99005fdab2e4e8d320e7e0347900cf`
+- D1-D6 delivery: `078037c2414e929fb4fe9e456ed6748d98633e1d`
+- main merge: `a9b1adec4735bbef7d9ead196d71627d47c7a7c1`
+
+Merged validation:
+
+- targeted pytest: 272 passed, 2 skipped
+- full pytest: 4446 passed, 5 skipped
+- `scripts/run_all_checks.py`: PASSED
+- generated outputs: RESTORED
+- `git diff --check`: PASSED
+
+Delivered:
+
+- immutable workflow, model-role, Prompt, request, and result contracts
+- policy-approved deterministic route and fallback plans
+- registered advisory-result receipt validation
+- bounded timeout, retry, fallback, health, and cost governance
+- visible disagreement with preserved original outputs
+- immutable Operator review packet and final acceptance
+
+Next group not started:
+
+- `CHINA-A-SHARE-MARKET-ADAPTER-APP-1`
+- `US-EQUITY-MARKET-ADAPTER-APP-1`
+- `HONG-KONG-EQUITY-MARKET-ADAPTER-APP-1`
+- `GOLD-COMMODITY-MARKET-ADAPTER-APP-1`
+- `DIGITAL-ASSET-MARKET-ADAPTER-APP-1`
+- `FUTURES-MARKET-ADAPTER-APP-1`
+
+Permanent boundaries remain unchanged:
+
+- P1-P47 frozen; no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- Operator review mandatory
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- AI remains advisory only
+- no live model invocation or Prompt execution
+- no model credential, account, wallet, broker, exchange, balance, position,
+  order, execution, tag, release, or deployment path
+
+<!-- MULTI-MODEL-WORKFLOW-APP-1 FINAL SYNC END -->
