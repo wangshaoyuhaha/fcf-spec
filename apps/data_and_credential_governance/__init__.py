@@ -16,6 +16,13 @@ from .licensing import (
     LicenseType,
     evaluate_source_license,
 )
+from .freshness import (
+    FreshnessBand,
+    FreshnessPolicy,
+    FreshnessPolicyRegistry,
+    StaleAction,
+    evaluate_data_freshness,
+)
 
 __all__ = (
     "DATA_AND_CREDENTIAL_GOVERNANCE_BOUNDARY",
@@ -30,4 +37,9 @@ __all__ = (
     "LicensePolicyRegistry",
     "LicenseType",
     "evaluate_source_license",
+    "FreshnessBand",
+    "FreshnessPolicy",
+    "FreshnessPolicyRegistry",
+    "StaleAction",
+    "evaluate_data_freshness",
 )
