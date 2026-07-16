@@ -201,6 +201,7 @@ def test_d3_schedule_is_a_review_proposal_and_cannot_execute():
         "2025-05-01T00:00:00Z",
         "2025-05-31T00:00:00Z",
         ("backtest-result-1",),
+        ("backtest-result-1",),
     )
     assert schedule.status == "PROPOSED_REVIEW_REQUIRED"
     assert schedule.operator_review_required is True
@@ -215,6 +216,7 @@ def test_d3_schedule_rejects_non_positive_window():
             candidate,
             "2025-05-01T00:00:00Z",
             "2025-05-01T00:00:00Z",
+            ("result-1",),
             ("result-1",),
         )
 
@@ -326,6 +328,7 @@ def test_d6_web_console_renders_all_p4_sections_read_only():
         candidate,
         "2025-05-01T00:00:00Z",
         "2025-05-31T00:00:00Z",
+        ("result-1",),
         ("result-1",),
     )
     shadow = LocalForwardShadowValidationService().evaluate(

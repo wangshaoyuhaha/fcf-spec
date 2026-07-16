@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import math
 from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import datetime
@@ -64,6 +65,8 @@ def freeze(value: Any) -> Any:
         return tuple(freeze(item) for item in value)
     if isinstance(value, Decimal):
         return value
+    if isinstance(value, float) and not math.isfinite(value):
+        raise ValueError("P0-P3 float values must be finite")
     if value is None or isinstance(value, (str, bool, int, float)):
         return value
     raise TypeError("P0-P3 values must be immutable JSON-compatible values")
@@ -291,6 +294,28 @@ class UnifiedBacktestRequest:
             raise ValueError("backtest requires evidence and observations")
         if self.embargo_days < 0:
             raise ValueError("embargo_days must be non-negative")
+        evidence_ids = tuple(item.evidence_id for item in self.evidence)
+        if len(set(evidence_ids)) != len(evidence_ids):
+            raise ValueError("backtest evidence ids must be unique")
+        evidence_by_id = {item.evidence_id: item for item in self.evidence}
+        for observation in self.observations:
+            unknown = set(observation.evidence_ids) - set(evidence_by_id)
+            if unknown:
+                raise ValueError("observation references unregistered evidence")
+            decision = utc_time(observation.decision_as_of_utc, "decision_as_of_utc")
+            declared = utc_time(
+                observation.feature_available_at_utc,
+                "feature_available_at_utc",
+            )
+            for evidence_id in observation.evidence_ids:
+                available = utc_time(
+                    evidence_by_id[evidence_id].available_at_utc,
+                    "available_at_utc",
+                )
+                if available > decision:
+                    raise ValueError("observation contains future evidence")
+                if declared < available:
+                    raise ValueError("feature availability predates evidence availability")
 
 
 @dataclass(frozen=True)

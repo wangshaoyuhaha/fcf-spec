@@ -1,6 +1,7 @@
 ﻿# Future Learning Roadmap Anchor
 
-Status: planned, not implemented
+Status: historical anchor; implemented and superseded by governed P8-P14 and
+Stage 11-13 work. This file is not current authority.
 
 Purpose:
 - Record the future self-learning direction in the project skeleton.

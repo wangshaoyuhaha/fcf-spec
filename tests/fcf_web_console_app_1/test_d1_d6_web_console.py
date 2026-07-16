@@ -123,6 +123,14 @@ def _action_payload(action="REQUEST_REANALYSIS"):
     }
 
 
+def _application():
+    return FCFWebConsoleApplication(
+        _snapshot(),
+        registered_operator_ids=("operator-1",),
+        approved_url_hosts=("research.example",),
+    )
+
+
 def test_d1_boundary_is_permanently_fail_closed():
     assert FCF_WEB_CONSOLE_BOUNDARY.paper_only is True
     assert FCF_WEB_CONSOLE_BOUNDARY.loopback_only is True
@@ -174,7 +182,7 @@ def test_d1_snapshot_is_immutable():
     ),
 )
 def test_d2_supported_file_intake_is_quarantined(kind, name, media_type):
-    receipt = GovernedIntakeService().validate(
+    receipt = GovernedIntakeService(("research.example",)).validate(
         _intake_payload([_file_item("item-1", kind, name, media_type)]),
         "127.0.0.1",
     )
@@ -206,7 +214,7 @@ def test_d2_text_url_and_multi_file_intake_remain_non_authoritative():
             "source_reference": "https://research.example/evidence",
         },
     ]
-    receipt = GovernedIntakeService().validate(
+    receipt = GovernedIntakeService(("research.example",)).validate(
         _intake_payload(items),
         "127.0.0.1",
     )
@@ -236,6 +244,22 @@ def test_d2_intake_rejects_wrong_extension_and_credential_like_url():
         service.validate(_intake_payload([url_item]), "127.0.0.1")
 
 
+def test_d2_intake_rejects_url_host_outside_allowlist():
+    url_item = {
+        "content_sha256": _DIGEST,
+        "display_name": "approved-url",
+        "item_id": "url-1",
+        "kind": "URL",
+        "media_type": "text/uri-list",
+        "size_bytes": 40,
+        "source_reference": "https://outside.example/data",
+    }
+    with pytest.raises(ValueError, match="approved allowlist"):
+        GovernedIntakeService(("research.example",)).validate(
+            _intake_payload([url_item]), "127.0.0.1"
+        )
+
+
 def test_d2_intake_requires_loopback_confirmation_and_governance():
     service = GovernedIntakeService()
     payload = _intake_payload(
@@ -250,7 +274,7 @@ def test_d2_intake_requires_loopback_confirmation_and_governance():
 
 @pytest.mark.parametrize("action", tuple(action.value for action in ConsoleAction))
 def test_d3_all_controlled_actions_create_requests_only(action):
-    receipt = GovernedConsoleActionService().validate(
+    receipt = GovernedConsoleActionService(("operator-1",)).validate(
         _action_payload(action),
         "127.0.0.1",
     )
@@ -261,7 +285,7 @@ def test_d3_all_controlled_actions_create_requests_only(action):
 
 
 def test_d3_actions_require_identity_reason_confirmation_and_loopback():
-    service = GovernedConsoleActionService()
+    service = GovernedConsoleActionService(("operator-1",))
     for field_name in ("operator_id", "reason"):
         payload = _action_payload()
         payload[field_name] = ""
@@ -276,7 +300,7 @@ def test_d3_actions_require_identity_reason_confirmation_and_loopback():
 
 
 def test_d4_overview_exposes_health_cost_and_authorities():
-    response = FCFWebConsoleApplication(_snapshot()).dispatch("GET", "/")
+    response = _application().dispatch("GET", "/")
     body = response.body.decode("utf-8")
     assert response.status == 200
     assert "Registered Evidence authority" in body
@@ -286,7 +310,7 @@ def test_d4_overview_exposes_health_cost_and_authorities():
 
 
 def test_d4_model_risk_and_workflow_views_render_mapping_proxy_payloads():
-    application = FCFWebConsoleApplication(_snapshot())
+    application = _application()
     models = application.dispatch("GET", "/models").body.decode("utf-8")
     workflows = application.dispatch("GET", "/workflows").body.decode("utf-8")
     assert "MODEL_DRIFT" in models
@@ -296,7 +320,7 @@ def test_d4_model_risk_and_workflow_views_render_mapping_proxy_payloads():
 
 
 def test_d5_portfolio_paper_report_and_operator_surfaces_are_present():
-    application = FCFWebConsoleApplication(_snapshot())
+    application = _application()
     portfolio = application.dispatch("GET", "/portfolio").body.decode("utf-8")
     paper = application.dispatch("GET", "/paper-portfolio").body.decode("utf-8")
     report = application.dispatch("GET", "/reports").body.decode("utf-8")
@@ -309,7 +333,7 @@ def test_d5_portfolio_paper_report_and_operator_surfaces_are_present():
 
 
 def test_d5_intake_conversation_and_operations_are_product_ui_pages():
-    application = FCFWebConsoleApplication(_snapshot())
+    application = _application()
     intake = application.dispatch("GET", "/intake").body.decode("utf-8")
     conversation = application.dispatch("GET", "/conversation").body.decode("utf-8")
     operations = application.dispatch("GET", "/operations").body.decode("utf-8")
@@ -322,7 +346,7 @@ def test_d5_intake_conversation_and_operations_are_product_ui_pages():
 
 
 def test_d6_loopback_api_validates_intake_and_operator_requests():
-    application = FCFWebConsoleApplication(_snapshot())
+    application = _application()
     intake = application.dispatch(
         "POST",
         "/api/intake/validate",
@@ -342,7 +366,7 @@ def test_d6_loopback_api_validates_intake_and_operator_requests():
 
 
 def test_d6_non_loopback_unknown_and_write_page_requests_fail_closed():
-    application = FCFWebConsoleApplication(_snapshot())
+    application = _application()
     assert application.dispatch("GET", "/", peer_host="::1").status == 403
     assert application.dispatch("GET", "/missing").status == 404
     assert application.dispatch("POST", "/portfolio").status == 405
@@ -378,7 +402,7 @@ def test_d6_exact_loopback_http_adapter_serves_ui_and_json_api():
         port = int(handle.getsockname()[1])
     server = create_fcf_web_console_server(
         FCFWebConsoleServerConfig(port=port),
-        FCFWebConsoleApplication(_snapshot()),
+        _application(),
     )
     thread = Thread(target=server.serve_forever, daemon=True)
     thread.start()
@@ -406,6 +430,7 @@ def test_d6_exact_loopback_http_adapter_serves_ui_and_json_api():
             headers={
                 "Content-Type": "application/json",
                 "Host": f"127.0.0.1:{port}",
+                "Origin": f"http://127.0.0.1:{port}",
             },
         )
         response = connection.getresponse()
@@ -413,7 +438,28 @@ def test_d6_exact_loopback_http_adapter_serves_ui_and_json_api():
         connection.close()
         assert response.status == 200
         assert receipt["execution_performed"] is False
+        assert receipt["operator_attested"] is True
     finally:
         server.shutdown()
         thread.join(timeout=3.0)
         server.server_close()
+
+
+def test_d3_unregistered_operator_is_rejected():
+    with pytest.raises(ValueError, match="registered Operator attestation"):
+        GovernedConsoleActionService().validate(
+            _action_payload(),
+            "127.0.0.1",
+        )
+
+
+def test_d4_html_security_headers_use_nonce_and_block_framing():
+    response = _application().dispatch("GET", "/")
+    headers = dict(response.headers)
+    policy = headers["Content-Security-Policy"]
+    body = response.body.decode("utf-8")
+    assert headers["X-Frame-Options"] == "DENY"
+    assert "frame-ancestors 'none'" in policy
+    assert "unsafe-inline" not in policy
+    assert "script-src 'nonce-" in policy
+    assert '<script nonce="' in body

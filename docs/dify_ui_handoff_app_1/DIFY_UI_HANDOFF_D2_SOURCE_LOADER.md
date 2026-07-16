@@ -24,6 +24,11 @@ The source loader may inspect local paths, file sizes, checksums, directory file
 
 The source loader must not mutate source files.
 
+Tracked runtime and current-state sources are required. Generated `artifacts/`
+sources are optional and are counted separately when unavailable. Validation
+fails only when a required source is missing or availability accounting is
+inconsistent.
+
 ## Required safety boundary
 
 - paper-only

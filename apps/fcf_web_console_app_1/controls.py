@@ -12,6 +12,12 @@ from .contracts import (
 
 
 class GovernedConsoleActionService:
+    def __init__(self, registered_operator_ids: tuple[str, ...] = ()) -> None:
+        self._registered_operator_ids = frozenset(
+            require_text(value, "registered_operator_id")
+            for value in registered_operator_ids
+        )
+
     def validate(
         self,
         payload: Mapping[str, Any],
@@ -35,6 +41,8 @@ class GovernedConsoleActionService:
             "correlation_id",
         )
         operator_id = require_text(payload.get("operator_id", ""), "operator_id")
+        if operator_id not in self._registered_operator_ids:
+            raise ValueError("registered Operator attestation is required")
         target_artifact_id = require_text(
             payload.get("target_artifact_id", ""),
             "target_artifact_id",

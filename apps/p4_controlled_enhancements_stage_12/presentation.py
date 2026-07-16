@@ -15,6 +15,16 @@ def build_p4_console_sections(
                     {
                         "case_count": len(case_retrieval.records),
                         "network_access_used": False,
+                        "direction_accuracy": (
+                            None
+                            if shadow_validation.direction_accuracy is None
+                            else str(shadow_validation.direction_accuracy)
+                        ),
+                        "mean_absolute_error": (
+                            None
+                            if shadow_validation.mean_absolute_error is None
+                            else str(shadow_validation.mean_absolute_error)
+                        ),
                         "point_in_time_enforced": True,
                         "query_id": case_retrieval.query_id,
                         "read_only": True,

@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## Unreleased - System Integrity and Product Hardening Stage 13
+
+- close point-in-time evidence lineage gaps
+- add implementation-bound capability acceptance and explicit registries
+- harden P4 scope, training lineage, Shadow metrics, proposals, and schedules
+- add Web same-origin, anti-framing, nonce CSP, and Operator attestation gates
+- correct project identity, current state, dependencies, and security guidance
+
+Stages 3-12 are documented in the Project Control Center and final-state files.
+Early changelog entries below are retained as historical records.
+
 ## 0.1.0-p0
 
 P0 foundation completed.

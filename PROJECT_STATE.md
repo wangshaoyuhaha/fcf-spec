@@ -1,17 +1,17 @@
 ﻿# Project State
 
-Project: BTC Finance Platform
+Project: Financial Cognitive Framework
 Path: C:\Users\Admin\Desktop\btc_finance_platform
-Branch: main
-Status: initialized
+Branch: historical records; see the Project Control Center for the active branch
+Status: active; see docs/FCF_PROJECT_CONTROL_CENTER.md for authoritative state
 Mode: paper-only
 Created: 07/02/2026 15:47:31
 
 ## Starting Point
 
-This is a new independent BTC / finance platform project.
-
-It does not continue FCF / fcf-spec.
+This file contains historical phase records and is not the current authority.
+The repository is FCF / fcf-spec. BTC is the first paper-only implementation
+line inside the broader multi-market Financial Cognitive Framework.
 
 FCF / fcf-spec remains closed:
 
@@ -1088,7 +1088,7 @@ Safety:
 - operator review required
 
 ## Future Learning Roadmap Anchor
-Status: planned, not implemented
+Status: historical roadmap implemented and superseded by later governed stages
 
 Purpose:
 - Preserve future self-learning direction in the project skeleton.

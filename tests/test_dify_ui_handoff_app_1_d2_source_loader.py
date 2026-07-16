@@ -16,8 +16,11 @@ def test_dify_ui_handoff_d2_manifest_is_valid():
     assert manifest["stage_id"] == STAGE_ID
     assert validation["valid"] is True
     assert validation["issues"] == []
-    assert manifest["source_count"] == manifest["existing_source_count"]
     assert manifest["missing_source_count"] == 0
+    assert manifest["source_count"] == (
+        manifest["existing_source_count"]
+        + manifest["unavailable_optional_source_count"]
+    )
 
 
 def test_dify_ui_handoff_d2_sources_are_read_only():
@@ -36,7 +39,8 @@ def test_dify_ui_handoff_d2_sources_are_read_only():
     assert manifest["automated_dify_app_creation_allowed"] is False
 
     for source in manifest["sources"]:
-        assert source["exists"] is True
+        if source["required"]:
+            assert source["exists"] is True
         assert source["read_only"] is True
         assert source["source_content_mutation_allowed"] is False
         assert source["source_deletion_allowed"] is False
@@ -68,13 +72,17 @@ def test_dify_ui_handoff_d2_file_inspection_has_checksum():
     assert inspected["size_bytes"] > 0
 
 
-def test_dify_ui_handoff_d2_directory_inspection_has_child_files():
+def test_dify_ui_handoff_d2_directory_inspection_has_child_files(tmp_path):
+    bundle = tmp_path / "artifacts" / "operator_workflow_bundle"
+    bundle.mkdir(parents=True)
+    (bundle / "fixture.json").write_text("{}", encoding="ascii")
     source = {
         "source_id": "operator_workflow_bundle",
         "source_kind": "local_artifact_bundle",
         "relative_path": "artifacts/operator_workflow_bundle",
+        "required": False,
     }
-    inspected = inspect_dify_ui_source(root_path=".", source=source)
+    inspected = inspect_dify_ui_source(root_path=str(tmp_path), source=source)
 
     assert inspected["exists"] is True
     assert inspected["is_dir"] is True

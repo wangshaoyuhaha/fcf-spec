@@ -201,6 +201,7 @@ class ConsoleActionReceipt:
     automatic_transition_allowed: bool = False
     authority_mutated: bool = False
     execution_performed: bool = False
+    operator_attested: bool = True
 
     def __post_init__(self) -> None:
         if self.status != "VALIDATED_OPERATOR_REQUEST":
@@ -209,6 +210,7 @@ class ConsoleActionReceipt:
             self.automatic_transition_allowed
             or self.authority_mutated
             or self.execution_performed
+            or not self.operator_attested
         ):
             raise ValueError("console requests cannot mutate authority")
 

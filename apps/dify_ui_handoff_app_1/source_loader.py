@@ -73,7 +73,7 @@ def _inspect_directory(path: Path, root_path: Path) -> Dict[str, Any]:
 
 def inspect_dify_ui_source(
     root_path: str,
-    source: Mapping[str, str],
+    source: Mapping[str, Any],
 ) -> Dict[str, Any]:
     """Inspect one local source without mutating source content."""
     root = Path(root_path).resolve()
@@ -88,6 +88,7 @@ def inspect_dify_ui_source(
         "source_id": source["source_id"],
         "source_kind": source["source_kind"],
         "relative_path": relative_path,
+        "required": source.get("required", True),
         "absolute_path": str(full_path),
         "exists": exists,
         "is_file": is_file,
@@ -147,7 +148,12 @@ def build_dify_ui_source_manifest(
     ]
 
     existing_count = sum(1 for item in inspected_sources if item["exists"])
-    missing_count = len(inspected_sources) - existing_count
+    missing_count = sum(
+        1 for item in inspected_sources if item["required"] and not item["exists"]
+    )
+    unavailable_optional_count = sum(
+        1 for item in inspected_sources if not item["required"] and not item["exists"]
+    )
     file_count = sum(1 for item in inspected_sources if item["is_file"])
     directory_count = sum(1 for item in inspected_sources if item["is_dir"])
     child_file_count = sum(item["child_file_count"] for item in inspected_sources)
@@ -162,6 +168,7 @@ def build_dify_ui_source_manifest(
         "source_count": len(inspected_sources),
         "existing_source_count": existing_count,
         "missing_source_count": missing_count,
+        "unavailable_optional_source_count": unavailable_optional_count,
         "file_source_count": file_count,
         "directory_source_count": directory_count,
         "child_file_count": child_file_count,
@@ -199,8 +206,13 @@ def validate_dify_ui_source_manifest(manifest: Mapping[str, Any]) -> Dict[str, A
         issues.append("source_count must be positive")
     if manifest.get("missing_source_count") != 0:
         issues.append("missing_source_count must be zero")
-    if manifest.get("existing_source_count") != manifest.get("source_count"):
-        issues.append("existing_source_count must equal source_count")
+    accounted = (
+        manifest.get("existing_source_count", 0)
+        + manifest.get("missing_source_count", 0)
+        + manifest.get("unavailable_optional_source_count", 0)
+    )
+    if accounted != manifest.get("source_count"):
+        issues.append("source availability accounting mismatch")
     if not manifest.get("sources"):
         issues.append("sources must not be empty")
 
@@ -233,7 +245,7 @@ def validate_dify_ui_source_manifest(manifest: Mapping[str, Any]) -> Dict[str, A
             issues.append(field + " must be false")
 
     for source in manifest.get("sources", []):
-        if source.get("exists") is not True:
+        if source.get("required") is True and source.get("exists") is not True:
             issues.append(source.get("source_id", "unknown") + " must exist")
         if source.get("read_only") is not True:
             issues.append(source.get("source_id", "unknown") + " must be read_only")
@@ -253,6 +265,9 @@ def validate_dify_ui_source_manifest(manifest: Mapping[str, Any]) -> Dict[str, A
         "source_count": manifest.get("source_count"),
         "existing_source_count": manifest.get("existing_source_count"),
         "missing_source_count": manifest.get("missing_source_count"),
+        "unavailable_optional_source_count": manifest.get(
+            "unavailable_optional_source_count"
+        ),
         "child_file_count": manifest.get("child_file_count"),
     }
 
@@ -269,6 +284,9 @@ def summarize_dify_ui_source_manifest(manifest: Optional[Mapping[str, Any]] = No
         "source_count": selected_manifest.get("source_count"),
         "existing_source_count": selected_manifest.get("existing_source_count"),
         "missing_source_count": selected_manifest.get("missing_source_count"),
+        "unavailable_optional_source_count": selected_manifest.get(
+            "unavailable_optional_source_count"
+        ),
         "file_source_count": selected_manifest.get("file_source_count"),
         "directory_source_count": selected_manifest.get("directory_source_count"),
         "child_file_count": selected_manifest.get("child_file_count"),
