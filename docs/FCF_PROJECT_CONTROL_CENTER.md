@@ -10566,3 +10566,56 @@ Permanent boundary:
   order, execution, tag, release, or deployment path
 
 <!-- PORTFOLIO-CONSTRUCTION-STRESS STAGE 7 APPROVAL END -->
+
+<!-- PORTFOLIO-CONSTRUCTION-STRESS STAGE 7 FINAL SYNC START -->
+
+## Portfolio Construction and Stress Test Stage 7 Final Sync
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: `f0649a422a615f78b4ec3932d8a81707bb8a653c`
+- D1-D6 delivery: `3d1e214cb0677dad2244d10b0a5b5d936d9610d2`
+- main merge: `ccf9c7eb1eb44a8fc497c275784a6eedd6915c11`
+
+Merged validation:
+
+- independent pytest: 15 passed
+- targeted pytest: 114 passed, 2 skipped
+- full pytest: 4479 passed, 5 skipped
+- `scripts/run_all_checks.py`: PASSED
+- generated outputs: RESTORED
+- `git diff --check`: PASSED
+
+Delivered:
+
+- immutable Stage 7 boundary, ranked input, policy, scenario, and result contracts
+- deterministic configurable Portfolio Construction after ranking
+- deterministic Paper weights, notionals, quantities, turnover, and costs
+- single-asset, industry, theme, factor, correlation, beta, volatility,
+  liquidity, drawdown, risk-budget, and transaction-cost governance
+- versioned deterministic stress scenarios with position loss attribution
+- immutable Paper position proposal, Operator review packet, and acceptance
+
+Next phase not started:
+
+- `FCF-WEB-CONSOLE-APP-1`
+
+Permanent boundaries remain unchanged:
+
+- P1-P47 frozen; no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only and read-only inputs
+- Operator review mandatory
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- AI remains advisory only
+- no real portfolio management or automatic rebalance
+- no live data retrieval, model invocation, Prompt execution, credential,
+  account, wallet, broker, exchange connection, balance, position read,
+  order, execution, tag, release, or deployment path
+
+<!-- PORTFOLIO-CONSTRUCTION-STRESS STAGE 7 FINAL SYNC END -->

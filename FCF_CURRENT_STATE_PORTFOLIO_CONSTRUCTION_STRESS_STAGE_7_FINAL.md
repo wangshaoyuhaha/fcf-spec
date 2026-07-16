@@ -2,7 +2,7 @@
 
 ## Status
 
-COMPLETED_VALIDATED_READY_FOR_MAIN_MERGE
+COMPLETED_MERGED_VALIDATED
 
 ## Branch
 
@@ -14,7 +14,11 @@ sidecar-portfolio-construction-stress-stage-7
 
 ## Delivery commit
 
-Pending current delivery commit.
+`3d1e214cb0677dad2244d10b0a5b5d936d9610d2`
+
+## Main merge commit
+
+`ccf9c7eb1eb44a8fc497c275784a6eedd6915c11`
 
 ## Completed scope
 
@@ -25,7 +29,7 @@ Pending current delivery commit.
 - deterministic Portfolio Stress Test with position loss attribution
 - immutable Operator review packet and Stage 7 acceptance
 
-## Sidecar validation
+## Merged validation
 
 - independent pytest: 15 passed
 - targeted pytest: 114 passed, 2 skipped
