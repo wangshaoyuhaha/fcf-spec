@@ -3806,3 +3806,53 @@ Permanent boundary:
   release, or deployment
 
 <!-- FCF-API-GATEWAY-APP-1 FINAL SYNC END -->
+
+
+<!-- MULTI-MODEL-WORKFLOW-APP-1 APPROVAL START -->
+
+## MULTI-MODEL-WORKFLOW-APP-1 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved baseline:
+
+- branch: main
+- parent: ef0bd50ce1ee1f88a7215990c4f5b39b9a07ce6a
+- planned branch: sidecar-multi-model-workflow-app-1
+
+Required delivery order:
+
+- D1 immutable workflow boundary, role, model, Prompt, request, and result contracts
+- D2 policy-approved model-role registry and deterministic route planning
+- D3 registered advisory-result receipt validation with no live invocation
+- D4 bounded timeout, retry, fallback, health, and cost state machine
+- D5 disagreement governance, synthesis, audit, and Operator review packet
+- D6 integration acceptance, closeout, merge validation, and authority sync
+
+Invocation rule:
+
+- no live model invocation or Prompt execution in this phase
+- only registered advisory-result receipts may enter the workflow
+- routing plans are deterministic policy artifacts, not automatic external calls
+- all AI content remains advisory and preserves original outputs
+
+Deferred until separately approved:
+
+- six market-adapter group
+- external model providers and credentials
+- interactive Web Console controls
+- automatic learning, promotion, or activation
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory only
+- no model credential, account, wallet, broker, exchange, order, execution,
+  tag, release, or deployment path
+
+<!-- MULTI-MODEL-WORKFLOW-APP-1 APPROVAL END -->
