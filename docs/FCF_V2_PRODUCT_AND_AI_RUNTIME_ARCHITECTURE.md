@@ -5650,3 +5650,33 @@ P4 and Dify/model-provider configuration remain deferred. Preserve all
 permanent boundaries.
 
 <!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 APPROVAL END -->
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 FINAL SYNC START -->
+
+## Controlled Learning and Deterministic Backtesting P0-P3 Stage 11 Final Sync
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Commits: approval `0f9939524733b4df8a57e700e1f625363a48d21e`,
+delivery `3bde47d7c9d072644c676b494e651547dabf74c0`, merge
+`eb07feb598752d2f83229d129005b77588cbc3d2`.
+
+Implemented architecture:
+
+- P0 point-in-time evidence and immutable version/configuration foundation
+- P1 deterministic unified backtest, bias guards, walk-forward validation,
+  result/outcome registries, portfolio metrics, and attribution
+- P2 registered historical AI evaluation with leakage, alignment, role, and
+  incremental-value controls and no model invocation
+- P3 explicit human feedback, governed candidates, Champion/Challenger
+  sandbox experiments, eighteen evolution gates, and audit digests
+- read-only Web Console presentation for registered Stage 11 artifacts
+
+Validation: 25 independent; 387 targeted; 4580 full passed, 5 skipped;
+run_all_checks PASSED; generated outputs RESTORED; diff check PASSED.
+
+P4 requires a separate governance decision. Dify/model-provider configuration
+and live model invocation remain deferred. Permanent boundaries remain
+unchanged.
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 FINAL SYNC END -->

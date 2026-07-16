@@ -11003,3 +11003,61 @@ Deferred:
 All permanent boundaries remain unchanged.
 
 <!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 APPROVAL END -->
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 FINAL SYNC START -->
+
+## Controlled Learning and Deterministic Backtesting P0-P3 Stage 11 Final Sync
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Commits:
+
+- approval: `0f9939524733b4df8a57e700e1f625363a48d21e`
+- delivery: `3bde47d7c9d072644c676b494e651547dabf74c0`
+- main merge: `eb07feb598752d2f83229d129005b77588cbc3d2`
+
+Delivered:
+
+- all 22 canonical and independently identified P0-P3 capabilities
+- point-in-time evidence enforcing `available_at <= as_of_time`
+- immutable version, calendar, corporate-action, benchmark, and configuration
+  controls
+- deterministic multi-market backtest with split, purge, embargo,
+  walk-forward, cost, liquidity, capacity, regime, factor, failure, and
+  portfolio controls
+- append-only result and outcome records preserving negative, degraded,
+  blocked, failed, and inconclusive states
+- registered AI historical and counterfactual evaluation without model
+  invocation or Prompt execution
+- explicit human feedback, nine governed candidate types, fourteen static
+  qualification checks, Champion/Challenger sandbox experiments, eighteen
+  evolution gates, preserved rollback targets, and deterministic audit digests
+- read-only Web Console presentation for registered backtest, evaluation,
+  experiment, and evolution-gate artifacts
+
+Validation:
+
+- independent Stage 11: 25 passed
+- targeted dependency and integration suite: 387 passed
+- full pytest: 4580 passed, 5 skipped
+- `scripts/run_all_checks.py`: PASSED
+- generated runtime outputs: RESTORED by exact allowlist
+- `git diff --check`: PASSED
+
+Authority result:
+
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- AI remains advisory
+- eligible learning output stops at mandatory Operator review
+- no automatic activation, promotion, Champion replacement, archive, learning,
+  or rollback authority was added
+
+Next phase not started: P4 governance decision. P4 enhancements and
+Dify/model-provider configuration or live model invocation remain deferred.
+P1-P47 remain frozen; no P48. All permanent paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+and no-real-world-execution boundaries remain unchanged. No tag, release, or
+deploy was run.
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 FINAL SYNC END -->
