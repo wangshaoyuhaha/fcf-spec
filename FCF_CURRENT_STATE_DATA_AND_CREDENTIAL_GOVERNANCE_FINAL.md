@@ -2,7 +2,7 @@
 
 ## Status
 
-COMPLETED_VALIDATED_READY_FOR_MAIN_MERGE
+COMPLETED_MERGED_VALIDATED
 
 ## Branch
 
@@ -19,6 +19,11 @@ sidecar-data-and-credential-governance
 - D3: 8f37f530a063140f27408ba9e8678b0569a4ab15
 - D4: c787410099cfb4310aaf716aeaaad66249d9a357
 - D5: 5aada0ec6f2755acd3d3b9931e0e70bd1224775a
+- D6: 24c191303f01a5f85e4fdcf7237fa9ccc19427f2
+
+## Main merge
+
+1e32bf1ccd2a7fd557b90d8499329496895b17d9
 
 ## Completed scope
 
@@ -29,7 +34,7 @@ sidecar-data-and-credential-governance
 - unified read-only governance service and Operator review packet
 - final three-domain integration acceptance
 
-## Sidecar validation
+## Merged validation
 
 - targeted pytest: 236 passed, 2 skipped
 - full pytest: 4410 passed, 5 skipped

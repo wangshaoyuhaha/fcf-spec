@@ -10000,3 +10000,61 @@ Permanent boundary:
 - no tag, release, or deployment
 
 <!-- DATA-AND-CREDENTIAL-GOVERNANCE APPROVAL END -->
+
+
+<!-- DATA-AND-CREDENTIAL-GOVERNANCE FINAL SYNC START -->
+
+## DATA-AND-CREDENTIAL-GOVERNANCE Final Sync
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: 635e1bd1cae26c320b00c87845924c5a1aa3f7a1
+- D1: 7d2499665bee4f51e9675abfd39a6a715a92f2b0
+- D2: 0090525b6ca662ef9cf4a57a7481f39ded1566b6
+- D3: 8f37f530a063140f27408ba9e8678b0569a4ab15
+- D4: c787410099cfb4310aaf716aeaaad66249d9a357
+- D5: 5aada0ec6f2755acd3d3b9931e0e70bd1224775a
+- D6: 24c191303f01a5f85e4fdcf7237fa9ccc19427f2
+- main merge: 1e32bf1ccd2a7fd557b90d8499329496895b17d9
+
+Merged validation:
+
+- targeted pytest: 236 passed, 2 skipped
+- full pytest: 4410 passed, 5 skipped
+- scripts/run_all_checks.py: PASSED
+- generated outputs: RESTORED
+- git diff check: PASSED
+
+Delivered scope:
+
+- immutable shared governance boundary and audit contracts
+- deterministic source-license registry and fail-closed usage evaluator
+- deterministic as-of freshness registry and confidence/block evaluator
+- isolated metadata-only credential-reference registry and availability gate
+- unified read-only governance service and mandatory Operator review packet
+- final three-domain integration acceptance
+
+Next dependency group, not started:
+
+- RESEARCH-GATEWAY-APP-1
+- ONLINE-EVIDENCE-TRACEABILITY-APP-1
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only and read-only product presentation
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory only
+- no credential or secret material, authenticated request, network retrieval,
+  live vendor, account, balance, position, wallet, broker, exchange, order,
+  execution, withdrawal, transfer, or real-money path
+- no automatic approval, promotion, activation, archive, or learning activation
+- no tag, release, or deployment
+
+<!-- DATA-AND-CREDENTIAL-GOVERNANCE FINAL SYNC END -->
