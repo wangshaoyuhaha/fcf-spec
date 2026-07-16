@@ -64,13 +64,19 @@ def build_regime_taxonomy() -> dict[str, Any]:
     }
 
 
-def classify_regime_stub(features: dict[str, Any]) -> dict[str, Any]:
+def classify_regime(features: dict[str, Any]) -> dict[str, Any]:
     if not isinstance(features, dict):
         raise ValueError("features must be a dict")
 
     volatility = str(features.get("volatility", "unknown")).lower()
     trend = str(features.get("trend", "unknown")).lower()
     liquidity = str(features.get("liquidity", "normal")).lower()
+    if trend not in {"up", "down", "range", "unknown"}:
+        raise ValueError("unsupported trend value")
+    if volatility not in {"high", "normal", "low", "unknown"}:
+        raise ValueError("unsupported volatility value")
+    if liquidity not in {"normal", "stress", "unknown"}:
+        raise ValueError("unsupported liquidity value")
 
     if liquidity == "stress":
         regime = "liquidity_stress"
@@ -89,17 +95,16 @@ def classify_regime_stub(features: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "ok": True,
-        "type": "p14_regime_classification_stub",
+        "type": "p14_regime_classification",
+        "classification_version": "regime-taxonomy-v1",
         "regime": regime,
-        "confidence": "paper_stub_only",
+        "confidence": "HIGH" if regime != "unknown" else "LOW",
         "features_used": sorted(features.keys()),
         "paper_only": True,
         "local_only": True,
         "operator_review_required": True,
         "real_world_actions_allowed": False,
     }
-
-
 def write_regime_taxonomy(path: str | Path) -> dict[str, Any]:
     taxonomy = build_regime_taxonomy()
     output = Path(path)

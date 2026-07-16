@@ -1,12 +1,34 @@
 """Controlled learning and deterministic backtesting P0-P3 sidecar."""
 
-from .acceptance import P0P3Acceptance, build_p0_p3_acceptance
+from .acceptance import P0P3Acceptance, P0_P3_IMPLEMENTATION_BINDINGS, build_p0_p3_acceptance
+from .registries import (
+    AppendOnlyRegistry,
+    AttributionRecord,
+    AttributionRegistry,
+    BenchmarkRecord,
+    BenchmarkRegistry,
+    ConfigSnapshotRegistry,
+    CorporateActionRecord,
+    CorporateActionRegistry,
+    DataSourceVersionLock,
+    DataSourceVersionRegistry,
+    MarketCalendarRecord,
+    MarketCalendarRegistry,
+    OutcomeLabelRecord,
+    OutcomeLabelRegistry,
+    build_attribution_registry,
+    build_outcome_label_registry,
+)
 from .ai_evaluation import (
     AIHistoricalEvaluation,
     RegisteredAIHistoricalEvaluationService,
     RegisteredAIReplay,
 )
-from .backtest import DeterministicUnifiedBacktestEngine
+from .backtest import (
+    BacktestBiasGuard,
+    DeterministicUnifiedBacktestEngine,
+    WalkForwardValidator,
+)
 from .boundary import (
     CONTROLLED_LEARNING_BACKTESTING_BOUNDARY,
     ControlledLearningBacktestingBoundary,
@@ -38,6 +60,7 @@ __all__ = [
     "AIHistoricalEvaluation",
     "AIReplayMode",
     "BacktestObservation",
+    "BacktestBiasGuard",
     "BacktestResult",
     "BacktestResultRegistry",
     "BacktestStatus",
@@ -53,12 +76,30 @@ __all__ = [
     "HumanFeedback",
     "LearningCandidate",
     "P0P3Acceptance",
+    "P0_P3_IMPLEMENTATION_BINDINGS",
+    "AppendOnlyRegistry",
+    "AttributionRecord",
+    "AttributionRegistry",
+    "BenchmarkRecord",
+    "BenchmarkRegistry",
+    "ConfigSnapshotRegistry",
+    "CorporateActionRecord",
+    "CorporateActionRegistry",
+    "DataSourceVersionLock",
+    "DataSourceVersionRegistry",
+    "MarketCalendarRecord",
+    "MarketCalendarRegistry",
+    "OutcomeLabelRecord",
+    "OutcomeLabelRegistry",
     "P0_P3_CAPABILITY_REGISTRY",
     "PointInTimeEvidence",
     "QualificationRecord",
     "RegisteredAIHistoricalEvaluationService",
     "RegisteredAIReplay",
     "UnifiedBacktestRequest",
+    "WalkForwardValidator",
+    "build_attribution_registry",
+    "build_outcome_label_registry",
     "build_p0_p3_acceptance",
     "build_p0_p3_console_sections",
 ]

@@ -7,7 +7,7 @@ from decimal import Decimal
 from types import MappingProxyType
 from typing import Any, Mapping
 
-from .contracts import BacktestResult, freeze, identifier
+from .contracts import BacktestResult, freeze, identifier, utc_time
 
 
 _CANDIDATE_TYPES = {
@@ -74,13 +74,13 @@ class HumanFeedback:
             "operator_id",
             "target_artifact_id",
             "classification",
-            "submitted_at_utc",
         ):
             object.__setattr__(
                 self,
                 field_name,
                 identifier(getattr(self, field_name), field_name),
             )
+        utc_time(self.submitted_at_utc, "submitted_at_utc")
         if not self.reason.strip():
             raise ValueError("human feedback reason is required")
 
@@ -113,8 +113,16 @@ class LearningCandidate:
             raise ValueError("candidate evidence and rationale are required")
         if not self.declared_changes:
             raise ValueError("candidate must declare configuration changes")
-        object.__setattr__(self, "source_result_ids", tuple(self.source_result_ids))
-        object.__setattr__(self, "source_feedback_ids", tuple(self.source_feedback_ids))
+        object.__setattr__(
+            self,
+            "source_result_ids",
+            tuple(sorted({identifier(item, "source_result_id") for item in self.source_result_ids})),
+        )
+        object.__setattr__(
+            self,
+            "source_feedback_ids",
+            tuple(sorted({identifier(item, "source_feedback_id") for item in self.source_feedback_ids})),
+        )
         object.__setattr__(self, "declared_changes", freeze(self.declared_changes))
         if not self.candidate_only or self.automatic_activation_allowed:
             raise ValueError("learning output must remain a candidate")

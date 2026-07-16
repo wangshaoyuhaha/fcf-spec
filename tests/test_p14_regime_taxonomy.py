@@ -10,7 +10,7 @@ if SRC not in sys.path:
     sys.path.insert(0, SRC)
 
 from btc_finance_platform.p14_regime_taxonomy import build_regime_taxonomy
-from btc_finance_platform.p14_regime_taxonomy import classify_regime_stub
+from btc_finance_platform.p14_regime_taxonomy import classify_regime
 from btc_finance_platform.p14_regime_taxonomy import write_regime_taxonomy
 
 
@@ -30,16 +30,18 @@ def test_regime_taxonomy_explains_why_regime_first():
     assert taxonomy["learning_engine_order"][0] == "define_regime_taxonomy"
 
 
-def test_classify_regime_stub_handles_basic_cases():
-    assert classify_regime_stub({"trend": "up", "volatility": "normal"})["regime"] == "trend_up"
-    assert classify_regime_stub({"trend": "down", "volatility": "normal"})["regime"] == "trend_down"
-    assert classify_regime_stub({"trend": "range", "volatility": "normal"})["regime"] == "range_chop"
-    assert classify_regime_stub({"liquidity": "stress"})["regime"] == "liquidity_stress"
+def test_classify_regime_handles_basic_cases():
+    assert classify_regime({"trend": "up", "volatility": "normal"})["regime"] == "trend_up"
+    assert classify_regime({"trend": "down", "volatility": "normal"})["regime"] == "trend_down"
+    assert classify_regime({"trend": "range", "volatility": "normal"})["regime"] == "range_chop"
+    assert classify_regime({"liquidity": "stress"})["regime"] == "liquidity_stress"
 
 
-def test_classify_regime_stub_rejects_invalid_features():
+def test_classify_regime_rejects_invalid_features():
     with pytest.raises(ValueError, match="features must be a dict"):
-        classify_regime_stub(None)
+        classify_regime(None)
+    with pytest.raises(ValueError, match="unsupported trend"):
+        classify_regime({"trend": "sideways"})
 
 
 def test_regime_taxonomy_preserves_paper_only_boundary():

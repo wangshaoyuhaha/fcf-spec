@@ -192,6 +192,8 @@ class RealtimeShadowValidation:
     observation_count: int
     mature_count: int
     mean_error: Decimal | None
+    mean_absolute_error: Decimal | None
+    direction_accuracy: Decimal | None
     reason_codes: tuple[str, ...]
     status: str
     network_access_used: bool = False
@@ -200,6 +202,12 @@ class RealtimeShadowValidation:
 
     def __post_init__(self) -> None:
         utc_time(self.as_of_time_utc, "as_of_time_utc")
+        for field_name in ("mean_error", "mean_absolute_error", "direction_accuracy"):
+            value = getattr(self, field_name)
+            if value is not None:
+                object.__setattr__(self, field_name, decimal_value(value, field_name))
+        if self.direction_accuracy is not None and not Decimal("0") <= self.direction_accuracy <= Decimal("1"):
+            raise ValueError("direction_accuracy must be between 0 and 1")
         object.__setattr__(self, "reason_codes", tuple(sorted(set(self.reason_codes))))
         if self.status not in {"PASS_REVIEW_REQUIRED", "DEGRADED_REVIEW_REQUIRED", "BLOCKED_REVIEW_REQUIRED"}:
             raise ValueError("unsupported Shadow validation status")

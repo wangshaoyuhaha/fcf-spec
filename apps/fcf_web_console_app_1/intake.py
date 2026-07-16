@@ -38,7 +38,10 @@ def _contains_credential_marker(value: str) -> bool:
     return any(marker in lowered for marker in _CREDENTIAL_MARKERS)
 
 
-def _descriptor(raw: object) -> IntakeDescriptor:
+def _descriptor(
+    raw: object,
+    approved_url_hosts: frozenset[str],
+) -> IntakeDescriptor:
     if not isinstance(raw, Mapping):
         raise ValueError("intake item must be an object")
     try:
@@ -72,12 +75,21 @@ def _descriptor(raw: object) -> IntakeDescriptor:
             or parsed.fragment
         ):
             raise ValueError("approved URL must be credential-free HTTPS")
+        if parsed.hostname.lower() not in approved_url_hosts:
+            raise ValueError("URL host is not in the approved allowlist")
     if kind == IntakeKind.TEXT and descriptor.source_reference:
         raise ValueError("text intake cannot contain a source reference")
     return descriptor
 
 
 class GovernedIntakeService:
+    def __init__(self, approved_url_hosts: tuple[str, ...] = ()) -> None:
+        self._approved_url_hosts = frozenset(
+            str(value).strip().lower() for value in approved_url_hosts
+        )
+        if any(not value or "/" in value or ":" in value for value in self._approved_url_hosts):
+            raise ValueError("approved URL hosts must be bare host names")
+
     def validate(
         self,
         payload: Mapping[str, Any],
@@ -98,7 +110,9 @@ class GovernedIntakeService:
         raw_items = payload.get("items")
         if not isinstance(raw_items, list) or not 1 <= len(raw_items) <= 20:
             raise ValueError("intake items must contain between 1 and 20 items")
-        descriptors = tuple(_descriptor(item) for item in raw_items)
+        descriptors = tuple(
+            _descriptor(item, self._approved_url_hosts) for item in raw_items
+        )
         item_ids = tuple(item.item_id for item in descriptors)
         if len(set(item_ids)) != len(item_ids):
             raise ValueError("intake item ids must be unique")

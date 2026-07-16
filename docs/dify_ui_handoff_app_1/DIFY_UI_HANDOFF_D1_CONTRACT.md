@@ -55,6 +55,10 @@ The operator already has local Dify, Ollama, and Docker available. This contract
 
 ## Upstream local sources
 
+Tracked runtime and current-state sources are required. Generated `artifacts/`
+sources are optional until their local smoke workflow has produced them. Their
+absence must be reported and must not be treated as a missing required source.
+
 - runtime/operator_console/index.html
 - artifacts/operator_console_static_export
 - artifacts/operator_workflow_bundle

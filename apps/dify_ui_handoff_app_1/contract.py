@@ -22,41 +22,48 @@ PURPOSE = (
     "Dify/Ollama assistant."
 )
 
-UPSTREAM_READ_SOURCES: List[Dict[str, str]] = [
+UPSTREAM_READ_SOURCES: List[Dict[str, Any]] = [
     {
         "source_id": "runtime_operator_console_index",
         "source_kind": "local_static_ui",
         "relative_path": "runtime/operator_console/index.html",
+        "required": True,
     },
     {
         "source_id": "operator_console_static_export",
         "source_kind": "local_artifact_bundle",
         "relative_path": "artifacts/operator_console_static_export",
+        "required": False,
     },
     {
         "source_id": "operator_workflow_bundle",
         "source_kind": "local_artifact_bundle",
         "relative_path": "artifacts/operator_workflow_bundle",
+        "required": False,
     },
     {
         "source_id": "paper_readable_report",
         "source_kind": "local_report_bundle",
         "relative_path": "artifacts/paper_readable_report",
+        "required": False,
     },
     {
         "source_id": "paper_governance_report",
         "source_kind": "local_report_bundle",
         "relative_path": "artifacts/paper_governance_report",
+        "required": False,
     },
     {
         "source_id": "dashboard_status_final_state",
         "source_kind": "current_state_file",
         "relative_path": "FCF_CURRENT_STATE_DASHBOARD_STATUS_APP_1_FINAL.md",
+        "required": True,
     },
     {
         "source_id": "final_completion_review_state",
         "source_kind": "current_state_file",
         "relative_path": "FCF_CURRENT_STATE_FINAL_COMPLETION_REVIEW_APP_1_FINAL.md",
+        "required": True,
     },
 ]
 
@@ -180,6 +187,9 @@ def validate_dify_ui_handoff_contract(
         issues.append("stage_id mismatch")
     if not candidate.get("upstream_read_sources"):
         issues.append("upstream_read_sources must not be empty")
+    for source in candidate.get("upstream_read_sources", []):
+        if not isinstance(source.get("required"), bool):
+            issues.append("every upstream source must declare required")
     if not candidate.get("planned_output_artifacts"):
         issues.append("planned_output_artifacts must not be empty")
 

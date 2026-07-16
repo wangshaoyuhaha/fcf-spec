@@ -1,7 +1,23 @@
 ﻿import subprocess
 
 
+import os
+from pathlib import Path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+LOCAL_APP_DATA = Path(os.environ.get("LOCALAPPDATA", PROJECT_ROOT.parent))
+SAFE_TEMP_ROOT = (LOCAL_APP_DATA / "FCF" / "pytest-scratch").resolve()
+GENERATED_OUTPUT_ALLOWLIST = (
+    "runtime/learning_engine/shadow_ledger.json",
+    "runtime/operator_console/ai_learning_audit_report.json",
+    "runtime/operator_console/ai_learning_memory_ledger.json",
+    "runtime/operator_console/p13_final_closeout_summary.json",
+)
+
+
 COMMANDS = [
+    ["python", "scripts/run_active_surface_quality_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
@@ -98,21 +114,45 @@ COMMANDS = [
     ["python", "scripts/run_p14_human_release_plan_smoke.py"],
     ["python", "scripts/run_p14_final_completion_receipt_smoke.py"],
     ["python", "main.py", "--symbol", "BTCUSDT", "--price", "65000"],
-    ["python", "-m", "pytest", "-q"],
+    ["python", "-m", "pytest", "-q", "-p", "no:cacheprovider"],
 ]
 
 
 def run_command(command: list[str]) -> None:
     print("")
     print("== RUN:", " ".join(command), "==")
-    completed = subprocess.run(command, check=False)
+    environment = dict(os.environ)
+    environment["PYTHONDONTWRITEBYTECODE"] = "1"
+    environment["TEMP"] = str(SAFE_TEMP_ROOT)
+    environment["TMP"] = str(SAFE_TEMP_ROOT)
+    completed = subprocess.run(command, check=False, env=environment)
     if completed.returncode != 0:
         raise SystemExit(completed.returncode)
 
 
 def main() -> int:
-    for command in COMMANDS:
-        run_command(command)
+    try:
+        SAFE_TEMP_ROOT.relative_to(PROJECT_ROOT)
+    except ValueError:
+        pass
+    else:
+        raise SystemExit("safe temporary root must remain outside the repository")
+    SAFE_TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+    probe = SAFE_TEMP_ROOT / "fcf-write-probe"
+    probe.mkdir(exist_ok=False)
+    probe.rmdir()
+    snapshots = {
+        relative: (PROJECT_ROOT / relative).read_bytes()
+        for relative in GENERATED_OUTPUT_ALLOWLIST
+    }
+    try:
+        for command in COMMANDS:
+            run_command(command)
+    finally:
+        for relative, content in snapshots.items():
+            target = PROJECT_ROOT / relative
+            if target.read_bytes() != content:
+                target.write_bytes(content)
 
     print("")
     print("== ALL CHECKS PASSED ==")

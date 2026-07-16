@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import json
+import secrets
 from dataclasses import asdict, dataclass
 from typing import Any, Mapping, Tuple
 from urllib.parse import urlsplit
@@ -21,12 +22,27 @@ _SECURITY_HEADERS = (
     ("Cache-Control", "no-store"),
     ("X-Content-Type-Options", "nosniff"),
     ("Referrer-Policy", "no-referrer"),
+    ("X-Frame-Options", "DENY"),
+    ("Permissions-Policy", "camera=(), microphone=(), geolocation=()"),
     (
         "Content-Security-Policy",
-        "default-src 'self'; style-src 'unsafe-inline'; "
-        "script-src 'unsafe-inline'; connect-src 'self'",
+        "default-src 'none'; frame-ancestors 'none'; base-uri 'none'",
     ),
 )
+
+
+def _html_security_headers(nonce: str) -> Tuple[Tuple[str, str], ...]:
+    return tuple(
+        item for item in _SECURITY_HEADERS if item[0] != "Content-Security-Policy"
+    ) + (
+        (
+            "Content-Security-Policy",
+            "default-src 'self'; "
+            f"style-src 'nonce-{nonce}'; script-src 'nonce-{nonce}'; "
+            "connect-src 'self'; img-src 'self' data:; "
+            "frame-ancestors 'none'; base-uri 'none'; form-action 'self'",
+        ),
+    )
 
 
 @dataclass(frozen=True)
@@ -69,10 +85,15 @@ def _receipt_payload(receipt: object) -> Mapping[str, Any]:
 
 
 class FCFWebConsoleApplication:
-    def __init__(self, snapshot: WebConsoleSnapshot) -> None:
+    def __init__(
+        self,
+        snapshot: WebConsoleSnapshot,
+        registered_operator_ids: tuple[str, ...] = (),
+        approved_url_hosts: tuple[str, ...] = (),
+    ) -> None:
         self._snapshot = snapshot
-        self._intake = GovernedIntakeService()
-        self._actions = GovernedConsoleActionService()
+        self._intake = GovernedIntakeService(approved_url_hosts)
+        self._actions = GovernedConsoleActionService(registered_operator_ids)
 
     @property
     def snapshot(self) -> WebConsoleSnapshot:
@@ -136,10 +157,12 @@ class FCFWebConsoleApplication:
             return self._json_response(404, {"error": "not found"})
         if normalized_method not in {"GET", "HEAD"}:
             return self._json_response(405, {"error": "method not allowed"})
+        document, headers = self._layout(route.path, route.title, self._page(route.path))
         response = WebConsoleResponse(
             status=200,
             content_type="text/html; charset=utf-8",
-            body=self._layout(route.path, route.title, self._page(route.path)),
+            body=document,
+            headers=headers,
         )
         return self._head(response) if normalized_method == "HEAD" else response
 
@@ -163,7 +186,13 @@ class FCFWebConsoleApplication:
             headers=response.headers,
         )
 
-    def _layout(self, active_path: str, title: str, body: str) -> bytes:
+    def _layout(
+        self,
+        active_path: str,
+        title: str,
+        body: str,
+    ) -> tuple[bytes, Tuple[Tuple[str, str], ...]]:
+        nonce = secrets.token_urlsafe(24)
         navigation = "".join(
             (
                 f'<a class="{"active" if route.path == active_path else ""}" '
@@ -177,7 +206,7 @@ class FCFWebConsoleApplication:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FCF | {_escape(title)}</title>
-<style>
+<style nonce="{nonce}">
 :root{{--ink:#10222c;--muted:#60727c;--paper:#f3f0e8;--card:#fffdf7;
 --nav:#102b33;--accent:#b76535;--safe:#176b55;--risk:#a53f3f;--line:#d8d3c7}}
 *{{box-sizing:border-box}}body{{margin:0;background:var(--paper);color:var(--ink);
@@ -223,7 +252,7 @@ nav a{{white-space:nowrap}}main{{padding:18px}}header{{align-items:flex-start;fl
 account, approve itself, change deterministic calculations, or make unregistered
 input authoritative.</div>
 </main></div>
-<script>
+<script nonce="{nonce}">
 const fcfId = prefix => prefix + "-" + Date.now().toString(36);
 const fcfDigest = async bytes => Array.from(
   new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))
@@ -304,7 +333,7 @@ document.querySelectorAll("[data-action-form]").forEach(form => {{
 }});
 </script>
 </body></html>"""
-        return document.encode("utf-8")
+        return document.encode("utf-8"), _html_security_headers(nonce)
 
     def _page(self, path: str) -> str:
         builders = {
@@ -484,6 +513,9 @@ not approve, reject, archive, freeze, export, override, or transition anything.
     def _operations_page(self) -> str:
         correlation = _escape(self._snapshot.correlation_id)
         return f"""
+<section class="card"><h3>Control boundary</h3>
+<p class="warn">These forms validate and attest Operator requests only.
+They do not start, stop, archive, train, invoke, or execute backend work.</p></section>
 <div class="grid"><form class="card" data-action-form data-correlation="{correlation}"><h3>Start workflow</h3>
 <p>Create a reviewed start request against registered inputs.</p>
 <input type="hidden" name="action" value="START_WORKFLOW">

@@ -43,12 +43,18 @@ def test_dify_ui_handoff_d1_preserves_safety_boundary():
 def test_dify_ui_handoff_d1_reads_existing_ui_and_report_artifacts():
     contract = get_dify_ui_handoff_contract()
     paths = {source["relative_path"] for source in contract["upstream_read_sources"]}
+    requirements = {
+        source["relative_path"]: source["required"]
+        for source in contract["upstream_read_sources"]
+    }
 
     assert "runtime/operator_console/index.html" in paths
     assert "artifacts/operator_console_static_export" in paths
     assert "artifacts/operator_workflow_bundle" in paths
     assert "artifacts/paper_readable_report" in paths
     assert "artifacts/paper_governance_report" in paths
+    assert requirements["runtime/operator_console/index.html"] is True
+    assert requirements["artifacts/operator_workflow_bundle"] is False
 
 
 def test_dify_ui_handoff_d1_forbids_trade_outputs():

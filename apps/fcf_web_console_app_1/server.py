@@ -78,6 +78,13 @@ def create_fcf_web_console_server(
                 config.port,
             )
 
+        def _origin_is_valid(self) -> bool:
+            origins = self.headers.get_all("Origin", [])
+            return len(origins) == 1 and origins[0] in {
+                f"http://127.0.0.1:{config.port}",
+                f"http://localhost:{config.port}",
+            }
+
         def _parse_json_body(self) -> Mapping[str, object]:
             if self.headers.get("Transfer-Encoding") is not None:
                 raise ValueError("transfer encoding is not allowed")
@@ -115,6 +122,9 @@ def create_fcf_web_console_server(
                 return
             payload = None
             if self.command == "POST":
+                if not self._origin_is_valid():
+                    self._error(403, "same-origin POST required")
+                    return
                 try:
                     payload = self._parse_json_body()
                 except ValueError as exc:

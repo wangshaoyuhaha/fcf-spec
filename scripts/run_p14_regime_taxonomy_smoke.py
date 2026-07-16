@@ -8,7 +8,7 @@ SRC = os.path.join(ROOT, "src")
 if SRC not in sys.path:
     sys.path.insert(0, SRC)
 
-from btc_finance_platform.p14_regime_taxonomy import classify_regime_stub
+from btc_finance_platform.p14_regime_taxonomy import classify_regime
 from btc_finance_platform.p14_regime_taxonomy import write_regime_taxonomy
 
 
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     output = Path(ROOT) / "runtime" / "learning_engine" / "regime_taxonomy.json"
     result = write_regime_taxonomy(output)
 
-    sample = classify_regime_stub(
+    sample = classify_regime(
         {
             "trend": "up",
             "volatility": "high",

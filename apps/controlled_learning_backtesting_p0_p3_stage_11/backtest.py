@@ -13,9 +13,8 @@ from .contracts import (
 )
 
 
-class DeterministicUnifiedBacktestEngine:
-    def run(self, request: UnifiedBacktestRequest) -> BacktestResult:
-        CONTROLLED_LEARNING_BACKTESTING_BOUNDARY.__post_init__()
+class BacktestBiasGuard:
+    def validate(self, request: UnifiedBacktestRequest) -> tuple[str, ...]:
         failures = []
         splits = {item.split for item in request.observations}
         required = {
@@ -29,13 +28,19 @@ class DeterministicUnifiedBacktestEngine:
             failures.append("purged-validation-required")
         if request.embargo_days < 1:
             failures.append("embargo-window-required")
+        return tuple(failures)
+
+
+class WalkForwardValidator:
+    def validate(self, request: UnifiedBacktestRequest) -> tuple[str, ...]:
+        required = (
+            DatasetSplit.TRAIN,
+            DatasetSplit.VALIDATION,
+            DatasetSplit.FINAL_TEST,
+        )
         ordered_by_split = {
             split: sorted(
-                (
-                    item
-                    for item in request.observations
-                    if item.split is split
-                ),
+                (item for item in request.observations if item.split is split),
                 key=lambda item: utc_time(
                     item.decision_as_of_utc,
                     "decision_as_of_utc",
@@ -43,25 +48,34 @@ class DeterministicUnifiedBacktestEngine:
             )
             for split in required
         }
-        if all(ordered_by_split.values()):
-            train_end = max(
-                utc_time(item.outcome_time_utc, "outcome_time_utc")
-                for item in ordered_by_split[DatasetSplit.TRAIN]
-            )
-            validation_start = min(
-                utc_time(item.decision_as_of_utc, "decision_as_of_utc")
-                for item in ordered_by_split[DatasetSplit.VALIDATION]
-            )
-            validation_end = max(
-                utc_time(item.outcome_time_utc, "outcome_time_utc")
-                for item in ordered_by_split[DatasetSplit.VALIDATION]
-            )
-            final_start = min(
-                utc_time(item.decision_as_of_utc, "decision_as_of_utc")
-                for item in ordered_by_split[DatasetSplit.FINAL_TEST]
-            )
-            if train_end >= validation_start or validation_end >= final_start:
-                failures.append("walk-forward-window-overlap")
+        if not all(ordered_by_split.values()):
+            return ()
+        train_end = max(
+            utc_time(item.outcome_time_utc, "outcome_time_utc")
+            for item in ordered_by_split[DatasetSplit.TRAIN]
+        )
+        validation_start = min(
+            utc_time(item.decision_as_of_utc, "decision_as_of_utc")
+            for item in ordered_by_split[DatasetSplit.VALIDATION]
+        )
+        validation_end = max(
+            utc_time(item.outcome_time_utc, "outcome_time_utc")
+            for item in ordered_by_split[DatasetSplit.VALIDATION]
+        )
+        final_start = min(
+            utc_time(item.decision_as_of_utc, "decision_as_of_utc")
+            for item in ordered_by_split[DatasetSplit.FINAL_TEST]
+        )
+        if train_end >= validation_start or validation_end >= final_start:
+            return ("walk-forward-window-overlap",)
+        return ()
+
+
+class DeterministicUnifiedBacktestEngine:
+    def run(self, request: UnifiedBacktestRequest) -> BacktestResult:
+        CONTROLLED_LEARNING_BACKTESTING_BOUNDARY.__post_init__()
+        failures = list(BacktestBiasGuard().validate(request))
+        failures.extend(WalkForwardValidator().validate(request))
         observations = request.observations
         absolute_errors = [
             abs(item.predicted_score - item.actual_outcome)
