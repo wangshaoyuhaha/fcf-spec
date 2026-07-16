@@ -2,7 +2,7 @@
 
 ## Status
 
-COMPLETED_VALIDATED_READY_FOR_MAIN_MERGE
+COMPLETED_MERGED_VALIDATED
 
 ## Branch
 
@@ -15,7 +15,11 @@ b568a14479850b8bb323c75849b3c4da8f995f98
 ## Delivery commits
 
 - D1: 236836a5124434f112adb62b993a251eee4bf8e3
-- D2-D6: pending current delivery commit
+- D2-D6: 479b0f7957b22ab19f86a98653e9eb7cf21f33e6
+
+## Main merge
+
+3545a0fb83f096189067ac90841699fac089f5a4
 
 ## Completed scope
 
@@ -26,7 +30,7 @@ b568a14479850b8bb323c75849b3c4da8f995f98
 - rate and declared-cost budget enforcement
 - fail-closed dispatch, audit, review packet, and acceptance
 
-## Sidecar validation
+## Merged validation
 
 - targeted pytest: 264 passed, 2 skipped
 - full pytest: 4438 passed, 5 skipped

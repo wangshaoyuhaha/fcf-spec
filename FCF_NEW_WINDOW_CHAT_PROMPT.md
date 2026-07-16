@@ -3719,3 +3719,52 @@ Permanent boundary:
   withdrawal, transfer, real-money, tag, release, or deployment path
 
 <!-- FCF-API-GATEWAY-APP-1 APPROVAL END -->
+
+
+<!-- FCF-API-GATEWAY-APP-1 FINAL SYNC START -->
+
+## FCF-API-GATEWAY-APP-1 Final Sync
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: b568a14479850b8bb323c75849b3c4da8f995f98
+- D1: 236836a5124434f112adb62b993a251eee4bf8e3
+- D2-D6: 479b0f7957b22ab19f86a98653e9eb7cf21f33e6
+- main merge: 3545a0fb83f096189067ac90841699fac089f5a4
+
+Merged validation:
+
+- targeted pytest: 264 passed, 2 skipped
+- full pytest: 4438 passed, 5 skipped
+- scripts/run_all_checks.py: PASSED
+- generated outputs: RESTORED
+- git diff check: PASSED
+
+Delivered scope:
+
+- registered loopback process authentication and role authorization
+- read-only route policy and request schema enforcement
+- correlation and deterministic idempotency
+- request-rate and declared-cost budget enforcement
+- fail-closed dispatch, audit emission, review packet, and acceptance
+
+Next phase, not started:
+
+- MULTI-MODEL-WORKFLOW-APP-1
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory only
+- no password, API key, bearer token, credential material, external binding,
+  public API, account, wallet, broker, exchange, order, execution, tag,
+  release, or deployment
+
+<!-- FCF-API-GATEWAY-APP-1 FINAL SYNC END -->
