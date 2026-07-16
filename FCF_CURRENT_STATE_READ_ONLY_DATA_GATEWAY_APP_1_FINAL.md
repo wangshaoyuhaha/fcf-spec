@@ -2,7 +2,7 @@
 
 ## Status
 
-COMPLETED_VALIDATED_READY_FOR_MAIN_MERGE
+COMPLETED_MERGED_VALIDATED
 
 ## Branch
 
@@ -28,6 +28,11 @@ cc0aa23fb8e93c69d817632bbf8be758e3a4cb65
 - D3: 2ca21980b89f689cddab4908d51a806d5774b2c0
 - D4: d0c16340fb85110232c73f672f7a560ccdc9ba3e
 - D5: f13d5ab6843dc8bb6e90c79ab61f117847b4fec3
+- D6: 20736b659a5dd2e4d1b6e2e9e9e6494b16da8bc0
+
+## Main merge
+
+61615241e95a0c1a8547f20fb904c3a07080f862
 
 ## Validation
 
@@ -38,7 +43,11 @@ cc0aa23fb8e93c69d817632bbf8be758e3a4cb65
 
 ## Next dependency
 
-SOURCE-LICENSE-GOVERNANCE-APP-1 and DATA-FRESHNESS-POLICY-APP-1
+- SOURCE-LICENSE-GOVERNANCE-APP-1
+- DATA-FRESHNESS-POLICY-APP-1
+- READ-ONLY-CREDENTIAL-VAULT-APP-1
+
+This dependency group was not started automatically.
 
 No tag, release, deployment, broker, exchange, credential, account, wallet,
 order, or execution path is authorized.

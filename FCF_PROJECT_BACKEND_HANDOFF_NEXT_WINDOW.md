@@ -3434,3 +3434,59 @@ Permanent boundary:
 - no tag, release, or deployment
 
 <!-- READ-ONLY-DATA-GATEWAY-APP-1 APPROVAL END -->
+
+<!-- READ-ONLY-DATA-GATEWAY-APP-1 FINAL SYNC START -->
+
+## READ-ONLY-DATA-GATEWAY-APP-1 Final Sync
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: cc0aa23fb8e93c69d817632bbf8be758e3a4cb65
+- D1: e2e7567f424968795ea99cc50177916d855fb49c
+- D2: f03d5161d8fe7c223e486334ce3230deacbe8cb6
+- D3: 2ca21980b89f689cddab4908d51a806d5774b2c0
+- D4: d0c16340fb85110232c73f672f7a560ccdc9ba3e
+- D5: f13d5ab6843dc8bb6e90c79ab61f117847b4fec3
+- D6: 20736b659a5dd2e4d1b6e2e9e9e6494b16da8bc0
+- main merge: 61615241e95a0c1a8547f20fb904c3a07080f862
+
+Validation:
+
+- targeted pytest: 216 passed, 2 skipped
+- full pytest: 4342 passed, 5 skipped
+- scripts/run_all_checks.py: PASSED
+- generated outputs: RESTORED
+- git diff check: PASSED
+
+Delivered scope:
+
+- immutable registered CSV and JSON source contracts
+- fail-closed local artifact resolution and bounded checksum-verified reads
+- deterministic normalization with evidence-linked immutable records
+- source-policy query service with READY, DEGRADED, and BLOCKED outcomes
+- read-only product presentation and mandatory Operator review packet
+- final integration acceptance with no automatic activation or execution
+
+Next dependency group, not started:
+
+- SOURCE-LICENSE-GOVERNANCE-APP-1
+- DATA-FRESHNESS-POLICY-APP-1
+- READ-ONLY-CREDENTIAL-VAULT-APP-1
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only and read-only product presentation
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory only
+- no network, live vendor, credential, account, balance, position, wallet,
+  broker, exchange, order, or execution path
+- no tag, release, or deployment
+
+<!-- READ-ONLY-DATA-GATEWAY-APP-1 FINAL SYNC END -->
