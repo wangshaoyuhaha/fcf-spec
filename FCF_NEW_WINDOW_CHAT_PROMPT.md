@@ -3870,3 +3870,76 @@ Permanent boundaries remain unchanged:
   order, execution, tag, release, or deployment path
 
 <!-- MULTI-MODEL-WORKFLOW-APP-1 FINAL SYNC END -->
+
+<!-- MULTI-MARKET-ADAPTERS APPROVAL START -->
+
+## MULTI-MARKET-ADAPTERS Stage 6 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved baseline:
+
+- branch: main
+- parent: `5f899044756581e5ad3ab4aa2182f547b0ccf4c9`
+- planned branch: `sidecar-multi-market-adapters-stage-6`
+
+Required delivery order:
+
+- D1 shared immutable adapter boundary and
+  `CHINA-A-SHARE-MARKET-ADAPTER-APP-1`
+- D2 `US-EQUITY-MARKET-ADAPTER-APP-1`
+- D3 `HONG-KONG-EQUITY-MARKET-ADAPTER-APP-1`
+- D4 `GOLD-COMMODITY-MARKET-ADAPTER-APP-1`
+- D5 `DIGITAL-ASSET-MARKET-ADAPTER-APP-1`
+- D6 `FUTURES-MARKET-ADAPTER-APP-1`, cross-market registry, integration
+  acceptance, closeout, merge validation, and authority sync
+
+Adapter authority rule:
+
+- adapters consume only registered immutable local artifacts
+- market rules are configurable, versioned, traceable, and validated
+- deterministic services remain the calculation, exclusion, scoring, and
+  ranking authority
+- Registered Evidence remains evidence authority
+- AI may explain registered findings only and remains advisory
+- no adapter may fetch from or connect to a broker, exchange, wallet, account,
+  credential, balance, position, order, or execution surface
+
+Required market coverage:
+
+- A-share calendar, sessions, T+1, price-limit, special-treatment, suspension,
+  board, corporate-action, flow, liquidity, fee, settlement, and risk rules
+- United States calendar, regular and extended sessions, filings, corporate
+  actions, splits, dividends, options and institutional context, rates,
+  currency, liquidity, fee, settlement, and risk rules
+- Hong Kong calendar, sessions, auctions, board lots, odd lots, HKD counters,
+  corporate actions, Stock Connect, flow, short-sale eligibility, fees, taxes,
+  settlement, liquidity, and risk rules
+- gold instrument-family, benchmark, session, currency, corporate-action,
+  expiry, roll, liquidity, fee, settlement, and risk rules
+- digital-asset continuous trading, funding, mark price, open interest,
+  liquidation, on-chain, exchange-flow, venue-fragmentation, custody,
+  counterparty, fee, settlement, and risk rules
+- futures calendar, session, contract, expiry, roll, dominant contract, margin,
+  basis, term structure, settlement, exchange, liquidity, fee, and risk rules
+
+Deferred until separately approved:
+
+- Portfolio Construction and Portfolio Stress Test
+- interactive FCF Web Console controls
+- live data-provider or external model invocation
+- automatic learning, promotion, activation, or execution
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only and read-only
+- Operator review mandatory
+- no live model invocation or Prompt execution
+- no credential, account, wallet, broker, exchange connection, balance,
+  position, order, execution, tag, release, or deployment path
+
+<!-- MULTI-MARKET-ADAPTERS APPROVAL END -->
