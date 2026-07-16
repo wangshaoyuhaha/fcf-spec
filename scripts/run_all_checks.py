@@ -18,6 +18,7 @@ GENERATED_OUTPUT_ALLOWLIST = (
 
 COMMANDS = [
     ["python", "scripts/run_active_surface_quality_guard.py"],
+    ["python", "scripts/control_center_v2_factor_realtime_architecture_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],

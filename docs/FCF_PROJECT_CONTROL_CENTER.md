@@ -11294,3 +11294,56 @@ No successor implementation phase is approved. Every V2-R phase requires a
 separate Readiness Gate and explicit Operator approval.
 
 <!-- FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE SYNC APPROVAL END -->
+
+<!-- FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE LOCK START -->
+
+## FCF V2 Factor, Realtime, and Cognitive Architecture Lock
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+
+Current repository truth:
+
+- latest completed phase: SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13
+- current architecture work: governance registration only
+- current product implementation phase: NONE
+- next product implementation phase: NOT_SELECTED / NOT_APPROVED
+
+Canonical specifications:
+
+- `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`
+- `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md`
+- `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md`
+
+Accepted architecture includes deterministic Factor Registry, forecast targets
+and Outcome labels, State-Sync Lock, macro-to-micro transmission,
+multi-horizon conflict preservation, technical and fundamental factors,
+capital-flow proxy governance, order-book and microstructure research,
+realtime event semantics, dynamic anomaly alerts, uncertainty and abstention,
+operational health, replay and recovery, Readiness Gate, single-market MVP,
+stop rules, and V2-R1 through V2-R6.
+
+All twelve `FCF-V2-ADR-001` through `FCF-V2-ADR-012` decisions are
+accepted architecture. Acceptance is not implementation evidence.
+
+Roadmap status:
+
+- V2-R1 through V2-R6: PLANNED / NOT_APPROVED / NOT_STARTED
+- first realtime MVP market: NOT_SELECTED
+- realtime source and license: RESEARCH_REQUIRED
+- live or remote modes: RESEARCH_REQUIRED / NOT AUTHORIZED
+- Factor Library, State-Sync, realtime ingestion, anomaly radar, cognitive
+  shield, and Paper simulation runtime: NOT_IMPLEMENTED
+
+No live data, data purchase, credential, model invocation, Prompt execution,
+training, realtime service, Factor Library activation, scoring mutation,
+virtual account, Paper order, leverage runtime, or execution path is created by
+this lock.
+
+P1-P47 remain frozen. No P48 is created. Current paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine, Registered Evidence, advisory AI, and mandatory Operator
+review boundaries remain binding.
+
+No V2-R implementation phase starts automatically.
+
+<!-- FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE LOCK END -->
