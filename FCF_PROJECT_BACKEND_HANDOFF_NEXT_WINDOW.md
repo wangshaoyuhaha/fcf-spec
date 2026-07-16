@@ -4456,3 +4456,63 @@ Permanent authority and safety boundaries remain unchanged. P1-P47 remain
 frozen; no P48. No tag, release, or deploy was run. No next phase was started.
 
 <!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 FINAL SYNC END -->
+
+<!-- FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE SYNC APPROVAL START -->
+
+## FCF V2 Factor, Realtime, and Cognitive Architecture Sync Approval
+
+Status: APPROVED_GOVERNANCE_SYNC_NOT_STARTED
+
+Baseline:
+
+- branch: main
+- parent: `fd1b9157140ea8da414dd117b2bc3ab98408a543`
+- planned branch: `sidecar-fcf-v2-factor-realtime-cognitive-architecture-sync`
+
+Purpose:
+
+Consolidate the Operator proposal and the reviewed engineering additions into
+one authoritative future-architecture package before further product
+implementation.
+
+Approved documentation scope:
+
+- domain-scoped authority and four capability planes
+- deterministic Factor Registry and factor lifecycle
+- forecast-target and Outcome-label contracts
+- State-Sync Lock and multi-horizon conflict preservation
+- macro-to-micro transmission and causal-evidence registry
+- technical, fundamental, capital-flow, market-breadth, and risk factor catalog
+- order-book depth, order-flow, liquidity, and microstructure research catalog
+- realtime event semantics, data quality, alert state, and degradation policy
+- uncertainty, calibration, abstention, observability, replay, and recovery
+- Readiness Gate, single-market MVP gate, stop rules, and V2-R1 through V2-R6
+- twelve FCF V2 ADRs and explicit Gap, Backlog, and Research Required registers
+- active-authority synchronization and machine-detectable architecture guard
+
+Future-capability status vocabulary:
+
+- `ACCEPTED_ARCHITECTURE`
+- `PLANNED`
+- `BACKLOG`
+- `RESEARCH_REQUIRED`
+- `NOT_IMPLEMENTED`
+
+This approval does not authorize any future capability to be labeled
+`COMPLETED`, `DELIVERED`, `PRODUCTION_READY`, or `VALIDATED`.
+
+No product implementation is authorized:
+
+- no live or remote data connection
+- no data or model API purchase or credential use
+- no realtime service, WebSocket, Tick, or order-book runtime
+- no Factor Library implementation or scoring change
+- no model invocation, Prompt execution, training, or automatic routing
+- no Paper order, virtual account, leverage engine, or execution path
+- no P1-P47 mutation and no P48
+- no tag, release, or deployment
+
+No successor implementation phase is approved. Every V2-R phase requires a
+separate Readiness Gate and explicit Operator approval.
+
+<!-- FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE SYNC APPROVAL END -->
