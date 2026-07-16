@@ -5574,3 +5574,31 @@ credential, account, wallet, broker, exchange, balance, position, order,
 execution, tag, release, or deployment path was added.
 
 <!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 FINAL SYNC END -->
+
+<!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 APPROVAL START -->
+
+## Multi-Market Paper and Shadow Validation Stage 10 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline: main at `859ff601f7131505fd9549c5fab889711bdcd423`.
+Planned branch: `sidecar-multi-market-paper-shadow-stage-10`.
+
+D1-D6 deliver immutable multi-market validation contracts; deterministic
+six-market coverage and evidence aggregation; historical Paper portfolio
+validation; forward-only Shadow observation; cross-market comparison,
+disagreement, contradiction, risk, coverage and review packets; Web Console
+integration and closeout.
+
+Historical and forward windows remain separate. Deterministic benchmarks,
+market rules, calculations, and status remain authoritative. Incomplete,
+stale, conflicting, or unsupported state fails closed. No result can approve,
+promote, learn, activate, archive, or replace a baseline.
+
+Defer learning/backtesting P0-P4 and Dify/model-provider configuration.
+P1-P47 remain frozen; no P48. Keep paper-only, local-only, loopback-only,
+sidecar-only, registered-artifact-only and Operator-review boundaries. No live
+retrieval, credentials, accounts, wallets, brokers, exchanges, balances,
+positions, orders, execution, tag, release, or deployment.
+
+<!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 APPROVAL END -->

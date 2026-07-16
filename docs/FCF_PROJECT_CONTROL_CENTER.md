@@ -10856,3 +10856,56 @@ Permanent boundaries remain unchanged:
   order, execution, tag, release, or deployment path
 
 <!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 FINAL SYNC END -->
+
+<!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 APPROVAL START -->
+
+## Multi-Market Paper and Shadow Validation Stage 10 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved baseline:
+
+- branch: main
+- parent: `859ff601f7131505fd9549c5fab889711bdcd423`
+- planned branch: `sidecar-multi-market-paper-shadow-stage-10`
+
+Required delivery order:
+
+- D1 immutable multi-market validation boundary, identity, window, benchmark,
+  Paper portfolio, Shadow observation, and review contracts
+- D2 deterministic six-market coverage, adapter-state, registered-evidence,
+  freshness, currency, calendar, and data-quality aggregation
+- D3 historical Paper portfolio validation with baseline/candidate separation,
+  return, loss, turnover, cost, exposure, and breach attribution
+- D4 forward-only Shadow observation with decision-time cutoff, observation
+  maturity, no-lookahead, no execution, and incomplete-window behavior
+- D5 cross-market comparison, disagreement, contradiction, risk, coverage,
+  BLOCKED/DEGRADED visibility, and immutable Operator review packet
+- D6 Web Console integration, acceptance, merge validation, and authority sync
+
+Validation authority rule:
+
+- every input and output is registered-artifact traceable
+- historical Paper validation and forward Shadow observation remain separate
+- deterministic benchmarks, market rules, calculations, and status are authoritative
+- AI may explain registered results only
+- no result can approve, promote, learn, activate, archive, or replace a baseline
+- incomplete, stale, conflicting, or unsupported market state fails closed
+
+Deferred:
+
+- controlled learning and deterministic backtesting P0-P3
+- deferred learning enhancements P4
+- Dify/model-provider configuration and live model invocation
+
+Permanent boundary:
+
+- P1-P47 frozen; no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence remain authoritative
+- AI advisory only
+- no live retrieval, credential, account, wallet, broker, exchange connection,
+  balance, position read, order, execution, tag, release, or deployment path
+
+<!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 APPROVAL END -->

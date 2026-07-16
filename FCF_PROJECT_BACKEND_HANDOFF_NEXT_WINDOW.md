@@ -4278,3 +4278,22 @@ brokers, exchanges, balances, positions, orders, execution, tag, release, or
 deployment was added.
 
 <!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 FINAL SYNC END -->
+
+<!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 APPROVAL START -->
+
+## Multi-Market Paper and Shadow Validation Stage 10 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `859ff601f7131505fd9549c5fab889711bdcd423`; planned branch
+`sidecar-multi-market-paper-shadow-stage-10`.
+
+Deliver D1-D6: immutable validation contracts; six-market coverage; historical
+Paper portfolio validation; forward-only Shadow observation; cross-market
+comparison/risk/review; Web Console integration and closeout.
+
+Do not mix historical and forward windows. No automatic approval, promotion,
+learning, activation, archive, or baseline replacement. Defer P0-P4 and
+Dify/model-provider configuration. Preserve all permanent boundaries.
+
+<!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 APPROVAL END -->
