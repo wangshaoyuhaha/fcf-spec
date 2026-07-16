@@ -4279,3 +4279,19 @@ P4 and Dify/model-provider configuration remain deferred. Preserve all
 permanent boundaries.
 
 <!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 FINAL SYNC END -->
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 APPROVAL START -->
+
+## Controlled Learning and Deterministic Backtesting P0-P3 Stage 11 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `a6496d30dac3864b175c9da5a245792a8b0dd3a4`; branch
+`sidecar-controlled-learning-backtesting-p0-p3-stage-11`.
+
+Deliver P0 point-in-time/version foundation, P1 deterministic backtest and
+registries, P2 registered AI replay evaluation without invocation, P3 governed
+candidate/experiment/promotion/rollback/audit, and Web Console integration.
+No automatic activation or authority transition. P4 and Dify remain deferred.
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 APPROVAL END -->

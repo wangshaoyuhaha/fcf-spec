@@ -10958,3 +10958,48 @@ Deferred after a stable P0-P3 foundation:
 Permanent boundaries remain unchanged.
 
 <!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 FINAL SYNC END -->
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 APPROVAL START -->
+
+## Controlled Learning and Deterministic Backtesting P0-P3 Stage 11 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline:
+
+- branch: main
+- parent: `a6496d30dac3864b175c9da5a245792a8b0dd3a4`
+- planned branch: `sidecar-controlled-learning-backtesting-p0-p3-stage-11`
+
+Delivery order:
+
+- D1 P0 point-in-time data/source/config/calendar/corporate-action/benchmark
+  version foundation
+- D2 P1 deterministic multi-market backtest, bias guard, walk-forward,
+  immutable result/outcome registry, and attribution
+- D3 P2 registered AI historical replay evaluation, knowledge-leakage guard,
+  fact alignment, role performance, and incremental-value evaluation
+- D4 P3 human-feedback learning candidates and Champion/Challenger sandbox
+- D5 controlled-evolution gate, promotion proposal, rollback plan, and
+  append-only learning-loop audit
+- D6 Web Console integration, 22-capability acceptance, closeout, and sync
+
+Authority rules:
+
+- available_at must be less than or equal to as_of_time
+- deterministic code owns authoritative backtest values
+- failed, negative, blocked, and inconclusive results are preserved
+- P2 consumes registered AI outputs only and invokes no model or Prompt
+- learning outputs are candidates, never production changes
+- every Challenger declares differences and enters a sandbox experiment
+- promotion requires all governance gates and explicit Operator review
+- no automatic activation, Champion replacement, archive, learning, or rollback
+
+Deferred:
+
+- P4 enhancements
+- Dify/model-provider configuration and live model invocation
+
+All permanent boundaries remain unchanged.
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 APPROVAL END -->

@@ -5626,3 +5626,27 @@ Next phase not started: controlled learning and deterministic backtesting P0-P3.
 P4 and Dify/model-provider configuration remain deferred.
 
 <!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 FINAL SYNC END -->
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 APPROVAL START -->
+
+## Controlled Learning and Deterministic Backtesting P0-P3 Stage 11 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `a6496d30dac3864b175c9da5a245792a8b0dd3a4`; planned branch
+`sidecar-controlled-learning-backtesting-p0-p3-stage-11`.
+
+D1-D6 deliver P0 point-in-time/version registries; P1 deterministic
+multi-market backtest, bias/walk-forward/result/outcome/attribution; P2
+registered AI historical replay evaluation without model invocation; P3
+feedback candidates, Champion/Challenger sandbox, evolution gates, promotion
+proposal, rollback plan, audit; Web Console integration and closeout.
+
+Backtesting proves and diagnoses. Registries preserve. Learning proposes.
+Experiments compare. Governance and the Operator decide. No result activates,
+rewrites, deletes, promotes, archives, learns, or rolls back automatically.
+
+P4 and Dify/model-provider configuration remain deferred. Preserve all
+permanent boundaries.
+
+<!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 APPROVAL END -->
