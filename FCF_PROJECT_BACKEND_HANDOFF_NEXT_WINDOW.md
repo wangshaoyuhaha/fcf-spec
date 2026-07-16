@@ -3981,3 +3981,57 @@ Permanent boundary:
   position, order, execution, tag, release, or deployment path
 
 <!-- MULTI-MARKET-ADAPTERS APPROVAL END -->
+
+<!-- MULTI-MARKET-ADAPTERS FINAL SYNC START -->
+
+## MULTI-MARKET-ADAPTERS Stage 6 Final Sync
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: `996414deaa7ff186622569f702d144d4bda554a1`
+- D1-D6 delivery: `b4b9666a02d21c8127b8a8ec083d3db11ea932a6`
+- main merge: `51ea9053262c159d8985e8d7ac6fd1e5d28cfc45`
+
+Merged validation:
+
+- independent pytest: 18 passed
+- targeted pytest: 131 passed, 2 skipped
+- full pytest: 4464 passed, 5 skipped
+- `scripts/run_all_checks.py`: PASSED
+- generated outputs: RESTORED
+- `git diff --check`: PASSED
+
+Delivered:
+
+- shared immutable market-adapter boundary and versioned profile contracts
+- `CHINA-A-SHARE-MARKET-ADAPTER-APP-1`
+- `US-EQUITY-MARKET-ADAPTER-APP-1`
+- `HONG-KONG-EQUITY-MARKET-ADAPTER-APP-1`
+- `GOLD-COMMODITY-MARKET-ADAPTER-APP-1`
+- `DIGITAL-ASSET-MARKET-ADAPTER-APP-1`
+- `FUTURES-MARKET-ADAPTER-APP-1`
+- ordered registry, immutable Operator review packets, and Stage 6 acceptance
+
+Next group not started:
+
+- `PORTFOLIO-CONSTRUCTION-APP-1`
+- `PORTFOLIO-STRESS-TEST-APP-1`
+
+Permanent boundaries remain unchanged:
+
+- P1-P47 frozen; no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only and read-only
+- Operator review mandatory
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- AI remains advisory only
+- no live data retrieval, live model invocation, or Prompt execution
+- no credential, account, wallet, broker, exchange connection, balance,
+  position, order, execution, tag, release, or deployment path
+
+<!-- MULTI-MARKET-ADAPTERS FINAL SYNC END -->

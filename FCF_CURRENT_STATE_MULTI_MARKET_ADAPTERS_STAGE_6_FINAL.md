@@ -2,7 +2,7 @@
 
 ## Status
 
-COMPLETED_VALIDATED_READY_FOR_MAIN_MERGE
+COMPLETED_MERGED_VALIDATED
 
 ## Branch
 
@@ -14,7 +14,11 @@ sidecar-multi-market-adapters-stage-6
 
 ## Delivery commit
 
-Pending current delivery commit.
+`b4b9666a02d21c8127b8a8ec083d3db11ea932a6`
+
+## Main merge commit
+
+`51ea9053262c159d8985e8d7ac6fd1e5d28cfc45`
 
 ## Completed scope
 
@@ -27,7 +31,7 @@ Pending current delivery commit.
 - futures adapter
 - ordered registry, immutable review packets, and Stage 6 acceptance
 
-## Sidecar validation
+## Merged validation
 
 - independent pytest: 18 passed
 - targeted pytest: 131 passed, 2 skipped
