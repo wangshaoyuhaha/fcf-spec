@@ -3997,3 +3997,78 @@ Permanent boundaries remain unchanged:
   position, order, execution, tag, release, or deployment path
 
 <!-- MULTI-MARKET-ADAPTERS FINAL SYNC END -->
+
+<!-- PORTFOLIO-CONSTRUCTION-STRESS STAGE 7 APPROVAL START -->
+
+## Portfolio Construction and Stress Test Stage 7 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved baseline:
+
+- branch: main
+- parent: `ce6edbd3690abce554c56317343d5ab9a79f58c6`
+- planned branch: `sidecar-portfolio-construction-stress-stage-7`
+
+Approved applications:
+
+- `PORTFOLIO-CONSTRUCTION-APP-1`
+- `PORTFOLIO-STRESS-TEST-APP-1`
+
+Required delivery order:
+
+- D1 immutable portfolio boundary, ranked-candidate input, configuration,
+  constraint, and proposal contracts
+- D2 deterministic configurable base allocation, risk-budget, Paper sizing,
+  turnover, and transaction-cost calculations
+- D3 deterministic single-asset, industry, theme, factor, correlation, beta,
+  volatility, liquidity, and drawdown constraint governance
+- D4 immutable versioned stress scenarios and deterministic portfolio stress
+  calculations
+- D5 Paper position proposal, preserved original inputs, findings, and
+  Operator review packet
+- D6 integration acceptance, closeout, merge validation, and authority sync
+
+Portfolio authority rule:
+
+- Portfolio Construction starts only after deterministic ranking
+- Portfolio Construction is not an additional selection factor
+- all authoritative weights and stress values are deterministic
+- all thresholds, costs, risk budgets, and scenario shocks are supplied by
+  versioned configuration
+- AI may explain registered results only and may not calculate, change, or
+  approve weights
+- every Paper position remains a proposal pending explicit Operator review
+
+Required controls:
+
+- single-asset, industry, theme, and factor concentration
+- correlation, beta, volatility, liquidity, and maximum drawdown
+- turnover and transaction-cost assumptions
+- portfolio risk budget and Paper position sizing
+- versioned scenario shocks, loss attribution, breach visibility, and
+  fail-closed acceptance
+
+Deferred until separately approved:
+
+- `FCF-WEB-CONSOLE-APP-1`
+- one-click local operations
+- multi-market Paper and Shadow validation
+- controlled learning and backtesting P0-P4
+- real portfolio management, automatic rebalancing, or execution
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only and read-only inputs
+- Operator review mandatory
+- Deterministic Engine and Registered Evidence authority preserved
+- AI advisory only
+- no live data retrieval, model invocation, Prompt execution, credential,
+  account, wallet, broker, exchange connection, balance, position read,
+  order, execution, tag, release, or deployment path
+
+<!-- PORTFOLIO-CONSTRUCTION-STRESS STAGE 7 APPROVAL END -->
