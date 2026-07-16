@@ -10681,3 +10681,58 @@ Permanent boundary:
   position read, order, execution, tag, release, or deployment path
 
 <!-- FCF-WEB-CONSOLE STAGE 8 APPROVAL END -->
+
+<!-- FCF-WEB-CONSOLE STAGE 8 FINAL SYNC START -->
+
+## FCF Web Console Stage 8 Final Sync
+
+Status:
+
+COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: `95fb705d06e802df8682462ca0abfe946d8ec0f5`
+- D1-D6 delivery: `f6f562daf6464c0e238f7311d54bae30769aaa12`
+- main merge: `16a19cd8c230a6caa54345f82268fc0d0e2d5afe`
+
+Merged validation:
+
+- independent pytest: 34 passed
+- targeted pytest: 579 passed, 3 skipped
+- full pytest: 4513 passed, 5 skipped
+- `scripts/run_all_checks.py`: PASSED
+- generated outputs: RESTORED
+- `git diff --check`: PASSED
+
+Delivered:
+
+- custom responsive FCF Web Console with twelve governed product routes
+- PDF, Excel, CSV, JSON, text, approved HTTPS URL, local-file, and multi-file
+  intake requests with browser checksums and quarantine-before-registration
+- controlled research, approval, rejection, re-analysis, more-evidence,
+  untrusted-data, model-comparison, override, freeze, export, start, and stop
+  request validation
+- workflow, evidence, model, disagreement, risk, policy, health, cost, failure,
+  degradation, Portfolio Construction, Paper portfolio, and report views
+- exact-loopback hardened HTTP adapter with bounded JSON request bodies
+- existing immutable Browser Console read-model integration
+
+Next phase not started:
+
+- `ONE-CLICK-LOCAL-OPERATIONS-APP-1`
+
+Permanent boundaries remain unchanged:
+
+- P1-P47 frozen; no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only authoritative inputs
+- Operator review mandatory
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- AI remains advisory only
+- no live data retrieval, model invocation, Prompt execution, credential,
+  account, wallet, broker, exchange connection, balance, position read,
+  order, execution, tag, release, or deployment path
+
+<!-- FCF-WEB-CONSOLE STAGE 8 FINAL SYNC END -->

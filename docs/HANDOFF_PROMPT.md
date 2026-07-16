@@ -3335,3 +3335,32 @@ accounts, wallets, brokers, exchanges, balances, positions, orders, execution,
 tags, releases, or deployment.
 
 <!-- FCF-WEB-CONSOLE STAGE 8 APPROVAL END -->
+
+<!-- FCF-WEB-CONSOLE STAGE 8 FINAL SYNC START -->
+
+## FCF Web Console Stage 8 Final Sync
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Commits: approval `95fb705d06e802df8682462ca0abfe946d8ec0f5`,
+delivery `f6f562daf6464c0e238f7311d54bae30769aaa12`, main merge
+`16a19cd8c230a6caa54345f82268fc0d0e2d5afe`.
+
+Validation: independent 34 passed; targeted 579 passed, 3 skipped; full 4513
+passed, 5 skipped; run_all_checks PASSED; generated outputs RESTORED; diff
+check PASSED.
+
+Delivered: custom twelve-route responsive Web Console, governed PDF/Excel/CSV/
+JSON/text/URL/local/multi-file intake, controlled research and Operator
+requests, operational/evidence/model/risk/portfolio/Paper/report visibility,
+and exact-loopback bounded JSON HTTP integration.
+
+Next phase not started: `ONE-CLICK-LOCAL-OPERATIONS-APP-1`.
+
+Permanent paper-only, local-only, loopback-only, sidecar-only,
+registered-artifact-only, Operator-review-required boundaries remain. P1-P47
+are frozen; no P48. No live retrieval, model invocation, Prompt execution,
+credentials, accounts, wallets, brokers, exchanges, balances, positions,
+orders, execution, tag, release, or deployment was added.
+
+<!-- FCF-WEB-CONSOLE STAGE 8 FINAL SYNC END -->

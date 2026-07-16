@@ -5462,3 +5462,45 @@ Permanent boundary:
   position read, order, execution, tag, release, or deployment path
 
 <!-- FCF-WEB-CONSOLE STAGE 8 APPROVAL END -->
+
+<!-- FCF-WEB-CONSOLE STAGE 8 FINAL SYNC START -->
+
+## FCF Web Console Stage 8 Final Sync
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: `95fb705d06e802df8682462ca0abfe946d8ec0f5`
+- D1-D6 delivery: `f6f562daf6464c0e238f7311d54bae30769aaa12`
+- main merge: `16a19cd8c230a6caa54345f82268fc0d0e2d5afe`
+
+Validation:
+
+- independent: 34 passed
+- targeted: 579 passed, 3 skipped
+- full: 4513 passed, 5 skipped
+- run_all_checks: PASSED
+- generated outputs: RESTORED
+- diff check: PASSED
+
+The custom Web Console now supplies twelve responsive product routes, governed
+multi-format intake requests, controlled research and Operator requests,
+complete registered operational visibility, Portfolio Construction, Paper
+portfolio and report views, and an exact-loopback bounded JSON HTTP adapter.
+It integrates the existing immutable Browser Console read model.
+
+New intake remains quarantined until approved evidence registration. URL input
+does not retrieve content. Browser controls validate auditable requests only
+and do not transition authority or perform execution.
+
+Next phase not started: `ONE-CLICK-LOCAL-OPERATIONS-APP-1`.
+
+P1-P47 remain frozen; no P48. Paper-only, local-only, loopback-only,
+sidecar-only, registered-artifact-only, Operator-review-required boundaries
+remain unchanged. Deterministic Engine and Registered Evidence remain
+authoritative; AI remains advisory. No live retrieval, model invocation,
+Prompt execution, credential, account, wallet, broker, exchange, balance,
+position, order, execution, tag, release, or deployment path was added.
+
+<!-- FCF-WEB-CONSOLE STAGE 8 FINAL SYNC END -->
