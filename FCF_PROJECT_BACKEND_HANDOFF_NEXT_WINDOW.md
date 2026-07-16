@@ -4163,3 +4163,33 @@ Permanent boundaries remain unchanged:
   order, execution, tag, release, or deployment path
 
 <!-- PORTFOLIO-CONSTRUCTION-STRESS STAGE 7 FINAL SYNC END -->
+
+<!-- FCF-WEB-CONSOLE STAGE 8 APPROVAL START -->
+
+## FCF Web Console Stage 8 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline: main at `9eb298e9e9b575046f7688310aabbd3a44550f26`.
+Planned branch: `sidecar-fcf-web-console-app-1`.
+
+Deliver D1-D6 only: immutable Web Console contracts; fail-closed intake
+descriptors; controlled conversation and workflow requests; registered
+evidence, model, risk, health, cost, and degradation presentation; Portfolio
+Construction, Paper portfolio, report, and Operator review UI; loopback
+integration acceptance and authority sync.
+
+The browser remains a governed request and read-only authoritative evidence
+surface. URL input performs no retrieval. Start and stop create requests only.
+Operator actions require explicit identity, reason, confirmation, and audit
+fields. Deterministic Engine and Registered Evidence remain authoritative; AI
+remains advisory.
+
+Defer process lifecycle packaging to `ONE-CLICK-LOCAL-OPERATIONS-APP-1`.
+P1-P47 remain frozen; no P48. Keep paper-only, local-only, loopback-only,
+sidecar-only, registered-artifact-only, Operator-review-required boundaries.
+Do not add live retrieval, model invocation, Prompt execution, credentials,
+accounts, wallets, brokers, exchanges, balances, positions, orders, execution,
+tags, releases, or deployment.
+
+<!-- FCF-WEB-CONSOLE STAGE 8 APPROVAL END -->

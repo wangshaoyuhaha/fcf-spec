@@ -5400,3 +5400,65 @@ Permanent boundaries remain unchanged:
   order, execution, tag, release, or deployment path
 
 <!-- PORTFOLIO-CONSTRUCTION-STRESS STAGE 7 FINAL SYNC END -->
+
+<!-- FCF-WEB-CONSOLE STAGE 8 APPROVAL START -->
+
+## FCF Web Console Stage 8 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved baseline:
+
+- branch: main
+- parent: `9eb298e9e9b575046f7688310aabbd3a44550f26`
+- planned branch: `sidecar-fcf-web-console-app-1`
+
+Approved application:
+
+- `FCF-WEB-CONSOLE-APP-1`
+
+Required delivery order:
+
+- D1 immutable product boundary, navigation, input, view, and action contracts
+- D2 fail-closed registered-artifact intake descriptors for PDF, Excel, CSV,
+  JSON, text, approved URL, local-file selection, and multi-file requests
+- D3 controlled research conversation and governed workflow-control requests
+- D4 registered evidence, model comparison, disagreement, risk, policy,
+  health, cost, failure, degradation, and review presentation
+- D5 Portfolio Construction, Paper portfolio, report, and Operator review UI
+- D6 loopback integration acceptance, closeout, merge validation, and sync
+
+Product authority rule:
+
+- the browser is a product presentation and governed request surface
+- uploaded or selected inputs remain requests until registered by an approved
+  evidence workflow
+- URL input records an approved reference and never retrieves network content
+- start and stop controls create governed workflow requests only
+- Operator approval, rejection, re-analysis, additional-evidence requests, and
+  overrides require explicit identity, reason, confirmation, and audit fields
+- Deterministic Engine values and Registered Evidence remain authoritative
+- AI output remains advisory and disagreement remains visible
+
+Deferred until separately approved:
+
+- `ONE-CLICK-LOCAL-OPERATIONS-APP-1` process lifecycle and launcher packaging
+- multi-market Paper and Shadow validation
+- controlled learning and deterministic backtesting P0-P4
+- live data retrieval, model invocation, or Prompt execution
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only and read-only authoritative inputs
+- Operator review mandatory
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- AI advisory only
+- no credential, account, wallet, broker, exchange connection, balance,
+  position read, order, execution, tag, release, or deployment path
+
+<!-- FCF-WEB-CONSOLE STAGE 8 APPROVAL END -->
