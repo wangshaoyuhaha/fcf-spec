@@ -10909,3 +10909,52 @@ Permanent boundary:
   balance, position read, order, execution, tag, release, or deployment path
 
 <!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 APPROVAL END -->
+
+<!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 FINAL SYNC START -->
+
+## Multi-Market Paper and Shadow Validation Stage 10 Final Sync
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: `8e52d6d1c313f4d761b8eb5948a9024ed312bfcb`
+- D1-D6 delivery: `707820ca3d6dd8ddd8505da4d0b558bbc724ccd5`
+- main merge: `3fe92c21f0eaf6daf079fa003e84baae0b3ae8d9`
+
+Merged validation:
+
+- independent pytest: 17 passed
+- targeted pytest: 177 passed
+- full pytest: 4555 passed, 5 skipped
+- `scripts/run_all_checks.py`: PASSED
+- generated outputs: RESTORED
+- `git diff --check`: PASSED
+
+Delivered:
+
+- immutable six-market Paper and Shadow validation boundary and contracts
+- China A-share, US equity, Hong Kong equity, gold/commodity, digital asset,
+  and futures coverage
+- deterministic adapter, currency, calendar, freshness, data-quality, evidence,
+  Paper return, benchmark, loss, turnover, cost, and exposure attribution
+- forward-only Shadow maturity, coverage, error, contradiction, and no-lookahead
+  controls
+- missing, stale, degraded, blocked, overlap, breach, underperformance, and
+  cross-market disagreement visibility
+- immutable Operator review packet with no approval, promotion, learning,
+  archive, baseline replacement, or execution authority
+- FCF Web Console Portfolio and Paper portfolio integration
+
+Next phase not started:
+
+- controlled learning and deterministic backtesting P0-P3
+
+Deferred after a stable P0-P3 foundation:
+
+- learning enhancements P4
+- Dify/model-provider and live model invocation configuration
+
+Permanent boundaries remain unchanged.
+
+<!-- MULTI-MARKET-PAPER-SHADOW STAGE 10 FINAL SYNC END -->
