@@ -5537,3 +5537,40 @@ Do not add credentials, accounts, wallets, brokers, exchanges, balances,
 positions, orders, execution, tags, releases, or deployment.
 
 <!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 APPROVAL END -->
+
+<!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 FINAL SYNC START -->
+
+## One-Click Local Operations Stage 9 Final Sync
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Authority commits:
+
+- approval: `dbac8d4867fcb86391c56e90bd6249aec3173ef2`
+- D1-D6 delivery: `b3500e282c4b2412dc8f5e746f0df960d8043db3`
+- main merge: `858eee250f70ab5706fb2b0effe9f3e826ae228d`
+
+Validation: independent 25 passed; targeted 396 passed, 3 skipped; full 4538
+passed, 5 skipped; run_all_checks PASSED; generated outputs RESTORED; diff
+check PASSED.
+
+Stage 9 delivers Windows double-click start, stop, status, and backup; complete
+local preflight and notifications; a hidden single-instance exact-loopback
+service; health-before-browser readiness; atomic owned state; graceful
+instance-token stop; configuration, evidence, database-target and state backup;
+pre-upgrade snapshots; SHA-256 verification; state export; and isolated
+recovery staging without automatic activation.
+
+Normal product operation no longer requires the Operator to type Python or
+PowerShell. The underlying local runtime remains explicit, contained, and
+recoverable.
+
+Next phase not started: multi-market, Paper portfolio, and Shadow validation.
+
+P1-P47 remain frozen; no P48. Paper-only, local-only, loopback-only,
+sidecar-only, registered-artifact-only, Operator-review-required boundaries
+remain unchanged. No live retrieval, model invocation, Prompt execution,
+credential, account, wallet, broker, exchange, balance, position, order,
+execution, tag, release, or deployment path was added.
+
+<!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 FINAL SYNC END -->
