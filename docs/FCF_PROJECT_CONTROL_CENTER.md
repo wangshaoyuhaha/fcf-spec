@@ -10736,3 +10736,66 @@ Permanent boundaries remain unchanged:
   order, execution, tag, release, or deployment path
 
 <!-- FCF-WEB-CONSOLE STAGE 8 FINAL SYNC END -->
+
+<!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 APPROVAL START -->
+
+## One-Click Local Operations Stage 9 Approval
+
+Status:
+
+APPROVED_NOT_STARTED
+
+Approved baseline:
+
+- branch: main
+- parent: `d5d857f8974363c807bf973947fbfd4f0fe97cbf`
+- planned branch: `sidecar-one-click-local-operations-app-1`
+
+Approved application:
+
+- `ONE-CLICK-LOCAL-OPERATIONS-APP-1`
+
+Required delivery order:
+
+- D1 immutable local-operations boundary, lifecycle, state, and receipt contracts
+- D2 deterministic preflight, registered-artifact, port, runtime, dependency,
+  migration, and missing-model checks
+- D3 single-instance background start, graceful stop, status, state ownership,
+  and stale-state handling
+- D4 health checks, readiness wait, browser opening, service-failure
+  notification, diagnostics, and recovery guidance
+- D5 configuration/state/database-target backup, upgrade snapshot, safe
+  recovery staging, rollback preparation, state export, and Windows double-click
+  entry points
+- D6 integration acceptance, closeout, merge validation, and authority sync
+
+Operations authority rule:
+
+- normal Operator use must not require manually typing Python or PowerShell
+- start and stop apply only to the local loopback FCF Web Console service
+- every instance has deterministic ownership and auditable local state
+- stop is graceful and fail-closed; no unrelated process may be terminated
+- backup and recovery operate only on registered or explicitly approved local
+  paths and never overwrite an active authority baseline automatically
+- browser opening occurs only after successful loopback health checks
+
+Deferred until separately approved:
+
+- multi-market Paper and Shadow validation
+- controlled learning and deterministic backtesting P0-P4
+- installers, public deployment, hosted services, or external authentication
+- live data retrieval, model invocation, or Prompt execution
+
+Permanent boundary:
+
+- P1-P47 frozen and no P48
+- paper-only, local-only, loopback-only, sidecar-only
+- registered-artifact-only authoritative inputs
+- Operator review mandatory
+- Deterministic Engine remains calculation authority
+- Registered Evidence remains evidence authority
+- AI advisory only
+- no credential, account, wallet, broker, exchange connection, balance,
+  position read, order, execution, tag, release, or deployment path
+
+<!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 APPROVAL END -->

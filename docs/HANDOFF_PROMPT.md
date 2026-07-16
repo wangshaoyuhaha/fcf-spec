@@ -3364,3 +3364,30 @@ credentials, accounts, wallets, brokers, exchanges, balances, positions,
 orders, execution, tag, release, or deployment was added.
 
 <!-- FCF-WEB-CONSOLE STAGE 8 FINAL SYNC END -->
+
+<!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 APPROVAL START -->
+
+## One-Click Local Operations Stage 9 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline: main at `d5d857f8974363c807bf973947fbfd4f0fe97cbf`.
+Planned branch: `sidecar-one-click-local-operations-app-1`.
+
+Deliver D1-D6 only: immutable lifecycle/state contracts; deterministic
+preflight and migration checks; single-instance background start, graceful stop
+and status; health/readiness/browser/diagnostics; bounded backup, upgrade
+snapshot, recovery staging, rollback preparation, state export and Windows
+double-click entry points; acceptance and authority sync.
+
+Normal use must not require typed Python or PowerShell. Operations remain exact
+loopback and may not terminate unrelated processes. Recovery never overwrites
+active authority automatically.
+
+P1-P47 remain frozen; no P48. Keep permanent paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only and Operator-review
+boundaries. No live retrieval, model invocation, Prompt execution, credentials,
+accounts, wallets, brokers, exchanges, balances, positions, orders, execution,
+tag, release, or deployment.
+
+<!-- ONE-CLICK-LOCAL-OPERATIONS STAGE 9 APPROVAL END -->
