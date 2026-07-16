@@ -3498,3 +3498,19 @@ configuration and live model invocation remain deferred. Preserve all
 permanent boundaries.
 
 <!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 FINAL SYNC END -->
+
+<!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 APPROVAL START -->
+
+## P4 Controlled Enhancements Stage 12 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `890e2b854025c2fb57c3cd6a324ac3f488a1781c`; branch
+`sidecar-p4-controlled-enhancements-stage-12`.
+
+Deliver five bounded P4 structures and read-only Web Console integration.
+Automatic means deterministic proposal only. Realtime means local registered
+forward observation only. Specialist training means plan and registered-result
+evaluation only. No autonomous execution or authority transition.
+
+<!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 APPROVAL END -->

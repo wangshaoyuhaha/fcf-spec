@@ -4319,3 +4319,20 @@ configuration and live model invocation remain deferred. Preserve all
 permanent boundaries.
 
 <!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 FINAL SYNC END -->
+
+<!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 APPROVAL START -->
+
+## P4 Controlled Enhancements Stage 12 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `890e2b854025c2fb57c3cd6a324ac3f488a1781c`; branch
+`sidecar-p4-controlled-enhancements-stage-12`.
+
+Deliver all five P4 capability identities as bounded local structures:
+point-in-time case retrieval, deterministic Challenger proposals, registered
+forward-only Shadow validation, experiment schedule proposals, specialist
+training plans and registered-result evaluation, plus read-only Web Console
+integration. No autonomous execution or authority transition is authorized.
+
+<!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 APPROVAL END -->

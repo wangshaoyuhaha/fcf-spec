@@ -4357,3 +4357,20 @@ configuration and live model invocation remain deferred. Preserve all
 permanent boundaries.
 
 <!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 FINAL SYNC END -->
+
+<!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 APPROVAL START -->
+
+## P4 Controlled Enhancements Stage 12 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline `890e2b854025c2fb57c3cd6a324ac3f488a1781c`; branch
+`sidecar-p4-controlled-enhancements-stage-12`.
+
+Implement the five canonical P4 enhancements without changing authority:
+registered point-in-time case retrieval; deterministic candidate proposals;
+local registered forward-only Shadow validation; schedule proposals without
+job execution; specialist training plans and registered-result evaluation
+without training or model invocation; read-only console acceptance.
+
+<!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 APPROVAL END -->

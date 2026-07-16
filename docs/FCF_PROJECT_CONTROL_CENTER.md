@@ -11061,3 +11061,49 @@ and no-real-world-execution boundaries remain unchanged. No tag, release, or
 deploy was run.
 
 <!-- CONTROLLED-LEARNING-BACKTESTING P0-P3 STAGE 11 FINAL SYNC END -->
+
+<!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 APPROVAL START -->
+
+## P4 Controlled Enhancements Stage 12 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Baseline:
+
+- branch: main
+- parent: `890e2b854025c2fb57c3cd6a324ac3f488a1781c`
+- planned branch: `sidecar-p4-controlled-enhancements-stage-12`
+
+Governance decision:
+
+- the stable P0-P3 prerequisite is satisfied by Stage 11
+- all five canonical P4 capability identities are approved for bounded local
+  structural implementation
+- automatic means deterministic proposal generation only
+- realtime means consumption of local registered forward observations only
+- specialist training means plan generation and registered-result evaluation
+  only in this stage
+
+Delivery order:
+
+- D1 immutable P4 boundary, governance record, and capability registry
+- D2 registered point-in-time case-memory retrieval
+- D3 deterministic Challenger candidate and experiment schedule proposals
+- D4 forward-only local registered Shadow validation
+- D5 specialist training plans and registered-result evaluation
+- D6 read-only Web Console integration, five-capability acceptance, closeout,
+  merge, validation, and final authority sync
+
+Prohibited:
+
+- network or live-market retrieval
+- model invocation, Prompt execution, or training execution
+- automatic experiment execution, archive writing, learning, approval,
+  promotion, activation, Champion replacement, or rollback
+- credentials, accounts, wallets, brokers, exchanges, balances, positions,
+  orders, execution, tag, release, or deploy
+
+Dify/model-provider configuration remains deferred. P1-P47 remain frozen; no
+P48. All permanent boundaries remain unchanged.
+
+<!-- P4 CONTROLLED ENHANCEMENTS STAGE 12 APPROVAL END -->
