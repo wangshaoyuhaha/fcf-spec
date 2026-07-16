@@ -10,6 +10,12 @@ from .contracts import (
     GovernanceRequest,
     PolicyIdentity,
 )
+from .licensing import (
+    LicensePolicy,
+    LicensePolicyRegistry,
+    LicenseType,
+    evaluate_source_license,
+)
 
 __all__ = (
     "DATA_AND_CREDENTIAL_GOVERNANCE_BOUNDARY",
@@ -20,4 +26,8 @@ __all__ = (
     "GovernanceDomain",
     "GovernanceRequest",
     "PolicyIdentity",
+    "LicensePolicy",
+    "LicensePolicyRegistry",
+    "LicenseType",
+    "evaluate_source_license",
 )
