@@ -1,0 +1,1 @@
+"""READ-ONLY-DATA-GATEWAY-APP-1 tests."""
