@@ -4371,3 +4371,50 @@ attestation, truthful product documentation, pinned dependency, and active
 engineering guards. Deferred capabilities must remain explicit and unclaimed.
 
 <!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 APPROVAL END -->
+
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 FINAL SYNC START -->
+
+## System Integrity and Product Hardening Stage 13 Final Sync
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Commits:
+
+- approval: `de9f06f607f08d56f5e09889b2fc4bcb3a4150e6`
+- delivery: `abddf88e24c60ba9363c8f02d613f4ef7d4fb308`
+- main merge: `30f315b85d27d22cd6edb96b1c6d494155fd8243`
+
+Delivered:
+
+- point-in-time evidence membership and availability enforcement
+- explicit immutable P0/P1 registries and implementation-bound acceptance
+- independent bias and walk-forward validation
+- P4 containment, lineage, metric, proposal, and schedule hardening
+- registered Operator, same-origin, framing, CSP, and URL-host Web controls
+- accurate validation-receipt semantics for non-executing Console actions
+- current project identity, package map, dependency pin, security guidance,
+  and active-surface quality guard
+- generated Dify sources classified as optional and reproducible
+- one proven duplicate document removed and P14 regime stub replaced
+
+Validation on merged main:
+
+- independent Stage 13: 13 passed
+- targeted suite: 493 passed, 2 skipped
+- full pytest: 4621 passed, 5 skipped
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated tracked outputs: restored with no diff
+- ignored artifacts and caches: removed
+- ignored cleanup candidates: zero
+- `git diff --check`: passed
+
+Explicit deferred work remains Dify/model-provider configuration, live model
+and Prompt execution, training execution, live or remote retrieval, persistent
+Console backend execution, full legacy package migration, repository owner
+LICENSE selection, public deployment, and real financial execution.
+
+Permanent authority and safety boundaries remain unchanged. P1-P47 remain
+frozen; no P48. No tag, release, or deploy was run. No next phase was started.
+
+<!-- SYSTEM INTEGRITY PRODUCT HARDENING STAGE 13 FINAL SYNC END -->
