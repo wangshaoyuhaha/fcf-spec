@@ -40,6 +40,7 @@ from .presentation import (
     build_gateway_operator_review_packet,
     build_gateway_presentation_model,
 )
+from .acceptance import GatewayRuntimeAcceptance, build_gateway_runtime_acceptance
 
 __all__ = [
     "ArtifactFormat",
@@ -47,6 +48,7 @@ __all__ = [
     "DEFAULT_MAX_ARTIFACT_BYTES",
     "DEFAULT_MAX_NORMALIZED_RECORDS",
     "GatewayReadReceipt",
+    "GatewayRuntimeAcceptance",
     "GatewayReadRequest",
     "GatewayReadStatus",
     "GatewayQueryOutcome",
@@ -69,5 +71,6 @@ __all__ = [
     "evaluate_source_policy",
     "build_gateway_operator_review_packet",
     "build_gateway_presentation_model",
+    "build_gateway_runtime_acceptance",
     "resolve_registered_artifact_path",
 ]
