@@ -1,6 +1,6 @@
 # FCF V2 Factor, Realtime, and Cognitive Architecture Sync D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: GOVERNANCE_DELIVERY_COMPLETED_MERGED_VALIDATED
 
 This phase registers future architecture only. It does not implement the
 future product capabilities.
@@ -57,5 +57,17 @@ Validation before delivery commit:
 - ignored artifacts and caches: removed
 - `git diff --check`: passed
 
-Commit, merge, and remote synchronization evidence will be recorded only after
-those operations actually complete.
+Final synchronization evidence:
+
+- approval commit: `3dea5d2f7e8ecaaa78219064bd3746bcb39ec83b`
+- delivery commit: `7575fb68538196c4b96b75770c0553fda1273a06`
+- main merge commit: `aeb4117c1ac0786a13ce901892f818f9a3d0f7ca`
+- delivery branch pushed to origin
+- main merge pushed to origin
+- merged-main targeted suite: 286 passed
+- merged-main full pytest: 4627 passed, 5 skipped
+- merged-main `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- merged-main generated outputs: restored with no tracked diff
+- merged-main ignored artifacts and caches: removed
+- no V2-R implementation phase started
+- no tag, release, or deployment run
