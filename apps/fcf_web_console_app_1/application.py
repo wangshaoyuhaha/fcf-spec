@@ -318,6 +318,7 @@ document.querySelectorAll("[data-action-form]").forEach(form => {{
                     "runtime_health",
                     "runtime_cost",
                     "degradation",
+                    "experiment_schedule_proposal",
                 )
             ),
             "/evidence": lambda: self._artifact_page(tuple(self._snapshot.sections)),
@@ -328,6 +329,8 @@ document.querySelectorAll("[data-action-form]").forEach(form => {{
                     "model_comparison",
                     "disagreement",
                     "ai_historical_evaluation",
+                    "challenger_proposal",
+                    "specialist_training_governance",
                 )
             ),
             "/risk": lambda: self._artifact_page(
@@ -349,6 +352,7 @@ document.querySelectorAll("[data-action-form]").forEach(form => {{
                     "paper_validation",
                     "paper_portfolio_validation",
                     "shadow_market_observation",
+                    "realtime_shadow_validation",
                 )
             ),
             "/reports": lambda: self._artifact_page(
@@ -359,6 +363,7 @@ document.querySelectorAll("[data-action-form]").forEach(form => {{
                     "deterministic_backtest",
                     "challenger_experiment",
                     "controlled_evolution_gate",
+                    "case_memory_retrieval",
                 )
             ),
             "/operator-review": self._operator_page,
