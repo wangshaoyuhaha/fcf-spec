@@ -5627,3 +5627,22 @@ No successor phase is selected. Permanent safety boundaries remain binding.
 No tag, release, or deployment is authorized.
 
 <!-- V2-R15 LOCAL VOLATILITY INDICATOR FOUNDATION APP 1 APPROVAL END -->
+
+
+<!-- V2-R15 LOCAL VOLATILITY INDICATOR FOUNDATION APP 1 LOCK START -->
+
+## V2-R15 Local Volatility Indicator Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered boundary: immutable registered-local OHLC evidence, R11 registry
+references, deterministic Decimal True Range and arithmetic-seeded recursive
+Wilder ATR, fail-closed gates, append-only evidence, and read-only metadata.
+
+V2-FR-GAP-008 remains open because this is only a bounded indicator pack.
+
+No prediction, score, rank, signal, recommendation, live source, network,
+model, Prompt, learning, order, or execution was added. P1-P47 frozen. No P48.
+Operator review required.
+
+<!-- V2-R15 LOCAL VOLATILITY INDICATOR FOUNDATION APP 1 LOCK END -->
