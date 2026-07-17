@@ -15,9 +15,11 @@ A new development window must read and verify these sources in order:
 4. `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`
 5. `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md`
 6. `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md`
-7. the latest applicable `FCF_CURRENT_STATE_*_FINAL.md` evidence
-8. the five active authority sources
-9. branch, HEAD, origin reference, and Git status
+7. `docs/FCF_FUTURE_CAPABILITY_CHANGE_PROTOCOL.md`
+8. `FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json`
+9. the latest applicable `FCF_CURRENT_STATE_*_FINAL.md` evidence
+10. the five active authority sources
+11. branch, HEAD, origin reference, and Git status
 
 No implementation may start from chat recollection alone.
 
@@ -42,6 +44,11 @@ implementation approval.
 
 `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md` is the authoritative
 register for unfinished, research-required, and excluded future work.
+
+`docs/FCF_FUTURE_CAPABILITY_CHANGE_PROTOCOL.md` and
+`FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json` are the durable entry point for
+new ideas. Intake preserves proposals and review history but cannot authorize
+implementation by itself.
 
 `FCF_CURRENT_STATE_*_FINAL.md` files are immutable historical completion
 evidence. Historical next-phase statements do not override the current

@@ -58,6 +58,12 @@ V2_R1_APPROVAL_START = (
 V2_R1_APPROVAL_END = (
     "<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 APPROVAL END -->"
 )
+V2_R1_LOCK_START = (
+    "<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 LOCK START -->"
+)
+V2_R1_LOCK_END = (
+    "<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 LOCK END -->"
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -92,6 +98,12 @@ EXPECTED_FILE_ROLES = {
     "current_machine_truth": MANIFEST_PATH.as_posix(),
     "execution_safety_protocol": "docs/FCF_EXECUTION_SAFETY_PROTOCOL.md",
     "future_product_structure": ARCHITECTURE_PATH.as_posix(),
+    "future_capability_change_protocol": (
+        "docs/FCF_FUTURE_CAPABILITY_CHANGE_PROTOCOL.md"
+    ),
+    "future_capability_intake_register": (
+        "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json"
+    ),
     "handoff_prompt": "docs/HANDOFF_PROMPT.md",
     "memory_continuity_protocol": PROTOCOL_PATH.as_posix(),
     "unfinished_work_register": GAP_PATH.as_posix(),
@@ -169,6 +181,58 @@ V2_R1_APPROVAL_ROADMAP = [
         "status": (
             "APPROVED_NOT_STARTED" if phase == "V2-R1" else ROADMAP_STATUS
         ),
+    }
+    for phase in ROADMAP_PHASES
+]
+V2_R1_DELIVERY_STATE = {
+    **V2_R1_APPROVAL_STATE,
+    "current_governance_phase_status": (
+        "PRODUCT_DELIVERY_IMPLEMENTED_PENDING_VALIDATION"
+    ),
+}
+V2_R1_VALIDATED_STATE = {
+    **V2_R1_APPROVAL_STATE,
+    "current_governance_phase_status": (
+        "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE"
+    ),
+}
+V2_R1_DELIVERY_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": (
+            "IMPLEMENTED_PENDING_VALIDATION"
+            if phase == "V2-R1"
+            else ROADMAP_STATUS
+        ),
+    }
+    for phase in ROADMAP_PHASES
+]
+V2_R1_VALIDATED_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": (
+            "VALIDATED_PENDING_MERGE" if phase == "V2-R1" else ROADMAP_STATUS
+        ),
+    }
+    for phase in ROADMAP_PHASES
+]
+V2_R1_FINAL_STATE = {
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
+    "current_product_implementation_phase": "NONE",
+    "latest_completed_governance_delivery": (
+        "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
+    ),
+    "latest_completed_product_phase": (
+        "V2-R1-FACTOR-CONTRACT-FOUNDATION-APP-1"
+    ),
+    "next_product_implementation_phase": "V2-R2",
+    "next_product_phase_approval": "NOT_APPROVED",
+}
+V2_R1_FINAL_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": "COMPLETED" if phase == "V2-R1" else ROADMAP_STATUS,
     }
     for phase in ROADMAP_PHASES
 ]
@@ -277,6 +341,9 @@ def build_project_memory_guard_report(
         DELIVERY_STATE,
         FINAL_STATE,
         V2_R1_APPROVAL_STATE,
+        V2_R1_DELIVERY_STATE,
+        V2_R1_VALIDATED_STATE,
+        V2_R1_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -309,6 +376,12 @@ def build_project_memory_guard_report(
         == (
             V2_R1_APPROVAL_ROADMAP
             if current_truth == V2_R1_APPROVAL_STATE
+            else V2_R1_DELIVERY_ROADMAP
+            if current_truth == V2_R1_DELIVERY_STATE
+            else V2_R1_VALIDATED_ROADMAP
+            if current_truth == V2_R1_VALIDATED_STATE
+            else V2_R1_FINAL_ROADMAP
+            if current_truth == V2_R1_FINAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
@@ -367,6 +440,11 @@ def build_project_memory_guard_report(
         and blocks_are_exact(
             authority_texts, V2_R1_APPROVAL_START, V2_R1_APPROVAL_END
         ),
+        "v2_r1_lock_exact_across_authorities": len(authority_texts)
+        == len(AUTHORITY_PATHS)
+        and blocks_are_exact(
+            authority_texts, V2_R1_LOCK_START, V2_R1_LOCK_END
+        ),
         "session_final_sync_exact_across_authorities": current_truth
         == DELIVERY_STATE
         or (
@@ -401,10 +479,12 @@ def build_project_memory_guard_report(
             in protocol
             and "Only the manifest plus explicit Operator approval"
             in protocol
+            and "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json" in protocol
         ),
         "no_v2_phase_overclaim": all(
             f"{phase}: COMPLETED" not in architecture
             for phase in ROADMAP_PHASES
+            if phase != "V2-R1" or current_truth != V2_R1_FINAL_STATE
         ),
     }
     return {"checks": checks, "ok": all(checks.values())}

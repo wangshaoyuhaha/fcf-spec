@@ -187,7 +187,11 @@ Lifecycle:
 
 Temporary formulas cannot bypass this registry.
 
-Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+Status: CONTRACT_FOUNDATION_IMPLEMENTED / PRODUCTION_RUNTIME_NOT_IMPLEMENTED
+
+V2-R1 implements the immutable metadata contract and append-only local
+registry foundation. It does not calculate or activate a factor, populate a
+production registry, or change an official score.
 
 ## 6. Forecast Target and Outcome Label Contract
 
@@ -216,7 +220,8 @@ Outcome labels must preserve the original prediction, original evidence,
 decision time, observation window, actual outcome, data version, and evaluation
 policy. Post-hoc information cannot be rewritten into the original label.
 
-Status: ACCEPTED_ARCHITECTURE / TARGET SELECTION RESEARCH_REQUIRED
+Status: CONTRACT_FOUNDATION_IMPLEMENTED / TARGET SELECTION RESEARCH_REQUIRED /
+PRODUCTION_LABEL_RUNTIME_NOT_IMPLEMENTED
 
 ## 7. State-Sync Lock
 
@@ -242,7 +247,11 @@ Expired state behavior:
 - preserve the old event and audit record
 - create a new event from a new snapshot when required
 
-Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+Status: CONTRACT_ANCHOR_IMPLEMENTED / PRODUCTION_RUNTIME_NOT_IMPLEMENTED
+
+V2-R1 provides deterministic local canonical hashing, timestamp ordering, TTL,
+and expiry validation for registered artifact metadata. It is not realtime
+ingestion, remote synchronization, or a production State-Sync service.
 
 ## 8. Macro-to-Micro Transmission Contract
 
@@ -740,7 +749,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
 ## 30. V2-R Roadmap
 
 - V2-R0: historical prerequisite reconciliation; satisfied by repository truth
-- V2-R1: Factor Contract Foundation; PLANNED / NOT_APPROVED / NOT_STARTED
+- V2-R1: Factor Contract Foundation; VALIDATED / PENDING_MAIN_MERGE
 - V2-R2: Historical Factor Baseline; PLANNED / NOT_APPROVED / NOT_STARTED
 - V2-R3: Realtime Ingestion Foundation; PLANNED / NOT_APPROVED / NOT_STARTED
 - V2-R4: Intraday Anomaly Radar; PLANNED / NOT_APPROVED / NOT_STARTED

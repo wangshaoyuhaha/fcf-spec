@@ -24,13 +24,15 @@
     "current_machine_truth": "FCF_CURRENT_STATE_MANIFEST.json",
     "execution_safety_protocol": "docs/FCF_EXECUTION_SAFETY_PROTOCOL.md",
     "future_product_structure": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md",
+    "future_capability_change_protocol": "docs/FCF_FUTURE_CAPABILITY_CHANGE_PROTOCOL.md",
+    "future_capability_intake_register": "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json",
     "handoff_prompt": "docs/HANDOFF_PROMPT.md",
     "memory_continuity_protocol": "docs/FCF_PROJECT_MEMORY_AND_CONTINUITY_PROTOCOL.md",
     "unfinished_work_register": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
   },
   "current_truth": {
     "current_governance_phase_id": "V2-R1-FACTOR-CONTRACT-FOUNDATION-APP-1",
-    "current_governance_phase_status": "PRODUCT_PHASE_APPROVED_NOT_STARTED",
+    "current_governance_phase_status": "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE",
     "current_product_implementation_phase": "V2-R1",
     "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
     "latest_completed_product_phase": "SYSTEM-INTEGRITY-PRODUCT-HARDENING-STAGE-13",
@@ -55,7 +57,7 @@
   "roadmap": [
     {
       "phase_id": "V2-R1",
-      "status": "APPROVED_NOT_STARTED"
+      "status": "VALIDATED_PENDING_MERGE"
     },
     {
       "phase_id": "V2-R2",

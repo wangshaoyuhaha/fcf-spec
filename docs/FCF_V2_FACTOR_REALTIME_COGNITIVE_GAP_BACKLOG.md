@@ -27,6 +27,11 @@ No entry in this register is delivered merely because it is documented.
 | V2-FR-GAP-006 | multi-horizon conflict resolver and UI | NOT_IMPLEMENTED |
 | V2-FR-GAP-007 | versioned factor lifecycle and retirement process | NOT_IMPLEMENTED |
 
+V2-R1 supplies contract-only schemas, append-only in-memory validation, and a
+local State-Sync anchor. The first three foundation production-runtime gaps
+remain NOT_IMPLEMENTED; target selection remains RESEARCH_REQUIRED and no
+factor is activated.
+
 ## Factor and Research Gaps
 
 | ID | Gap | Status |
@@ -144,7 +149,7 @@ No entry in this register is delivered merely because it is documented.
 
 | Phase | Scope | Status |
 | --- | --- | --- |
-| V2-R1 | Factor Contract Foundation | PLANNED / NOT_APPROVED |
+| V2-R1 | Factor Contract Foundation | VALIDATED / PENDING_MAIN_MERGE |
 | V2-R2 | Historical Factor Baseline | PLANNED / NOT_APPROVED |
 | V2-R3 | Realtime Ingestion Foundation | PLANNED / NOT_APPROVED |
 | V2-R4 | Intraday Anomaly Radar | PLANNED / NOT_APPROVED |
