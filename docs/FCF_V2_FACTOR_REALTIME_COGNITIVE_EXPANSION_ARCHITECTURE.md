@@ -749,7 +749,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
 ## 30. V2-R Roadmap
 
 - V2-R0: historical prerequisite reconciliation; satisfied by repository truth
-- V2-R1: Factor Contract Foundation; VALIDATED / PENDING_MAIN_MERGE
+- V2-R1: Factor Contract Foundation; COMPLETED / CONTRACT_FOUNDATION_ONLY
 - V2-R2: Historical Factor Baseline; PLANNED / NOT_APPROVED / NOT_STARTED
 - V2-R3: Realtime Ingestion Foundation; PLANNED / NOT_APPROVED / NOT_STARTED
 - V2-R4: Intraday Anomaly Radar; PLANNED / NOT_APPROVED / NOT_STARTED

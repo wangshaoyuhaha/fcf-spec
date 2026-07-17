@@ -149,7 +149,7 @@ factor is activated.
 
 | Phase | Scope | Status |
 | --- | --- | --- |
-| V2-R1 | Factor Contract Foundation | VALIDATED / PENDING_MAIN_MERGE |
+| V2-R1 | Factor Contract Foundation | COMPLETED / CONTRACT_FOUNDATION_ONLY |
 | V2-R2 | Historical Factor Baseline | PLANNED / NOT_APPROVED |
 | V2-R3 | Realtime Ingestion Foundation | PLANNED / NOT_APPROVED |
 | V2-R4 | Intraday Anomaly Radar | PLANNED / NOT_APPROVED |

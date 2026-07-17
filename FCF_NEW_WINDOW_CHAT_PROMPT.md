@@ -4966,3 +4966,47 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment path is authorized.
 
 <!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 LOCK END -->
+
+
+<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 FINAL START -->
+
+## V2-R1 Factor Contract Foundation App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Repository evidence:
+
+- approval commit: `77defa87ceba3b291d8302ffe252acd953957e9f`
+- delivery commit: `cc09888aa6c29a01ee2eab9f5ee9f62c547f49be`
+- main merge commit: `f8bf985c9d14a6aa0c3dc9b0b5da3384c86bedc2`
+- delivery branch and main merge pushed to GitHub
+- merged-main targeted Control Center suite: 315 passed
+- merged-main full pytest: 4667 passed, 5 skipped
+- merged-main `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- tracked generated outputs restored without unexpected diff
+- 39 ignored generated artifact files removed
+
+V2-R1 delivered the durable future-capability intake, immutable factor and
+forecast-target metadata contracts, append-only local registries, deterministic
+State-Sync anchoring and expiry, read-only presentation, Operator acceptance,
+and exact completeness guards.
+
+This is a contract foundation only. Production factor calculation, target-label
+runtime, realtime ingestion, market data, official scoring, ranking, factor
+activation, model invocation, Prompt execution, training, automatic learning,
+Paper order, virtual account, and execution remain absent.
+
+Current governance phase is NONE. Current product implementation phase is NONE.
+V2-R1 is COMPLETED. V2-R2 is the next roadmap candidate but remains
+NOT_APPROVED / NOT_STARTED. V2-R3 through V2-R6 remain NOT_APPROVED /
+NOT_STARTED. No successor phase starts automatically.
+
+P1-P47 remain frozen. No P48 was created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path was added or run.
+
+<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 FINAL END -->

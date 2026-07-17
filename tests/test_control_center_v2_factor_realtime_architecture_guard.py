@@ -49,7 +49,12 @@ def test_v2_factor_realtime_roadmap_is_not_implementation_approval():
     for phase in ROADMAP_PHASES:
         assert f"{phase}:" in architecture
     assert "PLANNED / NOT_APPROVED / NOT_STARTED" in architecture
-    assert all(f"{phase}: COMPLETED" not in architecture for phase in ROADMAP_PHASES)
+    assert "V2-R1: Factor Contract Foundation; COMPLETED" in architecture
+    assert all(
+        f"{phase}: COMPLETED" not in architecture
+        for phase in ROADMAP_PHASES
+        if phase != "V2-R1"
+    )
     assert "No V2-R implementation phase starts automatically" in "\n".join(
         path.read_text(encoding="ascii")
         for path in (

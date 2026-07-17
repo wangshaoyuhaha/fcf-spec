@@ -64,6 +64,17 @@ V2_R1_LOCK_START = (
 V2_R1_LOCK_END = (
     "<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 LOCK END -->"
 )
+V2_R1_FINAL_START = (
+    "<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 FINAL START -->"
+)
+V2_R1_FINAL_END = (
+    "<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 FINAL END -->"
+)
+V2_R1_FINAL_EVIDENCE_COMMITS = (
+    "77defa87ceba3b291d8302ffe252acd953957e9f",
+    "cc09888aa6c29a01ee2eab9f5ee9f62c547f49be",
+    "f8bf985c9d14a6aa0c3dc9b0b5da3384c86bedc2",
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -353,6 +364,10 @@ def build_project_memory_guard_report(
         extract_single_block(text, SESSION_FINAL_START, SESSION_FINAL_END)
         for text in authority_texts
     )
+    v2_r1_final_blocks = tuple(
+        extract_single_block(text, V2_R1_FINAL_START, V2_R1_FINAL_END)
+        for text in authority_texts
+    )
     file_roles = manifest.get("canonical_file_roles")
     statuses = manifest.get("future_capability_statuses")
     historical = manifest.get("historical_registry")
@@ -444,6 +459,25 @@ def build_project_memory_guard_report(
         == len(AUTHORITY_PATHS)
         and blocks_are_exact(
             authority_texts, V2_R1_LOCK_START, V2_R1_LOCK_END
+        ),
+        "v2_r1_final_exact_across_authorities": current_truth
+        != V2_R1_FINAL_STATE
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, V2_R1_FINAL_START, V2_R1_FINAL_END
+            )
+        ),
+        "v2_r1_final_evidence_commits_exact": current_truth
+        != V2_R1_FINAL_STATE
+        or (
+            len(v2_r1_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in v2_r1_final_blocks)
+            and all(
+                all(commit in block for commit in V2_R1_FINAL_EVIDENCE_COMMITS)
+                for block in v2_r1_final_blocks
+                if block is not None
+            )
         ),
         "session_final_sync_exact_across_authorities": current_truth
         == DELIVERY_STATE

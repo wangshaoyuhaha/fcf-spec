@@ -1,6 +1,6 @@
 # V2-R1 Factor Contract Foundation App 1 D6
 
-Status: VALIDATED_READY_FOR_MAIN_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 D6 closes the approved delivery chain with D1-D6 tests, governance guards,
 targeted validation, full pytest, run-all checks, generated-output restoration,
@@ -15,6 +15,9 @@ Validation evidence:
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - 39 generated artifact files removed after validation
 - tracked generated outputs restored with no unexpected diff
+- delivery commit: `cc09888aa6c29a01ee2eab9f5ee9f62c547f49be`
+- main merge commit: `f8bf985c9d14a6aa0c3dc9b0b5da3384c86bedc2`
+- delivery branch and main merge pushed to GitHub
 
 V2-R1 completes only the bounded contract foundation. V2-R2 through V2-R6 are
 not approved and do not start automatically. The first realtime MVP market is
