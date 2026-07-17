@@ -22,6 +22,10 @@ Future capabilities use only these statuses:
 - `BACKLOG`
 - `RESEARCH_REQUIRED`
 - `NOT_IMPLEMENTED`
+- `OUTSIDE_CURRENT_AUTHORIZATION`
+
+`OUTSIDE_CURRENT_AUTHORIZATION` means the capability is intentionally
+excluded from current authority and is not a queued implementation phase.
 
 They must not be labeled `COMPLETED`, `DELIVERED`, `PRODUCTION_READY`, or
 `VALIDATED` until implementation and the full governed acceptance workflow

@@ -4497,6 +4497,7 @@ Future-capability status vocabulary:
 - `BACKLOG`
 - `RESEARCH_REQUIRED`
 - `NOT_IMPLEMENTED`
+- `OUTSIDE_CURRENT_AUTHORIZATION`
 
 This approval does not authorize any future capability to be labeled
 `COMPLETED`, `DELIVERED`, `PRODUCTION_READY`, or `VALIDATED`.
@@ -4644,3 +4645,49 @@ No tag, release, deployment, broker, exchange, credential, account, balance,
 position, wallet, order, or execution path is authorized.
 
 <!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 APPROVAL END -->
+
+
+<!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 LOCK START -->
+
+## Project Memory Continuity Lock
+
+Status: ACTIVE_GOVERNANCE_CONTROL
+
+Current machine truth:
+
+- `FCF_CURRENT_STATE_MANIFEST.json`
+
+Canonical role sources:
+
+- current human governance: `docs/FCF_PROJECT_CONTROL_CENTER.md`
+- future product structure:
+  `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`
+- architecture decisions:
+  `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md`
+- unfinished work:
+  `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md`
+- memory and resume rules:
+  `docs/FCF_PROJECT_MEMORY_AND_CONTINUITY_PROTOCOL.md`
+
+Current product truth:
+
+- latest completed product phase:
+  SYSTEM-INTEGRITY-PRODUCT-HARDENING-STAGE-13
+- current product implementation phase: NONE
+- next product implementation phase: NOT_SELECTED
+- next product phase approval: NOT_APPROVED
+- V2-R1 through V2-R6: PLANNED / NOT_APPROVED / NOT_STARTED
+
+Historical next-phase statements and the historical twelve-stage registry do
+not select a current phase. Only the current manifest plus explicit Operator
+approval may authorize a future product phase.
+
+Future structure is not implementation evidence. Gap status is authoritative
+for unfinished work. ADR status is authoritative for decision rationale. Final
+Current State files and Git history are completion evidence.
+
+P1-P47 remain frozen. No P48 is created. Permanent authority and safety
+boundaries remain unchanged. No tag, release, deployment, or financial
+execution path is authorized.
+
+<!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 LOCK END -->
