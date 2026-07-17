@@ -158,7 +158,7 @@ factor is activated.
 | V2-R7 | Local Market Session Registry Foundation | COMPLETED / REGISTERED_LOCAL_CALENDAR_ONLY |
 | V2-R8 | Local Same-Time Baseline Foundation | COMPLETED / REGISTERED_LOCAL_HISTORY_ONLY |
 | V2-R9 | Local Volume-Ratio Research Foundation | COMPLETED / REGISTERED_LOCAL_VOLUME_EVIDENCE_ONLY |
-| V2-R10 | Local Turnover-Definition Research Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY |
+| V2-R10 | Local Turnover-Definition Research Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY |
 
 Next product implementation phase: V2-R10 / APPROVED.
 
