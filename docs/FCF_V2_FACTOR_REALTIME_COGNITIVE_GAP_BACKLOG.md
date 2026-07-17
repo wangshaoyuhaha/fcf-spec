@@ -159,7 +159,7 @@ factor is activated.
 | V2-R8 | Local Same-Time Baseline Foundation | COMPLETED / REGISTERED_LOCAL_HISTORY_ONLY |
 | V2-R9 | Local Volume-Ratio Research Foundation | COMPLETED / REGISTERED_LOCAL_VOLUME_EVIDENCE_ONLY |
 | V2-R10 | Local Turnover-Definition Research Foundation | COMPLETED / REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY |
-| V2-R11 | Local Factor Registry Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_FACTOR_DEFINITION_ONLY |
+| V2-R11 | Local Factor Registry Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_FACTOR_DEFINITION_ONLY |
 
 Next product implementation phase: V2-R11 / APPROVED.
 

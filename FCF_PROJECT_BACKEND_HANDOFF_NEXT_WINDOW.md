@@ -6114,3 +6114,23 @@ No successor phase is selected. Permanent safety boundaries remain binding.
 No tag, release, or deployment is authorized.
 
 <!-- V2-R11 LOCAL FACTOR REGISTRY FOUNDATION APP 1 APPROVAL END -->
+
+
+<!-- V2-R11 LOCAL FACTOR REGISTRY FOUNDATION APP 1 LOCK START -->
+
+## V2-R11 Local Factor Registry Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered boundary: immutable registered-local factor definitions, explicit
+identity, version, family, lifecycle, source and dependency metadata,
+deterministic registry snapshots and hashes, fail-closed validation,
+append-only evidence, and read-only presentation.
+
+V2-FR-GAP-001 and V2-FR-GAP-008 remain open because this foundation adds no
+production runtime or complete indicator library.
+
+No calculation activation, score, signal, network, model, Prompt, learning,
+order, or execution was added. P1-P47 frozen. No P48. Operator review required.
+
+<!-- V2-R11 LOCAL FACTOR REGISTRY FOUNDATION APP 1 LOCK END -->
