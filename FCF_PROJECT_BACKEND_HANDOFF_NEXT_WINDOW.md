@@ -4913,55 +4913,94 @@ Business objective:
 - establish immutable local contracts before any historical factor baseline
 - preserve future product additions through an append-only change-intake path
 - keep calculation, evidence, AI, Operator, and hard-gate authority explicit
-+
-+Approved implementation scope:
-+
-+- D1 future-capability change protocol, machine-readable intake register, and
-+  continuity guard
-+- D2 immutable Factor Definition and Forecast Target contracts
-+- D3 append-only registries, uniqueness, dependency, lifecycle, and retirement
-+  validation
-+- D4 deterministic State-Sync anchor, canonical SHA-256 state hash, TTL, and
-+  expiry behavior
-+- D5 read-only presentation, acceptance report, completeness guard, and tests
-+- D6 full validation, merge, final authority synchronization, and cleanup
-+
-+Readiness Gate:
-+
-+- inputs: registered local artifact metadata and explicit contract fields only
-+- data rights and cost: no data purchase, network source, license expansion, or
-+  external compute cost
-+- formulas and targets: metadata definitions only; no active financial formula,
-+  factor score, prediction, ranking, or portfolio mutation
-+- deterministic calculation: canonical JSON SHA-256 state anchoring only
-+- failure behavior: reject unsafe identifiers, missing fields, duplicate IDs,
-+  invalid lifecycle transitions, hash mismatch, expired state, and authority
-+  violations
-+- testing: immutability, deterministic serialization, registry append-only
-+  behavior, dependency validation, target validation, State-Sync, boundary,
-+  read-only presentation, acceptance, and governance completeness
-+- rollback: new Sidecar and exact governed files only; no generated output
-+- stop conditions: authority conflict, unexpected path, test failure, unstable
-+  serialization, or any network, credential, AI invocation, or execution path
-+
-+Current phase truth:
-+
-+- current product implementation phase: V2-R1
-+- V2-R1: APPROVED / NOT_STARTED
-+- V2-R2 through V2-R6: PLANNED / NOT_APPROVED / NOT_STARTED
-+- first realtime MVP market: NOT_SELECTED
-+
-+This approval does not authorize live data, realtime ingestion, technical
-+indicator calculation, Factor Library activation, official scoring, candidate
-+ranking, model invocation, Prompt execution, training, automatic learning,
-+Paper order, virtual account, or execution.
-+
-+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
-+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
-+Deterministic Engine calculation authority, Registered Evidence authority,
-+advisory AI, and mandatory Operator review remain binding.
-+
-+No broker, exchange, credential, account, balance, position, wallet, order,
-+real execution, tag, release, or deployment path is authorized.
-+
-+<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 APPROVAL END -->
+
+Approved implementation scope:
+
+- D1 future-capability change protocol, machine-readable intake register, and
+  continuity guard
+- D2 immutable Factor Definition and Forecast Target contracts
+- D3 append-only registries, uniqueness, dependency, lifecycle, and retirement
+  validation
+- D4 deterministic State-Sync anchor, canonical SHA-256 state hash, TTL, and
+  expiry behavior
+- D5 read-only presentation, acceptance report, completeness guard, and tests
+- D6 full validation, merge, final authority synchronization, and cleanup
+
+Readiness Gate:
+
+- inputs: registered local artifact metadata and explicit contract fields only
+- data rights and cost: no data purchase, network source, license expansion, or
+  external compute cost
+- formulas and targets: metadata definitions only; no active financial formula,
+  factor score, prediction, ranking, or portfolio mutation
+- deterministic calculation: canonical JSON SHA-256 state anchoring only
+- failure behavior: reject unsafe identifiers, missing fields, duplicate IDs,
+  invalid lifecycle transitions, hash mismatch, expired state, and authority
+  violations
+- testing: immutability, deterministic serialization, registry append-only
+  behavior, dependency validation, target validation, State-Sync, boundary,
+  read-only presentation, acceptance, and governance completeness
+- rollback: new Sidecar and exact governed files only; no generated output
+- stop conditions: authority conflict, unexpected path, test failure, unstable
+  serialization, or any network, credential, AI invocation, or execution path
+
+Current phase truth:
+
+- current product implementation phase: V2-R1
+- V2-R1: APPROVED / NOT_STARTED
+- V2-R2 through V2-R6: PLANNED / NOT_APPROVED / NOT_STARTED
+- first realtime MVP market: NOT_SELECTED
+
+This approval does not authorize live data, realtime ingestion, technical
+indicator calculation, Factor Library activation, official scoring, candidate
+ranking, model invocation, Prompt execution, training, automatic learning,
+Paper order, virtual account, or execution.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path is authorized.
+
+<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 APPROVAL END -->
+
+
+<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 LOCK START -->
+
+## V2-R1 Factor Contract Foundation App 1 Lock
+
+Status: VALIDATED_PENDING_MAIN_MERGE
+
+Implemented scope:
+
+- permanent future-capability protocol and append-only intake register
+- three non-authorizing NEEDS_RESEARCH proposals for data entitlement and
+  provenance, counterfactual decision history, and correlated-evidence control
+- immutable Factor Definition and Forecast Target metadata contracts
+- append-only local factor, target, and lifecycle registries
+- deterministic canonical JSON and SHA-256 State-Sync anchors with TTL
+- immutable read-only presentation and Operator acceptance payloads
+- exact completeness, authority, intake, and regression guards
+
+The V2-R1 Sidecar defines, validates, registers, anchors, and presents local
+contract metadata only. It does not retrieve market data, calculate technical
+indicators, activate factors, select a provider or market, predict, rank,
+score, invoke AI, execute a Prompt, train, learn automatically, or route an
+order.
+
+Production Factor Registry, target-label, and State-Sync runtimes remain
+NOT_IMPLEMENTED in V2-FR-GAP-001 through V2-FR-GAP-003. Target selection
+remains RESEARCH_REQUIRED. V2-R2 through V2-R6 remain PLANNED /
+NOT_APPROVED / NOT_STARTED and cannot start automatically.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path is authorized.
+
+<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 LOCK END -->

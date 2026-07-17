@@ -20,6 +20,8 @@ COMMANDS = [
     ["python", "scripts/run_active_surface_quality_guard.py"],
     ["python", "scripts/control_center_v2_factor_realtime_architecture_guard.py"],
     ["python", "scripts/control_center_project_memory_guard.py"],
+    ["python", "scripts/control_center_future_capability_intake_guard.py"],
+    ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],

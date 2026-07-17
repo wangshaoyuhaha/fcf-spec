@@ -1,0 +1,83 @@
+{
+  "allowed_statuses": [
+    "PROPOSED",
+    "NEEDS_RESEARCH",
+    "ACCEPTED_ARCHITECTURE",
+    "DEFERRED",
+    "REJECTED",
+    "OUTSIDE_CURRENT_AUTHORIZATION",
+    "APPROVED_FOR_PHASE",
+    "IMPLEMENTED",
+    "SUPERSEDED"
+  ],
+  "next_proposal_sequence": 4,
+  "proposals": [
+    {
+      "adr_refs": [],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-022",
+        "V2-FR-GAP-023",
+        "V2-FR-GAP-028",
+        "V2-FR-GAP-030"
+      ],
+      "operator_decision": "PENDING",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0001",
+      "source": "codex-engineering-review",
+      "status": "NEEDS_RESEARCH",
+      "submitted_at_utc": "2026-07-17T00:00:00Z",
+      "summary": "Provide a read-only control view for source rights, permitted use, retention, lineage, freshness, latency, cost, and expiry before any data-dependent phase is approved.",
+      "supersedes": [],
+      "title": "Data entitlement and provenance control view"
+    },
+    {
+      "adr_refs": [],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-037",
+        "V2-FR-GAP-058",
+        "V2-FR-GAP-059",
+        "V2-FR-GAP-060"
+      ],
+      "operator_decision": "PENDING",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0002",
+      "source": "codex-engineering-review",
+      "status": "NEEDS_RESEARCH",
+      "submitted_at_utc": "2026-07-17T00:00:00Z",
+      "summary": "Preserve immutable reasons for selected, rejected, expired, and abstained research candidates so Operator review can compare actual decisions with counterfactual alternatives without post-hoc rewriting.",
+      "supersedes": [],
+      "title": "Counterfactual research decision journal"
+    },
+    {
+      "adr_refs": [],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-010",
+        "V2-FR-GAP-034",
+        "V2-FR-GAP-057"
+      ],
+      "operator_decision": "PENDING",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0003",
+      "source": "codex-engineering-review",
+      "status": "NEEDS_RESEARCH",
+      "submitted_at_utc": "2026-07-17T00:00:00Z",
+      "summary": "Research an explainable confidence budget that detects correlated evidence and prevents macro, sector, instrument, and microstructure signals from being counted repeatedly as independent confirmation.",
+      "supersedes": [],
+      "title": "Correlated evidence confidence budget"
+    }
+  ],
+  "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
+  "schema_version": 1
+}

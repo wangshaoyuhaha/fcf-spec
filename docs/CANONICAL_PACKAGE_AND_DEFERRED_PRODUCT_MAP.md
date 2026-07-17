@@ -29,6 +29,19 @@ until incremental migration tests prove removal is safe.
 - V2 realtime ingestion, order-book, and anomaly-radar runtime
 - V2 asynchronous cognitive shield and Paper simulation research
 
+## Delivered V2 Contract Foundation
+
+`apps/v2_r1_factor_contract_foundation_app_1/` is the canonical V2-R1
+contract-only Sidecar. It provides immutable factor and forecast-target
+metadata, append-only local registries, deterministic State-Sync anchors, and
+read-only Operator presentation. It does not calculate or activate factors,
+select a market or data provider, retrieve data, score candidates, invoke AI,
+or create any order or execution path.
+
+The deferred production Factor Registry, target-label, and State-Sync runtimes
+remain tracked in the Gap register. Contract foundation delivery does not
+close those production-runtime gaps.
+
 Canonical future-architecture sources:
 
 - `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`
