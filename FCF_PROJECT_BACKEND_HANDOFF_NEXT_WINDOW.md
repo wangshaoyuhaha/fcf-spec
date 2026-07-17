@@ -6214,3 +6214,23 @@ No successor phase is selected. Permanent safety boundaries remain binding.
 No tag, release, or deployment is authorized.
 
 <!-- V2-R12 LOCAL TECHNICAL INDICATOR FOUNDATION APP 1 APPROVAL END -->
+
+
+<!-- V2-R12 LOCAL TECHNICAL INDICATOR FOUNDATION APP 1 LOCK START -->
+
+## V2-R12 Local Technical Indicator Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered boundary: immutable registered-local price series, R11 registry
+references, deterministic Decimal SMA and Bollinger Bands, explicit population
+standard deviation, fail-closed gates, append-only evidence, and read-only
+metadata.
+
+V2-FR-GAP-008 remains open because this phase is only the first indicator pack.
+
+No prediction, score, rank, signal, recommendation, live source, network,
+model, Prompt, learning, order, or execution was added. P1-P47 frozen. No P48.
+Operator review required.
+
+<!-- V2-R12 LOCAL TECHNICAL INDICATOR FOUNDATION APP 1 LOCK END -->
