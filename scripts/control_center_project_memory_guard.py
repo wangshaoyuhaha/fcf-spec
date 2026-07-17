@@ -144,6 +144,12 @@ V2_R4_FINAL_EVIDENCE_COMMITS = (
     "621e67fc51151b39521c7498d672f6a611f57e85",
     "49ca381a8f8fcbfd72ceca1afd42ccd216dc790f",
 )
+V2_R5_APPROVAL_START = (
+    "<!-- V2-R5 LOCAL COGNITIVE SHIELD FOUNDATION APP 1 APPROVAL START -->"
+)
+V2_R5_APPROVAL_END = (
+    "<!-- V2-R5 LOCAL COGNITIVE SHIELD FOUNDATION APP 1 APPROVAL END -->"
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -584,6 +590,34 @@ V2_R4_FINAL_ROADMAP = [
     }
     for phase in ROADMAP_PHASES
 ]
+V2_R5_APPROVAL_STATE = {
+    "current_governance_phase_id": (
+        "V2-R5-LOCAL-COGNITIVE-SHIELD-FOUNDATION-APP-1"
+    ),
+    "current_governance_phase_status": "PRODUCT_PHASE_APPROVED_NOT_STARTED",
+    "current_product_implementation_phase": "V2-R5",
+    "latest_completed_governance_delivery": (
+        "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
+    ),
+    "latest_completed_product_phase": (
+        "V2-R4-LOCAL-ANOMALY-RADAR-FOUNDATION-APP-1"
+    ),
+    "next_product_implementation_phase": "V2-R5",
+    "next_product_phase_approval": "APPROVED",
+}
+V2_R5_APPROVAL_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": (
+            "COMPLETED"
+            if phase in ("V2-R1", "V2-R2", "V2-R3", "V2-R4")
+            else "APPROVED_NOT_STARTED"
+            if phase == "V2-R5"
+            else ROADMAP_STATUS
+        ),
+    }
+    for phase in ROADMAP_PHASES
+]
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -704,6 +738,7 @@ def build_project_memory_guard_report(
         V2_R4_DELIVERY_STATE,
         V2_R4_VALIDATED_STATE,
         V2_R4_FINAL_STATE,
+        V2_R5_APPROVAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -782,6 +817,8 @@ def build_project_memory_guard_report(
             if current_truth == V2_R4_VALIDATED_STATE
             else V2_R4_FINAL_ROADMAP
             if current_truth == V2_R4_FINAL_STATE
+            else V2_R5_APPROVAL_ROADMAP
+            if current_truth == V2_R5_APPROVAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
@@ -996,6 +1033,23 @@ def build_project_memory_guard_report(
                 if block is not None
             )
         ),
+        "v2_r5_approval_exact_across_authorities": current_truth
+        != V2_R5_APPROVAL_STATE
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, V2_R5_APPROVAL_START, V2_R5_APPROVAL_END
+            )
+        ),
+        "canonical_roadmap_records_v2_r4_complete": (
+            "- V2-R4: Intraday Anomaly Radar; COMPLETED /" in architecture
+        ),
+        "canonical_roadmap_records_v2_r5_approval": current_truth
+        != V2_R5_APPROVAL_STATE
+        or (
+            "- V2-R5: Realtime Cognitive Shield; APPROVED / NOT_STARTED /"
+            in architecture
+        ),
         "session_final_sync_exact_across_authorities": current_truth
         == DELIVERY_STATE
         or (
@@ -1051,6 +1105,7 @@ def build_project_memory_guard_report(
                 V2_R4_DELIVERY_STATE,
                 V2_R4_VALIDATED_STATE,
                 V2_R4_FINAL_STATE,
+                V2_R5_APPROVAL_STATE,
             )
         ),
     }

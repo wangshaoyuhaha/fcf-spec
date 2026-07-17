@@ -4611,3 +4611,58 @@ advisory AI, and mandatory Operator review remain binding.
 No tag, release, or deployment path was added or run.
 
 <!-- V2-R4 LOCAL ANOMALY RADAR FOUNDATION APP 1 FINAL END -->
+
+<!-- V2-R5 LOCAL COGNITIVE SHIELD FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R5 Local Cognitive Shield Foundation App 1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved order:
+
+- D1 closed local cognitive-task and evidence-correlation boundary
+- D2 immutable registered local advisory artifact contract
+- D3 deterministic hard-gate, contradiction, timeout, and fallback shield
+- D4 uncertainty, abstention, and non-answer research states
+- D5 immutable task ledger and metadata-only read model
+- D6 Operator acceptance, guards, tests, merge, and closeout
+
+Readiness Gate:
+
+- business objective: challenge and explain V2-R4 research evidence without
+  changing deterministic anomaly state or blocking deterministic processing
+- horizon: event-level local replay only; no realtime service or market scan
+- inputs: immutable V2-R4 anomaly evidence and optional registered local
+  advisory artifacts; no model, Prompt, network, credential, or external data
+- formulas: exact identity, expiry, contradiction, hard-gate, timeout,
+  fallback, uncertainty, and abstention rules; no score or learned parameter
+- target label: NONE; output is advisory research state only
+- safety: hard data, evidence, sequence, expiry, and policy gates cannot be
+  overridden by AI or Operator review
+- failure behavior: deterministic evidence remains usable while explanation
+  is skipped, degraded, contradicted, expired, or routed to review
+- tests: deterministic replay, malformed artifact, mismatch, timeout,
+  contradiction, hard block, abstention, duplicate, and immutability coverage
+- rollback: new V2-R5 Sidecar and exact governed files only
+- stop: model invocation, Prompt execution, network, source selection, market
+  scan, official score, ranking, prediction, automatic learning, order,
+  execution, unexpected path, safety failure, or test failure
+
+This approval implements no asynchronous model invocation. It establishes only
+the local registered-artifact cognitive shield foundation needed before any
+separately approved model/provider integration. V2-FR-GAP-032 through
+V2-FR-GAP-037 remain open for production or external capability.
+
+V2-R1 through V2-R4 remain COMPLETED. V2-R5 is APPROVED / NOT_STARTED.
+V2-R6 remains PLANNED / NOT_APPROVED / NOT_STARTED. No successor phase starts
+automatically.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path is authorized.
+
+<!-- V2-R5 LOCAL COGNITIVE SHIELD FOUNDATION APP 1 APPROVAL END -->
