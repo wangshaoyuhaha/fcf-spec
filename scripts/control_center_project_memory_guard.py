@@ -52,6 +52,12 @@ SESSION_FINAL_START = (
 SESSION_FINAL_END = (
     "<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC FINAL END -->"
 )
+V2_R1_APPROVAL_START = (
+    "<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 APPROVAL START -->"
+)
+V2_R1_APPROVAL_END = (
+    "<!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 APPROVAL END -->"
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -140,6 +146,32 @@ FINAL_STATE = {
         "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
     ),
 }
+V2_R1_APPROVAL_STATE = {
+    "current_governance_phase_id": (
+        "V2-R1-FACTOR-CONTRACT-FOUNDATION-APP-1"
+    ),
+    "current_governance_phase_status": (
+        "PRODUCT_PHASE_APPROVED_NOT_STARTED"
+    ),
+    "current_product_implementation_phase": "V2-R1",
+    "latest_completed_governance_delivery": (
+        "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
+    ),
+    "latest_completed_product_phase": (
+        "SYSTEM-INTEGRITY-PRODUCT-HARDENING-STAGE-13"
+    ),
+    "next_product_implementation_phase": "V2-R1",
+    "next_product_phase_approval": "APPROVED",
+}
+V2_R1_APPROVAL_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": (
+            "APPROVED_NOT_STARTED" if phase == "V2-R1" else ROADMAP_STATUS
+        ),
+    }
+    for phase in ROADMAP_PHASES
+]
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -241,7 +273,11 @@ def build_project_memory_guard_report(
         for phase in ROADMAP_PHASES
     ]
     current_truth = manifest.get("current_truth")
-    current_truth_safe = current_truth in (DELIVERY_STATE, FINAL_STATE)
+    current_truth_safe = current_truth in (
+        DELIVERY_STATE,
+        FINAL_STATE,
+        V2_R1_APPROVAL_STATE,
+    )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
         for text in authority_texts
@@ -269,7 +305,12 @@ def build_project_memory_guard_report(
             "active_authority_sources"
         ) == [path.as_posix() for path in AUTHORITY_PATHS],
         "current_truth_safe": current_truth_safe,
-        "roadmap_exact": roadmap == expected_roadmap,
+        "roadmap_exact": roadmap
+        == (
+            V2_R1_APPROVAL_ROADMAP
+            if current_truth == V2_R1_APPROVAL_STATE
+            else expected_roadmap
+        ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
         "gap_statuses_closed": gap_statuses_are_valid(gap),
         "status_definitions_synchronized": all(
@@ -320,6 +361,11 @@ def build_project_memory_guard_report(
         == len(AUTHORITY_PATHS)
         and blocks_are_exact(
             authority_texts, SESSION_LOCK_START, SESSION_LOCK_END
+        ),
+        "v2_r1_approval_exact_across_authorities": len(authority_texts)
+        == len(AUTHORITY_PATHS)
+        and blocks_are_exact(
+            authority_texts, V2_R1_APPROVAL_START, V2_R1_APPROVAL_END
         ),
         "session_final_sync_exact_across_authorities": current_truth
         == DELIVERY_STATE
