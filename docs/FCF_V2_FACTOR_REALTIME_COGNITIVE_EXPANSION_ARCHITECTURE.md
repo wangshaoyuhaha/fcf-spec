@@ -762,7 +762,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   LOCAL_REGISTERED_SCENARIO_RESEARCH_ONLY
 - V2-R7: Local Market Session Registry Foundation; COMPLETED /
   REGISTERED_LOCAL_CALENDAR_ONLY
-- V2-R8: Local Same-Time Baseline Foundation; APPROVED / NOT_STARTED /
+- V2-R8: Local Same-Time Baseline Foundation; COMPLETED /
   REGISTERED_LOCAL_HISTORY_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety

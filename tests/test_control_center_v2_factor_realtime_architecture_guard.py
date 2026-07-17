@@ -67,6 +67,8 @@ def test_v2_factor_realtime_roadmap_preserves_explicit_phase_authority():
     assert (
         "V2-R8: Local Same-Time Baseline Foundation; "
         "APPROVED / NOT_STARTED" in architecture
+        or "V2-R8: Local Same-Time Baseline Foundation; COMPLETED /"
+        in architecture
     )
     manifest = json.loads(
         (ROOT / "FCF_CURRENT_STATE_MANIFEST.json").read_text(encoding="ascii")
