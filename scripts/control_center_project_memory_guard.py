@@ -34,6 +34,11 @@ MEMORY_FINAL_START = (
 MEMORY_FINAL_END = (
     "<!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 FINAL SYNC END -->"
 )
+FINAL_EVIDENCE_COMMITS = (
+    "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
+    "29fc7b0ee0b84490de6629cfb385ef0fef625159",
+    "291cad1ecc84a09e71c63973cd10de1e7b88a4bf",
+)
 V2_BLOCKS = (
     (
         "<!-- FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE "
@@ -198,6 +203,10 @@ def build_project_memory_guard_report(
     ]
     current_truth = manifest.get("current_truth")
     current_truth_safe = current_truth in (DELIVERY_STATE, FINAL_STATE)
+    memory_final_blocks = tuple(
+        extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
+        for text in authority_texts
+    )
     file_roles = manifest.get("canonical_file_roles")
     statuses = manifest.get("future_capability_statuses")
     historical = manifest.get("historical_registry")
@@ -243,6 +252,16 @@ def build_project_memory_guard_report(
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(
                 authority_texts, MEMORY_FINAL_START, MEMORY_FINAL_END
+            )
+        ),
+        "memory_final_evidence_commits_exact": current_truth == DELIVERY_STATE
+        or (
+            len(memory_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in memory_final_blocks)
+            and all(
+                all(commit in block for commit in FINAL_EVIDENCE_COMMITS)
+                for block in memory_final_blocks
+                if block is not None
             )
         ),
         "v2_blocks_exact_across_authorities": len(authority_texts)

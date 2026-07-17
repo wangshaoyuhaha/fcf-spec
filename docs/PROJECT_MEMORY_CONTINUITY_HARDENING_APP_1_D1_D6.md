@@ -58,7 +58,7 @@ Validation before delivery commit:
 
 Final synchronization evidence:
 
-- approval commit: `c3ee5b7d630ba5072fe5bd0af674fe736ba85ab2`
+- approval commit: `c3ee5b730e16fa4c89e6cf52f80586b55674203d`
 - delivery commit: `29fc7b0ee0b84490de6629cfb385ef0fef625159`
 - main merge commit: `291cad1ecc84a09e71c63973cd10de1e7b88a4bf`
 - delivery branch pushed to origin

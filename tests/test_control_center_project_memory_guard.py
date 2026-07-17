@@ -5,6 +5,7 @@ from scripts.control_center_project_memory_guard import (
     AUTHORITY_PATHS,
     EXPECTED_FILE_ROLES,
     EXPECTED_SAFETY,
+    FINAL_EVIDENCE_COMMITS,
     FUTURE_STATUSES,
     MEMORY_FINAL_END,
     MEMORY_FINAL_START,
@@ -14,6 +15,7 @@ from scripts.control_center_project_memory_guard import (
     ROADMAP_STATUS,
     blocks_are_exact,
     build_project_memory_guard_report,
+    extract_single_block,
     extract_gap_rows,
     gap_statuses_are_valid,
     load_manifest,
@@ -98,6 +100,16 @@ def test_memory_final_sync_is_exact_across_all_authority_sources():
     )
 
     assert blocks_are_exact(texts, MEMORY_FINAL_START, MEMORY_FINAL_END)
+    blocks = tuple(
+        extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
+        for text in texts
+    )
+    assert all(block is not None for block in blocks)
+    assert all(
+        all(commit in block for commit in FINAL_EVIDENCE_COMMITS)
+        for block in blocks
+        if block is not None
+    )
 
 
 def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
