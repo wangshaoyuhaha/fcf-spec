@@ -31,13 +31,13 @@
     "unfinished_work_register": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
   },
   "current_truth": {
-    "current_governance_phase_id": "V2-R5-LOCAL-COGNITIVE-SHIELD-FOUNDATION-APP-1",
-    "current_governance_phase_status": "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE",
-    "current_product_implementation_phase": "V2-R5",
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
+    "current_product_implementation_phase": "NONE",
     "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
-    "latest_completed_product_phase": "V2-R4-LOCAL-ANOMALY-RADAR-FOUNDATION-APP-1",
-    "next_product_implementation_phase": "V2-R5",
-    "next_product_phase_approval": "APPROVED"
+    "latest_completed_product_phase": "V2-R5-LOCAL-COGNITIVE-SHIELD-FOUNDATION-APP-1",
+    "next_product_implementation_phase": "V2-R6",
+    "next_product_phase_approval": "NOT_APPROVED"
   },
   "future_capability_statuses": [
     "ACCEPTED_ARCHITECTURE",
@@ -73,7 +73,7 @@
     },
     {
       "phase_id": "V2-R5",
-      "status": "VALIDATED_PENDING_MERGE"
+      "status": "COMPLETED"
     },
     {
       "phase_id": "V2-R6",

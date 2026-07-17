@@ -756,7 +756,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   LOCAL_REGISTERED_EVENT_ONLY
 - V2-R4: Intraday Anomaly Radar; COMPLETED /
   LOCAL_REGISTERED_ANOMALY_RESEARCH_ONLY
-- V2-R5: Realtime Cognitive Shield; APPROVED / NOT_STARTED /
+- V2-R5: Realtime Cognitive Shield; COMPLETED /
   LOCAL_REGISTERED_COGNITIVE_SHIELD_ONLY
 - V2-R6: Paper Simulation Research; PLANNED / NOT_APPROVED / NOT_STARTED
 
