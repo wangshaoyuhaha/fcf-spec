@@ -12307,3 +12307,27 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment path is authorized.
 
 <!-- V2-R5 LOCAL COGNITIVE SHIELD FOUNDATION APP 1 APPROVAL END -->
+
+<!-- V2-R5 LOCAL COGNITIVE SHIELD FOUNDATION APP 1 LOCK START -->
+
+## V2-R5 implementation lock
+
+V2-R5 D1-D6 is implemented as a local registered-artifact cognitive shield
+foundation. It consumes immutable V2-R4 anomaly evidence and optional
+Operator-registered local advisory artifacts. It applies deterministic identity,
+expiry, deadline, contradiction, confidence, abstention, and hard-gate rules.
+
+Valid deterministic evidence is preserved when advisory material is missing,
+late, contradictory, low-confidence, or unusable. Outputs are metadata-only
+research states and always require Operator review.
+
+No model is invoked, no Prompt is executed, and no asynchronous external task
+service is created. V2-FR-GAP-032 through V2-FR-GAP-037 remain open for
+external, production, calibration, workflow, capacity, and bias controls.
+
+V2-R6 remains planned, not approved, and not started. P1-P47 remain frozen;
+no P48. No network, provider, market scan, scoring, ranking, prediction,
+automatic learning, broker, exchange, credential, account, balance, position,
+wallet, order, execution, tag, release, or deployment is authorized.
+
+<!-- V2-R5 LOCAL COGNITIVE SHIELD FOUNDATION APP 1 LOCK END -->
