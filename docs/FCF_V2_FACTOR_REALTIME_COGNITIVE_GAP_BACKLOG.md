@@ -161,11 +161,11 @@ factor is activated.
 | V2-R10 | Local Turnover-Definition Research Foundation | COMPLETED / REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY |
 | V2-R11 | Local Factor Registry Foundation | COMPLETED / REGISTERED_LOCAL_FACTOR_DEFINITION_ONLY |
 | V2-R12 | Local Technical Indicator Foundation | COMPLETED / REGISTERED_LOCAL_TECHNICAL_CALCULATION_ONLY |
-| V2-R13 | Local Momentum Indicator Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_MOMENTUM_CALCULATION_ONLY |
+| V2-R13 | Local Momentum Indicator Foundation | COMPLETED / REGISTERED_LOCAL_MOMENTUM_CALCULATION_ONLY |
 
-Next product implementation phase: V2-R13 / APPROVED.
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
 
-No successor phase after V2-R13 starts automatically.
+No successor phase starts automatically.
 
 ## Entry Gate
 
