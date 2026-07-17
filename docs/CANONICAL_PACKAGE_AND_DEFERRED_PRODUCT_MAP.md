@@ -42,6 +42,13 @@ The deferred production Factor Registry, target-label, and State-Sync runtimes
 remain tracked in the Gap register. Contract foundation delivery does not
 close those production-runtime gaps.
 
+`apps/v2_r2_historical_factor_baseline_app_1/` is the canonical V2-R2 local
+historical-baseline Sidecar. It accepts explicit registered-artifact metadata,
+enforces point-in-time availability and rights, calculates deterministic
+Decimal baseline statistics, and provides leakage-safe replay and read-only
+review. It does not retrieve data, select a market, activate factors, rank
+candidates, or create an execution path.
+
 Canonical future-architecture sources:
 
 - `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`

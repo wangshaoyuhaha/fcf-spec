@@ -4245,3 +4245,43 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment path is authorized.
 
 <!-- V2-R2 HISTORICAL FACTOR BASELINE APP 1 APPROVAL END -->
+
+
+<!-- V2-R2 HISTORICAL FACTOR BASELINE APP 1 LOCK START -->
+
+## V2-R2 Historical Factor Baseline App 1 Lock
+
+Status: VALIDATED_PENDING_MAIN_MERGE
+
+Implemented scope:
+
+- immutable registered local artifact rights and observation contracts
+- separate event time and availability time with time-travel rejection
+- chronological duplicate-safe historical observation registry
+- deterministic Decimal mean, population variance, standard deviation, z-score,
+  and nearest-rank quantiles
+- insufficient-history and zero-variance abstention
+- walk-forward training and evaluation isolation
+- canonical SHA-256 replay identity
+- immutable read-only presentation and Operator acceptance
+- exact D1-D6 tests and standalone completeness guard
+
+The Sidecar reads no network or provider. It selects no market, vendor,
+Champion factor, or prediction target. It activates no factor, official score,
+candidate rank, model, Prompt, training, automatic learning, Paper order,
+virtual account, or execution route.
+
+V2-R2 remains bounded to Operator-supplied registered local artifacts.
+Production data ingestion, full indicator library, factor normalization
+research, model validation, realtime monitoring, and order-book runtime remain
+NOT_IMPLEMENTED or RESEARCH_REQUIRED.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path is authorized.
+
+<!-- V2-R2 HISTORICAL FACTOR BASELINE APP 1 LOCK END -->
