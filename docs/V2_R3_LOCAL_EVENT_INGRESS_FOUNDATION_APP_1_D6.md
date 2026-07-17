@@ -1,6 +1,6 @@
 # V2-R3 Local Event Ingress Foundation App 1 D6
 
-Status: VALIDATED_READY_FOR_MAIN_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 D6 covers exact completeness guards, app tests, Control Center regression,
 full pytest, run-all checks, generated-output restoration, merge, final
@@ -19,3 +19,9 @@ Validation evidence:
 - full pytest: 4692 passed, 5 skipped
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - 39 generated artifact files and 11 directories removed
+- approval commit: `bb48a47ae377ab87af2ece237d379ee78b994082`
+- delivery commit: `24a52cc7f8ab0aa64ba8990b193980c42cfdf43d`
+- main merge commit: `157ff5938f34c4ce987ad889fa9f3c410d82f84c`
+- delivery branch and main merge pushed to GitHub
+
+V2-R4 remains NOT_APPROVED and NOT_STARTED.
