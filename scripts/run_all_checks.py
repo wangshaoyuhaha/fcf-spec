@@ -26,6 +26,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
     ["python", "scripts/control_center_v2_r4_local_anomaly_radar_guard.py"],
     ["python", "scripts/control_center_v2_r5_local_cognitive_shield_guard.py"],
+    ["python", "scripts/control_center_v2_r6_local_paper_scenario_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
