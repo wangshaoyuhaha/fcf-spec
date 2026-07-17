@@ -164,7 +164,7 @@ factor is activated.
 | V2-R13 | Local Momentum Indicator Foundation | COMPLETED / REGISTERED_LOCAL_MOMENTUM_CALCULATION_ONLY |
 | V2-R14 | Local Trend Indicator Foundation | COMPLETED / REGISTERED_LOCAL_TREND_CALCULATION_ONLY |
 | V2-R15 | Local Volatility Indicator Foundation | COMPLETED / REGISTERED_LOCAL_VOLATILITY_CALCULATION_ONLY |
-| V2-R16 | Local Range Channel Indicator Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_CHANNEL_CALCULATION_ONLY |
+| V2-R16 | Local Range Channel Indicator Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_CHANNEL_CALCULATION_ONLY |
 
 Next product implementation phase: V2-R16 / APPROVED.
 
