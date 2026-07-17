@@ -5343,3 +5343,64 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment path was added or run.
 
 <!-- V2-R3 LOCAL EVENT INGRESS FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R4 LOCAL ANOMALY RADAR FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R4 Local Anomaly Radar Foundation App 1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-v2-r4-local-anomaly-radar-foundation-app-1`
+
+Business objective:
+
+- establish transparent local anomaly research before any live market scan
+- evaluate registered event windows against registered historical baselines
+- produce event-level research states without prediction or recommendation
+
+Approved D1-D6 scope:
+
+- D1 closed boundary and versioned context-specific anomaly rule
+- D2 numeric projection from immutable V2-R3 local registered events
+- D3 deterministic Z-score, velocity, persistence, age, and direction gates
+- D4 NORMAL, WATCH, CONFIRMED, and DEGRADED research-state evidence
+- D5 immutable duplicate, expiry, cooldown, and negative-evidence ledger
+- D6 read-only presentation, Operator acceptance, guard, tests, and closeout
+
+Readiness Gate:
+
+- inputs: V2-R2 ready historical baseline and V2-R3 local event envelopes
+- rights and cost: registered local artifacts only; no external cost
+- formulas: Decimal Z-score and absolute change per positive event-time second
+- thresholds: Operator-authored, versioned, and context-bound; no permanent
+  global threshold and no automatic tuning
+- target label: NONE; output describes current local research evidence only
+- failure behavior: abstain or degrade on invalid baseline, field mismatch,
+  unsafe numeric type, stale event, time inversion, sequence gap, missing
+  persistence, negative evidence, duplicate group, expiry, or cooldown
+- acceptance: deterministic research state and evidence hash
+- rollback: new V2-R4 Sidecar and exact governed files only
+- stop conditions: live source, market scan, provider, credential, model,
+  official score, ranking, prediction, automatic learning, order, execution,
+  unexpected path, safety failure, or test failure
+
+Current product phase is V2-R4: APPROVED / NOT_STARTED. V2-R1 through V2-R3
+remain COMPLETED. V2-R5 and V2-R6 remain PLANNED / NOT_APPROVED / NOT_STARTED.
+
+This phase does not implement a universe scanner, live anomaly radar, first
+market adapter, realtime source, order book, alert service, official factor,
+recommendation, prediction, model, Prompt, automatic learning, Paper order,
+virtual account, or execution route. The production gaps remain open.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path is authorized.
+
+<!-- V2-R4 LOCAL ANOMALY RADAR FOUNDATION APP 1 APPROVAL END -->
