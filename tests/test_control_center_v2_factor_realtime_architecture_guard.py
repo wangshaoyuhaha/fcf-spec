@@ -61,6 +61,8 @@ def test_v2_factor_realtime_roadmap_preserves_explicit_phase_authority():
     assert (
         "V2-R7: Local Market Session Registry Foundation; "
         "APPROVED / NOT_STARTED" in architecture
+        or "V2-R7: Local Market Session Registry Foundation; COMPLETED /"
+        in architecture
     )
     manifest = json.loads(
         (ROOT / "FCF_CURRENT_STATE_MANIFEST.json").read_text(encoding="ascii")
