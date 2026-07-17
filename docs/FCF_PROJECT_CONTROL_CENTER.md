@@ -11504,3 +11504,57 @@ No product runtime was added. P1-P47 remain frozen. No P48 was created. No tag,
 release, deployment, or financial execution path was created or run.
 
 <!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 FINAL SYNC END -->
+
+
+<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC APPROVAL START -->
+
+## FCF V2 Market Session Research Architecture Sync Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-v2-market-session-research-architecture-sync-app-1`
+
+Approved scope:
+
+- register a Market Session Registry and exchange-calendar contract
+- define same-time-of-day and regime-relative baselines
+- define A-share call-auction and late-session research contracts
+- define entrusted-order ratio, volume ratio, turnover, depth, and observable
+  capital-flow proxy semantics
+- define sector breadth, rotation, transmission, and cross-market context
+- define controlled research-candidate lifecycle and read-only Operator UI
+  research actions
+- define offline adaptive-research and Champion/Challenger boundaries without
+  automatic learning activation or promotion
+- extend the canonical architecture, ADR register, Gap register, manifest,
+  memory protocol, deterministic guards, tests, and closeout evidence
+
+Implementation order:
+
+- D1 verify current authorities, existing coverage, and non-duplication
+- D2 register session taxonomy, calendars, and time-of-day baselines
+- D3 register auction, late-session, order-book, flow, and sector contracts
+- D4 register candidate lifecycle, UI controls, evaluation, and adaptation
+- D5 extend ADR, Gap, manifest, authority guards, and deterministic tests
+- D6 validate, close out, merge, synchronize authorities, and restore outputs
+
+This approval is for governance and future architecture only. It does not
+approve realtime data, network access, data purchase, model invocation,
+Prompt execution, training, automatic routing, factor activation, scoring
+mutation, automatic learning, Paper order, virtual account, or execution.
+
+Current product implementation phase remains NONE. Next product phase remains
+NOT_SELECTED / NOT_APPROVED. V2-R1 through V2-R6 remain PLANNED /
+NOT_APPROVED / NOT_STARTED and no V2-R phase starts automatically.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only product
+presentation, Deterministic Engine calculation authority, Registered Evidence
+authority, advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path is authorized.
+
+<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC APPROVAL END -->
