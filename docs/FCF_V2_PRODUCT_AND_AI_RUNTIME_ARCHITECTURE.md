@@ -7229,3 +7229,46 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R9 LOCAL VOLUME RATIO RESEARCH FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R9 Local Volume-Ratio Research Foundation App 1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved order:
+
+- D1 closed registered-local volume-ratio research boundary
+- D2 immutable current-volume observation and ratio policy contracts
+- D3 deterministic Decimal interval or cumulative ratio calculation
+- D4 baseline state, availability, identity, basis, and zero-value blocking
+- D5 append-only evidence ledger and metadata-only read model
+- D6 Operator acceptance, guards, tests, merge, and closeout
+
+Readiness Gate:
+
+- objective: compare registered current volume with a matching R8 same-time
+  historical baseline without future data, completed-day totals, or mixed basis
+- dependencies: completed V2-R7 session and V2-R8 baseline foundations
+- inputs: immutable registered-local current observation and baseline evidence
+- formula: current volume divided by an explicit mean or median baseline,
+  quantized by fixed scale with ROUND_HALF_EVEN
+- safety: no network, live source, factor activation, score, rank, signal,
+  recommendation, model, Prompt, learning, account, order, or execution
+- failure: block unavailable, future, unresolved, mismatched, negative,
+  nonfinite, zero-baseline, unsupported statistic, or unsafe policy state
+- acceptance: deterministic result and canonical SHA-256 with Operator review
+- rollback: new V2-R9 Sidecar and exact governed files only
+- stop: unexpected path, safety failure, test failure, source connection,
+  automatic clock, model, Prompt, automatic learning, or execution capability
+
+This is a registered-local volume-ratio research foundation, not a realtime
+scanner, activated factor, ranking rule, or market recommendation.
+V2-FR-GAP-049 and V2-FR-GAP-053 remain open beyond this bounded foundation.
+
+V2-R1 through V2-R8 remain COMPLETED. V2-R9 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R9 LOCAL VOLUME RATIO RESEARCH FOUNDATION APP 1 APPROVAL END -->

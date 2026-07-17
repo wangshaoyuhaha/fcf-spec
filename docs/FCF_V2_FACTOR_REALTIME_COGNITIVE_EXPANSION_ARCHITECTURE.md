@@ -764,6 +764,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   REGISTERED_LOCAL_CALENDAR_ONLY
 - V2-R8: Local Same-Time Baseline Foundation; COMPLETED /
   REGISTERED_LOCAL_HISTORY_ONLY
+- V2-R9: Local Volume-Ratio Research Foundation; APPROVED / NOT_STARTED /
+  REGISTERED_LOCAL_VOLUME_EVIDENCE_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
