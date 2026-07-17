@@ -104,7 +104,27 @@ After merge and validation:
   block
 - generated outputs must be restored and Git must be clean
 
-## 6. Permanent Boundary
+## 6. Future Architecture Coverage Invariants
+
+The canonical future architecture must preserve these accepted but
+not-implemented capability groups:
+
+- deterministic factors, targets, State-Sync, and multi-horizon isolation
+- technical, fundamental, flow, breadth, and microstructure research
+- Market Session Registry and same-time-of-day baselines
+- A-share call-auction, late-session, and closing research
+- entrusted-order ratio, volume ratio, turnover, and observable flow semantics
+- sector, theme, industry-chain, macro, and cross-market transmission context
+- controlled research candidates and read-only Operator UI actions
+- offline adaptive research without automatic learning or promotion
+- session-aware replay, calibration, lead-time, failure, and stop evaluation
+- A-share and BTC market-specific adapters without a universal mixed score
+
+These groups remain future structure until their Gap entries are closed by
+implementation evidence. A new chat, handoff, or historical record cannot
+delete them, mark them completed, or select their implementation phase.
+
+## 7. Permanent Boundary
 
 P1-P47 remain frozen. No P48 is created. FCF remains paper-only, local-only,
 loopback-only, sidecar-only, registered-artifact-only, and read-only in product

@@ -4,6 +4,7 @@ from pathlib import Path
 from scripts.control_center_project_memory_guard import (
     AUTHORITY_PATHS,
     EXPECTED_FILE_ROLES,
+    EXPECTED_FUTURE_ARCHITECTURE,
     EXPECTED_SAFETY,
     FINAL_EVIDENCE_COMMITS,
     FUTURE_STATUSES,
@@ -11,6 +12,10 @@ from scripts.control_center_project_memory_guard import (
     MEMORY_FINAL_START,
     MEMORY_LOCK_END,
     MEMORY_LOCK_START,
+    SESSION_APPROVAL_END,
+    SESSION_APPROVAL_START,
+    SESSION_LOCK_END,
+    SESSION_LOCK_START,
     ROADMAP_PHASES,
     ROADMAP_STATUS,
     blocks_are_exact,
@@ -44,6 +49,10 @@ def test_current_state_manifest_has_exact_file_roles_and_safety():
         path.as_posix() for path in AUTHORITY_PATHS
     ]
     assert manifest["canonical_file_roles"] == EXPECTED_FILE_ROLES
+    assert (
+        manifest["accepted_future_architecture"]
+        == EXPECTED_FUTURE_ARCHITECTURE
+    )
     assert manifest["safety_boundaries"] == EXPECTED_SAFETY
     assert all((ROOT / path).is_file() for path in EXPECTED_FILE_ROLES.values())
 
@@ -61,7 +70,7 @@ def test_current_state_manifest_keeps_all_product_phases_unapproved():
     ]
 
 
-def test_future_status_vocabulary_is_closed_and_gap_041_is_excluded():
+def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
     manifest = load_manifest(ROOT)
     gap = (
         ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
@@ -71,6 +80,7 @@ def test_future_status_vocabulary_is_closed_and_gap_041_is_excluded():
     assert manifest["future_capability_statuses"] == list(FUTURE_STATUSES)
     assert gap_statuses_are_valid(gap)
     assert rows["V2-FR-GAP-041"] == "OUTSIDE_CURRENT_AUTHORIZATION"
+    assert rows["V2-FR-GAP-065"] == "OUTSIDE_CURRENT_AUTHORIZATION"
 
 
 def test_unknown_gap_status_is_rejected():
@@ -110,6 +120,17 @@ def test_memory_final_sync_is_exact_across_all_authority_sources():
         for block in blocks
         if block is not None
     )
+
+
+def test_market_session_approval_and_lock_are_exact_across_authorities():
+    texts = tuple(
+        (ROOT / path).read_text(encoding="ascii") for path in AUTHORITY_PATHS
+    )
+
+    assert blocks_are_exact(
+        texts, SESSION_APPROVAL_START, SESSION_APPROVAL_END
+    )
+    assert blocks_are_exact(texts, SESSION_LOCK_START, SESSION_LOCK_END)
 
 
 def test_manifest_is_deterministic_json_and_historical_order_is_not_current():

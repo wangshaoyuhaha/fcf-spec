@@ -19,8 +19,8 @@ AUTHORITY_PATHS = (
     Path("FCF_NEW_WINDOW_CHAT_PROMPT.md"),
 )
 LOCK_MARKER = "FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE LOCK"
-ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 13))
-GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 48))
+ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 21))
+GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 71))
 ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 7))
 REQUIRED_ARCHITECTURE_TERMS = (
     "Deterministic Factor Registry",
@@ -39,6 +39,16 @@ REQUIRED_ARCHITECTURE_TERMS = (
     "Implementation Readiness Gate",
     "Single-Market MVP Gate",
     "MVP Success and Stop Rules",
+    "Market Session Registry and Exchange Calendar",
+    "Same-Time-of-Day and Regime Baselines",
+    "A-Share Call-Auction Research Contract",
+    "Late-Session and Closing Research Contract",
+    "Entrusted Order, Volume Ratio, Turnover, and Flow Semantics",
+    "Sector, Theme, and Cross-Market Transmission Graph",
+    "Controlled Research Candidate Lifecycle",
+    "Read-Only Operator Research Control Plane",
+    "Controlled Offline Adaptation and Learning Boundary",
+    "Session-Aware Evaluation and Failure Law",
 )
 
 

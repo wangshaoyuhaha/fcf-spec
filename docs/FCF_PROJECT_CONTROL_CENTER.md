@@ -11558,3 +11558,72 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment path is authorized.
 
 <!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC APPROVAL END -->
+
+
+<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC LOCK START -->
+
+## FCF V2 Market Session Research Architecture Lock
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+
+Current repository truth:
+
+- current governance phase:
+  FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1
+- governance delivery status: VALIDATED_PENDING_MERGE
+- current product implementation phase: NONE
+- next product implementation phase: NOT_SELECTED / NOT_APPROVED
+
+Canonical specifications:
+
+- `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`
+- `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md`
+- `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md`
+- `FCF_CURRENT_STATE_MANIFEST.json`
+
+Accepted future architecture now also includes:
+
+- versioned Market Session Registry and exchange calendars
+- same-time-of-day and regime-relative baselines
+- A-share call-auction, 14:30 late-session, and closing research
+- entrusted-order ratio, volume ratio, turnover, order-book, and observable
+  capital-flow proxy semantics
+- point-in-time sector, theme, industry-chain, macro, and cross-market context
+- controlled research-candidate lifecycle with invalidation, expiry, cooldown,
+  negative evidence, and immutable Operator review
+- read-only Operator research controls for watchlists, evidence, replay,
+  sensitivity bounds, and candidate review
+- offline Challenger proposals without automatic learning, promotion, or
+  activation
+- session-aware replay, calibration, lead-time, false-alert, and stop metrics
+- market-specific A-share and BTC adapters without one universal mixed score
+
+`FCF-V2-ADR-013` through `FCF-V2-ADR-020` and `V2-FR-GAP-048` through
+`V2-FR-GAP-070` register these decisions and unfinished work. Architecture
+acceptance is not implementation evidence.
+
+Current implementation status remains:
+
+- Market Session Registry, auction research, late-session research, session
+  baselines, sector graph, candidate lifecycle, and Operator research control
+  plane: NOT_IMPLEMENTED
+- source fields, data rights, taxonomy, and lead-lag validation:
+  RESEARCH_REQUIRED
+- automatic learning, automatic promotion, and self-modification:
+  OUTSIDE_CURRENT_AUTHORIZATION
+- V2-R1 through V2-R6: PLANNED / NOT_APPROVED / NOT_STARTED
+
+This lock creates no data connection, factor activation, score change, model
+invocation, Prompt execution, training, automatic routing, automatic learning,
+Paper order, virtual account, or execution path.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine, Registered Evidence, advisory AI, and mandatory Operator
+review boundaries remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path is authorized. No V2-R phase
+starts automatically.
+
+<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC LOCK END -->

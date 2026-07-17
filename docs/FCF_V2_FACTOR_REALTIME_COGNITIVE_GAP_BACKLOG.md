@@ -97,6 +97,49 @@ No entry in this register is delivered merely because it is documented.
 | V2-FR-GAP-046 | legal and regulatory professional review | RESEARCH_REQUIRED |
 | V2-FR-GAP-047 | repository-owner LICENSE decision | RESEARCH_REQUIRED |
 
+## Market Session and Intraday Baseline Gaps
+
+| ID | Gap | Status |
+| --- | --- | --- |
+| V2-FR-GAP-048 | versioned Market Session Registry and exchange calendar | NOT_IMPLEMENTED |
+| V2-FR-GAP-049 | same-time-of-day and regime baseline engine | NOT_IMPLEMENTED |
+| V2-FR-GAP-050 | A-share call-auction source fields and venue-rule validation | RESEARCH_REQUIRED |
+| V2-FR-GAP-051 | auction imbalance, cancellation, stability, and convergence factors | NOT_IMPLEMENTED |
+| V2-FR-GAP-052 | A-share 14:30 late-session and closing research contract runtime | NOT_IMPLEMENTED |
+| V2-FR-GAP-053 | entrusted-order ratio, volume ratio, and turnover definition registry | NOT_IMPLEMENTED |
+
+## Sector and Cross-Market Context Gaps
+
+| ID | Gap | Status |
+| --- | --- | --- |
+| V2-FR-GAP-054 | point-in-time sector and theme taxonomy | RESEARCH_REQUIRED |
+| V2-FR-GAP-055 | sector breadth, rotation, leader, and diffusion graph | NOT_IMPLEMENTED |
+| V2-FR-GAP-056 | cross-asset and macro lead-lag hypothesis validation | RESEARCH_REQUIRED |
+| V2-FR-GAP-057 | multiple-taxonomy conflict and membership uncertainty handling | NOT_IMPLEMENTED |
+
+## Candidate and Operator Workspace Gaps
+
+| ID | Gap | Status |
+| --- | --- | --- |
+| V2-FR-GAP-058 | research candidate lifecycle and immutable review history | NOT_IMPLEMENTED |
+| V2-FR-GAP-059 | negative evidence, invalidation, expiry, cooldown, and deduplication | NOT_IMPLEMENTED |
+| V2-FR-GAP-060 | read-only Operator research control plane | NOT_IMPLEMENTED |
+| V2-FR-GAP-061 | session-aware alert budget and Operator fatigue controls | NOT_IMPLEMENTED |
+| V2-FR-GAP-062 | observed-versus-inferred field presentation and confidence UI | NOT_IMPLEMENTED |
+
+## Adaptive Research and Evaluation Gaps
+
+| ID | Gap | Status |
+| --- | --- | --- |
+| V2-FR-GAP-063 | offline adaptive-research proposal pipeline | NOT_IMPLEMENTED |
+| V2-FR-GAP-064 | deterministic Challenger evaluation and promotion evidence | NOT_IMPLEMENTED |
+| V2-FR-GAP-065 | automatic learning, promotion, and self-modification runtime | OUTSIDE_CURRENT_AUTHORIZATION |
+| V2-FR-GAP-066 | session-aware precision, calibration, lead-time, and false-alert metrics | NOT_IMPLEMENTED |
+| V2-FR-GAP-067 | auction and late-session point-in-time replay realism | NOT_IMPLEMENTED |
+| V2-FR-GAP-068 | clock alignment, latency, and cross-market time reconciliation | NOT_IMPLEMENTED |
+| V2-FR-GAP-069 | spoofing, manipulation, and participant-identity non-claim controls | NOT_IMPLEMENTED |
+| V2-FR-GAP-070 | BTC continuous-session analysis-window and regime adapter | NOT_IMPLEMENTED |
+
 ## Roadmap Backlog
 
 | Phase | Scope | Status |

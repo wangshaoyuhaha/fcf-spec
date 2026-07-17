@@ -28,7 +28,7 @@ def test_v2_factor_realtime_architecture_registers_exact_adr_set():
         ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md"
     ).read_text(encoding="ascii")
 
-    assert len(ADR_IDS) == 12
+    assert len(ADR_IDS) == 20
     assert all(text.count(adr_id) == 1 for adr_id in ADR_IDS)
 
 
@@ -37,7 +37,7 @@ def test_v2_factor_realtime_architecture_registers_exact_gap_set():
         ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
     ).read_text(encoding="ascii")
 
-    assert len(GAP_IDS) == 47
+    assert len(GAP_IDS) == 70
     assert all(text.count(gap_id) == 1 for gap_id in GAP_IDS)
 
 
@@ -71,3 +71,21 @@ def test_v2_factor_realtime_architecture_preserves_no_execution_boundary():
     assert "P1-P47 remain frozen" in architecture
     assert "No P48 is created" in architecture
     assert "AI remains advisory" in architecture
+
+
+def test_v2_market_session_extension_is_architecture_only():
+    architecture = (
+        ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md"
+    ).read_text(encoding="ascii")
+    gap = (
+        ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
+    ).read_text(encoding="ascii")
+
+    assert "Market Session Registry and Exchange Calendar" in architecture
+    assert "A-Share Call-Auction Research Contract" in architecture
+    assert "Late-Session and Closing Research Contract" in architecture
+    assert "Read-Only Operator Research Control Plane" in architecture
+    assert (
+        "| V2-FR-GAP-065 | automatic learning, promotion, and "
+        "self-modification runtime | OUTSIDE_CURRENT_AUTHORIZATION |"
+    ) in gap
