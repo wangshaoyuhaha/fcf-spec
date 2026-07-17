@@ -11,6 +11,7 @@ ARCHITECTURE_PATH = Path(
 )
 ADR_PATH = Path("docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md")
 GAP_PATH = Path("docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md")
+MANIFEST_PATH = Path("FCF_CURRENT_STATE_MANIFEST.json")
 AUTHORITY_PATHS = (
     Path("docs/FCF_PROJECT_CONTROL_CENTER.md"),
     Path("docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md"),
@@ -63,6 +64,7 @@ def build_architecture_guard_report(root: Path = ROOT) -> dict[str, object]:
         architecture = _read_ascii(root, ARCHITECTURE_PATH)
         adr_register = _read_ascii(root, ADR_PATH)
         gap_register = _read_ascii(root, GAP_PATH)
+        manifest = json.loads(_read_ascii(root, MANIFEST_PATH))
         authority_texts = {
             path.as_posix(): _read_ascii(root, path) for path in AUTHORITY_PATHS
         }
@@ -72,9 +74,15 @@ def build_architecture_guard_report(root: Path = ROOT) -> dict[str, object]:
         adr_register = ""
         gap_register = ""
         authority_texts = {}
+        manifest = {}
         ascii_only = False
 
     found_gap_ids = set(re.findall(r"V2-FR-GAP-[0-9]{3}", gap_register))
+    manifest_roadmap = {
+        item.get("phase_id"): item.get("status")
+        for item in manifest.get("roadmap", [])
+        if isinstance(item, dict)
+    }
     checks = {
         "canonical_documents_exist": canonical_exists,
         "canonical_documents_ascii": ascii_only,
@@ -94,14 +102,22 @@ def build_architecture_guard_report(root: Path = ROOT) -> dict[str, object]:
             for phase in ROADMAP_PHASES
         ),
         "future_status_not_overclaimed": all(
-            f"{phase}: COMPLETED" not in architecture
-            and re.search(
-                rf"\| {re.escape(phase)} \|[^\n]*COMPLETED",
-                gap_register,
+            (
+                manifest_roadmap.get(phase) == "COMPLETED"
             )
-            is None
+            == bool(
+                re.search(
+                    rf"- {re.escape(phase)}:[^\n]*; COMPLETED",
+                    architecture,
+                )
+            )
+            == bool(
+                re.search(
+                    rf"\| {re.escape(phase)} \|[^\n]*COMPLETED",
+                    gap_register,
+                )
+            )
             for phase in ROADMAP_PHASES
-            if phase not in ("V2-R1", "V2-R2", "V2-R3")
         )
         and "Implementation status: NOT_IMPLEMENTED" in architecture,
         "readiness_gate_present": (

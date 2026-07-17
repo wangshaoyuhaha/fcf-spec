@@ -8,6 +8,7 @@ from scripts.control_center_project_memory_guard import (
     EXPECTED_SAFETY,
     FINAL_EVIDENCE_COMMITS,
     FUTURE_STATUSES,
+    GAP_ROADMAP_FINAL_LINES,
     MEMORY_FINAL_END,
     MEMORY_FINAL_START,
     MEMORY_LOCK_END,
@@ -163,6 +164,7 @@ def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
     assert gap_statuses_are_valid(gap)
     assert rows["V2-FR-GAP-041"] == "OUTSIDE_CURRENT_AUTHORIZATION"
     assert rows["V2-FR-GAP-065"] == "OUTSIDE_CURRENT_AUTHORIZATION"
+    assert all(line in gap for line in GAP_ROADMAP_FINAL_LINES)
 
 
 def test_unknown_gap_status_is_rejected():

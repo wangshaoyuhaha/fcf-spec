@@ -150,11 +150,15 @@ factor is activated.
 | Phase | Scope | Status |
 | --- | --- | --- |
 | V2-R1 | Factor Contract Foundation | COMPLETED / CONTRACT_FOUNDATION_ONLY |
-| V2-R2 | Historical Factor Baseline | COMPLETED / LOCAL_ARTIFACT_ONLY |
+| V2-R2 | Historical Factor Baseline | COMPLETED / REGISTERED_LOCAL_ARTIFACT_ONLY |
 | V2-R3 | Realtime Ingestion Foundation | COMPLETED / LOCAL_REGISTERED_EVENT_ONLY |
-| V2-R4 | Intraday Anomaly Radar | APPROVED / NOT_STARTED / LOCAL_REGISTERED_ANOMALY_RESEARCH_ONLY |
-| V2-R5 | Realtime Cognitive Shield | PLANNED / NOT_APPROVED |
-| V2-R6 | Paper Simulation Research | PLANNED / NOT_APPROVED |
+| V2-R4 | Intraday Anomaly Radar | COMPLETED / LOCAL_REGISTERED_ANOMALY_RESEARCH_ONLY |
+| V2-R5 | Realtime Cognitive Shield | COMPLETED / LOCAL_REGISTERED_COGNITIVE_SHIELD_ONLY |
+| V2-R6 | Paper Simulation Research | COMPLETED / LOCAL_REGISTERED_SCENARIO_RESEARCH_ONLY |
+
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+
+No successor phase starts automatically.
 
 ## Entry Gate
 

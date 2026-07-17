@@ -58,9 +58,17 @@ def test_v2_factor_realtime_roadmap_preserves_explicit_phase_authority():
     assert "V2-R2: Historical Factor Baseline; COMPLETED" in architecture
     assert "V2-R3: Realtime Ingestion Foundation; COMPLETED" in architecture
     assert all(
-        f"{phase}: COMPLETED" not in architecture
+        f"| {phase} |" in (
+            ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
+        ).read_text(encoding="ascii")
+        and "COMPLETED" in next(
+            line
+            for line in (
+                ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
+            ).read_text(encoding="ascii").splitlines()
+            if line.startswith(f"| {phase} |")
+        )
         for phase in ROADMAP_PHASES
-        if phase not in ("V2-R1", "V2-R2", "V2-R3")
     )
     assert "No V2-R implementation phase starts automatically" in "\n".join(
         path.read_text(encoding="ascii")

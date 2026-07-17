@@ -259,6 +259,22 @@ FUTURE_STATUSES = (
 ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 7))
 ROADMAP_STATUS = "PLANNED_NOT_APPROVED_NOT_STARTED"
 GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 71))
+GAP_ROADMAP_FINAL_LINES = (
+    "| V2-R1 | Factor Contract Foundation | "
+    "COMPLETED / CONTRACT_FOUNDATION_ONLY |",
+    "| V2-R2 | Historical Factor Baseline | "
+    "COMPLETED / REGISTERED_LOCAL_ARTIFACT_ONLY |",
+    "| V2-R3 | Realtime Ingestion Foundation | "
+    "COMPLETED / LOCAL_REGISTERED_EVENT_ONLY |",
+    "| V2-R4 | Intraday Anomaly Radar | "
+    "COMPLETED / LOCAL_REGISTERED_ANOMALY_RESEARCH_ONLY |",
+    "| V2-R5 | Realtime Cognitive Shield | "
+    "COMPLETED / LOCAL_REGISTERED_COGNITIVE_SHIELD_ONLY |",
+    "| V2-R6 | Paper Simulation Research | "
+    "COMPLETED / LOCAL_REGISTERED_SCENARIO_RESEARCH_ONLY |",
+    "Next product implementation phase: NOT_SELECTED / NOT_APPROVED.",
+    "No successor phase starts automatically.",
+)
 DELIVERY_STATE = {
     "current_governance_phase_id": (
         "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
@@ -1036,6 +1052,9 @@ def build_project_memory_guard_report(
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
         "gap_statuses_closed": gap_statuses_are_valid(gap),
+        "gap_roadmap_matches_final_manifest": current_truth
+        != V2_R6_FINAL_STATE
+        or all(line in gap for line in GAP_ROADMAP_FINAL_LINES),
         "status_definitions_synchronized": all(
             f"`{status}`" in architecture
             and f"`{status}`" in gap
