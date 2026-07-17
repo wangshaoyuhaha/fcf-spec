@@ -32,7 +32,7 @@
   },
   "current_truth": {
     "current_governance_phase_id": "V2-R2-HISTORICAL-FACTOR-BASELINE-APP-1",
-    "current_governance_phase_status": "PRODUCT_PHASE_APPROVED_NOT_STARTED",
+    "current_governance_phase_status": "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE",
     "current_product_implementation_phase": "V2-R2",
     "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
     "latest_completed_product_phase": "V2-R1-FACTOR-CONTRACT-FOUNDATION-APP-1",
@@ -61,7 +61,7 @@
     },
     {
       "phase_id": "V2-R2",
-      "status": "APPROVED_NOT_STARTED"
+      "status": "VALIDATED_PENDING_MERGE"
     },
     {
       "phase_id": "V2-R3",
