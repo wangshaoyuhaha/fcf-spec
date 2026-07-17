@@ -7611,3 +7611,38 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R12 LOCAL TECHNICAL INDICATOR FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R13 LOCAL MOMENTUM INDICATOR FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R13 Local Momentum Indicator Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1 boundary, source series, dependency, and formula lock
+- D2 immutable momentum policy and registered-local close-series contract
+- D3 deterministic Decimal window RSI and rate-of-change calculation
+- D4 fail-closed registry, identity, time, window, and numeric validation
+- D5 append-only evidence, read-only presentation, and Operator review
+- D6 guards, tests, cleanup, sidecar merge, and final state synchronization
+
+Readiness gate:
+
+- dependency: completed V2-R11 factor registry and V2-R12 price-series contract
+- data rights: registered local fixtures only
+- formulas: window gain/loss RSI and percentage rate of change
+- authority: Deterministic Engine calculates; Registered Evidence is authoritative
+- labels: metric output only; no prediction, score, rank, or signal
+- tests: flat, gain-only, loss-only, mixed, insufficient, future, and mismatch
+- rollback: new V2-R13 Sidecar and exact governed files only
+
+This is a bounded second indicator pack, not the complete technical indicator
+library. V2-FR-GAP-008 remains open.
+
+V2-R1 through V2-R12 remain COMPLETED. V2-R13 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R13 LOCAL MOMENTUM INDICATOR FOUNDATION APP 1 APPROVAL END -->
