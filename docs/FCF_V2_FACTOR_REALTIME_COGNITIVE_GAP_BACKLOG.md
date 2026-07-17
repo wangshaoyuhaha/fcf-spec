@@ -160,10 +160,11 @@ factor is activated.
 | V2-R9 | Local Volume-Ratio Research Foundation | COMPLETED / REGISTERED_LOCAL_VOLUME_EVIDENCE_ONLY |
 | V2-R10 | Local Turnover-Definition Research Foundation | COMPLETED / REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY |
 | V2-R11 | Local Factor Registry Foundation | COMPLETED / REGISTERED_LOCAL_FACTOR_DEFINITION_ONLY |
+| V2-R12 | Local Technical Indicator Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_TECHNICAL_CALCULATION_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R12 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R12 starts automatically.
 
 ## Entry Gate
 
