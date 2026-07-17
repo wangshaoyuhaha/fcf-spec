@@ -12579,3 +12579,41 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R7 LOCAL MARKET SESSION REGISTRY FOUNDATION APP 1 FINAL END -->
+
+<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R8 Local Same-Time Baseline Foundation App 1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved order:
+
+- D1 closed registered-local point-in-time baseline boundary
+- D2 immutable session-linked observation and baseline policy contracts
+- D3 deterministic Decimal count, mean, median, minimum, and maximum statistics
+- D4 session, slot, regime, availability, sample, and mismatch blocking
+- D5 append-only baseline ledger and metadata-only read model
+- D6 Operator acceptance, guards, tests, merge, and closeout
+
+Readiness Gate:
+
+- objective: compare one registered feature within the same session phase,
+  interval slot, and regime without completed-day or future-data leakage
+- dependency: completed V2-R7 registered session resolution foundation
+- inputs: immutable registered local observations and explicit as-of time
+- formula: exact Decimal statistics with fixed sample and missing policies
+- safety: no network, live source, activated factor, score, rank, signal,
+  recommendation, model, Prompt, learning, account, order, or execution
+- failure: block identity mismatch, future availability, mixed phase, slot,
+  regime, feature, invalid sample, nonfinite value, or unsafe policy
+- acceptance: deterministic result and canonical SHA-256 with Operator review
+- rollback: new V2-R8 Sidecar and exact governed files only
+
+This is a registered local baseline foundation, not a realtime baseline service
+or scoring change. V2-FR-GAP-049 remains open beyond this bounded foundation.
+
+V2-R1 through V2-R7 remain COMPLETED. V2-R8 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 APPROVAL END -->

@@ -156,10 +156,11 @@ factor is activated.
 | V2-R5 | Realtime Cognitive Shield | COMPLETED / LOCAL_REGISTERED_COGNITIVE_SHIELD_ONLY |
 | V2-R6 | Paper Simulation Research | COMPLETED / LOCAL_REGISTERED_SCENARIO_RESEARCH_ONLY |
 | V2-R7 | Local Market Session Registry Foundation | COMPLETED / REGISTERED_LOCAL_CALENDAR_ONLY |
+| V2-R8 | Local Same-Time Baseline Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_HISTORY_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R8 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R8 starts automatically.
 
 ## Entry Gate
 

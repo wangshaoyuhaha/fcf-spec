@@ -213,6 +213,24 @@ V2_R7_FINAL_EVIDENCE_COMMITS = (
     "4a40616e62972476e693ce6ecaecbc05637a776b",
     "1f9214fc3b3d751e641a26b3612423b5729e0ab4",
 )
+V2_R8_APPROVAL_START = (
+    "<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 APPROVAL START -->"
+)
+V2_R8_APPROVAL_END = (
+    "<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 APPROVAL END -->"
+)
+V2_R8_LOCK_START = (
+    "<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 LOCK START -->"
+)
+V2_R8_LOCK_END = (
+    "<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 LOCK END -->"
+)
+V2_R8_FINAL_START = (
+    "<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 FINAL START -->"
+)
+V2_R8_FINAL_END = (
+    "<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 FINAL END -->"
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -279,7 +297,7 @@ FUTURE_STATUSES = (
     "NOT_IMPLEMENTED",
     "OUTSIDE_CURRENT_AUTHORIZATION",
 )
-ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 8))
+ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 9))
 ROADMAP_STATUS = "PLANNED_NOT_APPROVED_NOT_STARTED"
 GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 71))
 GAP_ROADMAP_FINAL_LINES = (
@@ -315,6 +333,12 @@ GAP_ROADMAP_R7_FINAL_LINES = (
     "COMPLETED / REGISTERED_LOCAL_CALENDAR_ONLY |",
     "Next product implementation phase: NOT_SELECTED / NOT_APPROVED.",
     "No successor phase starts automatically.",
+)
+GAP_ROADMAP_R8_APPROVAL_LINES = (
+    "| V2-R8 | Local Same-Time Baseline Foundation | "
+    "APPROVED / NOT_STARTED / REGISTERED_LOCAL_HISTORY_ONLY |",
+    "Next product implementation phase: V2-R8 / APPROVED.",
+    "No successor phase after V2-R8 starts automatically.",
 )
 DELIVERY_STATE = {
     "current_governance_phase_id": (
@@ -930,6 +954,76 @@ V2_R7_FINAL_STATE = {
     "next_product_phase_approval": "NOT_APPROVED",
 }
 V2_R7_FINAL_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": "COMPLETED" if phase != "V2-R8" else ROADMAP_STATUS,
+    }
+    for phase in ROADMAP_PHASES
+]
+V2_R8_APPROVAL_STATE = {
+    "current_governance_phase_id": (
+        "V2-R8-LOCAL-SAME-TIME-BASELINE-FOUNDATION-APP-1"
+    ),
+    "current_governance_phase_status": "PRODUCT_PHASE_APPROVED_NOT_STARTED",
+    "current_product_implementation_phase": "V2-R8",
+    "latest_completed_governance_delivery": (
+        "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
+    ),
+    "latest_completed_product_phase": (
+        "V2-R7-LOCAL-MARKET-SESSION-REGISTRY-FOUNDATION-APP-1"
+    ),
+    "next_product_implementation_phase": "V2-R8",
+    "next_product_phase_approval": "APPROVED",
+}
+V2_R8_APPROVAL_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": "APPROVED_NOT_STARTED" if phase == "V2-R8" else "COMPLETED",
+    }
+    for phase in ROADMAP_PHASES
+]
+V2_R8_DELIVERY_STATE = {
+    **V2_R8_APPROVAL_STATE,
+    "current_governance_phase_status": (
+        "PRODUCT_DELIVERY_IMPLEMENTED_PENDING_VALIDATION"
+    ),
+}
+V2_R8_DELIVERY_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": (
+            "IMPLEMENTED_PENDING_VALIDATION" if phase == "V2-R8" else "COMPLETED"
+        ),
+    }
+    for phase in ROADMAP_PHASES
+]
+V2_R8_VALIDATED_STATE = {
+    **V2_R8_APPROVAL_STATE,
+    "current_governance_phase_status": (
+        "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE"
+    ),
+}
+V2_R8_VALIDATED_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": "VALIDATED_PENDING_MERGE" if phase == "V2-R8" else "COMPLETED",
+    }
+    for phase in ROADMAP_PHASES
+]
+V2_R8_FINAL_STATE = {
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
+    "current_product_implementation_phase": "NONE",
+    "latest_completed_governance_delivery": (
+        "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
+    ),
+    "latest_completed_product_phase": (
+        "V2-R8-LOCAL-SAME-TIME-BASELINE-FOUNDATION-APP-1"
+    ),
+    "next_product_implementation_phase": "NOT_SELECTED",
+    "next_product_phase_approval": "NOT_APPROVED",
+}
+V2_R8_FINAL_ROADMAP = [
     {"phase_id": phase, "status": "COMPLETED"}
     for phase in ROADMAP_PHASES
 ]
@@ -1065,6 +1159,10 @@ def build_project_memory_guard_report(
         V2_R7_DELIVERY_STATE,
         V2_R7_VALIDATED_STATE,
         V2_R7_FINAL_STATE,
+        V2_R8_APPROVAL_STATE,
+        V2_R8_DELIVERY_STATE,
+        V2_R8_VALIDATED_STATE,
+        V2_R8_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -1179,6 +1277,14 @@ def build_project_memory_guard_report(
             if current_truth == V2_R7_VALIDATED_STATE
             else V2_R7_FINAL_ROADMAP
             if current_truth == V2_R7_FINAL_STATE
+            else V2_R8_APPROVAL_ROADMAP
+            if current_truth == V2_R8_APPROVAL_STATE
+            else V2_R8_DELIVERY_ROADMAP
+            if current_truth == V2_R8_DELIVERY_STATE
+            else V2_R8_VALIDATED_ROADMAP
+            if current_truth == V2_R8_VALIDATED_STATE
+            else V2_R8_FINAL_ROADMAP
+            if current_truth == V2_R8_FINAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
@@ -1199,6 +1305,10 @@ def build_project_memory_guard_report(
             current_truth == V2_R7_FINAL_STATE
             and all(line in gap for line in GAP_ROADMAP_R7_FINAL_LINES)
         )
+        or (
+            current_truth == V2_R8_APPROVAL_STATE
+            and all(line in gap for line in GAP_ROADMAP_R8_APPROVAL_LINES)
+        )
         or current_truth
         not in (
             V2_R6_FINAL_STATE,
@@ -1206,6 +1316,7 @@ def build_project_memory_guard_report(
             V2_R7_DELIVERY_STATE,
             V2_R7_VALIDATED_STATE,
             V2_R7_FINAL_STATE,
+            V2_R8_APPROVAL_STATE,
         ),
         "status_definitions_synchronized": all(
             f"`{status}`" in architecture
@@ -1560,6 +1671,19 @@ def build_project_memory_guard_report(
         or (
             "- V2-R7: Local Market Session Registry Foundation; COMPLETED /"
             in architecture
+        ),
+        "v2_r8_approval_exact_across_authorities": current_truth
+        not in (
+            V2_R8_APPROVAL_STATE,
+            V2_R8_DELIVERY_STATE,
+            V2_R8_VALIDATED_STATE,
+            V2_R8_FINAL_STATE,
+        )
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, V2_R8_APPROVAL_START, V2_R8_APPROVAL_END
+            )
         ),
         "canonical_roadmap_records_v2_r6_approval": current_truth
         not in (
