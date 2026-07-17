@@ -3736,3 +3736,48 @@ permanent authority and safety boundaries remain binding. No tag, release, or
 deployment was run.
 
 <!-- FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE FINAL SYNC END -->
+
+
+<!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 APPROVAL START -->
+
+## PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-project-memory-continuity-hardening-app-1`
+
+Approved scope:
+
+- extend the existing authority-execution-continuity mechanism
+- add one machine-readable current-state manifest
+- define authoritative roles for current truth, future structure, decisions,
+  unfinished work, handoff, and historical evidence
+- close the V2 future-status vocabulary
+- guard exact multi-file synchronization and unfinished-item status values
+- register the guard in `scripts/run_all_checks.py`
+- add deterministic tests and governance closeout records
+
+Implementation order:
+
+- D1 repository truth and existing continuity reuse
+- D2 project-memory file-role protocol
+- D3 machine-readable current-state manifest
+- D4 status vocabulary and cross-file consistency guard
+- D5 authority synchronization and validation integration
+- D6 final governance closeout
+
+No product implementation is approved. V2-R1 through V2-R6 remain
+PLANNED / NOT_APPROVED / NOT_STARTED. The historical twelve-stage registry is
+historical evidence and is not current next-phase authority.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only product
+presentation, Deterministic Engine, Registered Evidence, advisory AI, and
+mandatory Operator review boundaries remain binding.
+
+No tag, release, deployment, broker, exchange, credential, account, balance,
+position, wallet, order, or execution path is authorized.
+
+<!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 APPROVAL END -->
