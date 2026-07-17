@@ -750,7 +750,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
 
 - V2-R0: historical prerequisite reconciliation; satisfied by repository truth
 - V2-R1: Factor Contract Foundation; COMPLETED / CONTRACT_FOUNDATION_ONLY
-- V2-R2: Historical Factor Baseline; PLANNED / NOT_APPROVED / NOT_STARTED
+- V2-R2: Historical Factor Baseline; APPROVED / NOT_STARTED
 - V2-R3: Realtime Ingestion Foundation; PLANNED / NOT_APPROVED / NOT_STARTED
 - V2-R4: Intraday Anomaly Radar; PLANNED / NOT_APPROVED / NOT_STARTED
 - V2-R5: Realtime Cognitive Shield; PLANNED / NOT_APPROVED / NOT_STARTED

@@ -11826,3 +11826,63 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment path was added or run.
 
 <!-- V2-R1 FACTOR CONTRACT FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R2 HISTORICAL FACTOR BASELINE APP 1 APPROVAL START -->
+
+## V2-R2 Historical Factor Baseline App 1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-v2-r2-historical-factor-baseline-app-1`
+
+Approved bounded scope:
+
+- immutable local historical observation and data-rights contracts
+- registered-artifact-only point-in-time dataset validation
+- deterministic Decimal mean, population variance, standard deviation, z-score,
+  and nearest-rank quantile baseline calculations
+- explicit insufficient-history and zero-variance abstention
+- chronological registry, walk-forward split, future-leakage guard, replay hash
+- immutable read-only presentation and mandatory Operator acceptance
+- D1 through D6 tests, validation, merge, cleanup, and authority synchronization
+
+Readiness Gate:
+
+- objective: historical baseline foundations, not a prediction or live product
+- horizon: daily or explicitly declared local observation frequency
+- fields: instrument, event and available times, field, value, quality, source,
+  and registered artifact
+- rights: explicit permitted-use, retention, license, timezone, calendar,
+  adjustment, missing, duplicate, and suspension policies
+- source and cost: Operator-supplied local registered artifacts; no network,
+  purchase, provider, or external compute cost
+- formula: arithmetic mean, population variance and standard deviation,
+  z-score, and deterministic nearest-rank quantiles
+- target: NO_PREDICTION_TARGET; this phase produces no outcome label
+- failure: reject unsafe identity, denied rights, time travel, duplicate,
+  invalid decimal, insufficient history, and unsafe policy
+- replay: canonical SHA-256 identity over the registered point-in-time window
+- rollback: V2-R2 Sidecar and exact governed files only
+- acceptance: deterministic repetition, PIT isolation, leakage rejection,
+  explicit abstention, read-only output, full tests, and Operator review
+
+This approval does not select a market, vendor, Champion factor, forecast
+target, or realtime MVP. It does not activate a factor, close production-data
+gaps, create an official score, rank a candidate, invoke AI or a Prompt, train,
+learn automatically, create a Paper order, or execute.
+
+Current product phase is V2-R2: APPROVED / NOT_STARTED. V2-R1 remains
+COMPLETED. V2-R3 through V2-R6 remain PLANNED / NOT_APPROVED / NOT_STARTED.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path is authorized.
+
+<!-- V2-R2 HISTORICAL FACTOR BASELINE APP 1 APPROVAL END -->
