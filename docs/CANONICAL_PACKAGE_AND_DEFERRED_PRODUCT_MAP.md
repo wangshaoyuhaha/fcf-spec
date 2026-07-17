@@ -49,6 +49,13 @@ Decimal baseline statistics, and provides leakage-safe replay and read-only
 review. It does not retrieve data, select a market, activate factors, rank
 candidates, or create an execution path.
 
+`apps/v2_r3_local_event_ingress_foundation_app_1/` is the canonical V2-R3
+local registered-event ingress Sidecar. It validates deterministic event,
+receive, and processing time, bounded sequence and capacity, immutable replay,
+checkpoint restoration, and read-only review metadata. It is not an approved
+realtime source, external queue, daemon, market connection, scanner, or
+anomaly-radar runtime.
+
 Canonical future-architecture sources:
 
 - `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`

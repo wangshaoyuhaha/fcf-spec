@@ -6600,3 +6600,41 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment path is authorized.
 
 <!-- V2-R3 LOCAL EVENT INGRESS FOUNDATION APP 1 APPROVAL END -->
+
+
+<!-- V2-R3 LOCAL EVENT INGRESS FOUNDATION APP 1 LOCK START -->
+
+## V2-R3 Local Event Ingress Foundation App 1 Lock
+
+Status: VALIDATED_PENDING_MAIN_MERGE
+
+Implemented scope:
+
+- immutable Operator-confirmed local event rights and event envelopes
+- ordered UTC event, receive, and processing time
+- bounded scalar payloads with deterministic payload and event SHA-256
+- immutable bounded ingress with per-stream contiguous sequence enforcement
+- duplicate, gap, out-of-order, capacity, future-time, and expiry rejection
+- deterministic local replay, receipts, checkpoints, and exact restoration
+- immutable metadata-only presentation and mandatory Operator acceptance
+- exact D1-D6 tests and standalone completeness guard
+
+The Sidecar reads no network or provider, starts no daemon, and uses no
+external queue. It selects no market or source and creates no scanner, anomaly
+radar, order-book runtime, factor activation, official score, ranking, model,
+Prompt, training, automatic learning, Paper order, virtual account, or
+execution route.
+
+V2-FR-GAP-022 through V2-FR-GAP-025, V2-FR-GAP-028, and V2-FR-GAP-030 remain
+open. V2-R3 is a local registered-event foundation only and is not evidence of
+a production realtime ingestion runtime.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+real execution, tag, release, or deployment path is authorized.
+
+<!-- V2-R3 LOCAL EVENT INGRESS FOUNDATION APP 1 LOCK END -->
