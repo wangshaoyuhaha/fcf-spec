@@ -33,6 +33,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r12_local_technical_indicator_guard.py"],
     ["python", "scripts/control_center_v2_r13_local_momentum_indicator_guard.py"],
     ["python", "scripts/control_center_v2_r14_local_trend_indicator_guard.py"],
+    ["python", "scripts/control_center_v2_r15_local_volatility_indicator_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
