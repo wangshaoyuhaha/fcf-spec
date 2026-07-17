@@ -768,6 +768,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   REGISTERED_LOCAL_VOLUME_EVIDENCE_ONLY
 - V2-R10: Local Turnover-Definition Research Foundation; COMPLETED /
   REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY
+- V2-R11: Local Factor Registry Foundation; APPROVED / NOT_STARTED /
+  REGISTERED_LOCAL_FACTOR_DEFINITION_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts

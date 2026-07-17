@@ -22,7 +22,7 @@ AUTHORITY_PATHS = (
 LOCK_MARKER = "FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE LOCK"
 ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 21))
 GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 71))
-ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 11))
+ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 12))
 REQUIRED_ARCHITECTURE_TERMS = (
     "Deterministic Factor Registry",
     "Forecast Target and Outcome Label Contract",

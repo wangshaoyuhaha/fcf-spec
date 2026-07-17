@@ -7414,3 +7414,43 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R10 LOCAL TURNOVER DEFINITION RESEARCH FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R11 LOCAL FACTOR REGISTRY FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R11 Local Factor Registry Foundation App 1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved order:
+
+- D1 closed registered-local factor-registry boundary and coverage contract
+- D2 immutable factor identity, version, source, lifecycle, and policy contracts
+- D3 deterministic registry snapshot, lookup, and canonical hashing
+- D4 duplicate, lifecycle, authority, dependency-reference, and bounds blocking
+- D5 append-only registry evidence and metadata-only read presentation
+- D6 Operator acceptance, guards, tests, merge, and closeout
+
+Readiness Gate:
+
+- objective: register versioned research factor definitions before adding MA,
+  Bollinger Bands, capital-flow, order-book, or macro-to-micro implementations
+- inputs: immutable Operator-registered local factor-definition artifacts
+- authority: definitions remain metadata; Deterministic Engine owns calculation
+- safety: no calculation activation, score, rank, signal, recommendation,
+  network, model, Prompt, learning, account, order, or execution
+- failure: reject unknown source, invalid lifecycle, duplicate natural key,
+  unsafe dependency reference, bounds violation, or activation request
+- acceptance: deterministic registry snapshot and canonical SHA-256 with
+  mandatory Operator review
+- rollback: new V2-R11 Sidecar and exact governed files only
+
+This phase is a registered-local factor-registry foundation, not the complete
+technical-indicator library or a production Factor Registry runtime.
+V2-FR-GAP-001 and V2-FR-GAP-008 remain open.
+
+V2-R1 through V2-R10 remain COMPLETED. V2-R11 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R11 LOCAL FACTOR REGISTRY FOUNDATION APP 1 APPROVAL END -->
