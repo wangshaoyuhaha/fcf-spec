@@ -11627,3 +11627,50 @@ real execution, tag, release, or deployment path is authorized. No V2-R phase
 starts automatically.
 
 <!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC LOCK END -->
+
+
+<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC FINAL START -->
+
+## FCF V2 Market Session Research Architecture Final Sync
+
+Status: GOVERNANCE_SYNC_COMPLETED_MERGED_VALIDATED
+
+Repository evidence:
+
+- approval commit: `be04f64a38f1d54a4aa7b09f85e8eac005819f9b`
+- delivery commit: `49707a03f1e0bc41e53b5a88e888602a434bc638`
+- main merge commit: `9d95ed2f40483b41004b81c02da5fb8dd1d7c088`
+- delivery branch and main merge pushed to origin
+- merged-main independent architecture and memory tests: 17 passed
+- merged-main targeted control-center suite: 297 passed
+- merged-main full pytest: 4638 passed, 5 skipped
+- merged-main `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated tracked outputs restored with no unexpected diff
+- ignored and untracked artifacts removed
+
+The accepted future architecture now preserves market-session-aware research,
+A-share call-auction and late-session analysis, entrusted-order ratio, volume
+ratio, turnover, observable flow proxies, sector and cross-market context,
+controlled research candidates, read-only Operator controls, offline
+Challenger adaptation, and session-aware evaluation.
+
+The ADR register contains `FCF-V2-ADR-001` through `FCF-V2-ADR-020`. The Gap
+register contains `V2-FR-GAP-001` through `V2-FR-GAP-070`. Automatic learning,
+automatic promotion, and self-modification remain
+OUTSIDE_CURRENT_AUTHORIZATION.
+
+Current governance phase is NONE. Current product implementation phase is
+NONE. Next product implementation phase is NOT_SELECTED / NOT_APPROVED. V2-R1
+through V2-R6 remain PLANNED / NOT_APPROVED / NOT_STARTED.
+
+No market-data runtime, factor activation, scoring change, model invocation,
+Prompt execution, training, automatic routing, Paper order, virtual account,
+or execution path was added. P1-P47 remain frozen and no P48 was created.
+
+All permanent paper-only, local-only, loopback-only, sidecar-only,
+registered-artifact-only, read-only presentation, Deterministic Engine,
+Registered Evidence, advisory AI, and mandatory Operator review boundaries
+remain binding. No tag, release, or deployment was run. No successor phase
+starts automatically.
+
+<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC FINAL END -->

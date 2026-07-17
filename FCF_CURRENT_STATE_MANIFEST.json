@@ -29,10 +29,10 @@
     "unfinished_work_register": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
   },
   "current_truth": {
-    "current_governance_phase_id": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
-    "current_governance_phase_status": "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE",
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
     "current_product_implementation_phase": "NONE",
-    "latest_completed_governance_delivery": "PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
     "latest_completed_product_phase": "SYSTEM-INTEGRITY-PRODUCT-HARDENING-STAGE-13",
     "next_product_implementation_phase": "NOT_SELECTED",
     "next_product_phase_approval": "NOT_APPROVED"

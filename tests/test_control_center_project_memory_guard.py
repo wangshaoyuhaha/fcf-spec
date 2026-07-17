@@ -16,6 +16,9 @@ from scripts.control_center_project_memory_guard import (
     SESSION_APPROVAL_START,
     SESSION_LOCK_END,
     SESSION_LOCK_START,
+    SESSION_FINAL_END,
+    SESSION_FINAL_EVIDENCE_COMMITS,
+    SESSION_FINAL_START,
     ROADMAP_PHASES,
     ROADMAP_STATUS,
     blocks_are_exact,
@@ -131,6 +134,17 @@ def test_market_session_approval_and_lock_are_exact_across_authorities():
         texts, SESSION_APPROVAL_START, SESSION_APPROVAL_END
     )
     assert blocks_are_exact(texts, SESSION_LOCK_START, SESSION_LOCK_END)
+    assert blocks_are_exact(texts, SESSION_FINAL_START, SESSION_FINAL_END)
+    blocks = tuple(
+        extract_single_block(text, SESSION_FINAL_START, SESSION_FINAL_END)
+        for text in texts
+    )
+    assert all(block is not None for block in blocks)
+    assert all(
+        all(commit in block for commit in SESSION_FINAL_EVIDENCE_COMMITS)
+        for block in blocks
+        if block is not None
+    )
 
 
 def test_manifest_is_deterministic_json_and_historical_order_is_not_current():

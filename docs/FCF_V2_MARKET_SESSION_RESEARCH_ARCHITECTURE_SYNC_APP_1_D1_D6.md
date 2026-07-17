@@ -1,6 +1,6 @@
 # FCF V2 Market Session Research Architecture Sync App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: GOVERNANCE_DELIVERY_COMPLETED_MERGED_VALIDATED
 
 This delivery extends accepted future architecture only. It does not add a
 market-data runtime, factor runtime, model runtime, or execution capability.
@@ -69,3 +69,15 @@ sidecar-only, registered-artifact-only, read-only presentation, Deterministic
 Engine, Registered Evidence, advisory AI, and mandatory Operator review remain
 binding. No broker, exchange, credential, account, balance, position, wallet,
 order, execution, tag, release, or deployment path was created or run.
+
+Final synchronization evidence:
+
+- approval commit: `be04f64a38f1d54a4aa7b09f85e8eac005819f9b`
+- delivery commit: `49707a03f1e0bc41e53b5a88e888602a434bc638`
+- main merge commit: `9d95ed2f40483b41004b81c02da5fb8dd1d7c088`
+- delivery branch and main merge pushed to origin
+- merged-main independent tests: 17 passed
+- merged-main targeted control-center suite: 297 passed
+- merged-main full pytest: 4638 passed, 5 skipped
+- merged-main `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- merged-main generated outputs restored and ignored artifacts removed
