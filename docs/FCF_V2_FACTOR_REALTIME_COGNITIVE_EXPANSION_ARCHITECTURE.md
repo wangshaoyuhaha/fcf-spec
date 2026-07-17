@@ -758,7 +758,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   LOCAL_REGISTERED_ANOMALY_RESEARCH_ONLY
 - V2-R5: Realtime Cognitive Shield; COMPLETED /
   LOCAL_REGISTERED_COGNITIVE_SHIELD_ONLY
-- V2-R6: Paper Simulation Research; APPROVED / NOT_STARTED /
+- V2-R6: Paper Simulation Research; COMPLETED /
   LOCAL_REGISTERED_SCENARIO_RESEARCH_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety

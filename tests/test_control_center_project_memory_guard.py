@@ -96,6 +96,11 @@ from scripts.control_center_project_memory_guard import (
     V2_R6_APPROVAL_STATE,
     V2_R6_DELIVERY_ROADMAP,
     V2_R6_DELIVERY_STATE,
+    V2_R6_FINAL_END,
+    V2_R6_FINAL_EVIDENCE_COMMITS,
+    V2_R6_FINAL_ROADMAP,
+    V2_R6_FINAL_START,
+    V2_R6_FINAL_STATE,
     V2_R6_LOCK_END,
     V2_R6_LOCK_START,
     V2_R6_VALIDATED_ROADMAP,
@@ -139,12 +144,12 @@ def test_current_state_manifest_has_exact_file_roles_and_safety():
     assert all((ROOT / path).is_file() for path in EXPECTED_FILE_ROLES.values())
 
 
-def test_current_state_manifest_records_exact_v2_r6_validated_state():
+def test_current_state_manifest_records_exact_v2_r6_final_state():
     manifest = load_manifest(ROOT)
     truth = manifest["current_truth"]
 
-    assert truth == V2_R6_VALIDATED_STATE
-    assert manifest["roadmap"] == V2_R6_VALIDATED_ROADMAP
+    assert truth == V2_R6_FINAL_STATE
+    assert manifest["roadmap"] == V2_R6_FINAL_ROADMAP
 
 
 def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
@@ -305,6 +310,17 @@ def test_v2_r1_approval_is_exact_across_authorities():
         texts, V2_R6_APPROVAL_START, V2_R6_APPROVAL_END
     )
     assert blocks_are_exact(texts, V2_R6_LOCK_START, V2_R6_LOCK_END)
+    assert blocks_are_exact(texts, V2_R6_FINAL_START, V2_R6_FINAL_END)
+    blocks = tuple(
+        extract_single_block(text, V2_R6_FINAL_START, V2_R6_FINAL_END)
+        for text in texts
+    )
+    assert all(block is not None for block in blocks)
+    assert all(
+        all(commit in block for commit in V2_R6_FINAL_EVIDENCE_COMMITS)
+        for block in blocks
+        if block is not None
+    )
 
 
 def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
@@ -317,5 +333,5 @@ def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
         "HISTORICAL_COMPLETED_SEQUENCE_NOT_CURRENT_NEXT_PHASE_AUTHORITY"
     )
     assert parsed["current_truth"]["next_product_phase_approval"] == (
-        V2_R6_VALIDATED_STATE["next_product_phase_approval"]
+        V2_R6_FINAL_STATE["next_product_phase_approval"]
     )

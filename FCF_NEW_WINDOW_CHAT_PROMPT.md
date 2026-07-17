@@ -5625,3 +5625,39 @@ source, provider, model, Prompt, automatic learning, tag, release, or deployment
 is authorized.
 
 <!-- V2-R6 LOCAL PAPER SCENARIO RESEARCH FOUNDATION APP 1 LOCK END -->
+
+<!-- V2-R6 LOCAL PAPER SCENARIO RESEARCH FOUNDATION APP 1 FINAL START -->
+
+## V2-R6 Local Paper Scenario Research Foundation App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Repository evidence:
+
+- approval commit: `75af2de9a05b0de0ae607f65c7e1c54868169e7d`
+- delivery commit: `d75984e94b869dba2896438ccca49537d8988b93`
+- main merge commit: `1da960b316838ec47dc328d30393d54b45901e6a`
+- delivery branch and main merge pushed to GitHub
+- Browser and Control Center targeted suite: 841 passed, 3 skipped
+- full pytest: 4730 passed, 5 skipped
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- 39 generated files and 11 subdirectories removed
+
+V2-R6 delivered immutable local scenario policy and point-in-time observation
+contracts, deterministic path, direction-aligned, cost-adjusted, favorable, and
+adverse movement research metrics, shield gates, leakage protection, bounded
+ledger, read-only presentation, and mandatory Operator acceptance.
+
+This is not a trading simulator. No virtual account, Paper order, portfolio,
+position, leverage, margin, liquidation, broker, exchange, credential, balance,
+wallet, or execution state was created. V2-FR-GAP-038 through V2-FR-GAP-041
+remain open for market-specific and excluded capabilities.
+
+Current governance phase is NONE. Current product implementation phase is NONE.
+V2-R1 through V2-R6 are COMPLETED. Next product implementation phase is
+NOT_SELECTED / NOT_APPROVED. No successor phase starts automatically.
+
+P1-P47 remain frozen. No P48 was created. No network, live source, provider,
+model, Prompt, automatic learning, tag, release, or deployment was added or run.
+
+<!-- V2-R6 LOCAL PAPER SCENARIO RESEARCH FOUNDATION APP 1 FINAL END -->
