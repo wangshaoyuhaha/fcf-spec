@@ -774,6 +774,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   REGISTERED_LOCAL_TECHNICAL_CALCULATION_ONLY
 - V2-R13: Local Momentum Indicator Foundation; COMPLETED /
   REGISTERED_LOCAL_MOMENTUM_CALCULATION_ONLY
+- V2-R14: Local Trend Indicator Foundation; APPROVED / NOT_STARTED /
+  REGISTERED_LOCAL_TREND_CALCULATION_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts

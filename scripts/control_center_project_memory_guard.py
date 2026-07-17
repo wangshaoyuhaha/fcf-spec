@@ -351,6 +351,24 @@ V2_R13_FINAL_EVIDENCE_COMMITS = (
     "1feca38325ccdbb923032c685996f5c0f461a0df",
     "bdb619ceabcab373a3e572f5909d0c0397909a03",
 )
+V2_R14_APPROVAL_START = (
+    "<!-- V2-R14 LOCAL TREND INDICATOR FOUNDATION APP 1 APPROVAL START -->"
+)
+V2_R14_APPROVAL_END = (
+    "<!-- V2-R14 LOCAL TREND INDICATOR FOUNDATION APP 1 APPROVAL END -->"
+)
+V2_R14_LOCK_START = (
+    "<!-- V2-R14 LOCAL TREND INDICATOR FOUNDATION APP 1 LOCK START -->"
+)
+V2_R14_LOCK_END = (
+    "<!-- V2-R14 LOCAL TREND INDICATOR FOUNDATION APP 1 LOCK END -->"
+)
+V2_R14_FINAL_START = (
+    "<!-- V2-R14 LOCAL TREND INDICATOR FOUNDATION APP 1 FINAL START -->"
+)
+V2_R14_FINAL_END = (
+    "<!-- V2-R14 LOCAL TREND INDICATOR FOUNDATION APP 1 FINAL END -->"
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -417,7 +435,7 @@ FUTURE_STATUSES = (
     "NOT_IMPLEMENTED",
     "OUTSIDE_CURRENT_AUTHORIZATION",
 )
-ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 14))
+ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 15))
 ROADMAP_STATUS = "PLANNED_NOT_APPROVED_NOT_STARTED"
 GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 71))
 GAP_ROADMAP_FINAL_LINES = (
@@ -559,6 +577,24 @@ GAP_ROADMAP_R13_DELIVERY_LINES = (
 GAP_ROADMAP_R13_FINAL_LINES = (
     "| V2-R13 | Local Momentum Indicator Foundation | "
     "COMPLETED / REGISTERED_LOCAL_MOMENTUM_CALCULATION_ONLY |",
+    "Next product implementation phase: NOT_SELECTED / NOT_APPROVED.",
+    "No successor phase starts automatically.",
+)
+GAP_ROADMAP_R14_APPROVAL_LINES = (
+    "| V2-R14 | Local Trend Indicator Foundation | "
+    "APPROVED / NOT_STARTED / REGISTERED_LOCAL_TREND_CALCULATION_ONLY |",
+    "Next product implementation phase: V2-R14 / APPROVED.",
+    "No successor phase after V2-R14 starts automatically.",
+)
+GAP_ROADMAP_R14_DELIVERY_LINES = (
+    "| V2-R14 | Local Trend Indicator Foundation | "
+    "IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_TREND_CALCULATION_ONLY |",
+    "Next product implementation phase: V2-R14 / APPROVED.",
+    "No successor phase after V2-R14 starts automatically.",
+)
+GAP_ROADMAP_R14_FINAL_LINES = (
+    "| V2-R14 | Local Trend Indicator Foundation | "
+    "COMPLETED / REGISTERED_LOCAL_TREND_CALCULATION_ONLY |",
     "Next product implementation phase: NOT_SELECTED / NOT_APPROVED.",
     "No successor phase starts automatically.",
 )
@@ -1487,6 +1523,45 @@ V2_R13_FINAL_STATE = {
     "next_product_phase_approval": "NOT_APPROVED",
 }
 V2_R13_FINAL_ROADMAP = [{"phase_id": phase, "status": "COMPLETED"} for phase in ROADMAP_PHASES]
+V2_R14_APPROVAL_STATE = {
+    "current_governance_phase_id": "V2-R14-LOCAL-TREND-INDICATOR-FOUNDATION-APP-1",
+    "current_governance_phase_status": "PRODUCT_PHASE_APPROVED_NOT_STARTED",
+    "current_product_implementation_phase": "V2-R14",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "latest_completed_product_phase": "V2-R13-LOCAL-MOMENTUM-INDICATOR-FOUNDATION-APP-1",
+    "next_product_implementation_phase": "V2-R14",
+    "next_product_phase_approval": "APPROVED",
+}
+V2_R14_APPROVAL_ROADMAP = [
+    {"phase_id": phase, "status": "APPROVED_NOT_STARTED" if phase == "V2-R14" else "COMPLETED"}
+    for phase in ROADMAP_PHASES
+]
+V2_R14_DELIVERY_STATE = {
+    **V2_R14_APPROVAL_STATE,
+    "current_governance_phase_status": "PRODUCT_DELIVERY_IMPLEMENTED_PENDING_VALIDATION",
+}
+V2_R14_DELIVERY_ROADMAP = [
+    {"phase_id": phase, "status": "IMPLEMENTED_PENDING_VALIDATION" if phase == "V2-R14" else "COMPLETED"}
+    for phase in ROADMAP_PHASES
+]
+V2_R14_VALIDATED_STATE = {
+    **V2_R14_APPROVAL_STATE,
+    "current_governance_phase_status": "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE",
+}
+V2_R14_VALIDATED_ROADMAP = [
+    {"phase_id": phase, "status": "VALIDATED_PENDING_MERGE" if phase == "V2-R14" else "COMPLETED"}
+    for phase in ROADMAP_PHASES
+]
+V2_R14_FINAL_STATE = {
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
+    "current_product_implementation_phase": "NONE",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "latest_completed_product_phase": "V2-R14-LOCAL-TREND-INDICATOR-FOUNDATION-APP-1",
+    "next_product_implementation_phase": "NOT_SELECTED",
+    "next_product_phase_approval": "NOT_APPROVED",
+}
+V2_R14_FINAL_ROADMAP = [{"phase_id": phase, "status": "COMPLETED"} for phase in ROADMAP_PHASES]
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -1643,6 +1718,10 @@ def build_project_memory_guard_report(
         V2_R13_DELIVERY_STATE,
         V2_R13_VALIDATED_STATE,
         V2_R13_FINAL_STATE,
+        V2_R14_APPROVAL_STATE,
+        V2_R14_DELIVERY_STATE,
+        V2_R14_VALIDATED_STATE,
+        V2_R14_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -1702,6 +1781,10 @@ def build_project_memory_guard_report(
     )
     v2_r13_final_blocks = tuple(
         extract_single_block(text, V2_R13_FINAL_START, V2_R13_FINAL_END)
+        for text in authority_texts
+    )
+    v2_r14_final_blocks = tuple(
+        extract_single_block(text, V2_R14_FINAL_START, V2_R14_FINAL_END)
         for text in authority_texts
     )
     file_roles = manifest.get("canonical_file_roles")
@@ -1829,6 +1912,14 @@ def build_project_memory_guard_report(
             if current_truth == V2_R13_VALIDATED_STATE
             else V2_R13_FINAL_ROADMAP
             if current_truth == V2_R13_FINAL_STATE
+            else V2_R14_APPROVAL_ROADMAP
+            if current_truth == V2_R14_APPROVAL_STATE
+            else V2_R14_DELIVERY_ROADMAP
+            if current_truth == V2_R14_DELIVERY_STATE
+            else V2_R14_VALIDATED_ROADMAP
+            if current_truth == V2_R14_VALIDATED_STATE
+            else V2_R14_FINAL_ROADMAP
+            if current_truth == V2_R14_FINAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
@@ -1921,6 +2012,18 @@ def build_project_memory_guard_report(
             current_truth == V2_R13_FINAL_STATE
             and all(line in gap for line in GAP_ROADMAP_R13_FINAL_LINES)
         )
+        or (
+            current_truth == V2_R14_APPROVAL_STATE
+            and all(line in gap for line in GAP_ROADMAP_R14_APPROVAL_LINES)
+        )
+        or (
+            current_truth in (V2_R14_DELIVERY_STATE, V2_R14_VALIDATED_STATE)
+            and all(line in gap for line in GAP_ROADMAP_R14_DELIVERY_LINES)
+        )
+        or (
+            current_truth == V2_R14_FINAL_STATE
+            and all(line in gap for line in GAP_ROADMAP_R14_FINAL_LINES)
+        )
         or current_truth
         not in (
             V2_R6_FINAL_STATE,
@@ -1950,6 +2053,9 @@ def build_project_memory_guard_report(
             V2_R13_APPROVAL_STATE,
             V2_R13_DELIVERY_STATE,
             V2_R13_VALIDATED_STATE,
+            V2_R14_APPROVAL_STATE,
+            V2_R14_DELIVERY_STATE,
+            V2_R14_VALIDATED_STATE,
         ),
         "status_definitions_synchronized": all(
             f"`{status}`" in architecture
@@ -2564,6 +2670,39 @@ def build_project_memory_guard_report(
         != V2_R13_FINAL_STATE
         or (
             "- V2-R13: Local Momentum Indicator Foundation; COMPLETED /"
+            in architecture
+        ),
+        "v2_r14_approval_exact_across_authorities": current_truth
+        not in (
+            V2_R14_APPROVAL_STATE,
+            V2_R14_DELIVERY_STATE,
+            V2_R14_VALIDATED_STATE,
+            V2_R14_FINAL_STATE,
+        )
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, V2_R14_APPROVAL_START, V2_R14_APPROVAL_END
+            )
+        ),
+        "v2_r14_lock_exact_across_authorities": current_truth
+        not in (V2_R14_DELIVERY_STATE, V2_R14_VALIDATED_STATE, V2_R14_FINAL_STATE)
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(authority_texts, V2_R14_LOCK_START, V2_R14_LOCK_END)
+        ),
+        "v2_r14_final_exact_across_authorities": current_truth
+        != V2_R14_FINAL_STATE
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, V2_R14_FINAL_START, V2_R14_FINAL_END
+            )
+        ),
+        "canonical_roadmap_records_v2_r14_complete": current_truth
+        != V2_R14_FINAL_STATE
+        or (
+            "- V2-R14: Local Trend Indicator Foundation; COMPLETED /"
             in architecture
         ),
         "canonical_roadmap_records_v2_r6_approval": current_truth

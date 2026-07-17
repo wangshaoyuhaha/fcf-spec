@@ -6325,3 +6325,38 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R13 LOCAL MOMENTUM INDICATOR FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R14 LOCAL TREND INDICATOR FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R14 Local Trend Indicator Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1 boundary, source series, dependency, seed, and warm-up formula lock
+- D2 immutable EMA/MACD policy and registered-local close-series contract
+- D3 deterministic Decimal EMA, MACD line, signal line, and histogram
+- D4 fail-closed registry, identity, time, window, and numeric validation
+- D5 append-only evidence, read-only presentation, and Operator review
+- D6 guards, tests, cleanup, sidecar merge, and final state synchronization
+
+Readiness gate:
+
+- dependency: completed V2-R11 registry and V2-R12 price-series contract
+- data rights: registered local fixtures only
+- formulas: first-observation seeded recursive EMA and explicit MACD warm-up
+- authority: Deterministic Engine calculates; Registered Evidence is authoritative
+- labels: metric output only; no prediction, score, rank, or signal
+- tests: EMA, MACD, insufficient, future, mismatch, duplicate, and bounds
+- rollback: new V2-R14 Sidecar and exact governed files only
+
+This is a bounded third indicator pack, not the complete technical indicator
+library. V2-FR-GAP-008 remains open.
+
+V2-R1 through V2-R13 remain COMPLETED. V2-R14 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R14 LOCAL TREND INDICATOR FOUNDATION APP 1 APPROVAL END -->
