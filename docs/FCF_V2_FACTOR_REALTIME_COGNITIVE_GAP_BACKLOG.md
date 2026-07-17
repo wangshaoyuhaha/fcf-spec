@@ -157,11 +157,11 @@ factor is activated.
 | V2-R6 | Paper Simulation Research | COMPLETED / LOCAL_REGISTERED_SCENARIO_RESEARCH_ONLY |
 | V2-R7 | Local Market Session Registry Foundation | COMPLETED / REGISTERED_LOCAL_CALENDAR_ONLY |
 | V2-R8 | Local Same-Time Baseline Foundation | COMPLETED / REGISTERED_LOCAL_HISTORY_ONLY |
-| V2-R9 | Local Volume-Ratio Research Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_VOLUME_EVIDENCE_ONLY |
+| V2-R9 | Local Volume-Ratio Research Foundation | COMPLETED / REGISTERED_LOCAL_VOLUME_EVIDENCE_ONLY |
 
-Next product implementation phase: V2-R9 / APPROVED.
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
 
-No successor phase after V2-R9 starts automatically.
+No successor phase starts automatically.
 
 ## Entry Gate
 
