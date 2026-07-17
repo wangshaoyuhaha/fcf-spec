@@ -4976,3 +4976,19 @@ No successor phase is selected. Permanent safety boundaries remain binding.
 No tag, release, or deployment is authorized.
 
 <!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 APPROVAL END -->
+
+<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 LOCK START -->
+
+## V2-R8 Local Same-Time Baseline Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered boundary: immutable session-linked local observations, exact Decimal
+statistics, point-in-time availability gates, mismatch blocking, append-only
+evidence, and read-only metadata presentation.
+
+No network, live source, factor activation, scoring, rank, signal,
+recommendation, model, Prompt, learning, order, or execution was added.
+P1-P47 remain frozen. No P48. Operator review remains mandatory.
+
+<!-- V2-R8 LOCAL SAME TIME BASELINE FOUNDATION APP 1 LOCK END -->
