@@ -101,7 +101,7 @@ def build_architecture_guard_report(root: Path = ROOT) -> dict[str, object]:
             )
             is None
             for phase in ROADMAP_PHASES
-            if phase != "V2-R1"
+            if phase not in ("V2-R1", "V2-R2")
         )
         and "Implementation status: NOT_IMPLEMENTED" in architecture,
         "readiness_gate_present": (

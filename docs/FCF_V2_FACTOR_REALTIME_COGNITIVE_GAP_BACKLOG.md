@@ -150,7 +150,7 @@ factor is activated.
 | Phase | Scope | Status |
 | --- | --- | --- |
 | V2-R1 | Factor Contract Foundation | COMPLETED / CONTRACT_FOUNDATION_ONLY |
-| V2-R2 | Historical Factor Baseline | VALIDATED_PENDING_MAIN_MERGE / LOCAL_ARTIFACT_ONLY |
+| V2-R2 | Historical Factor Baseline | COMPLETED / LOCAL_ARTIFACT_ONLY |
 | V2-R3 | Realtime Ingestion Foundation | PLANNED / NOT_APPROVED |
 | V2-R4 | Intraday Anomaly Radar | PLANNED / NOT_APPROVED |
 | V2-R5 | Realtime Cognitive Shield | PLANNED / NOT_APPROVED |

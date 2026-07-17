@@ -87,6 +87,17 @@ V2_R2_LOCK_START = (
 V2_R2_LOCK_END = (
     "<!-- V2-R2 HISTORICAL FACTOR BASELINE APP 1 LOCK END -->"
 )
+V2_R2_FINAL_START = (
+    "<!-- V2-R2 HISTORICAL FACTOR BASELINE APP 1 FINAL START -->"
+)
+V2_R2_FINAL_END = (
+    "<!-- V2-R2 HISTORICAL FACTOR BASELINE APP 1 FINAL END -->"
+)
+V2_R2_FINAL_EVIDENCE_COMMITS = (
+    "62fddb0dcbd1bfed03c788409c450040baa03d5d",
+    "02b8a1059c3740b12668931d11879784c4f3535c",
+    "ad70ca629b0576d1e4076dec87131781e5c38d53",
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -325,6 +336,28 @@ V2_R2_VALIDATED_ROADMAP = [
     }
     for phase in ROADMAP_PHASES
 ]
+V2_R2_FINAL_STATE = {
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
+    "current_product_implementation_phase": "NONE",
+    "latest_completed_governance_delivery": (
+        "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
+    ),
+    "latest_completed_product_phase": (
+        "V2-R2-HISTORICAL-FACTOR-BASELINE-APP-1"
+    ),
+    "next_product_implementation_phase": "V2-R3",
+    "next_product_phase_approval": "NOT_APPROVED",
+}
+V2_R2_FINAL_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": (
+            "COMPLETED" if phase in ("V2-R1", "V2-R2") else ROADMAP_STATUS
+        ),
+    }
+    for phase in ROADMAP_PHASES
+]
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -436,6 +469,7 @@ def build_project_memory_guard_report(
         V2_R2_APPROVAL_STATE,
         V2_R2_DELIVERY_STATE,
         V2_R2_VALIDATED_STATE,
+        V2_R2_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -447,6 +481,10 @@ def build_project_memory_guard_report(
     )
     v2_r1_final_blocks = tuple(
         extract_single_block(text, V2_R1_FINAL_START, V2_R1_FINAL_END)
+        for text in authority_texts
+    )
+    v2_r2_final_blocks = tuple(
+        extract_single_block(text, V2_R2_FINAL_START, V2_R2_FINAL_END)
         for text in authority_texts
     )
     file_roles = manifest.get("canonical_file_roles")
@@ -484,6 +522,8 @@ def build_project_memory_guard_report(
             if current_truth == V2_R2_DELIVERY_STATE
             else V2_R2_VALIDATED_ROADMAP
             if current_truth == V2_R2_VALIDATED_STATE
+            else V2_R2_FINAL_ROADMAP
+            if current_truth == V2_R2_FINAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
@@ -571,6 +611,7 @@ def build_project_memory_guard_report(
             V2_R2_APPROVAL_STATE,
             V2_R2_DELIVERY_STATE,
             V2_R2_VALIDATED_STATE,
+            V2_R2_FINAL_STATE,
         )
         or (
             len(authority_texts) == len(AUTHORITY_PATHS)
@@ -579,11 +620,34 @@ def build_project_memory_guard_report(
             )
         ),
         "v2_r2_lock_exact_across_authorities": current_truth
-        not in (V2_R2_DELIVERY_STATE, V2_R2_VALIDATED_STATE)
+        not in (
+            V2_R2_DELIVERY_STATE,
+            V2_R2_VALIDATED_STATE,
+            V2_R2_FINAL_STATE,
+        )
         or (
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(
                 authority_texts, V2_R2_LOCK_START, V2_R2_LOCK_END
+            )
+        ),
+        "v2_r2_final_exact_across_authorities": current_truth
+        != V2_R2_FINAL_STATE
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, V2_R2_FINAL_START, V2_R2_FINAL_END
+            )
+        ),
+        "v2_r2_final_evidence_commits_exact": current_truth
+        != V2_R2_FINAL_STATE
+        or (
+            len(v2_r2_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in v2_r2_final_blocks)
+            and all(
+                all(commit in block for commit in V2_R2_FINAL_EVIDENCE_COMMITS)
+                for block in v2_r2_final_blocks
+                if block is not None
             )
         ),
         "session_final_sync_exact_across_authorities": current_truth
@@ -632,6 +696,7 @@ def build_project_memory_guard_report(
                 V2_R2_APPROVAL_STATE,
                 V2_R2_DELIVERY_STATE,
                 V2_R2_VALIDATED_STATE,
+                V2_R2_FINAL_STATE,
             )
         ),
     }
