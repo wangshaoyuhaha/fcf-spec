@@ -300,6 +300,11 @@ V2_R11_FINAL_START = (
 V2_R11_FINAL_END = (
     "<!-- V2-R11 LOCAL FACTOR REGISTRY FOUNDATION APP 1 FINAL END -->"
 )
+V2_R11_FINAL_EVIDENCE_COMMITS = (
+    "d19a911e35dca594446c95564395b1f808123d53",
+    "b20cb1b2ac449899cd33a1c4b61c8403488fa0b0",
+    "0a0b6887eeec95dc0ad42e97bf7d43e31ce7d6db",
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -2228,6 +2233,17 @@ def build_project_memory_guard_report(
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(
                 authority_texts, V2_R11_FINAL_START, V2_R11_FINAL_END
+            )
+        ),
+        "v2_r11_final_evidence_commits_exact": current_truth
+        != V2_R11_FINAL_STATE
+        or (
+            len(v2_r11_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in v2_r11_final_blocks)
+            and all(
+                all(commit in block for commit in V2_R11_FINAL_EVIDENCE_COMMITS)
+                for block in v2_r11_final_blocks
+                if block is not None
             )
         ),
         "canonical_roadmap_records_v2_r11_complete": current_truth
