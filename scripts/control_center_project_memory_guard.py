@@ -28,6 +28,12 @@ MEMORY_LOCK_START = (
 MEMORY_LOCK_END = (
     "<!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 LOCK END -->"
 )
+MEMORY_FINAL_START = (
+    "<!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 FINAL SYNC START -->"
+)
+MEMORY_FINAL_END = (
+    "<!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 FINAL SYNC END -->"
+)
 V2_BLOCKS = (
     (
         "<!-- FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE "
@@ -230,6 +236,14 @@ def build_project_memory_guard_report(
         == len(AUTHORITY_PATHS)
         and blocks_are_exact(
             authority_texts, MEMORY_LOCK_START, MEMORY_LOCK_END
+        ),
+        "memory_final_sync_exact_across_authorities": current_truth
+        == DELIVERY_STATE
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, MEMORY_FINAL_START, MEMORY_FINAL_END
+            )
         ),
         "v2_blocks_exact_across_authorities": len(authority_texts)
         == len(AUTHORITY_PATHS)

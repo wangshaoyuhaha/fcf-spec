@@ -1,6 +1,6 @@
 # Project Memory Continuity Hardening App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: GOVERNANCE_DELIVERY_COMPLETED_MERGED_VALIDATED
 
 This delivery extends existing continuity governance. It does not add product
 runtime capability.
@@ -56,5 +56,15 @@ Validation before delivery commit:
 - ignored artifacts and caches: removed
 - `git diff --check`: passed
 
-Commit, merge, and remote synchronization evidence will be added only after
-those operations complete.
+Final synchronization evidence:
+
+- approval commit: `c3ee5b7d630ba5072fe5bd0af674fe736ba85ab2`
+- delivery commit: `29fc7b0ee0b84490de6629cfb385ef0fef625159`
+- main merge commit: `291cad1ecc84a09e71c63973cd10de1e7b88a4bf`
+- delivery branch pushed to origin
+- main merge pushed to origin
+- final-sync project-memory guard tests: 9 passed
+- final-sync targeted control-center suite: 298 passed
+- final-sync full pytest: 4636 passed, 5 skipped
+- no V2-R implementation phase started
+- no tag, release, or deployment run

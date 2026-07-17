@@ -6,6 +6,8 @@ from scripts.control_center_project_memory_guard import (
     EXPECTED_FILE_ROLES,
     EXPECTED_SAFETY,
     FUTURE_STATUSES,
+    MEMORY_FINAL_END,
+    MEMORY_FINAL_START,
     MEMORY_LOCK_END,
     MEMORY_LOCK_START,
     ROADMAP_PHASES,
@@ -88,6 +90,14 @@ def test_memory_lock_is_exact_across_all_authority_sources():
     )
 
     assert blocks_are_exact(texts, MEMORY_LOCK_START, MEMORY_LOCK_END)
+
+
+def test_memory_final_sync_is_exact_across_all_authority_sources():
+    texts = tuple(
+        (ROOT / path).read_text(encoding="ascii") for path in AUTHORITY_PATHS
+    )
+
+    assert blocks_are_exact(texts, MEMORY_FINAL_START, MEMORY_FINAL_END)
 
 
 def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
