@@ -299,6 +299,12 @@ GAP_ROADMAP_R7_APPROVAL_LINES = (
     "Next product implementation phase: V2-R7 / APPROVED.",
     "No successor phase after V2-R7 starts automatically.",
 )
+GAP_ROADMAP_R7_DELIVERY_LINES = (
+    "| V2-R7 | Local Market Session Registry Foundation | "
+    "IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_CALENDAR_ONLY |",
+    "Next product implementation phase: V2-R7 / APPROVED.",
+    "No successor phase after V2-R7 starts automatically.",
+)
 DELIVERY_STATE = {
     "current_governance_phase_id": (
         "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
@@ -1170,8 +1176,17 @@ def build_project_memory_guard_report(
             current_truth == V2_R7_APPROVAL_STATE
             and all(line in gap for line in GAP_ROADMAP_R7_APPROVAL_LINES)
         )
+        or (
+            current_truth in (V2_R7_DELIVERY_STATE, V2_R7_VALIDATED_STATE)
+            and all(line in gap for line in GAP_ROADMAP_R7_DELIVERY_LINES)
+        )
         or current_truth
-        not in (V2_R6_FINAL_STATE, V2_R7_APPROVAL_STATE),
+        not in (
+            V2_R6_FINAL_STATE,
+            V2_R7_APPROVAL_STATE,
+            V2_R7_DELIVERY_STATE,
+            V2_R7_VALIDATED_STATE,
+        ),
         "status_definitions_synchronized": all(
             f"`{status}`" in architecture
             and f"`{status}`" in gap
@@ -1491,6 +1506,14 @@ def build_project_memory_guard_report(
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(
                 authority_texts, V2_R7_APPROVAL_START, V2_R7_APPROVAL_END
+            )
+        ),
+        "v2_r7_lock_exact_across_authorities": current_truth
+        not in (V2_R7_DELIVERY_STATE, V2_R7_VALIDATED_STATE, V2_R7_FINAL_STATE)
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, V2_R7_LOCK_START, V2_R7_LOCK_END
             )
         ),
         "canonical_roadmap_records_v2_r6_approval": current_truth

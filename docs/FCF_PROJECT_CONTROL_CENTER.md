@@ -12524,3 +12524,25 @@ advisory AI, and mandatory Operator review remain binding.
 No tag, release, or deployment path is authorized.
 
 <!-- V2-R7 LOCAL MARKET SESSION REGISTRY FOUNDATION APP 1 APPROVAL END -->
+
+<!-- V2-R7 LOCAL MARKET SESSION REGISTRY FOUNDATION APP 1 LOCK START -->
+
+## V2-R7 Local Market Session Registry Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered boundary:
+
+- immutable Operator-registered local session definitions and intervals
+- deterministic half-open UTC resolution with availability and effective gates
+- append-only registry, canonical SHA-256, and metadata-only read presentation
+- explicit block for future, unavailable, ineffective, overlap, and outside state
+
+The delivered foundation is not an exchange calendar service, network source,
+system clock, hardcoded venue schedule, signal, recommendation, account, order,
+model, Prompt, automatic learning, or execution path.
+
+P1-P47 remain frozen. No P48 is created. Operator review remains mandatory.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R7 LOCAL MARKET SESSION REGISTRY FOUNDATION APP 1 LOCK END -->
