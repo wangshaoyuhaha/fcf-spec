@@ -1,7 +1,5 @@
-﻿import subprocess
-
-
 import os
+import subprocess
 from pathlib import Path
 
 
@@ -32,6 +30,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r9_local_volume_ratio_guard.py"],
     ["python", "scripts/control_center_v2_r10_local_turnover_guard.py"],
     ["python", "scripts/control_center_v2_r11_local_factor_registry_guard.py"],
+    ["python", "scripts/control_center_v2_r12_local_technical_indicator_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
