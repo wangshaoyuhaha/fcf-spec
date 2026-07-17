@@ -5443,3 +5443,23 @@ No successor phase is selected. Permanent safety boundaries remain binding.
 No tag, release, or deployment is authorized.
 
 <!-- V2-R13 LOCAL MOMENTUM INDICATOR FOUNDATION APP 1 APPROVAL END -->
+
+
+<!-- V2-R13 LOCAL MOMENTUM INDICATOR FOUNDATION APP 1 LOCK START -->
+
+## V2-R13 Local Momentum Indicator Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered boundary: R12 registered-local price series reuse, R11 registry
+references, deterministic Decimal window RSI and rate of change, explicit
+flat/gain-only/loss-only behavior, fail-closed gates, append-only evidence, and
+read-only metadata.
+
+V2-FR-GAP-008 remains open because this is only a bounded indicator pack.
+
+No prediction, score, rank, signal, recommendation, live source, network,
+model, Prompt, learning, order, or execution was added. P1-P47 frozen. No P48.
+Operator review required.
+
+<!-- V2-R13 LOCAL MOMENTUM INDICATOR FOUNDATION APP 1 LOCK END -->
