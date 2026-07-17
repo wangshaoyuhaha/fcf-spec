@@ -5946,3 +5946,42 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R9 LOCAL VOLUME RATIO RESEARCH FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R10 LOCAL TURNOVER DEFINITION RESEARCH FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R10 Local Turnover-Definition Research Foundation App 1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved order:
+
+- D1 closed registered-local turnover-definition research boundary
+- D2 immutable traded-volume, share-base, and policy contracts
+- D3 deterministic Decimal fraction or percent turnover calculation
+- D4 availability, identity, unit, denominator, and bounds blocking
+- D5 append-only evidence ledger and metadata-only read model
+- D6 Operator acceptance, guards, tests, merge, and closeout
+
+Readiness Gate:
+
+- objective: calculate point-in-time turnover without silently mixing free-float,
+  total-share, or vendor-defined tradable-share denominators
+- inputs: immutable registered-local volume and share-base evidence
+- formula: traded volume divided by positive point-in-time share base, optionally
+  multiplied by 100, then fixed-scale ROUND_HALF_EVEN quantization
+- safety: no network, live source, factor activation, score, rank, signal,
+  recommendation, model, Prompt, learning, account, order, or execution
+- failure: block future, unavailable, mismatched, negative, zero-denominator,
+  unsupported unit or denominator, out-of-bounds, or unsafe policy state
+- acceptance: deterministic result and canonical SHA-256 with Operator review
+- rollback: new V2-R10 Sidecar and exact governed files only
+
+This is a registered-local turnover-definition research foundation, not a
+realtime scanner, ranking rule, or recommendation. V2-FR-GAP-053 remains open.
+
+V2-R1 through V2-R9 remain COMPLETED. V2-R10 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R10 LOCAL TURNOVER DEFINITION RESEARCH FOUNDATION APP 1 APPROVAL END -->
