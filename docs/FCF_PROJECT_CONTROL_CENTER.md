@@ -13233,3 +13233,38 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R14 LOCAL TREND INDICATOR FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R15 LOCAL VOLATILITY INDICATOR FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R15 Local Volatility Indicator Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1 boundary, registered OHLC dependency, seed, and warm-up formula lock
+- D2 immutable OHLC point/series and True Range/ATR policy contracts
+- D3 deterministic Decimal True Range and Wilder ATR calculations
+- D4 fail-closed registry, OHLC, identity, time, window, and numeric validation
+- D5 append-only evidence, read-only presentation, and Operator review
+- D6 guards, tests, cleanup, sidecar merge, and final state synchronization
+
+Readiness gate:
+
+- dependency: completed V2-R11 registry; R15 defines bounded local OHLC evidence
+- data rights: registered local fixtures only
+- formulas: True Range maximum and arithmetic-seeded recursive Wilder ATR
+- authority: Deterministic Engine calculates; Registered Evidence is authoritative
+- labels: metric output only; no prediction, score, rank, or signal
+- tests: OHLC bounds, True Range, ATR, insufficient, future, mismatch, duplicate
+- rollback: new V2-R15 Sidecar and exact governed files only
+
+This is a bounded fourth indicator pack, not the complete technical indicator
+library. V2-FR-GAP-008 remains open.
+
+V2-R1 through V2-R14 remain COMPLETED. V2-R15 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R15 LOCAL VOLATILITY INDICATOR FOUNDATION APP 1 APPROVAL END -->
