@@ -6982,3 +6982,24 @@ advisory AI, and mandatory Operator review remain binding.
 No tag, release, or deployment path is authorized.
 
 <!-- V2-R6 LOCAL PAPER SCENARIO RESEARCH FOUNDATION APP 1 APPROVAL END -->
+
+<!-- V2-R6 LOCAL PAPER SCENARIO RESEARCH FOUNDATION APP 1 LOCK START -->
+
+## V2-R6 implementation lock
+
+V2-R6 D1-D6 is implemented as a bounded local registered-artifact Paper
+scenario research foundation. It consumes V2-R4 anomaly evidence, V2-R5 shield
+evidence, Operator-registered scenario policy, and point-in-time observation
+paths. Deterministic metrics cover path return, direction alignment, versioned
+cost assumption, and maximum favorable or adverse movement.
+
+This is not a trading simulator. It creates no virtual account, Paper order,
+portfolio, position, leverage, margin, liquidation, broker, exchange,
+credential, balance, wallet, or execution state. Market calibration is not
+claimed. V2-FR-GAP-038 through V2-FR-GAP-041 remain open.
+
+No successor phase is selected. P1-P47 remain frozen; no P48. No network, live
+source, provider, model, Prompt, automatic learning, tag, release, or deployment
+is authorized.
+
+<!-- V2-R6 LOCAL PAPER SCENARIO RESEARCH FOUNDATION APP 1 LOCK END -->
