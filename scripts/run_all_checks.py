@@ -24,6 +24,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
+    ["python", "scripts/control_center_v2_r4_local_anomaly_radar_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],

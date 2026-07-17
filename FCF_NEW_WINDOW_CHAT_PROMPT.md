@@ -5366,3 +5366,31 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment path is authorized.
 
 <!-- V2-R4 LOCAL ANOMALY RADAR FOUNDATION APP 1 APPROVAL END -->
+
+<!-- V2-R4 LOCAL ANOMALY RADAR FOUNDATION APP 1 LOCK START -->
+
+## V2-R4 implementation lock
+
+V2-R4 D1-D6 is implemented as a local registered-artifact anomaly research
+Sidecar. It consumes only ready V2-R2 historical baselines and immutable V2-R3
+local event envelopes. It deterministically evaluates Decimal Z-score,
+absolute velocity, persistence, age, direction, negative evidence, duplicate,
+expiry, and cooldown conditions.
+
+Outputs are limited to immutable NORMAL, WATCH, CONFIRMED, or DEGRADED research
+evidence, metadata-only read models, and mandatory Operator acceptance. Target
+label is NONE. Thresholds are Operator-authored, versioned, context-specific,
+and neither permanent global settings nor automatically tuned values.
+
+This lock does not claim a live source, licensed provider, network adapter,
+realtime market scan, universe selection, order book, production alert, model,
+official factor score, ranking, recommendation, prediction, automatic learning,
+Paper order, virtual account, broker, exchange, credential, account, balance,
+position, wallet, order, or execution route.
+
+V2-FR-GAP-026 and the production portions of V2-FR-GAP-027, V2-FR-GAP-058,
+and V2-FR-GAP-059 remain open. V2-R5 remains planned, not approved, and not
+started. P1-P47 remain frozen; no P48. No tag, release, or deployment is
+authorized.
+
+<!-- V2-R4 LOCAL ANOMALY RADAR FOUNDATION APP 1 LOCK END -->
