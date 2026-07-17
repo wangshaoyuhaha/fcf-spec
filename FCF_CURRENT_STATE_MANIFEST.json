@@ -1,0 +1,88 @@
+{
+  "active_authority_sources": [
+    "docs/FCF_PROJECT_CONTROL_CENTER.md",
+    "docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md",
+    "docs/HANDOFF_PROMPT.md",
+    "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md",
+    "FCF_NEW_WINDOW_CHAT_PROMPT.md"
+  ],
+  "canonical_file_roles": {
+    "architecture_decisions": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md",
+    "control_center": "docs/FCF_PROJECT_CONTROL_CENTER.md",
+    "current_machine_truth": "FCF_CURRENT_STATE_MANIFEST.json",
+    "execution_safety_protocol": "docs/FCF_EXECUTION_SAFETY_PROTOCOL.md",
+    "future_product_structure": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md",
+    "handoff_prompt": "docs/HANDOFF_PROMPT.md",
+    "memory_continuity_protocol": "docs/FCF_PROJECT_MEMORY_AND_CONTINUITY_PROTOCOL.md",
+    "unfinished_work_register": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
+  },
+  "current_truth": {
+    "current_governance_phase_id": "PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1",
+    "current_governance_phase_status": "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE",
+    "current_product_implementation_phase": "NONE",
+    "latest_completed_governance_delivery": "FCF-V2-FACTOR-REALTIME-COGNITIVE-ARCHITECTURE-SYNC",
+    "latest_completed_product_phase": "SYSTEM-INTEGRITY-PRODUCT-HARDENING-STAGE-13",
+    "next_product_implementation_phase": "NOT_SELECTED",
+    "next_product_phase_approval": "NOT_APPROVED"
+  },
+  "future_capability_statuses": [
+    "ACCEPTED_ARCHITECTURE",
+    "PLANNED",
+    "BACKLOG",
+    "RESEARCH_REQUIRED",
+    "NOT_IMPLEMENTED",
+    "OUTSIDE_CURRENT_AUTHORIZATION"
+  ],
+  "historical_registry": {
+    "path": "scripts/v2_implementation_order_registry.py",
+    "status": "HISTORICAL_COMPLETED_SEQUENCE_NOT_CURRENT_NEXT_PHASE_AUTHORITY"
+  },
+  "project_id": "FCF",
+  "project_name": "Financial Cognitive Framework",
+  "repository": "wangshaoyuhaha/fcf-spec",
+  "roadmap": [
+    {
+      "phase_id": "V2-R1",
+      "status": "PLANNED_NOT_APPROVED_NOT_STARTED"
+    },
+    {
+      "phase_id": "V2-R2",
+      "status": "PLANNED_NOT_APPROVED_NOT_STARTED"
+    },
+    {
+      "phase_id": "V2-R3",
+      "status": "PLANNED_NOT_APPROVED_NOT_STARTED"
+    },
+    {
+      "phase_id": "V2-R4",
+      "status": "PLANNED_NOT_APPROVED_NOT_STARTED"
+    },
+    {
+      "phase_id": "V2-R5",
+      "status": "PLANNED_NOT_APPROVED_NOT_STARTED"
+    },
+    {
+      "phase_id": "V2-R6",
+      "status": "PLANNED_NOT_APPROVED_NOT_STARTED"
+    }
+  ],
+  "safety_boundaries": {
+    "ai_advisory_only": true,
+    "broker_path_allowed": false,
+    "credential_path_allowed": false,
+    "deterministic_engine_calculation_authority": true,
+    "exchange_path_allowed": false,
+    "local_only": true,
+    "loopback_only": true,
+    "operator_review_mandatory": true,
+    "order_or_execution_path_allowed": false,
+    "p1_p47_frozen": true,
+    "p48_allowed": false,
+    "paper_only": true,
+    "read_only_product_presentation": true,
+    "registered_artifact_only": true,
+    "registered_evidence_authority": true,
+    "sidecar_only": true
+  },
+  "schema_version": 1
+}

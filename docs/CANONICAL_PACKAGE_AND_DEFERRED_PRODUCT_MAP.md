@@ -37,6 +37,15 @@ Canonical future-architecture sources:
 
 These sources are accepted architecture, not delivered product capability.
 
+Current project truth and continuity sources:
+
+- `FCF_CURRENT_STATE_MANIFEST.json`
+- `docs/FCF_PROJECT_MEMORY_AND_CONTINUITY_PROTOCOL.md`
+
+The manifest states what is current. The future architecture states what may
+exist later. The Gap register states what is unfinished or outside current
+authorization. Historical handoff text cannot override the manifest.
+
 ## Generated Output Policy
 
 - `artifacts/` contains reproducible local smoke outputs and is not canonical

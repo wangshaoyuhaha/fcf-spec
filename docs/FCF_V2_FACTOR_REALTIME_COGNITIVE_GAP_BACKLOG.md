@@ -6,11 +6,14 @@ No entry in this register is delivered merely because it is documented.
 
 ## Status Definitions
 
+- `ACCEPTED_ARCHITECTURE`: accepted future design without runtime evidence
 - `BACKLOG`: required or useful future work with no implementation approval
 - `RESEARCH_REQUIRED`: evidence, vendor, formula, policy, or feasibility is not
   sufficient for implementation
 - `NOT_IMPLEMENTED`: the named runtime capability does not currently exist
 - `PLANNED`: ordered future work, still not approved to start
+- `OUTSIDE_CURRENT_AUTHORIZATION`: intentionally excluded from current
+  authority and not queued for implementation
 
 ## Foundation Gaps
 
