@@ -41,14 +41,19 @@ def test_v2_factor_realtime_architecture_registers_exact_gap_set():
     assert all(text.count(gap_id) == 1 for gap_id in GAP_IDS)
 
 
-def test_v2_factor_realtime_roadmap_is_not_implementation_approval():
+def test_v2_factor_realtime_roadmap_preserves_explicit_phase_authority():
     architecture = (
         ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md"
     ).read_text(encoding="ascii")
 
     for phase in ROADMAP_PHASES:
         assert f"{phase}:" in architecture
-    assert "PLANNED / NOT_APPROVED / NOT_STARTED" in architecture
+    assert (
+        "- V2-R6: Paper Simulation Research; APPROVED / NOT_STARTED /"
+        in architecture
+        or "- V2-R6: Paper Simulation Research; COMPLETED /" in architecture
+    )
+    assert "No phase starts\nautomatically." in architecture
     assert "V2-R1: Factor Contract Foundation; COMPLETED" in architecture
     assert "V2-R2: Historical Factor Baseline; COMPLETED" in architecture
     assert "V2-R3: Realtime Ingestion Foundation; COMPLETED" in architecture

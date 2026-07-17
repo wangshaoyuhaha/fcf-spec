@@ -5552,3 +5552,55 @@ credential, account, balance, position, wallet, order, execution, tag, release,
 or deployment path was added or run.
 
 <!-- V2-R5 LOCAL COGNITIVE SHIELD FOUNDATION APP 1 FINAL END -->
+
+<!-- V2-R6 LOCAL PAPER SCENARIO RESEARCH FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R6 Local Paper Scenario Research Foundation App 1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved order:
+
+- D1 closed local scenario policy and research-path boundary
+- D2 immutable point-in-time registered observation path
+- D3 deterministic return, cost, favorable, and adverse movement metrics
+- D4 shield gating, leakage prevention, degradation, and blocked outcomes
+- D5 immutable scenario ledger and metadata-only read model
+- D6 Operator acceptance, guards, tests, merge, and closeout
+
+Readiness Gate:
+
+- business objective: evaluate registered historical price paths after
+  V2-R4 anomaly and V2-R5 shield evidence without creating an order runtime
+- horizon: bounded local replay only
+- inputs: immutable anomaly evidence, shield evidence, scenario policy, and
+  registered local observation points available at evaluation time
+- formula: Decimal path return, direction-aligned research return, versioned
+  cost assumption, maximum favorable movement, and maximum adverse movement
+- target label: REGISTERED_PATH_RETURN; research evaluation only
+- safety: no account, balance, position, order, portfolio, leverage, margin,
+  liquidation, broker, exchange, credential, or execution state
+- failure: block mismatch, invalid shield, time inversion, noncontiguous
+  sequence, unavailable point, nonpositive price, expiry, or unsafe policy
+- acceptance: deterministic metrics and canonical SHA-256 with Operator review
+- rollback: new V2-R6 Sidecar and exact governed files only
+- stop: network, provider, live data, market scan, virtual account, Paper order,
+  leverage, model, Prompt, automatic learning, execution, unexpected path,
+  safety failure, or test failure
+
+This approval implements a registered local scenario artifact, not a trading
+simulator. Fees and slippage are versioned research assumptions only and do not
+claim venue calibration. V2-FR-GAP-038 through V2-FR-GAP-041 remain open for
+market-specific replay, leverage, calibration, and excluded order runtime.
+
+V2-R1 through V2-R5 remain COMPLETED. V2-R6 is APPROVED / NOT_STARTED.
+No successor phase is selected.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No tag, release, or deployment path is authorized.
+
+<!-- V2-R6 LOCAL PAPER SCENARIO RESEARCH FOUNDATION APP 1 APPROVAL END -->
