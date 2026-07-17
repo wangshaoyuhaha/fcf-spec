@@ -79,6 +79,8 @@ def test_v2_factor_realtime_roadmap_preserves_explicit_phase_authority():
     assert (
         "V2-R10: Local Turnover-Definition Research Foundation; APPROVED /"
         in architecture
+        or "V2-R10: Local Turnover-Definition Research Foundation; COMPLETED /"
+        in architecture
     )
     manifest = json.loads(
         (ROOT / "FCF_CURRENT_STATE_MANIFEST.json").read_text(encoding="ascii")

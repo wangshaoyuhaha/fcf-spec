@@ -277,6 +277,11 @@ V2_R10_FINAL_START = (
 V2_R10_FINAL_END = (
     "<!-- V2-R10 LOCAL TURNOVER DEFINITION RESEARCH FOUNDATION APP 1 FINAL END -->"
 )
+V2_R10_FINAL_EVIDENCE_COMMITS = (
+    "91667cfd52e468416c42e91a3d2bf6c42300aabc",
+    "197c37c224da0553960ef5827935ed99c0557b42",
+    "220c7ac70b767d7703f6b0d9dcb60e6a68cde825",
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -427,6 +432,12 @@ GAP_ROADMAP_R10_DELIVERY_LINES = (
     "IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY |",
     "Next product implementation phase: V2-R10 / APPROVED.",
     "No successor phase after V2-R10 starts automatically.",
+)
+GAP_ROADMAP_R10_FINAL_LINES = (
+    "| V2-R10 | Local Turnover-Definition Research Foundation | "
+    "COMPLETED / REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY |",
+    "Next product implementation phase: NOT_SELECTED / NOT_APPROVED.",
+    "No successor phase starts automatically.",
 )
 DELIVERY_STATE = {
     "current_governance_phase_id": (
@@ -1425,6 +1436,10 @@ def build_project_memory_guard_report(
         extract_single_block(text, V2_R9_FINAL_START, V2_R9_FINAL_END)
         for text in authority_texts
     )
+    v2_r10_final_blocks = tuple(
+        extract_single_block(text, V2_R10_FINAL_START, V2_R10_FINAL_END)
+        for text in authority_texts
+    )
     file_roles = manifest.get("canonical_file_roles")
     statuses = manifest.get("future_capability_statuses")
     historical = manifest.get("historical_registry")
@@ -1577,6 +1592,10 @@ def build_project_memory_guard_report(
         or (
             current_truth in (V2_R10_DELIVERY_STATE, V2_R10_VALIDATED_STATE)
             and all(line in gap for line in GAP_ROADMAP_R10_DELIVERY_LINES)
+        )
+        or (
+            current_truth == V2_R10_FINAL_STATE
+            and all(line in gap for line in GAP_ROADMAP_R10_FINAL_LINES)
         )
         or current_truth
         not in (
@@ -2056,6 +2075,31 @@ def build_project_memory_guard_report(
         or (
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(authority_texts, V2_R10_LOCK_START, V2_R10_LOCK_END)
+        ),
+        "v2_r10_final_exact_across_authorities": current_truth
+        != V2_R10_FINAL_STATE
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, V2_R10_FINAL_START, V2_R10_FINAL_END
+            )
+        ),
+        "v2_r10_final_evidence_commits_exact": current_truth
+        != V2_R10_FINAL_STATE
+        or (
+            len(v2_r10_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in v2_r10_final_blocks)
+            and all(
+                all(commit in block for commit in V2_R10_FINAL_EVIDENCE_COMMITS)
+                for block in v2_r10_final_blocks
+                if block is not None
+            )
+        ),
+        "canonical_roadmap_records_v2_r10_complete": current_truth
+        != V2_R10_FINAL_STATE
+        or (
+            "- V2-R10: Local Turnover-Definition Research Foundation; COMPLETED /"
+            in architecture
         ),
         "canonical_roadmap_records_v2_r6_approval": current_truth
         not in (
