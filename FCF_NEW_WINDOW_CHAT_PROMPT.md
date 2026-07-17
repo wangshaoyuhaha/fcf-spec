@@ -5661,3 +5661,50 @@ P1-P47 remain frozen. No P48 was created. No network, live source, provider,
 model, Prompt, automatic learning, tag, release, or deployment was added or run.
 
 <!-- V2-R6 LOCAL PAPER SCENARIO RESEARCH FOUNDATION APP 1 FINAL END -->
+
+<!-- V2-R7 LOCAL MARKET SESSION REGISTRY FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R7 Local Market Session Registry Foundation App 1 Approval
+
+Status: APPROVED_NOT_STARTED
+
+Approved order:
+
+- D1 closed registered-local calendar and session boundary
+- D2 immutable venue, calendar, rule, phase, and analysis-window contracts
+- D3 deterministic point-in-time session and window resolution
+- D4 overlap, missing, unavailable, expiry, and outside-session blocking
+- D5 append-only registry and metadata-only read model
+- D6 Operator acceptance, guards, tests, merge, and closeout
+
+Readiness Gate:
+
+- business objective: provide a deterministic local time-axis foundation for
+  future session-aware research without selecting or connecting a data source
+- horizon: explicit registered trade date and bounded UTC intervals only
+- inputs: Operator-registered local calendar definitions and explicit as-of time
+- formula: half-open UTC interval resolution with version and effective-time gates
+- safety: no network, live clock authority, hardcoded venue schedule, model,
+  Prompt, learning, signal, recommendation, account, order, or execution state
+- failure: block missing calendar, mismatch, overlap, time inversion, unavailable
+  definition, expiry, invalid phase transition, or outside-session observation
+- acceptance: deterministic resolution and canonical SHA-256 with Operator review
+- rollback: new V2-R7 Sidecar and exact governed files only
+- stop: network, provider, live data, automatic clock, market scan, model, Prompt,
+  automatic learning, execution, unexpected path, safety failure, or test failure
+
+This approval implements a registered local calendar/session foundation, not
+an exchange calendar service or realtime market clock. V2-FR-GAP-048 remains
+open beyond this bounded foundation.
+
+V2-R1 through V2-R6 remain COMPLETED. V2-R7 is APPROVED / NOT_STARTED.
+No successor phase is selected.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No tag, release, or deployment path is authorized.
+
+<!-- V2-R7 LOCAL MARKET SESSION REGISTRY FOUNDATION APP 1 APPROVAL END -->

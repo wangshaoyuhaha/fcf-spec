@@ -760,6 +760,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   LOCAL_REGISTERED_COGNITIVE_SHIELD_ONLY
 - V2-R6: Paper Simulation Research; COMPLETED /
   LOCAL_REGISTERED_SCENARIO_RESEARCH_ONLY
+- V2-R7: Local Market Session Registry Foundation; APPROVED / NOT_STARTED /
+  REGISTERED_LOCAL_CALENDAR_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts

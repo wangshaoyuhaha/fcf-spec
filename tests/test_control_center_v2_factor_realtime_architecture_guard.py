@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from scripts.control_center_v2_factor_realtime_architecture_guard import (
@@ -57,17 +58,26 @@ def test_v2_factor_realtime_roadmap_preserves_explicit_phase_authority():
     assert "V2-R1: Factor Contract Foundation; COMPLETED" in architecture
     assert "V2-R2: Historical Factor Baseline; COMPLETED" in architecture
     assert "V2-R3: Realtime Ingestion Foundation; COMPLETED" in architecture
+    assert (
+        "V2-R7: Local Market Session Registry Foundation; "
+        "APPROVED / NOT_STARTED" in architecture
+    )
+    manifest = json.loads(
+        (ROOT / "FCF_CURRENT_STATE_MANIFEST.json").read_text(encoding="ascii")
+    )
+    statuses = {
+        item["phase_id"]: item["status"] for item in manifest["roadmap"]
+    }
+    gap_lines = (
+        ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
+    ).read_text(encoding="ascii").splitlines()
     assert all(
-        f"| {phase} |" in (
-            ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
-        ).read_text(encoding="ascii")
-        and "COMPLETED" in next(
+        ("COMPLETED" in next(
             line
-            for line in (
-                ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
-            ).read_text(encoding="ascii").splitlines()
+            for line in gap_lines
             if line.startswith(f"| {phase} |")
-        )
+        ))
+        == (statuses[phase] == "COMPLETED")
         for phase in ROADMAP_PHASES
     )
     assert "No V2-R implementation phase starts automatically" in "\n".join(
