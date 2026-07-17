@@ -5932,3 +5932,21 @@ No successor phase is selected. Permanent safety boundaries remain binding.
 No tag, release, or deployment is authorized.
 
 <!-- V2-R9 LOCAL VOLUME RATIO RESEARCH FOUNDATION APP 1 APPROVAL END -->
+
+
+<!-- V2-R9 LOCAL VOLUME RATIO RESEARCH FOUNDATION APP 1 LOCK START -->
+
+## V2-R9 Local Volume-Ratio Research Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered boundary: immutable registered-local current-volume observations,
+explicit interval or cumulative basis, R8 baseline linkage, deterministic
+Decimal ratio, fail-closed mismatch handling, append-only evidence, and
+metadata-only read presentation.
+
+No network, live source, factor activation, score, rank, signal,
+recommendation, model, Prompt, learning, order, or execution was added.
+P1-P47 remain frozen. No P48. Operator review remains mandatory.
+
+<!-- V2-R9 LOCAL VOLUME RATIO RESEARCH FOUNDATION APP 1 LOCK END -->
