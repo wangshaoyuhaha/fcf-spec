@@ -165,6 +165,111 @@ boundary, and explicit Operator approval.
 Not authorized: broker, exchange, order, account, balance, position, wallet,
 withdrawal, transfer, tag, release, or deployment capability.
 
+## FCF-V2-ADR-013 Versioned Market Session Registry
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Every intraday event resolves through a versioned exchange calendar
+and Market Session Registry. Venue times, holidays, halts, auctions, breaks,
+late-session boundaries, and instrument exceptions are governed data.
+
+Consequence: A-share and continuously traded markets share a taxonomy without
+sharing hardcoded clocks or false session equivalence.
+
+Not authorized: calendar service, realtime clock, or market connection.
+
+## FCF-V2-ADR-014 Auction and Continuous Trading Isolation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Call-auction features, baselines, targets, and evaluation remain
+separate from continuous-session features. Only source-observed auction fields
+may be used; unavailable order events cannot be reconstructed as facts.
+
+Consequence: Auction imbalance, cancellation, stability, and convergence are
+interpreted under registered venue rules and visible source limitations.
+
+Not authorized: auction data purchase, ingestion, or candidate runtime.
+
+## FCF-V2-ADR-015 Time-of-Day and Regime-Relative Normalization
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Intraday volume, turnover, spread, depth, flow, and anomaly features
+use point-in-time same-session baselines and regime-conditioned thresholds.
+
+Consequence: One permanent threshold cannot govern opening, midday,
+late-session, A-share, BTC, liquid, and illiquid observations.
+
+Not authorized: new baseline runtime or factor activation.
+
+## FCF-V2-ADR-016 Observable Proxy Semantics
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Entrusted-order ratio, aggressive flow, CVD, large-trade buckets,
+depth, and vendor flow labels remain precisely defined observable or inferred
+proxies. They do not establish intent or participant identity.
+
+Consequence: The product must show formula, book levels, field coverage,
+source class, confidence, and limitations and must not claim institutional or
+manipulative activity without adequate evidence.
+
+Not authorized: surveillance conclusion or capital-owner attribution.
+
+## FCF-V2-ADR-017 Point-in-Time Sector Transmission Graph
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Sector, theme, industry-chain, index, ETF, futures, cross-asset, and
+macro context use versioned memberships and registered lead-lag hypotheses.
+
+Consequence: Multiple taxonomies and contradictory context are preserved.
+Sector confirmation can adjust research confidence but cannot override a hard
+gate or prove causation.
+
+Not authorized: taxonomy vendor integration or cross-market runtime.
+
+## FCF-V2-ADR-018 Research Candidate and UI Action Boundary
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Market detections create research candidates with evidence,
+uncertainty, invalidation, expiry, cooldown, and Operator review. UI actions
+are limited to watchlist, priority, evidence, replay, review, and revocation.
+
+Consequence: Candidate state cannot be confused with a recommendation, order,
+position, or execution action. Every Operator change is audited.
+
+Not authorized: trading control, account control, or automatic acceptance.
+
+## FCF-V2-ADR-019 Controlled Offline Adaptation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Learning may produce offline Challenger proposals from immutable
+observations and matured outcomes. Deterministic evaluation, Registered
+Evidence, and explicit Operator review precede any separately approved change.
+
+Consequence: No AI response, recent outcome, or Operator click automatically
+changes formulas, weights, baselines, policy, or Champion status.
+
+Not authorized: automatic learning, promotion, activation, or self-modifying
+runtime.
+
+## FCF-V2-ADR-020 Market-Specific Adapters and Horizon Isolation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: A-share auction and late-session research, BTC continuous-session
+research, and future market adapters share contracts but keep market rules,
+targets, baselines, costs, and scores isolated.
+
+Consequence: The platform can become multi-market without creating one false
+universal score or launching multiple realtime MVP markets together.
+
+Not authorized: additional market adapter or realtime MVP implementation.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.

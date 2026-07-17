@@ -778,7 +778,238 @@ This architecture registration does not create:
 - live AI invocation, Prompt execution, training, or fallback execution
 - a V2-R implementation approval
 
-## 33. Control and Change Rule
+## 33. Market Session Registry and Exchange Calendar
+
+Every intraday research event must resolve through a versioned Market Session
+Registry. Required fields include:
+
+- `market_session_id`, `venue`, `market`, `timezone`, and `trade_date`
+- calendar version, rule version, effective time, and source evidence
+- local session start and end, holidays, half days, suspensions, and halts
+- auction, continuous, break, late-session, close, and post-close boundaries
+- instrument-specific exceptions, price-limit state, settlement, and T+1 state
+- source event time, receive time, processing time, and clock-quality state
+
+The common research taxonomy is:
+
+`PRE_OPEN -> CALL_AUCTION -> CONTINUOUS_SESSION -> LATE_SESSION -> CLOSE -> POST_CLOSE`
+
+Markets may omit or repeat states. BTC and other continuously traded markets
+use versioned analysis windows and regime boundaries rather than pretending to
+have an equity auction or official close.
+
+Exchange times are data, not constitutional constants. For A-share research,
+an initial `LATE_SESSION` candidate may begin at 14:30 Asia/Shanghai, but the
+effective window must come from the registered calendar and may not be
+hardcoded across venues or history.
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+
+## 34. Same-Time-of-Day and Regime Baselines
+
+Intraday comparisons must use information available at the decision time and
+must distinguish:
+
+- cumulative value versus interval value
+- raw value versus same-minute historical percentile
+- instrument baseline versus sector and market baseline
+- normal day, event day, high-volatility day, and low-liquidity regime
+- opening, continuous, late-session, and closing behavior
+
+Volume ratio, turnover acceleration, spread, depth, cancel intensity, CVD,
+VWAP deviation, and alert thresholds must not use one permanent threshold for
+all instruments and sessions. Baselines require version, sample count,
+lookback, missing policy, outlier policy, and effective time.
+
+Future information, completed-day totals, revised classifications, or a later
+session state cannot enter an earlier decision baseline.
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+
+## 35. A-Share Call-Auction Research Contract
+
+Call-auction research is isolated from continuous trading. Candidate inputs
+may include only registered fields actually supplied by an approved source:
+
+- prior close, indicative price, gap, matched amount, and matched volume
+- unmatched bid and ask quantity, imbalance direction, and imbalance change
+- indicative-price path, stability, cancel velocity, and final convergence
+- distance to price limit, listing or special-treatment state, and liquidity
+- sector breadth, leader confirmation, index context, and event context
+
+Every auction feature records whether it came from full order events,
+aggregated indicative fields, or an inferred proxy. Missing order events may
+not be reconstructed and presented as observed truth.
+
+Auction candidates require stability and negative-evidence checks. A large
+imbalance that disappears, reverses, lacks sector confirmation, conflicts with
+price-limit rules, or depends on stale data is downgraded or blocked.
+
+Auction research may create a review candidate. It may not create a buy,
+sell, order, account, position, or execution instruction.
+
+Status: ACCEPTED_ARCHITECTURE / SOURCE FIELDS RESEARCH_REQUIRED /
+NOT_IMPLEMENTED
+
+## 36. Late-Session and Closing Research Contract
+
+Late-session research evaluates whether a move is strengthening, exhausting,
+or losing confirmation. Candidate features include:
+
+- return and acceleration from the registered late-session boundary
+- volume and notional concentration relative to the same time of day
+- VWAP location, slope, reclaim, rejection, and closing-location value
+- order-book resilience, replenishment, spread, and realized trade support
+- sector synchronization, breadth, leader or follower behavior, and rotation
+- distance to price limits, failed-limit state, and closing-auction behavior
+- next-session target definition, maturity, invalidation, and gap-risk context
+
+The platform must keep `LATE_SESSION_STRENGTH`, `LATE_SESSION_EXHAUSTION`,
+`CLOSE_CONFIRMATION_MISSING`, and `DATA_INSUFFICIENT` distinguishable. It must
+not label all late buying as informed capital or imply next-day profit.
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+
+## 37. Entrusted Order, Volume Ratio, Turnover, and Flow Semantics
+
+Common market labels require exact registered definitions.
+
+An entrusted-order ratio candidate is:
+
+`(registered_bid_quantity - registered_ask_quantity) /`
+`(registered_bid_quantity + registered_ask_quantity)`
+
+The record must name included book levels, snapshot time, denominator-zero
+behavior, unit, source coverage, and whether cancellations were observable.
+It is a displayed-liquidity proxy, not verified trading intent.
+
+A volume-ratio candidate compares current volume pace with a registered
+same-time historical baseline. It must state cumulative or interval basis,
+lookback, comparable sessions, corporate-action treatment, and minimum sample.
+
+Turnover must state the numerator and point-in-time denominator, including
+whether free float, total shares, or vendor-defined tradable shares are used.
+It cannot silently mix definitions across instruments or dates.
+
+Observable capital-flow research separates aggressive-trade imbalance, CVD,
+large-trade buckets, ETF or eligible public flow, financing change, and
+vendor-inferred labels. No proxy may be renamed institutional, smart, main, or
+government capital without evidence that supports that identity.
+
+Status: ACCEPTED_ARCHITECTURE / INDIVIDUAL DEFINITIONS RESEARCH_REQUIRED
+
+## 38. Sector, Theme, and Cross-Market Transmission Graph
+
+Sector context requires a point-in-time taxonomy with versioned membership.
+Candidate structures include:
+
+- sector breadth, median return, dispersion, turnover share, and flow proxy
+- leader, follower, laggard, failed-leader, and diffusion state
+- index, ETF, futures, commodity, foreign-market, and macro-event context
+- industry-chain upstream and downstream relationships
+- theme overlap, crowding, concentration, and membership uncertainty
+- lead-lag hypothesis, horizon, decay, evidence, and invalidation
+
+The graph preserves multiple taxonomies rather than forcing one sector label.
+Sector confirmation may strengthen confidence, but cannot erase instrument
+risk, stale data, or contradictory evidence. Correlation and lead-lag do not
+establish causation.
+
+Status: ACCEPTED_ARCHITECTURE / TAXONOMY AND LEAD-LAG VALIDATION
+RESEARCH_REQUIRED
+
+## 39. Controlled Research Candidate Lifecycle
+
+Market observations use this research-only lifecycle:
+
+`OBSERVED -> QUALIFIED -> WATCHLISTED -> OPERATOR_REVIEW`
+
+Operator review may produce:
+
+- `ACCEPTED_FOR_PAPER_OBSERVATION`
+- `REJECTED`
+- `EXPIRED`
+- `REVOKED`
+- `MORE_EVIDENCE_REQUIRED`
+
+Every candidate carries target, horizon, feature versions, state hash,
+supporting evidence, negative evidence, uncertainty, invalidation, expiry,
+cooldown, duplicate group, and review history. A later outcome appends an
+immutable evaluation record and never rewrites the original candidate.
+
+Candidate actions are research actions only: add to a watchlist, increase
+observation priority, request evidence, open replay, compare scenarios, record
+an Operator decision, or revoke a stale candidate.
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+
+## 40. Read-Only Operator Research Control Plane
+
+The future browser workspace may expose versioned controls for:
+
+- selecting market, session, universe, horizon, and research module
+- enabling or disabling approved observation modules
+- setting alert sensitivity only within policy-approved bounds
+- managing watchlists, alert budgets, cooldowns, and review queues
+- opening evidence, formulas, baselines, replay, and AI pro or con explanation
+- accepting, rejecting, requesting evidence, or revoking a research candidate
+
+The UI must show data freshness, source class, factor version, blocked reason,
+uncertainty, and whether a value is observed or inferred. Every control change
+is an Operator-authored registered artifact.
+
+The control plane cannot change deterministic formulas, bypass hard gates,
+activate an unqualified factor, invoke automatic learning, or expose an order,
+account, balance, position, wallet, broker, or exchange action.
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+
+## 41. Controlled Offline Adaptation and Learning Boundary
+
+Adaptive research is an offline governed loop:
+
+`immutable observations -> matured outcomes -> evaluation -> candidate change`
+`-> Challenger -> Operator review -> separately approved activation`
+
+Candidate changes may include threshold, baseline, factor, model, taxonomy,
+or alert-budget proposals. Each proposal requires training window, validation
+window, final test, leakage controls, metric deltas, segment analysis, failure
+modes, rollback, and reproducibility evidence.
+
+No observation, AI response, Operator click, or recent win may automatically
+rewrite production formulas, weights, baselines, Champion status, or policy.
+AI may propose and critique a change; deterministic evaluation and Registered
+Evidence remain authoritative.
+
+Status: ACCEPTED_ARCHITECTURE / AUTOMATIC LEARNING OUTSIDE CURRENT
+AUTHORIZATION
+
+## 42. Session-Aware Evaluation and Failure Law
+
+Evaluation must be segmented by market, session, horizon, liquidity, regime,
+sector, and candidate type. Minimum measures include:
+
+- precision, recall, precision at K, false-alert rate, and alert volume
+- calibrated probability, Brier score, abstention quality, and coverage
+- median and tail lead time before the defined target event
+- maximum favorable and adverse movement under registered cost assumptions
+- stability across time, instruments, regimes, and data vendors
+- Operator review load, duplicate rate, expiry rate, and evidence completeness
+
+Auction and late-session replay must reproduce historical calendars, auction
+rules, price limits, halts, T+1, corporate actions, point-in-time sector
+membership, source latency, and field availability. If vendor history cannot
+reproduce the information set, that test is blocked rather than approximated
+and overclaimed.
+
+Potential spoofing, manipulation, institutional identity, or informed trading
+must remain uncertainty labels unless supported by legally and technically
+adequate evidence. The platform is a research system, not a surveillance or
+enforcement authority.
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+
+## 43. Control and Change Rule
 
 Every future change requires repository-truth precheck, Readiness Gate,
 explicit Operator approval, dedicated Sidecar, tests, full validation,

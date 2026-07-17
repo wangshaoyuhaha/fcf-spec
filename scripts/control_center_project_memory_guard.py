@@ -34,11 +34,30 @@ MEMORY_FINAL_START = (
 MEMORY_FINAL_END = (
     "<!-- PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1 FINAL SYNC END -->"
 )
+SESSION_APPROVAL_START = (
+    "<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC APPROVAL START -->"
+)
+SESSION_APPROVAL_END = (
+    "<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC APPROVAL END -->"
+)
+SESSION_LOCK_START = (
+    "<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC LOCK START -->"
+)
+SESSION_LOCK_END = (
+    "<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC LOCK END -->"
+)
+SESSION_FINAL_START = (
+    "<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC FINAL START -->"
+)
+SESSION_FINAL_END = (
+    "<!-- FCF V2 MARKET SESSION RESEARCH ARCHITECTURE SYNC FINAL END -->"
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
     "291cad1ecc84a09e71c63973cd10de1e7b88a4bf",
 )
+SESSION_FINAL_EVIDENCE_COMMITS: tuple[str, ...] = ()
 V2_BLOCKS = (
     (
         "<!-- FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE "
@@ -67,6 +86,20 @@ EXPECTED_FILE_ROLES = {
     "memory_continuity_protocol": PROTOCOL_PATH.as_posix(),
     "unfinished_work_register": GAP_PATH.as_posix(),
 }
+EXPECTED_FUTURE_ARCHITECTURE = [
+    {
+        "architecture_id": "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION",
+        "implementation_status": "NOT_IMPLEMENTED",
+        "status": "ACCEPTED_ARCHITECTURE",
+    },
+    {
+        "architecture_id": (
+            "FCF-V2-MARKET-SESSION-MICROSTRUCTURE-RESEARCH-EXTENSION"
+        ),
+        "implementation_status": "NOT_IMPLEMENTED",
+        "status": "ACCEPTED_ARCHITECTURE",
+    },
+]
 FUTURE_STATUSES = (
     "ACCEPTED_ARCHITECTURE",
     "PLANNED",
@@ -77,17 +110,17 @@ FUTURE_STATUSES = (
 )
 ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 7))
 ROADMAP_STATUS = "PLANNED_NOT_APPROVED_NOT_STARTED"
-GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 48))
+GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 71))
 DELIVERY_STATE = {
     "current_governance_phase_id": (
-        "PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1"
+        "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
     ),
     "current_governance_phase_status": (
         "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE"
     ),
     "current_product_implementation_phase": "NONE",
     "latest_completed_governance_delivery": (
-        "FCF-V2-FACTOR-REALTIME-COGNITIVE-ARCHITECTURE-SYNC"
+        "PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1"
     ),
     "latest_completed_product_phase": (
         "SYSTEM-INTEGRITY-PRODUCT-HARDENING-STAGE-13"
@@ -100,7 +133,7 @@ FINAL_STATE = {
     "current_governance_phase_id": "NONE",
     "current_governance_phase_status": "NONE",
     "latest_completed_governance_delivery": (
-        "PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1"
+        "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
     ),
 }
 EXPECTED_SAFETY = {
@@ -172,6 +205,8 @@ def gap_statuses_are_valid(text: str) -> bool:
         and all(row[1] in FUTURE_STATUSES for row in rows)
         and dict(rows).get("V2-FR-GAP-041")
         == "OUTSIDE_CURRENT_AUTHORIZATION"
+        and dict(rows).get("V2-FR-GAP-065")
+        == "OUTSIDE_CURRENT_AUTHORIZATION"
     )
 
 
@@ -207,6 +242,10 @@ def build_project_memory_guard_report(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
         for text in authority_texts
     )
+    session_final_blocks = tuple(
+        extract_single_block(text, SESSION_FINAL_START, SESSION_FINAL_END)
+        for text in authority_texts
+    )
     file_roles = manifest.get("canonical_file_roles")
     statuses = manifest.get("future_capability_statuses")
     historical = manifest.get("historical_registry")
@@ -218,6 +257,10 @@ def build_project_memory_guard_report(
         and manifest.get("project_name") == "Financial Cognitive Framework"
         and manifest.get("repository") == "wangshaoyuhaha/fcf-spec",
         "canonical_file_roles_exact": file_roles == EXPECTED_FILE_ROLES,
+        "accepted_future_architecture_exact": manifest.get(
+            "accepted_future_architecture"
+        )
+        == EXPECTED_FUTURE_ARCHITECTURE,
         "active_authority_registry_exact": manifest.get(
             "active_authority_sources"
         ) == [path.as_posix() for path in AUTHORITY_PATHS],
@@ -261,6 +304,39 @@ def build_project_memory_guard_report(
             and all(
                 all(commit in block for commit in FINAL_EVIDENCE_COMMITS)
                 for block in memory_final_blocks
+                if block is not None
+            )
+        ),
+        "session_approval_exact_across_authorities": len(authority_texts)
+        == len(AUTHORITY_PATHS)
+        and blocks_are_exact(
+            authority_texts, SESSION_APPROVAL_START, SESSION_APPROVAL_END
+        ),
+        "session_lock_exact_across_authorities": len(authority_texts)
+        == len(AUTHORITY_PATHS)
+        and blocks_are_exact(
+            authority_texts, SESSION_LOCK_START, SESSION_LOCK_END
+        ),
+        "session_final_sync_exact_across_authorities": current_truth
+        == DELIVERY_STATE
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(
+                authority_texts, SESSION_FINAL_START, SESSION_FINAL_END
+            )
+        ),
+        "session_final_evidence_commits_exact": current_truth
+        == DELIVERY_STATE
+        or (
+            bool(SESSION_FINAL_EVIDENCE_COMMITS)
+            and len(session_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in session_final_blocks)
+            and all(
+                all(
+                    commit in block
+                    for commit in SESSION_FINAL_EVIDENCE_COMMITS
+                )
+                for block in session_final_blocks
                 if block is not None
             )
         ),

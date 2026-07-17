@@ -6,6 +6,18 @@
     "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md",
     "FCF_NEW_WINDOW_CHAT_PROMPT.md"
   ],
+  "accepted_future_architecture": [
+    {
+      "architecture_id": "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "status": "ACCEPTED_ARCHITECTURE"
+    },
+    {
+      "architecture_id": "FCF-V2-MARKET-SESSION-MICROSTRUCTURE-RESEARCH-EXTENSION",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "status": "ACCEPTED_ARCHITECTURE"
+    }
+  ],
   "canonical_file_roles": {
     "architecture_decisions": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md",
     "control_center": "docs/FCF_PROJECT_CONTROL_CENTER.md",
@@ -17,8 +29,8 @@
     "unfinished_work_register": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
   },
   "current_truth": {
-    "current_governance_phase_id": "NONE",
-    "current_governance_phase_status": "NONE",
+    "current_governance_phase_id": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "current_governance_phase_status": "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE",
     "current_product_implementation_phase": "NONE",
     "latest_completed_governance_delivery": "PROJECT-MEMORY-CONTINUITY-HARDENING-APP-1",
     "latest_completed_product_phase": "SYSTEM-INTEGRITY-PRODUCT-HARDENING-STAGE-13",
