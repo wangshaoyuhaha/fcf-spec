@@ -1,5 +1,8 @@
 import json
+import subprocess
 from pathlib import Path
+
+import scripts.control_center_project_memory_guard as memory_guard
 
 from scripts.control_center_project_memory_guard import (
     AUTHORITY_PATHS,
@@ -667,3 +670,48 @@ def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
     assert parsed["current_truth"]["next_product_phase_approval"] == (
         V2_R16_FINAL_STATE["next_product_phase_approval"]
     )
+
+
+def test_all_recorded_final_evidence_commits_resolve_in_git_history():
+    commit_groups = {
+        name: value
+        for name, value in vars(memory_guard).items()
+        if name.endswith("_FINAL_EVIDENCE_COMMITS")
+        or name in {"FINAL_EVIDENCE_COMMITS", "SESSION_FINAL_EVIDENCE_COMMITS"}
+    }
+
+    assert commit_groups
+    for group_name, commits in commit_groups.items():
+        for commit in commits:
+            result = subprocess.run(
+                ["git", "cat-file", "-e", f"{commit}^{{commit}}"],
+                cwd=ROOT,
+                capture_output=True,
+                check=False,
+            )
+            assert result.returncode == 0, f"{group_name} has unknown commit {commit}"
+
+
+def test_v2_r16_evidence_commit_subjects_are_exact():
+    expected = {
+        "ece983a153c11fd93463638ff388892d481951ee": (
+            "docs(v2-r16): approve local range channel indicator foundation"
+        ),
+        "3245368fca7c19312c93c5dcd1fdbfaaf3f16a46": (
+            "feat(v2-r16): add local range channel indicator foundation"
+        ),
+        "552a1068ac136a09a107f0f6cdfb5251842467d1": (
+            "merge: complete v2-r16 local range channel indicator foundation"
+        ),
+    }
+
+    for commit, subject in expected.items():
+        result = subprocess.run(
+            ["git", "show", "-s", "--format=%s", commit],
+            cwd=ROOT,
+            capture_output=True,
+            check=True,
+            text=True,
+            encoding="utf-8",
+        )
+        assert result.stdout.strip() == subject
