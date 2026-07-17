@@ -422,6 +422,12 @@ GAP_ROADMAP_R10_APPROVAL_LINES = (
     "Next product implementation phase: V2-R10 / APPROVED.",
     "No successor phase after V2-R10 starts automatically.",
 )
+GAP_ROADMAP_R10_DELIVERY_LINES = (
+    "| V2-R10 | Local Turnover-Definition Research Foundation | "
+    "IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY |",
+    "Next product implementation phase: V2-R10 / APPROVED.",
+    "No successor phase after V2-R10 starts automatically.",
+)
 DELIVERY_STATE = {
     "current_governance_phase_id": (
         "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1"
@@ -1204,6 +1210,32 @@ V2_R10_APPROVAL_ROADMAP = [
     }
     for phase in ROADMAP_PHASES
 ]
+V2_R10_DELIVERY_STATE = {
+    **V2_R10_APPROVAL_STATE,
+    "current_governance_phase_status": "PRODUCT_DELIVERY_IMPLEMENTED_PENDING_VALIDATION",
+}
+V2_R10_DELIVERY_ROADMAP = [
+    {"phase_id": phase, "status": "IMPLEMENTED_PENDING_VALIDATION" if phase == "V2-R10" else "COMPLETED"}
+    for phase in ROADMAP_PHASES
+]
+V2_R10_VALIDATED_STATE = {
+    **V2_R10_APPROVAL_STATE,
+    "current_governance_phase_status": "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE",
+}
+V2_R10_VALIDATED_ROADMAP = [
+    {"phase_id": phase, "status": "VALIDATED_PENDING_MERGE" if phase == "V2-R10" else "COMPLETED"}
+    for phase in ROADMAP_PHASES
+]
+V2_R10_FINAL_STATE = {
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
+    "current_product_implementation_phase": "NONE",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "latest_completed_product_phase": "V2-R10-LOCAL-TURNOVER-DEFINITION-RESEARCH-FOUNDATION-APP-1",
+    "next_product_implementation_phase": "NOT_SELECTED",
+    "next_product_phase_approval": "NOT_APPROVED",
+}
+V2_R10_FINAL_ROADMAP = [{"phase_id": phase, "status": "COMPLETED"} for phase in ROADMAP_PHASES]
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -1345,6 +1377,9 @@ def build_project_memory_guard_report(
         V2_R9_VALIDATED_STATE,
         V2_R9_FINAL_STATE,
         V2_R10_APPROVAL_STATE,
+        V2_R10_DELIVERY_STATE,
+        V2_R10_VALIDATED_STATE,
+        V2_R10_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -1485,6 +1520,12 @@ def build_project_memory_guard_report(
             if current_truth == V2_R9_FINAL_STATE
             else V2_R10_APPROVAL_ROADMAP
             if current_truth == V2_R10_APPROVAL_STATE
+            else V2_R10_DELIVERY_ROADMAP
+            if current_truth == V2_R10_DELIVERY_STATE
+            else V2_R10_VALIDATED_ROADMAP
+            if current_truth == V2_R10_VALIDATED_STATE
+            else V2_R10_FINAL_ROADMAP
+            if current_truth == V2_R10_FINAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
@@ -1533,6 +1574,10 @@ def build_project_memory_guard_report(
             current_truth == V2_R10_APPROVAL_STATE
             and all(line in gap for line in GAP_ROADMAP_R10_APPROVAL_LINES)
         )
+        or (
+            current_truth in (V2_R10_DELIVERY_STATE, V2_R10_VALIDATED_STATE)
+            and all(line in gap for line in GAP_ROADMAP_R10_DELIVERY_LINES)
+        )
         or current_truth
         not in (
             V2_R6_FINAL_STATE,
@@ -1549,6 +1594,8 @@ def build_project_memory_guard_report(
             V2_R9_VALIDATED_STATE,
             V2_R9_FINAL_STATE,
             V2_R10_APPROVAL_STATE,
+            V2_R10_DELIVERY_STATE,
+            V2_R10_VALIDATED_STATE,
         ),
         "status_definitions_synchronized": all(
             f"`{status}`" in architecture
@@ -1997,12 +2044,18 @@ def build_project_memory_guard_report(
             in architecture
         ),
         "v2_r10_approval_exact_across_authorities": current_truth
-        != V2_R10_APPROVAL_STATE
+        not in (V2_R10_APPROVAL_STATE, V2_R10_DELIVERY_STATE, V2_R10_VALIDATED_STATE, V2_R10_FINAL_STATE)
         or (
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(
                 authority_texts, V2_R10_APPROVAL_START, V2_R10_APPROVAL_END
             )
+        ),
+        "v2_r10_lock_exact_across_authorities": current_truth
+        not in (V2_R10_DELIVERY_STATE, V2_R10_VALIDATED_STATE, V2_R10_FINAL_STATE)
+        or (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and blocks_are_exact(authority_texts, V2_R10_LOCK_START, V2_R10_LOCK_END)
         ),
         "canonical_roadmap_records_v2_r6_approval": current_truth
         not in (
