@@ -208,11 +208,11 @@ factor is activated.
 | V2-R36 | Local Institutional Factor Lifecycle Foundation | COMPLETED / REGISTERED_LOCAL_FACTOR_GOVERNANCE_ONLY |
 | V2-R37 | Local Factor Validation Evidence Foundation | COMPLETED / REGISTERED_LOCAL_FACTOR_VALIDATION_EVIDENCE_ONLY |
 | V2-R38 | Local Operator Factor Governance Projection Foundation | COMPLETED / REGISTERED_LOCAL_OPERATOR_GOVERNANCE_PROJECTION_ONLY |
-| V2-R39 | Browser Operator Factor Governance Projection Integration | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_BROWSER_GOVERNANCE_PROJECTION_ONLY |
+| V2-R39 | Browser Operator Factor Governance Projection Integration | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_PROJECTION_ONLY |
 
-Next product implementation phase: V2-R39 / APPROVED.
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
 
-No successor phase after V2-R39 starts automatically.
+No successor phase starts automatically.
 
 ## Entry Gate
 
