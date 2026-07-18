@@ -204,10 +204,11 @@ factor is activated.
 | V2-R32 | Local Institutional Crowding Foundation | COMPLETED / REGISTERED_LOCAL_INSTITUTIONAL_CROWDING_EVIDENCE_ONLY |
 | V2-R33 | Local Holiday Liquidity State Foundation | COMPLETED / REGISTERED_LOCAL_HOLIDAY_LIQUIDITY_EVIDENCE_ONLY |
 | V2-R34 | Local Policy Window Language Evidence Foundation | COMPLETED / REGISTERED_LOCAL_POLICY_LANGUAGE_EVIDENCE_ONLY |
+| V2-R35 | Local Evidence Integrity Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_EVIDENCE_INTEGRITY_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R35 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R35 starts automatically.
 
 ## Entry Gate
 
