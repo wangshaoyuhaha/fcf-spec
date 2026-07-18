@@ -507,6 +507,11 @@ V2_R20_FINAL_START = (
 V2_R20_FINAL_END = (
     "<!-- V2-R20 LOCAL TRIPLE EXPONENTIAL OSCILLATOR FOUNDATION APP 1 FINAL END -->"
 )
+V2_R20_FINAL_EVIDENCE_COMMITS = (
+    "9d744466226458fff744c1c195fc7d086189e296",
+    "c19754260e4b063122c21e22d9eca4bdecc08ac3",
+    "0446f4efe0931e52f432a131fbcb2ec77855b303",
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -3633,6 +3638,18 @@ def build_project_memory_guard_report(
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(
                 authority_texts, V2_R20_FINAL_START, V2_R20_FINAL_END
+            )
+        ),
+        "v2_r20_final_evidence_commits_exact": current_truth
+        != V2_R20_FINAL_STATE
+        or (
+            bool(V2_R20_FINAL_EVIDENCE_COMMITS)
+            and len(v2_r20_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in v2_r20_final_blocks)
+            and all(
+                all(commit in block for commit in V2_R20_FINAL_EVIDENCE_COMMITS)
+                for block in v2_r20_final_blocks
+                if block is not None
             )
         ),
         "canonical_roadmap_records_v2_r20_complete": current_truth
