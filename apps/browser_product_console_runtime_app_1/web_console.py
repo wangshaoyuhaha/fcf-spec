@@ -615,6 +615,48 @@ Candidate information is research evidence only. Operator review is required.
 promote, activate a factor, or create an action.</p>
 </section>
 """
+        review_queue = model.review_queue
+        if review_queue is None:
+            raise ValueError("Governance review queue is required")
+        queue_rows = []
+        for item in review_queue.items:
+            reasons = "".join(
+                f'<span class="badge">{_escape(reason)}</span>'
+                for reason in item.reason_codes
+            )
+            queue_rows.append(
+                "<tr>"
+                f"<td>{_escape(item.attention_class)}</td>"
+                f"<td>{_escape(item.candidate_id)}</td>"
+                f"<td>{_escape(item.factor_id)}</td>"
+                f"<td>{_escape(item.market)}</td>"
+                f"<td>{_escape(item.state)}</td>"
+                f"<td>{_escape(item.confidence)}</td>"
+                f"<td>{reasons}</td>"
+                f"<td><code>{_escape(item.projection_hash)}</code></td>"
+                "</tr>"
+            )
+        queue_table = (
+            """
+<table>
+<thead><tr><th>Attention class</th><th>Candidate</th><th>Factor</th>
+<th>Market</th><th>State</th><th>Confidence</th><th>Reason codes</th>
+<th>Projection hash</th></tr></thead>
+<tbody>{rows}</tbody>
+</table>
+""".format(rows="".join(queue_rows))
+            if queue_rows
+            else "<p>No registered governance review items.</p>"
+        )
+        review_queue_card = f"""
+<section class="card governance-review-queue">
+<h2>Operator Governance Review Queue</h2>
+<p>Queue state: <span class="state">{_escape(review_queue.status)}</span></p>
+<p>Items are ordered deterministically as blocked, incomplete, then review
+required. This queue is read-only and cannot approve or activate a factor.</p>
+{queue_table}
+</section>
+"""
         projection_sections = []
         for projection in model.projection_presentations:
             field_rows = []
@@ -712,6 +754,7 @@ promote, activate a factor, or create an action.</p>
 <p>{counts}</p>
 </section>
 {attention_card}
+{review_queue_card}
 {''.join(projection_sections)}
 {table}
 <section class="notice">
