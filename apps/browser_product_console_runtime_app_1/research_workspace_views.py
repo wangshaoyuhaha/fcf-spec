@@ -31,6 +31,9 @@ _AI_COMPARISON_ARTIFACT_TYPES = frozenset(
     {"ai_explanation", "ai_evaluation"}
 )
 _GOVERNANCE_ARTIFACT_TYPES = frozenset(
+    {"factor_governance_projection", "model_governance", "policy_snapshot"}
+)
+_REQUIRED_GOVERNANCE_ARTIFACT_TYPES = frozenset(
     {"model_governance", "policy_snapshot"}
 )
 _AUDIT_ARTIFACT_TYPES = frozenset(
@@ -651,6 +654,8 @@ def build_governance_workspace_model(
                     "model_id",
                     "policy_name",
                     "policy_id",
+                    "candidate_id",
+                    "factor_id",
                     "subject",
                 ),
                 record.artifact_id,
@@ -685,7 +690,7 @@ def build_governance_workspace_model(
 
     if not items:
         state = "NO_REGISTERED_GOVERNANCE"
-    elif present_types == _GOVERNANCE_ARTIFACT_TYPES:
+    elif _REQUIRED_GOVERNANCE_ARTIFACT_TYPES <= present_types:
         state = "AVAILABLE"
     else:
         state = "INCOMPLETE"
