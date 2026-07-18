@@ -6732,3 +6732,39 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R17 LOCAL STOCHASTIC OSCILLATOR FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R18 LOCAL DIRECTIONAL TREND STRENGTH FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R18 Local Directional Trend Strength Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1 boundary, R15 OHLC dependency, window, Wilder smoothing, and flat formula lock
+- D2 immutable ADX metric policy and registered-local source contract
+- D3 deterministic positive DI, negative DI, DX, and ADX metrics
+- D4 fail-closed registry, identity, time, history, and numeric validation
+- D5 append-only evidence, read-only presentation, and Operator review
+- D6 guards, tests, cleanup, sidecar merge, and final state synchronization
+
+Readiness gate:
+
+- dependency: completed V2-R11 registry and V2-R15 OHLC evidence contract
+- data rights: registered local fixtures only
+- formulas: Wilder TR and directional movement; initial and recursive ADX; flat result 0
+- history: at least two times the configured window
+- authority: Deterministic Engine calculates; Registered Evidence is authoritative
+- labels: metric output only; no trend label, direction claim, threshold, rank, or signal
+- tests: ADX metrics, flat history, insufficient, future, mismatch, and duplicate
+- rollback: new V2-R18 Sidecar and exact governed files only
+
+This is a bounded seventh indicator pack, not the complete technical indicator
+library. V2-FR-GAP-008 remains open.
+
+V2-R1 through V2-R17 remain COMPLETED. V2-R18 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R18 LOCAL DIRECTIONAL TREND STRENGTH FOUNDATION APP 1 APPROVAL END -->

@@ -782,6 +782,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   REGISTERED_LOCAL_CHANNEL_CALCULATION_ONLY
 - V2-R17: Local Stochastic Oscillator Foundation; COMPLETED /
   REGISTERED_LOCAL_STOCHASTIC_CALCULATION_ONLY
+- V2-R18: Local Directional Trend Strength Foundation; APPROVED / NOT_STARTED /
+  REGISTERED_LOCAL_DIRECTIONAL_STRENGTH_CALCULATION_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
