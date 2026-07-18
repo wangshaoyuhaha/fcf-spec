@@ -331,6 +331,31 @@ P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R31 LOCAL FX TRANSMISSION SENSITIVITY FOUNDATION APP 1 APPROVAL END -->
 
+<!-- V2-R31 LOCAL FX TRANSMISSION SENSITIVITY FOUNDATION APP 1 LOCK START -->
+
+## V2-R31 Local FX Transmission Sensitivity Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered D1-D6:
+
+- D1: closed registered-local FX-transmission evidence authority boundary
+- D2: immutable paired asset, FX, DXY, rate, and lineage contracts
+- D3: append-only registry with R23-R25 lineage
+- D4: deterministic covariance, variance, beta, and correlation metrics
+- D5: missing, insufficient, stale, conflict, no-flow, and no-causal preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+The delivery remains registered local evidence only. Sensitivity is not foreign
+flow, causation, direction, score, signal, recommendation, or factor activation.
+V2-FR-GAP-080 remains open at production scope.
+
+No live source, network, model, automatic learning, account, order, or execution exists.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R31 LOCAL FX TRANSMISSION SENSITIVITY FOUNDATION APP 1 LOCK END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final
