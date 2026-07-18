@@ -46,6 +46,7 @@ from scripts.control_center_project_memory_guard import (
     GAP_ROADMAP_R17_DELIVERY_LINES,
     GAP_ROADMAP_R17_FINAL_LINES,
     GAP_ROADMAP_R18_APPROVAL_LINES,
+    GAP_ROADMAP_R18_DELIVERY_LINES,
     MEMORY_FINAL_END,
     MEMORY_FINAL_START,
     MEMORY_LOCK_END,
@@ -310,6 +311,10 @@ from scripts.control_center_project_memory_guard import (
     V2_R18_APPROVAL_ROADMAP,
     V2_R18_APPROVAL_START,
     V2_R18_APPROVAL_STATE,
+    V2_R18_DELIVERY_ROADMAP,
+    V2_R18_DELIVERY_STATE,
+    V2_R18_LOCK_END,
+    V2_R18_LOCK_START,
     blocks_are_exact,
     build_project_memory_guard_report,
     extract_single_block,
@@ -349,12 +354,12 @@ def test_current_state_manifest_has_exact_file_roles_and_safety():
     assert all((ROOT / path).is_file() for path in EXPECTED_FILE_ROLES.values())
 
 
-def test_current_state_manifest_records_exact_v2_r18_approval_state():
+def test_current_state_manifest_records_exact_v2_r18_delivery_state():
     manifest = load_manifest(ROOT)
     truth = manifest["current_truth"]
 
-    assert truth == V2_R18_APPROVAL_STATE
-    assert manifest["roadmap"] == V2_R18_APPROVAL_ROADMAP
+    assert truth == V2_R18_DELIVERY_STATE
+    assert manifest["roadmap"] == V2_R18_DELIVERY_ROADMAP
 
 
 def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
@@ -368,7 +373,7 @@ def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
     assert gap_statuses_are_valid(gap)
     assert rows["V2-FR-GAP-041"] == "OUTSIDE_CURRENT_AUTHORIZATION"
     assert rows["V2-FR-GAP-065"] == "OUTSIDE_CURRENT_AUTHORIZATION"
-    assert all(line in gap for line in GAP_ROADMAP_R18_APPROVAL_LINES)
+    assert all(line in gap for line in GAP_ROADMAP_R18_DELIVERY_LINES)
 
 
 def test_unknown_gap_status_is_rejected():
@@ -695,6 +700,7 @@ def test_v2_r1_approval_is_exact_across_authorities():
     assert blocks_are_exact(
         texts, V2_R18_APPROVAL_START, V2_R18_APPROVAL_END
     )
+    assert blocks_are_exact(texts, V2_R18_LOCK_START, V2_R18_LOCK_END)
 
 
 def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
@@ -707,7 +713,7 @@ def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
         "HISTORICAL_COMPLETED_SEQUENCE_NOT_CURRENT_NEXT_PHASE_AUTHORITY"
     )
     assert parsed["current_truth"]["next_product_phase_approval"] == (
-        V2_R18_APPROVAL_STATE["next_product_phase_approval"]
+        V2_R18_DELIVERY_STATE["next_product_phase_approval"]
     )
 
 
