@@ -8389,3 +8389,22 @@ No successor phase is selected. Permanent safety boundaries remain binding.
 No tag, release, or deployment is authorized.
 
 <!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 APPROVAL END -->
++
+
+<!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 LOCK START -->
+
+## V2-R21 Local Robust Normalization Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered boundary: R11 registry reference, registered-local factor points,
+explicit missing states, deterministic Decimal median, MAD, winsorization,
+robust Z-score, fail-closed evidence, append-only ledger, read-only
+presentation, Operator acceptance, tests, and repository guard.
+
+This remains a bounded normalization foundation. V2-FR-GAP-009 remains open.
+No direction, weight, score, rank, recommendation, prediction, live source,
+network, model, Prompt, learning, account, order, or execution was added.
+P1-P47 frozen. No P48. Operator review required.
+
+<!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 LOCK END -->
