@@ -578,6 +578,36 @@ wallet, order, execution, tag, release, or deployment was added or run.
 
 <!-- V2-R33 LOCAL HOLIDAY LIQUIDITY STATE FOUNDATION APP 1 FINAL END -->
 
+<!-- V2-R34 LOCAL POLICY WINDOW LANGUAGE EVIDENCE FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R34 Local Policy Window Language Evidence Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed registered-local policy-language evidence authority boundary
+- D2: immutable official-document token, digest, time, and lineage contracts
+- D3: append-only registry with registered policy-event lineage
+- D4: deterministic added, removed, retained, union, and novelty metrics
+- D5: missing, stale, conflict, future, no-direction, and no-benefit states
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is Module 6 policy-window language evidence foundation only. It
+supplies a local foundation toward V2-FR-GAP-083 but does not close the
+production event-study gap or activate POLICY_NOVELTY_ALIGNMENT.
+
+No semantic direction, industry benefit, policy causation, automatic taxonomy
+mapping, live source, network, weight, score, rank, alert, recommendation,
+prediction, model, Prompt, learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R33 remain COMPLETED. V2-R34 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R34 LOCAL POLICY WINDOW LANGUAGE EVIDENCE FOUNDATION APP 1 APPROVAL END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final

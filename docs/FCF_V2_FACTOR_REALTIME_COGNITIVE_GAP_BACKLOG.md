@@ -203,10 +203,11 @@ factor is activated.
 | V2-R31 | Local FX Transmission Sensitivity Foundation | COMPLETED / REGISTERED_LOCAL_FX_TRANSMISSION_EVIDENCE_ONLY |
 | V2-R32 | Local Institutional Crowding Foundation | COMPLETED / REGISTERED_LOCAL_INSTITUTIONAL_CROWDING_EVIDENCE_ONLY |
 | V2-R33 | Local Holiday Liquidity State Foundation | COMPLETED / REGISTERED_LOCAL_HOLIDAY_LIQUIDITY_EVIDENCE_ONLY |
+| V2-R34 | Local Policy Window Language Evidence Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_POLICY_LANGUAGE_EVIDENCE_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R34 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R34 starts automatically.
 
 ## Entry Gate
 
