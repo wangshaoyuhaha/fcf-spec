@@ -6975,3 +6975,39 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R20 LOCAL TRIPLE EXPONENTIAL OSCILLATOR FOUNDATION APP 1 FINAL END -->
++
+
+<!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R21 Local Robust Normalization Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1 boundary, R11 factor reference, local observation, and missing-state lock
+- D2 immutable normalization policy and registered-local observation contract
+- D3 deterministic median, MAD, winsorized value, and robust Z-score metrics
+- D4 fail-closed registry, identity, time, history, and numeric validation
+- D5 append-only evidence, read-only presentation, and Operator review
+- D6 guards, tests, cleanup, sidecar merge, and final state synchronization
+
+Readiness gate:
+
+- dependency: completed V2-R11 factor registry foundation
+- data rights: registered local fixtures only
+- formulas: median; median absolute deviation; bounded MAD winsorization; robust Z
+- missing: true zero differs from not-applicable, unpublished, missing, and failure
+- authority: Deterministic Engine calculates; Registered Evidence is authoritative
+- output: normalization metrics only; no direction, weight, score, rank, or signal
+- tests: exact, flat, outlier, missing, insufficient, future, mismatch, and duplicate
+- rollback: new V2-R21 Sidecar and exact governed files only
+
+This is a bounded normalization foundation, not the complete normalization and
+missing-state implementation. V2-FR-GAP-009 remains open.
+
+V2-R1 through V2-R20 remain COMPLETED. V2-R21 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 APPROVAL END -->

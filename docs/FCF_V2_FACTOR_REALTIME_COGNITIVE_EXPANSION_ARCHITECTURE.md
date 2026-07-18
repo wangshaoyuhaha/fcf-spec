@@ -788,6 +788,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   REGISTERED_LOCAL_PERCENTAGE_OSCILLATOR_CALCULATION_ONLY
 - V2-R20: Local Triple Exponential Oscillator Foundation; COMPLETED /
   REGISTERED_LOCAL_TRIPLE_EXPONENTIAL_OSCILLATOR_CALCULATION_ONLY
+- V2-R21: Local Robust Normalization Foundation; APPROVED / NOT_STARTED /
+  REGISTERED_LOCAL_ROBUST_NORMALIZATION_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
