@@ -717,6 +717,13 @@ V2_R39_FINAL_EVIDENCE_COMMITS = (
     "125dbde705fa48a3c2eb72d8187cd4c126de8212",
     "372a866682574e7cf4f352ac45ba325b4509e4ec",
 )
+V2_R40_APPROVAL_START = "<!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 APPROVAL START -->"
+V2_R40_APPROVAL_END = "<!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 APPROVAL END -->"
+V2_R40_LOCK_START = "<!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 LOCK START -->"
+V2_R40_LOCK_END = "<!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 LOCK END -->"
+V2_R40_FINAL_START = "<!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 FINAL START -->"
+V2_R40_FINAL_END = "<!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 FINAL END -->"
+V2_R40_FINAL_EVIDENCE_COMMITS = ()
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -1145,6 +1152,21 @@ GAP_ROADMAP_R39_DELIVERY_LINES = (
 )
 GAP_ROADMAP_R39_FINAL_LINES = (
     "| V2-R39 | Browser Operator Factor Governance Projection Integration | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_PROJECTION_ONLY |",
+    "Next product implementation phase: NOT_SELECTED / NOT_APPROVED.",
+    "No successor phase starts automatically.",
+)
+GAP_ROADMAP_R40_APPROVAL_LINES = (
+    "| V2-R40 | Browser Factor Governance Field Presentation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_FIELD_PRESENTATION_ONLY |",
+    "Next product implementation phase: V2-R40 / APPROVED.",
+    "No successor phase after V2-R40 starts automatically.",
+)
+GAP_ROADMAP_R40_DELIVERY_LINES = (
+    "| V2-R40 | Browser Factor Governance Field Presentation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_BROWSER_GOVERNANCE_FIELD_PRESENTATION_ONLY |",
+    "Next product implementation phase: V2-R40 / APPROVED.",
+    "No successor phase after V2-R40 starts automatically.",
+)
+GAP_ROADMAP_R40_FINAL_LINES = (
+    "| V2-R40 | Browser Factor Governance Field Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_FIELD_PRESENTATION_ONLY |",
     "Next product implementation phase: NOT_SELECTED / NOT_APPROVED.",
     "No successor phase starts automatically.",
 )
@@ -3113,6 +3135,31 @@ V2_R39_FINAL_STATE = {
     "next_product_phase_approval": "NOT_APPROVED",
 }
 V2_R39_FINAL_ROADMAP = [{"phase_id": phase, "status": "COMPLETED"} for phase in V2_R39_ROADMAP_PHASES]
+V2_R40_ROADMAP_PHASES = (*V2_R39_ROADMAP_PHASES, "V2-R40")
+V2_R40_APPROVAL_STATE = {
+    "current_governance_phase_id": "V2-R40-BROWSER-FACTOR-GOVERNANCE-FIELD-PRESENTATION-APP-1",
+    "current_governance_phase_status": "PRODUCT_PHASE_APPROVED_NOT_STARTED",
+    "current_product_implementation_phase": "V2-R40",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "latest_completed_product_phase": "V2-R39-BROWSER-OPERATOR-FACTOR-GOVERNANCE-PROJECTION-INTEGRATION-APP-1",
+    "next_product_implementation_phase": "V2-R40",
+    "next_product_phase_approval": "APPROVED",
+}
+V2_R40_APPROVAL_ROADMAP = [{"phase_id": phase, "status": "APPROVED_NOT_STARTED" if phase == "V2-R40" else "COMPLETED"} for phase in V2_R40_ROADMAP_PHASES]
+V2_R40_DELIVERY_STATE = {**V2_R40_APPROVAL_STATE, "current_governance_phase_status": "PRODUCT_DELIVERY_IMPLEMENTED_PENDING_VALIDATION"}
+V2_R40_DELIVERY_ROADMAP = [{"phase_id": phase, "status": "IMPLEMENTED_PENDING_VALIDATION" if phase == "V2-R40" else "COMPLETED"} for phase in V2_R40_ROADMAP_PHASES]
+V2_R40_VALIDATED_STATE = {**V2_R40_APPROVAL_STATE, "current_governance_phase_status": "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE"}
+V2_R40_VALIDATED_ROADMAP = [{"phase_id": phase, "status": "VALIDATED_PENDING_MERGE" if phase == "V2-R40" else "COMPLETED"} for phase in V2_R40_ROADMAP_PHASES]
+V2_R40_FINAL_STATE = {
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
+    "current_product_implementation_phase": "NONE",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "latest_completed_product_phase": "V2-R40-BROWSER-FACTOR-GOVERNANCE-FIELD-PRESENTATION-APP-1",
+    "next_product_implementation_phase": "NOT_SELECTED",
+    "next_product_phase_approval": "NOT_APPROVED",
+}
+V2_R40_FINAL_ROADMAP = [{"phase_id": phase, "status": "COMPLETED"} for phase in V2_R40_ROADMAP_PHASES]
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -3319,6 +3366,7 @@ def build_project_memory_guard_report(
         V2_R37_APPROVAL_STATE, V2_R37_DELIVERY_STATE, V2_R37_VALIDATED_STATE, V2_R37_FINAL_STATE,
         V2_R38_APPROVAL_STATE, V2_R38_DELIVERY_STATE, V2_R38_VALIDATED_STATE, V2_R38_FINAL_STATE,
         V2_R39_APPROVAL_STATE, V2_R39_DELIVERY_STATE, V2_R39_VALIDATED_STATE, V2_R39_FINAL_STATE,
+        V2_R40_APPROVAL_STATE, V2_R40_DELIVERY_STATE, V2_R40_VALIDATED_STATE, V2_R40_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -3427,6 +3475,7 @@ def build_project_memory_guard_report(
     v2_r37_final_blocks = tuple(extract_single_block(text, V2_R37_FINAL_START, V2_R37_FINAL_END) for text in authority_texts)
     v2_r38_final_blocks = tuple(extract_single_block(text, V2_R38_FINAL_START, V2_R38_FINAL_END) for text in authority_texts)
     v2_r39_final_blocks = tuple(extract_single_block(text, V2_R39_FINAL_START, V2_R39_FINAL_END) for text in authority_texts)
+    v2_r40_final_blocks = tuple(extract_single_block(text, V2_R40_FINAL_START, V2_R40_FINAL_END) for text in authority_texts)
     file_roles = manifest.get("canonical_file_roles")
     statuses = manifest.get("future_capability_statuses")
     historical = manifest.get("historical_registry")
@@ -3688,6 +3737,10 @@ def build_project_memory_guard_report(
             else V2_R39_DELIVERY_ROADMAP if current_truth == V2_R39_DELIVERY_STATE
             else V2_R39_VALIDATED_ROADMAP if current_truth == V2_R39_VALIDATED_STATE
             else V2_R39_FINAL_ROADMAP if current_truth == V2_R39_FINAL_STATE
+            else V2_R40_APPROVAL_ROADMAP if current_truth == V2_R40_APPROVAL_STATE
+            else V2_R40_DELIVERY_ROADMAP if current_truth == V2_R40_DELIVERY_STATE
+            else V2_R40_VALIDATED_ROADMAP if current_truth == V2_R40_VALIDATED_STATE
+            else V2_R40_FINAL_ROADMAP if current_truth == V2_R40_FINAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
@@ -3915,6 +3968,9 @@ def build_project_memory_guard_report(
         or (current_truth == V2_R39_APPROVAL_STATE and all(line in gap for line in GAP_ROADMAP_R39_APPROVAL_LINES))
         or (current_truth in (V2_R39_DELIVERY_STATE, V2_R39_VALIDATED_STATE) and all(line in gap for line in GAP_ROADMAP_R39_DELIVERY_LINES))
         or (current_truth == V2_R39_FINAL_STATE and all(line in gap for line in GAP_ROADMAP_R39_FINAL_LINES))
+        or (current_truth == V2_R40_APPROVAL_STATE and all(line in gap for line in GAP_ROADMAP_R40_APPROVAL_LINES))
+        or (current_truth in (V2_R40_DELIVERY_STATE, V2_R40_VALIDATED_STATE) and all(line in gap for line in GAP_ROADMAP_R40_DELIVERY_LINES))
+        or (current_truth == V2_R40_FINAL_STATE and all(line in gap for line in GAP_ROADMAP_R40_FINAL_LINES))
         or current_truth
         not in (
             V2_R6_FINAL_STATE,
@@ -3986,6 +4042,7 @@ def build_project_memory_guard_report(
             V2_R37_APPROVAL_STATE, V2_R37_DELIVERY_STATE, V2_R37_VALIDATED_STATE, V2_R37_FINAL_STATE,
             V2_R38_APPROVAL_STATE, V2_R38_DELIVERY_STATE, V2_R38_VALIDATED_STATE, V2_R38_FINAL_STATE,
             V2_R39_APPROVAL_STATE, V2_R39_DELIVERY_STATE, V2_R39_VALIDATED_STATE, V2_R39_FINAL_STATE,
+            V2_R40_APPROVAL_STATE, V2_R40_DELIVERY_STATE, V2_R40_VALIDATED_STATE, V2_R40_FINAL_STATE,
         ),
         "status_definitions_synchronized": all(
             f"`{status}`" in architecture
@@ -5045,6 +5102,13 @@ def build_project_memory_guard_report(
         "canonical_roadmap_records_v2_r39_approval": current_truth != V2_R39_APPROVAL_STATE or ("- V2-R39: Browser Operator Factor Governance Projection Integration;" in architecture and "APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_PROJECTION_ONLY" in architecture),
         "canonical_roadmap_records_v2_r39_delivery": current_truth not in (V2_R39_DELIVERY_STATE, V2_R39_VALIDATED_STATE) or ("- V2-R39: Browser Operator Factor Governance Projection Integration;" in architecture and "IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_BROWSER_GOVERNANCE_PROJECTION_ONLY" in architecture),
         "canonical_roadmap_records_v2_r39_complete": current_truth != V2_R39_FINAL_STATE or ("- V2-R39: Browser Operator Factor Governance Projection Integration;" in architecture and "COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_PROJECTION_ONLY" in architecture),
+        "v2_r40_approval_exact_across_authorities": current_truth not in (V2_R40_APPROVAL_STATE, V2_R40_DELIVERY_STATE, V2_R40_VALIDATED_STATE, V2_R40_FINAL_STATE) or blocks_are_exact(authority_texts, V2_R40_APPROVAL_START, V2_R40_APPROVAL_END),
+        "v2_r40_lock_exact_across_authorities": current_truth not in (V2_R40_DELIVERY_STATE, V2_R40_VALIDATED_STATE, V2_R40_FINAL_STATE) or blocks_are_exact(authority_texts, V2_R40_LOCK_START, V2_R40_LOCK_END),
+        "v2_r40_final_exact_across_authorities": current_truth != V2_R40_FINAL_STATE or blocks_are_exact(authority_texts, V2_R40_FINAL_START, V2_R40_FINAL_END),
+        "v2_r40_final_evidence_commits_exact": current_truth != V2_R40_FINAL_STATE or (bool(V2_R40_FINAL_EVIDENCE_COMMITS) and all(block is not None for block in v2_r40_final_blocks) and all(all(commit in block for commit in V2_R40_FINAL_EVIDENCE_COMMITS) for block in v2_r40_final_blocks if block is not None)),
+        "canonical_roadmap_records_v2_r40_approval": current_truth != V2_R40_APPROVAL_STATE or ("- V2-R40: Browser Factor Governance Field Presentation;" in architecture and "APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_FIELD_PRESENTATION_ONLY" in architecture),
+        "canonical_roadmap_records_v2_r40_delivery": current_truth not in (V2_R40_DELIVERY_STATE, V2_R40_VALIDATED_STATE) or ("- V2-R40: Browser Factor Governance Field Presentation;" in architecture and "IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_BROWSER_GOVERNANCE_FIELD_PRESENTATION_ONLY" in architecture),
+        "canonical_roadmap_records_v2_r40_complete": current_truth != V2_R40_FINAL_STATE or ("- V2-R40: Browser Factor Governance Field Presentation;" in architecture and "COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_FIELD_PRESENTATION_ONLY" in architecture),
         "canonical_roadmap_records_v2_r6_approval": current_truth
         not in (
             V2_R6_APPROVAL_STATE,

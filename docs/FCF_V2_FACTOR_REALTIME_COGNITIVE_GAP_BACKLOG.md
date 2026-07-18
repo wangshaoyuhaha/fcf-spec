@@ -209,10 +209,11 @@ factor is activated.
 | V2-R37 | Local Factor Validation Evidence Foundation | COMPLETED / REGISTERED_LOCAL_FACTOR_VALIDATION_EVIDENCE_ONLY |
 | V2-R38 | Local Operator Factor Governance Projection Foundation | COMPLETED / REGISTERED_LOCAL_OPERATOR_GOVERNANCE_PROJECTION_ONLY |
 | V2-R39 | Browser Operator Factor Governance Projection Integration | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_PROJECTION_ONLY |
+| V2-R40 | Browser Factor Governance Field Presentation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_FIELD_PRESENTATION_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R40 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R40 starts automatically.
 
 ## Entry Gate
 
