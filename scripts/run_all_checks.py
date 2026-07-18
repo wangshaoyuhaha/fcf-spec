@@ -37,6 +37,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r16_local_range_channel_indicator_guard.py"],
     ["python", "scripts/control_center_v2_r17_local_stochastic_oscillator_guard.py"],
     ["python", "scripts/control_center_v2_r18_local_directional_trend_strength_guard.py"],
+    ["python", "scripts/control_center_v2_r19_local_percentage_price_oscillator_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
