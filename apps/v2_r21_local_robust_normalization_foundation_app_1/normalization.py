@@ -6,7 +6,7 @@ from decimal import Decimal, ROUND_HALF_EVEN, localcontext
 from apps.v2_r2_historical_factor_baseline_app_1.contracts import instant, utc
 from apps.v2_r11_local_factor_registry_foundation_app_1 import FactorRegistryEvidence
 
-from .contracts import NormalizationPolicy, RegisteredFactorSeries
+from .contracts import MISSING_STATES, NormalizationPolicy, RegisteredFactorSeries
 
 
 def _median(values: tuple[Decimal, ...]) -> Decimal:
@@ -41,6 +41,27 @@ class NormalizationEvidence:
     evaluated_at_utc: str
     operator_review_required: bool
     evidence_hash: str
+
+    def __post_init__(self) -> None:
+        if self.state not in {"NORMALIZATION_READY", "MISSING_STATE_RECORDED", "BLOCKED"}:
+            raise ValueError("invalid normalization evidence state")
+        if self.missing_state not in MISSING_STATES:
+            raise ValueError("invalid normalization evidence missing state")
+        if self.operator_review_required is not True:
+            raise ValueError("normalization evidence requires Operator review")
+        if len(self.evidence_hash) != 64 or any(character not in "0123456789abcdef" for character in self.evidence_hash):
+            raise ValueError("evidence_hash must be lowercase SHA-256")
+        metrics = (self.median, self.mad, self.winsorized_value, self.robust_z_score)
+        if self.state == "NORMALIZATION_READY":
+            if self.missing_state != "AVAILABLE" or any(metric is None for metric in metrics):
+                raise ValueError("ready normalization evidence requires available metrics")
+            if self.reason_codes != ("REGISTERED_LOCAL_ROBUST_NORMALIZATION_READY",):
+                raise ValueError("ready normalization evidence requires exact reason")
+        elif any(metric is not None for metric in metrics):
+            raise ValueError("non-ready normalization evidence cannot carry metrics")
+        if self.state == "MISSING_STATE_RECORDED":
+            if self.missing_state == "AVAILABLE" or len(self.reason_codes) != 1 or not self.reason_codes[0].startswith("TARGET_"):
+                raise ValueError("missing-state evidence is inconsistent")
 
 
 def build_normalization(series: RegisteredFactorSeries, registry: FactorRegistryEvidence, policy: NormalizationPolicy, *, as_of_utc: str) -> NormalizationEvidence:

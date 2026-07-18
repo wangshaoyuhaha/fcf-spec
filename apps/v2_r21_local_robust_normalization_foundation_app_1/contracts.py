@@ -54,6 +54,8 @@ class RegisteredFactorSeries:
             raise ValueError("factor series must be nonempty")
         if len({point.factor_definition_ref for point in self.points}) != 1:
             raise ValueError("factor series definition mismatch")
+        if len({point.instrument_id for point in self.points}) != 1:
+            raise ValueError("factor series instrument mismatch")
         ids = tuple(point.point_id for point in self.points)
         times = tuple(instant(point.observed_at_utc) for point in self.points)
         if len(set(ids)) != len(ids) or len(set(times)) != len(times) or tuple(sorted(times)) != times:
@@ -62,6 +64,10 @@ class RegisteredFactorSeries:
     @property
     def factor_definition_ref(self) -> str:
         return self.points[0].factor_definition_ref
+
+    @property
+    def instrument_id(self) -> str:
+        return self.points[0].instrument_id
 
 
 @dataclass(frozen=True)

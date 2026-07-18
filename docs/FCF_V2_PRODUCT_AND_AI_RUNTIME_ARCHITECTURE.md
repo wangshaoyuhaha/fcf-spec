@@ -8471,3 +8471,20 @@ No successor phase is selected. Permanent safety boundaries remain binding.
 No tag, release, or deployment is authorized.
 
 <!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 APPROVAL END -->
++
+
+<!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 LOCK START -->
+
+## V2-R22 Local Robust Normalization Integrity Hardening App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered: single-instrument series identity and immutable evidence state,
+missing-state, metric, Operator-review, and SHA-256 invariants. Regression tests
+and a repository guard cover every repaired gap. The normalization formula is
+unchanged and V2-FR-GAP-009 remains open.
+
+No feature, network, model, account, order, or execution path was added.
+P1-P47 frozen. No P48. Operator review required.
+
+<!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 LOCK END -->

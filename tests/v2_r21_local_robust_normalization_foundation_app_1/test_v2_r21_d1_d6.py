@@ -1,4 +1,4 @@
-from dataclasses import FrozenInstanceError
+from dataclasses import FrozenInstanceError, replace
 from decimal import Decimal
 from types import MappingProxyType
 
@@ -74,6 +74,24 @@ def test_d4_registry_factor_and_target_identity_are_required() -> None:
     assert _build(policy=_policy(registry_version="v2")).reason_codes == ("REGISTRY_IDENTITY_MISMATCH",)
     assert _build(policy=_policy(factor_definition_ref="missing@v1")).reason_codes == ("FACTOR_DEFINITION_NOT_REGISTERED",)
     assert _build(policy=_policy(target_point_id="missing-point")).reason_codes == ("TARGET_POINT_NOT_REGISTERED",)
+
+
+def test_r22_series_rejects_mixed_instrument_identity() -> None:
+    series = _series((1, 2, 3, 4))
+    point = series.points[-1]
+    mixed = RegisteredFactorPoint(point.point_id, point.factor_definition_ref, "registered-btc", point.observed_at_utc, point.available_at_utc, point.value, point.missing_state, point.source_artifact_hash)
+    with pytest.raises(ValueError, match="instrument mismatch"):
+        RegisteredFactorSeries(series.series_id, (*series.points[:-1], mixed))
+
+
+def test_r22_evidence_rejects_open_review_invalid_hash_and_metric_state() -> None:
+    evidence = _build()
+    with pytest.raises(ValueError, match="Operator review"):
+        replace(evidence, operator_review_required=False)
+    with pytest.raises(ValueError, match="SHA-256"):
+        replace(evidence, evidence_hash="bad")
+    with pytest.raises(ValueError, match="cannot carry metrics"):
+        replace(evidence, state="BLOCKED")
 
 
 def test_d5_ledger_rejects_duplicate_and_invalid_capacity() -> None:
