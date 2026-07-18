@@ -1,6 +1,36 @@
 <!-- BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 APPROVAL START -->
 
 
+<!-- V2-R26 LOCAL CONSENSUS EXPECTATION GAP FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R26 Local Consensus Expectation Gap Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed registered-local expectation-evidence authority boundary
+- D2: immutable provider, consensus, actual, reference, and missing contracts
+- D3: append-only revision registry with R23 event lineage
+- D4: deterministic point-in-time consensus and comparison resolution
+- D5: coverage, dispersion, revision, missing, stale, and conflict preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is Module 4 expectation-gap foundation only. It supplies a local
+foundation toward V2-FR-GAP-075 but does not close the production research gap.
+It cannot activate EARNINGS_SURPRISE or begin reaction-quality labels.
+
+No AI-generated consensus, network, live source, direction, weight, score,
+rank, alert, recommendation, prediction, model, Prompt, automatic learning,
+account, order, or execution is authorized.
+
+V2-R1 through V2-R25 remain COMPLETED. V2-R26 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R26 LOCAL CONSENSUS EXPECTATION GAP FOUNDATION APP 1 APPROVAL END -->
+
 <!-- V2-R25 LOCAL CAUSAL TRANSMISSION GRAPH FOUNDATION APP 1 FINAL START -->
 
 ## V2-R25 Local Causal Transmission Graph Foundation App 1 Final

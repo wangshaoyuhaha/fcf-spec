@@ -195,10 +195,11 @@ factor is activated.
 | V2-R23 | Local Institutional Calendar Evidence Foundation | COMPLETED / REGISTERED_LOCAL_EVENT_EVIDENCE_ONLY |
 | V2-R24 | Local Multi-Clock Event State Foundation | COMPLETED / REGISTERED_LOCAL_CLOCK_STATE_ONLY |
 | V2-R25 | Local Causal Transmission Graph Foundation | COMPLETED / REGISTERED_LOCAL_CAUSAL_HYPOTHESIS_ONLY |
+| V2-R26 | Local Consensus Expectation Gap Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_EXPECTATION_EVIDENCE_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R26 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R26 starts automatically.
 
 ## Entry Gate
 
