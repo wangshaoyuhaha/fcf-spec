@@ -780,7 +780,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   REGISTERED_LOCAL_VOLATILITY_CALCULATION_ONLY
 - V2-R16: Local Range Channel Indicator Foundation; COMPLETED /
   REGISTERED_LOCAL_CHANNEL_CALCULATION_ONLY
-- V2-R17: Local Stochastic Oscillator Foundation; APPROVED / NOT_STARTED /
+- V2-R17: Local Stochastic Oscillator Foundation; IMPLEMENTED_PENDING_VALIDATION /
   REGISTERED_LOCAL_STOCHASTIC_CALCULATION_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
