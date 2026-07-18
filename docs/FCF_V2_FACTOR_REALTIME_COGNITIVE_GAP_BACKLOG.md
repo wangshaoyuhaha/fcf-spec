@@ -207,10 +207,11 @@ factor is activated.
 | V2-R35 | Local Evidence Integrity Foundation | COMPLETED / REGISTERED_LOCAL_EVIDENCE_INTEGRITY_ONLY |
 | V2-R36 | Local Institutional Factor Lifecycle Foundation | COMPLETED / REGISTERED_LOCAL_FACTOR_GOVERNANCE_ONLY |
 | V2-R37 | Local Factor Validation Evidence Foundation | COMPLETED / REGISTERED_LOCAL_FACTOR_VALIDATION_EVIDENCE_ONLY |
+| V2-R38 | Local Operator Factor Governance Projection Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_OPERATOR_GOVERNANCE_PROJECTION_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R38 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R38 starts automatically.
 
 ## Entry Gate
 
