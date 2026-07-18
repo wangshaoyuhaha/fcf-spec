@@ -51,6 +51,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r30_local_equity_supply_pressure_guard.py"],
     ["python", "scripts/control_center_v2_r31_local_fx_transmission_sensitivity_guard.py"],
     ["python", "scripts/control_center_v2_r32_local_institutional_crowding_guard.py"],
+    ["python", "scripts/control_center_v2_r33_local_holiday_liquidity_state_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
