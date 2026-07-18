@@ -170,10 +170,11 @@ factor is activated.
 | V2-R19 | Local Percentage Price Oscillator Foundation | COMPLETED / REGISTERED_LOCAL_PERCENTAGE_OSCILLATOR_CALCULATION_ONLY |
 | V2-R20 | Local Triple Exponential Oscillator Foundation | COMPLETED / REGISTERED_LOCAL_TRIPLE_EXPONENTIAL_OSCILLATOR_CALCULATION_ONLY |
 | V2-R21 | Local Robust Normalization Foundation | COMPLETED / REGISTERED_LOCAL_ROBUST_NORMALIZATION_ONLY |
+| V2-R22 | Local Robust Normalization Integrity Hardening | APPROVED / NOT_STARTED / REGISTERED_LOCAL_NORMALIZATION_INTEGRITY_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R22 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R22 starts automatically.
 
 ## Entry Gate
 

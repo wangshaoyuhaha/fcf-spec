@@ -13884,3 +13884,28 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 FINAL END -->
++
+
+<!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 APPROVAL START -->
+
+## V2-R22 Local Robust Normalization Integrity Hardening App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1 lock the R21 defect reproduction and exact hardening boundary
+- D2 enforce one-instrument series identity
+- D3 enforce immutable evidence state and missing-state invariants
+- D4 enforce metric presence, Operator review, and SHA-256 invariants
+- D5 add regression tests and repository guard
+- D6 validate, clean, sidecar merge, and synchronize final evidence
+
+This phase changes no normalization formula and adds no feature capability.
+V2-FR-GAP-009 remains open.
+
+V2-R1 through V2-R21 remain COMPLETED. V2-R22 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 APPROVAL END -->
