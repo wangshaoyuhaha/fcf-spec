@@ -61,6 +61,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r40_browser_factor_governance_field_presentation_guard.py"],
     ["python", "scripts/control_center_v2_r41_browser_governance_starter_package_guard.py"],
     ["python", "scripts/control_center_v2_r42_browser_governance_attention_summary_guard.py"],
+    ["python", "scripts/control_center_v2_r43_browser_governance_review_queue_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],

@@ -12,6 +12,10 @@ from apps.v2_r42_browser_governance_attention_summary_app_1 import (
     BrowserGovernanceAttentionSummary,
     build_governance_attention_summary,
 )
+from apps.v2_r43_browser_governance_review_queue_presentation_app_1 import (
+    BrowserGovernanceReviewQueue,
+    build_governance_review_queue,
+)
 
 from .read_model import ConsoleArtifactRecord, ConsoleReadModel
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
@@ -330,6 +334,7 @@ class GovernanceWorkspaceModel:
         BrowserFactorGovernanceFieldPresentation, ...
     ] = ()
     attention_summary: BrowserGovernanceAttentionSummary | None = None
+    review_queue: BrowserGovernanceReviewQueue | None = None
     registered_artifact_only: bool = True
     read_only: bool = True
     deterministic_authority: bool = True
@@ -364,6 +369,8 @@ class GovernanceWorkspaceModel:
             BrowserGovernanceAttentionSummary,
         ):
             raise ValueError("Governance attention summary is required")
+        if not isinstance(self.review_queue, BrowserGovernanceReviewQueue):
+            raise ValueError("Governance review queue is required")
         object.__setattr__(
             self,
             "artifact_type_counts",
@@ -733,6 +740,9 @@ def build_governance_workspace_model(
         artifact_type_counts=counts,
         projection_presentations=projection_presentations,
         attention_summary=build_governance_attention_summary(
+            projection_presentations
+        ),
+        review_queue=build_governance_review_queue(
             projection_presentations
         ),
     )
