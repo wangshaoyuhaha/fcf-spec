@@ -393,6 +393,36 @@ wallet, order, execution, tag, release, or deployment was added or run.
 
 <!-- V2-R31 LOCAL FX TRANSMISSION SENSITIVITY FOUNDATION APP 1 FINAL END -->
 
+<!-- V2-R32 LOCAL INSTITUTIONAL CROWDING FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R32 Local Institutional Crowding Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed registered-local institutional-crowding evidence authority boundary
+- D2: immutable holding-disclosure, ownership, liquidity, and lineage contracts
+- D3: append-only registry with registered event-evidence lineage
+- D4: deterministic concentration, ownership, change, age, and exit-day metrics
+- D5: missing, stale, conflict, disclosure-latency, and no-intent preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is Module 6 institutional-crowding foundation only. It supplies a
+local foundation toward V2-FR-GAP-081 but does not close the production research
+gap or activate INSTITUTIONAL_CROWDING or WINDOW_DRESSING_PRESSURE.
+
+No current manager action, quarter-end motive, manipulation, live source,
+network, direction, weight, score, rank, alert, recommendation, prediction,
+model, Prompt, automatic learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R31 remain COMPLETED. V2-R32 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R32 LOCAL INSTITUTIONAL CROWDING FOUNDATION APP 1 APPROVAL END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final
