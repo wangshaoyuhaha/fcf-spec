@@ -724,6 +724,12 @@ GAP_ROADMAP_R24_APPROVAL_LINES = (
     "Next product implementation phase: V2-R24 / APPROVED.",
     "No successor phase after V2-R24 starts automatically.",
 )
+GAP_ROADMAP_R24_DELIVERY_LINES = (
+    "| V2-R24 | Local Multi-Clock Event State Foundation | "
+    "IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_CLOCK_STATE_ONLY |",
+    "Next product implementation phase: V2-R24 / APPROVED.",
+    "No successor phase after V2-R24 starts automatically.",
+)
 GAP_ROADMAP_R10_FINAL_LINES = (
     "| V2-R10 | Local Turnover-Definition Research Foundation | "
     "COMPLETED / REGISTERED_LOCAL_TURNOVER_EVIDENCE_ONLY |",

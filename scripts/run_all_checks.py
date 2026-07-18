@@ -42,6 +42,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r21_local_robust_normalization_guard.py"],
     ["python", "scripts/control_center_v2_r22_local_robust_normalization_integrity_guard.py"],
     ["python", "scripts/control_center_v2_r23_local_institutional_calendar_evidence_guard.py"],
+    ["python", "scripts/control_center_v2_r24_local_multi_clock_event_state_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
