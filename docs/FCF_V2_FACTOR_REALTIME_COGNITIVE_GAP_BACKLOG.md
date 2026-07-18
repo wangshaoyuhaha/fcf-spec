@@ -200,11 +200,11 @@ factor is activated.
 | V2-R28 | Local A-Share Earnings Lifecycle Accounting Quality Foundation | COMPLETED / REGISTERED_LOCAL_ACCOUNTING_CHALLENGE_ONLY |
 | V2-R29 | Local Index Futures Basis Roll Expiry Foundation | COMPLETED / REGISTERED_LOCAL_DERIVATIVES_EVIDENCE_ONLY |
 | V2-R30 | Local Equity Supply Pressure Foundation | COMPLETED / REGISTERED_LOCAL_EQUITY_SUPPLY_EVIDENCE_ONLY |
-| V2-R31 | Local FX Transmission Sensitivity Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_FX_TRANSMISSION_EVIDENCE_ONLY |
+| V2-R31 | Local FX Transmission Sensitivity Foundation | COMPLETED / REGISTERED_LOCAL_FX_TRANSMISSION_EVIDENCE_ONLY |
 
-Next product implementation phase: V2-R31 / APPROVED.
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
 
-No successor phase after V2-R31 starts automatically.
+No successor phase starts automatically.
 
 ## Entry Gate
 
