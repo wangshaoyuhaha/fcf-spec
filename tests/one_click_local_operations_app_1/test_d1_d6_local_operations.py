@@ -116,7 +116,7 @@ def test_d1_state_rejects_non_loopback_url(profile):
 def test_d2_preflight_validates_registered_artifacts_and_migration(profile):
     report = run_local_operations_preflight(profile)
     assert report.status == "READY"
-    assert report.artifact_count == 14
+    assert report.artifact_count == 16
     assert report.checks["registered_artifacts_valid"] is True
     assert report.checks["migration_compatible"] is True
     assert "MODELS_NOT_REQUIRED" in report.notifications[0]

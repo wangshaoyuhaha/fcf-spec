@@ -1,0 +1,43 @@
+{
+  "action_created": false,
+  "automatic_approval": false,
+  "candidate_id": "demo-a-share-candidate",
+  "confidence": "MEDIUM",
+  "data_classification": "DEMONSTRATION_ONLY",
+  "evaluated_at_utc": "2026-07-01T00:00:00Z",
+  "evidence_series_id": "demo-registered-evidence-series",
+  "factor_activation": false,
+  "factor_id": "demo-policy-novelty-alignment",
+  "fields": [
+    {
+      "confidence": "HIGH",
+      "field_id": "evidence-origin",
+      "origin": "OBSERVED",
+      "source_snapshot_hashes": [
+        "1111111111111111111111111111111111111111111111111111111111111111"
+      ],
+      "value": "registered-demonstration-evidence"
+    },
+    {
+      "confidence": "MEDIUM",
+      "field_id": "governance-state",
+      "origin": "INFERRED",
+      "source_snapshot_hashes": [
+        "1111111111111111111111111111111111111111111111111111111111111111",
+        "2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "value": "operator-review-required"
+    }
+  ],
+  "market": "a-share",
+  "operator_review_required": true,
+  "projection_hash": "fe70089c0aa3dbddf280eaed007d5b3ee2e39cf4479a0d3bc7825e51b89a7bd5",
+  "projection_id": "demo-governance-projection-v1",
+  "read_only": true,
+  "reason_codes": [
+    "demonstration-only",
+    "operator-review-required"
+  ],
+  "schema_version": "fcf.browser_console.factor_governance_projection.v1",
+  "state": "REVIEW_REQUIRED"
+}

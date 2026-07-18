@@ -23,7 +23,7 @@ def test_d4_default_preflight_is_ready() -> None:
     assert result.status == "READY"
     assert result.code is OperatorLaunchDiagnosticCode.READY
     assert result.session is not None
-    assert result.session.artifact_count == 14
+    assert result.session.artifact_count == 16
 
 
 def test_d4_missing_package_has_deterministic_guidance(tmp_path: Path) -> None:
