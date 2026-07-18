@@ -58,6 +58,36 @@ P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R27 LOCAL EVENT REACTION QUALITY FOUNDATION APP 1 LOCK END -->
 
+<!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed registered-local accounting-challenge authority boundary
+- D2: immutable earnings stage, accounting observation, and challenge contracts
+- D3: append-only registry with R23, R26, and R27 lineage
+- D4: deterministic nonrecurring, cash-quality, receivables, and margin ratios
+- D5: missing, immature, stale, conflict, and no-fraud-conclusion preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is Module 4 earnings-lifecycle and accounting-quality foundation
+only. It supplies a local foundation toward V2-FR-GAP-077 but does not close the
+production research gap or activate any factor.
+
+No fraud conclusion, AI audit verdict, live source, network, direction, weight,
+score, rank, alert, recommendation, prediction, model, Prompt, automatic
+learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R27 remain COMPLETED. V2-R28 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 APPROVAL END -->
+
 <!-- V2-R27 LOCAL EVENT REACTION QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R27 Local Event Reaction Quality Foundation App 1 Final
