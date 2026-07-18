@@ -8,6 +8,10 @@ from apps.v2_r40_browser_factor_governance_field_presentation_app_1 import (
     BrowserFactorGovernanceFieldPresentation,
     build_factor_governance_field_presentation,
 )
+from apps.v2_r42_browser_governance_attention_summary_app_1 import (
+    BrowserGovernanceAttentionSummary,
+    build_governance_attention_summary,
+)
 
 from .read_model import ConsoleArtifactRecord, ConsoleReadModel
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
@@ -325,6 +329,7 @@ class GovernanceWorkspaceModel:
     projection_presentations: Tuple[
         BrowserFactorGovernanceFieldPresentation, ...
     ] = ()
+    attention_summary: BrowserGovernanceAttentionSummary | None = None
     registered_artifact_only: bool = True
     read_only: bool = True
     deterministic_authority: bool = True
@@ -354,6 +359,11 @@ class GovernanceWorkspaceModel:
             "projection_presentations",
             tuple(self.projection_presentations),
         )
+        if not isinstance(
+            self.attention_summary,
+            BrowserGovernanceAttentionSummary,
+        ):
+            raise ValueError("Governance attention summary is required")
         object.__setattr__(
             self,
             "artifact_type_counts",
@@ -708,18 +718,22 @@ def build_governance_workspace_model(
     else:
         state = "INCOMPLETE"
 
+    projection_presentations = tuple(
+        build_factor_governance_field_presentation(
+            record.artifact_id,
+            record.payload,
+        )
+        for record in records
+        if record.artifact_type == "factor_governance_projection"
+    )
     return GovernanceWorkspaceModel(
         correlation_id=read_model.correlation_id,
         state=state,
         items=items,
         artifact_type_counts=counts,
-        projection_presentations=tuple(
-            build_factor_governance_field_presentation(
-                record.artifact_id,
-                record.payload,
-            )
-            for record in records
-            if record.artifact_type == "factor_governance_projection"
+        projection_presentations=projection_presentations,
+        attention_summary=build_governance_attention_summary(
+            projection_presentations
         ),
     )
 
