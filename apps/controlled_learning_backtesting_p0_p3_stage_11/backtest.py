@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from datetime import timedelta
 from decimal import Decimal
 
 from .boundary import CONTROLLED_LEARNING_BACKTESTING_BOUNDARY
@@ -66,9 +67,16 @@ class WalkForwardValidator:
             utc_time(item.decision_as_of_utc, "decision_as_of_utc")
             for item in ordered_by_split[DatasetSplit.FINAL_TEST]
         )
+        failures = []
         if train_end >= validation_start or validation_end >= final_start:
-            return ("walk-forward-window-overlap",)
-        return ()
+            failures.append("walk-forward-window-overlap")
+        embargo = timedelta(days=request.embargo_days)
+        if (
+            validation_start - train_end < embargo
+            or final_start - validation_end < embargo
+        ):
+            failures.append("embargo-window-violation")
+        return tuple(failures)
 
 
 class DeterministicUnifiedBacktestEngine:
@@ -103,6 +111,7 @@ class DeterministicUnifiedBacktestEngine:
             "dataset-split-coverage-missing",
             "purged-validation-required",
             "embargo-window-required",
+            "embargo-window-violation",
             "walk-forward-window-overlap",
         }
         status = (

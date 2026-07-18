@@ -5,7 +5,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 LOCAL_APP_DATA = Path(os.environ.get("LOCALAPPDATA", PROJECT_ROOT.parent))
-SAFE_TEMP_ROOT = (LOCAL_APP_DATA / "FCF" / "pytest-scratch").resolve()
+SAFE_TEMP_ROOT = (LOCAL_APP_DATA / "FCF-pytest-scratch-v2").resolve()
 GENERATED_OUTPUT_ALLOWLIST = (
     "runtime/learning_engine/shadow_ledger.json",
     "runtime/operator_console/ai_learning_audit_report.json",

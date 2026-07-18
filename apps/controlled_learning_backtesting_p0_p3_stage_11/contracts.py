@@ -308,10 +308,18 @@ class UnifiedBacktestRequest:
                 "feature_available_at_utc",
             )
             for evidence_id in observation.evidence_ids:
+                evidence_as_of = utc_time(
+                    evidence_by_id[evidence_id].as_of_time_utc,
+                    "as_of_time_utc",
+                )
                 available = utc_time(
                     evidence_by_id[evidence_id].available_at_utc,
                     "available_at_utc",
                 )
+                if evidence_as_of > decision:
+                    raise ValueError(
+                        "observation contains future evidence as_of_time"
+                    )
                 if available > decision:
                     raise ValueError("observation contains future evidence")
                 if declared < available:

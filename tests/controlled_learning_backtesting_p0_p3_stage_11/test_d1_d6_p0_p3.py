@@ -314,6 +314,31 @@ def test_d2_walk_forward_overlap_fails_closed():
     assert "walk-forward-window-overlap" in result.failure_codes
 
 
+def test_d2_declared_embargo_must_match_actual_time_gap():
+    observations = (
+        _observations()[0],
+        replace(
+            _observations()[1],
+            decision_as_of_utc="2025-01-03T00:00:01Z",
+            feature_available_at_utc="2025-01-03T00:00:01Z",
+            outcome_time_utc="2025-01-04T00:00:00Z",
+        ),
+        _observations()[2],
+    )
+    result = _result(_request(observations=observations, embargo=5))
+    assert result.status is BacktestStatus.BLOCKED_REVIEW_REQUIRED
+    assert "embargo-window-violation" in result.failure_codes
+
+
+def test_d2_evidence_as_of_after_decision_is_rejected():
+    future_as_of = replace(
+        _evidence(),
+        as_of_time_utc="2025-12-01T00:00:00Z",
+    )
+    with pytest.raises(ValueError, match="future evidence as_of_time"):
+        replace(_request(), evidence=(future_as_of,))
+
+
 def test_d2_negative_and_capacity_results_are_preserved_as_degraded():
     result = _result(
         _request(
