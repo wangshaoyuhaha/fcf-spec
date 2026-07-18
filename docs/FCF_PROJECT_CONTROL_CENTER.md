@@ -13962,6 +13962,37 @@ No tag, release, or deployment was run.
 <!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 FINAL END -->
 
 
+<!-- V2-R23 LOCAL INSTITUTIONAL CALENDAR EVIDENCE FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R23 Local Institutional Calendar Evidence Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed local, registered-artifact-only authority boundary
+- D2: official or licensed event, source-rights, timing, digest, and revision contracts
+- D3: immutable append-only local institutional calendar and revision lineage
+- D4: deterministic point-in-time event resolution and first-tradable gate
+- D5: freshness, missing-state, and evidence-integrity assessment
+- D6: read-only presentation, Operator acceptance, governance guard, and closeout
+
+This phase is Module 1 `Calendar and Evidence Foundation` only. It provides a
+local contract foundation toward V2-FR-GAP-071 and V2-FR-GAP-084 but does not
+close their production-runtime gaps. It does not begin Module 2 or any factor.
+
+No network source, live calendar service, realtime ingestion, system-clock
+authority, hardcoded recurring schedule, automatic revision replacement,
+direction, weight, score, rank, alert, recommendation, prediction, model,
+Prompt, automatic learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R22 remain COMPLETED. V2-R23 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R23 LOCAL INSTITUTIONAL CALENDAR EVIDENCE FOUNDATION APP 1 APPROVAL END -->
+
 <!-- FCF BACKTEST WINDOWS PYTEST INTEGRITY REMEDIATION START -->
 ## FCF Backtest and Windows Pytest Integrity Remediation
 

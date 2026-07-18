@@ -2122,6 +2122,60 @@ V2_R22_VALIDATED_STATE = {**V2_R22_APPROVAL_STATE, "current_governance_phase_sta
 V2_R22_VALIDATED_ROADMAP = [{"phase_id": phase, "status": "VALIDATED_PENDING_MERGE" if phase == "V2-R22" else "COMPLETED"} for phase in ROADMAP_PHASES]
 V2_R22_FINAL_STATE = {"current_governance_phase_id": "NONE", "current_governance_phase_status": "NONE", "current_product_implementation_phase": "NONE", "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1", "latest_completed_product_phase": "V2-R22-LOCAL-ROBUST-NORMALIZATION-INTEGRITY-HARDENING-APP-1", "next_product_implementation_phase": "NOT_SELECTED", "next_product_phase_approval": "NOT_APPROVED"}
 V2_R22_FINAL_ROADMAP = [{"phase_id": phase, "status": "COMPLETED"} for phase in ROADMAP_PHASES]
+V2_R23_ROADMAP_PHASES = (*ROADMAP_PHASES, "V2-R23")
+V2_R23_APPROVAL_STATE = {
+    "current_governance_phase_id": "V2-R23-LOCAL-INSTITUTIONAL-CALENDAR-EVIDENCE-FOUNDATION-APP-1",
+    "current_governance_phase_status": "PRODUCT_PHASE_APPROVED_NOT_STARTED",
+    "current_product_implementation_phase": "V2-R23",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "latest_completed_product_phase": "V2-R22-LOCAL-ROBUST-NORMALIZATION-INTEGRITY-HARDENING-APP-1",
+    "next_product_implementation_phase": "V2-R23",
+    "next_product_phase_approval": "APPROVED",
+}
+V2_R23_APPROVAL_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": "APPROVED_NOT_STARTED" if phase == "V2-R23" else "COMPLETED",
+    }
+    for phase in V2_R23_ROADMAP_PHASES
+]
+V2_R23_DELIVERY_STATE = {
+    **V2_R23_APPROVAL_STATE,
+    "current_governance_phase_status": "PRODUCT_DELIVERY_IMPLEMENTED_PENDING_VALIDATION",
+}
+V2_R23_DELIVERY_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": (
+            "IMPLEMENTED_PENDING_VALIDATION" if phase == "V2-R23" else "COMPLETED"
+        ),
+    }
+    for phase in V2_R23_ROADMAP_PHASES
+]
+V2_R23_VALIDATED_STATE = {
+    **V2_R23_APPROVAL_STATE,
+    "current_governance_phase_status": "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE",
+}
+V2_R23_VALIDATED_ROADMAP = [
+    {
+        "phase_id": phase,
+        "status": "VALIDATED_PENDING_MERGE" if phase == "V2-R23" else "COMPLETED",
+    }
+    for phase in V2_R23_ROADMAP_PHASES
+]
+V2_R23_FINAL_STATE = {
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
+    "current_product_implementation_phase": "NONE",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "latest_completed_product_phase": "V2-R23-LOCAL-INSTITUTIONAL-CALENDAR-EVIDENCE-FOUNDATION-APP-1",
+    "next_product_implementation_phase": "NOT_SELECTED",
+    "next_product_phase_approval": "NOT_APPROVED",
+}
+V2_R23_FINAL_ROADMAP = [
+    {"phase_id": phase, "status": "COMPLETED"}
+    for phase in V2_R23_ROADMAP_PHASES
+]
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -2311,6 +2365,7 @@ def build_project_memory_guard_report(
         V2_R21_VALIDATED_STATE,
         V2_R21_FINAL_STATE,
         V2_R22_APPROVAL_STATE, V2_R22_DELIVERY_STATE, V2_R22_VALIDATED_STATE, V2_R22_FINAL_STATE,
+        V2_R23_APPROVAL_STATE, V2_R23_DELIVERY_STATE, V2_R23_VALIDATED_STATE, V2_R23_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -2595,6 +2650,10 @@ def build_project_memory_guard_report(
             else V2_R22_DELIVERY_ROADMAP if current_truth == V2_R22_DELIVERY_STATE
             else V2_R22_VALIDATED_ROADMAP if current_truth == V2_R22_VALIDATED_STATE
             else V2_R22_FINAL_ROADMAP if current_truth == V2_R22_FINAL_STATE
+            else V2_R23_APPROVAL_ROADMAP if current_truth == V2_R23_APPROVAL_STATE
+            else V2_R23_DELIVERY_ROADMAP if current_truth == V2_R23_DELIVERY_STATE
+            else V2_R23_VALIDATED_ROADMAP if current_truth == V2_R23_VALIDATED_STATE
+            else V2_R23_FINAL_ROADMAP if current_truth == V2_R23_FINAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
