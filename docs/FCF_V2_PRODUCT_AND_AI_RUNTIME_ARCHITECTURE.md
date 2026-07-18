@@ -8745,3 +8745,33 @@ credential, account, balance, position, wallet, order, execution, tag, release,
 or deployment was added or run.
 
 <!-- V2-R23 LOCAL INSTITUTIONAL CALENDAR EVIDENCE FOUNDATION APP 1 FINAL END -->
+
+<!-- V2-R24 LOCAL MULTI CLOCK EVENT STATE FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R24 Local Multi-Clock Event State Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed registered-local five-clock authority boundary
+- D2: immutable clock-state, evidence-group, market, and horizon contracts
+- D3: append-only state registry with R23 event-record lineage
+- D4: deterministic point-in-time state-stack resolution
+- D5: overlap, missing-clock, stale, blocked, and no-winner conflict preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is Module 2 `Clock and Event State` only. It supplies a local
+foundation toward V2-FR-GAP-072 and V2-FR-GAP-073 but does not close their
+production-runtime gaps. It cannot begin transmission graphs or factors.
+
+No network, live clock, automatic state selection, state deletion, winner,
+direction, weight, score, rank, alert, recommendation, prediction, model,
+Prompt, automatic learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R23 remain COMPLETED. V2-R24 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R24 LOCAL MULTI CLOCK EVENT STATE FOUNDATION APP 1 APPROVAL END -->
