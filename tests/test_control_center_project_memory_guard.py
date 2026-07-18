@@ -545,12 +545,12 @@ def test_current_state_manifest_has_exact_file_roles_and_safety():
     assert all((ROOT / path).is_file() for path in EXPECTED_FILE_ROLES.values())
 
 
-def test_current_state_manifest_records_exact_v2_r37_approval_state():
+def test_current_state_manifest_records_exact_v2_r37_delivery_state():
     manifest = load_manifest(ROOT)
     truth = manifest["current_truth"]
 
-    assert truth == V2_R37_APPROVAL_STATE
-    assert manifest["roadmap"] == V2_R37_APPROVAL_ROADMAP
+    assert truth == V2_R37_DELIVERY_STATE
+    assert manifest["roadmap"] == V2_R37_DELIVERY_ROADMAP
 
 
 def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
@@ -564,7 +564,7 @@ def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
     assert gap_statuses_are_valid(gap)
     assert rows["V2-FR-GAP-041"] == "OUTSIDE_CURRENT_AUTHORIZATION"
     assert rows["V2-FR-GAP-065"] == "OUTSIDE_CURRENT_AUTHORIZATION"
-    assert all(line in gap for line in GAP_ROADMAP_R37_APPROVAL_LINES)
+    assert all(line in gap for line in GAP_ROADMAP_R37_DELIVERY_LINES)
 
 
 def test_unknown_gap_status_is_rejected():
@@ -956,7 +956,7 @@ def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
         "HISTORICAL_COMPLETED_SEQUENCE_NOT_CURRENT_NEXT_PHASE_AUTHORITY"
     )
     assert parsed["current_truth"]["next_product_phase_approval"] == (
-        V2_R37_APPROVAL_STATE["next_product_phase_approval"]
+        V2_R37_DELIVERY_STATE["next_product_phase_approval"]
     )
 
 
