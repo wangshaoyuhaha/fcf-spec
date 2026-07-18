@@ -32,7 +32,7 @@
   },
   "current_truth": {
     "current_governance_phase_id": "V2-R17-LOCAL-STOCHASTIC-OSCILLATOR-FOUNDATION-APP-1",
-    "current_governance_phase_status": "PRODUCT_PHASE_APPROVED_NOT_STARTED",
+    "current_governance_phase_status": "PRODUCT_DELIVERY_IMPLEMENTED_PENDING_VALIDATION",
     "current_product_implementation_phase": "V2-R17",
     "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
     "latest_completed_product_phase": "V2-R16-LOCAL-RANGE-CHANNEL-INDICATOR-FOUNDATION-APP-1",
@@ -121,7 +121,7 @@
     },
     {
       "phase_id": "V2-R17",
-      "status": "APPROVED_NOT_STARTED"
+      "status": "IMPLEMENTED_PENDING_VALIDATION"
     }
   ],
   "safety_boundaries": {

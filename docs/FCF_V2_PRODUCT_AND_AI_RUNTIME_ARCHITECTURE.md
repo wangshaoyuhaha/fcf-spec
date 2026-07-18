@@ -8014,3 +8014,23 @@ No successor phase is selected. Permanent safety boundaries remain binding.
 No tag, release, or deployment is authorized.
 
 <!-- V2-R17 LOCAL STOCHASTIC OSCILLATOR FOUNDATION APP 1 APPROVAL END -->
+
+
+<!-- V2-R17 LOCAL STOCHASTIC OSCILLATOR FOUNDATION APP 1 LOCK START -->
+
+## V2-R17 Local Stochastic Oscillator Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered boundary: R15 registered-local OHLC evidence, R11 registry
+references, deterministic Decimal rolling RSV with flat-window value 50,
+recursive seed-50 period-3 K/D smoothing, J=3K-2D, fail-closed gates,
+append-only evidence, and read-only metadata.
+
+V2-FR-GAP-008 remains open because this is only a bounded indicator pack.
+
+No threshold label, crossover, prediction, score, rank, recommendation, live
+source, network, model, Prompt, learning, order, or execution was added.
+P1-P47 frozen. No P48. Operator review required.
+
+<!-- V2-R17 LOCAL STOCHASTIC OSCILLATOR FOUNDATION APP 1 LOCK END -->
