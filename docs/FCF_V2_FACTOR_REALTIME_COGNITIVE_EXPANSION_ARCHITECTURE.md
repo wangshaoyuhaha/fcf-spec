@@ -812,6 +812,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   COMPLETED / REGISTERED_LOCAL_FX_TRANSMISSION_EVIDENCE_ONLY
 - V2-R32: Local Institutional Crowding Foundation;
   COMPLETED / REGISTERED_LOCAL_INSTITUTIONAL_CROWDING_EVIDENCE_ONLY
+- V2-R33: Local Holiday Liquidity State Foundation;
+  APPROVED / NOT_STARTED / REGISTERED_LOCAL_HOLIDAY_LIQUIDITY_EVIDENCE_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts

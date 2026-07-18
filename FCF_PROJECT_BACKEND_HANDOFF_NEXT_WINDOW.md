@@ -486,6 +486,36 @@ wallet, order, execution, tag, release, or deployment was added or run.
 
 <!-- V2-R32 LOCAL INSTITUTIONAL CROWDING FOUNDATION APP 1 FINAL END -->
 
+<!-- V2-R33 LOCAL HOLIDAY LIQUIDITY STATE FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R33 Local Holiday Liquidity State Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed registered-local holiday-liquidity evidence authority boundary
+- D2: immutable holiday, settlement, liquidity, baseline, and lineage contracts
+- D3: append-only registry with registered holiday-event lineage
+- D4: deterministic spread, depth, volume, turnover, and basis comparisons
+- D5: missing, stale, conflict, future, no-fixed-rule, and no-direction states
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is Module 6 holiday-liquidity state foundation only. It supplies a
+local foundation toward V2-FR-GAP-082 but does not close the production research
+gap or activate HOLIDAY_LIQUIDITY_STRESS.
+
+No fixed last-three-days rule, fixed threshold, stress direction, live source,
+network, weight, score, rank, alert, recommendation, prediction, model, Prompt,
+automatic learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R32 remain COMPLETED. V2-R33 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R33 LOCAL HOLIDAY LIQUIDITY STATE FOUNDATION APP 1 APPROVAL END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final
