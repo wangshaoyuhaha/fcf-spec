@@ -304,6 +304,9 @@ Decision: Use Policy Transmission, Industry Supply, and Capital Transmission
 graphs with point-in-time membership, lag, decay, alternative explanations,
 invalidation, and evidence quality.
 
+Candidate linkage: `POLICY_NOVELTY_ALIGNMENT` and
+`CAPITAL_TRANSMISSION_PRESSURE` remain research proposals under this decision.
+
 Consequence: Correlation, keywords, and graph proximity cannot prove causation
 or receive duplicate confidence as independent evidence.
 
@@ -315,6 +318,9 @@ Status: ACCEPTED_ARCHITECTURE
 
 Decision: Measure actual-versus-consensus or prior expectation separately from
 the first-tradable price, liquidity, breadth, futures, and persistence response.
+
+Candidate linkage: `EARNINGS_SURPRISE` and `EVENT_REACTION_QUALITY` remain
+separate research proposals.
 
 Consequence: Favorable surprise with weak response and unfavorable surprise
 with resilient response remain explicit, auditable evidence states.
@@ -342,6 +348,9 @@ Decision: Model unlock and issuance availability separately from reduction
 notices, actual selling, pledge or debt pressure, judicial disposal, liquidity,
 holder cost, and demand absorption.
 
+Candidate linkage: `EQUITY_SUPPLY_PRESSURE` replaces raw unlock-only scoring as
+the governed research proposal; `ESF` remains a non-registered source alias.
+
 Consequence: Unlock ratios alone cannot trigger a bearish conclusion. Time
 decay is piecewise around the event and remains stable after the event.
 
@@ -354,6 +363,8 @@ Status: ACCEPTED_ARCHITECTURE
 Decision: Futures basis, open interest, roll, calendar spread, and expiry effects
 use comparable timestamps, contract metadata, versioned venue calendars, and
 regime-conditioned baselines.
+
+Candidate linkage: `EXPIRY_BASIS_ROLL_STRESS` remains a research proposal.
 
 Consequence: Discount does not prove a bottom, open interest does not reveal
 intent, and a recurring expiry rule cannot replace the official calendar.
@@ -368,6 +379,9 @@ Decision: FX sensitivity is a multivariate, horizon-specific, regime-aware
 research model with market, sector, rates, Dollar, volatility, and company
 operating-exposure controls. Foreign holdings retain publication latency.
 
+Candidate linkage: `FX_TRANSMISSION_SENSITIVITY` replaces the simplified
+`beta_FX` proposal alias.
+
 Consequence: Simple covariance and delayed ownership cannot be labeled a causal
 FX factor, realtime stock flow, or current investor intent.
 
@@ -380,6 +394,10 @@ Status: ACCEPTED_ARCHITECTURE
 Decision: Separate normalized fund concentration, total ownership, change,
 disclosure age, exit days, rebalance hypotheses, and liquidity stress. Holiday
 state uses registered calendar length and regime-conditioned market liquidity.
+
+Candidate linkage: `INSTITUTIONAL_CROWDING`, `WINDOW_DRESSING_PRESSURE`, and
+`HOLIDAY_LIQUIDITY_STRESS` remain distinct research proposals. `HI` and `WDF`
+remain non-registered source aliases.
 
 Consequence: Delayed holdings do not prove current manager behavior. Fixed
 three-day, 30 percent, or percentile rules remain unvalidated hypotheses.

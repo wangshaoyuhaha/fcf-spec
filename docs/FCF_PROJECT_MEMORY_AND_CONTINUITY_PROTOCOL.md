@@ -45,6 +45,30 @@ Execution safety, this continuity protocol, historical evidence, and the five
 active authority mirrors govern or support the seven-file system but are not
 additional core status registers.
 
+### Seven-File Write Ownership
+
+New work must be separated by file responsibility:
+
+- the manifest stores only current truth, accepted architecture identity, and
+  approved phase state
+- the Control Center stores human-readable registration, approval, completion,
+  validation, merge, and safety lock state
+- the future architecture stores module boundaries, contracts, dependencies,
+  research order, and non-authorization statements
+- the ADR register stores durable decisions, rejected shortcuts, consequences,
+  and authority boundaries
+- the Gap and Backlog register stores unfinished deliverables and research
+  obligations with explicit status
+- the change protocol stores intake, review, preservation, approval, and
+  implementation-gate rules
+- the intake register stores each proposal identity, decision, and links to its
+  architecture, ADR, Gap, evidence, and phase records
+
+Detailed formulas do not belong in the manifest or handoff mirrors. Completion
+claims do not belong in the future architecture or intake record. A proposal
+must not be copied into multiple independent backlogs; canonical identifiers
+and references provide the linkage.
+
 `FCF_CURRENT_STATE_MANIFEST.json` is the machine-readable current-truth
 entry point. It records the latest completed product phase, the current
 governance phase, the next product-phase approval state, the V2-R roadmap,
@@ -152,6 +176,7 @@ not-implemented capability groups:
 - futures-expiry, equity-supply, rates, FX, crowding, and holiday-liquidity
   research
 - governed institutional-factor lifecycle and data-freshness controls
+- named institutional-factor research candidates without early activation
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

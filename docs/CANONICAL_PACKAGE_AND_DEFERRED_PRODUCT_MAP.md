@@ -61,8 +61,17 @@ Canonical future-architecture sources:
 - `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`
 - `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md`
 - `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md`
+- `docs/FCF_FUTURE_CAPABILITY_CHANGE_PROTOCOL.md`
+- `FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json`
 
 These sources are accepted architecture, not delivered product capability.
+
+The current-state manifest, Project Control Center, three architecture
+registers above, Future Capability Change Protocol, and Future Capability
+Intake Register form the `FCF Seven-File Project Governance and Memory System`.
+The accepted institutional-calendar extension is
+`FCF-V2-INSTITUTIONAL-CALENDAR-CAUSAL-MARKET-INTELLIGENCE`; it remains
+NOT_IMPLEMENTED and has no selected phase.
 
 Current project truth and continuity sources:
 

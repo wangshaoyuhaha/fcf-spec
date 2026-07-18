@@ -165,8 +165,47 @@ def test_institutional_calendar_extension_is_architecture_only():
     assert "Unlock does not imply sale." in architecture
     assert "cannot be\npresented as realtime individual-stock flow" in architecture
     assert "fixed last-three-days rule" in architecture
+    for candidate in (
+        "EARNINGS_SURPRISE",
+        "EVENT_REACTION_QUALITY",
+        "EXPIRY_BASIS_ROLL_STRESS",
+        "EQUITY_SUPPLY_PRESSURE",
+        "FX_TRANSMISSION_SENSITIVITY",
+        "INSTITUTIONAL_CROWDING",
+        "WINDOW_DRESSING_PRESSURE",
+        "HOLIDAY_LIQUIDITY_STRESS",
+        "POLICY_NOVELTY_ALIGNMENT",
+        "CAPITAL_TRANSMISSION_PRESSURE",
+    ):
+        assert candidate in architecture
     assert (
         "| V2-FR-GAP-086 | leakage, survivorship, multiple-testing, "
         "sensitivity, ablation, capacity, and out-of-sample validation | "
         "RESEARCH_REQUIRED |"
     ) in gap
+
+
+def test_institutional_calendar_registration_is_exact_across_authorities():
+    start = (
+        "<!-- FCF INSTITUTIONAL CALENDAR CAUSAL MARKET INTELLIGENCE "
+        "REGISTRATION START -->"
+    )
+    end = (
+        "<!-- FCF INSTITUTIONAL CALENDAR CAUSAL MARKET INTELLIGENCE "
+        "REGISTRATION END -->"
+    )
+    blocks = []
+    for relative_path in (
+        "docs/FCF_PROJECT_CONTROL_CENTER.md",
+        "docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md",
+        "docs/HANDOFF_PROMPT.md",
+        "FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md",
+        "FCF_NEW_WINDOW_CHAT_PROMPT.md",
+    ):
+        text = (ROOT / relative_path).read_text(encoding="ascii")
+        assert text.count(start) == 1
+        assert text.count(end) == 1
+        blocks.append(text[text.index(start) : text.index(end) + len(end)])
+
+    assert len(set(blocks)) == 1
+    assert "Named research candidates, all NOT_ACTIVATED:" in blocks[0]

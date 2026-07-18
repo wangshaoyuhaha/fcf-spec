@@ -114,3 +114,9 @@ calendar and causal market intelligence. It remains `phase_id: NONE` and
 `NOT_IMPLEMENTED`. Its acceptance preserves the design and research backlog;
 it does not approve data access, a runtime phase, automatic weighting, model
 authority, or implementation.
+
+The proposal preserves named research candidates for earnings surprise, event
+reaction, expiry basis and roll, equity supply, FX transmission, institutional
+crowding, quarter-end pressure, holiday liquidity, policy novelty, and capital
+transmission. Candidate names and legacy aliases are not factor registration,
+formula approval, or runtime activation.

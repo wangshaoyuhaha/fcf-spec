@@ -14042,6 +14042,29 @@ Accepted future scope:
 - data freshness, evidence integrity, causal challenge, and institutional-factor
   lifecycle controls
 
+Named research candidates, all NOT_ACTIVATED:
+
+- `EARNINGS_SURPRISE`
+- `EVENT_REACTION_QUALITY`
+- `EXPIRY_BASIS_ROLL_STRESS`
+- `EQUITY_SUPPLY_PRESSURE`
+- `FX_TRANSMISSION_SENSITIVITY`
+- `INSTITUTIONAL_CROWDING`
+- `WINDOW_DRESSING_PRESSURE`
+- `HOLIDAY_LIQUIDITY_STRESS`
+- `POLICY_NOVELTY_ALIGNMENT`
+- `CAPITAL_TRANSMISSION_PRESSURE`
+
+Module order:
+
+1. Calendar and Evidence Foundation
+2. Clock and Event State
+3. Causal Transmission
+4. Expectation and Corporate Events
+5. Derivatives and Equity Supply
+6. Macro and Institutional Liquidity
+7. Factor Governance and Validation
+
 All fixed thresholds, percentage adjustments, score discounts, and weight
 changes are research hypotheses until deterministically specified, tested,
 registered, and approved by the Operator. Unlock does not imply sale;

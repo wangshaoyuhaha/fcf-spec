@@ -20,6 +20,14 @@ AUTHORITY_PATHS = (
     Path("FCF_NEW_WINDOW_CHAT_PROMPT.md"),
 )
 LOCK_MARKER = "FCF V2 FACTOR REALTIME COGNITIVE ARCHITECTURE LOCK"
+INSTITUTIONAL_REGISTRATION_START = (
+    "<!-- FCF INSTITUTIONAL CALENDAR CAUSAL MARKET INTELLIGENCE "
+    "REGISTRATION START -->"
+)
+INSTITUTIONAL_REGISTRATION_END = (
+    "<!-- FCF INSTITUTIONAL CALENDAR CAUSAL MARKET INTELLIGENCE "
+    "REGISTRATION END -->"
+)
 ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 31))
 GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 87))
 ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 23))
@@ -61,13 +69,38 @@ REQUIRED_ARCHITECTURE_TERMS = (
     "Equity Supply and Forced-Sale Pressure",
     "Policy Windows and Local Institutional Cycles",
     "Rates, FX, and Cross-Market Transmission",
+    "Federal Reserve and FOMC decisions",
+    "nonfarm payrolls",
     "Institutional Crowding, Rebalance, and Holiday Liquidity",
+    "Spring Festival",
+    "National Day",
+    "June and December",
     "Institutional Factor Lifecycle and Validation Order",
+    "Named Institutional Factor Research Candidates",
+    "EARNINGS_SURPRISE",
+    "EVENT_REACTION_QUALITY",
+    "EXPIRY_BASIS_ROLL_STRESS",
+    "EQUITY_SUPPLY_PRESSURE",
+    "FX_TRANSMISSION_SENSITIVITY",
+    "INSTITUTIONAL_CROWDING",
+    "WINDOW_DRESSING_PRESSURE",
+    "HOLIDAY_LIQUIDITY_STRESS",
+    "POLICY_NOVELTY_ALIGNMENT",
+    "CAPITAL_TRANSMISSION_PRESSURE",
+    "Module Ownership and Research Order",
 )
 
 
 def _read_ascii(root: Path, relative_path: Path) -> str:
     return (root / relative_path).read_text(encoding="ascii")
+
+
+def _extract_single_block(text: str, start: str, end: str) -> str:
+    if text.count(start) != 1 or text.count(end) != 1:
+        return ""
+    start_index = text.index(start)
+    end_index = text.index(end, start_index) + len(end)
+    return text[start_index:end_index]
 
 
 def build_architecture_guard_report(root: Path = ROOT) -> dict[str, object]:
@@ -96,6 +129,14 @@ def build_architecture_guard_report(root: Path = ROOT) -> dict[str, object]:
         for item in manifest.get("roadmap", [])
         if isinstance(item, dict)
     }
+    institutional_blocks = tuple(
+        _extract_single_block(
+            text,
+            INSTITUTIONAL_REGISTRATION_START,
+            INSTITUTIONAL_REGISTRATION_END,
+        )
+        for text in authority_texts.values()
+    )
     checks = {
         "canonical_documents_exist": canonical_exists,
         "canonical_documents_ascii": ascii_only,
@@ -150,6 +191,18 @@ def build_architecture_guard_report(root: Path = ROOT) -> dict[str, object]:
             and "V2-R1 through V2-R6: PLANNED / NOT_APPROVED / NOT_STARTED"
             in text
             for text in authority_texts.values()
+        ),
+        "institutional_registration_synchronized": (
+            len(institutional_blocks) == len(AUTHORITY_PATHS)
+            and all(institutional_blocks)
+            and len(set(institutional_blocks)) == 1
+            and "FCF-FCP-0004" in institutional_blocks[0]
+            and "FCF-V2-INSTITUTIONAL-CALENDAR-CAUSAL-MARKET-INTELLIGENCE"
+            in institutional_blocks[0]
+            and "Named research candidates, all NOT_ACTIVATED:"
+            in institutional_blocks[0]
+            and "Next product phase remains NOT_SELECTED / NOT_APPROVED."
+            in institutional_blocks[0]
         ),
     }
     return {"checks": checks, "ok": all(checks.values())}

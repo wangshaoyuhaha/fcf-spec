@@ -7192,3 +7192,79 @@ Authority result:
 - No tag, release, or deploy was run.
 
 <!-- FCF BACKTEST WINDOWS PYTEST INTEGRITY REMEDIATION END -->
+
+<!-- FCF INSTITUTIONAL CALENDAR CAUSAL MARKET INTELLIGENCE REGISTRATION START -->
+
+## FCF Institutional Calendar and Causal Market Intelligence Registration
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED / PHASE_NONE
+
+Governance system name:
+
+- `FCF Seven-File Project Governance and Memory System`
+
+Registered proposal and architecture:
+
+- proposal: `FCF-FCP-0004`
+- architecture: `FCF-V2-INSTITUTIONAL-CALENDAR-CAUSAL-MARKET-INTELLIGENCE`
+- ADR range: `FCF-V2-ADR-021` through `FCF-V2-ADR-030`
+- Gap range: `V2-FR-GAP-071` through `V2-FR-GAP-086`
+
+Accepted future scope:
+
+- Macro, Institutional, Capital, Industry, and Company clocks
+- Policy, Industry Supply, and Capital Transmission chains
+- point-in-time official event calendar and overlapping event-state stack
+- expectation-gap and event-reaction-quality research
+- earnings lifecycle and accounting-quality challenge
+- index-futures expiry, basis, open-interest, and roll research
+- equity supply, lock-up expiry, reduction, pledge, and forced-sale pressure
+- policy-window, Two Sessions, July, and December regime research
+- rates, Federal Reserve, DXY, USD/CNY, USD/CNH, and cross-market transmission
+- institutional crowding, index rebalance, quarter-end, holiday, and settlement
+  liquidity research
+- data freshness, evidence integrity, causal challenge, and institutional-factor
+  lifecycle controls
+
+Named research candidates, all NOT_ACTIVATED:
+
+- `EARNINGS_SURPRISE`
+- `EVENT_REACTION_QUALITY`
+- `EXPIRY_BASIS_ROLL_STRESS`
+- `EQUITY_SUPPLY_PRESSURE`
+- `FX_TRANSMISSION_SENSITIVITY`
+- `INSTITUTIONAL_CROWDING`
+- `WINDOW_DRESSING_PRESSURE`
+- `HOLIDAY_LIQUIDITY_STRESS`
+- `POLICY_NOVELTY_ALIGNMENT`
+- `CAPITAL_TRANSMISSION_PRESSURE`
+
+Module order:
+
+1. Calendar and Evidence Foundation
+2. Clock and Event State
+3. Causal Transmission
+4. Expectation and Corporate Events
+5. Derivatives and Equity Supply
+6. Macro and Institutional Liquidity
+7. Factor Governance and Validation
+
+All fixed thresholds, percentage adjustments, score discounts, and weight
+changes are research hypotheses until deterministically specified, tested,
+registered, and approved by the Operator. Unlock does not imply sale;
+correlation does not prove causation; delayed holdings do not prove current
+intent; AI extraction or explanation cannot change a formula, weight, policy,
+factor status, or candidate state.
+
+V2-R1 through V2-R22 remain COMPLETED. Current product phase remains NONE.
+Next product phase remains NOT_SELECTED / NOT_APPROVED. No phase starts
+automatically.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only product
+presentation, Deterministic Engine authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding. No broker,
+exchange, credential, account, balance, position, wallet, order, execution,
+tag, release, or deployment path is authorized.
+
+<!-- FCF INSTITUTIONAL CALENDAR CAUSAL MARKET INTELLIGENCE REGISTRATION END -->

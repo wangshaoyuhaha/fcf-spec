@@ -1243,7 +1243,8 @@ robustness, multiple-testing, and Operator approval evidence.
 
 ## 54. Rates, FX, and Cross-Market Transmission
 
-The cross-market system may include central-bank decisions, sovereign yields,
+The cross-market system may include Federal Reserve and FOMC decisions, CPI,
+nonfarm payrolls, other registered central-bank decisions, sovereign yields,
 yield curves, DXY, USD/CNY, USD/CNH, volatility, commodities, foreign markets,
 approved ownership disclosures, and company operating FX exposure.
 
@@ -1267,11 +1268,20 @@ Crowding research separates:
 Fund holdings and letters are delayed registered evidence. They cannot prove a
 current manager action, manipulation, or a quarter-end motive.
 
+Quarter-end research distinguishes March, June, September, and December and
+retains the actual disclosure and rebalance calendar. June and December
+bank-liquidity or assessment pressure remains an observable research hypothesis
+rather than a presumed market direction.
+
 The holiday and settlement liquidity state machine uses holiday length,
 overseas-open days, settlement mismatch, expected event risk, spread, depth,
 volume, turnover, basis, and historical regime-conditioned distributions. A
 fixed last-three-days rule or fixed 30 percent threshold remains a research
 hypothesis, not Hard Policy.
+
+The holiday taxonomy includes Spring Festival, May Day, National Day, and
+other market-specific closures without assuming that all holidays have the
+same liquidity or return effect.
 
 ## 56. Institutional Factor Lifecycle and Validation Order
 
@@ -1292,3 +1302,68 @@ equity supply, derivatives context, rates and FX, crowding and holiday
 liquidity, transmission graphs, and only then registered factor candidates.
 
 Status: ACCEPTED_ARCHITECTURE / RESEARCH_REQUIRED / NOT_IMPLEMENTED
+
+## 57. Named Institutional Factor Research Candidates
+
+The original proposals are preserved as named research candidates so their
+intent is not lost. None is a registered or active factor:
+
+- `EARNINGS_SURPRISE`: actual result relative to point-in-time consensus and
+  estimate dispersion, with coverage, age, revision, and missing-consensus
+  controls
+- `EVENT_REACTION_QUALITY`: first-tradable gap, path, close, persistence,
+  breadth, volume, spread, depth, volatility, and cross-market confirmation
+- `EXPIRY_BASIS_ROLL_STRESS`: comparable-time basis, basis percentile, open
+  interest, volume, calendar spread, roll migration, and time to expiry
+- `EQUITY_SUPPLY_PRESSURE`: legally sellable supply, free float, unlock value,
+  average traded value absorption days, reduction evidence, pledge or debt
+  pressure, holder cost, and demand absorption
+- `FX_TRANSMISSION_SENSITIVITY`: market-, sector-, rate-, Dollar-, volatility-,
+  horizon-, regime-, and operating-exposure-controlled FX sensitivity
+- `INSTITUTIONAL_CROWDING`: normalized concentration among reporting funds,
+  total disclosed ownership, disclosure age, ownership change, exit days,
+  liquidity, breadth, and correlation stress
+- `WINDOW_DRESSING_PRESSURE`: observable quarter-end ownership, rebalance,
+  price, volume, and liquidity patterns without a manager-intent claim
+- `HOLIDAY_LIQUIDITY_STRESS`: holiday length, overseas-open days, settlement
+  mismatch, event risk, spread, depth, volume, turnover, basis, and historical
+  regime distributions
+- `POLICY_NOVELTY_ALIGNMENT`: registered official-language change mapped to a
+  point-in-time industry taxonomy and verified by breadth, flow, reaction, and
+  persistence
+- `CAPITAL_TRANSMISSION_PRESSURE`: registered funding, rate, vehicle-flow,
+  breadth, and instrument-liquidity evidence with correlated-evidence controls
+
+The source labels `ESF`, `HI`, `beta_FX`, `WDF`, and earnings surprise are
+retained as proposal aliases only. An official contract may replace their
+original simplified formulas when point-in-time, normalization, multivariate,
+capacity, and robustness requirements are satisfied. The aliases cannot be
+presented as implemented factors.
+
+## 58. Module Ownership and Research Order
+
+Future work is grouped to prevent unrelated concepts from being mixed:
+
+1. `Calendar and Evidence Foundation`: official schedules, publication and
+   tradable time, source rights, digests, revisions, and freshness; Gaps 071 and
+   084
+2. `Clock and Event State`: five clocks, market adapters, overlapping state
+   stack, conflict resolution, expiry, holiday, and disclosure states; Gaps 072
+   and 073
+3. `Causal Transmission`: Policy, Industry Supply, and Capital Transmission
+   graphs, edge evidence, lag, decay, alternatives, and invalidation; Gap 074
+4. `Expectation and Corporate Events`: consensus, expectation gaps, reaction
+   quality, earnings stages, and accounting-quality challenge; Gaps 075-077
+5. `Derivatives and Equity Supply`: futures basis, roll, expiry, lock-up,
+   issuance, reduction, pledge, forced-sale, and absorption research; Gaps
+   078-079
+6. `Macro and Institutional Liquidity`: rates, FX, policy windows, crowding,
+   rebalance, quarter-end, holiday, and settlement liquidity; Gaps 080-083
+7. `Factor Governance and Validation`: factor lifecycle, failure history,
+   leakage, multiple testing, sensitivity, ablation, capacity, out-of-sample
+   evaluation, and Operator approval; Gaps 085-086
+
+Dependencies flow from Module 1 through Module 7. A later module cannot invent
+missing calendar, rights, availability, evidence, or state semantics. This
+ordering is architecture and backlog organization only; it does not select or
+approve an implementation phase.

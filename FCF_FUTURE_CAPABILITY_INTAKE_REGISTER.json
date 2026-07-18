@@ -119,7 +119,7 @@
       "source": "operator-codex-architecture-review",
       "status": "ACCEPTED_ARCHITECTURE",
       "submitted_at_utc": "2026-07-18T00:00:00Z",
-      "summary": "Register the five-clock and three-chain institutional event architecture for A-share and BTC research, including point-in-time official calendars, overlapping event states, expectation gaps, reaction quality, earnings phases, futures expiry, equity supply shocks, policy windows, rates and FX transmission, institutional crowding, holiday liquidity, data freshness, causal challenge, and a governed factor lifecycle. All thresholds and weight changes remain deterministic research hypotheses requiring evidence and Operator approval; AI remains advisory.",
+      "summary": "Register the five-clock and three-chain institutional event architecture for A-share and BTC research, including point-in-time official calendars, overlapping event states, expectation gaps, reaction quality, earnings phases, futures expiry, equity supply shocks, policy windows, rates and FX transmission, institutional crowding, holiday liquidity, data freshness, causal challenge, and a governed factor lifecycle. Preserve the named research candidates EARNINGS_SURPRISE, EVENT_REACTION_QUALITY, EXPIRY_BASIS_ROLL_STRESS, EQUITY_SUPPLY_PRESSURE, FX_TRANSMISSION_SENSITIVITY, INSTITUTIONAL_CROWDING, WINDOW_DRESSING_PRESSURE, HOLIDAY_LIQUIDITY_STRESS, POLICY_NOVELTY_ALIGNMENT, and CAPITAL_TRANSMISSION_PRESSURE. All thresholds and weight changes remain deterministic research hypotheses requiring evidence and Operator approval; AI remains advisory.",
       "supersedes": [],
       "title": "Institutional calendar and causal market intelligence"
     }

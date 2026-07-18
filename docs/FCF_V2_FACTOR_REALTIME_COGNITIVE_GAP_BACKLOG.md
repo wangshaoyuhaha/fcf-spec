@@ -152,15 +152,15 @@ factor is activated.
 | V2-FR-GAP-071 | official institutional and macro event calendar with point-in-time availability | NOT_IMPLEMENTED |
 | V2-FR-GAP-072 | five-clock regime context and market-specific clock adapters | NOT_IMPLEMENTED |
 | V2-FR-GAP-073 | overlapping event-state stack and deterministic conflict resolver | NOT_IMPLEMENTED |
-| V2-FR-GAP-074 | policy, industry-supply, and capital-transmission graph contracts | RESEARCH_REQUIRED |
-| V2-FR-GAP-075 | point-in-time consensus, revision, and expectation-gap contract | RESEARCH_REQUIRED |
-| V2-FR-GAP-076 | event-reaction-quality measurement and matured outcome labels | NOT_IMPLEMENTED |
+| V2-FR-GAP-074 | policy, industry-supply, and capital-transmission graph contracts for POLICY_NOVELTY_ALIGNMENT and CAPITAL_TRANSMISSION_PRESSURE | RESEARCH_REQUIRED |
+| V2-FR-GAP-075 | point-in-time consensus, revision, and expectation-gap contract for EARNINGS_SURPRISE | RESEARCH_REQUIRED |
+| V2-FR-GAP-076 | EVENT_REACTION_QUALITY measurement and matured outcome labels | NOT_IMPLEMENTED |
 | V2-FR-GAP-077 | A-share earnings lifecycle and accounting-quality audit contract | RESEARCH_REQUIRED |
-| V2-FR-GAP-078 | index-futures expiry, basis, open-interest, and roll research | RESEARCH_REQUIRED |
-| V2-FR-GAP-079 | equity-supply, lock-up, reduction, pledge, and forced-sale pressure ledger | RESEARCH_REQUIRED |
-| V2-FR-GAP-080 | multivariate rates, DXY, USD/CNY, USD/CNH, and operating-FX transmission | RESEARCH_REQUIRED |
-| V2-FR-GAP-081 | institutional crowding, disclosure-latency, exit-days, and rebalance research | RESEARCH_REQUIRED |
-| V2-FR-GAP-082 | holiday, settlement, and thin-liquidity dynamic state machine | NOT_IMPLEMENTED |
+| V2-FR-GAP-078 | EXPIRY_BASIS_ROLL_STRESS research for index-futures basis, open interest, roll, and expiry | RESEARCH_REQUIRED |
+| V2-FR-GAP-079 | EQUITY_SUPPLY_PRESSURE ledger for lock-up, reduction, pledge, forced sale, and absorption | RESEARCH_REQUIRED |
+| V2-FR-GAP-080 | FX_TRANSMISSION_SENSITIVITY research for rates, DXY, USD/CNY, USD/CNH, and operating exposure | RESEARCH_REQUIRED |
+| V2-FR-GAP-081 | INSTITUTIONAL_CROWDING and WINDOW_DRESSING_PRESSURE research with disclosure latency, exit days, and rebalance evidence | RESEARCH_REQUIRED |
+| V2-FR-GAP-082 | HOLIDAY_LIQUIDITY_STRESS state machine for holiday, settlement, and thin-liquidity regimes | NOT_IMPLEMENTED |
 | V2-FR-GAP-083 | Two Sessions, July, December, and policy-language event studies | RESEARCH_REQUIRED |
 | V2-FR-GAP-084 | data freshness, revision lineage, evidence digest, and observed-versus-inferred integrity | NOT_IMPLEMENTED |
 | V2-FR-GAP-085 | institutional-factor lifecycle, rejection history, and Operator approval registry | NOT_IMPLEMENTED |
