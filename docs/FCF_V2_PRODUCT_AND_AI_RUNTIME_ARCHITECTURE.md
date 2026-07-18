@@ -8807,6 +8807,40 @@ P1-P47 frozen. No P48. Operator review required.
 <!-- V2-R24 LOCAL MULTI CLOCK EVENT STATE FOUNDATION APP 1 LOCK END -->
 
 
+<!-- V2-R25 LOCAL CAUSAL TRANSMISSION GRAPH FOUNDATION APP 1 LOCK START -->
+
+## V2-R25 Local Causal Transmission Graph Foundation App 1 Lock
+
+Status: IMPLEMENTED / PENDING_VALIDATION
+
+Implemented D1-D6:
+
+- closed registered-local causal-hypothesis boundary
+- immutable graph, node, edge, lineage, lag, and decay contracts
+- append-only registry with exact R23 event and R24 clock-state lineage
+- deterministic point-in-time resolution with market and horizon isolation
+- alternatives, invalidation, contradiction, stale, and correlation preservation
+- immutable read model, Operator receipt, tests, guard, and all-checks entry
+
+Approval evidence commit:
+
+- 555bc845d585167fb9e62669e8034d53ea26c9e0
+
+The implementation remains a registered-local hypothesis foundation only.
+V2-FR-GAP-074 remains RESEARCH_REQUIRED at production scope. No graph edge is
+proof of causation, and no candidate factor is activated.
+
+No network, live source, causal-proof claim, automatic edge selection, edge
+deletion, direction, weight, score, rank, alert, recommendation, prediction,
+model, Prompt, automatic learning, account, order, or execution was added.
+
+V2-R1 through V2-R24 remain COMPLETED. V2-R25 is IMPLEMENTED /
+PENDING_VALIDATION. No successor phase is selected.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R25 LOCAL CAUSAL TRANSMISSION GRAPH FOUNDATION APP 1 LOCK END -->
+
 <!-- V2-R25 LOCAL CAUSAL TRANSMISSION GRAPH FOUNDATION APP 1 APPROVAL START -->
 
 ## V2-R25 Local Causal Transmission Graph Foundation App 1 Approval
