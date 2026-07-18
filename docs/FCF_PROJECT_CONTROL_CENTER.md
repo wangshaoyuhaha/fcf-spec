@@ -1,6 +1,44 @@
 <!-- BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 APPROVAL START -->
 
 
+<!-- V2-R26 LOCAL CONSENSUS EXPECTATION GAP FOUNDATION APP 1 FINAL START -->
+
+## V2-R26 Local Consensus Expectation Gap Foundation App 1 Final
+
+Status: COMPLETED
+
+Evidence commits:
+
+- approval: 6296966740e56393742abe26c2df36ef6210229f
+- delivery: c4d4d03eab453456d590cc775691d3c0341c27c9
+- merge: 919bb4ea894560f633930246ed0d94399b150b56
+
+Validation baseline:
+
+- R26 stage tests: 13 passed
+- R23 through R26 and governance targeted: 66 passed
+- full pytest: 4991 passed, 5 skipped
+- run_all_checks: ALL CHECKS PASSED
+- generated outputs restored: 4 tracked JSON files
+- repository temporary directories: 0
+
+V2-R1 through V2-R26 are COMPLETED. Current governance and product phases are
+NONE. Next product phase is NOT_SELECTED / NOT_APPROVED. No successor starts
+automatically.
+
+This phase delivers registered-local point-in-time consensus and expectation
+gap evidence only. V2-FR-GAP-075 remains RESEARCH_REQUIRED at production scope.
+EARNINGS_SURPRISE is not activated and event-reaction labels are not started.
+
+P1-P47 remain frozen. No P48 was created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine authority, Registered Evidence authority, advisory AI, and
+mandatory Operator review remain binding. No network, broker, exchange,
+credential, account, balance, position, wallet, order, execution, tag, release,
+or deployment was added or run.
+
+<!-- V2-R26 LOCAL CONSENSUS EXPECTATION GAP FOUNDATION APP 1 FINAL END -->
+
 <!-- V2-R26 LOCAL CONSENSUS EXPECTATION GAP FOUNDATION APP 1 LOCK START -->
 
 ## V2-R26 Local Consensus Expectation Gap Foundation App 1 Lock
