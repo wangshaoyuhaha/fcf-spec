@@ -461,6 +461,11 @@ V2_R18_FINAL_START = (
 V2_R18_FINAL_END = (
     "<!-- V2-R18 LOCAL DIRECTIONAL TREND STRENGTH FOUNDATION APP 1 FINAL END -->"
 )
+V2_R18_FINAL_EVIDENCE_COMMITS = (
+    "9c45179c32429206685256483f9f64dfd52b8afc",
+    "31d1ff05038175f6f0426bb4d41d1b5aff999754",
+    "9ff19750c3c47d643793616666da0cbd69eee660",
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -3321,6 +3326,18 @@ def build_project_memory_guard_report(
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(
                 authority_texts, V2_R18_FINAL_START, V2_R18_FINAL_END
+            )
+        ),
+        "v2_r18_final_evidence_commits_exact": current_truth
+        != V2_R18_FINAL_STATE
+        or (
+            bool(V2_R18_FINAL_EVIDENCE_COMMITS)
+            and len(v2_r18_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in v2_r18_final_blocks)
+            and all(
+                all(commit in block for commit in V2_R18_FINAL_EVIDENCE_COMMITS)
+                for block in v2_r18_final_blocks
+                if block is not None
             )
         ),
         "canonical_roadmap_records_v2_r18_complete": current_truth
