@@ -145,6 +145,33 @@ P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R29 LOCAL INDEX FUTURES BASIS ROLL EXPIRY FOUNDATION APP 1 APPROVAL END -->
 
+<!-- V2-R29 LOCAL INDEX FUTURES BASIS ROLL EXPIRY FOUNDATION APP 1 LOCK START -->
+
+## V2-R29 Local Index Futures Basis Roll Expiry Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered D1-D6:
+
+- D1: closed registered-local index-futures evidence authority boundary
+- D2: immutable contract, spot reference, observation, and expiry-calendar contracts
+- D3: append-only registry with R23 and R24 lineage
+- D4: deterministic basis, annualized basis, calendar spread, and roll metrics
+- D5: missing, stale, conflict, no-bottom, and no-intent-claim preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+The delivery remains registered local evidence only. Basis and roll metrics are
+observable calculations, not bottom proof, participant intent, direction, score,
+signal, recommendation, or factor activation. V2-FR-GAP-078 remains open at
+production scope.
+
+No fixed third-Friday override, live source, network, model, automatic learning,
+account, order, or execution exists.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R29 LOCAL INDEX FUTURES BASIS ROLL EXPIRY FOUNDATION APP 1 LOCK END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final
