@@ -805,7 +805,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
 - V2-R28: Local A-Share Earnings Lifecycle Accounting Quality Foundation;
   COMPLETED / REGISTERED_LOCAL_ACCOUNTING_CHALLENGE_ONLY
 - V2-R29: Local Index Futures Basis Roll Expiry Foundation;
-  IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_DERIVATIVES_EVIDENCE_ONLY
+  COMPLETED / REGISTERED_LOCAL_DERIVATIVES_EVIDENCE_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
