@@ -50,6 +50,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r29_local_index_futures_basis_roll_expiry_guard.py"],
     ["python", "scripts/control_center_v2_r30_local_equity_supply_pressure_guard.py"],
     ["python", "scripts/control_center_v2_r31_local_fx_transmission_sensitivity_guard.py"],
+    ["python", "scripts/control_center_v2_r32_local_institutional_crowding_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],

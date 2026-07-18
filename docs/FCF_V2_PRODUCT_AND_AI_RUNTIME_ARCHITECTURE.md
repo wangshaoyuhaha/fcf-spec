@@ -423,6 +423,32 @@ P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R32 LOCAL INSTITUTIONAL CROWDING FOUNDATION APP 1 APPROVAL END -->
 
+<!-- V2-R32 LOCAL INSTITUTIONAL CROWDING FOUNDATION APP 1 LOCK START -->
+
+## V2-R32 Local Institutional Crowding Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered D1-D6:
+
+- D1: closed registered-local institutional-crowding evidence authority boundary
+- D2: immutable holding-disclosure, ownership, liquidity, and lineage contracts
+- D3: append-only registry with registered event-evidence lineage
+- D4: deterministic concentration, ownership, change, age, and exit-day metrics
+- D5: missing, stale, conflict, disclosure-latency, and no-intent preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+The delivery remains registered local evidence only. Delayed holdings do not
+prove current manager action, quarter-end motive, manipulation, direction,
+score, signal, recommendation, or factor activation. V2-FR-GAP-081 remains open
+at production scope.
+
+No live source, network, model, automatic learning, account, order, or execution exists.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R32 LOCAL INSTITUTIONAL CROWDING FOUNDATION APP 1 LOCK END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final

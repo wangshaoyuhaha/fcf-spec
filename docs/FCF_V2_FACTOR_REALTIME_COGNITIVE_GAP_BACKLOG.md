@@ -201,7 +201,7 @@ factor is activated.
 | V2-R29 | Local Index Futures Basis Roll Expiry Foundation | COMPLETED / REGISTERED_LOCAL_DERIVATIVES_EVIDENCE_ONLY |
 | V2-R30 | Local Equity Supply Pressure Foundation | COMPLETED / REGISTERED_LOCAL_EQUITY_SUPPLY_EVIDENCE_ONLY |
 | V2-R31 | Local FX Transmission Sensitivity Foundation | COMPLETED / REGISTERED_LOCAL_FX_TRANSMISSION_EVIDENCE_ONLY |
-| V2-R32 | Local Institutional Crowding Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_INSTITUTIONAL_CROWDING_EVIDENCE_ONLY |
+| V2-R32 | Local Institutional Crowding Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_INSTITUTIONAL_CROWDING_EVIDENCE_ONLY |
 
 Next product implementation phase: V2-R32 / APPROVED.
 
