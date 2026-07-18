@@ -1,6 +1,6 @@
 # V2-R24 Local Multi-Clock Event State Foundation App 1 D1
 
-Status: IMPLEMENTED_PENDING_VALIDATION
+Status: COMPLETED
 
 D1 closes the registered-local five-clock boundary. Network, live clock,
 system-clock authority, destructive selection, winner selection, scoring,

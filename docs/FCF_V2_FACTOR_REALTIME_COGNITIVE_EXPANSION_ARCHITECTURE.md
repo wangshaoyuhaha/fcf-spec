@@ -795,7 +795,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
 - V2-R23: Local Institutional Calendar Evidence Foundation;
   COMPLETED / REGISTERED_LOCAL_EVENT_EVIDENCE_ONLY
 - V2-R24: Local Multi-Clock Event State Foundation;
-  IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_CLOCK_STATE_ONLY
+  COMPLETED / REGISTERED_LOCAL_CLOCK_STATE_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
