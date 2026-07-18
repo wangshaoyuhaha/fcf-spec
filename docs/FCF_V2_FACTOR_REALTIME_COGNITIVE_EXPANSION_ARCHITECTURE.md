@@ -801,7 +801,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
 - V2-R26: Local Consensus Expectation Gap Foundation;
   COMPLETED / REGISTERED_LOCAL_EXPECTATION_EVIDENCE_ONLY
 - V2-R27: Local Event Reaction Quality Foundation;
-  IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_REACTION_EVIDENCE_ONLY
+  COMPLETED / REGISTERED_LOCAL_REACTION_EVIDENCE_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
