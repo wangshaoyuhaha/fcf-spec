@@ -114,6 +114,37 @@ P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 LOCK END -->
 
+<!-- V2-R29 LOCAL INDEX FUTURES BASIS ROLL EXPIRY FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R29 Local Index Futures Basis Roll Expiry Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed registered-local index-futures evidence authority boundary
+- D2: immutable contract, spot reference, observation, and expiry-calendar contracts
+- D3: append-only registry with R23 and R24 lineage
+- D4: deterministic basis, annualized basis, calendar spread, and roll metrics
+- D5: missing, stale, conflict, no-bottom, and no-intent-claim preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is Module 5 index-futures context foundation only. It supplies a local
+foundation toward V2-FR-GAP-078 but does not close the production research gap or
+activate EXPIRY_BASIS_ROLL_STRESS.
+
+No fixed third-Friday override, bottom claim, participant-intent inference, live
+source, network, direction, weight, score, rank, alert, recommendation,
+prediction, model, Prompt, automatic learning, account, order, or execution is
+authorized.
+
+V2-R1 through V2-R28 remain COMPLETED. V2-R29 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R29 LOCAL INDEX FUTURES BASIS ROLL EXPIRY FOUNDATION APP 1 APPROVAL END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final
