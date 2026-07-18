@@ -796,6 +796,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   COMPLETED / REGISTERED_LOCAL_EVENT_EVIDENCE_ONLY
 - V2-R24: Local Multi-Clock Event State Foundation;
   COMPLETED / REGISTERED_LOCAL_CLOCK_STATE_ONLY
+- V2-R25: Local Causal Transmission Graph Foundation;
+  APPROVED / NOT_STARTED / REGISTERED_LOCAL_CAUSAL_HYPOTHESIS_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts

@@ -6603,6 +6603,38 @@ P1-P47 frozen. No P48. Operator review required.
 
 <!-- V2-R24 LOCAL MULTI CLOCK EVENT STATE FOUNDATION APP 1 LOCK END -->
 
+
+<!-- V2-R25 LOCAL CAUSAL TRANSMISSION GRAPH FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R25 Local Causal Transmission Graph Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed registered-local causal-hypothesis authority boundary
+- D2: immutable graph, node, edge, evidence-lineage, lag, and decay contracts
+- D3: append-only graph registry with R23 evidence and R24 state lineage
+- D4: deterministic point-in-time graph and edge availability resolution
+- D5: alternative, contradictory, missing, stale, and invalidated preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is Module 3 `Causal Transmission` only. It supplies a local
+foundation toward V2-FR-GAP-074 but does not close the production research gap.
+Every edge remains a registered research hypothesis, never proof of causation.
+It cannot activate POLICY_NOVELTY_ALIGNMENT, CAPITAL_TRANSMISSION_PRESSURE, or
+any other factor.
+
+No network, live source, causal-proof claim, automatic edge selection, edge
+deletion, direction, weight, score, rank, alert, recommendation, prediction,
+model, Prompt, automatic learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R24 remain COMPLETED. V2-R25 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R25 LOCAL CAUSAL TRANSMISSION GRAPH FOUNDATION APP 1 APPROVAL END -->
 <!-- V2-R24 LOCAL MULTI CLOCK EVENT STATE FOUNDATION APP 1 FINAL START -->
 
 ## V2-R24 Local Multi-Clock Event State Foundation App 1 Final

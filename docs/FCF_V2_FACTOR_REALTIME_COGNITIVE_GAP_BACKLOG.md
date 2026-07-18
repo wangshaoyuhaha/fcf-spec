@@ -194,10 +194,11 @@ factor is activated.
 | V2-R22 | Local Robust Normalization Integrity Hardening | COMPLETED / REGISTERED_LOCAL_NORMALIZATION_INTEGRITY_ONLY |
 | V2-R23 | Local Institutional Calendar Evidence Foundation | COMPLETED / REGISTERED_LOCAL_EVENT_EVIDENCE_ONLY |
 | V2-R24 | Local Multi-Clock Event State Foundation | COMPLETED / REGISTERED_LOCAL_CLOCK_STATE_ONLY |
+| V2-R25 | Local Causal Transmission Graph Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_CAUSAL_HYPOTHESIS_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R25 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R25 starts automatically.
 
 ## Entry Gate
 
