@@ -165,11 +165,11 @@ factor is activated.
 | V2-R14 | Local Trend Indicator Foundation | COMPLETED / REGISTERED_LOCAL_TREND_CALCULATION_ONLY |
 | V2-R15 | Local Volatility Indicator Foundation | COMPLETED / REGISTERED_LOCAL_VOLATILITY_CALCULATION_ONLY |
 | V2-R16 | Local Range Channel Indicator Foundation | COMPLETED / REGISTERED_LOCAL_CHANNEL_CALCULATION_ONLY |
-| V2-R17 | Local Stochastic Oscillator Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_STOCHASTIC_CALCULATION_ONLY |
+| V2-R17 | Local Stochastic Oscillator Foundation | COMPLETED / REGISTERED_LOCAL_STOCHASTIC_CALCULATION_ONLY |
 
-Next product implementation phase: V2-R17 / APPROVED.
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
 
-No successor phase after V2-R17 starts automatically.
+No successor phase starts automatically.
 
 ## Entry Gate
 

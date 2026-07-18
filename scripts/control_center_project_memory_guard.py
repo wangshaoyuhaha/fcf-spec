@@ -438,6 +438,11 @@ V2_R17_FINAL_START = (
 V2_R17_FINAL_END = (
     "<!-- V2-R17 LOCAL STOCHASTIC OSCILLATOR FOUNDATION APP 1 FINAL END -->"
 )
+V2_R17_FINAL_EVIDENCE_COMMITS = (
+    "e6bae3ad3a306380ca3acab74edd9225c277cf60",
+    "b0ab7518a35d7138ba7cae8de7bc117b947e20c6",
+    "f01b7f59ad6b79bdfc7990efd2e4a10de5cb30e9",
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -3165,6 +3170,18 @@ def build_project_memory_guard_report(
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(
                 authority_texts, V2_R17_FINAL_START, V2_R17_FINAL_END
+            )
+        ),
+        "v2_r17_final_evidence_commits_exact": current_truth
+        != V2_R17_FINAL_STATE
+        or (
+            bool(V2_R17_FINAL_EVIDENCE_COMMITS)
+            and len(v2_r17_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in v2_r17_final_blocks)
+            and all(
+                all(commit in block for commit in V2_R17_FINAL_EVIDENCE_COMMITS)
+                for block in v2_r17_final_blocks
+                if block is not None
             )
         ),
         "canonical_roadmap_records_v2_r17_complete": current_truth
