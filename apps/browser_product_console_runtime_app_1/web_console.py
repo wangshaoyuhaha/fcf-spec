@@ -591,6 +591,49 @@ Candidate information is research evidence only. Operator review is required.
 
     def _governance_page(self, path: str) -> bytes:
         model = build_governance_workspace_model(self._read_model)
+        projection_sections = []
+        for projection in model.projection_presentations:
+            field_rows = []
+            for field in projection.fields:
+                sources = "<br>".join(
+                    f"<code>{_escape(source)}</code>"
+                    for source in field.source_snapshot_hashes
+                )
+                field_rows.append(
+                    "<tr>"
+                    f"<td>{_escape(field.field_id)}</td>"
+                    f"<td>{_escape(field.value)}</td>"
+                    f'<td><span class="badge">{_escape(field.origin)}</span></td>'
+                    f"<td>{_escape(field.confidence)}</td>"
+                    f"<td>{sources}</td>"
+                    "</tr>"
+                )
+            reasons = "".join(
+                f'<span class="badge">{_escape(reason)}</span>'
+                for reason in projection.reason_codes
+            )
+            projection_sections.append(
+                f"""
+<section class="card governance-projection">
+<h2>Factor Governance Field Detail</h2>
+<div class="grid">
+<p><strong>Candidate</strong><br>{_escape(projection.candidate_id)}</p>
+<p><strong>Factor</strong><br>{_escape(projection.factor_id)}</p>
+<p><strong>Market</strong><br>{_escape(projection.market)}</p>
+<p><strong>State</strong><br>{_escape(projection.state)}</p>
+<p><strong>Confidence</strong><br>{_escape(projection.confidence)}</p>
+<p><strong>Evaluated at</strong><br>{_escape(projection.evaluated_at_utc)}</p>
+</div>
+<p><strong>Reason codes</strong><br>{reasons}</p>
+<table>
+<thead><tr><th>Field</th><th>Value</th><th>Origin</th>
+<th>Confidence</th><th>Registered source snapshots</th></tr></thead>
+<tbody>{''.join(field_rows)}</tbody>
+</table>
+<p>Projection hash: <code>{_escape(projection.projection_hash)}</code></p>
+</section>
+"""
+            )
         rows = []
         for item in model.items:
             serialized = json.dumps(
@@ -644,6 +687,7 @@ Candidate information is research evidence only. Operator review is required.
 <p>State: <span class="state">{_escape(model.state)}</span></p>
 <p>{counts}</p>
 </section>
+{''.join(projection_sections)}
 {table}
 <section class="notice">
 Governance evidence is registered-artifact-only and read-only. Deterministic
