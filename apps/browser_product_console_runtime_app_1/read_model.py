@@ -5,6 +5,9 @@ from types import MappingProxyType
 from typing import Any, Mapping, Tuple
 
 from .artifact_index import LoadedConsoleArtifactIndex
+from apps.v2_r39_browser_operator_factor_governance_projection_integration_app_1 import (
+    parse_registered_browser_governance_projection,
+)
 
 
 def _require_text(value: object, field_name: str) -> str:
@@ -216,6 +219,8 @@ def build_console_read_model(
         registration = artifact.registration
         artifact_type = registration.artifact_type
         payload = artifact.payload
+        if artifact_type == "factor_governance_projection":
+            parse_registered_browser_governance_projection(payload)
         sections.setdefault(artifact_type, []).append(payload)
         records.append(
             ConsoleArtifactRecord(

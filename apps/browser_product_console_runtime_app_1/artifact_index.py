@@ -31,6 +31,7 @@ SUPPORTED_ARTIFACT_TYPES = {
     "report_archive",
     "model_governance",
     "policy_snapshot",
+    "factor_governance_projection",
     "audit_receipt",
     "manifest",
 }
