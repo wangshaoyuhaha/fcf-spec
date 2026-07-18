@@ -1064,3 +1064,231 @@ generated-output restoration, authority synchronization, and clean Git state.
 P1-P47 remain frozen. No P48 is created. Deterministic Engine and Registered
 Evidence remain authoritative. AI remains advisory. Operator review remains
 mandatory. No tag, release, or deployment is authorized.
+
+## 44. Institutional Calendar and Causal Market Intelligence Architecture
+
+Architecture ID:
+
+- `FCF-V2-INSTITUTIONAL-CALENDAR-CAUSAL-MARKET-INTELLIGENCE`
+
+Short design name:
+
+- `Five-Clock Three-Chain Architecture`
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED / PHASE_NONE
+
+This extension organizes macro, institutional, capital, industry, and company
+evidence without converting calendar effects, correlations, or narratives into
+automatic decisions. It supports A-share and BTC research through separate
+market adapters, point-in-time evidence, deterministic calculations, causal
+challenge, and mandatory Operator review.
+
+## 45. Five-Clock Regime Context
+
+The platform preserves five concurrent clocks rather than forcing one global
+market state:
+
+- `Macro Clock`: inflation, growth, rates, credit, liquidity, fiscal policy,
+  monetary policy, commodities, and global risk conditions
+- `Institutional Clock`: exchange rules, settlement, index-futures expiry,
+  disclosure windows, Two Sessions, July and December policy windows, holidays,
+  lock-up expiry, and regulatory changes
+- `Capital Clock`: market turnover, breadth, ETF and fund flows, financing,
+  foreign-ownership disclosures, futures basis, open interest, and crowding
+- `Industry Clock`: policy exposure, capacity, inventory, pricing, orders,
+  upstream and downstream transmission, and sector diffusion
+- `Company Clock`: earnings guidance, quick reports, formal reports, corporate
+  actions, unlocks, reductions, pledges, cash flow, and accounting quality
+
+Each clock carries event time, publication time, ingest time, first legally
+available time, first tradable time, source, digest, freshness, revision state,
+market, horizon, confidence, and missing-state semantics. Conflicting clocks
+remain visible.
+
+## 46. Three Causal Transmission Chains
+
+Three versioned point-in-time graphs explain how evidence may reach an
+instrument:
+
+- `Policy Transmission Chain`: official decision -> macro variable -> industry
+  mechanism -> company exposure -> observable market response
+- `Industry Supply Chain`: upstream input -> capacity and inventory -> pricing
+  -> margin and orders -> company earnings exposure
+- `Capital Transmission Chain`: funding and rate condition -> asset allocation
+  -> vehicle or venue flow -> sector breadth -> instrument liquidity
+
+Every edge requires source, direction hypothesis, horizon, lag, decay,
+alternative explanations, invalidation, and evidence quality. A graph edge is a
+research hypothesis, not proof of causation. The system preserves negative and
+contradictory evidence and does not count correlated nodes as independent
+confirmation.
+
+## 47. Official Event Calendar and Point-in-Time Registry
+
+The registry covers scheduled and unscheduled institutional events, including:
+
+- official macro releases, central-bank decisions, major policy meetings, and
+  exchange-rule changes
+- A-share Two Sessions, July policy review, December policy review, and other
+  officially scheduled policy windows
+- earnings previews, guidance, quick reports, formal reports, and revisions
+- index-futures expiry, contract roll, index rebalance, lock-up expiry,
+  reductions, dividends, placements, convertible actions, and holidays
+- BTC protocol, market-structure, macro, and cross-market events when an
+  approved local registered source exists
+
+Dates are resolved from registered official or licensed artifacts. Recurring
+calendar rules may seed a candidate event but cannot replace a confirmed
+schedule. Revised releases preserve the original value, revised value, and
+availability timeline.
+
+## 48. Multi-Clock Regime Orchestrator and Event State Stack
+
+Overlapping events form an immutable stack, not one destructive state. Example
+states include `PRE_EVENT`, `RELEASED_NOT_TRADABLE`, `FIRST_TRADABLE_REACTION`,
+`POST_EVENT_DIGESTION`, `EXPIRY_WINDOW`, `HOLIDAY_LIQUIDITY`,
+`EARNINGS_REBUILD`, and `STALE_OR_CONFLICTED`.
+
+The deterministic conflict resolver produces supporting, opposing, neutral,
+missing, stale, and blocked evidence groups by market and horizon. Hard data,
+rights, security, and execution gates remain non-overridable. AI may summarize
+the stack and propose alternative explanations but cannot select a state,
+remove a conflict, or change a deterministic effect.
+
+## 49. Expectation Gap and Event Reaction Quality
+
+The `Expectation Gap Engine` separates:
+
+- actual value versus registered consensus
+- actual value versus prior release and prior revisions
+- official language versus the previous official language
+- company result versus point-in-time guidance and analyst range
+- observed price response versus a registered price-implied baseline
+
+The `Event Reaction Quality Engine` measures first-tradable gap, intraday path,
+close location, continuation or reversal, volume, turnover, spread, depth,
+breadth, futures basis, volatility, and cross-market confirmation. Surprise and
+reaction are separate evidence: favorable news with weak price response and
+unfavorable news with resilient response must remain observable.
+
+Consensus coverage, dispersion, age, provider, survivorship, and revision
+history are mandatory. Missing consensus cannot be replaced by AI-generated
+numbers.
+
+## 50. Earnings Lifecycle and Accounting Quality
+
+The earnings state machine preserves market-specific stages:
+
+`EXPECTATION -> PREANNOUNCEMENT -> QUICK_REPORT -> FORMAL_REPORT`
+`-> FIRST_TRADABLE_REACTION -> REASSESSMENT -> MATURED_OUTCOME`
+
+Deterministic research may compare revenue, profit, adjusted profit, cash flow,
+margin, working capital, debt, guidance, consensus dispersion, and revisions.
+Accounting-quality checks include non-recurring gains, government grants,
+asset sales, impairment, related-party exposure, receivables, inventory, cash
+conversion, auditor opinion, and restatement history when registered evidence
+exists.
+
+AI may extract tables, compare statements, identify assumptions, and write a
+pro and con explanation. It cannot invent consensus, diagnose fraud, replace an
+auditor, or alter the deterministic score.
+
+## 51. Index-Futures Expiry and Derivatives Context
+
+Research may cover IF, IH, IC, IM, and other separately registered contracts:
+
+- spot-futures basis and annualized basis by comparable timestamp
+- basis percentile by contract, regime, horizon, and time to expiry
+- open interest, volume, roll, calendar spread, and contract migration
+- expiry-window liquidity, index and constituent response, and hedge proxies
+- settlement rule, holiday shift, contract multiplier, and data revisions
+
+No fixed third-Friday assumption may override a versioned exchange calendar.
+Deep discount does not prove a bottom, open interest does not reveal intent,
+and member ranking does not prove directional speculation. Slippage or alert
+changes require registered event-study evidence and deterministic policy.
+
+## 52. Equity Supply and Forced-Sale Pressure
+
+The `Equity Supply and Forced-Sale Pressure System` separates legal
+availability from actual selling. It may register:
+
+- lock-up type, holder class, unlock date, legally sellable amount, free-float
+  ratio, market value, and days of average traded value required for absorption
+- IPO, placement, employee-plan, convertible, secondary-offering, and planned
+  reduction supply
+- pledge ratio, margin or debt pressure, judicial auction, disposal notice,
+  historical reductions, and actual post-event selling evidence
+- holder cost or profit proxy, liquidity, ownership concentration, and demand
+  absorption
+
+Unlock does not imply sale. A time-decay factor must be piecewise before and
+after the event and cannot explode after the event because of a negative day
+count. Any supply-pressure score requires point-in-time inputs, sensitivity
+analysis, capacity testing, and explicit missing states.
+
+## 53. Policy Windows and Local Institutional Cycles
+
+Two Sessions, July, December, reporting seasons, quarter ends, and other local
+institutional windows are registered event regimes, not deterministic bullish
+or bearish labels. Research preserves pre-event expectation, official release,
+first tradable response, post-event diffusion, and invalidation.
+
+AI may compare official documents, extract changed language, identify named
+industries, and challenge narrative consistency. Deterministic code maps only
+registered concepts to point-in-time taxonomies and measures breadth, flow,
+reaction, and persistence. No keyword may automatically increase a factor
+weight, and no fixed percentage adjustment is accepted without event-study,
+robustness, multiple-testing, and Operator approval evidence.
+
+## 54. Rates, FX, and Cross-Market Transmission
+
+The cross-market system may include central-bank decisions, sovereign yields,
+yield curves, DXY, USD/CNY, USD/CNH, volatility, commodities, foreign markets,
+approved ownership disclosures, and company operating FX exposure.
+
+Simple return-to-FX covariance is insufficient for an official factor. A
+candidate FX sensitivity model must define market and sector controls, rate and
+Dollar controls, volatility regime, horizon, rolling window, structural breaks,
+company revenue and cost currency exposure, and missing data. Foreign holding
+data must display its actual publication latency; delayed disclosure cannot be
+presented as realtime individual-stock flow or current investor intent.
+
+## 55. Institutional Crowding, Rebalance, and Holiday Liquidity
+
+Crowding research separates:
+
+- normalized concentration among reporting funds
+- total disclosed institutional ownership
+- ETF and index-rebalance mechanical demand hypotheses
+- ownership change, disclosure age, turnover capacity, and estimated exit days
+- sector and style concentration, breadth, correlation, and liquidity stress
+
+Fund holdings and letters are delayed registered evidence. They cannot prove a
+current manager action, manipulation, or a quarter-end motive.
+
+The holiday and settlement liquidity state machine uses holiday length,
+overseas-open days, settlement mismatch, expected event risk, spread, depth,
+volume, turnover, basis, and historical regime-conditioned distributions. A
+fixed last-three-days rule or fixed 30 percent threshold remains a research
+hypothesis, not Hard Policy.
+
+## 56. Institutional Factor Lifecycle and Validation Order
+
+Institutional factors follow this lifecycle:
+
+`RESEARCH_PROPOSAL -> CONTRACT_DEFINED -> DATA_AVAILABLE`
+`-> POINT_IN_TIME_VALIDATED -> BACKTESTED -> ROBUSTNESS_REVIEWED`
+`-> OPERATOR_APPROVED -> REGISTERED_PAPER_FACTOR`
+
+Failures, deferrals, and supersessions remain immutable. No factor receives a
+direction, weight, score, rank, or alert effect before leakage, revision,
+survivorship, availability-time, transaction-cost, capacity, subgroup,
+multiple-testing, sensitivity, ablation, and out-of-sample checks pass.
+
+Recommended research order is calendar and availability semantics, event stack
+and state conflict, expectation and reaction measurement, earnings lifecycle,
+equity supply, derivatives context, rates and FX, crowding and holiday
+liquidity, transmission graphs, and only then registered factor candidates.
+
+Status: ACCEPTED_ARCHITECTURE / RESEARCH_REQUIRED / NOT_IMPLEMENTED

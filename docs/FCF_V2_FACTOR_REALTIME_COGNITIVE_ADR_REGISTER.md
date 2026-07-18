@@ -270,6 +270,136 @@ universal score or launching multiple realtime MVP markets together.
 
 Not authorized: additional market adapter or realtime MVP implementation.
 
+## FCF-V2-ADR-021 Five Concurrent Clocks and Overlapping Event States
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Preserve Macro, Institutional, Capital, Industry, and Company clocks
+as concurrent point-in-time contexts. Overlapping events form an immutable
+state stack and are resolved by market and horizon without deleting conflict.
+
+Consequence: One global calendar regime cannot overwrite another clock, hard
+gate, negative evidence, or missing state.
+
+Not authorized: regime runtime, automatic state selection, or factor effect.
+
+## FCF-V2-ADR-022 Official Calendar and Availability-Time Semantics
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Scheduled events use registered official or licensed artifacts and
+carry event, publication, ingest, first-available, and first-tradable times.
+Recurring rules seed candidates but do not override confirmed schedules.
+
+Consequence: Revisions, holiday shifts, venue rules, and disclosure latency are
+replayable without look-ahead leakage.
+
+Not authorized: network calendar service or live data source.
+
+## FCF-V2-ADR-023 Three Versioned Causal Transmission Chains
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Use Policy Transmission, Industry Supply, and Capital Transmission
+graphs with point-in-time membership, lag, decay, alternative explanations,
+invalidation, and evidence quality.
+
+Consequence: Correlation, keywords, and graph proximity cannot prove causation
+or receive duplicate confidence as independent evidence.
+
+Not authorized: automatic causal conclusion or weight change.
+
+## FCF-V2-ADR-024 Separate Expectation Gap from Reaction Quality
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Measure actual-versus-consensus or prior expectation separately from
+the first-tradable price, liquidity, breadth, futures, and persistence response.
+
+Consequence: Favorable surprise with weak response and unfavorable surprise
+with resilient response remain explicit, auditable evidence states.
+
+Not authorized: AI-generated consensus, recommendation, or automatic score.
+
+## FCF-V2-ADR-025 Earnings Lifecycle and Accounting-Quality Challenge
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Preserve preannouncement, quick-report, formal-report,
+first-tradable-reaction, reassessment, and matured-outcome stages. Registered
+accounting-quality evidence challenges headline profit.
+
+Consequence: Non-recurring gains, cash conversion, impairment, auditor opinion,
+and revisions are not collapsed into one earnings number.
+
+Not authorized: fraud diagnosis, auditor replacement, or formula override.
+
+## FCF-V2-ADR-026 Equity Supply Is Not Equivalent to Selling
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Model unlock and issuance availability separately from reduction
+notices, actual selling, pledge or debt pressure, judicial disposal, liquidity,
+holder cost, and demand absorption.
+
+Consequence: Unlock ratios alone cannot trigger a bearish conclusion. Time
+decay is piecewise around the event and remains stable after the event.
+
+Not authorized: holder-intent claim or automatic technical-score discount.
+
+## FCF-V2-ADR-027 Derivatives Evidence Requires Contract and Calendar Context
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Futures basis, open interest, roll, calendar spread, and expiry effects
+use comparable timestamps, contract metadata, versioned venue calendars, and
+regime-conditioned baselines.
+
+Consequence: Discount does not prove a bottom, open interest does not reveal
+intent, and a recurring expiry rule cannot replace the official calendar.
+
+Not authorized: futures connection, order path, or automatic risk adjustment.
+
+## FCF-V2-ADR-028 Rates, FX, and Foreign-Flow Latency Discipline
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: FX sensitivity is a multivariate, horizon-specific, regime-aware
+research model with market, sector, rates, Dollar, volatility, and company
+operating-exposure controls. Foreign holdings retain publication latency.
+
+Consequence: Simple covariance and delayed ownership cannot be labeled a causal
+FX factor, realtime stock flow, or current investor intent.
+
+Not authorized: live foreign-flow feed or automatic cross-market weight.
+
+## FCF-V2-ADR-029 Crowding and Holiday Liquidity Use Dynamic Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Separate normalized fund concentration, total ownership, change,
+disclosure age, exit days, rebalance hypotheses, and liquidity stress. Holiday
+state uses registered calendar length and regime-conditioned market liquidity.
+
+Consequence: Delayed holdings do not prove current manager behavior. Fixed
+three-day, 30 percent, or percentile rules remain unvalidated hypotheses.
+
+Not authorized: manipulation claim or automatic Hard Policy threshold.
+
+## FCF-V2-ADR-030 Governed Institutional Factor Lifecycle
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: An institutional factor advances from proposal through contract,
+data availability, point-in-time validation, backtest, robustness review,
+Operator approval, and registered Paper-factor status.
+
+Consequence: No calendar, policy, supply, earnings, derivatives, FX, crowding,
+or liquidity idea can acquire a direction, weight, score, or rank early. Failed
+and superseded candidates remain recorded.
+
+Not authorized: automatic activation, promotion, learning, or self-modification.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.

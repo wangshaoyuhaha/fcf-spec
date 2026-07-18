@@ -5,6 +5,12 @@ Status: ACTIVE_GOVERNANCE_CONTROL
 This protocol makes repository evidence, rather than conversation memory, the
 authority for resuming FCF work.
 
+The seven core files named in Sections 1 and 2 are collectively the `FCF
+Seven-File Project Governance and Memory System`. This stable name refers to
+project status, completion evidence, future architecture, decisions, gaps,
+change control, and durable intake. It does not refer to a product runtime or
+market-analysis subsystem.
+
 ## 1. Required Read Order
 
 A new development window must read and verify these sources in order:
@@ -24,6 +30,20 @@ A new development window must read and verify these sources in order:
 No implementation may start from chat recollection alone.
 
 ## 2. File Roles
+
+The seven core governance and memory files are:
+
+1. `FCF_CURRENT_STATE_MANIFEST.json`
+2. `docs/FCF_PROJECT_CONTROL_CENTER.md`
+3. `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md`
+4. `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md`
+5. `docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md`
+6. `docs/FCF_FUTURE_CAPABILITY_CHANGE_PROTOCOL.md`
+7. `FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json`
+
+Execution safety, this continuity protocol, historical evidence, and the five
+active authority mirrors govern or support the seven-file system but are not
+additional core status registers.
 
 `FCF_CURRENT_STATE_MANIFEST.json` is the machine-readable current-truth
 entry point. It records the latest completed product phase, the current
@@ -126,6 +146,12 @@ not-implemented capability groups:
 - offline adaptive research without automatic learning or promotion
 - session-aware replay, calibration, lead-time, failure, and stop evaluation
 - A-share and BTC market-specific adapters without a universal mixed score
+- five-clock regime context and policy, industry, and capital transmission
+- point-in-time institutional calendars and overlapping event-state handling
+- expectation-gap, event-reaction, and earnings-lifecycle research
+- futures-expiry, equity-supply, rates, FX, crowding, and holiday-liquidity
+  research
+- governed institutional-factor lifecycle and data-freshness controls
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

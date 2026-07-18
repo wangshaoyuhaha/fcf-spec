@@ -16,6 +16,11 @@
       "architecture_id": "FCF-V2-MARKET-SESSION-MICROSTRUCTURE-RESEARCH-EXTENSION",
       "implementation_status": "NOT_IMPLEMENTED",
       "status": "ACCEPTED_ARCHITECTURE"
+    },
+    {
+      "architecture_id": "FCF-V2-INSTITUTIONAL-CALENDAR-CAUSAL-MARKET-INTELLIGENCE",
+      "implementation_status": "NOT_IMPLEMENTED",
+      "status": "ACCEPTED_ARCHITECTURE"
     }
   ],
   "canonical_file_roles": {

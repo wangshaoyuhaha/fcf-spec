@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 4,
+  "next_proposal_sequence": 5,
   "proposals": [
     {
       "adr_refs": [],
@@ -76,6 +76,52 @@
       "summary": "Research an explainable confidence budget that detects correlated evidence and prevents macro, sector, instrument, and microstructure signals from being counted repeatedly as independent confirmation.",
       "supersedes": [],
       "title": "Correlated evidence confidence budget"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-021",
+        "FCF-V2-ADR-022",
+        "FCF-V2-ADR-023",
+        "FCF-V2-ADR-024",
+        "FCF-V2-ADR-025",
+        "FCF-V2-ADR-026",
+        "FCF-V2-ADR-027",
+        "FCF-V2-ADR-028",
+        "FCF-V2-ADR-029",
+        "FCF-V2-ADR-030"
+      ],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION",
+        "FCF-V2-INSTITUTIONAL-CALENDAR-CAUSAL-MARKET-INTELLIGENCE"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-071",
+        "V2-FR-GAP-072",
+        "V2-FR-GAP-073",
+        "V2-FR-GAP-074",
+        "V2-FR-GAP-075",
+        "V2-FR-GAP-076",
+        "V2-FR-GAP-077",
+        "V2-FR-GAP-078",
+        "V2-FR-GAP-079",
+        "V2-FR-GAP-080",
+        "V2-FR-GAP-081",
+        "V2-FR-GAP-082",
+        "V2-FR-GAP-083",
+        "V2-FR-GAP-084",
+        "V2-FR-GAP-085",
+        "V2-FR-GAP-086"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0004",
+      "source": "operator-codex-architecture-review",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-18T00:00:00Z",
+      "summary": "Register the five-clock and three-chain institutional event architecture for A-share and BTC research, including point-in-time official calendars, overlapping event states, expectation gaps, reaction quality, earnings phases, futures expiry, equity supply shocks, policy windows, rates and FX transmission, institutional crowding, holiday liquidity, data freshness, causal challenge, and a governed factor lifecycle. All thresholds and weight changes remain deterministic research hypotheses requiring evidence and Operator approval; AI remains advisory.",
+      "supersedes": [],
+      "title": "Institutional calendar and causal market intelligence"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

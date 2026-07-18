@@ -101,3 +101,16 @@ advisory AI, and mandatory Operator review remain binding.
 
 No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment capability is authorized.
+
+## 8. Seven-File Governance System
+
+The durable control suite is named the `FCF Seven-File Project Governance and
+Memory System`. Its core files are the current-state manifest, Project Control
+Center, canonical future architecture, ADR register, Gap and Backlog register,
+this change protocol, and the Future Capability Intake Register.
+
+Proposal `FCF-FCP-0004` registers the accepted architecture for institutional
+calendar and causal market intelligence. It remains `phase_id: NONE` and
+`NOT_IMPLEMENTED`. Its acceptance preserves the design and research backlog;
+it does not approve data access, a runtime phase, automatic weighting, model
+authority, or implementation.

@@ -29,7 +29,7 @@ def test_v2_factor_realtime_architecture_registers_exact_adr_set():
         ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md"
     ).read_text(encoding="ascii")
 
-    assert len(ADR_IDS) == 20
+    assert len(ADR_IDS) == 30
     assert all(text.count(adr_id) == 1 for adr_id in ADR_IDS)
 
 
@@ -38,7 +38,7 @@ def test_v2_factor_realtime_architecture_registers_exact_gap_set():
         ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
     ).read_text(encoding="ascii")
 
-    assert len(GAP_IDS) == 70
+    assert len(GAP_IDS) == 86
     assert all(text.count(gap_id) == 1 for gap_id in GAP_IDS)
 
 
@@ -150,4 +150,23 @@ def test_v2_market_session_extension_is_architecture_only():
     assert (
         "| V2-FR-GAP-065 | automatic learning, promotion, and "
         "self-modification runtime | OUTSIDE_CURRENT_AUTHORIZATION |"
+    ) in gap
+
+
+def test_institutional_calendar_extension_is_architecture_only():
+    architecture = (
+        ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_EXPANSION_ARCHITECTURE.md"
+    ).read_text(encoding="ascii")
+    gap = (
+        ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
+    ).read_text(encoding="ascii")
+
+    assert "Five-Clock Three-Chain Architecture" in architecture
+    assert "Unlock does not imply sale." in architecture
+    assert "cannot be\npresented as realtime individual-stock flow" in architecture
+    assert "fixed last-three-days rule" in architecture
+    assert (
+        "| V2-FR-GAP-086 | leakage, survivorship, multiple-testing, "
+        "sensitivity, ablation, capacity, and out-of-sample validation | "
+        "RESEARCH_REQUIRED |"
     ) in gap
