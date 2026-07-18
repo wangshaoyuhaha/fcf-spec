@@ -1209,6 +1209,35 @@ wallet, order, execution, tag, release, or deployment was added or run.
 
 <!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 FINAL END -->
 
+<!-- V2-R41 BROWSER GOVERNANCE STARTER PACKAGE INTEGRATION APP 1 APPROVAL START -->
+
+## V2-R41 Browser Governance Starter Package Integration App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed demonstration-package authority boundary
+- D2: deterministic model-governance demonstration artifact
+- D3: deterministic factor-governance projection demonstration artifact
+- D4: starter index registration, digest integrity, and package completeness
+- D5: default launch Governance workspace semantic smoke
+- D6: starter acceptance, regression guard, and closeout
+
+This phase supplies demonstration-only registered artifacts for the existing
+local Browser Governance workspace. It adds no current or live market data and
+does not close production V2-FR-GAP-060 or V2-FR-GAP-062.
+
+No network fetch, write control, approval, promotion, factor activation,
+automatic learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R40 remain COMPLETED. V2-R41 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R41 BROWSER GOVERNANCE STARTER PACKAGE INTEGRATION APP 1 APPROVAL END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final
