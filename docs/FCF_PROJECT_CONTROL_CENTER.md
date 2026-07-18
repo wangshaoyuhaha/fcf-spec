@@ -13993,6 +13993,36 @@ P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R23 LOCAL INSTITUTIONAL CALENDAR EVIDENCE FOUNDATION APP 1 APPROVAL END -->
 
+<!-- V2-R23 LOCAL INSTITUTIONAL CALENDAR EVIDENCE FOUNDATION APP 1 LOCK START -->
+
+## V2-R23 Local Institutional Calendar Evidence Foundation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered:
+
+- closed local registered-artifact-only authority boundary
+- official or licensed source-rights and immutable event contracts
+- event, publication, legal-availability, retrieval, ingest, and tradable times
+- append-only revision lineage with predecessor and content SHA-256
+- deterministic point-in-time resolution without future-revision leakage
+- cancellation, first-tradable, freshness, and missing-state fail-closed results
+- immutable read model and explicit Operator-review receipt
+- R23 governance guard, D1-D6 tests, and all-checks integration
+
+This is a local foundation only. V2-FR-GAP-071 and V2-FR-GAP-084 remain
+NOT_IMPLEMENTED at production scope. Module 2 and all institutional factor
+candidates remain NOT_STARTED / NOT_ACTIVATED.
+
+No network, live calendar, realtime ingestion, system-clock authority,
+hardcoded recurring schedule, score, rank, alert, recommendation, model,
+automatic learning, account, order, execution, tag, release, or deployment was
+added.
+
+P1-P47 frozen. No P48. Operator review required.
+
+<!-- V2-R23 LOCAL INSTITUTIONAL CALENDAR EVIDENCE FOUNDATION APP 1 LOCK END -->
+
 <!-- FCF BACKTEST WINDOWS PYTEST INTEGRITY REMEDIATION START -->
 ## FCF Backtest and Windows Pytest Integrity Remediation
 
