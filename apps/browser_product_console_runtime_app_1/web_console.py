@@ -591,6 +591,30 @@ Candidate information is research evidence only. Operator review is required.
 
     def _governance_page(self, path: str) -> bytes:
         model = build_governance_workspace_model(self._read_model)
+        attention = model.attention_summary
+        if attention is None:
+            raise ValueError("Governance attention summary is required")
+        confidence_badges = "".join(
+            f'<span class="badge">{_escape(name)}: {count}</span>'
+            for name, count in attention.confidence_counts.items()
+        ) or '<span class="badge">No projection confidence</span>'
+        attention_card = f"""
+<section class="card governance-attention-summary">
+<h2>Operator Attention Summary</h2>
+<p>Attention state: <span class="state">{_escape(attention.status)}</span></p>
+<div class="grid">
+<p><strong>Projections</strong><br>{attention.projection_count}</p>
+<p><strong>Operator review required</strong><br>{attention.operator_review_required_count}</p>
+<p><strong>Blocked</strong><br>{attention.blocked_count}</p>
+<p><strong>Incomplete</strong><br>{attention.incomplete_count}</p>
+<p><strong>Observed fields</strong><br>{attention.observed_field_count}</p>
+<p><strong>Inferred fields</strong><br>{attention.inferred_field_count}</p>
+</div>
+<p><strong>Projection confidence</strong><br>{confidence_badges}</p>
+<p>This summary is read-only evidence presentation. It cannot approve,
+promote, activate a factor, or create an action.</p>
+</section>
+"""
         projection_sections = []
         for projection in model.projection_presentations:
             field_rows = []
@@ -687,6 +711,7 @@ Candidate information is research evidence only. Operator review is required.
 <p>State: <span class="state">{_escape(model.state)}</span></p>
 <p>{counts}</p>
 </section>
+{attention_card}
 {''.join(projection_sections)}
 {table}
 <section class="notice">

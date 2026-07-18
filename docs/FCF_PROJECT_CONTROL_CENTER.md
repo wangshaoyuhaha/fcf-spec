@@ -1330,6 +1330,32 @@ P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 APPROVAL END -->
 
+<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 LOCK START -->
+
+## V2-R42 Browser Governance Attention Summary App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered D1-D6:
+
+- D1: closed read-only governance-summary authority boundary
+- D2: immutable Operator-attention summary contract
+- D3: deterministic R40 presentation aggregation
+- D4: Governance workspace attention-summary integration
+- D5: semantic read-only attention card on the existing route
+- D6: summary acceptance, regression guard, and closeout
+
+The delivery remains registered-local presentation only. It does not close
+production V2-FR-GAP-060 or V2-FR-GAP-062. Empty registered input remains
+explicit, and the summary cannot change any projection or evidence state.
+
+No network fetch, write control, approval, promotion, factor activation,
+automatic learning, account, order, or execution exists.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 LOCK END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final

@@ -831,7 +831,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
 - V2-R41: Browser Governance Starter Package Integration;
   COMPLETED / REGISTERED_LOCAL_DEMONSTRATION_GOVERNANCE_PACKAGE_ONLY
 - V2-R42: Browser Governance Attention Summary;
-  APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_ATTENTION_SUMMARY_ONLY
+  IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_BROWSER_GOVERNANCE_ATTENTION_SUMMARY_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
