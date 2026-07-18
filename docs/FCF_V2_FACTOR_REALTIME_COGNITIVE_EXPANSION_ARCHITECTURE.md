@@ -786,7 +786,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   REGISTERED_LOCAL_DIRECTIONAL_STRENGTH_CALCULATION_ONLY
 - V2-R19: Local Percentage Price Oscillator Foundation; COMPLETED /
   REGISTERED_LOCAL_PERCENTAGE_OSCILLATOR_CALCULATION_ONLY
-- V2-R20: Local Triple Exponential Oscillator Foundation; APPROVED / NOT_STARTED /
+- V2-R20: Local Triple Exponential Oscillator Foundation; IMPLEMENTED_PENDING_VALIDATION /
   REGISTERED_LOCAL_TRIPLE_EXPONENTIAL_OSCILLATOR_CALCULATION_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
