@@ -58,6 +58,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r37_local_factor_validation_evidence_guard.py"],
     ["python", "scripts/control_center_v2_r38_local_operator_factor_governance_projection_guard.py"],
     ["python", "scripts/control_center_v2_r39_browser_operator_factor_governance_projection_guard.py"],
+    ["python", "scripts/control_center_v2_r40_browser_factor_governance_field_presentation_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],

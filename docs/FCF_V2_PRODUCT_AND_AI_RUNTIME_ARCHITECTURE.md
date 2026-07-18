@@ -1145,6 +1145,33 @@ P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 APPROVAL END -->
 
+<!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 LOCK START -->
+
+## V2-R40 Browser Factor Governance Field Presentation App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered D1-D6:
+
+- D1: closed read-only field-presentation authority boundary
+- D2: immutable observed-versus-inferred field view contracts
+- D3: deterministic validated R39 projection field extraction and ordering
+- D4: Governance workspace typed detail integration
+- D5: semantic read-only HTML table with escaped values and source digests
+- D6: presentation acceptance, regression guard, and closeout
+
+The delivery remains registered-local browser presentation only. It does not
+close production V2-FR-GAP-062. Invalid or unsafe projection payloads fail
+before field presentation. The existing /governance route and required
+governance-artifact availability semantics remain unchanged.
+
+No network fetch, write control, approval, promotion, factor activation,
+automatic learning, account, order, or execution exists.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R40 BROWSER FACTOR GOVERNANCE FIELD PRESENTATION APP 1 LOCK END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final

@@ -4,6 +4,11 @@ from dataclasses import dataclass
 from types import MappingProxyType
 from typing import Any, Mapping, Tuple
 
+from apps.v2_r40_browser_factor_governance_field_presentation_app_1 import (
+    BrowserFactorGovernanceFieldPresentation,
+    build_factor_governance_field_presentation,
+)
+
 from .read_model import ConsoleArtifactRecord, ConsoleReadModel
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
 
@@ -317,6 +322,9 @@ class GovernanceWorkspaceModel:
     state: str
     items: Tuple[GovernanceWorkspaceItem, ...]
     artifact_type_counts: Mapping[str, int]
+    projection_presentations: Tuple[
+        BrowserFactorGovernanceFieldPresentation, ...
+    ] = ()
     registered_artifact_only: bool = True
     read_only: bool = True
     deterministic_authority: bool = True
@@ -341,6 +349,11 @@ class GovernanceWorkspaceModel:
         if not self.operator_review_required:
             raise ValueError("Operator review must remain required")
         object.__setattr__(self, "items", tuple(self.items))
+        object.__setattr__(
+            self,
+            "projection_presentations",
+            tuple(self.projection_presentations),
+        )
         object.__setattr__(
             self,
             "artifact_type_counts",
@@ -700,6 +713,14 @@ def build_governance_workspace_model(
         state=state,
         items=items,
         artifact_type_counts=counts,
+        projection_presentations=tuple(
+            build_factor_governance_field_presentation(
+                record.artifact_id,
+                record.payload,
+            )
+            for record in records
+            if record.artifact_type == "factor_governance_projection"
+        ),
     )
 
 
