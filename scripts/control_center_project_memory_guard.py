@@ -529,6 +529,7 @@ V2_R22_LOCK_START = "<!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING 
 V2_R22_LOCK_END = "<!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 LOCK END -->"
 V2_R22_FINAL_START = "<!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 FINAL START -->"
 V2_R22_FINAL_END = "<!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 FINAL END -->"
+V2_R22_FINAL_EVIDENCE_COMMITS = ("a4b1a015b583529a70753e7a308a4d5dc857299c", "ce2ee6379dae151f5e9b3320b9e29cd195d415f7", "92dbcee6e3ad33bafaada626e2f21fad68b69ae0")
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -3762,6 +3763,7 @@ def build_project_memory_guard_report(
         "v2_r22_approval_exact_across_authorities": current_truth not in (V2_R22_APPROVAL_STATE, V2_R22_DELIVERY_STATE, V2_R22_VALIDATED_STATE, V2_R22_FINAL_STATE) or blocks_are_exact(authority_texts, V2_R22_APPROVAL_START, V2_R22_APPROVAL_END),
         "v2_r22_lock_exact_across_authorities": current_truth not in (V2_R22_DELIVERY_STATE, V2_R22_VALIDATED_STATE, V2_R22_FINAL_STATE) or blocks_are_exact(authority_texts, V2_R22_LOCK_START, V2_R22_LOCK_END),
         "v2_r22_final_exact_across_authorities": current_truth != V2_R22_FINAL_STATE or blocks_are_exact(authority_texts, V2_R22_FINAL_START, V2_R22_FINAL_END),
+        "v2_r22_final_evidence_commits_exact": current_truth != V2_R22_FINAL_STATE or (all(block is not None for block in v2_r22_final_blocks) and all(all(commit in block for commit in V2_R22_FINAL_EVIDENCE_COMMITS) for block in v2_r22_final_blocks if block is not None)),
         "canonical_roadmap_records_v2_r22_complete": current_truth != V2_R22_FINAL_STATE or ("- V2-R22: Local Robust Normalization Integrity Hardening; COMPLETED /" in architecture),
         "canonical_roadmap_records_v2_r6_approval": current_truth
         not in (
