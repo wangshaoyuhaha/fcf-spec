@@ -806,6 +806,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   COMPLETED / REGISTERED_LOCAL_ACCOUNTING_CHALLENGE_ONLY
 - V2-R29: Local Index Futures Basis Roll Expiry Foundation;
   COMPLETED / REGISTERED_LOCAL_DERIVATIVES_EVIDENCE_ONLY
+- V2-R30: Local Equity Supply Pressure Foundation;
+  APPROVED / NOT_STARTED / REGISTERED_LOCAL_EQUITY_SUPPLY_EVIDENCE_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
