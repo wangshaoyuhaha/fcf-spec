@@ -198,7 +198,7 @@ factor is activated.
 | V2-R26 | Local Consensus Expectation Gap Foundation | COMPLETED / REGISTERED_LOCAL_EXPECTATION_EVIDENCE_ONLY |
 | V2-R27 | Local Event Reaction Quality Foundation | COMPLETED / REGISTERED_LOCAL_REACTION_EVIDENCE_ONLY |
 | V2-R28 | Local A-Share Earnings Lifecycle Accounting Quality Foundation | COMPLETED / REGISTERED_LOCAL_ACCOUNTING_CHALLENGE_ONLY |
-| V2-R29 | Local Index Futures Basis Roll Expiry Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_DERIVATIVES_EVIDENCE_ONLY |
+| V2-R29 | Local Index Futures Basis Roll Expiry Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_DERIVATIVES_EVIDENCE_ONLY |
 
 Next product implementation phase: V2-R29 / APPROVED.
 
