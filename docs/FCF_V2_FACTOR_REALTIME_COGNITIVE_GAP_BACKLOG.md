@@ -210,11 +210,11 @@ factor is activated.
 | V2-R38 | Local Operator Factor Governance Projection Foundation | COMPLETED / REGISTERED_LOCAL_OPERATOR_GOVERNANCE_PROJECTION_ONLY |
 | V2-R39 | Browser Operator Factor Governance Projection Integration | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_PROJECTION_ONLY |
 | V2-R40 | Browser Factor Governance Field Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_FIELD_PRESENTATION_ONLY |
-| V2-R41 | Browser Governance Starter Package Integration | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_DEMONSTRATION_GOVERNANCE_PACKAGE_ONLY |
+| V2-R41 | Browser Governance Starter Package Integration | COMPLETED / REGISTERED_LOCAL_DEMONSTRATION_GOVERNANCE_PACKAGE_ONLY |
 
-Next product implementation phase: V2-R41 / APPROVED.
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
 
-No successor phase after V2-R41 starts automatically.
+No successor phase starts automatically.
 
 ## Entry Gate
 
