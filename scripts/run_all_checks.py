@@ -46,6 +46,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r25_local_causal_transmission_graph_guard.py"],
     ["python", "scripts/control_center_v2_r26_local_consensus_expectation_gap_guard.py"],
     ["python", "scripts/control_center_v2_r27_local_event_reaction_quality_guard.py"],
+    ["python", "scripts/control_center_v2_r28_local_a_share_earnings_accounting_quality_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
