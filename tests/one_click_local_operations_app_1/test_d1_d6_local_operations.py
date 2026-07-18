@@ -31,6 +31,18 @@ def _reserve_port():
         return int(handle.getsockname()[1])
 
 
+def _unlink_generated_log_with_retry(path, timeout_seconds=3.0):
+    deadline = time.monotonic() + timeout_seconds
+    while True:
+        try:
+            path.unlink(missing_ok=True)
+            return
+        except PermissionError:
+            if time.monotonic() >= deadline:
+                raise
+            time.sleep(0.05)
+
+
 @pytest.fixture
 def profile(tmp_path):
     project = tmp_path / "project"
@@ -387,6 +399,7 @@ def test_d6_real_background_start_health_and_graceful_stop():
             assert controller.status().status == "READY"
         finally:
             stopped = controller.stop(stop_timeout_seconds=8)
+            _unlink_generated_log_with_retry(controller.store.log_path)
         assert stopped.status in {"STOPPED", "ALREADY_STOPPED"}
         deadline = time.monotonic() + 3
         while controller.status().status != "STOPPED" and time.monotonic() < deadline:
