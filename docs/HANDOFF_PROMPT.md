@@ -1,5 +1,44 @@
 <!-- BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 APPROVAL START -->
 
+
+<!-- V2-R25 LOCAL CAUSAL TRANSMISSION GRAPH FOUNDATION APP 1 FINAL START -->
+
+## V2-R25 Local Causal Transmission Graph Foundation App 1 Final
+
+Status: COMPLETED
+
+Evidence commits:
+
+- approval: 555bc845d585167fb9e62669e8034d53ea26c9e0
+- delivery: fee5020a221e7713d49290e1c757854dd0f56d8c
+- merge: 4e1063bf0197fcc5cf6133a47ef2870c3639fc24
+
+Validation baseline:
+
+- R25 stage tests: 13 passed
+- R23, R24, R25, and governance targeted: 53 passed
+- full pytest: 4978 passed, 5 skipped
+- run_all_checks: ALL CHECKS PASSED
+- generated outputs restored: 4 tracked JSON files
+- repository temporary directories: 0
+
+V2-R1 through V2-R25 are COMPLETED. Current governance and product phases are
+NONE. Next product phase is NOT_SELECTED / NOT_APPROVED. No successor starts
+automatically.
+
+This phase delivers only registered-local Policy, Industry Supply, and Capital
+Transmission graph hypotheses with exact R23 event and R24 state lineage.
+V2-FR-GAP-074 remains RESEARCH_REQUIRED at production scope. No graph edge is
+proof of causation, and no institutional factor candidate is activated.
+
+P1-P47 remain frozen. No P48 was created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine authority, Registered Evidence authority, advisory AI, and
+mandatory Operator review remain binding. No network, broker, exchange,
+credential, account, balance, position, wallet, order, execution, tag, release,
+or deployment was added or run.
+
+<!-- V2-R25 LOCAL CAUSAL TRANSMISSION GRAPH FOUNDATION APP 1 FINAL END -->
 ## BROWSER-PRODUCT-CONSOLE-INTEGRATION-ACCEPTANCE-APP-1 Approval
 
 Status:
