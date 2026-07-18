@@ -86,6 +86,20 @@
       "relative_path": "registered/policy-snapshot.json"
     },
     {
+      "artifact_id": "demo-model-governance",
+      "artifact_type": "model_governance",
+      "content_sha256": "0f811c927ddb584d1f025b91af14b78c2d0a5edd53e6a7e025ecf81dd5b31f23",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/model-governance.json"
+    },
+    {
+      "artifact_id": "demo-factor-governance-projection",
+      "artifact_type": "factor_governance_projection",
+      "content_sha256": "0643d61447ecfcb3fb55060471c4be5b219a470a511f181ddf0dc83c053fb6d5",
+      "correlation_id": "corr-operator-launch-demo-v1",
+      "relative_path": "registered/factor-governance-projection.json"
+    },
+    {
       "artifact_id": "demo-audit-receipt",
       "artifact_type": "audit_receipt",
       "content_sha256": "cb0361d9132feacb42354a558f9523bd764f4d8738f66e43bda603342ebad01e",

@@ -39,7 +39,7 @@ def test_d3_prepared_session_renders_a_share_us_and_btc() -> None:
     assert "DEMO-600000" in body
     assert "DEMO-AAPL" in body
     assert "DEMO-BTC-USD" in body
-    assert session.artifact_count == 14
+    assert session.artifact_count == 16
 
 
 def test_d3_browser_open_is_exact_loopback_and_explicit() -> None:

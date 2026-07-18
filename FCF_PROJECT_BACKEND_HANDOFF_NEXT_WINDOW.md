@@ -1238,6 +1238,32 @@ P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R41 BROWSER GOVERNANCE STARTER PACKAGE INTEGRATION APP 1 APPROVAL END -->
 
+<!-- V2-R41 BROWSER GOVERNANCE STARTER PACKAGE INTEGRATION APP 1 LOCK START -->
+
+## V2-R41 Browser Governance Starter Package Integration App 1 Lock
+
+Status: IMPLEMENTED_PENDING_VALIDATION
+
+Delivered D1-D6:
+
+- D1: closed demonstration-package authority boundary
+- D2: deterministic model-governance demonstration artifact
+- D3: deterministic factor-governance projection demonstration artifact
+- D4: starter index registration, digest integrity, and package completeness
+- D5: default launch Governance workspace semantic smoke
+- D6: starter acceptance, regression guard, and closeout
+
+The default local starter package contains 16 digest-verified artifacts. Its
+governance additions are DEMONSTRATION_ONLY and do not close production
+V2-FR-GAP-060 or V2-FR-GAP-062. Any content or digest mismatch fails closed.
+
+No current or live data, network fetch, write control, approval, promotion,
+factor activation, automatic learning, account, order, or execution exists.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R41 BROWSER GOVERNANCE STARTER PACKAGE INTEGRATION APP 1 LOCK END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final

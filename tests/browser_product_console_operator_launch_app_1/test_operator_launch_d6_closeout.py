@@ -40,7 +40,7 @@ def test_d6_default_product_preflight_passes(capsys) -> None:
 
     assert "FCF-LAUNCH-READY" in output.out
     assert "DEMONSTRATION_ONLY" in output.out
-    assert "Registered artifacts: 14" in output.out
+    assert "Registered artifacts: 16" in output.out
     assert output.err == ""
 
 

@@ -21,7 +21,7 @@ def test_d2_default_starter_package_is_registered_and_complete() -> None:
 
     assert STARTER_PACKAGE_STAGE_ID == "D2"
     assert package.correlation_id == "corr-operator-launch-demo-v1"
-    assert package.artifact_count == 14
+    assert package.artifact_count == 16
     assert package.data_classification == STARTER_DATA_CLASSIFICATION
     assert package.operator_review_required is True
     assert len(loaded.artifacts) == package.artifact_count
@@ -34,6 +34,8 @@ def test_d2_default_starter_package_is_registered_and_complete() -> None:
         "operator_review",
         "report_archive",
         "policy_snapshot",
+        "model_governance",
+        "factor_governance_projection",
         "audit_receipt",
         "manifest",
     }.issubset(set(package.artifact_types))

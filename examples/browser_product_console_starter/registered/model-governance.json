@@ -1,0 +1,12 @@
+{
+  "ai_advisory_only": true,
+  "data_classification": "DEMONSTRATION_ONLY",
+  "decision": "PRESENTATION_ONLY",
+  "deterministic_authority": true,
+  "governance_status": "REVIEW_REQUIRED",
+  "model_id": "demo-deterministic-engine-authority",
+  "model_version": "v1",
+  "operator_review_required": true,
+  "read_only": true,
+  "registered_evidence_authority": true
+}
