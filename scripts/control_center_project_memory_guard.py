@@ -739,6 +739,13 @@ V2_R41_FINAL_EVIDENCE_COMMITS = (
     "8a5ad3a5253756aba3fbcc17ad1d730f3832e4c5",
     "18c48ddeaf3818137ed0bff20f98eacb92d17b26",
 )
+V2_R42_APPROVAL_START = "<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 APPROVAL START -->"
+V2_R42_APPROVAL_END = "<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 APPROVAL END -->"
+V2_R42_LOCK_START = "<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 LOCK START -->"
+V2_R42_LOCK_END = "<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 LOCK END -->"
+V2_R42_FINAL_START = "<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 FINAL START -->"
+V2_R42_FINAL_END = "<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 FINAL END -->"
+V2_R42_FINAL_EVIDENCE_COMMITS = ()
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -1197,6 +1204,21 @@ GAP_ROADMAP_R41_DELIVERY_LINES = (
 )
 GAP_ROADMAP_R41_FINAL_LINES = (
     "| V2-R41 | Browser Governance Starter Package Integration | COMPLETED / REGISTERED_LOCAL_DEMONSTRATION_GOVERNANCE_PACKAGE_ONLY |",
+    "Next product implementation phase: NOT_SELECTED / NOT_APPROVED.",
+    "No successor phase starts automatically.",
+)
+GAP_ROADMAP_R42_APPROVAL_LINES = (
+    "| V2-R42 | Browser Governance Attention Summary | APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_ATTENTION_SUMMARY_ONLY |",
+    "Next product implementation phase: V2-R42 / APPROVED.",
+    "No successor phase after V2-R42 starts automatically.",
+)
+GAP_ROADMAP_R42_DELIVERY_LINES = (
+    "| V2-R42 | Browser Governance Attention Summary | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_BROWSER_GOVERNANCE_ATTENTION_SUMMARY_ONLY |",
+    "Next product implementation phase: V2-R42 / APPROVED.",
+    "No successor phase after V2-R42 starts automatically.",
+)
+GAP_ROADMAP_R42_FINAL_LINES = (
+    "| V2-R42 | Browser Governance Attention Summary | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_ATTENTION_SUMMARY_ONLY |",
     "Next product implementation phase: NOT_SELECTED / NOT_APPROVED.",
     "No successor phase starts automatically.",
 )
@@ -3215,6 +3237,31 @@ V2_R41_FINAL_STATE = {
     "next_product_phase_approval": "NOT_APPROVED",
 }
 V2_R41_FINAL_ROADMAP = [{"phase_id": phase, "status": "COMPLETED"} for phase in V2_R41_ROADMAP_PHASES]
+V2_R42_ROADMAP_PHASES = (*V2_R41_ROADMAP_PHASES, "V2-R42")
+V2_R42_APPROVAL_STATE = {
+    "current_governance_phase_id": "V2-R42-BROWSER-GOVERNANCE-ATTENTION-SUMMARY-APP-1",
+    "current_governance_phase_status": "PRODUCT_PHASE_APPROVED_NOT_STARTED",
+    "current_product_implementation_phase": "V2-R42",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "latest_completed_product_phase": "V2-R41-BROWSER-GOVERNANCE-STARTER-PACKAGE-INTEGRATION-APP-1",
+    "next_product_implementation_phase": "V2-R42",
+    "next_product_phase_approval": "APPROVED",
+}
+V2_R42_APPROVAL_ROADMAP = [{"phase_id": phase, "status": "APPROVED_NOT_STARTED" if phase == "V2-R42" else "COMPLETED"} for phase in V2_R42_ROADMAP_PHASES]
+V2_R42_DELIVERY_STATE = {**V2_R42_APPROVAL_STATE, "current_governance_phase_status": "PRODUCT_DELIVERY_IMPLEMENTED_PENDING_VALIDATION"}
+V2_R42_DELIVERY_ROADMAP = [{"phase_id": phase, "status": "IMPLEMENTED_PENDING_VALIDATION" if phase == "V2-R42" else "COMPLETED"} for phase in V2_R42_ROADMAP_PHASES]
+V2_R42_VALIDATED_STATE = {**V2_R42_APPROVAL_STATE, "current_governance_phase_status": "PRODUCT_DELIVERY_VALIDATED_PENDING_MERGE"}
+V2_R42_VALIDATED_ROADMAP = [{"phase_id": phase, "status": "VALIDATED_PENDING_MERGE" if phase == "V2-R42" else "COMPLETED"} for phase in V2_R42_ROADMAP_PHASES]
+V2_R42_FINAL_STATE = {
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
+    "current_product_implementation_phase": "NONE",
+    "latest_completed_governance_delivery": "FCF-V2-MARKET-SESSION-RESEARCH-ARCHITECTURE-SYNC-APP-1",
+    "latest_completed_product_phase": "V2-R42-BROWSER-GOVERNANCE-ATTENTION-SUMMARY-APP-1",
+    "next_product_implementation_phase": "NOT_SELECTED",
+    "next_product_phase_approval": "NOT_APPROVED",
+}
+V2_R42_FINAL_ROADMAP = [{"phase_id": phase, "status": "COMPLETED"} for phase in V2_R42_ROADMAP_PHASES]
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -3423,6 +3470,7 @@ def build_project_memory_guard_report(
         V2_R39_APPROVAL_STATE, V2_R39_DELIVERY_STATE, V2_R39_VALIDATED_STATE, V2_R39_FINAL_STATE,
         V2_R40_APPROVAL_STATE, V2_R40_DELIVERY_STATE, V2_R40_VALIDATED_STATE, V2_R40_FINAL_STATE,
         V2_R41_APPROVAL_STATE, V2_R41_DELIVERY_STATE, V2_R41_VALIDATED_STATE, V2_R41_FINAL_STATE,
+        V2_R42_APPROVAL_STATE, V2_R42_DELIVERY_STATE, V2_R42_VALIDATED_STATE, V2_R42_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -3533,6 +3581,7 @@ def build_project_memory_guard_report(
     v2_r39_final_blocks = tuple(extract_single_block(text, V2_R39_FINAL_START, V2_R39_FINAL_END) for text in authority_texts)
     v2_r40_final_blocks = tuple(extract_single_block(text, V2_R40_FINAL_START, V2_R40_FINAL_END) for text in authority_texts)
     v2_r41_final_blocks = tuple(extract_single_block(text, V2_R41_FINAL_START, V2_R41_FINAL_END) for text in authority_texts)
+    v2_r42_final_blocks = tuple(extract_single_block(text, V2_R42_FINAL_START, V2_R42_FINAL_END) for text in authority_texts)
     file_roles = manifest.get("canonical_file_roles")
     statuses = manifest.get("future_capability_statuses")
     historical = manifest.get("historical_registry")
@@ -3802,6 +3851,10 @@ def build_project_memory_guard_report(
             else V2_R41_DELIVERY_ROADMAP if current_truth == V2_R41_DELIVERY_STATE
             else V2_R41_VALIDATED_ROADMAP if current_truth == V2_R41_VALIDATED_STATE
             else V2_R41_FINAL_ROADMAP if current_truth == V2_R41_FINAL_STATE
+            else V2_R42_APPROVAL_ROADMAP if current_truth == V2_R42_APPROVAL_STATE
+            else V2_R42_DELIVERY_ROADMAP if current_truth == V2_R42_DELIVERY_STATE
+            else V2_R42_VALIDATED_ROADMAP if current_truth == V2_R42_VALIDATED_STATE
+            else V2_R42_FINAL_ROADMAP if current_truth == V2_R42_FINAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
@@ -4035,6 +4088,9 @@ def build_project_memory_guard_report(
         or (current_truth == V2_R41_APPROVAL_STATE and all(line in gap for line in GAP_ROADMAP_R41_APPROVAL_LINES))
         or (current_truth in (V2_R41_DELIVERY_STATE, V2_R41_VALIDATED_STATE) and all(line in gap for line in GAP_ROADMAP_R41_DELIVERY_LINES))
         or (current_truth == V2_R41_FINAL_STATE and all(line in gap for line in GAP_ROADMAP_R41_FINAL_LINES))
+        or (current_truth == V2_R42_APPROVAL_STATE and all(line in gap for line in GAP_ROADMAP_R42_APPROVAL_LINES))
+        or (current_truth in (V2_R42_DELIVERY_STATE, V2_R42_VALIDATED_STATE) and all(line in gap for line in GAP_ROADMAP_R42_DELIVERY_LINES))
+        or (current_truth == V2_R42_FINAL_STATE and all(line in gap for line in GAP_ROADMAP_R42_FINAL_LINES))
         or current_truth
         not in (
             V2_R6_FINAL_STATE,
@@ -4108,6 +4164,7 @@ def build_project_memory_guard_report(
             V2_R39_APPROVAL_STATE, V2_R39_DELIVERY_STATE, V2_R39_VALIDATED_STATE, V2_R39_FINAL_STATE,
             V2_R40_APPROVAL_STATE, V2_R40_DELIVERY_STATE, V2_R40_VALIDATED_STATE, V2_R40_FINAL_STATE,
             V2_R41_APPROVAL_STATE, V2_R41_DELIVERY_STATE, V2_R41_VALIDATED_STATE, V2_R41_FINAL_STATE,
+            V2_R42_APPROVAL_STATE, V2_R42_DELIVERY_STATE, V2_R42_VALIDATED_STATE, V2_R42_FINAL_STATE,
         ),
         "status_definitions_synchronized": all(
             f"`{status}`" in architecture
@@ -5181,6 +5238,13 @@ def build_project_memory_guard_report(
         "canonical_roadmap_records_v2_r41_approval": current_truth != V2_R41_APPROVAL_STATE or ("- V2-R41: Browser Governance Starter Package Integration;" in architecture and "APPROVED / NOT_STARTED / REGISTERED_LOCAL_DEMONSTRATION_GOVERNANCE_PACKAGE_ONLY" in architecture),
         "canonical_roadmap_records_v2_r41_delivery": current_truth not in (V2_R41_DELIVERY_STATE, V2_R41_VALIDATED_STATE) or ("- V2-R41: Browser Governance Starter Package Integration;" in architecture and "IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_DEMONSTRATION_GOVERNANCE_PACKAGE_ONLY" in architecture),
         "canonical_roadmap_records_v2_r41_complete": current_truth != V2_R41_FINAL_STATE or ("- V2-R41: Browser Governance Starter Package Integration;" in architecture and "COMPLETED / REGISTERED_LOCAL_DEMONSTRATION_GOVERNANCE_PACKAGE_ONLY" in architecture),
+        "v2_r42_approval_exact_across_authorities": current_truth not in (V2_R42_APPROVAL_STATE, V2_R42_DELIVERY_STATE, V2_R42_VALIDATED_STATE, V2_R42_FINAL_STATE) or blocks_are_exact(authority_texts, V2_R42_APPROVAL_START, V2_R42_APPROVAL_END),
+        "v2_r42_lock_exact_across_authorities": current_truth not in (V2_R42_DELIVERY_STATE, V2_R42_VALIDATED_STATE, V2_R42_FINAL_STATE) or blocks_are_exact(authority_texts, V2_R42_LOCK_START, V2_R42_LOCK_END),
+        "v2_r42_final_exact_across_authorities": current_truth != V2_R42_FINAL_STATE or blocks_are_exact(authority_texts, V2_R42_FINAL_START, V2_R42_FINAL_END),
+        "v2_r42_final_evidence_commits_exact": current_truth != V2_R42_FINAL_STATE or (bool(V2_R42_FINAL_EVIDENCE_COMMITS) and all(block is not None for block in v2_r42_final_blocks) and all(all(commit in block for commit in V2_R42_FINAL_EVIDENCE_COMMITS) for block in v2_r42_final_blocks if block is not None)),
+        "canonical_roadmap_records_v2_r42_approval": current_truth != V2_R42_APPROVAL_STATE or ("- V2-R42: Browser Governance Attention Summary;" in architecture and "APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_ATTENTION_SUMMARY_ONLY" in architecture),
+        "canonical_roadmap_records_v2_r42_delivery": current_truth not in (V2_R42_DELIVERY_STATE, V2_R42_VALIDATED_STATE) or ("- V2-R42: Browser Governance Attention Summary;" in architecture and "IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_BROWSER_GOVERNANCE_ATTENTION_SUMMARY_ONLY" in architecture),
+        "canonical_roadmap_records_v2_r42_complete": current_truth != V2_R42_FINAL_STATE or ("- V2-R42: Browser Governance Attention Summary;" in architecture and "COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_ATTENTION_SUMMARY_ONLY" in architecture),
         "canonical_roadmap_records_v2_r6_approval": current_truth
         not in (
             V2_R6_APPROVAL_STATE,

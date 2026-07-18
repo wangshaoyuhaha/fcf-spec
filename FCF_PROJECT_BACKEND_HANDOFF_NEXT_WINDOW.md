@@ -1301,6 +1301,35 @@ wallet, order, execution, tag, release, or deployment was added or run.
 
 <!-- V2-R41 BROWSER GOVERNANCE STARTER PACKAGE INTEGRATION APP 1 FINAL END -->
 
+<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 APPROVAL START -->
+
+## V2-R42 Browser Governance Attention Summary App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed read-only governance-summary authority boundary
+- D2: immutable Operator-attention summary contract
+- D3: deterministic R40 presentation aggregation
+- D4: Governance workspace attention-summary integration
+- D5: semantic read-only attention card on the existing route
+- D6: summary acceptance, regression guard, and closeout
+
+This phase is a bounded local presentation foundation toward V2-FR-GAP-060
+and V2-FR-GAP-062. It does not close either production gap and adds no new
+route or mutable control.
+
+No network fetch, write control, approval, promotion, factor activation,
+automatic learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R41 remain COMPLETED. V2-R42 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R42 BROWSER GOVERNANCE ATTENTION SUMMARY APP 1 APPROVAL END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final
