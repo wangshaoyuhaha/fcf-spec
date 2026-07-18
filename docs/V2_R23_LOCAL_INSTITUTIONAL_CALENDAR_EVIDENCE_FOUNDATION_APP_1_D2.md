@@ -1,6 +1,6 @@
 # V2-R23 Local Institutional Calendar Evidence Foundation App 1 D2
 
-Status: IMPLEMENTED_PENDING_VALIDATION
+Status: COMPLETED
 
 D2 defines official or licensed local source rights and immutable institutional
 event contracts. Event, publication, first legal availability, retrieval,

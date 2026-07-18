@@ -1,6 +1,6 @@
 # V2-R23 Local Institutional Calendar Evidence Foundation App 1 D1
 
-Status: IMPLEMENTED_PENDING_VALIDATION
+Status: COMPLETED
 
 D1 closes the local registered-artifact-only authority boundary. Network,
 live calendar, system-clock, recurring-rule confirmation, factor, score,

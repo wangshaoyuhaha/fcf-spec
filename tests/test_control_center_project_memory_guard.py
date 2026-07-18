@@ -61,6 +61,7 @@ from scripts.control_center_project_memory_guard import (
     GAP_ROADMAP_R22_DELIVERY_LINES,
     GAP_ROADMAP_R22_FINAL_LINES,
     GAP_ROADMAP_R23_DELIVERY_LINES,
+    GAP_ROADMAP_R23_FINAL_LINES,
     MEMORY_FINAL_END,
     MEMORY_FINAL_START,
     MEMORY_LOCK_END,
@@ -378,6 +379,9 @@ from scripts.control_center_project_memory_guard import (
     V2_R22_FINAL_END, V2_R22_FINAL_EVIDENCE_COMMITS, V2_R22_FINAL_ROADMAP, V2_R22_FINAL_START, V2_R22_FINAL_STATE, V2_R22_LOCK_END, V2_R22_LOCK_START,
     V2_R23_DELIVERY_ROADMAP,
     V2_R23_DELIVERY_STATE,
+    V2_R23_FINAL_EVIDENCE_COMMITS,
+    V2_R23_FINAL_ROADMAP,
+    V2_R23_FINAL_STATE,
     blocks_are_exact,
     build_project_memory_guard_report,
     extract_single_block,
@@ -417,12 +421,12 @@ def test_current_state_manifest_has_exact_file_roles_and_safety():
     assert all((ROOT / path).is_file() for path in EXPECTED_FILE_ROLES.values())
 
 
-def test_current_state_manifest_records_exact_v2_r23_delivery_state():
+def test_current_state_manifest_records_exact_v2_r23_final_state():
     manifest = load_manifest(ROOT)
     truth = manifest["current_truth"]
 
-    assert truth == V2_R23_DELIVERY_STATE
-    assert manifest["roadmap"] == V2_R23_DELIVERY_ROADMAP
+    assert truth == V2_R23_FINAL_STATE
+    assert manifest["roadmap"] == V2_R23_FINAL_ROADMAP
 
 
 def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
@@ -436,7 +440,7 @@ def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
     assert gap_statuses_are_valid(gap)
     assert rows["V2-FR-GAP-041"] == "OUTSIDE_CURRENT_AUTHORIZATION"
     assert rows["V2-FR-GAP-065"] == "OUTSIDE_CURRENT_AUTHORIZATION"
-    assert all(line in gap for line in GAP_ROADMAP_R23_DELIVERY_LINES)
+    assert all(line in gap for line in GAP_ROADMAP_R23_FINAL_LINES)
 
 
 def test_unknown_gap_status_is_rejected():
@@ -828,7 +832,7 @@ def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
         "HISTORICAL_COMPLETED_SEQUENCE_NOT_CURRENT_NEXT_PHASE_AUTHORITY"
     )
     assert parsed["current_truth"]["next_product_phase_approval"] == (
-        V2_R23_DELIVERY_STATE["next_product_phase_approval"]
+        V2_R23_FINAL_STATE["next_product_phase_approval"]
     )
 
 

@@ -1,6 +1,6 @@
 # V2-R23 Local Institutional Calendar Evidence Foundation App 1 D6
 
-Status: IMPLEMENTED_PENDING_VALIDATION
+Status: COMPLETED
 
 D6 provides an immutable read model, explicit Operator-review receipt, closed
 surface guard, targeted tests, and all-checks integration. No UI action can

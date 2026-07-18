@@ -14023,6 +14023,44 @@ P1-P47 frozen. No P48. Operator review required.
 
 <!-- V2-R23 LOCAL INSTITUTIONAL CALENDAR EVIDENCE FOUNDATION APP 1 LOCK END -->
 
+<!-- V2-R23 LOCAL INSTITUTIONAL CALENDAR EVIDENCE FOUNDATION APP 1 FINAL START -->
+
+## V2-R23 Local Institutional Calendar Evidence Foundation App 1 Final
+
+Status: COMPLETED
+
+Evidence commits:
+
+- approval: 5f6971942c9c4f913dfa05bab7882e4c0ac77180
+- delivery: 3684a1c6ed18d8ac1a8de9c7361ecfdf05e5528d
+- merge: a7cbda630fc1ed4c23e1c75b049532943a2864e6
+
+Validation baseline:
+
+- R23 single-file tests: 11 passed
+- R3, R7, R23, architecture, and governance targeted: 62 passed
+- full pytest: 4952 passed, 5 skipped
+- run_all_checks: ALL CHECKS PASSED
+- generated outputs restored; repository temporary directories: 0
+
+V2-R1 through V2-R23 are COMPLETED. Current governance and product phases are
+NONE. Next product phase is NOT_SELECTED / NOT_APPROVED. No successor starts
+automatically.
+
+This phase delivers only a registered-local event-calendar and evidence
+foundation. V2-FR-GAP-071 and V2-FR-GAP-084 remain open at production scope.
+Module 2 and all institutional factor candidates remain NOT_STARTED /
+NOT_ACTIVATED.
+
+P1-P47 remain frozen. No P48 was created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine authority, Registered Evidence authority, advisory AI, and
+mandatory Operator review remain binding. No network, broker, exchange,
+credential, account, balance, position, wallet, order, execution, tag, release,
+or deployment was added or run.
+
+<!-- V2-R23 LOCAL INSTITUTIONAL CALENDAR EVIDENCE FOUNDATION APP 1 FINAL END -->
+
 <!-- FCF BACKTEST WINDOWS PYTEST INTEGRITY REMEDIATION START -->
 ## FCF Backtest and Windows Pytest Integrity Remediation
 

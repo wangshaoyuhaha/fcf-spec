@@ -1,6 +1,6 @@
 # V2-R23 Local Institutional Calendar Evidence Foundation App 1 D5
 
-Status: IMPLEMENTED_PENDING_VALIDATION
+Status: COMPLETED
 
 D5 applies an Operator-registered freshness policy and emits deterministic
 resolution evidence hashes. Stale evidence is blocked and cannot be converted

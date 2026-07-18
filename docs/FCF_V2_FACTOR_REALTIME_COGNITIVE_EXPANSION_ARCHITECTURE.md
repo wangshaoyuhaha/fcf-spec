@@ -793,7 +793,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
 - V2-R22: Local Robust Normalization Integrity Hardening; COMPLETED /
   REGISTERED_LOCAL_NORMALIZATION_INTEGRITY_ONLY
 - V2-R23: Local Institutional Calendar Evidence Foundation;
-  IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_EVENT_EVIDENCE_ONLY
+  COMPLETED / REGISTERED_LOCAL_EVENT_EVIDENCE_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts

@@ -1,6 +1,6 @@
 # V2-R23 Local Institutional Calendar Evidence Foundation App 1 D3
 
-Status: IMPLEMENTED_PENDING_VALIDATION
+Status: COMPLETED
 
 D3 provides an immutable append-only local calendar registry. Revisions are
 contiguous, retain identity, and link to the exact predecessor hash. Existing
