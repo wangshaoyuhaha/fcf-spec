@@ -815,7 +815,7 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
 - V2-R33: Local Holiday Liquidity State Foundation;
   COMPLETED / REGISTERED_LOCAL_HOLIDAY_LIQUIDITY_EVIDENCE_ONLY
 - V2-R34: Local Policy Window Language Evidence Foundation;
-  IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_POLICY_LANGUAGE_EVIDENCE_ONLY
+  COMPLETED / REGISTERED_LOCAL_POLICY_LANGUAGE_EVIDENCE_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
