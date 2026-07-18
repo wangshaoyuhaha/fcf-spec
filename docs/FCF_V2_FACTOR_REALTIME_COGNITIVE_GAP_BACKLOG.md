@@ -206,11 +206,11 @@ factor is activated.
 | V2-R34 | Local Policy Window Language Evidence Foundation | COMPLETED / REGISTERED_LOCAL_POLICY_LANGUAGE_EVIDENCE_ONLY |
 | V2-R35 | Local Evidence Integrity Foundation | COMPLETED / REGISTERED_LOCAL_EVIDENCE_INTEGRITY_ONLY |
 | V2-R36 | Local Institutional Factor Lifecycle Foundation | COMPLETED / REGISTERED_LOCAL_FACTOR_GOVERNANCE_ONLY |
-| V2-R37 | Local Factor Validation Evidence Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_FACTOR_VALIDATION_EVIDENCE_ONLY |
+| V2-R37 | Local Factor Validation Evidence Foundation | COMPLETED / REGISTERED_LOCAL_FACTOR_VALIDATION_EVIDENCE_ONLY |
 
-Next product implementation phase: V2-R37 / APPROVED.
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
 
-No successor phase after V2-R37 starts automatically.
+No successor phase starts automatically.
 
 ## Entry Gate
 
