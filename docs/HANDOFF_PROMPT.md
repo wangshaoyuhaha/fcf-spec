@@ -5963,3 +5963,39 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R18 LOCAL DIRECTIONAL TREND STRENGTH FOUNDATION APP 1 FINAL END -->
+
+
+<!-- V2-R19 LOCAL PERCENTAGE PRICE OSCILLATOR FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R19 Local Percentage Price Oscillator Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1 boundary, R12 close dependency, EMA seed, warm-up, and normalization lock
+- D2 immutable PPO metric policy and registered-local source contract
+- D3 deterministic PPO line, signal line, and histogram metrics
+- D4 fail-closed registry, identity, time, history, and numeric validation
+- D5 append-only evidence, read-only presentation, and Operator review
+- D6 guards, tests, cleanup, sidecar merge, and final state synchronization
+
+Readiness gate:
+
+- dependency: completed V2-R11 registry and V2-R12 close evidence contract
+- data rights: registered local fixtures only
+- formulas: fast and slow EMA; PPO percentage of slow EMA; EMA signal and histogram
+- history: slow window plus signal window minus one
+- authority: Deterministic Engine calculates; Registered Evidence is authoritative
+- labels: metric output only; no direction, threshold, crossover, rank, or signal
+- tests: PPO metrics, constant history, insufficient, future, mismatch, and duplicate
+- rollback: new V2-R19 Sidecar and exact governed files only
+
+This is a bounded eighth indicator pack, not the complete technical indicator
+library. V2-FR-GAP-008 remains open.
+
+V2-R1 through V2-R18 remain COMPLETED. V2-R19 is APPROVED / NOT_STARTED.
+No successor phase is selected. Permanent safety boundaries remain binding.
+No tag, release, or deployment is authorized.
+
+<!-- V2-R19 LOCAL PERCENTAGE PRICE OSCILLATOR FOUNDATION APP 1 APPROVAL END -->

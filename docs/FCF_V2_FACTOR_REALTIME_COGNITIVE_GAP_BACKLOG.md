@@ -167,10 +167,11 @@ factor is activated.
 | V2-R16 | Local Range Channel Indicator Foundation | COMPLETED / REGISTERED_LOCAL_CHANNEL_CALCULATION_ONLY |
 | V2-R17 | Local Stochastic Oscillator Foundation | COMPLETED / REGISTERED_LOCAL_STOCHASTIC_CALCULATION_ONLY |
 | V2-R18 | Local Directional Trend Strength Foundation | COMPLETED / REGISTERED_LOCAL_DIRECTIONAL_STRENGTH_CALCULATION_ONLY |
+| V2-R19 | Local Percentage Price Oscillator Foundation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_PERCENTAGE_OSCILLATOR_CALCULATION_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R19 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R19 starts automatically.
 
 ## Entry Gate
 
