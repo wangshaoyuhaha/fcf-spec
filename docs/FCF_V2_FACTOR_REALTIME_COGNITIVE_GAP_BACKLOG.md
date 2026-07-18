@@ -169,11 +169,11 @@ factor is activated.
 | V2-R18 | Local Directional Trend Strength Foundation | COMPLETED / REGISTERED_LOCAL_DIRECTIONAL_STRENGTH_CALCULATION_ONLY |
 | V2-R19 | Local Percentage Price Oscillator Foundation | COMPLETED / REGISTERED_LOCAL_PERCENTAGE_OSCILLATOR_CALCULATION_ONLY |
 | V2-R20 | Local Triple Exponential Oscillator Foundation | COMPLETED / REGISTERED_LOCAL_TRIPLE_EXPONENTIAL_OSCILLATOR_CALCULATION_ONLY |
-| V2-R21 | Local Robust Normalization Foundation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_ROBUST_NORMALIZATION_ONLY |
+| V2-R21 | Local Robust Normalization Foundation | COMPLETED / REGISTERED_LOCAL_ROBUST_NORMALIZATION_ONLY |
 
-Next product implementation phase: V2-R21 / APPROVED.
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
 
-No successor phase after V2-R21 starts automatically.
+No successor phase starts automatically.
 
 ## Entry Gate
 

@@ -518,6 +518,11 @@ V2_R21_LOCK_START = "<!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 LOC
 V2_R21_LOCK_END = "<!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 LOCK END -->"
 V2_R21_FINAL_START = "<!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 FINAL START -->"
 V2_R21_FINAL_END = "<!-- V2-R21 LOCAL ROBUST NORMALIZATION FOUNDATION APP 1 FINAL END -->"
+V2_R21_FINAL_EVIDENCE_COMMITS = (
+    "b4cafb351acd4cce5ff26f3b1bf5cae90aec5b25",
+    "09c477015f417ea485887e9f8203bad7c48cd2ea",
+    "fbea122e976d42010c5cca3c8bfb239b57b41d3a",
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -3725,6 +3730,7 @@ def build_project_memory_guard_report(
         "v2_r21_approval_exact_across_authorities": current_truth not in (V2_R21_APPROVAL_STATE, V2_R21_DELIVERY_STATE, V2_R21_VALIDATED_STATE, V2_R21_FINAL_STATE) or (len(authority_texts) == len(AUTHORITY_PATHS) and blocks_are_exact(authority_texts, V2_R21_APPROVAL_START, V2_R21_APPROVAL_END)),
         "v2_r21_lock_exact_across_authorities": current_truth not in (V2_R21_DELIVERY_STATE, V2_R21_VALIDATED_STATE, V2_R21_FINAL_STATE) or (len(authority_texts) == len(AUTHORITY_PATHS) and blocks_are_exact(authority_texts, V2_R21_LOCK_START, V2_R21_LOCK_END)),
         "v2_r21_final_exact_across_authorities": current_truth != V2_R21_FINAL_STATE or (len(authority_texts) == len(AUTHORITY_PATHS) and blocks_are_exact(authority_texts, V2_R21_FINAL_START, V2_R21_FINAL_END)),
+        "v2_r21_final_evidence_commits_exact": current_truth != V2_R21_FINAL_STATE or (bool(V2_R21_FINAL_EVIDENCE_COMMITS) and len(v2_r21_final_blocks) == len(AUTHORITY_PATHS) and all(block is not None for block in v2_r21_final_blocks) and all(all(commit in block for commit in V2_R21_FINAL_EVIDENCE_COMMITS) for block in v2_r21_final_blocks if block is not None)),
         "canonical_roadmap_records_v2_r21_complete": current_truth != V2_R21_FINAL_STATE or ("- V2-R21: Local Robust Normalization Foundation; COMPLETED /" in architecture),
         "canonical_roadmap_records_v2_r6_approval": current_truth
         not in (
