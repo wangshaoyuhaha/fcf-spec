@@ -301,6 +301,36 @@ wallet, order, execution, tag, release, or deployment was added or run.
 
 <!-- V2-R30 LOCAL EQUITY SUPPLY PRESSURE FOUNDATION APP 1 FINAL END -->
 
+<!-- V2-R31 LOCAL FX TRANSMISSION SENSITIVITY FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R31 Local FX Transmission Sensitivity Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Authorized D1-D6:
+
+- D1: closed registered-local FX-transmission evidence authority boundary
+- D2: immutable paired asset, FX, DXY, rate, and lineage contracts
+- D3: append-only registry with R23-R25 lineage
+- D4: deterministic covariance, variance, beta, and correlation metrics
+- D5: missing, insufficient, stale, conflict, no-flow, and no-causal preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is Module 6 FX-transmission foundation only. It supplies a local
+foundation toward V2-FR-GAP-080 but does not close the production research gap or
+activate FX_TRANSMISSION_SENSITIVITY.
+
+No foreign-flow inference, causal conclusion, live source, network, direction,
+weight, score, rank, alert, recommendation, prediction, model, Prompt, automatic
+learning, account, order, or execution is authorized.
+
+V2-R1 through V2-R30 remain COMPLETED. V2-R31 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R31 LOCAL FX TRANSMISSION SENSITIVITY FOUNDATION APP 1 APPROVAL END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final
