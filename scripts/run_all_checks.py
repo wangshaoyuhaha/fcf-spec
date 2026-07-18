@@ -56,6 +56,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r35_local_evidence_integrity_guard.py"],
     ["python", "scripts/control_center_v2_r36_local_institutional_factor_lifecycle_guard.py"],
     ["python", "scripts/control_center_v2_r37_local_factor_validation_evidence_guard.py"],
+    ["python", "scripts/control_center_v2_r38_local_operator_factor_governance_projection_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
