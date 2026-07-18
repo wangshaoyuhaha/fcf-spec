@@ -824,6 +824,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   COMPLETED / REGISTERED_LOCAL_FACTOR_VALIDATION_EVIDENCE_ONLY
 - V2-R38: Local Operator Factor Governance Projection Foundation;
   COMPLETED / REGISTERED_LOCAL_OPERATOR_GOVERNANCE_PROJECTION_ONLY
+- V2-R39: Browser Operator Factor Governance Projection Integration;
+  APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_PROJECTION_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts
