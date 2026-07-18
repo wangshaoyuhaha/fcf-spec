@@ -53,6 +53,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r32_local_institutional_crowding_guard.py"],
     ["python", "scripts/control_center_v2_r33_local_holiday_liquidity_state_guard.py"],
     ["python", "scripts/control_center_v2_r34_local_policy_window_language_evidence_guard.py"],
+    ["python", "scripts/control_center_v2_r35_local_evidence_integrity_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],
