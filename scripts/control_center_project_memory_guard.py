@@ -484,6 +484,11 @@ V2_R19_FINAL_START = (
 V2_R19_FINAL_END = (
     "<!-- V2-R19 LOCAL PERCENTAGE PRICE OSCILLATOR FOUNDATION APP 1 FINAL END -->"
 )
+V2_R19_FINAL_EVIDENCE_COMMITS = (
+    "df5f847bda6f0d10bb1da662671d967826c8d635",
+    "91545894ee4ce14a7ba146d3677608893f8a05ce",
+    "9d2fec612213efa1f9153c837352d61996380ac0",
+)
 FINAL_EVIDENCE_COMMITS = (
     "c3ee5b730e16fa4c89e6cf52f80586b55674203d",
     "29fc7b0ee0b84490de6629cfb385ef0fef625159",
@@ -3477,6 +3482,18 @@ def build_project_memory_guard_report(
             len(authority_texts) == len(AUTHORITY_PATHS)
             and blocks_are_exact(
                 authority_texts, V2_R19_FINAL_START, V2_R19_FINAL_END
+            )
+        ),
+        "v2_r19_final_evidence_commits_exact": current_truth
+        != V2_R19_FINAL_STATE
+        or (
+            bool(V2_R19_FINAL_EVIDENCE_COMMITS)
+            and len(v2_r19_final_blocks) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in v2_r19_final_blocks)
+            and all(
+                all(commit in block for commit in V2_R19_FINAL_EVIDENCE_COMMITS)
+                for block in v2_r19_final_blocks
+                if block is not None
             )
         ),
         "canonical_roadmap_records_v2_r19_complete": current_truth
