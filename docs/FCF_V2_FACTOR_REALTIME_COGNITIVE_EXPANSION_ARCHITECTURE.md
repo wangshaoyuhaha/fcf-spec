@@ -818,6 +818,8 @@ Stopping an MVP preserves evidence and does not rewrite it as success.
   COMPLETED / REGISTERED_LOCAL_POLICY_LANGUAGE_EVIDENCE_ONLY
 - V2-R35: Local Evidence Integrity Foundation;
   COMPLETED / REGISTERED_LOCAL_EVIDENCE_INTEGRITY_ONLY
+- V2-R36: Local Institutional Factor Lifecycle Foundation;
+  APPROVED / NOT_STARTED / REGISTERED_LOCAL_FACTOR_GOVERNANCE_ONLY
 
 V2-R1 prioritizes Factor Registry, forecast targets, State-Sync, and safety
 contracts. Later phases cannot skip earlier dependencies. No phase starts

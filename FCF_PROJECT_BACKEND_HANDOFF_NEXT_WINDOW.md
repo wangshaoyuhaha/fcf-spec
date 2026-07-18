@@ -759,6 +759,34 @@ wallet, order, execution, tag, release, or deployment was added or run.
 
 <!-- V2-R35 LOCAL EVIDENCE INTEGRITY FOUNDATION APP 1 FINAL END -->
 
+<!-- V2-R36 LOCAL INSTITUTIONAL FACTOR LIFECYCLE FOUNDATION APP 1 APPROVAL START -->
+
+## V2-R36 Local Institutional Factor Lifecycle Foundation App 1 Approval
+
+Status: APPROVED / NOT_STARTED
+
+Approved D1-D6:
+
+- D1: closed registered-local factor-governance authority boundary
+- D2: immutable candidate and Operator decision contracts linked to R11
+- D3: append-only lifecycle registry with legal transition validation
+- D4: deterministic current-state and complete-history resolution
+- D5: rejection, deferral, supersession, revocation, and expiry preservation
+- D6: read-only presentation, Operator acceptance, guard, and closeout
+
+This phase is a bounded foundation toward V2-FR-GAP-085. Operator approval is a
+registered research decision and cannot activate calculation, scoring, or trading.
+
+No automatic approval, activation, promotion, learning, score, rank, alert,
+recommendation, model, Prompt, account, order, or execution is authorized.
+
+V2-R1 through V2-R35 remain COMPLETED. V2-R36 is APPROVED / NOT_STARTED. No
+successor phase is selected. Permanent safety boundaries remain binding.
+
+P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
+
+<!-- V2-R36 LOCAL INSTITUTIONAL FACTOR LIFECYCLE FOUNDATION APP 1 APPROVAL END -->
+
 <!-- V2-R28 LOCAL A SHARE EARNINGS LIFECYCLE ACCOUNTING QUALITY FOUNDATION APP 1 FINAL START -->
 
 ## V2-R28 Local A Share Earnings Lifecycle Accounting Quality Foundation App 1 Final
