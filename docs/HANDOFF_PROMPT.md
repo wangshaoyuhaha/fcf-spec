@@ -6319,3 +6319,51 @@ P1-P47 remain frozen. No P48 was created. Operator review remains mandatory.
 No tag, release, or deployment was run.
 
 <!-- V2-R22 LOCAL ROBUST NORMALIZATION INTEGRITY HARDENING APP 1 FINAL END -->
+
+
+<!-- FCF BACKTEST WINDOWS PYTEST INTEGRITY REMEDIATION START -->
+## FCF Backtest and Windows Pytest Integrity Remediation
+
+Status: COMPLETED_VALIDATED
+
+Code commit:
+
+- `ee4f057ed5fec4df34929fae74e71e85f6724899`
+
+Remediated:
+
+- Windows pytest now selects a unique verified external scratch directory under
+  `LOCALAPPDATA/FCF-pytest-scratch-v2` and removes each run directory exactly.
+- Repository pytest cache creation is disabled.
+- `run_all_checks.py` uses the same verified external scratch root.
+- Declared embargo days are enforced against actual train/validation/final-test
+  time gaps and violations fail closed.
+- Point-in-time evidence with `as_of_time_utc` after the observation decision
+  is rejected at the request boundary.
+
+Validation:
+
+- focused regression pytest: 32 passed
+- affected targeted pytest: 106 passed
+- full pytest: 4936 passed, 5 skipped
+- `scripts/run_all_checks.py`: PASSED
+- repository-root pytest temporary path count: 0
+- generated outputs: RESTORED
+- Git diff check: PASSED
+
+Authority result:
+
+- Deterministic Engine remains calculation authority.
+- Registered Evidence remains evidence authority.
+- AI remains advisory only.
+- Operator review remains mandatory.
+- Current product phase remains NONE; no new product phase was started.
+- P1-P47 remain frozen; no P48 was created.
+- Paper-only, local-only, loopback-only, sidecar-only,
+  registered-artifact-only, and read-only product-presentation boundaries
+  remain unchanged.
+- No broker, exchange, credential, wallet, account, balance, position, order,
+  or execution path was added.
+- No tag, release, or deploy was run.
+
+<!-- FCF BACKTEST WINDOWS PYTEST INTEGRITY REMEDIATION END -->
