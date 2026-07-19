@@ -4132,6 +4132,28 @@ payload with an explicit `dict(report.checks)` copy. A regression test executes
 the real `check` command path and parses its JSON response.
 
 
+### BUG-FCF-20260719-002
+
+Date: 2026-07-19
+
+Source: full pytest with warnings promoted to errors
+
+Affected Component: `apps/one_click_local_operations_app_1/controller.py`
+
+Description: the real background lifecycle test dropped its `subprocess.Popen`
+object while the owned loopback service was still running. Python emitted a
+`ResourceWarning` even though the service later stopped gracefully.
+
+Severity: MEDIUM
+
+Status: CLOSED
+
+Resolution: retain the owned process handle for the controller lifecycle and
+poll it after confirmed service exit so Python records the child return code.
+The real background start, health, and graceful-stop test now promotes all
+warnings to errors.
+
+
 
 
 ---
