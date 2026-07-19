@@ -87,8 +87,14 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 0 if receipt.status in {"READY", "STOPPED", "NOT_RUNNING"} else 2
         if args.command == "check":
             report = run_local_operations_preflight(profile)
-            payload = asdict(report)
-            payload["checks"] = dict(report.checks)
+            payload = {
+                "status": report.status,
+                "checks": dict(report.checks),
+                "correlation_id": report.correlation_id,
+                "artifact_count": report.artifact_count,
+                "missing_model_ids": report.missing_model_ids,
+                "notifications": report.notifications,
+            }
             _print(payload)
             return 0 if report.status == "READY" else 2
         if args.command in {"backup", "snapshot"}:

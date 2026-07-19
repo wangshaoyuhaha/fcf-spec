@@ -4111,6 +4111,27 @@ Status:
 Resolution:
 
 
+### BUG-FCF-20260719-001
+
+Date: 2026-07-19
+
+Source: local one-click CLI health audit
+
+Affected Component: `apps/one_click_local_operations_app_1/cli.py`
+
+Description: the `check` command passed an immutable `MappingProxyType` field
+through `dataclasses.asdict`, whose deep copy raised `TypeError` before JSON
+output could be produced.
+
+Severity: MEDIUM
+
+Status: CLOSED
+
+Resolution: preserve the immutable preflight contract and build a plain CLI
+payload with an explicit `dict(report.checks)` copy. A regression test executes
+the real `check` command path and parses its JSON response.
+
+
 
 
 ---

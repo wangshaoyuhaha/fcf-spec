@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pytest
 
+from apps.one_click_local_operations_app_1 import cli as local_operations_cli
 from apps.one_click_local_operations_app_1 import (
     ONE_CLICK_LOCAL_OPERATIONS_BOUNDARY,
     LocalLifecycleState,
@@ -120,6 +121,21 @@ def test_d2_preflight_validates_registered_artifacts_and_migration(profile):
     assert report.checks["registered_artifacts_valid"] is True
     assert report.checks["migration_compatible"] is True
     assert "MODELS_NOT_REQUIRED" in report.notifications[0]
+
+
+def test_d2_cli_check_serializes_immutable_preflight_checks(
+    profile,
+    monkeypatch,
+    capsys,
+):
+    monkeypatch.setattr(local_operations_cli, "default_profile", lambda: profile)
+
+    assert local_operations_cli.main(["check"]) == 0
+    payload = json.loads(capsys.readouterr().out)
+
+    assert payload["status"] == "READY"
+    assert payload["checks"]["registered_artifacts_valid"] is True
+    assert payload["artifact_count"] == 16
 
 
 def test_d2_preflight_reports_missing_model(profile):
