@@ -28,6 +28,7 @@ COMMANDS = [
         "scripts/control_center_fcp_0001_data_entitlement_provenance_readiness_guard.py",
     ],
     ["python", "scripts/control_center_fcp_0002_counterfactual_decision_journal_guard.py"],
+    ["python", "scripts/control_center_fcp_0003_correlated_evidence_confidence_budget_guard.py"],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
