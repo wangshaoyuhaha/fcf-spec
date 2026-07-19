@@ -129,6 +129,11 @@ class SourceEntitlementRecord:
     permitted_use_ids: tuple[str, ...] = ()
     rights_evidence_ids: tuple[str, ...] = ()
     lineage_evidence_ids: tuple[str, ...] = ()
+    retention_evidence_ids: tuple[str, ...] = ()
+    service_level_evidence_ids: tuple[str, ...] = ()
+    cost_evidence_ids: tuple[str, ...] = ()
+    expiry_evidence_ids: tuple[str, ...] = ()
+    revocation_evidence_ids: tuple[str, ...] = ()
     retention_days: int | None = None
     freshness_objective_seconds: int | None = None
     latency_objective_ms: int | None = None
@@ -163,6 +168,11 @@ class SourceEntitlementRecord:
             "permitted_use_ids",
             "rights_evidence_ids",
             "lineage_evidence_ids",
+            "retention_evidence_ids",
+            "service_level_evidence_ids",
+            "cost_evidence_ids",
+            "expiry_evidence_ids",
+            "revocation_evidence_ids",
             "evidence_ids",
         ):
             object.__setattr__(
@@ -209,6 +219,11 @@ class SourceEntitlementRecord:
                 self.permitted_use_ids,
                 self.rights_evidence_ids,
                 self.lineage_evidence_ids,
+                self.retention_evidence_ids,
+                self.service_level_evidence_ids,
+                self.cost_evidence_ids,
+                self.expiry_evidence_ids,
+                self.revocation_evidence_ids,
                 self.evidence_ids,
             )
             if any(populated):
@@ -222,9 +237,11 @@ class SourceEntitlementRecord:
         return MappingProxyType(
             {
                 "currency_code": self.currency_code,
+                "cost_evidence_ids": self.cost_evidence_ids,
                 "evidence_ids": self.evidence_ids,
                 "evidence_state": self.evidence_state.value,
                 "expires_at_utc": self.expires_at_utc,
+                "expiry_evidence_ids": self.expiry_evidence_ids,
                 "expiry_kind": self.expiry_kind.value,
                 "field_ids": self.field_ids,
                 "freshness_objective_seconds": self.freshness_objective_seconds,
@@ -238,8 +255,11 @@ class SourceEntitlementRecord:
                 "record_id": self.record_id,
                 "record_version": self.record_version,
                 "retention_days": self.retention_days,
+                "retention_evidence_ids": self.retention_evidence_ids,
                 "revocation_state": self.revocation_state.value,
+                "revocation_evidence_ids": self.revocation_evidence_ids,
                 "rights_evidence_ids": self.rights_evidence_ids,
+                "service_level_evidence_ids": self.service_level_evidence_ids,
                 "source_id": self.source_id,
             }
         )
