@@ -4201,6 +4201,29 @@ tests. Preserve the history checks because they enforce Registered Evidence
 traceability rather than treating their failure as a product-code defect.
 
 
+### BUG-FCF-20260719-005
+
+Date: 2026-07-19
+
+Source: clean-clone `run_all_checks.py` reproducibility audit
+
+Affected Component: `scripts/run_all_checks.py`
+
+Description: the official check runner snapshotted and restored four tracked
+generated outputs but executed legacy P13 smoke scripts that rewrote four
+additional tracked Operator Console JSON files. A clean clone completed all
+checks successfully but ended with those four files modified.
+
+Severity: MEDIUM
+
+Status: CLOSED
+
+Resolution: extend the generated-output allowlist to all eight tracked files,
+synchronize the active-surface quality guard, and add regression tests that
+lock the exact allowlist and prove every allowlisted file is restored after a
+simulated command mutates it.
+
+
 
 
 ---

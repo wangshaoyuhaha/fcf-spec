@@ -20,6 +20,10 @@ from apps.p4_controlled_enhancements_stage_12 import (
 
 GENERATED_OUTPUT_ALLOWLIST = (
     "runtime/learning_engine/shadow_ledger.json",
+    "runtime/operator_console/status_snapshot.json",
+    "runtime/operator_console/operator_review_packet.json",
+    "runtime/operator_console/acceptance_summary.json",
+    "runtime/operator_console/p13_branch_closeout_manifest.json",
     "runtime/operator_console/ai_learning_audit_report.json",
     "runtime/operator_console/ai_learning_memory_ledger.json",
     "runtime/operator_console/p13_final_closeout_summary.json",
@@ -46,7 +50,7 @@ def main() -> int:
     ]
     checks = {
         "canonical_map_present": canonical_map.is_file(),
-        "generated_output_allowlist_exact": len(GENERATED_OUTPUT_ALLOWLIST) == 4,
+        "generated_output_allowlist_exact": len(GENERATED_OUTPUT_ALLOWLIST) == 8,
         "generated_dify_sources_optional": bool(generated_dify_sources)
         and all(source["required"] is False for source in generated_dify_sources),
         "p0_p3_bindings_complete": set(P0_P3_IMPLEMENTATION_BINDINGS) == p0_p3,
