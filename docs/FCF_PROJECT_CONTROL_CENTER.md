@@ -4177,6 +4177,30 @@ their distinct roles, the blocking-terminal requirement for the Browser
 Product Console, and the shared paper-only non-executing boundary.
 
 
+### BUG-FCF-20260719-004
+
+Date: 2026-07-19
+
+Source: clean tracked-source reproducibility audit
+
+Affected Component: `README.md`
+
+Description: local validation guidance did not state that governance tests
+resolve recorded evidence commits from Git history. A source ZIP or
+`git archive` contains the tracked files but no `.git` directory, so the two
+history-evidence tests fail with `not a git repository` even though all other
+tests pass.
+
+Severity: LOW
+
+Status: CLOSED
+
+Resolution: require a Git clone that retains repository history for complete
+validation and explain why source archives cannot satisfy evidence-commit
+tests. Preserve the history checks because they enforce Registered Evidence
+traceability rather than treating their failure as a product-code defect.
+
+
 
 
 ---

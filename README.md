@@ -36,6 +36,11 @@ Run `python scripts/run_all_checks.py` and `python -m pytest -q` locally. The
 latest authoritative counts are recorded in the current final-state file and
 the Project Control Center, not hard-coded in this README.
 
+Run validation from a Git clone that retains repository history. Governance
+tests intentionally resolve recorded evidence commits with Git. A source ZIP
+or `git archive` omits `.git` history and therefore cannot satisfy those
+evidence tests even when all packaged source files are present.
+
 ## Permanent Safety Boundary
 
 - paper-only, local-only, loopback-only, sidecar-only
