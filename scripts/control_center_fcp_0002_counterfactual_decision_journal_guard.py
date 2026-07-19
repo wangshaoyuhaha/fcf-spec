@@ -75,7 +75,10 @@ def build_fcp_0002_guard_report(root: Path = ROOT) -> dict[str, object]:
         "proposal_evidence_exact": proposal.get("evidence_refs") == EXPECTED_EVIDENCE_REFS,
         "no_active_phase": truth.get("current_governance_phase_id") == "NONE" and truth.get("current_product_implementation_phase") == "NONE" and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
         "p48_forbidden": safety.get("p48_allowed") is False,
-        "manifest_records_latest_delivery": truth.get("latest_completed_governance_delivery") == "FCF-FCP-0002-COUNTERFACTUAL-RESEARCH-DECISION-JOURNAL-FOUNDATION-APP-1",
+        "manifest_records_latest_delivery": truth.get("latest_completed_governance_delivery") in {
+            "FCF-FCP-0002-COUNTERFACTUAL-RESEARCH-DECISION-JOURNAL-FOUNDATION-APP-1",
+            "FCF-FCP-0003-CORRELATED-EVIDENCE-CONFIDENCE-BUDGET-FOUNDATION-APP-1",
+        },
     }
     return {"checks": checks, "ok": all(checks.values())}
 

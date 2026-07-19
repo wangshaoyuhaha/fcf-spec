@@ -600,6 +600,8 @@ from scripts.control_center_project_memory_guard import (
     FCP_0001_FINAL_STATE,
     FCP_0002_FINAL_ROADMAP,
     FCP_0002_FINAL_STATE,
+    FCP_0003_FINAL_ROADMAP,
+    FCP_0003_FINAL_STATE,
     blocks_are_exact,
     build_project_memory_guard_report,
     extract_single_block,
@@ -639,12 +641,12 @@ def test_current_state_manifest_has_exact_file_roles_and_safety():
     assert all((ROOT / path).is_file() for path in EXPECTED_FILE_ROLES.values())
 
 
-def test_current_state_manifest_records_exact_fcp_0002_final_state():
+def test_current_state_manifest_records_exact_fcp_0003_final_state():
     manifest = load_manifest(ROOT)
     truth = manifest["current_truth"]
 
-    assert truth == FCP_0002_FINAL_STATE
-    assert manifest["roadmap"] == FCP_0002_FINAL_ROADMAP
+    assert truth == FCP_0003_FINAL_STATE
+    assert manifest["roadmap"] == FCP_0003_FINAL_ROADMAP
 
 
 def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():
@@ -1050,7 +1052,7 @@ def test_manifest_is_deterministic_json_and_historical_order_is_not_current():
         "HISTORICAL_COMPLETED_SEQUENCE_NOT_CURRENT_NEXT_PHASE_AUTHORITY"
     )
     assert parsed["current_truth"]["next_product_phase_approval"] == (
-        FCP_0002_FINAL_STATE["next_product_phase_approval"]
+        FCP_0003_FINAL_STATE["next_product_phase_approval"]
     )
 
 
