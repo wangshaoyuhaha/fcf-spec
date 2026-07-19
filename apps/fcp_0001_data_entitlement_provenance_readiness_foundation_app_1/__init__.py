@@ -12,6 +12,11 @@ from .contracts import (
     RevocationState,
     SourceEntitlementRecord,
 )
+from .registry import (
+    EntitlementCoverageAssessment,
+    SourceEntitlementRegistry,
+    evaluate_entitlement_coverage,
+)
 
 __all__ = (
     "FCP_0001_DATA_ENTITLEMENT_PROVENANCE_BOUNDARY",
@@ -24,4 +29,7 @@ __all__ = (
     "ReadinessStatus",
     "RevocationState",
     "SourceEntitlementRecord",
+    "EntitlementCoverageAssessment",
+    "SourceEntitlementRegistry",
+    "evaluate_entitlement_coverage",
 )
