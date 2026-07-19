@@ -618,8 +618,16 @@ promote, activate a factor, or create an action.</p>
         review_queue = model.review_queue
         if review_queue is None:
             raise ValueError("Governance review queue is required")
+        review_evidence_trace = model.review_evidence_trace
+        if review_evidence_trace is None:
+            raise ValueError("Governance review evidence trace is required")
+        evidence_trace_by_key = {
+            (item.artifact_id, item.projection_id): item
+            for item in review_evidence_trace.items
+        }
         queue_rows = []
         for item in review_queue.items:
+            evidence_trace = evidence_trace_by_key[(item.artifact_id, item.projection_id)]
             reasons = "".join(
                 f'<span class="badge">{_escape(reason)}</span>'
                 for reason in item.reason_codes
@@ -632,6 +640,10 @@ promote, activate a factor, or create an action.</p>
                 f"<td>{_escape(item.market)}</td>"
                 f"<td>{_escape(item.state)}</td>"
                 f"<td>{_escape(item.confidence)}</td>"
+                f"<td>{evidence_trace.observed_field_count}</td>"
+                f"<td>{evidence_trace.inferred_field_count}</td>"
+                f"<td>{evidence_trace.source_snapshot_count}</td>"
+                f"<td>{'<br>'.join(f'<code>{_escape(value)}</code>' for value in evidence_trace.source_snapshot_hashes)}</td>"
                 f"<td>{reasons}</td>"
                 f"<td><code>{_escape(item.projection_hash)}</code></td>"
                 "</tr>"
@@ -640,7 +652,8 @@ promote, activate a factor, or create an action.</p>
             """
 <table>
 <thead><tr><th>Attention class</th><th>Candidate</th><th>Factor</th>
-<th>Market</th><th>State</th><th>Confidence</th><th>Reason codes</th>
+<th>Market</th><th>State</th><th>Confidence</th><th>Observed fields</th>
+<th>Inferred fields</th><th>Registered sources</th><th>Source snapshot hashes</th><th>Reason codes</th>
 <th>Projection hash</th></tr></thead>
 <tbody>{rows}</tbody>
 </table>
@@ -653,7 +666,9 @@ promote, activate a factor, or create an action.</p>
 <h2>Operator Governance Review Queue</h2>
 <p>Queue state: <span class="state">{_escape(review_queue.status)}</span></p>
 <p>Items are ordered deterministically as blocked, incomplete, then review
-required. This queue is read-only and cannot approve or activate a factor.</p>
+required. Registered evidence traces preserve observed-versus-inferred counts
+and source snapshot hashes. This queue is read-only and cannot approve or
+activate a factor.</p>
 {queue_table}
 </section>
 """
