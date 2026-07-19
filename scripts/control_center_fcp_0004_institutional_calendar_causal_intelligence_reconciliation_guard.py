@@ -35,6 +35,9 @@ REQUIRED = (
     Path(
         "FCF_CURRENT_STATE_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_APPROVED.md"
     ),
+    Path(
+        "FCF_CURRENT_STATE_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_DELIVERED.md"
+    ),
 )
 STAGE_ROWS = (
     (23, "local_institutional_calendar_evidence", "control_center_v2_r23_local_institutional_calendar_evidence_guard.py"),
@@ -126,6 +129,10 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             root
             / "FCF_CURRENT_STATE_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_APPROVED.md"
         ).read_text(encoding="ascii")
+        delivered = (
+            root
+            / "FCF_CURRENT_STATE_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_DELIVERED.md"
+        ).read_text(encoding="ascii")
         intake = json.loads(
             (root / "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json").read_text(
                 encoding="ascii"
@@ -146,7 +153,7 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
         run_all = (root / "scripts/run_all_checks.py").read_text(encoding="ascii")
         readable = True
     except (FileNotFoundError, UnicodeDecodeError, json.JSONDecodeError):
-        texts, approval, intake, manifest = (), "", {}, {}
+        texts, approval, delivered, intake, manifest = (), "", "", {}, {}
         backlog, adr, app_text, run_all, readable = "", "", "", "", False
     approvals = tuple(_block(text, APPROVAL_START, APPROVAL_END) for text in texts)
     locks = tuple(_block(text, LOCK_START, LOCK_END) for text in texts)
@@ -169,6 +176,11 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
         "approval_document_safe": (
             "APPROVED_GOVERNANCE_RECONCILIATION_ONLY_NOT_STARTED" in approval
             and "FCF-FCP-0004 remains ACCEPTED_ARCHITECTURE" in " ".join(approval.split())
+        ),
+        "delivered_document_complete": (
+            "DELIVERY_VALIDATED_READY_FOR_MANUAL_MERGE" in delivered
+            and "5421 passed" in delivered
+            and "ACCEPTED_ARCHITECTURE" in delivered
         ),
         "lock_exact": len(texts) == 5 and all(locks) and len(set(locks)) == 1,
         "delivery_files_exist": all((root / path).is_file() for path in REQUIRED),

@@ -1,6 +1,6 @@
 # FCF FCP 0004 Institutional Calendar Causal Intelligence Reconciliation App 1 D1-D6
 
-Status: DELIVERY_IMPLEMENTED_VALIDATION_PENDING
+Status: COMPLETE_VALIDATED_READY_FOR_MANUAL_MERGE
 
 ## D1 Boundary and Immutable Inventory
 
@@ -83,3 +83,13 @@ weight, or authorize a product phase.
 P1-P47 remain frozen. No P48 is created. No network, credential, broker,
 exchange, account, balance, position, wallet, order, execution, tag, release,
 or deployment path is created or run.
+
+## Validation Evidence
+
+- isolated D1-D6 and guard suite: 22 passed
+- R23-R37 and governance targeted suite: 281 passed
+- full pytest: 5421 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated tracked outputs: restored with zero changes
+- untracked files: zero
+- `git diff --check`: passed
