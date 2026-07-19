@@ -9919,3 +9919,24 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 is authorized.
 
 <!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 APPROVAL END -->
+
+<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 LOCK START -->
+
+## FCP 0004 Institutional Calendar Causal Intelligence Reconciliation App 1 Lock
+
+Status: DELIVERY_IMPLEMENTED_VALIDATION_PENDING
+
+Delivered: immutable R23-R37 delivery receipts, exact GAP-071 through GAP-086
+coverage, explicit GAP-084 complementary overlap, ten-candidate inventory,
+deterministic missing/mismatch/overlap/overclaim findings, immutable read-only
+Operator review, technical acceptance, and a dedicated guard.
+
+This reconciliation reuses the 15 existing registered-local foundations and
+does not duplicate them. FCF-FCP-0004 remains ACCEPTED_ARCHITECTURE with
+phase_id NONE and Operator decision ACCEPTED_ARCHITECTURE. Production gap
+statuses remain unchanged. No factor activation, scoring or weight change,
+market selection, gap closure, product phase, network, credential, broker,
+exchange, account, balance, position, wallet, order, execution, tag, release,
+or deployment is authorized. P1-P47 remain frozen. No P48 is created.
+
+<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 LOCK END -->
