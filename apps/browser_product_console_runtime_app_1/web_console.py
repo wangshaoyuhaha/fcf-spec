@@ -615,6 +615,39 @@ Candidate information is research evidence only. Operator review is required.
 promote, activate a factor, or create an action.</p>
 </section>
 """
+        review_reason_summary = model.review_reason_summary
+        if review_reason_summary is None:
+            raise ValueError("Governance review reason summary is required")
+        reason_rows = "".join(
+            "<tr>"
+            f"<td>{_escape(item.reason_code)}</td>"
+            f"<td>{item.occurrence_count}</td>"
+            f"<td>{item.blocked_count}</td>"
+            f"<td>{item.incomplete_count}</td>"
+            f"<td>{item.review_required_count}</td>"
+            "</tr>"
+            for item in review_reason_summary.items
+        )
+        reason_table = (
+            "<table><thead><tr><th>Reason code</th><th>Occurrences</th>"
+            "<th>Blocked</th><th>Incomplete</th><th>Review required</th>"
+            f"</tr></thead><tbody>{reason_rows}</tbody></table>"
+            if reason_rows
+            else "<p>No registered governance review reasons.</p>"
+        )
+        review_reason_summary_card = f"""
+<section class="card governance-review-reason-summary">
+<h2>Governance Review Reason Summary</h2>
+<p>Reason state: <span class="state">{_escape(review_reason_summary.status)}</span></p>
+<div class="grid">
+<p><strong>Queue items</strong><br>{review_reason_summary.queue_item_count}</p>
+<p><strong>Unique reasons</strong><br>{review_reason_summary.unique_reason_count}</p>
+<p><strong>Reason occurrences</strong><br>{review_reason_summary.reason_occurrence_count}</p>
+</div>
+<p>Reason counts are derived deterministically from the read-only review queue.</p>
+{reason_table}
+</section>
+"""
         review_queue = model.review_queue
         if review_queue is None:
             raise ValueError("Governance review queue is required")
@@ -769,6 +802,7 @@ activate a factor.</p>
 <p>{counts}</p>
 </section>
 {attention_card}
+{review_reason_summary_card}
 {review_queue_card}
 {''.join(projection_sections)}
 {table}
