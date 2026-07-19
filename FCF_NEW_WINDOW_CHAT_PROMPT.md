@@ -9783,3 +9783,22 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 is authorized.
 
 <!-- FCP 0003 CORRELATED EVIDENCE CONFIDENCE BUDGET FOUNDATION APP 1 APPROVAL END -->
+
+<!-- FCP 0003 CORRELATED EVIDENCE CONFIDENCE BUDGET FOUNDATION APP 1 LOCK START -->
+
+## FCP 0003 Correlated Evidence Confidence Budget Foundation App 1 Lock
+
+Status: DELIVERY_IMPLEMENTED_VALIDATION_PENDING
+
+Delivered: immutable registered claims, exact dependence groups, shared-source
+closure, deterministic group and global confidence-budget allocation,
+supporting/opposing preservation, uncertainty and abstention findings,
+read-only Operator review, technical acceptance, and a dedicated guard.
+
+FCF-FCP-0003 remains NEEDS_RESEARCH with phase_id NONE and Operator decision
+PENDING. No factor activation, scoring or weight change, market selection, gap
+closure, product phase, network, credential, broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment is
+authorized. P1-P47 remain frozen. No P48 is created.
+
+<!-- FCP 0003 CORRELATED EVIDENCE CONFIDENCE BUDGET FOUNDATION APP 1 LOCK END -->
