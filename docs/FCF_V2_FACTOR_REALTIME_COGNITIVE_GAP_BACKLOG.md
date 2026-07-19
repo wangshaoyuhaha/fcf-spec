@@ -216,10 +216,11 @@ factor is activated.
 | V2-R44 | Browser Governance Review Evidence Trace Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_EVIDENCE_TRACE_ONLY |
 | V2-R45 | Browser Governance Review Reason Summary Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_REASON_SUMMARY_ONLY |
 | V2-R46 | Browser Governance Review Coverage Summary Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_COVERAGE_SUMMARY_ONLY |
+| V2-R47 | Browser Governance Review Market Summary Presentation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_MARKET_SUMMARY_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R47 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R47 starts automatically.
 
 ## Entry Gate
 
