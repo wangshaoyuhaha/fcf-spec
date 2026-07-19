@@ -11321,3 +11321,39 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 was created or run.
 
 <!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 FINAL END -->
+
+
+<!-- FCP 0005 MVP PRODUCT READINESS DECISION GATE APP 1 APPROVAL START -->
+
+## FCP 0005 MVP Product Readiness Decision Gate App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0005-mvp-product-readiness-decision-gate-app-1`
+
+Approved D1-D6 scope:
+
+- D1 closed governance-only boundary and immutable readiness contracts
+- D2 registered first-MVP candidate and evidence registry
+- D3 deterministic completeness, freshness, conflict, and authority gate
+- D4 one-market comparison and explicit abstention decision state
+- D5 immutable read-only Operator decision packet and acceptance guard
+- D6 full validation, merge, final synchronization, and cleanup
+
+FCF-FCP-0005 covers V2-FR-GAP-042 through V2-FR-GAP-047 as a bounded
+governance foundation only. It does not close those product and business gaps,
+select A-share or BTC, authorize a realtime source, or approve a product phase.
+The proposal remains NEEDS_RESEARCH with phase_id NONE and Operator decision
+PENDING.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding.
+
+No broker, exchange, credential, account, balance, position, wallet, order,
+execution, tag, release, or deployment path is authorized.
+
+<!-- FCP 0005 MVP PRODUCT READINESS DECISION GATE APP 1 APPROVAL END -->

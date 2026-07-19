@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 5,
+  "next_proposal_sequence": 6,
   "proposals": [
     {
       "adr_refs": [],
@@ -131,6 +131,32 @@
       "summary": "Register the five-clock and three-chain institutional event architecture for A-share and BTC research, including point-in-time official calendars, overlapping event states, expectation gaps, reaction quality, earnings phases, futures expiry, equity supply shocks, policy windows, rates and FX transmission, institutional crowding, holiday liquidity, data freshness, causal challenge, and a governed factor lifecycle. Preserve the named research candidates EARNINGS_SURPRISE, EVENT_REACTION_QUALITY, EXPIRY_BASIS_ROLL_STRESS, EQUITY_SUPPLY_PRESSURE, FX_TRANSMISSION_SENSITIVITY, INSTITUTIONAL_CROWDING, WINDOW_DRESSING_PRESSURE, HOLIDAY_LIQUIDITY_STRESS, POLICY_NOVELTY_ALIGNMENT, and CAPITAL_TRANSMISSION_PRESSURE. All thresholds and weight changes remain deterministic research hypotheses requiring evidence and Operator approval; AI remains advisory.",
       "supersedes": [],
       "title": "Institutional calendar and causal market intelligence"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-020"
+      ],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-042",
+        "V2-FR-GAP-043",
+        "V2-FR-GAP-044",
+        "V2-FR-GAP-045",
+        "V2-FR-GAP-046",
+        "V2-FR-GAP-047"
+      ],
+      "operator_decision": "PENDING",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0005",
+      "source": "operator-codex-governance-review",
+      "status": "NEEDS_RESEARCH",
+      "submitted_at_utc": "2026-07-20T00:00:00Z",
+      "summary": "Provide a deterministic read-only decision gate that compares bounded first-MVP market candidates against registered target, success, unit-economics, commercial, legal, license, data-rights, rollback, and stop evidence without selecting a market or authorizing a product phase.",
+      "supersedes": [],
+      "title": "First MVP market and product readiness decision gate"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
