@@ -648,6 +648,45 @@ promote, activate a factor, or create an action.</p>
 {reason_table}
 </section>
 """
+        review_coverage_summary = model.review_coverage_summary
+        if review_coverage_summary is None:
+            raise ValueError("Governance review coverage summary is required")
+        coverage_rows = "".join(
+            "<tr>"
+            f"<td>{_escape(item.attention_class)}</td>"
+            f"<td><code>{_escape(item.projection_id)}</code></td>"
+            f"<td>{'REGISTERED' if item.evidence_registered else 'MISSING'}</td>"
+            f"<td>{item.observed_field_count}</td>"
+            f"<td>{item.inferred_field_count}</td>"
+            f"<td>{item.source_snapshot_count}</td>"
+            "</tr>"
+            for item in review_coverage_summary.items
+        )
+        coverage_table = (
+            "<table><thead><tr><th>Attention class</th><th>Projection</th>"
+            "<th>Evidence coverage</th><th>Observed fields</th>"
+            "<th>Inferred fields</th><th>Registered sources</th>"
+            f"</tr></thead><tbody>{coverage_rows}</tbody></table>"
+            if coverage_rows
+            else "<p>No registered governance review items.</p>"
+        )
+        review_coverage_summary_card = f"""
+<section class="card governance-review-coverage-summary">
+<h2>Governance Review Coverage Summary</h2>
+<p>Coverage state: <span class="state">{_escape(review_coverage_summary.status)}</span></p>
+<div class="grid">
+<p><strong>Queue items</strong><br>{review_coverage_summary.queue_item_count}</p>
+<p><strong>Covered items</strong><br>{review_coverage_summary.covered_item_count}</p>
+<p><strong>Missing evidence</strong><br>{review_coverage_summary.missing_evidence_count}</p>
+<p><strong>Observed fields</strong><br>{review_coverage_summary.observed_field_count}</p>
+<p><strong>Inferred fields</strong><br>{review_coverage_summary.inferred_field_count}</p>
+<p><strong>Registered sources</strong><br>{review_coverage_summary.source_snapshot_count}</p>
+</div>
+<p>Coverage is derived deterministically from the read-only review queue and
+registered evidence trace. Missing evidence remains visible for Operator review.</p>
+{coverage_table}
+</section>
+"""
         review_queue = model.review_queue
         if review_queue is None:
             raise ValueError("Governance review queue is required")
@@ -803,6 +842,7 @@ activate a factor.</p>
 </section>
 {attention_card}
 {review_reason_summary_card}
+{review_coverage_summary_card}
 {review_queue_card}
 {''.join(projection_sections)}
 {table}
