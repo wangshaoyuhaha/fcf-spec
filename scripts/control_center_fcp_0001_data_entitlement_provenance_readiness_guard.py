@@ -26,6 +26,14 @@ APPROVAL_END = (
     "<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION "
     "APP 1 APPROVAL END -->"
 )
+LOCK_START = (
+    "<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION "
+    "APP 1 LOCK START -->"
+)
+LOCK_END = (
+    "<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION "
+    "APP 1 LOCK END -->"
+)
 REQUIRED_DELIVERY_PATHS = (
     Path("apps/fcp_0001_data_entitlement_provenance_readiness_foundation_app_1/boundary.py"),
     Path("apps/fcp_0001_data_entitlement_provenance_readiness_foundation_app_1/contracts.py"),
@@ -39,6 +47,7 @@ REQUIRED_DELIVERY_PATHS = (
     Path("docs/FCF_FCP_0001_DATA_ENTITLEMENT_PROVENANCE_READINESS_FOUNDATION_APP_1_D3.md"),
     Path("docs/FCF_FCP_0001_DATA_ENTITLEMENT_PROVENANCE_READINESS_FOUNDATION_APP_1_D4.md"),
     Path("docs/FCF_FCP_0001_DATA_ENTITLEMENT_PROVENANCE_READINESS_FOUNDATION_APP_1_D5.md"),
+    Path("docs/FCF_FCP_0001_DATA_ENTITLEMENT_PROVENANCE_READINESS_FOUNDATION_APP_1_D6.md"),
 )
 
 
@@ -52,6 +61,16 @@ def _approval_block(text: str) -> str | None:
     return text[start:end]
 
 
+def _lock_block(text: str) -> str | None:
+    if text.count(LOCK_START) != 1 or text.count(LOCK_END) != 1:
+        return None
+    start = text.index(LOCK_START)
+    end = text.index(LOCK_END) + len(LOCK_END)
+    if end <= start:
+        return None
+    return text[start:end]
+
+
 def validate_fcp_0001_state(
     authority_texts: tuple[str, ...],
     approval_text: str,
@@ -60,6 +79,8 @@ def validate_fcp_0001_state(
     required_paths_exist: bool,
 ) -> dict[str, bool]:
     blocks = tuple(_approval_block(text) for text in authority_texts)
+    lock_blocks = tuple(_lock_block(text) for text in authority_texts)
+    normalized_lock = " ".join(lock_blocks[0].split()) if lock_blocks and lock_blocks[0] else ""
     manifest_data = manifest if isinstance(manifest, dict) else {}
     current_truth = manifest_data.get("current_truth", {})
     safety_boundaries = manifest_data.get("safety_boundaries", {})
@@ -85,6 +106,13 @@ def validate_fcp_0001_state(
             and "FCF-FCP-0001 remains NEEDS_RESEARCH" in normalized_approval
             and "No network," in approval_text
             and "No P48 is created." in approval_text
+        ),
+        "lock_blocks_exact_across_authorities": (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in lock_blocks)
+            and len(set(lock_blocks)) == 1
+            and "Status: DELIVERY_IMPLEMENTED_VALIDATION_PENDING" in lock_blocks[0]
+            and "FCF-FCP-0001 remains NEEDS_RESEARCH" in normalized_lock
         ),
         "delivery_paths_exist": required_paths_exist,
         "fcp_0001_still_research_only": (
