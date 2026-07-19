@@ -11220,3 +11220,42 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 was created or run.
 
 <!-- FCP 0003 CORRELATED EVIDENCE CONFIDENCE BUDGET FOUNDATION APP 1 FINAL END -->
+
+<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 APPROVAL START -->
+
+## FCP 0004 Institutional Calendar Causal Intelligence Reconciliation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_RECONCILIATION_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0004-institutional-calendar-causal-intelligence-reconciliation-app-1`
+
+Approved scope:
+
+- exact V2-R23 through V2-R37 delivery inventory
+- exact V2-FR-GAP-071 through V2-FR-GAP-086 evidence mapping
+- ten named institutional research-candidate presence audit
+- missing, duplicate, conflicting, and overclaim detection
+- production gap and accepted-architecture status preservation
+- immutable read-only Operator reconciliation packet
+- D1-D6 documentation, guard, tests, validation, and closeout
+
+Implementation order: D1 boundary and immutable inventory contracts; D2 exact
+delivery and gap mapping; D3 research-candidate and evidence audit; D4
+deterministic reconciliation findings; D5 read-only review, acceptance, guard,
+and governance sync; D6 validation and closeout.
+
+This approval does not duplicate V2-R23 through V2-R37, activate a factor,
+change scoring or weights, select a market, close V2-FR-GAP-071 through
+V2-FR-GAP-086, or authorize a product phase. FCF-FCP-0004 remains
+ACCEPTED_ARCHITECTURE with phase_id NONE and Operator decision
+ACCEPTED_ARCHITECTURE. Current governance and product phases remain NONE. The
+next product phase remains NOT_SELECTED / NOT_APPROVED.
+
+P1-P47 remain frozen. No P48 is created. All permanent safety and authority
+boundaries remain binding. No network, credential, broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path
+is authorized.
+
+<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 APPROVAL END -->
