@@ -28,6 +28,10 @@ from apps.v2_r46_browser_governance_review_coverage_summary_presentation_app_1 i
     BrowserGovernanceReviewCoverageSummary,
     build_governance_review_coverage_summary,
 )
+from apps.v2_r47_browser_governance_review_market_summary_presentation_app_1 import (
+    BrowserGovernanceReviewMarketSummary,
+    build_governance_review_market_summary,
+)
 
 from .read_model import ConsoleArtifactRecord, ConsoleReadModel
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
@@ -350,6 +354,7 @@ class GovernanceWorkspaceModel:
     review_evidence_trace: BrowserGovernanceReviewEvidenceTrace | None = None
     review_reason_summary: BrowserGovernanceReviewReasonSummary | None = None
     review_coverage_summary: BrowserGovernanceReviewCoverageSummary | None = None
+    review_market_summary: BrowserGovernanceReviewMarketSummary | None = None
     registered_artifact_only: bool = True
     read_only: bool = True
     deterministic_authority: bool = True
@@ -419,6 +424,10 @@ class GovernanceWorkspaceModel:
             self.review_evidence_trace.items
         ):
             raise ValueError("Governance review coverage must align to evidence trace")
+        if not isinstance(self.review_market_summary, BrowserGovernanceReviewMarketSummary):
+            raise ValueError("Governance review market summary is required")
+        if self.review_market_summary.queue_item_count != len(self.review_queue.items):
+            raise ValueError("Governance review market summary must align to queue")
         object.__setattr__(
             self,
             "artifact_type_counts",
@@ -785,6 +794,10 @@ def build_governance_workspace_model(
     review_evidence_trace = build_governance_review_evidence_trace(
         projection_presentations
     )
+    review_coverage_summary = build_governance_review_coverage_summary(
+        review_queue,
+        review_evidence_trace,
+    )
     return GovernanceWorkspaceModel(
         correlation_id=read_model.correlation_id,
         state=state,
@@ -799,9 +812,10 @@ def build_governance_workspace_model(
         review_reason_summary=build_governance_review_reason_summary(
             review_queue
         ),
-        review_coverage_summary=build_governance_review_coverage_summary(
+        review_coverage_summary=review_coverage_summary,
+        review_market_summary=build_governance_review_market_summary(
             review_queue,
-            review_evidence_trace,
+            review_coverage_summary,
         ),
     )
 

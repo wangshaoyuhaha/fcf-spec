@@ -65,6 +65,7 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_r44_browser_governance_review_evidence_trace_guard.py"],
     ["python", "scripts/control_center_v2_r45_browser_governance_review_reason_summary_guard.py"],
     ["python", "scripts/control_center_v2_r46_browser_governance_review_coverage_summary_guard.py"],
+    ["python", "scripts/control_center_v2_r47_browser_governance_review_market_summary_guard.py"],
     ["python", "scripts/run_safety_smoke.py"],
     ["python", "scripts/run_market_snapshot_smoke.py"],
     ["python", "scripts/run_decision_draft_smoke.py"],

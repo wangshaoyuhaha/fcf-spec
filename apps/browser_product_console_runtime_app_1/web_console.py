@@ -687,6 +687,40 @@ registered evidence trace. Missing evidence remains visible for Operator review.
 {coverage_table}
 </section>
 """
+        review_market_summary = model.review_market_summary
+        if review_market_summary is None:
+            raise ValueError("Governance review market summary is required")
+        market_rows = "".join(
+            "<tr>"
+            f"<td>{_escape(item.market)}</td><td>{item.queue_item_count}</td>"
+            f"<td>{item.blocked_count}</td><td>{item.incomplete_count}</td>"
+            f"<td>{item.review_required_count}</td><td>{item.covered_item_count}</td>"
+            f"<td>{item.missing_evidence_count}</td></tr>"
+            for item in review_market_summary.items
+        )
+        market_table = (
+            "<table><thead><tr><th>Market</th><th>Queue items</th>"
+            "<th>Blocked</th><th>Incomplete</th><th>Review required</th>"
+            "<th>Covered items</th><th>Missing evidence</th>"
+            f"</tr></thead><tbody>{market_rows}</tbody></table>"
+            if market_rows
+            else "<p>No registered governance review markets.</p>"
+        )
+        review_market_summary_card = f"""
+<section class="card governance-review-market-summary">
+<h2>Governance Review Market Summary</h2>
+<p>Market state: <span class="state">{_escape(review_market_summary.status)}</span></p>
+<div class="grid">
+<p><strong>Markets</strong><br>{review_market_summary.market_count}</p>
+<p><strong>Queue items</strong><br>{review_market_summary.queue_item_count}</p>
+<p><strong>Covered items</strong><br>{review_market_summary.covered_item_count}</p>
+<p><strong>Missing evidence</strong><br>{review_market_summary.missing_evidence_count}</p>
+</div>
+<p>Market counts are derived deterministically from registered review and
+coverage evidence. They do not rank markets or create an action.</p>
+{market_table}
+</section>
+"""
         review_queue = model.review_queue
         if review_queue is None:
             raise ValueError("Governance review queue is required")
@@ -843,6 +877,7 @@ activate a factor.</p>
 {attention_card}
 {review_reason_summary_card}
 {review_coverage_summary_card}
+{review_market_summary_card}
 {review_queue_card}
 {''.join(projection_sections)}
 {table}
