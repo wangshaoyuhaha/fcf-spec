@@ -8,6 +8,10 @@ LOCAL_APP_DATA = Path(os.environ.get("LOCALAPPDATA", PROJECT_ROOT.parent))
 SAFE_TEMP_ROOT = (LOCAL_APP_DATA / "FCF-pytest-scratch-v2").resolve()
 GENERATED_OUTPUT_ALLOWLIST = (
     "runtime/learning_engine/shadow_ledger.json",
+    "runtime/operator_console/status_snapshot.json",
+    "runtime/operator_console/operator_review_packet.json",
+    "runtime/operator_console/acceptance_summary.json",
+    "runtime/operator_console/p13_branch_closeout_manifest.json",
     "runtime/operator_console/ai_learning_audit_report.json",
     "runtime/operator_console/ai_learning_memory_ledger.json",
     "runtime/operator_console/p13_final_closeout_summary.json",
