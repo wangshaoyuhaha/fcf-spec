@@ -9723,3 +9723,22 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 is authorized.
 
 <!-- FCP 0002 COUNTERFACTUAL RESEARCH DECISION JOURNAL FOUNDATION APP 1 APPROVAL END -->
+
+<!-- FCP 0002 COUNTERFACTUAL RESEARCH DECISION JOURNAL FOUNDATION APP 1 LOCK START -->
+
+## FCP 0002 Counterfactual Research Decision Journal Foundation App 1 Lock
+
+Status: DELIVERY_IMPLEMENTED_VALIDATION_PENDING
+
+Delivered: immutable pre-outcome decisions, selected/rejected/expired/abstained
+alternatives, registered evidence hashes, append-only predecessor linkage,
+separate post-outcome observations, deterministic counterfactual findings,
+read-only Operator review, technical acceptance, and a dedicated guard.
+
+FCF-FCP-0002 remains NEEDS_RESEARCH with phase_id NONE and Operator decision
+PENDING. No factor activation, scoring change, market selection, gap closure,
+product phase, network, credential, broker, exchange, account, balance,
+position, wallet, order, execution, tag, release, or deployment is authorized.
+P1-P47 remain frozen. No P48 is created.
+
+<!-- FCP 0002 COUNTERFACTUAL RESEARCH DECISION JOURNAL FOUNDATION APP 1 LOCK END -->
