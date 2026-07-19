@@ -17,6 +17,8 @@ APPROVAL_START = "<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECON
 APPROVAL_END = "<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 APPROVAL END -->"
 LOCK_START = "<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 LOCK START -->"
 LOCK_END = "<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 LOCK END -->"
+FINAL_START = "<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 FINAL START -->"
+FINAL_END = "<!-- FCP 0004 INSTITUTIONAL CALENDAR CAUSAL INTELLIGENCE RECONCILIATION APP 1 FINAL END -->"
 APP_ROOT = Path(
     "apps/fcp_0004_institutional_calendar_causal_intelligence_reconciliation_app_1"
 )
@@ -38,7 +40,19 @@ REQUIRED = (
     Path(
         "FCF_CURRENT_STATE_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_DELIVERED.md"
     ),
+    Path(
+        "FCF_CURRENT_STATE_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_FINAL.md"
+    ),
 )
+FINAL_EVIDENCE_COMMITS = (
+    "c57ca9370e235fb1f3453af24ca73b990ea7967b",
+    "c483264a52af15417b454733a850e84cec8bd5fa",
+    "8ffbaebd607f7ebd6729a8a7daf5244c5c6cd583",
+)
+EXPECTED_EVIDENCE_REFS = [
+    "FCF_CURRENT_STATE_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_FINAL.md",
+    "docs/FCF_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_D1_D6.md",
+]
 STAGE_ROWS = (
     (23, "local_institutional_calendar_evidence", "control_center_v2_r23_local_institutional_calendar_evidence_guard.py"),
     (24, "local_multi_clock_event_state", "control_center_v2_r24_local_multi_clock_event_state_guard.py"),
@@ -133,6 +147,10 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             root
             / "FCF_CURRENT_STATE_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_DELIVERED.md"
         ).read_text(encoding="ascii")
+        final_document = (
+            root
+            / "FCF_CURRENT_STATE_FCP_0004_INSTITUTIONAL_CALENDAR_CAUSAL_INTELLIGENCE_RECONCILIATION_APP_1_FINAL.md"
+        ).read_text(encoding="ascii")
         intake = json.loads(
             (root / "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json").read_text(
                 encoding="ascii"
@@ -153,10 +171,18 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
         run_all = (root / "scripts/run_all_checks.py").read_text(encoding="ascii")
         readable = True
     except (FileNotFoundError, UnicodeDecodeError, json.JSONDecodeError):
-        texts, approval, delivered, intake, manifest = (), "", "", {}, {}
+        texts, approval, delivered, final_document, intake, manifest = (
+            (),
+            "",
+            "",
+            "",
+            {},
+            {},
+        )
         backlog, adr, app_text, run_all, readable = "", "", "", "", False
     approvals = tuple(_block(text, APPROVAL_START, APPROVAL_END) for text in texts)
     locks = tuple(_block(text, LOCK_START, LOCK_END) for text in texts)
+    finals = tuple(_block(text, FINAL_START, FINAL_END) for text in texts)
     proposal = next(
         (
             item
@@ -183,6 +209,11 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             and "ACCEPTED_ARCHITECTURE" in delivered
         ),
         "lock_exact": len(texts) == 5 and all(locks) and len(set(locks)) == 1,
+        "final_exact": len(texts) == 5 and all(finals) and len(set(finals)) == 1,
+        "final_document_complete": (
+            "COMPLETED_MERGED_VALIDATED" in final_document
+            and all(commit in final_document for commit in FINAL_EVIDENCE_COMMITS)
+        ),
         "delivery_files_exist": all((root / path).is_file() for path in REQUIRED),
         "historical_delivery_evidence_exists": all(
             (root / path).exists() for path in delivery_paths
@@ -224,14 +255,16 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             and proposal.get("phase_id") == "NONE"
             and proposal.get("gap_refs") == list(GAP_STATUSES)
         ),
+        "proposal_evidence_exact": proposal.get("evidence_refs")
+        == EXPECTED_EVIDENCE_REFS,
         "no_active_phase": truth.get("current_governance_phase_id") == "NONE"
         and truth.get("current_product_implementation_phase") == "NONE"
         and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
         "p48_forbidden": safety.get("p48_allowed") is False,
-        "latest_delivery_remains_fcp_0003": truth.get(
+        "manifest_records_latest_delivery": truth.get(
             "latest_completed_governance_delivery"
         )
-        == "FCF-FCP-0003-CORRELATED-EVIDENCE-CONFIDENCE-BUDGET-FOUNDATION-APP-1",
+        == "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
         "guard_wired_into_all_checks": (
             "scripts/control_center_fcp_0004_institutional_calendar_causal_intelligence_reconciliation_guard.py"
             in run_all
