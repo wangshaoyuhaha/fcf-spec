@@ -23,6 +23,10 @@ COMMANDS = [
     ["python", "scripts/control_center_v2_factor_realtime_architecture_guard.py"],
     ["python", "scripts/control_center_project_memory_guard.py"],
     ["python", "scripts/control_center_future_capability_intake_guard.py"],
+    [
+        "python",
+        "scripts/control_center_fcp_0001_data_entitlement_provenance_readiness_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],

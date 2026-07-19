@@ -8753,3 +8753,34 @@ credential, broker, exchange, account, balance, position, wallet, order,
 execution, tag, release, or deployment capability is approved.
 
 <!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION APP 1 APPROVAL END -->
+
+<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION APP 1 LOCK START -->
+
+## FCP 0001 Data Entitlement Provenance Readiness Foundation App 1 Lock
+
+Status: DELIVERY_IMPLEMENTED_VALIDATION_PENDING
+
+Delivered on the approved sidecar branch:
+
+- immutable source entitlement, provenance, and review contracts
+- exact field, market scope, intended-use, rights, retention, and lineage checks
+- freshness, latency, cost, expiry, and revocation evidence checks
+- deterministic BLOCKED, DEGRADED, and READY_FOR_OPERATOR_REVIEW findings
+- deterministic registry and outcome SHA-256 values
+- read-only Operator review packet and immutable technical acceptance report
+- dedicated governance guard wired into `scripts/run_all_checks.py`
+- D1-D6 documentation and isolated tests
+
+This lock does not select a market, vendor, source, or license. It does not
+authorize a product implementation phase or close V2-FR-GAP-022,
+V2-FR-GAP-023, V2-FR-GAP-028, or V2-FR-GAP-030. FCF-FCP-0001 remains
+NEEDS_RESEARCH with phase_id NONE and Operator decision PENDING.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding. No network,
+credential, broker, exchange, account, balance, position, wallet, order,
+execution, tag, release, or deployment path is authorized.
+
+<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION APP 1 LOCK END -->
