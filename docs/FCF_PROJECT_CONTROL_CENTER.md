@@ -4224,6 +4224,29 @@ lock the exact allowlist and prove every allowlisted file is restored after a
 simulated command mutates it.
 
 
+### BUG-FCF-20260719-006
+
+Date: 2026-07-19
+
+Source: isolated authority-boundary test audit
+
+Affected Component: `pyproject.toml`
+
+Description: isolated collection of a test that imports the `fcf` package
+failed with `ModuleNotFoundError` because pytest did not declare the repository
+`src` directory as an import path. Full-suite ordering masked the defect after
+earlier tests modified `sys.path`.
+
+Severity: MEDIUM
+
+Status: CLOSED
+
+Resolution: declare `pythonpath = ["src"]` in the canonical pytest
+configuration and add an isolated regression contract that locks the setting
+and proves the imported `fcf` package resolves inside the repository `src`
+tree.
+
+
 
 
 ---
