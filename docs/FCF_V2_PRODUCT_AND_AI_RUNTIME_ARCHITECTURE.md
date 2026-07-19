@@ -11026,3 +11026,40 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 was created or run.
 
 <!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION APP 1 FINAL END -->
+
+<!-- FCP 0002 COUNTERFACTUAL RESEARCH DECISION JOURNAL FOUNDATION APP 1 APPROVAL START -->
+
+## FCP 0002 Counterfactual Research Decision Journal Foundation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0002-counterfactual-research-decision-journal-foundation-app-1`
+
+Approved scope:
+
+- immutable pre-outcome decisions and selected, rejected, expired, or
+  abstained alternatives
+- append-only hash linkage and registered evidence references
+- separate post-outcome observations without decision rewriting
+- deterministic counterfactual and post-hoc contamination findings
+- read-only Operator review packet and technical acceptance
+- D1-D6 documentation, guard, tests, validation, and closeout
+
+Implementation order: D1 boundary and contracts; D2 append-only journal; D3
+outcome and counterfactual linkage; D4 deterministic findings and review
+packet; D5 acceptance, guard, and governance sync; D6 validation and closeout.
+
+This approval does not activate a factor, change scoring, select a market,
+close V2-FR-GAP-037, V2-FR-GAP-058, V2-FR-GAP-059, or V2-FR-GAP-060, or
+authorize a product phase. FCF-FCP-0002 remains NEEDS_RESEARCH with phase_id
+NONE and Operator decision PENDING. Current governance and product phases
+remain NONE. The next product phase remains NOT_SELECTED / NOT_APPROVED.
+
+P1-P47 remain frozen. No P48 is created. All permanent safety and authority
+boundaries remain binding. No network, credential, broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path
+is authorized.
+
+<!-- FCP 0002 COUNTERFACTUAL RESEARCH DECISION JOURNAL FOUNDATION APP 1 APPROVAL END -->
