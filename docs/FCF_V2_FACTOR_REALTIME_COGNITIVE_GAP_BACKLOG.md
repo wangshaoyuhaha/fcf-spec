@@ -215,11 +215,11 @@ factor is activated.
 | V2-R43 | Browser Governance Review Queue Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_QUEUE_ONLY |
 | V2-R44 | Browser Governance Review Evidence Trace Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_EVIDENCE_TRACE_ONLY |
 | V2-R45 | Browser Governance Review Reason Summary Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_REASON_SUMMARY_ONLY |
-| V2-R46 | Browser Governance Review Coverage Summary Presentation | IMPLEMENTED_PENDING_VALIDATION / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_COVERAGE_SUMMARY_ONLY |
+| V2-R46 | Browser Governance Review Coverage Summary Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_COVERAGE_SUMMARY_ONLY |
 
-Next product implementation phase: V2-R46 / APPROVED.
+Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
 
-No successor phase after V2-R46 starts automatically.
+No successor phase starts automatically.
 
 ## Entry Gate
 
