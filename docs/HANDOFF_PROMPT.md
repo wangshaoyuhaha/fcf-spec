@@ -8704,3 +8704,52 @@ is NOT_SELECTED / NOT_APPROVED. V2-FR-GAP-060 and V2-FR-GAP-062 remain open.
 P1-P47 frozen. No P48. Operator review required. No tag, release, or deployment.
 
 <!-- V2-R47 BROWSER GOVERNANCE REVIEW MARKET SUMMARY PRESENTATION APP 1 FINAL END -->
+
+
+<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION APP 1 APPROVAL START -->
+
+## FCP 0001 Data Entitlement Provenance Readiness Foundation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0001-data-entitlement-provenance-readiness-foundation-app-1`
+
+Approved scope:
+
+- define immutable registered-source entitlement metadata
+- define required field, rights, retention, lineage, freshness, latency, cost,
+  expiry, revocation, and evidence references
+- calculate deterministic readiness findings from registered local evidence
+- produce a read-only Operator review packet and acceptance report
+- preserve explicit missing, degraded, blocked, and not-researched states
+- add D1-D6 documentation, guards, tests, and governance closeout evidence
+
+Implementation order:
+
+- D1 repository truth, non-duplication, boundary, and contracts
+- D2 entitlement, field, rights, retention, and lineage evidence
+- D3 freshness, latency, cost, expiry, and revocation readiness
+- D4 deterministic findings and read-only Operator review packet
+- D5 acceptance, guards, governance synchronization, and closeout evidence
+- D6 isolated, targeted, full, and official validation before merge
+
+This governance-only approval does not select a market or vendor, approve a
+data license, close V2-FR-GAP-022, V2-FR-GAP-023, V2-FR-GAP-028, or
+V2-FR-GAP-030, or authorize a product implementation phase. FCF-FCP-0001
+remains NEEDS_RESEARCH until source-specific evidence and an explicit Operator
+decision satisfy the canonical Implementation Readiness Gate.
+
+Current governance phase remains NONE. Current product implementation phase
+remains NONE. Next product implementation phase remains NOT_SELECTED /
+NOT_APPROVED. No successor product phase starts automatically.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Deterministic Engine calculation authority, Registered Evidence authority,
+advisory AI, and mandatory Operator review remain binding. No network,
+credential, broker, exchange, account, balance, position, wallet, order,
+execution, tag, release, or deployment capability is approved.
+
+<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION APP 1 APPROVAL END -->
