@@ -16,6 +16,10 @@ from apps.v2_r43_browser_governance_review_queue_presentation_app_1 import (
     BrowserGovernanceReviewQueue,
     build_governance_review_queue,
 )
+from apps.v2_r44_browser_governance_review_evidence_trace_presentation_app_1 import (
+    BrowserGovernanceReviewEvidenceTrace,
+    build_governance_review_evidence_trace,
+)
 
 from .read_model import ConsoleArtifactRecord, ConsoleReadModel
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
@@ -335,6 +339,7 @@ class GovernanceWorkspaceModel:
     ] = ()
     attention_summary: BrowserGovernanceAttentionSummary | None = None
     review_queue: BrowserGovernanceReviewQueue | None = None
+    review_evidence_trace: BrowserGovernanceReviewEvidenceTrace | None = None
     registered_artifact_only: bool = True
     read_only: bool = True
     deterministic_authority: bool = True
@@ -371,6 +376,21 @@ class GovernanceWorkspaceModel:
             raise ValueError("Governance attention summary is required")
         if not isinstance(self.review_queue, BrowserGovernanceReviewQueue):
             raise ValueError("Governance review queue is required")
+        if not isinstance(
+            self.review_evidence_trace,
+            BrowserGovernanceReviewEvidenceTrace,
+        ):
+            raise ValueError("Governance review evidence trace is required")
+        queue_keys = {
+            (item.artifact_id, item.projection_id)
+            for item in self.review_queue.items
+        }
+        trace_keys = {
+            (item.artifact_id, item.projection_id)
+            for item in self.review_evidence_trace.items
+        }
+        if queue_keys != trace_keys:
+            raise ValueError("Governance review evidence trace must align to queue")
         object.__setattr__(
             self,
             "artifact_type_counts",
@@ -743,6 +763,9 @@ def build_governance_workspace_model(
             projection_presentations
         ),
         review_queue=build_governance_review_queue(
+            projection_presentations
+        ),
+        review_evidence_trace=build_governance_review_evidence_trace(
             projection_presentations
         ),
     )
