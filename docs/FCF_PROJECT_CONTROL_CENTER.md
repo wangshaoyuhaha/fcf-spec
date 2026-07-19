@@ -16696,3 +16696,42 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 was created or run.
 
 <!-- FCP 0002 COUNTERFACTUAL RESEARCH DECISION JOURNAL FOUNDATION APP 1 FINAL END -->
+
+<!-- FCP 0003 CORRELATED EVIDENCE CONFIDENCE BUDGET FOUNDATION APP 1 APPROVAL START -->
+
+## FCP 0003 Correlated Evidence Confidence Budget Foundation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0003-correlated-evidence-confidence-budget-foundation-app-1`
+
+Approved scope:
+
+- immutable registered evidence claims and dependence groups
+- macro, sector, instrument, and microstructure scope attribution
+- deterministic group and global confidence-budget allocation
+- shared-source and correlated-evidence repeated-confirmation prevention
+- supporting, opposing, ambiguous, missing, and blocked findings
+- explicit uncertainty and abstention outcomes
+- read-only Operator review packet and technical acceptance
+- D1-D6 documentation, guard, tests, validation, and closeout
+
+Implementation order: D1 boundary and contracts; D2 registered dependence
+groups; D3 deterministic confidence-budget allocation; D4 uncertainty,
+conflict, and abstention findings; D5 review, acceptance, guard, and governance
+sync; D6 validation and closeout.
+
+This approval does not activate a factor, change scoring or weights, select a
+market, close V2-FR-GAP-010, V2-FR-GAP-034, or V2-FR-GAP-057, or authorize a
+product phase. FCF-FCP-0003 remains NEEDS_RESEARCH with phase_id NONE and
+Operator decision PENDING. Current governance and product phases remain NONE.
+The next product phase remains NOT_SELECTED / NOT_APPROVED.
+
+P1-P47 remain frozen. No P48 is created. All permanent safety and authority
+boundaries remain binding. No network, credential, broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path
+is authorized.
+
+<!-- FCP 0003 CORRELATED EVIDENCE CONFIDENCE BUDGET FOUNDATION APP 1 APPROVAL END -->
