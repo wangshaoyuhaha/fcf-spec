@@ -213,10 +213,11 @@ factor is activated.
 | V2-R41 | Browser Governance Starter Package Integration | COMPLETED / REGISTERED_LOCAL_DEMONSTRATION_GOVERNANCE_PACKAGE_ONLY |
 | V2-R42 | Browser Governance Attention Summary | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_ATTENTION_SUMMARY_ONLY |
 | V2-R43 | Browser Governance Review Queue Presentation | COMPLETED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_QUEUE_ONLY |
+| V2-R44 | Browser Governance Review Evidence Trace Presentation | APPROVED / NOT_STARTED / REGISTERED_LOCAL_BROWSER_GOVERNANCE_REVIEW_EVIDENCE_TRACE_ONLY |
 
-Next product implementation phase: NOT_SELECTED / NOT_APPROVED.
+Next product implementation phase: V2-R44 / APPROVED.
 
-No successor phase starts automatically.
+No successor phase after V2-R44 starts automatically.
 
 ## Entry Gate
 
