@@ -20,6 +20,10 @@ from apps.v2_r44_browser_governance_review_evidence_trace_presentation_app_1 imp
     BrowserGovernanceReviewEvidenceTrace,
     build_governance_review_evidence_trace,
 )
+from apps.v2_r45_browser_governance_review_reason_summary_presentation_app_1 import (
+    BrowserGovernanceReviewReasonSummary,
+    build_governance_review_reason_summary,
+)
 
 from .read_model import ConsoleArtifactRecord, ConsoleReadModel
 from .research_workspace import RESEARCH_WORKSPACE_ROUTE_REGISTRY
@@ -340,6 +344,7 @@ class GovernanceWorkspaceModel:
     attention_summary: BrowserGovernanceAttentionSummary | None = None
     review_queue: BrowserGovernanceReviewQueue | None = None
     review_evidence_trace: BrowserGovernanceReviewEvidenceTrace | None = None
+    review_reason_summary: BrowserGovernanceReviewReasonSummary | None = None
     registered_artifact_only: bool = True
     read_only: bool = True
     deterministic_authority: bool = True
@@ -391,6 +396,13 @@ class GovernanceWorkspaceModel:
         }
         if queue_keys != trace_keys:
             raise ValueError("Governance review evidence trace must align to queue")
+        if not isinstance(
+            self.review_reason_summary,
+            BrowserGovernanceReviewReasonSummary,
+        ):
+            raise ValueError("Governance review reason summary is required")
+        if self.review_reason_summary.queue_item_count != len(self.review_queue.items):
+            raise ValueError("Governance review reason summary must align to queue")
         object.__setattr__(
             self,
             "artifact_type_counts",
@@ -753,6 +765,7 @@ def build_governance_workspace_model(
         for record in records
         if record.artifact_type == "factor_governance_projection"
     )
+    review_queue = build_governance_review_queue(projection_presentations)
     return GovernanceWorkspaceModel(
         correlation_id=read_model.correlation_id,
         state=state,
@@ -762,11 +775,12 @@ def build_governance_workspace_model(
         attention_summary=build_governance_attention_summary(
             projection_presentations
         ),
-        review_queue=build_governance_review_queue(
-            projection_presentations
-        ),
+        review_queue=review_queue,
         review_evidence_trace=build_governance_review_evidence_trace(
             projection_presentations
+        ),
+        review_reason_summary=build_governance_review_reason_summary(
+            review_queue
         ),
     )
 
