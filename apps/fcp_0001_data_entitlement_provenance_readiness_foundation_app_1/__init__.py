@@ -27,6 +27,10 @@ from .presentation import (
     EntitlementReadinessReviewPacket,
     build_entitlement_readiness_review_packet,
 )
+from .acceptance import (
+    EntitlementReadinessAcceptanceReport,
+    validate_entitlement_readiness_acceptance,
+)
 
 __all__ = (
     "FCP_0001_DATA_ENTITLEMENT_PROVENANCE_BOUNDARY",
@@ -49,4 +53,6 @@ __all__ = (
     "evaluate_source_readiness",
     "EntitlementReadinessReviewPacket",
     "build_entitlement_readiness_review_packet",
+    "EntitlementReadinessAcceptanceReport",
+    "validate_entitlement_readiness_acceptance",
 )
