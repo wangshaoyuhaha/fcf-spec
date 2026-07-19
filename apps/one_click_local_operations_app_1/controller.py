@@ -97,6 +97,7 @@ class OneClickLocalOperationsController:
         self._browser_opener = browser_opener
         self._clock = clock
         self._sleeper = sleeper
+        self._owned_process: subprocess.Popen[bytes] | None = None
 
     @property
     def store(self) -> LocalOperationsStateStore:
@@ -191,6 +192,7 @@ class OneClickLocalOperationsController:
                 message="No owned FCF local service state exists.",
             )
         if not self._alive_probe(state.pid):
+            self._reap_owned_process()
             stopped = self._copy_state(
                 state,
                 LocalLifecycleState.STOPPED,
@@ -219,6 +221,7 @@ class OneClickLocalOperationsController:
                 and observed.lifecycle_state is LocalLifecycleState.STOPPED
                 and not self._alive_probe(state.pid)
             ):
+                self._reap_owned_process()
                 return LocalOperationReceipt(
                     operation="STOP",
                     status="STOPPED",
@@ -228,6 +231,7 @@ class OneClickLocalOperationsController:
                     url=state.url,
                 )
             if not self._alive_probe(state.pid):
+                self._reap_owned_process()
                 stopped = self._copy_state(
                     requested,
                     LocalLifecycleState.STOPPED,
@@ -263,6 +267,7 @@ class OneClickLocalOperationsController:
                 message="No local runtime state exists.",
             )
         if state.lifecycle_state is LocalLifecycleState.STOPPED:
+            self._reap_owned_process()
             return LocalOperationReceipt(
                 operation="STATUS",
                 status="STOPPED",
@@ -282,6 +287,7 @@ class OneClickLocalOperationsController:
         else:
             status = "STOPPED"
             message = "Recorded service process is not running."
+            self._reap_owned_process()
         return LocalOperationReceipt(
             operation="STATUS",
             status=status,
@@ -369,4 +375,10 @@ class OneClickLocalOperationsController:
                 creationflags=creationflags,
                 start_new_session=start_new_session,
             )
+        self._owned_process = process
         return int(process.pid)
+
+    def _reap_owned_process(self) -> None:
+        process = self._owned_process
+        if process is not None and process.poll() is not None:
+            self._owned_process = None

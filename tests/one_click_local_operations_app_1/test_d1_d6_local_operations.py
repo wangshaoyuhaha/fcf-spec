@@ -391,6 +391,7 @@ def test_d6_acceptance_closes_stage_9_without_starting_next_phase():
     assert acceptance.next_phase == "MULTI_MARKET_PAPER_SHADOW_VALIDATION"
 
 
+@pytest.mark.filterwarnings("error")
 def test_d6_real_background_start_health_and_graceful_stop():
     runtime_parent = PROJECT_ROOT / "runtime"
     runtime_parent.mkdir(exist_ok=True)
