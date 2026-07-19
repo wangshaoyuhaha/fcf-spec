@@ -3521,6 +3521,13 @@ V2_R47_FINAL_STATE = {
     "next_product_phase_approval": "NOT_APPROVED",
 }
 V2_R47_FINAL_ROADMAP = [{"phase_id": phase, "status": "COMPLETED"} for phase in V2_R47_ROADMAP_PHASES]
+FCP_0001_FINAL_STATE = {
+    **V2_R47_FINAL_STATE,
+    "latest_completed_governance_delivery": (
+        "FCF-FCP-0001-DATA-ENTITLEMENT-PROVENANCE-READINESS-FOUNDATION-APP-1"
+    ),
+}
+FCP_0001_FINAL_ROADMAP = V2_R47_FINAL_ROADMAP
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -3735,6 +3742,7 @@ def build_project_memory_guard_report(
         V2_R45_APPROVAL_STATE, V2_R45_DELIVERY_STATE, V2_R45_VALIDATED_STATE, V2_R45_FINAL_STATE,
         V2_R46_APPROVAL_STATE, V2_R46_DELIVERY_STATE, V2_R46_VALIDATED_STATE, V2_R46_FINAL_STATE,
         V2_R47_APPROVAL_STATE, V2_R47_DELIVERY_STATE, V2_R47_VALIDATED_STATE, V2_R47_FINAL_STATE,
+        FCP_0001_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -4144,6 +4152,7 @@ def build_project_memory_guard_report(
             else V2_R47_DELIVERY_ROADMAP if current_truth == V2_R47_DELIVERY_STATE
             else V2_R47_VALIDATED_ROADMAP if current_truth == V2_R47_VALIDATED_STATE
             else V2_R47_FINAL_ROADMAP if current_truth == V2_R47_FINAL_STATE
+            else FCP_0001_FINAL_ROADMAP if current_truth == FCP_0001_FINAL_STATE
             else expected_roadmap
         ),
         "future_status_vocabulary_exact": statuses == list(FUTURE_STATUSES),
@@ -4394,7 +4403,7 @@ def build_project_memory_guard_report(
         or (current_truth == V2_R46_FINAL_STATE and all(line in gap for line in GAP_ROADMAP_R46_FINAL_LINES))
         or (current_truth == V2_R47_APPROVAL_STATE and all(line in gap for line in GAP_ROADMAP_R47_APPROVAL_LINES))
         or (current_truth in (V2_R47_DELIVERY_STATE, V2_R47_VALIDATED_STATE) and all(line in gap for line in GAP_ROADMAP_R47_DELIVERY_LINES))
-        or (current_truth == V2_R47_FINAL_STATE and all(line in gap for line in GAP_ROADMAP_R47_FINAL_LINES))
+        or (current_truth in (V2_R47_FINAL_STATE, FCP_0001_FINAL_STATE) and all(line in gap for line in GAP_ROADMAP_R47_FINAL_LINES))
         or current_truth
         not in (
             V2_R6_FINAL_STATE,

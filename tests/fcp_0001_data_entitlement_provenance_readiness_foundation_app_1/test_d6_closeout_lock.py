@@ -4,6 +4,8 @@ from scripts.control_center_fcp_0001_data_entitlement_provenance_readiness_guard
     AUTHORITY_PATHS,
     LOCK_END,
     LOCK_START,
+    FINAL_END,
+    FINAL_START,
     build_fcp_0001_guard_report,
 )
 
@@ -30,6 +32,19 @@ def test_d6_guard_passes_locked_repository() -> None:
     report = build_fcp_0001_guard_report(ROOT)
     assert report["ok"] is True
     assert all(report["checks"].values())
+
+
+def test_final_sync_is_exact_across_all_active_authorities() -> None:
+    texts = tuple((ROOT / path).read_text(encoding="ascii") for path in AUTHORITY_PATHS)
+    blocks = []
+    for text in texts:
+        start = text.index(FINAL_START)
+        end = text.index(FINAL_END) + len(FINAL_END)
+        blocks.append(text[start:end])
+    assert len(set(blocks)) == 1
+    assert "Status: GOVERNANCE_FOUNDATION_COMPLETED_MERGED_VALIDATED" in blocks[0]
+    assert "315ca4dba01e53448e39131418c153fa73ad2aa0" in blocks[0]
+    assert "4a0c29cc4b7ab8d2d9b78b0a014be967f7ef485e" in blocks[0]
 
 
 def test_d6_document_preserves_validation_order_and_boundary() -> None:

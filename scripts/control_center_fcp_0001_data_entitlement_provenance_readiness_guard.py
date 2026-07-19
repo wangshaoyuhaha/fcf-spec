@@ -34,6 +34,18 @@ LOCK_END = (
     "<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION "
     "APP 1 LOCK END -->"
 )
+FINAL_START = (
+    "<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION "
+    "APP 1 FINAL START -->"
+)
+FINAL_END = (
+    "<!-- FCP 0001 DATA ENTITLEMENT PROVENANCE READINESS FOUNDATION "
+    "APP 1 FINAL END -->"
+)
+FINAL_PATH = Path(
+    "FCF_CURRENT_STATE_FCP_0001_DATA_ENTITLEMENT_PROVENANCE_"
+    "READINESS_FOUNDATION_APP_1_FINAL.md"
+)
 REQUIRED_DELIVERY_PATHS = (
     Path("apps/fcp_0001_data_entitlement_provenance_readiness_foundation_app_1/boundary.py"),
     Path("apps/fcp_0001_data_entitlement_provenance_readiness_foundation_app_1/contracts.py"),
@@ -71,6 +83,16 @@ def _lock_block(text: str) -> str | None:
     return text[start:end]
 
 
+def _final_block(text: str) -> str | None:
+    if text.count(FINAL_START) != 1 or text.count(FINAL_END) != 1:
+        return None
+    start = text.index(FINAL_START)
+    end = text.index(FINAL_END) + len(FINAL_END)
+    if end <= start:
+        return None
+    return text[start:end]
+
+
 def validate_fcp_0001_state(
     authority_texts: tuple[str, ...],
     approval_text: str,
@@ -81,6 +103,7 @@ def validate_fcp_0001_state(
     blocks = tuple(_approval_block(text) for text in authority_texts)
     lock_blocks = tuple(_lock_block(text) for text in authority_texts)
     normalized_lock = " ".join(lock_blocks[0].split()) if lock_blocks and lock_blocks[0] else ""
+    final_blocks = tuple(_final_block(text) for text in authority_texts)
     manifest_data = manifest if isinstance(manifest, dict) else {}
     current_truth = manifest_data.get("current_truth", {})
     safety_boundaries = manifest_data.get("safety_boundaries", {})
@@ -114,6 +137,15 @@ def validate_fcp_0001_state(
             and "Status: DELIVERY_IMPLEMENTED_VALIDATION_PENDING" in lock_blocks[0]
             and "FCF-FCP-0001 remains NEEDS_RESEARCH" in normalized_lock
         ),
+        "final_blocks_exact_across_authorities": (
+            len(authority_texts) == len(AUTHORITY_PATHS)
+            and all(block is not None for block in final_blocks)
+            and len(set(final_blocks)) == 1
+            and "Status: GOVERNANCE_FOUNDATION_COMPLETED_MERGED_VALIDATED"
+            in final_blocks[0]
+            and "315ca4dba01e53448e39131418c153fa73ad2aa0" in final_blocks[0]
+            and "4a0c29cc4b7ab8d2d9b78b0a014be967f7ef485e" in final_blocks[0]
+        ),
         "delivery_paths_exist": required_paths_exist,
         "fcp_0001_still_research_only": (
             fcp_0001.get("status") == "NEEDS_RESEARCH"
@@ -129,6 +161,11 @@ def validate_fcp_0001_state(
             == "NOT_SELECTED"
             and current_truth.get("next_product_phase_approval") == "NOT_APPROVED"
         ),
+        "manifest_records_latest_governance_delivery": (
+            isinstance(current_truth, dict)
+            and current_truth.get("latest_completed_governance_delivery")
+            == "FCF-FCP-0001-DATA-ENTITLEMENT-PROVENANCE-READINESS-FOUNDATION-APP-1"
+        ),
         "p48_remains_forbidden": (
             isinstance(safety_boundaries, dict)
             and safety_boundaries.get("p48_allowed") is False
@@ -142,17 +179,24 @@ def build_fcp_0001_guard_report(root: Path = ROOT) -> dict[str, object]:
             (root / path).read_text(encoding="ascii") for path in AUTHORITY_PATHS
         )
         approval_text = (root / APPROVAL_PATH).read_text(encoding="ascii")
+        final_text = (root / FINAL_PATH).read_text(encoding="ascii")
         manifest = json.loads((root / MANIFEST_PATH).read_text(encoding="ascii"))
         intake = json.loads((root / INTAKE_PATH).read_text(encoding="ascii"))
         files_ascii_and_json = True
     except (FileNotFoundError, UnicodeDecodeError, json.JSONDecodeError):
         authority_texts = ()
         approval_text = ""
+        final_text = ""
         manifest = {}
         intake = {}
         files_ascii_and_json = False
     checks = {
         "files_ascii_and_json": files_ascii_and_json,
+        "final_document_complete": (
+            "Status: COMPLETED_MERGED_VALIDATED" in final_text
+            and "FCF-FCP-0001 remains NEEDS_RESEARCH" in " ".join(final_text.split())
+            and "No P48 was created." in final_text
+        ),
         **validate_fcp_0001_state(
             authority_texts,
             approval_text,
