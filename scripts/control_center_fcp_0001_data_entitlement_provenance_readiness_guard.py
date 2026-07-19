@@ -164,7 +164,10 @@ def validate_fcp_0001_state(
         "manifest_records_latest_governance_delivery": (
             isinstance(current_truth, dict)
             and current_truth.get("latest_completed_governance_delivery")
-            == "FCF-FCP-0001-DATA-ENTITLEMENT-PROVENANCE-READINESS-FOUNDATION-APP-1"
+            in {
+                "FCF-FCP-0001-DATA-ENTITLEMENT-PROVENANCE-READINESS-FOUNDATION-APP-1",
+                "FCF-FCP-0002-COUNTERFACTUAL-RESEARCH-DECISION-JOURNAL-FOUNDATION-APP-1",
+            }
         ),
         "p48_remains_forbidden": (
             isinstance(safety_boundaries, dict)
