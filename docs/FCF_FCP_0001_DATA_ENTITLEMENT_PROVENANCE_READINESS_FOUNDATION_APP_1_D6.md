@@ -1,6 +1,6 @@
 # FCF FCP 0001 Data Entitlement Provenance Readiness Foundation App 1 D6
 
-Status: VALIDATION_PENDING
+Status: COMPLETE_VALIDATED_READY_FOR_MANUAL_MERGE
 
 ## Objective
 
@@ -18,6 +18,17 @@ starting any successor work.
 6. `git diff --check`
 7. sidecar delivery commit and push
 8. manual merge to main, merged-main verification, and final synchronization
+
+## Validation Evidence
+
+- isolated D1-D6 suite: 33 passed
+- related governance and read-only data targeted suite: 294 passed
+- full pytest: 5370 passed
+- `python scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated tracked outputs: restored, zero changed
+- untracked files: zero
+- `git diff --check`: passed
+- exact branch change set before this evidence update: 28 files
 
 ## Closeout Boundary
 

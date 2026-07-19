@@ -37,8 +37,10 @@ def test_d6_document_preserves_validation_order_and_boundary() -> None:
         ROOT
         / "docs/FCF_FCP_0001_DATA_ENTITLEMENT_PROVENANCE_READINESS_FOUNDATION_APP_1_D6.md"
     ).read_text(encoding="ascii")
-    assert "Status: VALIDATION_PENDING" in text
+    assert "Status: COMPLETE_VALIDATED_READY_FOR_MANUAL_MERGE" in text
     assert "full pytest" in text
     assert "python scripts/run_all_checks.py" in text
+    assert "5370 passed" in text
+    assert "ALL CHECKS PASSED" in text
     assert "FCF-FCP-0001 from NEEDS_RESEARCH" in text
     assert "no P48 is created" in text
