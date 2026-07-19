@@ -45,8 +45,18 @@ the Project Control Center, not hard-coded in this README.
 - no credentials, accounts, wallets, balances, positions, orders, or execution
 - no tag, release, or deploy without a separate authorized phase
 
-## Local Console
+## Local Consoles
 
-Use the Windows one-click local operations package documented in the Stage 9
-delivery. Console actions create validated, non-executing receipts unless a
-later authorized backend-control phase explicitly implements execution.
+Use `START_FCF_BROWSER_CONSOLE.cmd` in the repository root for the current
+read-only Browser Product Console on `127.0.0.1:8765`. Keep its terminal open
+while using the product pages. See `docs/BROWSER_PRODUCT_CONSOLE_OPERATOR_GUIDE.md`
+for preflight, no-browser, and custom registered-artifact options.
+
+Use `operations/windows/FCF Start.cmd`, `FCF Status.cmd`, and `FCF Stop.cmd`
+for the separately delivered Stage 9 background lifecycle console on
+`127.0.0.1:8775`. That operations surface manages an owned local process; it
+does not replace the Browser Product Console product presentation.
+
+Actions on either console remain paper-only and non-executing. Console action
+requests create validated receipts unless a later authorized backend-control
+phase explicitly implements execution.

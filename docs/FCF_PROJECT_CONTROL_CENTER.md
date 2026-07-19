@@ -4154,6 +4154,29 @@ The real background start, health, and graceful-stop test now promotes all
 warnings to errors.
 
 
+### BUG-FCF-20260719-003
+
+Date: 2026-07-19
+
+Source: local console entry-point audit
+
+Affected Component: `README.md`
+
+Description: the Local Console section referenced only the Stage 9 one-click
+operations package even though the repository also provides the current
+Browser Product Console launcher. The two entry points expose different local
+surfaces on ports 8775 and 8765, so the ambiguous guidance could make an
+Operator open the lifecycle console while expecting the product presentation.
+
+Severity: LOW
+
+Status: CLOSED
+
+Resolution: document both Windows entry points, their exact loopback ports,
+their distinct roles, the blocking-terminal requirement for the Browser
+Product Console, and the shared paper-only non-executing boundary.
+
+
 
 
 ---
