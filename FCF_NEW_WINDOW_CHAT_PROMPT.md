@@ -11207,3 +11207,31 @@ trading API, order, execution, tag, release, or deployment path was created.
 BTC data-source implementation remains a separate successor after merge.
 
 <!-- FCP 0017 A SHARE TRUSTED DAILY DATA SUBSTRATE LOCAL CALIBRATION APP 1 LOCK END -->
+
+
+<!-- FCP 0017 A SHARE TRUSTED DAILY DATA SUBSTRATE LOCAL CALIBRATION APP 1 FINAL START -->
+
+## FCP 0017 A-Share Trusted Daily Data Substrate Local Calibration App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Evidence commits:
+
+- governance approval: `601f26f`
+- sidecar delivery: `f3267b5`
+- main delivery merge: `25a7cb52b9a8a303b9a7bcb69bf045dcaddea8d7`
+
+Validated result:
+
+- FCP-0017 isolated suite: 13 passed
+- FCP governance targeted suite: 398 passed
+- full pytest: 5727 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: no tracked output changed; no restoration required
+
+The provider-neutral A-share daily substrate is merged and guarded. It grants
+no provider, network, credential, realtime, product, trading, execution, tag,
+release, or deployment authority. BTC data-source work remains the explicit
+next governance candidate and has not started inside this completed phase.
+
+<!-- FCP 0017 A SHARE TRUSTED DAILY DATA SUBSTRATE LOCAL CALIBRATION APP 1 FINAL END -->
