@@ -9,6 +9,7 @@ Delivered scope:
 - registered local observation normalization into frozen V2-R3 envelopes
 - V2-R3 ingress and V2-R24 multi-clock composition
 - deterministic coverage, heartbeat, latency, sequence, and degradation snapshot
+- normalized market identity and market-isolated sequence diagnostics
 - Simplified Chinese read-only market-data diagnostics workspace
 - registered evidence-cell and code-value localization protection
 - registered synthetic replay and loopback console diagnostic tools
@@ -16,10 +17,10 @@ Delivered scope:
 
 Validation evidence:
 
-- FCP-0009 target suite: 26 passed
-- related targeted suite: 571 passed
-- FCP-0001 through FCP-0009 governance suite: 216 passed
-- full pytest: 5532 passed
+- FCP-0009 target suite: 27 passed
+- related targeted suite: 572 passed
+- FCP-0001 through FCP-0009 governance suite: 217 passed
+- full pytest: 5533 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored
 
