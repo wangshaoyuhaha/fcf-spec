@@ -1,0 +1,21 @@
+{
+  "artifact": {
+    "artifact_id": "rqdata-trial-session-08ccfb93",
+    "artifact_path": "FCF_LOCAL_ARTIFACT_FCP_0012_RQDATA_TRIAL_SESSION.json",
+    "artifact_sha256": "08ccfb933e452c9da9239b451560b28627f085d155165cdbd8f4a2bfc41ca1e9",
+    "byte_length": 383,
+    "candidate_id": "candidate-rqdata",
+    "credentials_committed": false,
+    "raw_market_values_committed": false,
+    "registered_at_utc": "2026-07-20T12:55:47Z",
+    "source_kind": "OPERATOR_SANITIZED_LOCAL_SESSION_OBSERVATION",
+    "usage_scope": "LOCAL_EVALUATION_ONLY"
+  },
+  "evidence_id": "fcp-0012-rqdata-trial-session-evidence-v1",
+  "entitlement_state": "UNRESOLVED",
+  "network_used_by_sidecar": false,
+  "operator_review_required": true,
+  "provider_selected": false,
+  "retention_state": "UNRESOLVED",
+  "schema_version": 1
+}

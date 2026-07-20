@@ -1,0 +1,16 @@
+{
+  "candidate_id": "candidate-rqdata",
+  "captured_at_utc": "2026-07-20T12:55:47Z",
+  "license_class": "TRIAL",
+  "probe": {
+    "first_date": "2026-07-15",
+    "instrument_count": 1,
+    "kind": "DAILY_BAR",
+    "last_date": "2026-07-17",
+    "row_count": 3,
+    "status": "SUCCEEDED"
+  },
+  "quota_limit_bytes": 1073741824,
+  "quota_used_bytes": 2953643,
+  "remaining_days": 29
+}
