@@ -1,6 +1,6 @@
 # FCF FCP 0012 Sanitized Candidate Data Session Evidence Intake App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Registered Artifact Boundary
 
@@ -44,3 +44,12 @@ generated-output restoration, exact changed-file verification, and
 The delivery cannot call a provider, accept credentials, approve entitlement,
 select RQData, close a referenced gap, claim realtime readiness, start a product
 phase, create P48, or enable execution.
+
+Validated result:
+
+- FCP-0012 isolated suite: 29 passed
+- related entitlement, adapter, localization, and browser suite: 250 passed
+- full pytest: 5650 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: no tracked output changed; no restoration required
+- Windows checkout portability: original LF artifact bytes preserved by attribute
