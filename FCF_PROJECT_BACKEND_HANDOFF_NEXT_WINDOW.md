@@ -10505,3 +10505,34 @@ No broker, exchange, account, balance, position, wallet, order, execution, tag,
 release, or deployment path is authorized.
 
 <!-- FCP 0010 SIMPLIFIED CHINESE CONSOLE LOCALIZATION CONSISTENCY APP 1 APPROVAL END -->
+
+
+<!-- FCP 0010 SIMPLIFIED CHINESE CONSOLE LOCALIZATION CONSISTENCY APP 1 LOCK START -->
+
+## FCP 0010 Simplified Chinese Console Localization Consistency App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar composes FCP-0009 over an English base document and applies the
+complete Simplified Chinese catalog only at the final HTML presentation
+boundary. The route inventory covers twenty registered read-only HTML routes.
+Evidence td and code elements remain byte-for-byte unchanged, and deterministic
+state values are not reinterpreted.
+
+Locale selection is removed before frozen Evidence Audit query parsing while
+all other registered query filters are preserved. Simplified Chinese is the
+default presentation and English remains explicit. GET and HEAD remain the only
+successful methods; there is no form, button, script, upload, mutation, approval,
+trading, or execution control.
+
+This delivery selects no provider, connects no network, accepts no credentials,
+approves no data rights, claims no realtime or product readiness, closes no gap,
+and starts no product implementation phase.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only, loopback-only,
+sidecar-only, registered-artifact-only, read-only presentation, Operator review,
+Deterministic Engine authority, Registered Evidence authority, and AI-advisory-
+only boundaries remain binding. No broker, exchange, account, balance, position,
+wallet, order, execution, tag, release, or deployment path is authorized.
+
+<!-- FCP 0010 SIMPLIFIED CHINESE CONSOLE LOCALIZATION CONSISTENCY APP 1 LOCK END -->
