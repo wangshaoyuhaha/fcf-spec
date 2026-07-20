@@ -49,6 +49,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0008_chinese_browser_console_local_data_intake_preview_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0009_provider_neutral_market_data_adapter_readiness_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],

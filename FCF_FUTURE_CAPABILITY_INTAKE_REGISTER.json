@@ -264,7 +264,10 @@
       "architecture_refs": [
         "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0009_PROVIDER_NEUTRAL_MARKET_DATA_ADAPTER_READINESS_APP_1_DELIVERED.md",
+        "docs/FCF_FCP_0009_PROVIDER_NEUTRAL_MARKET_DATA_ADAPTER_READINESS_APP_1_D1_D6.md"
+      ],
       "gap_refs": [
         "V2-FR-GAP-022",
         "V2-FR-GAP-023",
