@@ -17128,3 +17128,30 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 is authorized.
 
 <!-- FCP 0007 A SHARE RQDATA DEMO ARTIFACT INTAKE REPLAY ACCEPTANCE APP 1 APPROVAL END -->
+
+<!-- FCP 0007 A SHARE RQDATA DEMO ARTIFACT INTAKE REPLAY ACCEPTANCE APP 1 LOCK START -->
+
+## FCP 0007 A-Share RQData Demo Artifact Intake Replay Acceptance App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_IMPLEMENTED_PENDING_VALIDATION
+
+Implemented scope:
+
+- exact local artifact byte-length and SHA-256 registration
+- in-memory repeated UTF-8 BOM normalization without source mutation
+- exact daily-bar schema, chronology, uniqueness, OHLC, and price-limit checks
+- deterministic normalized CSV, canonical row-set, replay, and result hashes
+- explicit bridge to FCP-0006 observed and missing canonical data fields
+- immutable read-only Operator packet and repository governance guard
+
+The registered Demo is local evaluation evidence only. Raw provider bytes remain
+outside the repository. Commercial entitlement, retention rights, realtime
+coverage, provider selection, product readiness, and FCF-FCP-0005 readiness all
+remain unresolved or blocked. FCF-FCP-0007 remains ACCEPTED_ARCHITECTURE with
+phase_id NONE, and all referenced gaps remain open.
+
+P1-P47 remain frozen. No P48 is created. No network, credential, broker,
+exchange, account, balance, position, wallet, order, execution, tag, release,
+or deployment path is created or authorized.
+
+<!-- FCP 0007 A SHARE RQDATA DEMO ARTIFACT INTAKE REPLAY ACCEPTANCE APP 1 LOCK END -->
