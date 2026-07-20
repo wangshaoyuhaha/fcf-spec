@@ -264,7 +264,10 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
         "manifest_records_latest_delivery": truth.get(
             "latest_completed_governance_delivery"
         )
-        == "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
+        in {
+            "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
+            "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
+        },
         "guard_wired_into_all_checks": (
             "scripts/control_center_fcp_0004_institutional_calendar_causal_intelligence_reconciliation_guard.py"
             in run_all

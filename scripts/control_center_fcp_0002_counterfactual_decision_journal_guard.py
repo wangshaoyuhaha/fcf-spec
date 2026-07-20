@@ -79,6 +79,7 @@ def build_fcp_0002_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0002-COUNTERFACTUAL-RESEARCH-DECISION-JOURNAL-FOUNDATION-APP-1",
             "FCF-FCP-0003-CORRELATED-EVIDENCE-CONFIDENCE-BUDGET-FOUNDATION-APP-1",
             "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
+            "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
         },
     }
     return {"checks": checks, "ok": all(checks.values())}

@@ -79,6 +79,7 @@ def build_fcp_0003_guard_report(root: Path = ROOT) -> dict[str, object]:
         "manifest_records_latest_delivery": truth.get("latest_completed_governance_delivery") in {
             "FCF-FCP-0003-CORRELATED-EVIDENCE-CONFIDENCE-BUDGET-FOUNDATION-APP-1",
             "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
+            "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
         },
     }
     return {"checks": checks, "ok": all(checks.values())}

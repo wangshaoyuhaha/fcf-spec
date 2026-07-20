@@ -9979,3 +9979,32 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 execution, tag, release, or deployment path is authorized.
 
 <!-- FCP 0005 MVP PRODUCT READINESS DECISION GATE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0005 MVP PRODUCT READINESS DECISION GATE APP 1 LOCK START -->
+
+## FCP 0005 MVP Product Readiness Decision Gate App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- immutable first-MVP market candidate and registered evidence contracts
+- exact target, stop, data-rights, economics, commercial, legal, and license dimensions
+- deterministic missing, stale, future-available, blocked, and conflict findings
+- separate candidate adapter, horizon, target, and evidence identity
+- READY_FOR_OPERATOR_DECISION, NEEDS_EVIDENCE, BLOCKED, and ABSTAIN states
+- deterministic registry, candidate, and decision SHA-256 identities
+- immutable read-only Operator packet and acceptance guard
+
+The gate never assigns a score, rank, winner, or selected market. Multiple
+ready candidates remain visible for a separate explicit Operator product
+decision. FCF-FCP-0005 remains NEEDS_RESEARCH with phase_id NONE and Operator
+decision PENDING. V2-FR-GAP-042 through V2-FR-GAP-047 remain open.
+
+Current product phase remains NONE. Next product phase remains NOT_SELECTED /
+NOT_APPROVED. P1-P47 remain frozen and no P48 is created. No network, realtime
+source, credential, broker, exchange, account, balance, position, wallet,
+order, execution, tag, release, or deployment path is created or authorized.
+
+<!-- FCP 0005 MVP PRODUCT READINESS DECISION GATE APP 1 LOCK END -->
