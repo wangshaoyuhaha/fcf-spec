@@ -12131,3 +12131,37 @@ remain frozen and no P48 was created. No broker, exchange, account, balance,
 position, wallet, order, execution, tag, release, or deployment path was created.
 
 <!-- FCP 0012 SANITIZED CANDIDATE DATA SESSION EVIDENCE INTAKE APP 1 FINAL END -->
+
+
+<!-- FCP 0013 CANDIDATE DATA EVIDENCE BUNDLE RECONCILIATION APP 1 APPROVAL START -->
+
+## FCP 0013 Candidate Data Evidence Bundle Reconciliation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0013-candidate-data-evidence-bundle-reconciliation-app-1`
+
+Approved order:
+
+- D1 immutable registered evidence-reference and candidate bundle contracts
+- D2 exact FCP-0007 and FCP-0012 evidence identity and lineage loading
+- D3 deterministic identity, capability, date, conflict, and staleness review
+- D4 readiness delta with every unresolved evidence category preserved
+- D5 Simplified Chinese default read-only browser review with explicit English
+- D6 guards, validation, merge, and final authority synchronization
+
+The delivery reconciles existing registered local evidence only. It cannot query
+a provider, accept credentials, copy raw provider bytes, select RQData, approve
+rights or retention, claim realtime or product readiness, close a referenced
+gap, start a product phase, create P48, or enable trading or execution.
+
+P1-P47 remain frozen. Paper-only, local-only, loopback-only, sidecar-only,
+registered-artifact-only, read-only presentation, Operator review,
+Deterministic Engine authority, Registered Evidence authority, and
+AI-advisory-only boundaries remain binding. No broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path is
+authorized.
+
+<!-- FCP 0013 CANDIDATE DATA EVIDENCE BUNDLE RECONCILIATION APP 1 APPROVAL END -->
