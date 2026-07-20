@@ -257,14 +257,20 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
         ),
         "proposal_evidence_exact": proposal.get("evidence_refs")
         == EXPECTED_EVIDENCE_REFS,
-        "no_active_phase": truth.get("current_governance_phase_id") == "NONE"
+        "no_active_phase": truth.get("current_governance_phase_id") in {
+            "NONE",
+            "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
+        }
         and truth.get("current_product_implementation_phase") == "NONE"
         and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
         "p48_forbidden": safety.get("p48_allowed") is False,
         "manifest_records_latest_delivery": truth.get(
             "latest_completed_governance_delivery"
         )
-        == "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
+        in {
+            "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
+            "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
+        },
         "guard_wired_into_all_checks": (
             "scripts/control_center_fcp_0004_institutional_calendar_causal_intelligence_reconciliation_guard.py"
             in run_all

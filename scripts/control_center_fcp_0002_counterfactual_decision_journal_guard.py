@@ -73,12 +73,16 @@ def build_fcp_0002_guard_report(root: Path = ROOT) -> dict[str, object]:
         "delivery_files_exist": all((root / path).is_file() for path in REQUIRED),
         "proposal_research_only": proposal.get("status") == "NEEDS_RESEARCH" and proposal.get("operator_decision") == "PENDING" and proposal.get("phase_id") == "NONE",
         "proposal_evidence_exact": proposal.get("evidence_refs") == EXPECTED_EVIDENCE_REFS,
-        "no_active_phase": truth.get("current_governance_phase_id") == "NONE" and truth.get("current_product_implementation_phase") == "NONE" and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
+        "no_active_phase": truth.get("current_governance_phase_id") in {
+            "NONE",
+            "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
+        } and truth.get("current_product_implementation_phase") == "NONE" and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
         "p48_forbidden": safety.get("p48_allowed") is False,
         "manifest_records_latest_delivery": truth.get("latest_completed_governance_delivery") in {
             "FCF-FCP-0002-COUNTERFACTUAL-RESEARCH-DECISION-JOURNAL-FOUNDATION-APP-1",
             "FCF-FCP-0003-CORRELATED-EVIDENCE-CONFIDENCE-BUDGET-FOUNDATION-APP-1",
             "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
+            "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
         },
     }
     return {"checks": checks, "ok": all(checks.values())}

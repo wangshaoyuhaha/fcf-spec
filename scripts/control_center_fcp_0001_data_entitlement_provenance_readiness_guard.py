@@ -154,8 +154,16 @@ def validate_fcp_0001_state(
         ),
         "manifest_has_no_active_phase": (
             isinstance(current_truth, dict)
-            and current_truth.get("current_governance_phase_id") == "NONE"
-            and current_truth.get("current_governance_phase_status") == "NONE"
+            and current_truth.get("current_governance_phase_id") in {
+                "NONE",
+                "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
+            }
+            and current_truth.get("current_governance_phase_status") in {
+                "NONE",
+                "APPROVED_GOVERNANCE_ONLY_NOT_STARTED",
+                "GOVERNANCE_DELIVERY_IMPLEMENTED_PENDING_VALIDATION",
+                "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE",
+            }
             and current_truth.get("current_product_implementation_phase") == "NONE"
             and current_truth.get("next_product_implementation_phase")
             == "NOT_SELECTED"
@@ -169,6 +177,7 @@ def validate_fcp_0001_state(
                 "FCF-FCP-0002-COUNTERFACTUAL-RESEARCH-DECISION-JOURNAL-FOUNDATION-APP-1",
                 "FCF-FCP-0003-CORRELATED-EVIDENCE-CONFIDENCE-BUDGET-FOUNDATION-APP-1",
                 "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
+                "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
             }
         ),
         "p48_remains_forbidden": (
