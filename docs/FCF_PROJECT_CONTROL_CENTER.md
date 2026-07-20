@@ -17312,3 +17312,31 @@ No broker, exchange, credential, account, balance, position, wallet, order,
 execution, tag, release, or deployment path is authorized.
 
 <!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 APPROVAL END -->
+
+<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 LOCK START -->
+
+## FCP 0009 Provider-Neutral Market Data Adapter Readiness App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar registers immutable provider-neutral TICK, MINUTE_BAR, and
+ORDER_BOOK field maps, normalizes exact registered local observations into the
+frozen V2-R3 ingress envelope, composes V2-R24 multi-clock state, and publishes
+deterministic coverage, heartbeat, latency, sequence, and degradation facts.
+
+The localized browser console adds `/market-data-diagnostics` as a GET-and-HEAD
+read-only surface. Simplified Chinese is the default presentation and English
+remains explicit. The surface has no upload, write, approval, trading, or
+execution control.
+
+This delivery does not select a provider, connect a network, accept or store
+credentials, approve entitlement or retention, claim realtime or product
+readiness, close any referenced gap, or start a product implementation phase.
+FCF-FCP-0009 remains ACCEPTED_ARCHITECTURE with phase_id NONE.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only, loopback-only,
+sidecar-only, registered-artifact-only, read-only presentation, Operator review,
+Deterministic Engine calculation authority, Registered Evidence authority, and
+AI-advisory-only boundaries remain binding.
+
+<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 LOCK END -->
