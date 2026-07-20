@@ -10720,3 +10720,34 @@ account, balance, position, wallet, order, execution, tag, release, or deploymen
 path is authorized.
 
 <!-- FCP 0012 SANITIZED CANDIDATE DATA SESSION EVIDENCE INTAKE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0012 SANITIZED CANDIDATE DATA SESSION EVIDENCE INTAKE APP 1 LOCK START -->
+
+## FCP 0012 Sanitized Candidate Data Session Evidence Intake App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Locked delivery:
+
+- one exact registered local sanitized RQData trial session artifact
+- exact byte-length and SHA-256 validation before parsing
+- bounded ASCII JSON and duplicate-key and secret-key rejection
+- deterministic composition with every FCP-0011 evidence gap preserved
+- Simplified Chinese default read-only review with explicit English
+- GET and HEAD only on loopback, with no interactive control
+
+The artifact records only candidate identity, capture time, trial class, expiry,
+quota, and a bounded DAILY_BAR probe summary. It contains no credential, account
+identifier, price, volume, or other raw market value. The sidecar imports no
+provider client and uses no network.
+
+RQData remains an unselected candidate. External activation is BLOCKED,
+credentials are ABSENT, network is DISABLED, entitlement is UNRESOLVED, and
+Operator review is mandatory. TICK, MINUTE_BAR, and ORDER_BOOK gaps and all
+documentary rights, retention, lineage, and quality gaps remain open.
+
+P1-P47 remain frozen. No P48 is created. No broker, exchange, account, balance,
+position, wallet, order, execution, tag, release, or deployment path is created.
+
+<!-- FCP 0012 SANITIZED CANDIDATE DATA SESSION EVIDENCE INTAKE APP 1 LOCK END -->

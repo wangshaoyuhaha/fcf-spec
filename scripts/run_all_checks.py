@@ -61,6 +61,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0011_candidate_data_source_onboarding_evidence_review_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0012_sanitized_candidate_data_session_evidence_intake_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
