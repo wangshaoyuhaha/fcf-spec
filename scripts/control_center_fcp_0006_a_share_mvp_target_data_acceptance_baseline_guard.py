@@ -109,6 +109,15 @@ def build_fcp_0006_guard_report(root: Path = ROOT) -> dict[str, object]:
         truth.get("current_governance_phase_id") == "NONE"
         and truth.get("latest_completed_governance_delivery")
         == "FCF-FCP-0007-A-SHARE-RQDATA-DEMO-ARTIFACT-INTAKE-REPLAY-ACCEPTANCE-APP-1"
+    ) or (
+        truth.get("current_governance_phase_id")
+        == "FCF-FCP-0008-CHINESE-BROWSER-CONSOLE-LOCAL-DATA-INTAKE-PREVIEW-APP-1"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0007-A-SHARE-RQDATA-DEMO-ARTIFACT-INTAKE-REPLAY-ACCEPTANCE-APP-1"
+    ) or (
+        truth.get("current_governance_phase_id") == "NONE"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0008-CHINESE-BROWSER-CONSOLE-LOCAL-DATA-INTAKE-PREVIEW-APP-1"
     )
     evidence_refs = proposal.get("evidence_refs")
     final_text = ""

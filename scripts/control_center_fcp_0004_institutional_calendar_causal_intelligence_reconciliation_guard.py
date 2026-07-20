@@ -262,6 +262,7 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
             "FCF-FCP-0006-A-SHARE-MVP-TARGET-DATA-ACCEPTANCE-BASELINE-APP-1",
             "FCF-FCP-0007-A-SHARE-RQDATA-DEMO-ARTIFACT-INTAKE-REPLAY-ACCEPTANCE-APP-1",
+            "FCF-FCP-0008-CHINESE-BROWSER-CONSOLE-LOCAL-DATA-INTAKE-PREVIEW-APP-1",
         }
         and truth.get("current_product_implementation_phase") == "NONE"
         and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
@@ -274,6 +275,7 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
             "FCF-FCP-0006-A-SHARE-MVP-TARGET-DATA-ACCEPTANCE-BASELINE-APP-1",
             "FCF-FCP-0007-A-SHARE-RQDATA-DEMO-ARTIFACT-INTAKE-REPLAY-ACCEPTANCE-APP-1",
+            "FCF-FCP-0008-CHINESE-BROWSER-CONSOLE-LOCAL-DATA-INTAKE-PREVIEW-APP-1",
         },
         "guard_wired_into_all_checks": (
             "scripts/control_center_fcp_0004_institutional_calendar_causal_intelligence_reconciliation_guard.py"

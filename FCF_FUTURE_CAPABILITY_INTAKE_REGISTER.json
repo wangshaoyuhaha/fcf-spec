@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 8,
+  "next_proposal_sequence": 9,
   "proposals": [
     {
       "adr_refs": [],
@@ -225,6 +225,30 @@
       "summary": "Register and validate an exact Operator-provided RQData official A-share daily evaluation demo without redistributing provider bytes. Normalize repeated UTF-8 BOM markers in memory, validate bounded daily-bar schema and quality invariants, produce deterministic normalized and replay fingerprints, and expose missing coverage and entitlement facts through a read-only Operator packet. This phase does not select a provider, approve commercial or retention rights, authorize realtime data, satisfy product readiness, close referenced gaps, or start a product phase.",
       "supersedes": [],
       "title": "A-share RQData demo artifact intake and deterministic replay acceptance"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-009",
+        "FCF-V2-ADR-020"
+      ],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-023",
+        "V2-FR-GAP-038",
+        "V2-FR-GAP-044"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0008",
+      "source": "operator-approved-non-network-development",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-20T05:21:01Z",
+      "summary": "Add an ASCII-source Chinese presentation adapter for the existing read-only browser console and a provider-neutral registered local CSV intake preview. Reuse existing console and artifact authorities, preserve GET and HEAD only, expose deterministic digest, schema, bounded quality, rights, and missing-coverage facts, and provide explicit Operator guidance without browser upload, automatic registration, source mutation, provider selection, realtime access, product readiness, or execution authority.",
+      "supersedes": [],
+      "title": "Chinese browser console and provider-neutral local data intake preview"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

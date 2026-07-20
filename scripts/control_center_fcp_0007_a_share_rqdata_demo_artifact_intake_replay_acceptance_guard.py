@@ -130,6 +130,15 @@ def build_fcp_0007_guard_report(root: Path = ROOT) -> dict[str, object]:
         truth.get("current_governance_phase_id") == "NONE"
         and truth.get("latest_completed_governance_delivery") == FINAL_DELIVERY_ID
     )
+    successor = (
+        truth.get("current_governance_phase_id")
+        == "FCF-FCP-0008-CHINESE-BROWSER-CONSOLE-LOCAL-DATA-INTAKE-PREVIEW-APP-1"
+        and truth.get("latest_completed_governance_delivery") == FINAL_DELIVERY_ID
+    ) or (
+        truth.get("current_governance_phase_id") == "NONE"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0008-CHINESE-BROWSER-CONSOLE-LOCAL-DATA-INTAKE-PREVIEW-APP-1"
+    )
     final_text = ""
     if (root / FINAL_FILE).is_file():
         final_text = (root / FINAL_FILE).read_text(encoding="ascii")
@@ -207,7 +216,7 @@ def build_fcp_0007_guard_report(root: Path = ROOT) -> dict[str, object]:
         in ([], EXPECTED_EVIDENCE_REFS),
         "proposal_evidence_exact_when_final": not final
         or evidence_refs == EXPECTED_EVIDENCE_REFS,
-        "manifest_state_safe": active or final,
+        "manifest_state_safe": active or final or successor,
         "no_product_phase_selected": (
             truth.get("current_product_implementation_phase") == "NONE"
             and truth.get("next_product_implementation_phase") == "NOT_SELECTED"

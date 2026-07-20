@@ -10232,3 +10232,29 @@ exchange, account, balance, position, wallet, order, execution, tag, release,
 or deployment path was created or authorized.
 
 <!-- FCP 0007 A SHARE RQDATA DEMO ARTIFACT INTAKE REPLAY ACCEPTANCE APP 1 FINAL END -->
+
+<!-- FCP 0008 CHINESE BROWSER CONSOLE LOCAL DATA INTAKE PREVIEW APP 1 APPROVAL START -->
+
+## FCP 0008 Chinese Browser Console Local Data Intake Preview App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved order:
+
+- D1 boundary, locale, and composition contracts
+- D2 ASCII-source Simplified Chinese presentation catalog
+- D3 provider-neutral registered local CSV preview
+- D4 read-only local data intake workspace and existing-route localization
+- D5 explicit localized loopback launcher and diagnostics
+- D6 guards, validation, merge, and final authority synchronization
+
+This sidecar composes existing frozen console behavior. Browser methods remain
+GET and HEAD only. It cannot upload, write, register, promote, approve, execute,
+select a provider, authorize realtime data, satisfy product readiness, or close
+referenced gaps. FCF-FCP-0008 remains ACCEPTED_ARCHITECTURE with phase_id NONE.
+
+P1-P47 remain frozen. No P48 is created. No network, credential, broker,
+exchange, account, balance, position, wallet, order, execution, tag, release,
+or deployment path is authorized.
+
+<!-- FCP 0008 CHINESE BROWSER CONSOLE LOCAL DATA INTAKE PREVIEW APP 1 APPROVAL END -->
