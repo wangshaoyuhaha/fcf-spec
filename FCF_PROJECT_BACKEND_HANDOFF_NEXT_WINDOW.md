@@ -10615,3 +10615,38 @@ only boundaries remain binding. No broker, exchange, account, balance, position,
 wallet, order, execution, tag, release, or deployment path is authorized.
 
 <!-- FCP 0011 CANDIDATE DATA SOURCE ONBOARDING EVIDENCE REVIEW APP 1 APPROVAL END -->
+
+
+<!-- FCP 0011 CANDIDATE DATA SOURCE ONBOARDING EVIDENCE REVIEW APP 1 LOCK START -->
+
+## FCP 0011 Candidate Data Source Onboarding Evidence Review App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar composes FCP-0001 entitlement evidence with FCP-0009 canonical
+TICK, MINUTE_BAR, and ORDER_BOOK schemas. Candidate profiles reject secret
+material and preserve Operator-declared candidate identity, application state,
+document evidence IDs, and canonical field declarations without inferring
+availability, licensing, or source quality.
+
+Deterministic review packets expose missing evidence categories, missing fields,
+documentary status, compatibility status, and SHA-256 identity. External
+activation remains BLOCKED, provider selection remains UNSELECTED, credentials
+remain ABSENT, network remains DISABLED, and entitlement remains UNRESOLVED.
+
+The registered browser route `/data-source-onboarding` supports GET and HEAD
+only, defaults to Simplified Chinese, retains explicit English, and provides no
+form, button, script, upload, secret input, write, approval, trading, or
+execution control.
+
+This delivery selects no provider, connects no network, accepts or stores no
+credentials, approves no data rights or retention, claims no realtime or product
+readiness, closes no referenced gap, and starts no product implementation phase.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only, loopback-only,
+sidecar-only, registered-artifact-only, read-only presentation, Operator review,
+Deterministic Engine authority, Registered Evidence authority, and AI-advisory-
+only boundaries remain binding. No broker, exchange, account, balance, position,
+wallet, order, execution, tag, release, or deployment path is authorized.
+
+<!-- FCP 0011 CANDIDATE DATA SOURCE ONBOARDING EVIDENCE REVIEW APP 1 LOCK END -->
