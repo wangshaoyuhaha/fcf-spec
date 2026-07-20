@@ -16996,3 +16996,39 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 was created or run.
 
 <!-- FCP 0005 MVP PRODUCT READINESS DECISION GATE APP 1 FINAL END -->
+
+
+<!-- FCP 0006 A SHARE MVP TARGET DATA ACCEPTANCE BASELINE APP 1 APPROVAL START -->
+
+## FCP 0006 A-Share MVP Target Data Acceptance Baseline App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0006-a-share-mvp-target-data-acceptance-baseline-app-1`
+
+Approved D1-D6 scope:
+
+- D1 closed governance-only boundary and immutable A-share objective contracts
+- D2 isolated target, horizon, benchmark, and universe research registry
+- D3 point-in-time data-field and market-session requirement manifest
+- D4 success, failure, stop, leakage, cost, and replay evidence obligations
+- D5 deterministic gap findings and immutable read-only Operator packet
+- D6 full validation, merge, final synchronization, and cleanup
+
+The Operator accepts A-share as the first market to research, not as a selected
+realtime product market. FCF-FCP-0006 supplies auditable candidate-specific
+input to FCF-FCP-0005 but does not satisfy its evidence dimensions by itself.
+It does not set empirical thresholds, select a provider, approve data rights,
+authorize realtime data, close V2-FR-GAP-012, V2-FR-GAP-038,
+V2-FR-GAP-042, V2-FR-GAP-043, V2-FR-GAP-048, V2-FR-GAP-050, or
+V2-FR-GAP-052, or authorize a product phase. FCF-FCP-0006 remains
+ACCEPTED_ARCHITECTURE with phase_id NONE.
+
+P1-P47 remain frozen. No P48 is created. All permanent safety and authority
+boundaries remain binding. No network, credential, broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path
+is authorized.
+
+<!-- FCP 0006 A SHARE MVP TARGET DATA ACCEPTANCE BASELINE APP 1 APPROVAL END -->

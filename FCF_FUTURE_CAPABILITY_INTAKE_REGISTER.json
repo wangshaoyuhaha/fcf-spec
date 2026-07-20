@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 6,
+  "next_proposal_sequence": 7,
   "proposals": [
     {
       "adr_refs": [],
@@ -160,6 +160,36 @@
       "summary": "Provide a deterministic read-only decision gate that compares bounded first-MVP market candidates against registered target, success, unit-economics, commercial, legal, license, data-rights, rollback, and stop evidence without selecting a market or authorizing a product phase.",
       "supersedes": [],
       "title": "First MVP market and product readiness decision gate"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-009",
+        "FCF-V2-ADR-013",
+        "FCF-V2-ADR-020"
+      ],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION",
+        "FCF-V2-MARKET-SESSION-MICROSTRUCTURE-RESEARCH-EXTENSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-012",
+        "V2-FR-GAP-038",
+        "V2-FR-GAP-042",
+        "V2-FR-GAP-043",
+        "V2-FR-GAP-048",
+        "V2-FR-GAP-050",
+        "V2-FR-GAP-052"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0006",
+      "source": "operator-approved-a-share-priority",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-20T00:48:43Z",
+      "summary": "Define a deterministic registered-local A-share first-MVP research baseline for isolated target and horizon candidates, point-in-time data-field requirements, evaluation obligations, and explicit success, failure, and stop evidence requirements. Preserve unresolved thresholds, provider rights, economics, legal review, and market selection as evidence gaps. This baseline supplies auditable input to FCF-FCP-0005 without selecting a vendor, authorizing realtime data, closing product gaps, or starting a product phase.",
+      "supersedes": [],
+      "title": "A-share MVP target data and acceptance baseline"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
