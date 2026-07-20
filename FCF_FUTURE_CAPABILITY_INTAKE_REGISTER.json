@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 12,
+  "next_proposal_sequence": 13,
   "proposals": [
     {
       "adr_refs": [],
@@ -344,6 +344,35 @@
       "summary": "Compose FCP-0001 entitlement evidence and FCP-0009 provider-neutral field mappings into a local candidate-source onboarding review. Register Operator-declared candidate profiles without secrets, assess documentary completeness and canonical TICK, MINUTE_BAR, and ORDER_BOOK compatibility, expose missing evidence and external-activation blockers, and keep provider selection, network access, credentials, entitlement approval, realtime claims, gap closure, product authorization, and execution outside the delivery.",
       "supersedes": [],
       "title": "Candidate data source onboarding evidence review"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-004",
+        "FCF-V2-ADR-006",
+        "FCF-V2-ADR-008",
+        "FCF-V2-ADR-020",
+        "FCF-V2-ADR-021"
+      ],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-022",
+        "V2-FR-GAP-023",
+        "V2-FR-GAP-028",
+        "V2-FR-GAP-030",
+        "V2-FR-GAP-044"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0012",
+      "source": "operator-approved-sanitized-session-evidence-intake",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-20T12:39:26Z",
+      "summary": "Accept exact registered local sanitized candidate-session evidence artifacts without credentials, account identifiers, raw market values, or provider clients. Validate bounded license-class, expiry, quota, declared capability, and read-only probe metadata; compose the result with FCP-0011 documentary and canonical-field gaps; and preserve blocked activation, unresolved entitlement, unselected provider state, mandatory Operator review, no realtime claim, no product authorization, and no execution path.",
+      "supersedes": [],
+      "title": "Sanitized candidate data session evidence intake"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
