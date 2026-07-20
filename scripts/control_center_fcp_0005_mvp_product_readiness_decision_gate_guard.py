@@ -82,6 +82,7 @@ def build_fcp_0005_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1",
             "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1",
             "FCF-FCP-0017-A-SHARE-TRUSTED-DAILY-DATA-SUBSTRATE-LOCAL-CALIBRATION-APP-1",
+            "FCF-FCP-0018-BTC-TRUSTED-MARKET-DATA-SUBSTRATE-LOCAL-REPLAY-APP-1",
         }
         and truth.get("latest_completed_governance_delivery")
         in {
@@ -98,6 +99,7 @@ def build_fcp_0005_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1",
             "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1",
             "FCF-FCP-0017-A-SHARE-TRUSTED-DAILY-DATA-SUBSTRATE-LOCAL-CALIBRATION-APP-1",
+            "FCF-FCP-0018-BTC-TRUSTED-MARKET-DATA-SUBSTRATE-LOCAL-REPLAY-APP-1",
         }
     )
     evidence_refs = proposal.get("evidence_refs")
