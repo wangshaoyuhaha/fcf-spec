@@ -1,6 +1,6 @@
 # FCF FCP 0008 Chinese Browser Console Local Data Intake Preview App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Boundary And Composition
 

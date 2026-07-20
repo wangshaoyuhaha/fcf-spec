@@ -17237,3 +17237,41 @@ Deterministic Engine calculation authority, Registered Evidence authority, and
 AI-advisory-only boundaries remain binding.
 
 <!-- FCP 0008 CHINESE BROWSER CONSOLE LOCAL DATA INTAKE PREVIEW APP 1 LOCK END -->
+
+<!-- FCP 0008 CHINESE BROWSER CONSOLE LOCAL DATA INTAKE PREVIEW APP 1 FINAL START -->
+
+## FCP 0008 Chinese Browser Console Local Data Intake Preview App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Evidence commits:
+
+- governance approval: `3887cb484531042bd4c29fffe5ded05d8485e9f0`
+- sidecar delivery: `dc7ae2b4119b83ea1ef41f766f4d741fc55cf388`
+- main merge: `9742203f88f3ae0f8f627eb4866074e169116b78`
+
+Validated result:
+
+- FCP-0008 target suite: 22 passed
+- browser console targeted suite: 562 passed
+- FCP-0001 through FCP-0008 governance suite: 169 passed
+- full pytest: 5506 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored
+- exact local CSV preview: 19 rows and 20 BOM markers normalized in memory
+
+The default presentation is Simplified Chinese with an explicit English option.
+Registered evidence cells and code values are protected from localization. The
+local CSV intake page remains read-only and requires exact registered byte length
+and SHA-256. No source byte is copied, rewritten, uploaded, or automatically
+registered.
+
+FCF-FCP-0008 remains ACCEPTED_ARCHITECTURE with phase_id NONE. It selected no
+provider, authorized no realtime data, closed no referenced gap, and started no
+product phase.
+
+P1-P47 remain frozen. No P48 was created. No network, credential, broker,
+exchange, account, balance, position, wallet, order, execution, tag, release,
+or deployment path was created or authorized.
+
+<!-- FCP 0008 CHINESE BROWSER CONSOLE LOCAL DATA INTAKE PREVIEW APP 1 FINAL END -->
