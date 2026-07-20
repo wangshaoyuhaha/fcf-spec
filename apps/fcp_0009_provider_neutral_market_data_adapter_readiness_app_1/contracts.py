@@ -6,7 +6,11 @@ from dataclasses import dataclass, field
 from types import MappingProxyType
 from typing import Mapping
 
-from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import identifier, utc
+from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import (
+    LocalEventRights,
+    identifier,
+    utc,
+)
 
 
 OBSERVATION_KINDS = ("TICK", "MINUTE_BAR", "ORDER_BOOK")
@@ -52,6 +56,7 @@ class MarketDataFieldMap:
     observation_kind: str
     registered_artifact_id: str
     canonical_to_source: Mapping[str, str]
+    rights: LocalEventRights
     provider_selection_state: str = "UNSELECTED"
     operator_registered: bool = True
     mapping_hash: str = field(init=False)
@@ -75,6 +80,8 @@ class MarketDataFieldMap:
             raise ValueError("FCP-0009 cannot select a provider")
         if self.operator_registered is not True:
             raise ValueError("field map requires Operator registration")
+        if not isinstance(self.rights, LocalEventRights):
+            raise ValueError("field map requires explicit registered local rights")
         object.__setattr__(self, "canonical_to_source", MappingProxyType(normalized))
         object.__setattr__(
             self,
@@ -87,6 +94,11 @@ class MarketDataFieldMap:
                     "observation_kind": kind,
                     "provider_selection_state": "UNSELECTED",
                     "registered_artifact_id": self.registered_artifact_id,
+                    "rights": {
+                        "license_id": self.rights.license_id,
+                        "permitted_use": self.rights.permitted_use,
+                        "retention_days": self.rights.retention_days,
+                    },
                 }
             ),
         )

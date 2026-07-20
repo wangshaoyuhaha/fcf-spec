@@ -10403,17 +10403,18 @@ Evidence commits:
 
 Validated result:
 
-- FCP-0009 target suite: 24 passed
-- related browser console and frozen-runtime suite: 568 passed
-- FCP-0001 through FCP-0009 governance suite: 214 passed
-- full pytest: 5530 passed
+- FCP-0009 target suite: 25 passed
+- related browser console and frozen-runtime suite: 570 passed
+- FCP-0001 through FCP-0009 governance suite: 215 passed
+- full pytest: 5531 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored
 
 The provider-neutral adapter readiness layer composes V2-R3 and V2-R24 and adds
 read-only Chinese market-data diagnostics. External activation remains blocked;
 entitlement and retention remain unresolved; provider selection remains
-unselected; and credentials and network clients remain absent.
+unselected; and credentials and network clients remain absent. Every field map
+must carry explicit registered local rights, which the adapter only passes through.
 
 FCF-FCP-0009 remains ACCEPTED_ARCHITECTURE with phase_id NONE. It closed no
 referenced gap, claimed no realtime or product readiness, and started no product

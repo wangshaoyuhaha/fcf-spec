@@ -14,7 +14,9 @@ and product evidence blocked. Operator review remains mandatory.
 Immutable registered field maps cover TICK, MINUTE_BAR, and ORDER_BOOK
 observations. Exact canonical schemas are hashed. Local observation values are
 normalized without binary floats and are converted into V2-R3 LocalEventEnvelope
-records with registered artifact identity and local-evaluation-only rights.
+records with registered artifact identity and explicit registered
+LocalEventRights. The adapter only passes those rights through and cannot create
+an implicit entitlement or retention grant.
 
 The deterministic checks reject missing source fields, invalid OHLC relations,
 crossed order books, invalid clocks, duplicate IDs, and missing or out-of-order
@@ -50,10 +52,10 @@ not open external network connections or accept credentials.
 
 Validation evidence:
 
-- FCP-0009 target suite: 24 passed
-- browser console, FCP-0008, V2-R3, V2-R24, and FCP-0009 targeted suite: 568 passed
-- FCP-0001 through FCP-0009 governance suite: 214 passed
-- full pytest: 5530 passed
+- FCP-0009 target suite: 25 passed
+- browser console, FCP-0008, V2-R3, V2-R24, and FCP-0009 targeted suite: 570 passed
+- FCP-0001 through FCP-0009 governance suite: 215 passed
+- full pytest: 5531 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored by the run-all allowlist contract
 

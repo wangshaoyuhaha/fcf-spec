@@ -29,6 +29,7 @@ from apps.v2_r24_local_multi_clock_event_state_foundation_app_1 import (
 from apps.v2_r3_local_event_ingress_foundation_app_1 import (
     BoundedLocalEventIngress,
     LocalEventEnvelope,
+    LocalEventRights,
 )
 
 
@@ -44,6 +45,11 @@ def _tick_map() -> MarketDataFieldMap:
             "last": "price",
             "volume": "volume",
         },
+        rights=LocalEventRights(
+            license_id="registered-test-fixture-only",
+            permitted_use="synthetic-local-evaluation-only",
+            retention_days=1,
+        ),
     )
 
 
@@ -134,6 +140,7 @@ def test_d2_field_map_rejects_missing_or_duplicate_source_fields() -> None:
             observation_kind="TICK",
             registered_artifact_id="artifact",
             canonical_to_source={"instrument_id": "symbol"},
+            rights=_tick_map().rights,
         )
     with pytest.raises(ValueError, match="source fields must be unique"):
         MarketDataFieldMap(
@@ -147,12 +154,18 @@ def test_d2_field_map_rejects_missing_or_duplicate_source_fields() -> None:
                 "last": "same",
                 "volume": "volume",
             },
+            rights=_tick_map().rights,
         )
 
 
 def test_d2_field_map_cannot_select_provider() -> None:
     with pytest.raises(ValueError, match="cannot select a provider"):
         replace(_tick_map(), provider_selection_state="SELECTED")
+
+
+def test_d2_field_map_requires_explicit_registered_local_rights() -> None:
+    with pytest.raises(ValueError, match="explicit registered local rights"):
+        replace(_tick_map(), rights="implicit")  # type: ignore[arg-type]
 
 
 def test_d2_normalizes_tick_to_v2_r3_envelope() -> None:
@@ -162,6 +175,7 @@ def test_d2_normalizes_tick_to_v2_r3_envelope() -> None:
     assert normalized.envelope.event_type == "MARKET_DATA_TICK"
     assert normalized.envelope.payload["last"] == Decimal("12.34")
     assert normalized.envelope.rights.network_retrieval_allowed is False
+    assert normalized.envelope.rights is normalized.mapping.rights
 
 
 def test_d2_rejects_binary_float_and_missing_source_field() -> None:

@@ -10,16 +10,17 @@ Evidence commits:
 
 Validation results:
 
-- FCP-0009 target suite: 24 passed
-- browser console, FCP-0008, V2-R3, V2-R24, and FCP-0009 targeted suite: 568 passed
-- FCP-0001 through FCP-0009 governance suite: 214 passed
-- full pytest: 5530 passed
+- FCP-0009 target suite: 25 passed
+- browser console, FCP-0008, V2-R3, V2-R24, and FCP-0009 targeted suite: 570 passed
+- FCP-0001 through FCP-0009 governance suite: 215 passed
+- full pytest: 5531 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored
 
 Delivered result:
 
 - provider-neutral TICK, MINUTE_BAR, and ORDER_BOOK mappings are immutable
+- every mapping carries explicit registered local rights; no implicit grant exists
 - registered local observations normalize into the frozen V2-R3 ingress contract
 - frozen V2-R24 multi-clock state is composed without winner selection
 - coverage, heartbeat, latency, sequence, and degradation facts are deterministic
