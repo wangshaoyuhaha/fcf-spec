@@ -11033,3 +11033,29 @@ balance, position, wallet, order, execution, tag, release, or deployment path is
 authorized.
 
 <!-- FCP 0015 CANDIDATE EVIDENCE CONSOLE LAUNCH ROUTING HARDENING APP 1 APPROVAL END -->
+
+
+<!-- FCP 0015 CANDIDATE EVIDENCE CONSOLE LAUNCH ROUTING HARDENING APP 1 LOCK START -->
+
+## FCP 0015 Candidate Evidence Console Launch Routing Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The FCP-0013 and FCP-0014 launchers now print and automatically open the same
+exact registered loopback review route. The selected `zh-CN` or `en` language
+is propagated exactly once and unregistered language values fail closed.
+
+Validated result:
+
+- FCP-0015 isolated suite: 8 passed
+- FCP-0013 through FCP-0015 related suite: 62 passed
+- FCP governance guard subset: 44 passed
+- full pytest: 5712 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+
+The delivery changes presentation routing only. P1-P47 remain frozen and no P48
+is created. No provider client, credential, network activation, broker,
+exchange, account, balance, position, wallet, order, execution, tag, release, or
+deployment path is authorized.
+
+<!-- FCP 0015 CANDIDATE EVIDENCE CONSOLE LAUNCH ROUTING HARDENING APP 1 LOCK END -->

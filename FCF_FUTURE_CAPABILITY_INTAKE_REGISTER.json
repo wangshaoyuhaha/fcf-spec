@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 15,
+  "next_proposal_sequence": 16,
   "proposals": [
     {
       "adr_refs": [],
@@ -459,7 +459,7 @@
         "V2-FR-GAP-044"
       ],
       "operator_decision": "ACCEPTED_ARCHITECTURE",
-      "phase_id": "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1",
+      "phase_id": "NONE",
       "proposal_id": "FCF-FCP-0015",
       "source": "operator-approved-launch-routing-hardening",
       "status": "ACCEPTED_ARCHITECTURE",

@@ -42,6 +42,12 @@ def build_parser():
     return parser
 
 
+def build_operator_url(port: int, language: str) -> str:
+    if language not in {"zh-CN", "en"}:
+        raise ValueError("language must be zh-CN or en")
+    return f"http://127.0.0.1:{port}/data-source-evidence-remediation?lang={language}"
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     bundle, _, plan = load_rqdata_candidate_remediation_plan(ROOT)
@@ -72,7 +78,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"{code.value}: {message}", file=sys.stderr)
         print(f"Guidance: {remediation}", file=sys.stderr)
         return 2
-    url = f"http://127.0.0.1:{profile.port}/data-source-evidence-remediation"
+    url = build_operator_url(profile.port, args.language)
     print(f"FCF candidate evidence remediation plan: {url}", flush=True)
     print("Read-only / Registered evidence / Operator review", flush=True)
     if args.check:
@@ -81,7 +87,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
     try:
         if profile.open_browser:
-            open_operator_browser(f"http://127.0.0.1:{profile.port}/", opener=webbrowser.open)
+            open_operator_browser(url, opener=webbrowser.open)
         server.serve_forever()
     except KeyboardInterrupt:
         print("FCP-0014 console stopped by Operator.", flush=True)
