@@ -46,6 +46,11 @@ EXPECTED_FINAL_REFS = (
     FINAL_FILE.as_posix(),
     "docs/FCF_FCP_0010_SIMPLIFIED_CHINESE_CONSOLE_LOCALIZATION_CONSISTENCY_APP_1_D1_D6.md",
 )
+EXPECTED_EVIDENCE_COMMITS = (
+    "8376a3ec74b80dfa4aa6bc5e46902d6b45d28b12",
+    "c01b0a90df4b279c1bff9cd4beeda57e8e7e4015",
+    "beb9cb4426c82aa3511e3bf07a472cab2e98dff1",
+)
 
 
 def _block(text: str, start: str, end: str) -> str | None:
@@ -165,6 +170,11 @@ def build_fcp_0010_guard_report(root: Path = ROOT) -> dict[str, object]:
                 "sidecar delivery:",
                 "main merge:",
             )
+        ),
+        "final_evidence_commits_when_closed": not final
+        or all(
+            commit in (finals[0] or "") and commit in final_text
+            for commit in EXPECTED_EVIDENCE_COMMITS
         ),
     }
     return {"checks": checks, "ok": all(checks.values())}
