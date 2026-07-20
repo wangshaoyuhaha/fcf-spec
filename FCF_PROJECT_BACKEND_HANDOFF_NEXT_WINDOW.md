@@ -10896,3 +10896,38 @@ remain frozen and no P48 was created. No broker, exchange, account, balance,
 position, wallet, order, execution, tag, release, or deployment path was created.
 
 <!-- FCP 0013 CANDIDATE DATA EVIDENCE BUNDLE RECONCILIATION APP 1 FINAL END -->
+
+
+<!-- FCP 0014 CANDIDATE DATA EVIDENCE GAP REMEDIATION PLAN APP 1 APPROVAL START -->
+
+## FCP 0014 Candidate Data Evidence Gap Remediation Plan App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0014-candidate-data-evidence-gap-remediation-plan-app-1`
+
+Approved order:
+
+- D1 immutable remediation requirement and plan contracts
+- D2 exact FCP-0013 reconciliation packet binding
+- D3 deterministic priority, dependency, and blocker classification
+- D4 explicit acceptance criteria without closing any evidence gap
+- D5 Simplified Chinese default read-only browser review with explicit English
+- D6 guards, validation, merge, and final authority synchronization
+
+The delivery converts unresolved registered evidence gaps into a local planning
+view only. It cannot request or store credentials, contact a provider, select
+RQData or another provider, approve rights or retention, purchase data, activate
+realtime access, close a gap, start a product phase, or enable trading or
+execution. Operator-supplied secrets must remain outside the repository.
+
+P1-P47 remain frozen and no P48 is created. Paper-only, local-only,
+loopback-only, sidecar-only, registered-artifact-only, read-only presentation,
+Operator review, Deterministic Engine authority, Registered Evidence authority,
+and AI-advisory-only boundaries remain binding. No broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path is
+authorized.
+
+<!-- FCP 0014 CANDIDATE DATA EVIDENCE GAP REMEDIATION PLAN APP 1 APPROVAL END -->

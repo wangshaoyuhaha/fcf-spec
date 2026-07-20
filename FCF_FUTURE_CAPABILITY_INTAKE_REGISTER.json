@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 14,
+  "next_proposal_sequence": 15,
   "proposals": [
     {
       "adr_refs": [],
@@ -410,6 +410,35 @@
       "summary": "Reconcile the exact registered FCP-0007 RQData daily Demo evidence and FCP-0012 sanitized trial-session evidence into one immutable candidate evidence bundle. Validate candidate identity, source lineage, observation consistency, conflicts, staleness, capability overlap, unresolved documentary evidence, and blocked activation; expose a deterministic readiness delta and Simplified Chinese read-only review without network access, credentials, raw provider bytes, provider selection, entitlement approval, realtime claims, gap closure, product authorization, or execution.",
       "supersedes": [],
       "title": "Candidate data evidence bundle reconciliation"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-004",
+        "FCF-V2-ADR-006",
+        "FCF-V2-ADR-008",
+        "FCF-V2-ADR-020",
+        "FCF-V2-ADR-021"
+      ],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-022",
+        "V2-FR-GAP-023",
+        "V2-FR-GAP-028",
+        "V2-FR-GAP-030",
+        "V2-FR-GAP-044"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0014",
+      "source": "operator-approved-candidate-data-evidence-gap-remediation-plan",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-20T14:47:37Z",
+      "summary": "Transform the unresolved categories and canonical field gaps in the exact FCP-0013 reconciliation packet into an immutable priority, dependency, blocker, and acceptance-criteria plan. Present a Simplified Chinese read-only Operator checklist without credentials, network access, provider contact or selection, entitlement approval, procurement, realtime activation, gap closure, product authorization, or execution.",
+      "supersedes": [],
+      "title": "Candidate data evidence gap remediation plan"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

@@ -91,6 +91,15 @@ def build_fcp_0013_guard_report(root: Path = ROOT) -> dict[str, object]:
         truth.get("current_governance_phase_id") == "NONE"
         and truth.get("latest_completed_governance_delivery") == DELIVERY_ID
     )
+    successor = (
+        truth.get("current_governance_phase_id")
+        == "FCF-FCP-0014-CANDIDATE-DATA-EVIDENCE-GAP-REMEDIATION-PLAN-APP-1"
+        and truth.get("latest_completed_governance_delivery") == DELIVERY_ID
+    ) or (
+        truth.get("current_governance_phase_id") == "NONE"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0014-CANDIDATE-DATA-EVIDENCE-GAP-REMEDIATION-PLAN-APP-1"
+    )
     source_terms = (app_text + "\n" + script_text).lower()
     source_rows = registry.get("bundle", {}).get("source_evidence", [])
     sources_exact = len(source_rows) == 2
@@ -120,7 +129,7 @@ def build_fcp_0013_guard_report(root: Path = ROOT) -> dict[str, object]:
         "final_exact_when_closed": not closed or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
         "app_surface_exact": sorted(path.name for path in (root / APP_ROOT).glob("*.py")) == sorted(APP_FILES),
         "core_files_exist": all((root / path).is_file() for path in CORE_FILES),
-        "manifest_state_safe": active or closed,
+        "manifest_state_safe": active or closed or successor,
         "proposal_architecture_only": proposal.get("status") == "ACCEPTED_ARCHITECTURE"
         and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"
         and proposal.get("phase_id") == "NONE",
