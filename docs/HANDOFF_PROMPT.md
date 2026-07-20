@@ -9255,3 +9255,30 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 is authorized.
 
 <!-- FCP 0006 A SHARE MVP TARGET DATA ACCEPTANCE BASELINE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0006 A SHARE MVP TARGET DATA ACCEPTANCE BASELINE APP 1 LOCK START -->
+
+## FCP 0006 A-Share MVP Target Data Acceptance Baseline App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_IMPLEMENTED_PENDING_VALIDATION
+
+Implemented scope:
+
+- immutable A-share research-priority, target, horizon, benchmark, and maturity contracts
+- three isolated target families without mixed scoring or cross-horizon substitution
+- point-in-time instrument, calendar, market, corporate-action, sector, and universe fields
+- success, failure, stop, leakage, cost, and replay evidence obligations
+- deterministic incomplete, evidence-collection, and evidence-registration states
+- immutable read-only Operator packet and acceptance guard
+
+A-share is the first market to research, not a selected realtime product market.
+No empirical threshold, provider, entitlement, license, product phase, or
+FCF-FCP-0005 readiness decision is claimed. All referenced future-readiness
+gaps remain open. FCF-FCP-0006 remains ACCEPTED_ARCHITECTURE with phase_id NONE.
+
+P1-P47 remain frozen. No P48 is created. No network, credential, broker,
+exchange, account, balance, position, wallet, order, execution, tag, release,
+or deployment path is created or authorized.
+
+<!-- FCP 0006 A SHARE MVP TARGET DATA ACCEPTANCE BASELINE APP 1 LOCK END -->
