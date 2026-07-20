@@ -82,6 +82,7 @@ def build_fcp_0009_guard_report(root: Path = ROOT) -> dict[str, object]:
     locks = tuple(_block(text, LOCK_START, LOCK_END) for text in texts)
     finals = tuple(_block(text, FINAL_START, FINAL_END) for text in texts)
     truth = manifest.get("current_truth", {})
+    fcp_0016_successor = truth.get("current_governance_phase_id") == "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1" and truth.get("latest_completed_governance_delivery") == "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1" or truth.get("current_governance_phase_id") == "NONE" and truth.get("latest_completed_governance_delivery") == "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1"
     safety = manifest.get("safety_boundaries", {})
     proposal = next(
         (
@@ -179,7 +180,7 @@ def build_fcp_0009_guard_report(root: Path = ROOT) -> dict[str, object]:
         "core_files_exist": all((root / path).is_file() for path in CORE_FILES),
         "final_file_exists_when_closed": not final
         or (root / "FCF_CURRENT_STATE_FCP_0009_PROVIDER_NEUTRAL_MARKET_DATA_ADAPTER_READINESS_APP_1_FINAL.md").is_file(),
-        "manifest_state_safe": active or final or successor,
+        "manifest_state_safe": active or final or successor or fcp_0016_successor,
         "proposal_architecture_only": (
             proposal.get("status") == "ACCEPTED_ARCHITECTURE"
             and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"

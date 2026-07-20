@@ -80,6 +80,7 @@ def build_fcp_0012_guard_report(root: Path = ROOT) -> dict[str, object]:
     locks = tuple(_block(text, LOCK_START, LOCK_END) for text in texts)
     finals = tuple(_block(text, FINAL_START, FINAL_END) for text in texts)
     truth = manifest.get("current_truth", {})
+    fcp_0016_successor = truth.get("current_governance_phase_id") == "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1" and truth.get("latest_completed_governance_delivery") == "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1" or truth.get("current_governance_phase_id") == "NONE" and truth.get("latest_completed_governance_delivery") == "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1"
     safety = manifest.get("safety_boundaries", {})
     proposal = next((item for item in intake.get("proposals", []) if item.get("proposal_id") == "FCF-FCP-0012"), {})
     status = truth.get("current_governance_phase_status")
@@ -122,7 +123,7 @@ def build_fcp_0012_guard_report(root: Path = ROOT) -> dict[str, object]:
         "final_exact_when_closed": not closed or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
         "app_surface_exact": sorted(path.name for path in (root / APP_ROOT).glob("*.py")) == sorted(APP_FILES),
         "core_files_exist": all((root / path).is_file() for path in CORE_FILES),
-        "manifest_state_safe": active or closed or successor,
+        "manifest_state_safe": active or closed or successor or fcp_0016_successor,
         "proposal_architecture_only": proposal.get("status") == "ACCEPTED_ARCHITECTURE" and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE" and proposal.get("phase_id") == "NONE",
         "proposal_evidence_transition_safe": proposal.get("evidence_refs") in ([], list(EXPECTED_FINAL_REFS)) and (not closed or proposal.get("evidence_refs") == list(EXPECTED_FINAL_REFS)),
         "registered_artifact_exact": registration.get("artifact_path") == ARTIFACT_PATH.as_posix() and registration.get("byte_length") == len(artifact) and registration.get("artifact_sha256") == hashlib.sha256(artifact).hexdigest(),

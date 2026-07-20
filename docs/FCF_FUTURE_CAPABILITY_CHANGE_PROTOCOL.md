@@ -127,3 +127,17 @@ compares registered target, stop, data-rights, unit-economics, commercial,
 legal, and repository-license evidence without scoring, ranking, choosing a
 winner, selecting a market, or authorizing a product phase. It remains
 `NEEDS_RESEARCH`, `phase_id: NONE`, and `operator_decision: PENDING`.
+
+Proposal `FCF-FCP-0016` registers the accepted trusted-data-supply-chain and
+cost-aware-source-routing architecture. It extends FCP-0009 without replacing
+its provider-neutral readiness contract. The proposal preserves typed canonical
+records, point-in-time and revision lineage, corporate actions, trading status,
+layered local storage, cross-source quarantine, explicit provider roles,
+market-specific semantics, trial-rights discipline, and empirical after-cost
+value gates.
+
+FCP-0016 does not select RQData, MiniQMT, Tushare, AkShare, BaoStock, or another
+provider. It does not authorize an SDK, network access, credentials, data
+purchase, permanent trial-data retention, realtime activation, trading API,
+product phase, or gap closure. MiniQMT market data and trading surfaces remain
+process-isolated, and trading surfaces are prohibited in this repository.

@@ -1417,3 +1417,148 @@ Dependencies flow from Module 1 through Module 7. A later module cannot invent
 missing calendar, rights, availability, evidence, or state semantics. This
 ordering is architecture and backlog organization only; it does not select or
 approve an implementation phase.
+
+## 59. Trusted Data Supply Chain Architecture
+
+Future data access extends the provider-neutral readiness contracts from
+FCP-0009. A provider adapter may translate a vendor response, but it cannot
+become calculation authority, evidence authority, or an implicit product
+dependency. Provider replacement must not require changes to registered factor,
+target, replay, or evaluation semantics.
+
+The canonical core contract uses immutable typed records, exact decimal values,
+explicit units, market identity, event time, availability time, source version,
+schema version, lineage digest, and quality state. DataFrame objects and vendor
+objects may exist only at an adapter edge. They are not canonical records.
+
+Status: ACCEPTED_ARCHITECTURE / NOT_IMPLEMENTED
+
+## 60. Point-in-Time Availability and Revision Law
+
+Every observation distinguishes, when applicable:
+
+- `event_at`: when the represented market or company event occurred
+- `published_at`: when the source first published the observation
+- `available_at`: when the system could first lawfully observe it
+- `first_tradable_at`: the first market instant at which it may affect research
+- `ingested_at`: when the local adapter received it
+- `revision_at`: when a later version became available
+- `report_period`: the accounting or measurement period represented
+
+A replay at time T may use only versions with `available_at <= T` and must
+respect market session, holiday, auction, halt, T+1, and first-tradable rules.
+Later corrections never overwrite the earlier version used by a historical
+decision. They append a version and preserve the revision chain.
+
+## 61. Corporate Action, Price Adjustment, and Trading Status
+
+Raw unadjusted prices, corporate-action events, adjustment factors, factor
+versions, effective dates, query-time policy, and policy digests remain
+separate. Adjusted price is a deterministic derived view, not stored market
+truth. A provider's current forward-adjusted series cannot be used historically
+unless its point-in-time factor lineage proves that future actions were not
+leaked.
+
+Trading status uses registered exchange calendars and explicit source status
+or announcement evidence first. Zero volume, equal high and low, or a missing
+bar is only a declared fallback inference with uncertainty; it cannot alone
+prove suspension. Filling or excluding a non-trading observation is a versioned
+factor-policy choice and is never silently applied.
+
+## 62. Immutable Layered Local Storage
+
+Local columnar storage may use Parquet, but file format does not establish
+authority. The governed layers are:
+
+- `RAW`: immutable provider bytes or legally retained source representation
+- `NORMALIZED`: canonical typed observations with source and transformation
+  lineage
+- `RESEARCH`: reproducible derived features, labels, and evaluation artifacts
+
+Every partition records provider, dataset, schema, market, instrument scope,
+event and availability windows, units, adjustment policy, rights class,
+permitted purpose, retention or deletion deadline, transformation version,
+content digest, and parent digests. A trial entitlement cannot be converted
+into permanent local inventory without written retention and use rights.
+
+## 63. Reconciliation, Quarantine, and Deterministic Routing
+
+Source roles are explicit and versioned: `PRIMARY`, `VERIFICATION`,
+`DEGRADED_FALLBACK`, and `RESEARCH_ONLY`. The Operator approves role assignments
+after field, rights, history, freshness, reliability, and cost evidence. Source
+priority is configuration evidence, never an adapter side effect.
+
+Cross-source checks cover identity, timestamp, calendar, price, volume, amount,
+unit, adjustment, revision, duplicate, outlier, sequence, and coverage
+differences. A material unexplained conflict produces `SPLIT_FAULT`, quarantines
+the affected window, preserves every source, and blocks directional output.
+Missing or expired sources enter a visible registered degradation state; they
+do not silently route to a less suitable provider.
+
+## 64. Candidate Provider Role Boundaries
+
+No provider is selected by this architecture. Candidate roles require separate
+evidence:
+
+- RQData trial access may calibrate schema, coverage, adjustments, and quality;
+  retention, redistribution, commercial, and post-trial use require written
+  rights
+- MiniQMT `xtdata` may be evaluated as a future local A-share market-data
+  sidecar; any `xttrade` import, initialization, account surface, or trading
+  process is prohibited in the data sidecar
+- Tushare may be evaluated as a supplementary or verification source according
+  to proved entitlements, fields, latency, and permitted use
+- AkShare is research-only and non-authoritative unless future written rights
+  establish a different permitted use; it cannot be a commercial authority
+- BaoStock remains research or verification-only until license, completeness,
+  revision, and reliability evidence passes the Readiness Gate
+
+Provider SDK runtime compatibility is isolated from the repository runtime. A
+future MiniQMT adapter must use an approved local sidecar whose supported Python
+version is proven independently; it cannot force the core runtime to downgrade
+or import a trading SDK surface.
+
+## 65. A-Share and BTC Source Semantics
+
+A-share and BTC adapters share typed envelopes but not session assumptions,
+targets, cost models, clocks, or quality rules. A-share data uses exchange
+calendar, auction, break, limit, halt, T+1, corporate-action, and disclosure
+semantics. BTC uses continuous 24x7 event-time windows, sequence and resync,
+venue identity, index or mark price, funding, contract metadata, and cross-venue
+divergence where the licensed source provides them.
+
+No A-share suspension rule or daily adjustment policy is projected onto BTC.
+No single mixed score combines the two markets.
+
+## 66. Data Cost and Incremental Value Gate
+
+Zero cost is a preference, not a correctness requirement. A free source is
+rejected when its rights, integrity, latency, reproducibility, or operational
+risk are unacceptable. A paid source is rejected unless registered evidence
+shows incremental value after subscription, compute, storage, fees, taxes,
+slippage, impact, and capacity costs.
+
+The initial research budget hypothesis is annual data cost no greater than two
+percent of the declared research capital and expected incremental net value at
+least three times annual data cost. These values are proposal defaults, not
+guarantees or permanent Hard Policy. They require Operator approval, sensitivity
+analysis, and revision when capital, product purpose, or evidence changes.
+
+The value review compares an identical point-in-time walk-forward pipeline with
+and without the candidate dataset. It reports incremental out-of-sample return,
+drawdown, tail loss, stability, coverage, false alerts, operational burden, and
+source-replacement sensitivity. Failure, instability, or unverifiable rights
+stops purchase or renewal.
+
+## 67. Commercial Research and Profitability Boundary
+
+Commercial value and stable profitability are product objectives that require
+evidence; they are not architectural claims. A dataset, factor, or candidate
+cannot advance on backtest return alone. Evidence must include walk-forward and
+forward Paper observation, realistic total costs, regime and subgroup tests,
+maximum drawdown, consecutive loss, tail risk, multiple-testing control,
+revision and provider-replacement stability, and Paper-versus-replay divergence.
+
+No AI statement, provider marketing claim, trial result, or in-sample result can
+authorize purchase, activation, factor promotion, or a profitability claim.
+Deterministic evaluation and explicit Operator review remain mandatory.

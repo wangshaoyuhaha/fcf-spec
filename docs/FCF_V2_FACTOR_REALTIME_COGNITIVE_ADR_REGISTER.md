@@ -418,6 +418,65 @@ and superseded candidates remain recorded.
 
 Not authorized: automatic activation, promotion, learning, or self-modification.
 
+## FCF-V2-ADR-031 Canonical Typed Data and Provider Isolation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Provider SDK, DataFrame, and vendor-specific objects terminate at an
+adapter boundary. Canonical core observations are immutable typed records with
+exact values, units, clocks, versions, quality state, and lineage digests.
+
+Consequence: Provider replacement cannot silently change factor or replay
+semantics, and a vendor SDK cannot become calculation or evidence authority.
+
+Rejected shortcut: make Pandas DataFrame or one provider schema the core data
+contract.
+
+Not authorized: provider adapter implementation, SDK installation, network
+access, credentials, or realtime activation.
+
+## FCF-V2-ADR-032 Point-in-Time Raw, Adjustment, and Revision Lineage
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Preserve raw observations, availability and first-tradable clocks,
+revision chains, corporate-action events, adjustment-factor versions, trading
+status, transformation lineage, and rights metadata before derived research.
+Explicit trading status is authoritative; zero-volume or equal-price patterns
+are fallback inferences only.
+
+Consequence: Historical replay can reproduce what was knowable at T without
+today's adjustment factors, later filings, or silent fill policy leaking into
+the past. Material cross-source conflicts fail closed into quarantine.
+
+Rejected shortcut: treat current forward-adjusted series, `raw * factor`, or
+`volume == 0 and high == low` as sufficient canonical truth.
+
+Not authorized: historical download, local trial-data retention, factor
+activation, or gap closure.
+
+## FCF-V2-ADR-033 Rights and Evidence Govern Source Cost and Routing
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Every source has an explicit `PRIMARY`, `VERIFICATION`,
+`DEGRADED_FALLBACK`, or `RESEARCH_ONLY` role governed by rights, integrity,
+coverage, latency, operational reliability, and incremental after-cost value.
+Trial access does not imply permanent retention or commercial rights.
+
+Consequence: Free data is not accepted merely because it is free, and paid data
+is not purchased merely because it is convenient. RQData, MiniQMT market data,
+Tushare, AkShare, and BaoStock remain unselected candidates. A-share and BTC
+retain separate source semantics. MiniQMT market data and trading surfaces must
+remain process-isolated, with trading surfaces prohibited in this repository.
+
+Rejected shortcut: zero-cost absolutism, trial-period bulk harvesting without
+rights, silent provider fallback, one mixed A-share/BTC adapter, or co-locating
+market data and trading APIs.
+
+Not authorized: procurement, renewal, provider selection, external activation,
+broker or exchange integration, account access, order, or execution.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.
