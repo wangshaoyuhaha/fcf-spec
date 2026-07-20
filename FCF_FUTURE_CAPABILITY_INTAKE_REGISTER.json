@@ -422,7 +422,11 @@
       "architecture_refs": [
         "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0014_CANDIDATE_DATA_EVIDENCE_GAP_REMEDIATION_PLAN_APP_1_FINAL.md",
+        "FCF_REGISTERED_EVIDENCE_FCP_0013_RQDATA_CANDIDATE_BUNDLE.json",
+        "docs/FCF_FCP_0014_CANDIDATE_DATA_EVIDENCE_GAP_REMEDIATION_PLAN_APP_1_D1_D6.md"
+      ],
       "gap_refs": [
         "V2-FR-GAP-022",
         "V2-FR-GAP-023",
