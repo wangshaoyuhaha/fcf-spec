@@ -9579,6 +9579,8 @@ Evidence commits:
 - hardening merge: `39aa1ce39415b6ef219310534a878704bf32661e`
 - localization evidence hardening: `6006d66c1ec7b30fa49a97e557d1de2c665da53a`
 - localization hardening merge: `02daa5e68b4ed485eca2850506831709c76a81de`
+- market snapshot isolation hardening: `a0e363b48b916e86f42c4ee177d270af3d9cea8c`
+- market isolation hardening merge: `871e1bb9a4a5acb9707bdae7071ac708b9f6f362`
 
 Validated result:
 
