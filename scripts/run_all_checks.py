@@ -45,6 +45,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0007_a_share_rqdata_demo_artifact_intake_replay_acceptance_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0008_chinese_browser_console_local_data_intake_preview_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
