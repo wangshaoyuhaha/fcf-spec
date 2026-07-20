@@ -12271,3 +12271,29 @@ balance, position, wallet, order, execution, tag, release, or deployment path is
 authorized.
 
 <!-- FCP 0014 CANDIDATE DATA EVIDENCE GAP REMEDIATION PLAN APP 1 APPROVAL END -->
+
+
+<!-- FCP 0014 CANDIDATE DATA EVIDENCE GAP REMEDIATION PLAN APP 1 LOCK START -->
+
+## FCP 0014 Candidate Data Evidence Gap Remediation Plan App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The isolated FCP-0014 suite passed with 26 tests. The plan binds the exact
+FCP-0013 reconciliation packet SHA-256 and deterministically exposes 15 open
+requirements: 6 P0 governance blockers, 8 P1 coverage or quality blockers, and
+1 P2 cost or quota blocker. Dependency identities, canonical field lists,
+acceptance criteria, immutable payloads, Chinese-default presentation, English
+opt-in, GET and HEAD routing, write rejection, and loopback startup preflight
+are verified.
+
+Every requirement remains OPEN, MISSING, and OPERATOR_INPUT_REQUIRED. External
+activation remains BLOCKED, provider selection remains UNSELECTED, and network
+remains DISABLED. The plan cannot contact, purchase, select, or activate a
+provider and cannot close an evidence gap.
+
+P1-P47 remain frozen and no P48 is created. No credential, broker, exchange,
+account, balance, position, wallet, order, execution, tag, release, or
+deployment path is authorized.
+
+<!-- FCP 0014 CANDIDATE DATA EVIDENCE GAP REMEDIATION PLAN APP 1 LOCK END -->
