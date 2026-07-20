@@ -5,6 +5,7 @@ Status: COMPLETED_MERGED_VALIDATED
 Delivered scope:
 
 - immutable provider-neutral tick, minute-bar, and order-book field maps
+- explicit registered local rights on every field map with pass-through only
 - registered local observation normalization into frozen V2-R3 envelopes
 - V2-R3 ingress and V2-R24 multi-clock composition
 - deterministic coverage, heartbeat, latency, sequence, and degradation snapshot
@@ -14,10 +15,10 @@ Delivered scope:
 
 Validation evidence:
 
-- FCP-0009 target suite: 24 passed
-- related targeted suite: 568 passed
-- FCP-0001 through FCP-0009 governance suite: 214 passed
-- full pytest: 5530 passed
+- FCP-0009 target suite: 25 passed
+- related targeted suite: 570 passed
+- FCP-0001 through FCP-0009 governance suite: 215 passed
+- full pytest: 5531 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored
 

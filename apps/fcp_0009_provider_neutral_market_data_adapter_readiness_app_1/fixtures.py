@@ -1,6 +1,9 @@
 from __future__ import annotations
 
-from apps.v2_r3_local_event_ingress_foundation_app_1 import BoundedLocalEventIngress
+from apps.v2_r3_local_event_ingress_foundation_app_1 import (
+    BoundedLocalEventIngress,
+    LocalEventRights,
+)
 
 from .adapter import ProviderNeutralMarketDataAdapter
 from .contracts import MarketDataFieldMap, RegisteredMarketDataObservation
@@ -15,6 +18,11 @@ def build_registered_local_replay_fixture(
     market: str = "A-SHARE",
 ) -> tuple[ProviderNeutralMarketDataAdapter, MarketDataAdapterReadinessSnapshot]:
     artifact_id = "registered-local-market-data-fixture"
+    rights = LocalEventRights(
+        license_id="fcp0009-synthetic-fixture-only",
+        permitted_use="synthetic-local-evaluation-only",
+        retention_days=1,
+    )
     maps = (
         MarketDataFieldMap(
             mapping_id="tick-map-v1",
@@ -27,6 +35,7 @@ def build_registered_local_replay_fixture(
                 "last": "last_price",
                 "volume": "volume",
             },
+            rights=rights,
         ),
         MarketDataFieldMap(
             mapping_id="minute-map-v1",
@@ -43,6 +52,7 @@ def build_registered_local_replay_fixture(
                 "volume": "volume",
                 "interval": "interval",
             },
+            rights=rights,
         ),
         MarketDataFieldMap(
             mapping_id="book-map-v1",
@@ -57,6 +67,7 @@ def build_registered_local_replay_fixture(
                 "ask_price_1": "ask_price_1",
                 "ask_size_1": "ask_size_1",
             },
+            rights=rights,
         ),
     )
     adapter = ProviderNeutralMarketDataAdapter(

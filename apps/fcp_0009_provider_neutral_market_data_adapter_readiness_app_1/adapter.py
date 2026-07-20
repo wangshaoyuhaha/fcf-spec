@@ -10,7 +10,6 @@ from apps.v2_r3_local_event_ingress_foundation_app_1 import (
     BoundedLocalEventIngress,
     IngressReceipt,
     LocalEventEnvelope,
-    LocalEventRights,
 )
 from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import identifier, instant
 
@@ -136,11 +135,7 @@ class ProviderNeutralMarketDataAdapter:
             received_at_utc=observation.received_at_utc,
             processed_at_utc=observation.processed_at_utc,
             payload=values,
-            rights=LocalEventRights(
-                license_id="operator-registered-local-evaluation",
-                permitted_use="local-evaluation-only",
-                retention_days=1,
-            ),
+            rights=mapping.rights,
         )
         return NormalizedMarketDataEvent(mapping=mapping, envelope=envelope)
 

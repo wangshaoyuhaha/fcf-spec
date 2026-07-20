@@ -141,6 +141,7 @@ def build_fcp_0009_guard_report(root: Path = ROOT) -> dict[str, object]:
                 "network disabled",
                 "external activation blocked",
                 "GET and HEAD",
+                "explicit registered",
             )
         ),
         "no_prohibited_runtime": all(
