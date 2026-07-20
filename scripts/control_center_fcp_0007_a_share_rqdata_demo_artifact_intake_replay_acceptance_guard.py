@@ -147,6 +147,15 @@ def build_fcp_0007_guard_report(root: Path = ROOT) -> dict[str, object]:
         truth.get("current_governance_phase_id") == "NONE"
         and truth.get("latest_completed_governance_delivery")
         == "FCF-FCP-0009-PROVIDER-NEUTRAL-MARKET-DATA-ADAPTER-READINESS-APP-1"
+    ) or (
+        truth.get("current_governance_phase_id")
+        == "FCF-FCP-0010-SIMPLIFIED-CHINESE-CONSOLE-LOCALIZATION-CONSISTENCY-APP-1"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0009-PROVIDER-NEUTRAL-MARKET-DATA-ADAPTER-READINESS-APP-1"
+    ) or (
+        truth.get("current_governance_phase_id") == "NONE"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0010-SIMPLIFIED-CHINESE-CONSOLE-LOCALIZATION-CONSISTENCY-APP-1"
     )
     final_text = ""
     if (root / FINAL_FILE).is_file():

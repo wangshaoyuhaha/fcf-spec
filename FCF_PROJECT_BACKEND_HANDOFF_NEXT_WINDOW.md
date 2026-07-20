@@ -10470,3 +10470,38 @@ P1-P47 remain frozen. No P48, broker, exchange, account, balance, position,
 wallet, order, execution, tag, release, or deployment path was created.
 
 <!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 FINAL END -->
+
+<!-- FCP 0010 SIMPLIFIED CHINESE CONSOLE LOCALIZATION CONSISTENCY APP 1 APPROVAL START -->
+
+## FCP 0010 Simplified Chinese Console Localization Consistency App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0010-simplified-chinese-console-localization-consistency-app-1`
+
+Approved order:
+
+- D1 immutable presentation-only localization boundary and route inventory
+- D2 centralized ASCII-source Simplified Chinese UI catalog
+- D3 evidence-safe HTML localization composition over FCP-0009
+- D4 deterministic per-route untranslated-label coverage audit
+- D5 default Chinese and explicit English browser acceptance
+- D6 guards, validation, merge, and final authority synchronization
+
+The sidecar may translate shared navigation, headings, labels, notices, and empty
+states. Registered evidence cells, code, hashes, identifiers, and deterministic
+state values remain unchanged. P1-P47 stay frozen and no P48 is created.
+
+This governance delivery selects no provider, connects no network, accepts no
+credentials, approves no data rights, claims no realtime or product readiness,
+closes no referenced gap, and starts no product implementation phase.
+
+Paper-only, local-only, loopback-only, sidecar-only, registered-artifact-only,
+read-only presentation, Operator review, Deterministic Engine authority,
+Registered Evidence authority, and AI-advisory-only boundaries remain binding.
+No broker, exchange, account, balance, position, wallet, order, execution, tag,
+release, or deployment path is authorized.
+
+<!-- FCP 0010 SIMPLIFIED CHINESE CONSOLE LOCALIZATION CONSISTENCY APP 1 APPROVAL END -->
