@@ -1,0 +1,26 @@
+{
+  "bundle": {
+    "binding_authority": "OPERATOR_REGISTERED_LOCAL_EVIDENCE",
+    "bundle_id": "rqdata-candidate-evidence-bundle-v1",
+    "candidate_id": "candidate-rqdata",
+    "source_evidence": [
+      {
+        "canonical_json_sha256": "7601187b104a2a9b2fdf8553ea910de73fe6666284123ef4bf88fd359bcd2294",
+        "evidence_id": "fcp-0007-rqdata-a-share-daily-demo-evidence-v1",
+        "registry_path": "FCF_REGISTERED_EVIDENCE_FCP_0007_RQDATA_A_SHARE_DAILY_DEMO.json"
+      },
+      {
+        "canonical_json_sha256": "6f61a7f876c45e3029f98fa92a57f0aa587c15854421fbc0c8ce6825d1bfac09",
+        "evidence_id": "fcp-0012-rqdata-trial-session-evidence-v1",
+        "registry_path": "FCF_REGISTERED_EVIDENCE_FCP_0012_RQDATA_TRIAL_SESSION.json"
+      }
+    ]
+  },
+  "evidence_id": "fcp-0013-rqdata-candidate-evidence-bundle-v1",
+  "network_used_by_sidecar": false,
+  "operator_review_required": true,
+  "provider_selected": false,
+  "retention_state": "UNRESOLVED",
+  "rights_state": "UNRESOLVED",
+  "schema_version": 1
+}

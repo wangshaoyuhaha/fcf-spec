@@ -10825,3 +10825,28 @@ balance, position, wallet, order, execution, tag, release, or deployment path is
 authorized.
 
 <!-- FCP 0013 CANDIDATE DATA EVIDENCE BUNDLE RECONCILIATION APP 1 APPROVAL END -->
+
+
+<!-- FCP 0013 CANDIDATE DATA EVIDENCE BUNDLE RECONCILIATION APP 1 LOCK START -->
+
+## FCP 0013 Candidate Data Evidence Bundle Reconciliation App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The isolated FCP-0013 suite passed with 28 tests. The registered bundle binds
+exactly two existing registered evidence registries by canonical JSON SHA-256.
+Candidate identity, lineage, capability overlap, non-overlapping observation
+windows, preserved gaps, deterministic packet hashing, Chinese-default
+read-only presentation, English opt-in, GET and HEAD routing, write rejection,
+and loopback startup preflight are verified.
+
+The validation does not prove entitlement, retention rights, realtime coverage,
+provider selection, commercial acceptance, or product readiness. External
+activation remains BLOCKED, network remains DISABLED, provider selection
+remains UNSELECTED, and Operator review remains mandatory.
+
+P1-P47 remain frozen and no P48 is created. No provider client, credential,
+raw provider bytes, broker, exchange, account, balance, position, wallet, order,
+execution, tag, release, or deployment path is authorized.
+
+<!-- FCP 0013 CANDIDATE DATA EVIDENCE BUNDLE RECONCILIATION APP 1 LOCK END -->
