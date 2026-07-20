@@ -41,10 +41,10 @@
     "unfinished_work_register": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
   },
   "current_truth": {
-    "current_governance_phase_id": "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1",
-    "current_governance_phase_status": "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE",
+    "current_governance_phase_id": "NONE",
+    "current_governance_phase_status": "NONE",
     "current_product_implementation_phase": "NONE",
-    "latest_completed_governance_delivery": "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1",
+    "latest_completed_governance_delivery": "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1",
     "latest_completed_product_phase": "V2-R47-BROWSER-GOVERNANCE-REVIEW-MARKET-SUMMARY-PRESENTATION-APP-1",
     "next_product_implementation_phase": "NOT_SELECTED",
     "next_product_phase_approval": "NOT_APPROVED"
