@@ -17354,6 +17354,8 @@ Evidence commits:
 - main merge: `1f31f392c771155551d938041d1a67ccc6810264`
 - explicit local-rights hardening: `9ec9345c12f9c1be26debe2ff1b19d98e7c431bb`
 - hardening merge: `39aa1ce39415b6ef219310534a878704bf32661e`
+- localization evidence hardening: `6006d66c1ec7b30fa49a97e557d1de2c665da53a`
+- localization hardening merge: `02daa5e68b4ed485eca2850506831709c76a81de`
 
 Validated result:
 
