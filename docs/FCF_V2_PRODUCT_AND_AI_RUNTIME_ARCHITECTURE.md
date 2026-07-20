@@ -11778,6 +11778,8 @@ Evidence commits:
 - governance approval: `ea31f0292268316959a9f37fea1345b907476d8f`
 - sidecar delivery: `fa7fae723fb9c8ceefe82a62f03d77ffce088217`
 - main merge: `1f31f392c771155551d938041d1a67ccc6810264`
+- explicit local-rights hardening: `9ec9345c12f9c1be26debe2ff1b19d98e7c431bb`
+- hardening merge: `39aa1ce39415b6ef219310534a878704bf32661e`
 
 Validated result:
 

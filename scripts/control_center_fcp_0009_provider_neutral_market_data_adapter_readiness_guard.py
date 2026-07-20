@@ -23,6 +23,8 @@ EXPECTED_EVIDENCE_COMMITS = (
     "ea31f0292268316959a9f37fea1345b907476d8f",
     "fa7fae723fb9c8ceefe82a62f03d77ffce088217",
     "1f31f392c771155551d938041d1a67ccc6810264",
+    "9ec9345c12f9c1be26debe2ff1b19d98e7c431bb",
+    "39aa1ce39415b6ef219310534a878704bf32661e",
 )
 APP_ROOT = Path("apps/fcp_0009_provider_neutral_market_data_adapter_readiness_app_1")
 APP_FILES = (
