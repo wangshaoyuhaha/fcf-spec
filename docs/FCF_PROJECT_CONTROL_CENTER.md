@@ -18219,3 +18219,29 @@ Deterministic Engine remains calculation authority, Registered Evidence remains
 evidence authority, AI remains advisory, and Operator review remains mandatory.
 
 <!-- FCP 0018 BTC TRUSTED MARKET DATA SUBSTRATE LOCAL REPLAY APP 1 APPROVAL END -->
+
+
+<!-- FCP 0018 BTC TRUSTED MARKET DATA SUBSTRATE LOCAL REPLAY APP 1 LOCK START -->
+
+## FCP 0018 BTC Trusted Market Data Substrate Local Replay App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The BTC substrate now enforces immutable exact trade, L2 book, reference-price,
+and funding observations; event, receive, and ingest clocks; registered local
+artifact lineage; deterministic snapshot and delta replay; sequence-gap freeze
+and resynchronization; 24x7 freshness; and fail-closed quality findings.
+
+Validated result:
+
+- FCP-0018 isolated suite: 16 passed
+- FCP governance targeted suite: 427 passed
+- full pytest: 5743 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: no tracked output changed; no restoration required
+
+No exchange SDK, network retrieval, credential, wallet, account, balance,
+position, order, execution, realtime activation, product phase, P48, tag,
+release, or deployment path was created.
+
+<!-- FCP 0018 BTC TRUSTED MARKET DATA SUBSTRATE LOCAL REPLAY APP 1 LOCK END -->
