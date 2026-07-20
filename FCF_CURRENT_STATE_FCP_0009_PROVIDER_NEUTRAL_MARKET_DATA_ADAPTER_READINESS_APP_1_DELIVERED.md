@@ -10,15 +10,16 @@ Delivered scope:
 - V2-R3 ingress and V2-R24 multi-clock composition
 - deterministic coverage, heartbeat, latency, sequence, and degradation snapshot
 - Simplified Chinese read-only market-data diagnostics workspace
+- registered evidence-cell and code-value localization protection
 - registered synthetic replay and loopback console diagnostic tools
 - synchronized governance lock, guard, tests, and run-all wiring
 
 Validation evidence:
 
-- FCP-0009 target suite: 25 passed
-- related targeted suite: 570 passed
-- FCP-0001 through FCP-0009 governance suite: 215 passed
-- full pytest: 5531 passed
+- FCP-0009 target suite: 26 passed
+- related targeted suite: 571 passed
+- FCP-0001 through FCP-0009 governance suite: 216 passed
+- full pytest: 5532 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored
 
