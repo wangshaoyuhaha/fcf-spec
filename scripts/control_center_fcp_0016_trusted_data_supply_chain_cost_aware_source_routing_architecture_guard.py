@@ -71,7 +71,8 @@ def build_fcp_0016_guard_report(root: Path = ROOT) -> dict[str, object]:
         "proposal_registered": proposal.get("status") == "ACCEPTED_ARCHITECTURE"
         and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"
         and proposal.get("phase_id") == "NONE",
-        "proposal_sequence": intake.get("next_proposal_sequence") == 17,
+        "proposal_sequence": isinstance(intake.get("next_proposal_sequence"), int)
+        and intake.get("next_proposal_sequence") >= 17,
         "architecture_complete": all(
             term in architecture
             for term in (

@@ -59,7 +59,7 @@ def test_registered_proposals_are_durable_and_non_authorizing():
     path = ROOT / "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json"
     data = json.loads(path.read_text(encoding="ascii"))
 
-    assert data["next_proposal_sequence"] == 17
+    assert data["next_proposal_sequence"] == 18
     assert {
         item["proposal_id"]: item["status"] for item in data["proposals"]
     } == REQUIRED_SEEDED_PROPOSALS
@@ -85,6 +85,7 @@ def test_registered_proposals_are_durable_and_non_authorizing():
     assert decisions["FCF-FCP-0014"] == "ACCEPTED_ARCHITECTURE"
     assert decisions["FCF-FCP-0015"] == "ACCEPTED_ARCHITECTURE"
     assert decisions["FCF-FCP-0016"] == "ACCEPTED_ARCHITECTURE"
+    assert decisions["FCF-FCP-0017"] == "ACCEPTED_ARCHITECTURE"
     assert all(validate_intake_register(data).values())
 
 

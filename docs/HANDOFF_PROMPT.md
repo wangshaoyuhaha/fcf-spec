@@ -10321,3 +10321,37 @@ created. No provider connection, credential, account, trading API, order,
 execution, tag, release, or deployment path was created.
 
 <!-- FCP 0016 TRUSTED DATA SUPPLY CHAIN COST AWARE SOURCE ROUTING ARCHITECTURE APP 1 FINAL END -->
+
+
+<!-- FCP 0017 A SHARE TRUSTED DAILY DATA SUBSTRATE LOCAL CALIBRATION APP 1 APPROVAL START -->
+
+## FCP 0017 A-Share Trusted Daily Data Substrate Local Calibration App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0017-a-share-trusted-daily-data-substrate-local-calibration-app-1`
+
+Approved order:
+
+- D1 immutable provider-neutral A-share daily observation contract
+- D2 point-in-time availability, revision, and trading-status validation
+- D3 raw and adjusted price-view separation with versioned factor lineage
+- D4 deterministic RAW, NORMALIZED, and RESEARCH layer manifests
+- D5 registered local artifact calibration and fail-closed quality report
+- D6 guards, validation, merge, and final authority synchronization
+
+This local calibration delivery may consume only Operator-registered local test
+artifacts whose exact digest and declared rights are supplied at the boundary.
+It cannot invoke a provider SDK, retrieve network data, retain trial bytes in
+the repository, select a provider, store a credential, activate realtime data,
+close unresolved commercial-rights gaps, start a product phase, or enable
+trading or execution.
+
+P1-P47 remain frozen and no P48 is created. A-share and BTC semantics remain
+isolated. BTC data-source implementation is a separate successor only after
+this A-share substrate is completed and validated. All permanent research,
+authority, review, and execution boundaries remain binding.
+
+<!-- FCP 0017 A SHARE TRUSTED DAILY DATA SUBSTRATE LOCAL CALIBRATION APP 1 APPROVAL END -->
