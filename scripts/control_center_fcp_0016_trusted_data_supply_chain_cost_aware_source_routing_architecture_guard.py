@@ -62,6 +62,15 @@ def build_fcp_0016_guard_report(root: Path = ROOT) -> dict[str, object]:
             "0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE",
             "0017-A-SHARE-TRUSTED-DAILY-DATA-SUBSTRATE-LOCAL-CALIBRATION",
         )
+    ) or (
+        truth.get("current_governance_phase_id")
+        == "FCF-FCP-0018-BTC-TRUSTED-MARKET-DATA-SUBSTRATE-LOCAL-REPLAY-APP-1"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0017-A-SHARE-TRUSTED-DAILY-DATA-SUBSTRATE-LOCAL-CALIBRATION-APP-1"
+    ) or (
+        truth.get("current_governance_phase_id") == "NONE"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0018-BTC-TRUSTED-MARKET-DATA-SUBSTRATE-LOCAL-REPLAY-APP-1"
     )
     approvals = tuple(_block(text, APPROVAL_START, APPROVAL_END) for text in texts)
     locks = tuple(_block(text, LOCK_START, LOCK_END) for text in texts)

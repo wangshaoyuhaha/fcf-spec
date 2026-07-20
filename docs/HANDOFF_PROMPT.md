@@ -10410,3 +10410,35 @@ release, or deployment authority. BTC data-source work remains the explicit
 next governance candidate and has not started inside this completed phase.
 
 <!-- FCP 0017 A SHARE TRUSTED DAILY DATA SUBSTRATE LOCAL CALIBRATION APP 1 FINAL END -->
+
+
+<!-- FCP 0018 BTC TRUSTED MARKET DATA SUBSTRATE LOCAL REPLAY APP 1 APPROVAL START -->
+
+## FCP 0018 BTC Trusted Market Data Substrate Local Replay App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0018-btc-trusted-market-data-substrate-local-replay-app-1`
+
+Approved order:
+
+- D1 immutable provider-neutral BTC trade, book, reference-price, and funding contracts
+- D2 deterministic L2 snapshot and delta replay with sequence-gap resynchronization
+- D3 mark-price, index-price, funding, and venue lineage validation
+- D4 24x7 freshness, crossed-book, divergence, and missing-stream fail-closed findings
+- D5 registered local artifact verification and deterministic replay manifests
+- D6 guards, validation, merge, and final authority synchronization
+
+The delivery may consume only Operator-registered local synthetic or sanitized
+artifacts with exact digests and declared rights. It cannot invoke an exchange
+SDK, retrieve network data, store credentials, access a wallet or account,
+activate realtime data, place an order, or execute a trade.
+
+P1-P47 remain frozen and no P48 is created. BTC semantics remain isolated from
+A-share calendars, suspensions, and corporate-action adjustment rules. The
+Deterministic Engine remains calculation authority, Registered Evidence remains
+evidence authority, AI remains advisory, and Operator review remains mandatory.
+
+<!-- FCP 0018 BTC TRUSTED MARKET DATA SUBSTRATE LOCAL REPLAY APP 1 APPROVAL END -->
