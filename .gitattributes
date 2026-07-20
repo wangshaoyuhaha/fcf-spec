@@ -7,3 +7,4 @@ tests/test_fcf_safe_runner_contract.py text eol=lf
 docs/FCF_EXECUTION_SAFETY_PROTOCOL.md text eol=lf
 examples/browser_product_console_starter/*.json text eol=lf
 examples/browser_product_console_starter/registered/*.json text eol=lf
+FCF_LOCAL_ARTIFACT_FCP_0012_RQDATA_TRIAL_SESSION.json -text
