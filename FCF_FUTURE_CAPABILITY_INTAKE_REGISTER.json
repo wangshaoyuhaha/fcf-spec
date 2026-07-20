@@ -443,6 +443,30 @@
       "summary": "Transform the unresolved categories and canonical field gaps in the exact FCP-0013 reconciliation packet into an immutable priority, dependency, blocker, and acceptance-criteria plan. Present a Simplified Chinese read-only Operator checklist without credentials, network access, provider contact or selection, entitlement approval, procurement, realtime activation, gap closure, product authorization, or execution.",
       "supersedes": [],
       "title": "Candidate data evidence gap remediation plan"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-009",
+        "FCF-V2-ADR-020"
+      ],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-023",
+        "V2-FR-GAP-038",
+        "V2-FR-GAP-044"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1",
+      "proposal_id": "FCF-FCP-0015",
+      "source": "operator-approved-launch-routing-hardening",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-20T15:36:00Z",
+      "summary": "Harden the FCP-0013 and FCP-0014 local browser launchers so the printed and automatically opened URL is the exact registered read-only evidence route with the explicit presentation language. Preserve all calculation, evidence, network, provider, product, and execution boundaries.",
+      "supersedes": [],
+      "title": "Candidate evidence console launch routing hardening"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
