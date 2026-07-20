@@ -95,6 +95,7 @@ def build_fcp_0006_guard_report(root: Path = ROOT) -> dict[str, object]:
         {},
     )
     truth = manifest.get("current_truth", {})
+    fcp_0016_successor = truth.get("current_governance_phase_id") == "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1" and truth.get("latest_completed_governance_delivery") == "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1" or truth.get("current_governance_phase_id") == "NONE" and truth.get("latest_completed_governance_delivery") == "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1"
     safety = manifest.get("safety_boundaries", {})
     active = truth.get("current_governance_phase_id") == FINAL_DELIVERY_ID
     final = (
@@ -243,7 +244,7 @@ def build_fcp_0006_guard_report(root: Path = ROOT) -> dict[str, object]:
         in ([], EXPECTED_EVIDENCE_REFS),
         "proposal_evidence_exact_when_final": not final
         or evidence_refs == EXPECTED_EVIDENCE_REFS,
-        "manifest_state_safe": active or final or successor,
+        "manifest_state_safe": active or final or successor or fcp_0016_successor,
         "no_product_phase_selected": (
             truth.get("current_product_implementation_phase") == "NONE"
             and truth.get("next_product_implementation_phase") == "NOT_SELECTED"

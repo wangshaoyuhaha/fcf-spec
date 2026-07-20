@@ -69,6 +69,7 @@ def build_fcp_0011_guard_report(root: Path = ROOT) -> dict[str, object]:
     locks = tuple(_block(text, LOCK_START, LOCK_END) for text in texts)
     finals = tuple(_block(text, FINAL_START, FINAL_END) for text in texts)
     truth = manifest.get("current_truth", {})
+    fcp_0016_successor = truth.get("current_governance_phase_id") == "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1" and truth.get("latest_completed_governance_delivery") == "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1" or truth.get("current_governance_phase_id") == "NONE" and truth.get("latest_completed_governance_delivery") == "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1"
     safety = manifest.get("safety_boundaries", {})
     proposal = next((item for item in intake.get("proposals", []) if item.get("proposal_id") == "FCF-FCP-0011"), {})
     status = truth.get("current_governance_phase_status")
@@ -122,7 +123,7 @@ def build_fcp_0011_guard_report(root: Path = ROOT) -> dict[str, object]:
         "app_surface_exact": sorted(path.name for path in (root / APP_ROOT).glob("*.py")) == sorted(APP_FILES),
         "core_files_exist": all((root / path).is_file() for path in CORE_FILES),
         "final_file_exists_when_closed": not closed or (root / FINAL_FILE).is_file(),
-        "manifest_state_safe": active or closed or successor,
+        "manifest_state_safe": active or closed or successor or fcp_0016_successor,
         "proposal_architecture_only": proposal.get("status") == "ACCEPTED_ARCHITECTURE" and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE" and proposal.get("phase_id") == "NONE",
         "proposal_evidence_transition_safe": proposal.get("evidence_refs") in ([], list(EXPECTED_FINAL_REFS)) and (not closed or proposal.get("evidence_refs") == list(EXPECTED_FINAL_REFS)),
         "permanent_safety_preserved": safety.get("p48_allowed") is False and safety.get("paper_only") is True and safety.get("local_only") is True and safety.get("loopback_only") is True and safety.get("registered_artifact_only") is True and safety.get("operator_review_mandatory") is True and safety.get("order_or_execution_path_allowed") is False,

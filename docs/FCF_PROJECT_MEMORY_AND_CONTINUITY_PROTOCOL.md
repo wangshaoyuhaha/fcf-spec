@@ -177,6 +177,15 @@ not-implemented capability groups:
   research
 - governed institutional-factor lifecycle and data-freshness controls
 - named institutional-factor research candidates without early activation
+- provider-neutral typed observations and provider-edge SDK isolation
+- point-in-time availability, revision, corporate-action, adjustment, and
+  trading-status lineage
+- immutable layered local storage, cross-source reconciliation, quarantine,
+  explicit source roles, and visible degraded routing
+- rights-aware RQData, MiniQMT market-data, Tushare, AkShare, and BaoStock
+  candidate treatment without provider selection or trial-data harvesting
+- separate A-share and BTC source semantics and evidence-based data-cost value
+  gates without profitability claims
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

@@ -28,8 +28,8 @@ INSTITUTIONAL_REGISTRATION_END = (
     "<!-- FCF INSTITUTIONAL CALENDAR CAUSAL MARKET INTELLIGENCE "
     "REGISTRATION END -->"
 )
-ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 31))
-GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 87))
+ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 34))
+GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 96))
 ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 23))
 REQUIRED_ARCHITECTURE_TERMS = (
     "Deterministic Factor Registry",
@@ -88,6 +88,15 @@ REQUIRED_ARCHITECTURE_TERMS = (
     "POLICY_NOVELTY_ALIGNMENT",
     "CAPITAL_TRANSMISSION_PRESSURE",
     "Module Ownership and Research Order",
+    "Trusted Data Supply Chain Architecture",
+    "Point-in-Time Availability and Revision Law",
+    "Corporate Action, Price Adjustment, and Trading Status",
+    "Immutable Layered Local Storage",
+    "Reconciliation, Quarantine, and Deterministic Routing",
+    "Candidate Provider Role Boundaries",
+    "A-Share and BTC Source Semantics",
+    "Data Cost and Incremental Value Gate",
+    "Commercial Research and Profitability Boundary",
 )
 
 

@@ -270,6 +270,7 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0013-CANDIDATE-DATA-EVIDENCE-BUNDLE-RECONCILIATION-APP-1",
             "FCF-FCP-0014-CANDIDATE-DATA-EVIDENCE-GAP-REMEDIATION-PLAN-APP-1",
             "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1",
+            "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1",
         }
         and truth.get("current_product_implementation_phase") == "NONE"
         and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
@@ -290,6 +291,7 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0013-CANDIDATE-DATA-EVIDENCE-BUNDLE-RECONCILIATION-APP-1",
             "FCF-FCP-0014-CANDIDATE-DATA-EVIDENCE-GAP-REMEDIATION-PLAN-APP-1",
             "FCF-FCP-0015-CANDIDATE-EVIDENCE-CONSOLE-LAUNCH-ROUTING-HARDENING-APP-1",
+            "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1",
         },
         "guard_wired_into_all_checks": (
             "scripts/control_center_fcp_0004_institutional_calendar_causal_intelligence_reconciliation_guard.py"

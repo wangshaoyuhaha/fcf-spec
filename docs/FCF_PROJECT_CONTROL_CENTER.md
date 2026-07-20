@@ -18041,3 +18041,31 @@ balance, position, wallet, order, execution, tag, release, or deployment path is
 authorized.
 
 <!-- FCP 0016 TRUSTED DATA SUPPLY CHAIN COST AWARE SOURCE ROUTING ARCHITECTURE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0016 TRUSTED DATA SUPPLY CHAIN COST AWARE SOURCE ROUTING ARCHITECTURE APP 1 LOCK START -->
+
+## FCP 0016 Trusted Data Supply Chain Cost Aware Source Routing Architecture App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The canonical architecture now preserves typed provider-neutral observations,
+point-in-time and revision lineage, corporate-action and trading-status
+evidence, immutable layered storage, cross-source reconciliation and
+quarantine, explicit source roles, A-share and BTC isolation, trial rights, and
+incremental after-cost data-value review.
+
+Validated result before full closeout:
+
+- FCP-0016 isolated suite: 2 passed
+- FCP governance targeted suite: 398 passed
+- architecture guard suite: 9 passed
+- full pytest: 5714 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: no tracked output changed; no restoration required
+
+No provider was selected, installed, connected, purchased, or activated. No
+credential, live data, account, trading API, order, execution, tag, release, or
+deployment path was created. P1-P47 remain frozen and no P48 is created.
+
+<!-- FCP 0016 TRUSTED DATA SUPPLY CHAIN COST AWARE SOURCE ROUTING ARCHITECTURE APP 1 LOCK END -->

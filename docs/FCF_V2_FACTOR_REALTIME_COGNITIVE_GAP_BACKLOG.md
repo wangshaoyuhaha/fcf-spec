@@ -166,6 +166,20 @@ factor is activated.
 | V2-FR-GAP-085 | institutional-factor lifecycle, rejection history, and Operator approval registry | NOT_IMPLEMENTED |
 | V2-FR-GAP-086 | leakage, survivorship, multiple-testing, sensitivity, ablation, capacity, and out-of-sample validation | RESEARCH_REQUIRED |
 
+## Trusted Data Supply Chain and Cost-Aware Routing Gaps
+
+| ID | Gap | Status |
+| --- | --- | --- |
+| V2-FR-GAP-087 | canonical immutable typed observation schema and provider-edge conversion registry | NOT_IMPLEMENTED |
+| V2-FR-GAP-088 | event, publication, availability, first-tradable, ingest, and revision clock implementation | NOT_IMPLEMENTED |
+| V2-FR-GAP-089 | raw-price, corporate-action, adjustment-factor, query-policy, and revision lineage | NOT_IMPLEMENTED |
+| V2-FR-GAP-090 | explicit A-share trading-status evidence and versioned missing-bar or suspension treatment | RESEARCH_REQUIRED |
+| V2-FR-GAP-091 | immutable RAW, NORMALIZED, and RESEARCH local storage with schema, digest, rights, retention, and lineage manifests | NOT_IMPLEMENTED |
+| V2-FR-GAP-092 | cross-source unit, clock, adjustment, revision, duplicate, outlier, coverage, conflict, and quarantine runtime | NOT_IMPLEMENTED |
+| V2-FR-GAP-093 | isolated candidate-provider compatibility and evidence matrix for RQData, MiniQMT market data, Tushare, AkShare, and BaoStock | RESEARCH_REQUIRED |
+| V2-FR-GAP-094 | incremental after-cost data-value experiment, research budget, purchase, renewal, and stop evidence | RESEARCH_REQUIRED |
+| V2-FR-GAP-095 | BTC 24x7 event-time, sequence, mark or index price, funding, contract, and cross-venue source semantics | RESEARCH_REQUIRED |
+
 ## Roadmap Backlog
 
 | Phase | Scope | Status |
