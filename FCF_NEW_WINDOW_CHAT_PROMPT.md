@@ -10961,3 +10961,63 @@ remain frozen and no P48 was created. No broker, exchange, account, balance,
 position, wallet, order, execution, tag, release, or deployment path was created.
 
 <!-- FCP 0014 CANDIDATE DATA EVIDENCE GAP REMEDIATION PLAN APP 1 FINAL END -->
+
+
+<!-- FCP 0015 CANDIDATE EVIDENCE CONSOLE LAUNCH ROUTING HARDENING APP 1 APPROVAL START -->
+
+## FCP 0015 Candidate Evidence Console Launch Routing Hardening App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0015-candidate-evidence-console-launch-routing-hardening-app-1`
+
+Approved order:
+
+- D1 exact registered review-route URL builders
+- D2 explicit Simplified Chinese or English query propagation
+- D3 identical printed and automatically opened loopback URL
+- D4 focused regression tests for FCP-0013 and FCP-0014 launchers
+- D5 isolated, targeted, full, and unified validation
+- D6 merge and final authority synchronization
+
+The delivery changes local presentation launch routing only. It cannot modify
+calculation or evidence authority, contact or select a provider, accept or store
+credentials, activate realtime data, close a gap, start a product phase, create
+P48, or enable trading or execution.
+
+P1-P47 remain frozen. Paper-only, local-only, loopback-only, sidecar-only,
+registered-artifact-only, read-only presentation, Operator review,
+Deterministic Engine authority, Registered Evidence authority, and
+AI-advisory-only boundaries remain binding. No broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path is
+authorized.
+
+<!-- FCP 0015 CANDIDATE EVIDENCE CONSOLE LAUNCH ROUTING HARDENING APP 1 APPROVAL END -->
+
+
+<!-- FCP 0015 CANDIDATE EVIDENCE CONSOLE LAUNCH ROUTING HARDENING APP 1 LOCK START -->
+
+## FCP 0015 Candidate Evidence Console Launch Routing Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The FCP-0013 and FCP-0014 launchers now print and automatically open the same
+exact registered loopback review route. The selected `zh-CN` or `en` language
+is propagated exactly once and unregistered language values fail closed.
+
+Validated result:
+
+- FCP-0015 isolated suite: 8 passed
+- FCP-0013 through FCP-0015 related suite: 62 passed
+- FCP governance guard subset: 44 passed
+- full pytest: 5712 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+
+The delivery changes presentation routing only. P1-P47 remain frozen and no P48
+is created. No provider client, credential, network activation, broker,
+exchange, account, balance, position, wallet, order, execution, tag, release, or
+deployment path is authorized.
+
+<!-- FCP 0015 CANDIDATE EVIDENCE CONSOLE LAUNCH ROUTING HARDENING APP 1 LOCK END -->
