@@ -47,6 +47,8 @@ EXPECTED_FINAL_REFS = (
 )
 EXPECTED_EVIDENCE_COMMITS = (
     "e6b5b8be1ad615d2a1e7df79c0ddb2058c1d4ee1",
+    "8a6c6a5cf924db3b820de6cce8f09bb5d346803c",
+    "999a736d2b7241642c0a6a010e2de004c403fff2",
 )
 
 

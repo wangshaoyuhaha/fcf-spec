@@ -1,6 +1,6 @@
 # FCF FCP 0013 Candidate Data Evidence Bundle Reconciliation App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Evidence Bundle Boundary
 
