@@ -120,3 +120,10 @@ reaction, expiry basis and roll, equity supply, FX transmission, institutional
 crowding, quarter-end pressure, holiday liquidity, policy novelty, and capital
 transmission. Candidate names and legacy aliases are not factor registration,
 formula approval, or runtime activation.
+
+Proposal `FCF-FCP-0005` registers a non-authorizing first-MVP market and product
+readiness decision gate for `V2-FR-GAP-042` through `V2-FR-GAP-047`. The gate
+compares registered target, stop, data-rights, unit-economics, commercial,
+legal, and repository-license evidence without scoring, ranking, choosing a
+winner, selecting a market, or authorizing a product phase. It remains
+`NEEDS_RESEARCH`, `phase_id: NONE`, and `operator_decision: PENDING`.
