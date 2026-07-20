@@ -157,6 +157,7 @@ def validate_fcp_0001_state(
             and current_truth.get("current_governance_phase_id") in {
                 "NONE",
                 "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
+                "FCF-FCP-0006-A-SHARE-MVP-TARGET-DATA-ACCEPTANCE-BASELINE-APP-1",
             }
             and current_truth.get("current_governance_phase_status") in {
                 "NONE",
