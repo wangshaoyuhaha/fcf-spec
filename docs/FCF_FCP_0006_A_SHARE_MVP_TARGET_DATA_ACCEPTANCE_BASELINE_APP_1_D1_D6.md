@@ -1,6 +1,6 @@
 # FCF FCP 0006 A-Share MVP Target Data Acceptance Baseline App 1 D1-D6
 
-Status: IMPLEMENTED_PENDING_VALIDATION
+Status: COMPLETE_VALIDATED_READY_FOR_MAIN_MERGE
 
 ## D1 Boundary and Objective Contracts
 
@@ -43,3 +43,13 @@ Validation cannot select A-share as the realtime product market, approve a data
 provider or license, set empirical thresholds, close a future-readiness gap,
 authorize a product phase, or create V2-R48. FCF-FCP-0006 remains
 ACCEPTED_ARCHITECTURE with phase_id NONE.
+
+## Validation Evidence
+
+- isolated D1-D6 and guard suite: 22 passed
+- FCP-0001 through FCP-0006 and governance targeted suite: 151 passed
+- full pytest: 5467 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated tracked outputs: zero changes
+- untracked files: zero
+- `git diff --check`: passed
