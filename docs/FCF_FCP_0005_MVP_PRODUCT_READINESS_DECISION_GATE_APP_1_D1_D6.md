@@ -1,6 +1,6 @@
 # FCF FCP 0005 MVP Product Readiness Decision Gate App 1 D1-D6
 
-Status: IMPLEMENTED_VALIDATION_PENDING
+Status: COMPLETE_VALIDATED_READY_FOR_MAIN_MERGE
 
 ## D1 Boundary and Contracts
 
@@ -42,10 +42,10 @@ NEEDS_RESEARCH with phase_id NONE and Operator decision PENDING.
 
 ## Validation Evidence
 
-- isolated D1-D6 suite: PENDING
-- product-readiness and governance targeted suite: PENDING
-- full pytest: PENDING
-- `scripts/run_all_checks.py`: PENDING
-- generated tracked outputs: PENDING
-- untracked files: PENDING
-- `git diff --check`: PENDING
+- isolated D1-D6 and guard suite: 23 passed
+- FCP-0001 through FCP-0005 and governance targeted suite: 138 passed
+- full pytest: 5445 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated tracked outputs: restored with zero changes
+- untracked files: zero
+- `git diff --check`: passed

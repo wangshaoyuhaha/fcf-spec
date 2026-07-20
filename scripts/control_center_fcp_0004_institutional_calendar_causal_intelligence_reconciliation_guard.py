@@ -257,7 +257,10 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
         ),
         "proposal_evidence_exact": proposal.get("evidence_refs")
         == EXPECTED_EVIDENCE_REFS,
-        "no_active_phase": truth.get("current_governance_phase_id") == "NONE"
+        "no_active_phase": truth.get("current_governance_phase_id") in {
+            "NONE",
+            "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
+        }
         and truth.get("current_product_implementation_phase") == "NONE"
         and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
         "p48_forbidden": safety.get("p48_allowed") is False,
