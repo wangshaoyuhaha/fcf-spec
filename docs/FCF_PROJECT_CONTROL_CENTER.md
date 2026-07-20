@@ -17275,3 +17275,40 @@ exchange, account, balance, position, wallet, order, execution, tag, release,
 or deployment path was created or authorized.
 
 <!-- FCP 0008 CHINESE BROWSER CONSOLE LOCAL DATA INTAKE PREVIEW APP 1 FINAL END -->
+
+<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 APPROVAL START -->
+
+## FCP 0009 Provider-Neutral Market Data Adapter Readiness App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0009-market-data-adapter-readiness-app-1`
+
+Approved order:
+
+- D1 closed adapter, mapping, entitlement, and activation contracts
+- D2 provider-neutral tick, minute-bar, and order-book observation normalization
+- D3 composition with frozen V2-R3 local ingress and V2-R24 clock semantics
+- D4 deterministic heartbeat, latency, sequence, coverage, and degradation readiness
+- D5 Simplified Chinese read-only market-data diagnostics sidecar
+- D6 guards, validation, merge, and final authority synchronization
+
+This phase uses only registered local replay or synthetic fixtures. It does not
+connect to RQData or any provider, retrieve network data, store credentials,
+select a provider, approve license or retention rights, claim realtime readiness,
+close a referenced gap, or start a product phase. External activation remains
+blocked until a separate Operator-approved entitlement and network phase.
+
+FCF-FCP-0009 remains ACCEPTED_ARCHITECTURE with phase_id NONE. It composes the
+frozen V2-R3 event ingress, V2-R24 multi-clock state, and existing browser
+runtime; it does not modify P1-P47 or create P48.
+
+Paper-only, local-only, loopback-only, sidecar-only, registered-artifact-only,
+read-only presentation, Operator review, Deterministic Engine authority,
+Registered Evidence authority, and AI-advisory-only boundaries remain binding.
+No broker, exchange, credential, account, balance, position, wallet, order,
+execution, tag, release, or deployment path is authorized.
+
+<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 APPROVAL END -->

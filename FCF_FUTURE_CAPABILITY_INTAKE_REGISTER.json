@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 9,
+  "next_proposal_sequence": 10,
   "proposals": [
     {
       "adr_refs": [],
@@ -252,6 +252,36 @@
       "summary": "Add an ASCII-source Chinese presentation adapter for the existing read-only browser console and a provider-neutral registered local CSV intake preview. Reuse existing console and artifact authorities, preserve GET and HEAD only, expose deterministic digest, schema, bounded quality, rights, and missing-coverage facts, and provide explicit Operator guidance without browser upload, automatic registration, source mutation, provider selection, realtime access, product readiness, or execution authority.",
       "supersedes": [],
       "title": "Chinese browser console and provider-neutral local data intake preview"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-004",
+        "FCF-V2-ADR-006",
+        "FCF-V2-ADR-008",
+        "FCF-V2-ADR-020",
+        "FCF-V2-ADR-021"
+      ],
+      "architecture_refs": [
+        "FCF-V2-FACTOR-REALTIME-COGNITIVE-EXPANSION"
+      ],
+      "evidence_refs": [],
+      "gap_refs": [
+        "V2-FR-GAP-022",
+        "V2-FR-GAP-023",
+        "V2-FR-GAP-024",
+        "V2-FR-GAP-025",
+        "V2-FR-GAP-028",
+        "V2-FR-GAP-044"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0009",
+      "source": "operator-approved-non-network-development",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-20T06:23:01Z",
+      "summary": "Compose the frozen local event ingress, multi-clock semantics, and localized browser console into a provider-neutral market-data adapter readiness layer. Register local tick, minute-bar, and order-book mappings; normalize exact registered replay observations; expose deterministic heartbeat, latency, sequence, coverage, and degradation diagnostics; and keep external activation blocked without selecting RQData or any provider, using network access, storing credentials, approving rights, claiming realtime or product readiness, closing gaps, or enabling execution.",
+      "supersedes": [],
+      "title": "Provider-neutral market data adapter readiness and diagnostics"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

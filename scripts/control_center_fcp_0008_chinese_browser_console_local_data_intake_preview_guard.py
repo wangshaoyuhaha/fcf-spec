@@ -88,6 +88,15 @@ def build_fcp_0008_guard_report(root: Path = ROOT) -> dict[str, object]:
         truth.get("current_governance_phase_id") == "NONE"
         and truth.get("latest_completed_governance_delivery") == DELIVERY_ID
     )
+    successor = (
+        truth.get("current_governance_phase_id")
+        == "FCF-FCP-0009-PROVIDER-NEUTRAL-MARKET-DATA-ADAPTER-READINESS-APP-1"
+        and truth.get("latest_completed_governance_delivery") == DELIVERY_ID
+    ) or (
+        truth.get("current_governance_phase_id") == "NONE"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0009-PROVIDER-NEUTRAL-MARKET-DATA-ADAPTER-READINESS-APP-1"
+    )
     source_terms = (app_text + "\n" + script_text).lower()
     checks = {
         "files_ascii_and_json": readable,
@@ -108,7 +117,7 @@ def build_fcp_0008_guard_report(root: Path = ROOT) -> dict[str, object]:
                 Path("FCF_CURRENT_STATE_FCP_0008_CHINESE_BROWSER_CONSOLE_LOCAL_DATA_INTAKE_PREVIEW_APP_1_FINAL.md"),
             )
         ),
-        "manifest_state_safe": active or final,
+        "manifest_state_safe": active or final or successor,
         "proposal_architecture_only": (
             proposal.get("status") == "ACCEPTED_ARCHITECTURE"
             and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"
