@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import re
 from dataclasses import dataclass
 from urllib.parse import parse_qs, urlsplit
 
@@ -87,8 +88,25 @@ class MarketDataDiagnosticsConsoleApplication:
     def _localize(document: str, locale: ConsoleLocale) -> str:
         localized = localize_html(document, locale)
         if locale.locale_id == "zh-CN":
+            protected: list[str] = []
+
+            def preserve(match: re.Match[str]) -> str:
+                protected.append(match.group(0))
+                return f"__FCF_FCP0009_LOCALIZATION_PROTECTED_{len(protected) - 1}__"
+
+            localized = re.sub(
+                r"<(?:code|td)\b[^>]*>.*?</(?:code|td)>",
+                preserve,
+                localized,
+                flags=re.DOTALL | re.IGNORECASE,
+            )
             for source in sorted(_ZH_CN, key=len, reverse=True):
                 localized = localized.replace(source, _ZH_CN[source])
+            for index, value in enumerate(protected):
+                localized = localized.replace(
+                    f"__FCF_FCP0009_LOCALIZATION_PROTECTED_{index}__",
+                    value,
+                )
         return localized
 
     def _body(self) -> str:

@@ -12,10 +12,10 @@ Evidence commits:
 
 Validation results:
 
-- FCP-0009 target suite: 25 passed
-- browser console, FCP-0008, V2-R3, V2-R24, and FCP-0009 targeted suite: 570 passed
-- FCP-0001 through FCP-0009 governance suite: 215 passed
-- full pytest: 5531 passed
+- FCP-0009 target suite: 26 passed
+- browser console, FCP-0008, V2-R3, V2-R24, and FCP-0009 targeted suite: 571 passed
+- FCP-0001 through FCP-0009 governance suite: 216 passed
+- full pytest: 5532 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored
 
@@ -27,6 +27,7 @@ Delivered result:
 - frozen V2-R24 multi-clock state is composed without winner selection
 - coverage, heartbeat, latency, sequence, and degradation facts are deterministic
 - the Chinese browser console exposes a read-only market-data diagnostics page
+- both localization catalogs preserve registered evidence cells and code values
 - external activation remains blocked and no provider was selected
 
 FCF-FCP-0009 remains ACCEPTED_ARCHITECTURE with phase_id NONE. Entitlement and

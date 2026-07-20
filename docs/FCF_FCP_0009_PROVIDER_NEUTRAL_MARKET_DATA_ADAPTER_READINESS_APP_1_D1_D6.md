@@ -43,6 +43,8 @@ BLOCKED and cannot imply realtime entitlement or product readiness.
 supports GET and HEAD, defaults to Simplified Chinese, retains an English option,
 and contains no form, button, script, upload, write, approval, trading, or
 execution control. Existing JSON health output remains machine-readable.
+Registered evidence cells and code values remain protected from both the base
+localization catalog and the FCP-0009 diagnostics catalog.
 
 The two local tools build a registered synthetic replay snapshot and either
 print deterministic JSON or run the loopback-only diagnostics console. They do
@@ -52,10 +54,10 @@ not open external network connections or accept credentials.
 
 Validation evidence:
 
-- FCP-0009 target suite: 25 passed
-- browser console, FCP-0008, V2-R3, V2-R24, and FCP-0009 targeted suite: 570 passed
-- FCP-0001 through FCP-0009 governance suite: 215 passed
-- full pytest: 5531 passed
+- FCP-0009 target suite: 26 passed
+- browser console, FCP-0008, V2-R3, V2-R24, and FCP-0009 targeted suite: 571 passed
+- FCP-0001 through FCP-0009 governance suite: 216 passed
+- full pytest: 5532 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored by the run-all allowlist contract
 

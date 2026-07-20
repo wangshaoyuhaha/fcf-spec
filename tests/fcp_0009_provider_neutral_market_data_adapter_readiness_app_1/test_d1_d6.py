@@ -10,6 +10,7 @@ from apps.browser_product_console_runtime_app_1 import (
     ConsoleReadModel,
 )
 from apps.fcp_0008_chinese_browser_console_local_data_intake_preview_app_1 import (
+    ConsoleLocale,
     LocalizedBrowserConsoleApplication,
 )
 from apps.fcp_0009_provider_neutral_market_data_adapter_readiness_app_1 import (
@@ -251,6 +252,21 @@ def test_d5_diagnostics_page_is_chinese_read_only_and_safe() -> None:
     assert "READY_FOR_LOCAL_REPLAY" in body
     assert "BLOCKED" in body
     assert "<form" not in body and "<button" not in body and "<script" not in body
+
+
+def test_d5_fcp_0009_localization_preserves_evidence_cells() -> None:
+    document = (
+        "<html><body><h1>Market Data Diagnostics</h1>"
+        "<td>Market Data Diagnostics</td>"
+        "<code>Provider selection</code></body></html>"
+    )
+    localized = MarketDataDiagnosticsConsoleApplication._localize(
+        document,
+        ConsoleLocale("zh-CN"),
+    )
+    assert "<h1>\u5e02\u573a\u6570\u636e\u8bca\u65ad</h1>" in localized
+    assert "<td>Market Data Diagnostics</td>" in localized
+    assert "<code>Provider selection</code>" in localized
 
 
 def test_d5_diagnostics_supports_english_head_and_rejects_post() -> None:
