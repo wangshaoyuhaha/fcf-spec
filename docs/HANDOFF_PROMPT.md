@@ -9433,3 +9433,30 @@ exchange, account, balance, position, wallet, order, execution, tag, release,
 or deployment path is authorized.
 
 <!-- FCP 0008 CHINESE BROWSER CONSOLE LOCAL DATA INTAKE PREVIEW APP 1 APPROVAL END -->
+
+<!-- FCP 0008 CHINESE BROWSER CONSOLE LOCAL DATA INTAKE PREVIEW APP 1 LOCK START -->
+
+## FCP 0008 Chinese Browser Console Local Data Intake Preview App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar adds an ASCII-source Simplified Chinese presentation catalog, an
+explicit English option, a provider-neutral exact-byte local CSV preview, a
+read-only local intake workspace, and explicit loopback launch diagnostics.
+
+The preview requires a registered SHA-256 and byte length. It reads source bytes
+without copying or rewriting them, normalizes leading BOM markers only in memory,
+and presents schema, row count, digest, unresolved rights, retention, and blocked
+product-evidence state. Browser methods remain GET and HEAD only.
+
+This delivery does not upload, write, automatically register, select a provider,
+authorize realtime access, close a referenced gap, satisfy product readiness, or
+create execution authority. FCF-FCP-0008 remains ACCEPTED_ARCHITECTURE with
+phase_id NONE.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only, loopback-only,
+sidecar-only, registered-artifact-only, read-only presentation, Operator review,
+Deterministic Engine calculation authority, Registered Evidence authority, and
+AI-advisory-only boundaries remain binding.
+
+<!-- FCP 0008 CHINESE BROWSER CONSOLE LOCAL DATA INTAKE PREVIEW APP 1 LOCK END -->
