@@ -10230,3 +10230,37 @@ activation, broker, exchange, account, balance, position, wallet, order,
 execution, tag, release, or deployment path was created.
 
 <!-- FCP 0015 CANDIDATE EVIDENCE CONSOLE LAUNCH ROUTING HARDENING APP 1 FINAL END -->
+
+
+<!-- FCP 0016 TRUSTED DATA SUPPLY CHAIN COST AWARE SOURCE ROUTING ARCHITECTURE APP 1 APPROVAL START -->
+
+## FCP 0016 Trusted Data Supply Chain Cost Aware Source Routing Architecture App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0016-trusted-data-supply-chain-cost-aware-source-routing-architecture-app-1`
+
+Approved order:
+
+- D1 canonical typed data contract and provider-edge isolation
+- D2 point-in-time, revision, adjustment, and trading-status law
+- D3 layered local storage, provenance, reconciliation, and quarantine
+- D4 deterministic source roles, degraded routing, and market isolation
+- D5 rights-aware trial use and empirical data-cost value gates
+- D6 guards, validation, merge, and final authority synchronization
+
+This governance delivery cannot install or invoke a provider client, retrieve
+live data, retain trial data beyond proven rights, select or purchase a
+provider, store credentials, activate realtime capability, close a gap, start a
+product phase, create P48, or enable trading or execution.
+
+P1-P47 remain frozen. Paper-only, local-only, loopback-only, sidecar-only,
+registered-artifact-only, read-only presentation, Operator review,
+Deterministic Engine authority, Registered Evidence authority, and
+AI-advisory-only boundaries remain binding. No broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path is
+authorized.
+
+<!-- FCP 0016 TRUSTED DATA SUPPLY CHAIN COST AWARE SOURCE ROUTING ARCHITECTURE APP 1 APPROVAL END -->
