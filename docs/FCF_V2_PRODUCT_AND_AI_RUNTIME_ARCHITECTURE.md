@@ -11581,3 +11581,32 @@ exchange, account, balance, position, wallet, order, execution, tag, release,
 or deployment path is created or authorized.
 
 <!-- FCP 0007 A SHARE RQDATA DEMO ARTIFACT INTAKE REPLAY ACCEPTANCE APP 1 LOCK END -->
+
+<!-- FCP 0007 A SHARE RQDATA DEMO ARTIFACT INTAKE REPLAY ACCEPTANCE APP 1 FINAL START -->
+
+## FCP 0007 A-Share RQData Demo Artifact Intake Replay Acceptance App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Evidence commits:
+
+- governance approval: `d80bc57efc2519818e12d7295e514af3993e161f`
+- sidecar delivery: `33ff29adb5ea07d50708bb3516b2d8123e51c179`
+- main merge: `dcca8d8f3278954d7098b05176bebd0e0bc6fcf3`
+
+Validation: 17 FCP-0007 tests passed; 168 targeted governance tests passed;
+5484 full pytest tests passed; `scripts/run_all_checks.py` passed. Generated
+runtime outputs were restored, and raw provider bytes remain outside the
+repository.
+
+The exact Demo is accepted only for local schema evaluation and deterministic
+replay. Product evidence remains blocked. RQData is not selected. Commercial
+entitlement, retention, realtime coverage, product readiness, and all referenced
+gaps remain unresolved. FCF-FCP-0007 remains ACCEPTED_ARCHITECTURE with phase_id
+NONE, and no product phase is selected.
+
+P1-P47 remain frozen. No P48 was created. No network, credential, broker,
+exchange, account, balance, position, wallet, order, execution, tag, release,
+or deployment path was created or authorized.
+
+<!-- FCP 0007 A SHARE RQDATA DEMO ARTIFACT INTAKE REPLAY ACCEPTANCE APP 1 FINAL END -->
