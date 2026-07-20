@@ -10181,3 +10181,36 @@ balance, position, wallet, order, execution, tag, release, or deployment path
 was created or run.
 
 <!-- FCP 0006 A SHARE MVP TARGET DATA ACCEPTANCE BASELINE APP 1 FINAL END -->
+
+
+<!-- FCP 0007 A SHARE RQDATA DEMO ARTIFACT INTAKE REPLAY ACCEPTANCE APP 1 APPROVAL START -->
+
+## FCP 0007 A-Share RQData Demo Artifact Intake Replay Acceptance App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0007-a-share-rqdata-demo-artifact-replay-app-1`
+
+Approved D1-D6 scope:
+
+- D1 closed local evaluation-demo, non-redistribution, and no-provider-selection boundary
+- D2 exact byte digest, repeated-BOM normalization, and bounded daily-bar loader
+- D3 schema, type, uniqueness, chronology, price-limit, and OHLCV quality findings
+- D4 deterministic normalized-row and replay fingerprints without investment conclusions
+- D5 FCF-FCP-0001 and FCF-FCP-0006 gap bridge plus immutable Operator packet
+- D6 full validation, merge, final synchronization, and cleanup
+
+The Operator-provided RQData official demo is approved only for local schema
+and replay evaluation. Raw provider bytes remain outside the repository and
+must not be redistributed. The phase does not select RQData, approve
+commercial use or retention rights, authorize realtime or Level-1 access,
+satisfy FCF-FCP-0005, close any referenced gap, or authorize a product phase.
+
+P1-P47 remain frozen. No P48 is created. All permanent safety and authority
+boundaries remain binding. No network, credential, broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path
+is authorized.
+
+<!-- FCP 0007 A SHARE RQDATA DEMO ARTIFACT INTAKE REPLAY ACCEPTANCE APP 1 APPROVAL END -->
