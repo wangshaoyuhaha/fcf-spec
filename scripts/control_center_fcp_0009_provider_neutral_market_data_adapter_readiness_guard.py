@@ -19,6 +19,11 @@ LOCK_START = "<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1
 LOCK_END = "<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 LOCK END -->"
 FINAL_START = "<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 FINAL START -->"
 FINAL_END = "<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 FINAL END -->"
+EXPECTED_EVIDENCE_COMMITS = (
+    "ea31f0292268316959a9f37fea1345b907476d8f",
+    "fa7fae723fb9c8ceefe82a62f03d77ffce088217",
+    "1f31f392c771155551d938041d1a67ccc6810264",
+)
 APP_ROOT = Path("apps/fcp_0009_provider_neutral_market_data_adapter_readiness_app_1")
 APP_FILES = (
     "__init__.py",
@@ -92,6 +97,21 @@ def build_fcp_0009_guard_report(root: Path = ROOT) -> dict[str, object]:
         "lock_exact": len(texts) == 5 and all(locks) and len(set(locks)) == 1,
         "final_exact_when_closed": not final
         or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
+        "final_evidence_commits_exact_when_closed": not final
+        or (
+            all(
+                commit in (finals[0] or "")
+                for commit in EXPECTED_EVIDENCE_COMMITS
+            )
+            and all(
+                commit
+                in (
+                    root
+                    / "FCF_CURRENT_STATE_FCP_0009_PROVIDER_NEUTRAL_MARKET_DATA_ADAPTER_READINESS_APP_1_FINAL.md"
+                ).read_text(encoding="ascii")
+                for commit in EXPECTED_EVIDENCE_COMMITS
+            )
+        ),
         "app_surface_exact": sorted(
             path.name for path in (root / APP_ROOT).glob("*.py")
         )

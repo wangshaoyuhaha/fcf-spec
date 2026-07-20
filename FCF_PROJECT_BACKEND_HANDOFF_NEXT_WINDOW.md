@@ -10426,3 +10426,38 @@ Deterministic Engine calculation authority, Registered Evidence authority, and
 AI-advisory-only boundaries remain binding.
 
 <!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 LOCK END -->
+
+<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 FINAL START -->
+
+## FCP 0009 Provider-Neutral Market Data Adapter Readiness App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Evidence commits:
+
+- governance approval: `ea31f0292268316959a9f37fea1345b907476d8f`
+- sidecar delivery: `fa7fae723fb9c8ceefe82a62f03d77ffce088217`
+- main merge: `1f31f392c771155551d938041d1a67ccc6810264`
+
+Validated result:
+
+- FCP-0009 target suite: 24 passed
+- related browser console and frozen-runtime suite: 568 passed
+- FCP-0001 through FCP-0009 governance suite: 214 passed
+- full pytest: 5530 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored
+
+The provider-neutral adapter readiness layer composes V2-R3 and V2-R24 and adds
+read-only Chinese market-data diagnostics. External activation remains blocked;
+entitlement and retention remain unresolved; provider selection remains
+unselected; and credentials and network clients remain absent.
+
+FCF-FCP-0009 remains ACCEPTED_ARCHITECTURE with phase_id NONE. It closed no
+referenced gap, claimed no realtime or product readiness, and started no product
+phase.
+
+P1-P47 remain frozen. No P48, broker, exchange, account, balance, position,
+wallet, order, execution, tag, release, or deployment path was created.
+
+<!-- FCP 0009 PROVIDER NEUTRAL MARKET DATA ADAPTER READINESS APP 1 FINAL END -->

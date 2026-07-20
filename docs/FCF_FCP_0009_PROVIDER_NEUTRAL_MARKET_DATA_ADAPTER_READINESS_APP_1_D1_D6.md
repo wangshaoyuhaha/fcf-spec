@@ -1,6 +1,6 @@
 # FCF FCP 0009 Provider-Neutral Market Data Adapter Readiness App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Adapter And Activation Contracts
 
