@@ -96,11 +96,11 @@ def test_proposed_item_does_not_require_or_imply_phase_approval():
         )
     )
     proposal = _proposal(
-        proposal_id="FCF-FCP-0017",
+        proposal_id="FCF-FCP-0018",
         submitted_at_utc="2026-07-17T01:00:00Z",
     )
     register["proposals"].append(proposal)
-    register["next_proposal_sequence"] = 18
+    register["next_proposal_sequence"] = 19
     checks = validate_intake_register(register)
 
     assert all(checks.values())

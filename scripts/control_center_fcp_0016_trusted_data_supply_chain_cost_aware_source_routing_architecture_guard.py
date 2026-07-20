@@ -49,6 +49,20 @@ def build_fcp_0016_guard_report(root: Path = ROOT) -> dict[str, object]:
     closed = truth.get("current_governance_phase_id") == "NONE" and truth.get(
         "latest_completed_governance_delivery"
     ) == DELIVERY_ID
+    successor = (
+        truth.get("current_governance_phase_id") == DELIVERY_ID.replace(
+            "0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE",
+            "0017-A-SHARE-TRUSTED-DAILY-DATA-SUBSTRATE-LOCAL-CALIBRATION",
+        )
+        and truth.get("latest_completed_governance_delivery") == DELIVERY_ID
+    ) or (
+        truth.get("current_governance_phase_id") == "NONE"
+        and truth.get("latest_completed_governance_delivery")
+        == DELIVERY_ID.replace(
+            "0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE",
+            "0017-A-SHARE-TRUSTED-DAILY-DATA-SUBSTRATE-LOCAL-CALIBRATION",
+        )
+    )
     approvals = tuple(_block(text, APPROVAL_START, APPROVAL_END) for text in texts)
     locks = tuple(_block(text, LOCK_START, LOCK_END) for text in texts)
     finals = tuple(_block(text, FINAL_START, FINAL_END) for text in texts)
@@ -66,7 +80,7 @@ def build_fcp_0016_guard_report(root: Path = ROOT) -> dict[str, object]:
         or (len(texts) == 5 and all(locks) and len(set(locks)) == 1),
         "final_exact_when_closed": not closed
         or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
-        "manifest_state_safe": active or closed,
+        "manifest_state_safe": active or closed or successor,
         "architecture_registered": ARCHITECTURE_ID in architectures,
         "proposal_registered": proposal.get("status") == "ACCEPTED_ARCHITECTURE"
         and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"

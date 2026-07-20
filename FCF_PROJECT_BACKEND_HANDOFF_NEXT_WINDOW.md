@@ -11218,3 +11218,30 @@ this A-share substrate is completed and validated. All permanent research,
 authority, review, and execution boundaries remain binding.
 
 <!-- FCP 0017 A SHARE TRUSTED DAILY DATA SUBSTRATE LOCAL CALIBRATION APP 1 APPROVAL END -->
+
+
+<!-- FCP 0017 A SHARE TRUSTED DAILY DATA SUBSTRATE LOCAL CALIBRATION APP 1 LOCK START -->
+
+## FCP 0017 A-Share Trusted Daily Data Substrate Local Calibration App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The A-share trusted daily substrate now enforces exact immutable observations,
+point-in-time clocks, explicit trading status, raw and adjusted price-view
+separation, adjustment-factor lineage, deterministic layered manifests, exact
+registered local artifact verification, and fail-closed quality findings.
+
+Validated result:
+
+- FCP-0017 isolated suite: 13 passed
+- FCP governance targeted suite: 398 passed
+- full pytest: 5727 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: no tracked output changed; no restoration required
+
+No provider SDK, network retrieval, credential, provider selection, raw trial
+byte retention in the repository, realtime activation, product phase, P48,
+trading API, order, execution, tag, release, or deployment path was created.
+BTC data-source implementation remains a separate successor after merge.
+
+<!-- FCP 0017 A SHARE TRUSTED DAILY DATA SUBSTRATE LOCAL CALIBRATION APP 1 LOCK END -->
