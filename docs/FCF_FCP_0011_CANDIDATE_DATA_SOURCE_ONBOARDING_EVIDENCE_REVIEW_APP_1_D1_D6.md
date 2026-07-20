@@ -1,6 +1,6 @@
 # FCF FCP 0011 Candidate Data Source Onboarding Evidence Review App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Candidate Profile
 
@@ -56,6 +56,9 @@ Validation evidence:
 - full pytest: 5621 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored by the explicit allowlist
+- governance approval commit: `2986334cb15c025162acc8246655cd1404a564e1`
+- sidecar delivery commit: `e1d188801efa95f8be9f59e8e401e37971524564`
+- main merge commit: `d9e5057bdebca66526125a105a0f1700c011d2da`
 
 FCP-FCP-0011 remains ACCEPTED_ARCHITECTURE with phase_id NONE. Validation cannot
 select a provider, connect a network, accept credentials, approve rights, close

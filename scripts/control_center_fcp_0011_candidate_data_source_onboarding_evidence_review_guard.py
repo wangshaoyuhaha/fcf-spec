@@ -36,6 +36,15 @@ CORE_FILES = (
     Path("scripts/run_fcp_0011_candidate_data_source_onboarding.py"),
 )
 FINAL_FILE = Path("FCF_CURRENT_STATE_FCP_0011_CANDIDATE_DATA_SOURCE_ONBOARDING_EVIDENCE_REVIEW_APP_1_FINAL.md")
+EXPECTED_FINAL_REFS = (
+    FINAL_FILE.as_posix(),
+    "docs/FCF_FCP_0011_CANDIDATE_DATA_SOURCE_ONBOARDING_EVIDENCE_REVIEW_APP_1_D1_D6.md",
+)
+EXPECTED_EVIDENCE_COMMITS = (
+    "2986334cb15c025162acc8246655cd1404a564e1",
+    "e1d188801efa95f8be9f59e8e401e37971524564",
+    "d9e5057bdebca66526125a105a0f1700c011d2da",
+)
 
 
 def _block(text: str, start: str, end: str) -> str | None:
@@ -66,6 +75,9 @@ def build_fcp_0011_guard_report(root: Path = ROOT) -> dict[str, object]:
     active = truth.get("current_governance_phase_id") == DELIVERY_ID
     closed = truth.get("current_governance_phase_id") == "NONE" and truth.get("latest_completed_governance_delivery") == DELIVERY_ID
     source_terms = (app_text + "\n" + script_text).lower()
+    final_text = ""
+    if (root / FINAL_FILE).is_file():
+        final_text = (root / FINAL_FILE).read_text(encoding="ascii")
     checks = {
         "files_ascii_and_json": readable,
         "approval_exact": len(texts) == 5 and all(approvals) and len(set(approvals)) == 1,
@@ -76,10 +88,12 @@ def build_fcp_0011_guard_report(root: Path = ROOT) -> dict[str, object]:
         "final_file_exists_when_closed": not closed or (root / FINAL_FILE).is_file(),
         "manifest_state_safe": active or closed,
         "proposal_architecture_only": proposal.get("status") == "ACCEPTED_ARCHITECTURE" and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE" and proposal.get("phase_id") == "NONE",
+        "proposal_evidence_transition_safe": proposal.get("evidence_refs") in ([], list(EXPECTED_FINAL_REFS)) and (not closed or proposal.get("evidence_refs") == list(EXPECTED_FINAL_REFS)),
         "permanent_safety_preserved": safety.get("p48_allowed") is False and safety.get("paper_only") is True and safety.get("local_only") is True and safety.get("loopback_only") is True and safety.get("registered_artifact_only") is True and safety.get("operator_review_mandatory") is True and safety.get("order_or_execution_path_allowed") is False,
         "closed_review_explicit": all(term in d1_d6 for term in ("TICK, MINUTE_BAR, and ORDER_BOOK", "External activation is always BLOCKED", "credentials", "GET and HEAD", "No form, button, script, upload")),
         "no_prohibited_runtime": all(term not in source_terms for term in ("import requests", "import socket", "import subprocess", "urllib.request", "websocket", "api_key", "access_token")),
         "run_all_wired": "control_center_fcp_0011_candidate_data_source_onboarding_evidence_review_guard.py" in (root / "scripts/run_all_checks.py").read_text(encoding="ascii"),
+        "final_evidence_commits_when_closed": not closed or all(commit in (finals[0] or "") and commit in final_text for commit in EXPECTED_EVIDENCE_COMMITS),
     }
     return {"checks": checks, "ok": all(checks.values())}
 
