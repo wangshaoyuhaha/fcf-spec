@@ -11785,10 +11785,10 @@ Evidence commits:
 
 Validated result:
 
-- FCP-0009 target suite: 26 passed
-- related browser console and frozen-runtime suite: 571 passed
-- FCP-0001 through FCP-0009 governance suite: 216 passed
-- full pytest: 5532 passed
+- FCP-0009 target suite: 27 passed
+- related browser console and frozen-runtime suite: 572 passed
+- FCP-0001 through FCP-0009 governance suite: 217 passed
+- full pytest: 5533 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored
 
@@ -11798,6 +11798,7 @@ entitlement and retention remain unresolved; provider selection remains
 unselected; and credentials and network clients remain absent. Every field map
 must carry explicit registered local rights, which the adapter only passes through.
 Both localization catalogs preserve registered evidence cells and code values.
+Readiness event, stream, and last-sequence facts are isolated by normalized market.
 
 FCF-FCP-0009 remains ACCEPTED_ARCHITECTURE with phase_id NONE. It closed no
 referenced gap, claimed no realtime or product readiness, and started no product

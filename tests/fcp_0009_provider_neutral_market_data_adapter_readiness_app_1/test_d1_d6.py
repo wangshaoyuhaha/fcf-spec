@@ -244,6 +244,38 @@ def test_d4_snapshot_collections_are_immutable_and_hash_is_stable() -> None:
         first.mapping_coverage["TICK"] = "MISSING"  # type: ignore[index]
 
 
+def test_d4_snapshot_normalizes_market_and_isolates_stream_sequences() -> None:
+    adapter, _ = build_registered_local_replay_fixture()
+    btc_map = replace(
+        _tick_map(),
+        mapping_id="btc-tick-map-test",
+        market="BTC",
+        registered_artifact_id="registered-btc-fixture",
+    )
+    adapter = replace(adapter, mappings=adapter.mappings + (btc_map,))
+    btc_payload = dict(_tick().payload)
+    btc_payload["symbol"] = "BTCUSDT"
+    adapter, _, _ = adapter.replay(
+        _tick(
+            observation_id="btc-tick-observation-1",
+            mapping_id="btc-tick-map-test",
+            payload=btc_payload,
+        ),
+        as_of_utc="2026-07-20T06:00:03Z",
+    )
+    snapshot = evaluate_market_data_adapter_readiness(
+        adapter,
+        market=" A-SHARE ",
+        as_of_utc="2026-07-20T06:00:03Z",
+    )
+    assert snapshot.market == "A-SHARE"
+    assert snapshot.event_count == 3
+    assert snapshot.stream_count == 3
+    assert all(
+        stream.startswith("market:A-SHARE:") for stream in snapshot.last_sequences
+    )
+
+
 def test_d5_diagnostics_page_is_chinese_read_only_and_safe() -> None:
     response = _console().dispatch("GET", "/market-data-diagnostics")
     body = response.body.decode("utf-8")

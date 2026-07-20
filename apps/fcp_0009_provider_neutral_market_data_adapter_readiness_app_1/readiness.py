@@ -7,7 +7,11 @@ from typing import Mapping
 from apps.v2_r24_local_multi_clock_event_state_foundation_app_1 import (
     resolve_multi_clock_event_state,
 )
-from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import instant, utc
+from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import (
+    identifier,
+    instant,
+    utc,
+)
 
 from .adapter import ProviderNeutralMarketDataAdapter
 from .contracts import OBSERVATION_KINDS, canonical_sha256
@@ -88,12 +92,13 @@ def evaluate_market_data_adapter_readiness(
 ) -> MarketDataAdapterReadinessSnapshot:
     if heartbeat_timeout_seconds <= 0:
         raise ValueError("heartbeat_timeout_seconds must be positive")
+    market_id = identifier(market, "market")
     evaluated = utc(as_of_utc, "as_of_utc")
-    mappings = tuple(item for item in adapter.mappings if item.market == market)
+    mappings = tuple(item for item in adapter.mappings if item.market == market_id)
     events = tuple(
         event
         for event in adapter.ingress.events
-        if event.stream_id.startswith(f"market:{market}:")
+        if event.stream_id.startswith(f"market:{market_id}:")
     )
     mapped_kinds = {item.observation_kind for item in mappings}
     observed_kinds = {
@@ -125,7 +130,7 @@ def evaluate_market_data_adapter_readiness(
         max_latency = None
     clock = resolve_multi_clock_event_state(
         adapter.clock_registry,
-        market=market,
+        market=market_id,
         horizon=clock_horizon,
         observed_at_utc=evaluated,
         as_of_utc=evaluated,
@@ -153,13 +158,13 @@ def evaluate_market_data_adapter_readiness(
     )
     local_state = "READY_FOR_LOCAL_REPLAY" if ready else ("DEGRADED" if mappings else "BLOCKED")
     return MarketDataAdapterReadinessSnapshot(
-        market=market,
+        market=market_id,
         evaluated_at_utc=evaluated,
         mapping_coverage=mapping_coverage,
         observation_coverage=observation_coverage,
         event_count=len(events),
         stream_count=len({event.stream_id for event in events}),
-        last_sequences=adapter.ingress.last_sequences,
+        last_sequences={event.stream_id: event.source_sequence for event in events},
         heartbeat_age_seconds=heartbeat_age,
         max_transport_latency_ms=max_latency,
         clock_state=clock.state,
