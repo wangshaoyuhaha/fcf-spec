@@ -81,6 +81,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0016_trusted_data_supply_chain_cost_aware_source_routing_architecture_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0017_a_share_trusted_daily_data_substrate_local_calibration_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
