@@ -99,6 +99,15 @@ def build_fcp_0010_guard_report(root: Path = ROOT) -> dict[str, object]:
         truth.get("current_governance_phase_id") == "NONE"
         and truth.get("latest_completed_governance_delivery") == DELIVERY_ID
     )
+    successor = (
+        truth.get("current_governance_phase_id")
+        == "FCF-FCP-0011-CANDIDATE-DATA-SOURCE-ONBOARDING-EVIDENCE-REVIEW-APP-1"
+        and truth.get("latest_completed_governance_delivery") == DELIVERY_ID
+    ) or (
+        truth.get("current_governance_phase_id") == "NONE"
+        and truth.get("latest_completed_governance_delivery")
+        == "FCF-FCP-0011-CANDIDATE-DATA-SOURCE-ONBOARDING-EVIDENCE-REVIEW-APP-1"
+    )
     source_terms = (app_text + "\n" + script_text).lower()
     final_text = ""
     if (root / FINAL_FILE).is_file():
@@ -116,7 +125,7 @@ def build_fcp_0010_guard_report(root: Path = ROOT) -> dict[str, object]:
         == sorted(APP_FILES),
         "core_files_exist": all((root / path).is_file() for path in CORE_FILES),
         "final_file_exists_when_closed": not final or bool(final_text),
-        "manifest_state_safe": active or final,
+        "manifest_state_safe": active or final or successor,
         "proposal_architecture_only": (
             proposal.get("status") == "ACCEPTED_ARCHITECTURE"
             and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"

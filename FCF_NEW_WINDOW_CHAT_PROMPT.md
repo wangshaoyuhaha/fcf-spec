@@ -10539,3 +10539,41 @@ only boundaries remain binding. No broker, exchange, account, balance, position,
 wallet, order, execution, tag, release, or deployment path was created.
 
 <!-- FCP 0010 SIMPLIFIED CHINESE CONSOLE LOCALIZATION CONSISTENCY APP 1 FINAL END -->
+
+
+<!-- FCP 0011 CANDIDATE DATA SOURCE ONBOARDING EVIDENCE REVIEW APP 1 APPROVAL START -->
+
+## FCP 0011 Candidate Data Source Onboarding Evidence Review App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0011-candidate-data-source-onboarding-evidence-review-app-1`
+
+Approved order:
+
+- D1 immutable candidate-profile and secret-exclusion contracts
+- D2 documentary evidence completeness assessment
+- D3 canonical TICK, MINUTE_BAR, and ORDER_BOOK compatibility assessment
+- D4 deterministic blocker, degradation, and missing-item review packet
+- D5 Simplified Chinese read-only browser review with explicit English option
+- D6 guards, validation, merge, and final authority synchronization
+
+The sidecar composes FCP-0001 and FCP-0009. Candidate names and declared
+capabilities are Operator-provided local facts only. Missing documentary evidence
+must remain visible and cannot be inferred, auto-approved, or converted into an
+entitlement or availability claim.
+
+This governance delivery selects no provider, opens no network connection,
+accepts or stores no credentials, approves no data rights or retention, claims
+no realtime or product readiness, closes no referenced gap, and starts no
+product implementation phase.
+
+P1-P47 remain frozen. No P48 is created. Paper-only, local-only, loopback-only,
+sidecar-only, registered-artifact-only, read-only presentation, Operator review,
+Deterministic Engine authority, Registered Evidence authority, and AI-advisory-
+only boundaries remain binding. No broker, exchange, account, balance, position,
+wallet, order, execution, tag, release, or deployment path is authorized.
+
+<!-- FCP 0011 CANDIDATE DATA SOURCE ONBOARDING EVIDENCE REVIEW APP 1 APPROVAL END -->
