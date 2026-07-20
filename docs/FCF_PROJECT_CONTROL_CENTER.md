@@ -17059,3 +17059,39 @@ exchange, account, balance, position, wallet, order, execution, tag, release,
 or deployment path is created or authorized.
 
 <!-- FCP 0006 A SHARE MVP TARGET DATA ACCEPTANCE BASELINE APP 1 LOCK END -->
+
+
+<!-- FCP 0006 A SHARE MVP TARGET DATA ACCEPTANCE BASELINE APP 1 FINAL START -->
+
+## FCP 0006 A-Share MVP Target Data Acceptance Baseline App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Repository evidence:
+
+- approval commit: `6631443a3cb9ca8b9283bfd1f00fbba5127e2a01`
+- validated sidecar commit: `76f0a80d11528df2c0e858daf10661f8ad5fc25e`
+- main merge commit: `297fc34c13cecc67e436037e9d522ac61df3b52a`
+- isolated D1-D6 and guard suite: 22 passed
+- FCP-0001 through FCP-0006 and governance targeted suite: 151 passed
+- full pytest: 5467 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated tracked outputs restored with zero changes
+- `git diff --check`: passed
+
+Delivered: immutable A-share research-priority and isolated target contracts,
+point-in-time data-field requirements, acceptance evidence obligations,
+deterministic completeness findings, and an immutable read-only Operator
+packet. No empirical threshold, provider, entitlement, or selected market exists.
+
+FCF-FCP-0006 remains ACCEPTED_ARCHITECTURE with phase_id NONE. It does not
+satisfy FCF-FCP-0005 readiness by itself. All referenced future-readiness gaps
+remain open. Current governance and product phases are NONE. The next product
+phase remains NOT_SELECTED / NOT_APPROVED.
+
+P1-P47 remain frozen. No P48 was created. All permanent safety and authority
+boundaries remain binding. No network, credential, broker, exchange, account,
+balance, position, wallet, order, execution, tag, release, or deployment path
+was created or run.
+
+<!-- FCP 0006 A SHARE MVP TARGET DATA ACCEPTANCE BASELINE APP 1 FINAL END -->

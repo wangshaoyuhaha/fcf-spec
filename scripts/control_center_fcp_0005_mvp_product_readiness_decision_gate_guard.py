@@ -72,7 +72,11 @@ def build_fcp_0005_guard_report(root: Path = ROOT) -> dict[str, object]:
             "NONE",
             "FCF-FCP-0006-A-SHARE-MVP-TARGET-DATA-ACCEPTANCE-BASELINE-APP-1",
         }
-        and truth.get("latest_completed_governance_delivery") == FINAL_DELIVERY_ID
+        and truth.get("latest_completed_governance_delivery")
+        in {
+            FINAL_DELIVERY_ID,
+            "FCF-FCP-0006-A-SHARE-MVP-TARGET-DATA-ACCEPTANCE-BASELINE-APP-1",
+        }
     )
     evidence_refs = proposal.get("evidence_refs")
     final_text = ""
