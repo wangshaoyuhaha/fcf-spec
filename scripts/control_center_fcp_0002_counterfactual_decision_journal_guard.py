@@ -76,6 +76,7 @@ def build_fcp_0002_guard_report(root: Path = ROOT) -> dict[str, object]:
         "no_active_phase": truth.get("current_governance_phase_id") in {
             "NONE",
             "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
+            "FCF-FCP-0006-A-SHARE-MVP-TARGET-DATA-ACCEPTANCE-BASELINE-APP-1",
         } and truth.get("current_product_implementation_phase") == "NONE" and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
         "p48_forbidden": safety.get("p48_allowed") is False,
         "manifest_records_latest_delivery": truth.get("latest_completed_governance_delivery") in {

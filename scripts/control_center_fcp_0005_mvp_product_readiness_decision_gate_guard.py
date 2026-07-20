@@ -67,7 +67,11 @@ def build_fcp_0005_guard_report(root: Path = ROOT) -> dict[str, object]:
     safety = manifest.get("safety_boundaries", {})
     active = truth.get("current_governance_phase_id") == ACTIVE_DELIVERY_ID
     final = (
-        truth.get("current_governance_phase_id") == "NONE"
+        truth.get("current_governance_phase_id")
+        in {
+            "NONE",
+            "FCF-FCP-0006-A-SHARE-MVP-TARGET-DATA-ACCEPTANCE-BASELINE-APP-1",
+        }
         and truth.get("latest_completed_governance_delivery") == FINAL_DELIVERY_ID
     )
     evidence_refs = proposal.get("evidence_refs")
