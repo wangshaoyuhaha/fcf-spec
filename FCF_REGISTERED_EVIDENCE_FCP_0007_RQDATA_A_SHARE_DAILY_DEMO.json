@@ -1,0 +1,87 @@
+{
+  "artifact": {
+    "artifact_id": "rqdata-a-share-daily-demo-f229fdf9",
+    "artifact_sha256": "f229fdf9f86b92562828290159ad2a3d2bcb69a6b57f5e935ce4853a8f280c1e",
+    "byte_length": 1897,
+    "entitlement_state": "UNRESOLVED",
+    "provider_selected": false,
+    "raw_repository_storage_allowed": false,
+    "redistribution_allowed": false,
+    "registered_at_utc": "2026-07-20T02:02:24Z",
+    "retention_state": "UNRESOLVED",
+    "source_id": "rqdata-official-demo",
+    "source_kind": "OFFICIAL_PROVIDER_DEMO",
+    "usage_scope": "LOCAL_EVALUATION_ONLY"
+  },
+  "acceptance": {
+    "date_max": "2022-01-28",
+    "date_min": "2022-01-04",
+    "finding_codes": [
+      "COMMERCIAL_RIGHTS_UNRESOLVED",
+      "INTRADAY_COVERAGE_MISSING",
+      "MULTI_INSTRUMENT_COVERAGE_MISSING",
+      "POINT_IN_TIME_AVAILABILITY_MISSING",
+      "PRODUCT_ACCEPTANCE_EVIDENCE_BLOCKED",
+      "REGISTERED_LOCAL_DEMO_SCHEMA_READY",
+      "REPEATED_LEADING_BOM_NORMALIZED_IN_MEMORY",
+      "RETENTION_RIGHTS_UNRESOLVED"
+    ],
+    "instrument_ids": [
+      "000001.XSHE"
+    ],
+    "missing_required_field_ids": [
+      "adjustment-factor",
+      "available-at",
+      "best-ask-price",
+      "best-ask-size",
+      "best-bid-price",
+      "best-bid-size",
+      "event-time",
+      "exchange-id",
+      "halt-state",
+      "sector-id",
+      "session-calendar-version",
+      "session-id",
+      "trade-price",
+      "trade-size",
+      "universe-effective-at"
+    ],
+    "normalized_csv_sha256": "3333dafe2954ea0ca66766caa3197c3882e4cbde30d55117862bb823e8222a8d",
+    "observed_field_ids": [
+      "close",
+      "high",
+      "instrument-id",
+      "limit-down-price",
+      "limit-up-price",
+      "low",
+      "notional",
+      "open",
+      "trading-date",
+      "volume"
+    ],
+    "product_evidence_state": "BLOCKED",
+    "repeated_bom_count": 20,
+    "replay_sha256": "2b846e424d373056000afe8a733a952c3ece1c85510c8a11da0d00de88b970c0",
+    "result_sha256": "172d1a8337e986405a7ba99fc4c528c78fe49507bafde8ba576d2a2b496e2bb1",
+    "row_count": 19,
+    "rowset_sha256": "5746a6ebdb4e4f9fae7421fc5c46f1d9166cc464e4ac6a794fe35b056eff2255",
+    "schema_state": "READY_FOR_LOCAL_SCHEMA_REPLAY"
+  },
+  "columns": [
+    "order_book_id",
+    "date",
+    "low",
+    "open",
+    "high",
+    "limit_down",
+    "num_trades",
+    "close",
+    "limit_up",
+    "volume",
+    "total_turnover"
+  ],
+  "evidence_id": "fcp-0007-rqdata-a-share-daily-demo-evidence-v1",
+  "operator_review_required": true,
+  "raw_provider_bytes_committed": false,
+  "schema_version": 1
+}
