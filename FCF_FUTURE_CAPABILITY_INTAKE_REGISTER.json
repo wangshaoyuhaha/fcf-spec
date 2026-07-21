@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 37,
+  "next_proposal_sequence": 38,
   "proposals": [
     {
       "adr_refs": [],
@@ -1072,6 +1072,32 @@
       "summary": "Add deterministic reconciliation for multiple exact Operator-registered Guojin QMT daily export batches. Require an explicit registered expected trading-date set, stable ordered batch lineage, identical-overlap deduplication, conflicting-overlap quarantine, visible missing and unexpected dates, row-cap findings, and exact merged ASCII output without natural-day completeness inference. This proposal does not authorize SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "Guojin QMT registered local daily batch coverage reconciliation"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-037"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0037_A_SHARE_REGISTERED_EXPECTED_TRADING_DATE_ARTIFACT_PROFILE_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0037_A_SHARE_REGISTERED_EXPECTED_TRADING_DATE_ARTIFACT_PROFILE_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0037_A_SHARE_REGISTERED_EXPECTED_TRADING_DATE_ARTIFACT_PROFILE_APP_1_FINAL.md",
+        "docs/FCF_FCP_0037_A_SHARE_REGISTERED_EXPECTED_TRADING_DATE_ARTIFACT_PROFILE_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-107"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0037",
+      "source": "operator-directed-continuous-development-registered-trading-date-authority",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T13:00:00Z",
+      "summary": "Add a provider-neutral local-only profile for exact Operator-registered A-share expected trading-date artifacts. Require explicit market and instrument scope, source revision, rights, retention, usage, availability, registration, revision, as-of, ordered unique ISO dates, exact ASCII schema, immutable hashes, and deterministic compatibility with FCP-0036. Natural-day inference remains forbidden. This proposal does not authorize calendar scraping, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share registered expected trading-date artifact profile"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
