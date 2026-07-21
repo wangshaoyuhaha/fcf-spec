@@ -1671,3 +1671,21 @@ FCP-0036 is an explicit conversion that preserves artifact digest and local
 rights state. Synthetic validation does not close GAP-107 and does not claim a
 real provider calendar. No calendar scraping, SDK, network, credential,
 provider selection, realtime, trading, execution, or product authority exists.
+
+## 71. A-Share Same-Calendar Cross-Source Coverage Reconciliation
+
+QMT local-export evidence and an independent canonical reference dataset are
+separate registered roles with distinct dataset and source identities. Both
+must contain exactly one instrument, and that instrument must equal the
+instrument registered by one FCP-0037 expected trading-date profile.
+
+Missing and unexpected dates are computed separately for each source against
+the same expected set. Union coverage cannot hide a source-specific gap. After
+coverage comparison, FCP-0021 remains the deterministic authority for price,
+amount, volume, adjustment factor, trading status, clocks, rights, retention,
+and dataset-lineage reconciliation.
+
+The composite evidence preserves calendar manifest, role, dataset, policy,
+finding, and nested result hashes. Any coverage or quality mismatch is
+quarantined. No source is selected and Operator review remains mandatory.
+Synthetic fixtures do not close GAP-109 or claim independent provider evidence.

@@ -570,6 +570,29 @@ credential, provider selection, raw repository retention, realtime activation,
 trading API, account, order, execution, product phase, tag, release, or
 deployment.
 
+## FCF-V2-ADR-038 Bind Cross-Source Coverage to One Registered Calendar
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: QMT and independent-reference A-share datasets may be compared only
+under explicit distinct source roles, one shared canonical instrument, and the
+same FCP-0037 registered expected trading-date profile. Each source receives
+its own missing and unexpected date findings before value reconciliation.
+
+Consequence: FCP-0021 remains the deterministic value and lineage comparison
+authority. The composite packet retains calendar, role, dataset, policy,
+finding, and result hashes and cannot select a winning provider. Any coverage
+or quality mismatch requires quarantine and Operator review.
+
+Rejected shortcut: compare each provider to a different calendar, treat union
+coverage as completeness, infer an independent role from a name, or accept
+matching prices while dates are missing.
+
+Not authorized: data acquisition, SDK invocation, network retrieval,
+credential, provider selection, raw repository retention, realtime activation,
+trading API, account, order, execution, product phase, tag, release, or
+deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.

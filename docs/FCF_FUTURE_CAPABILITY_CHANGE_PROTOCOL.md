@@ -189,3 +189,12 @@ FCP-0037 cannot infer sessions from natural days or weekdays, scrape a calendar,
 acquire files, invoke an SDK, retrieve network data, select a provider, retain
 raw files in the repository, activate realtime, or authorize a product,
 account, order, or execution path. Synthetic tests do not close GAP-107.
+
+Proposal `FCF-FCP-0038` composes FCP-0021 and FCP-0037 into a local-only
+same-calendar cross-source coverage packet. It requires distinct registered QMT
+and independent-reference roles, one instrument, source-specific missing and
+unexpected dates, nested deterministic quality findings, and immutable lineage.
+
+FCP-0038 cannot acquire either dataset, infer roles, compare different calendar
+authorities, select a source, activate realtime, or authorize a product,
+account, order, or execution path. Synthetic tests do not close GAP-109.

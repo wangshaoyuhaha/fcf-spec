@@ -14340,3 +14340,24 @@ account, balance, position, order, execution, tag, release, or deployment is
 authorized.
 
 <!-- FCP 0038 A SHARE REGISTERED SAME CALENDAR CROSS SOURCE COVERAGE RECONCILIATION APP 1 APPROVAL END -->
+
+
+<!-- FCP 0038 A SHARE REGISTERED SAME CALENDAR CROSS SOURCE COVERAGE RECONCILIATION APP 1 LOCK START -->
+
+## FCP 0038 A Share Registered Same Calendar Cross Source Coverage Reconciliation App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- explicit QMT and independent-reference registered dataset roles
+- one instrument bound to one FCP-0037 registered calendar
+- separate source missing and unexpected date findings
+- nested FCP-0021 deterministic quality reconciliation
+- immutable lineage, quarantine, and mandatory Operator review
+
+No acquisition, SDK, network, credential, source selection, realtime, product,
+P48, account, balance, position, order, execution, tag, release, or deployment
+is authorized. Synthetic tests do not close GAP-109.
+
+<!-- FCP 0038 A SHARE REGISTERED SAME CALENDAR CROSS SOURCE COVERAGE RECONCILIATION APP 1 LOCK END -->
