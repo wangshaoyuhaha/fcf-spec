@@ -3,6 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+try:
+    from scripts.fcp_governance_sequence import is_historical_delivery_state_safe
+except ModuleNotFoundError:
+    from fcp_governance_sequence import is_historical_delivery_state_safe
+
 
 ROOT = Path(__file__).resolve().parents[1]
 AUTHORITIES = (
@@ -172,7 +177,8 @@ def build_fcp_0008_guard_report(root: Path = ROOT) -> dict[str, object]:
                 Path("FCF_CURRENT_STATE_FCP_0008_CHINESE_BROWSER_CONSOLE_LOCAL_DATA_INTAKE_PREVIEW_APP_1_FINAL.md"),
             )
         ),
-        "manifest_state_safe": active or final or successor or fcp_0016_successor,
+        "manifest_state_safe": active or final or successor or fcp_0016_successor
+        or is_historical_delivery_state_safe(truth, DELIVERY_ID),
         "proposal_architecture_only": (
             proposal.get("status") == "ACCEPTED_ARCHITECTURE"
             and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"

@@ -3,6 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+try:
+    from scripts.fcp_governance_sequence import is_historical_delivery_state_safe
+except ModuleNotFoundError:
+    from fcp_governance_sequence import is_historical_delivery_state_safe
+
 
 ROOT = Path(__file__).resolve().parents[1]
 AUTHORITIES = (
@@ -73,7 +78,8 @@ def build_fcp_0002_guard_report(root: Path = ROOT) -> dict[str, object]:
         "delivery_files_exist": all((root / path).is_file() for path in REQUIRED),
         "proposal_research_only": proposal.get("status") == "NEEDS_RESEARCH" and proposal.get("operator_decision") == "PENDING" and proposal.get("phase_id") == "NONE",
         "proposal_evidence_exact": proposal.get("evidence_refs") == EXPECTED_EVIDENCE_REFS,
-        "no_active_phase": truth.get("current_governance_phase_id") in {
+        "no_active_phase": is_historical_delivery_state_safe(truth, "FCF-FCP-0002-COUNTERFACTUAL-RESEARCH-DECISION-JOURNAL-FOUNDATION-APP-1")
+        or truth.get("current_governance_phase_id") in {
             "NONE",
             "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",
             "FCF-FCP-0006-A-SHARE-MVP-TARGET-DATA-ACCEPTANCE-BASELINE-APP-1",
@@ -92,7 +98,10 @@ def build_fcp_0002_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0019-A-SHARE-LOCAL-EXPORT-CANONICALIZATION-BRIDGE-APP-1",
         } and truth.get("current_product_implementation_phase") == "NONE" and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
         "p48_forbidden": safety.get("p48_allowed") is False,
-        "manifest_records_latest_delivery": truth.get("latest_completed_governance_delivery") in {
+        "manifest_records_latest_delivery": is_historical_delivery_state_safe(
+            truth, "FCF-FCP-0002-COUNTERFACTUAL-RESEARCH-DECISION-JOURNAL-FOUNDATION-APP-1"
+        )
+        or truth.get("latest_completed_governance_delivery") in {
             "FCF-FCP-0002-COUNTERFACTUAL-RESEARCH-DECISION-JOURNAL-FOUNDATION-APP-1",
             "FCF-FCP-0003-CORRELATED-EVIDENCE-CONFIDENCE-BUDGET-FOUNDATION-APP-1",
             "FCF-FCP-0004-INSTITUTIONAL-CALENDAR-CAUSAL-INTELLIGENCE-RECONCILIATION-APP-1",
