@@ -178,3 +178,14 @@ FCP-0036 cannot infer sessions from natural days or weekdays, silently select a
 duplicate, infer batch order from paths, acquire files, invoke an SDK, retrieve
 network data, select a provider, retain raw files in the repository, activate
 realtime, or authorize a product, account, order, or execution path.
+
+Proposal `FCF-FCP-0037` registers a provider-neutral local profile for exact
+Operator-registered A-share expected trading-date artifacts. It requires source
+revision, market, instrument, declared range, rights, retention, and explicit
+observed, available, registered, revision, and as-of lineage. Ordered unique ISO
+dates are the only accepted expected set.
+
+FCP-0037 cannot infer sessions from natural days or weekdays, scrape a calendar,
+acquire files, invoke an SDK, retrieve network data, select a provider, retain
+raw files in the repository, activate realtime, or authorize a product,
+account, order, or execution path. Synthetic tests do not close GAP-107.

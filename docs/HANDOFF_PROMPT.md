@@ -12054,3 +12054,26 @@ account, balance, position, order, execution, tag, release, or deployment is
 authorized.
 
 <!-- FCP 0037 A SHARE REGISTERED EXPECTED TRADING DATE ARTIFACT PROFILE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0037 A SHARE REGISTERED EXPECTED TRADING DATE ARTIFACT PROFILE APP 1 LOCK START -->
+
+## FCP 0037 A Share Registered Expected Trading Date Artifact Profile App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact registered local ASCII trading-date artifact verification
+- source revision, market, instrument, range, rights, and retention lineage
+- observed, available, registered, revision, and as-of time gates
+- ordered unique canonical ISO dates without natural-day inference
+- deterministic registration, date-set, and manifest hashes
+- explicit FCP-0036 compatibility with mandatory Operator review
+
+No calendar scraping, SDK, network retrieval, credential, provider selection,
+raw repository retention, realtime activation, product phase, P48, trading API,
+account, balance, position, order, execution, tag, release, or deployment is
+authorized.
+
+<!-- FCP 0037 A SHARE REGISTERED EXPECTED TRADING DATE ARTIFACT PROFILE APP 1 LOCK END -->

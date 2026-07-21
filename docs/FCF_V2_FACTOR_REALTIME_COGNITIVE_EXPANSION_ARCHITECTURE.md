@@ -1650,3 +1650,24 @@ output hashes. Coverage reconciliation does not supply adjustment factors,
 trading status, or point-in-time clocks. It grants no SDK, network, credential,
 provider selection, raw repository retention, realtime, trading, execution, or
 product authority.
+
+## 70. A-Share Registered Expected Trading-Date Artifact Profile
+
+An expected trading-date set is a separate registered evidence artifact, not a
+calendar calculation. Exact local ASCII bytes use the closed `trade_date`
+header and preserve SHA-256, byte length, source, source revision, XSHG or XSHE
+market, canonical instrument, declared coverage, rights, retention, and local
+usage lineage.
+
+Observed, available, registered, revision, and evaluation times are explicit
+UTC values. They must be monotonic, and a revision later than the evaluation
+time fails closed. Dates are nonempty, ordered, unique, canonical ISO values;
+the first and last dates must match the declared coverage. Weekday, holiday,
+filename, path, or provider-name inference is forbidden.
+
+The resulting immutable profile exposes registration, date-set, and manifest
+hashes. Unresolved rights produce a visible review state. Compatibility with
+FCP-0036 is an explicit conversion that preserves artifact digest and local
+rights state. Synthetic validation does not close GAP-107 and does not claim a
+real provider calendar. No calendar scraping, SDK, network, credential,
+provider selection, realtime, trading, execution, or product authority exists.

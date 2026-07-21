@@ -547,6 +547,29 @@ Not authorized: SDK invocation, network retrieval, credential, provider
 selection, raw repository retention, realtime activation, trading API, account,
 balance, position, order, execution, product phase, tag, release, or deployment.
 
+## FCF-V2-ADR-037 Make Expected Trading Dates a Versioned Registered Artifact
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: An A-share expected trading-date set is authoritative only when exact
+local bytes are Operator registered with immutable source, source revision,
+market, instrument, range, rights, retention, observed, available, registered,
+and revision lineage. Natural days and weekdays are not trading-calendar data.
+
+Consequence: Completeness checks consume an ordered unique ISO date set whose
+first and last dates match its declared range. Future revisions fail closed.
+Unresolved rights remain visible, and compatibility with FCP-0036 requires an
+explicit conversion rather than implicit type or filename inference.
+
+Rejected shortcut: infer Monday through Friday, reuse a stale calendar without
+revision identity, infer exchange from a path, ignore availability time, or
+label synthetic dates as provider evidence.
+
+Not authorized: calendar scraping, SDK invocation, network retrieval,
+credential, provider selection, raw repository retention, realtime activation,
+trading API, account, order, execution, product phase, tag, release, or
+deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.
