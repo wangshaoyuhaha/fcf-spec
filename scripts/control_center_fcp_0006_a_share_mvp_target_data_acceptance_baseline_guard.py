@@ -4,6 +4,11 @@ import json
 import re
 from pathlib import Path
 
+try:
+    from scripts.fcp_governance_sequence import is_historical_delivery_state_safe
+except ModuleNotFoundError:
+    from fcp_governance_sequence import is_historical_delivery_state_safe
+
 
 ROOT = Path(__file__).resolve().parents[1]
 AUTHORITIES = (
@@ -244,7 +249,8 @@ def build_fcp_0006_guard_report(root: Path = ROOT) -> dict[str, object]:
         in ([], EXPECTED_EVIDENCE_REFS),
         "proposal_evidence_exact_when_final": not final
         or evidence_refs == EXPECTED_EVIDENCE_REFS,
-        "manifest_state_safe": active or final or successor or fcp_0016_successor,
+        "manifest_state_safe": active or final or successor or fcp_0016_successor
+        or is_historical_delivery_state_safe(truth, FINAL_DELIVERY_ID),
         "no_product_phase_selected": (
             truth.get("current_product_implementation_phase") == "NONE"
             and truth.get("next_product_implementation_phase") == "NOT_SELECTED"

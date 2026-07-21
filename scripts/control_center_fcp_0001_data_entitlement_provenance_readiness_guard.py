@@ -3,6 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+try:
+    from scripts.fcp_governance_sequence import is_historical_delivery_state_safe
+except ModuleNotFoundError:
+    from fcp_governance_sequence import is_historical_delivery_state_safe
+
 
 ROOT = Path(__file__).resolve().parents[1]
 AUTHORITY_PATHS = (
@@ -153,7 +158,11 @@ def validate_fcp_0001_state(
             and fcp_0001.get("phase_id") == "NONE"
         ),
         "manifest_has_no_active_phase": (
-            isinstance(current_truth, dict)
+            is_historical_delivery_state_safe(
+                current_truth,
+                "FCF-FCP-0001-DATA-ENTITLEMENT-PROVENANCE-READINESS-FOUNDATION-APP-1",
+            )
+            or isinstance(current_truth, dict)
             and current_truth.get("current_governance_phase_id") in {
                 "NONE",
                 "FCF-FCP-0005-MVP-PRODUCT-READINESS-DECISION-GATE-APP-1",

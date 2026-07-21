@@ -3,6 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+try:
+    from scripts.fcp_governance_sequence import is_historical_delivery_state_safe
+except ModuleNotFoundError:
+    from fcp_governance_sequence import is_historical_delivery_state_safe
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DELIVERY_ID = (
@@ -162,7 +167,8 @@ def build_fcp_0010_guard_report(root: Path = ROOT) -> dict[str, object]:
         == sorted(APP_FILES),
         "core_files_exist": all((root / path).is_file() for path in CORE_FILES),
         "final_file_exists_when_closed": not final or bool(final_text),
-        "manifest_state_safe": active or final or successor or fcp_0016_successor,
+        "manifest_state_safe": active or final or successor or fcp_0016_successor
+        or is_historical_delivery_state_safe(truth, DELIVERY_ID),
         "proposal_architecture_only": (
             proposal.get("status") == "ACCEPTED_ARCHITECTURE"
             and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"

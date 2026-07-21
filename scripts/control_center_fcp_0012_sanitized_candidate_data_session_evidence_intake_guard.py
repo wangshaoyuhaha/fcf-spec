@@ -4,6 +4,11 @@ import hashlib
 import json
 from pathlib import Path
 
+try:
+    from scripts.fcp_governance_sequence import is_historical_delivery_state_safe
+except ModuleNotFoundError:
+    from fcp_governance_sequence import is_historical_delivery_state_safe
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DELIVERY_ID = "FCF-FCP-0012-SANITIZED-CANDIDATE-DATA-SESSION-EVIDENCE-INTAKE-APP-1"
@@ -123,7 +128,8 @@ def build_fcp_0012_guard_report(root: Path = ROOT) -> dict[str, object]:
         "final_exact_when_closed": not closed or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
         "app_surface_exact": sorted(path.name for path in (root / APP_ROOT).glob("*.py")) == sorted(APP_FILES),
         "core_files_exist": all((root / path).is_file() for path in CORE_FILES),
-        "manifest_state_safe": active or closed or successor or fcp_0016_successor,
+        "manifest_state_safe": active or closed or successor or fcp_0016_successor
+        or is_historical_delivery_state_safe(truth, DELIVERY_ID),
         "proposal_architecture_only": proposal.get("status") == "ACCEPTED_ARCHITECTURE" and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE" and proposal.get("phase_id") == "NONE",
         "proposal_evidence_transition_safe": proposal.get("evidence_refs") in ([], list(EXPECTED_FINAL_REFS)) and (not closed or proposal.get("evidence_refs") == list(EXPECTED_FINAL_REFS)),
         "registered_artifact_exact": registration.get("artifact_path") == ARTIFACT_PATH.as_posix() and registration.get("byte_length") == len(artifact) and registration.get("artifact_sha256") == hashlib.sha256(artifact).hexdigest(),

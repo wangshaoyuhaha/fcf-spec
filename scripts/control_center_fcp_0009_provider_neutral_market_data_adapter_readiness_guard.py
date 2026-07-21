@@ -3,6 +3,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+try:
+    from scripts.fcp_governance_sequence import is_historical_delivery_state_safe
+except ModuleNotFoundError:
+    from fcp_governance_sequence import is_historical_delivery_state_safe
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DELIVERY_ID = "FCF-FCP-0009-PROVIDER-NEUTRAL-MARKET-DATA-ADAPTER-READINESS-APP-1"
@@ -180,7 +185,8 @@ def build_fcp_0009_guard_report(root: Path = ROOT) -> dict[str, object]:
         "core_files_exist": all((root / path).is_file() for path in CORE_FILES),
         "final_file_exists_when_closed": not final
         or (root / "FCF_CURRENT_STATE_FCP_0009_PROVIDER_NEUTRAL_MARKET_DATA_ADAPTER_READINESS_APP_1_FINAL.md").is_file(),
-        "manifest_state_safe": active or final or successor or fcp_0016_successor,
+        "manifest_state_safe": active or final or successor or fcp_0016_successor
+        or is_historical_delivery_state_safe(truth, DELIVERY_ID),
         "proposal_architecture_only": (
             proposal.get("status") == "ACCEPTED_ARCHITECTURE"
             and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"
