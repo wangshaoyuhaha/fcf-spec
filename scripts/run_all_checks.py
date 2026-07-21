@@ -157,6 +157,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0035_guojin_qmt_registered_local_daily_export_profile_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0036_guojin_qmt_registered_local_daily_batch_coverage_reconciliation_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],

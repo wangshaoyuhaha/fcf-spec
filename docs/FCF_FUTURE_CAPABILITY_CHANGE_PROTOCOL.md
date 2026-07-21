@@ -166,3 +166,15 @@ point-in-time and trading-status evidence. It does not authorize MiniQMT SDK
 invocation, network retrieval, credential, provider selection, raw repository
 retention, realtime activation, trading API, product phase, P48, order,
 execution, tag, release, or deployment.
+
+Proposal `FCF-FCP-0036` registers deterministic reconciliation for multiple
+exact Operator-registered Guojin QMT daily export batches. The bounded delivery
+requires ordered batch lineage, an exact registered expected trading-date set,
+identical-overlap deduplication, conflicting-overlap quarantine, missing and
+unexpected date findings, declared-row-cap visibility, and deterministic merged
+ASCII output compatible with FCP-0019.
+
+FCP-0036 cannot infer sessions from natural days or weekdays, silently select a
+duplicate, infer batch order from paths, acquire files, invoke an SDK, retrieve
+network data, select a provider, retain raw files in the repository, activate
+realtime, or authorize a product, account, order, or execution path.

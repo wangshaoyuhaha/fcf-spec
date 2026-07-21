@@ -1628,3 +1628,25 @@ bridge, preserves exact source and profile hashes, requires Operator review,
 and retains provider-unselected status. It grants no SDK, network, credential,
 raw repository retention, realtime, trading, order, execution, or product
 authority.
+
+## 69. Guojin QMT Registered Batch Coverage Reconciliation
+
+Multiple exact Operator-registered QMT daily export batches may be normalized
+and reconciled only under a stable explicit batch order. Each batch preserves
+its source digest, byte length, normalization manifest, instrument identity,
+and local rights state. Exact overlapping rows may be deduplicated; conflicting
+overlaps are removed from the merged output and quarantined as visible dates.
+
+Coverage completeness requires a separate exact registered trading-date
+artifact for the same instrument. Natural calendar days, weekdays, filenames,
+directory order, and provider marketing claims cannot become trading-session
+authority. Missing and unexpected dates are set differences against the
+registered expected set. A batch matching a declared 500-row cap remains a
+visible truncation finding even when the registered expected set is covered.
+
+The deterministic merged ASCII artifact remains compatible with the FCP-0019
+bridge and preserves ordered source, batch, expected-date, normalization, and
+output hashes. Coverage reconciliation does not supply adjustment factors,
+trading status, or point-in-time clocks. It grants no SDK, network, credential,
+provider selection, raw repository retention, realtime, trading, execution, or
+product authority.

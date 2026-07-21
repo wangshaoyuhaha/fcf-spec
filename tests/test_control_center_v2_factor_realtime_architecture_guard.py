@@ -29,7 +29,7 @@ def test_v2_factor_realtime_architecture_registers_exact_adr_set():
         ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md"
     ).read_text(encoding="ascii")
 
-    assert len(ADR_IDS) == 35
+    assert len(ADR_IDS) == 36
     assert all(text.count(adr_id) == 1 for adr_id in ADR_IDS)
 
 
@@ -38,7 +38,7 @@ def test_v2_factor_realtime_architecture_registers_exact_gap_set():
         ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
     ).read_text(encoding="ascii")
 
-    assert len(GAP_IDS) == 106
+    assert len(GAP_IDS) == 109
     assert all(text.count(gap_id) == 1 for gap_id in GAP_IDS)
 
 

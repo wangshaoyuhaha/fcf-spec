@@ -28,8 +28,8 @@ INSTITUTIONAL_REGISTRATION_END = (
     "<!-- FCF INSTITUTIONAL CALENDAR CAUSAL MARKET INTELLIGENCE "
     "REGISTRATION END -->"
 )
-ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 36))
-GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 107))
+ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 37))
+GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 110))
 ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 23))
 REQUIRED_ARCHITECTURE_TERMS = (
     "Deterministic Factor Registry",
@@ -104,6 +104,9 @@ REQUIRED_ARCHITECTURE_TERMS = (
     "Integral `volumn` lots are multiplied by exactly 100",
     "front-adjusted reference exports may be compared only as additive price",
     "offset evidence. They cannot become the multiplicative adjustment-factor",
+    "Guojin QMT Registered Batch Coverage Reconciliation",
+    "exact registered trading-date",
+    "overlaps are removed from the merged output",
 )
 
 
