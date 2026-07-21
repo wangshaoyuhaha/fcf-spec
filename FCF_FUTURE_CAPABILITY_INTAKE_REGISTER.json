@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 29,
+  "next_proposal_sequence": 30,
   "proposals": [
     {
       "adr_refs": [],
@@ -848,6 +848,28 @@
       "summary": "Require immutable A-share and BTC canonical bridge results to prove byte digest, byte length, row or observation count, typed observation, artifact identity, and manifest lineage coherence at construction time. The bounded hardening preserves registered evidence authority, provider neutrality, market isolation, and mandatory Operator review. It authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
       "supersedes": [],
       "title": "Registered bridge result lineage coherence hardening"
+    },
+    {
+      "adr_refs": [],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0029_A_SHARE_DAILY_CALIBRATION_RESULT_LINEAGE_COHERENCE_HARDENING_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-084",
+        "V2-FR-GAP-092"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0029",
+      "source": "codex-a-share-calibration-result-audit-with-operator-continuation-authority",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T05:12:00Z",
+      "summary": "Require A-share daily calibration results to contain concrete typed observations, deterministic unique key order, exact point-in-time bounds, exact RAW, NORMALIZED, and RESEARCH manifest counts and digest parent lineage, and result hashes that commit to observation payloads. The bounded hardening preserves registered evidence authority, provider neutrality, and local mandatory review boundaries. It authorizes no SDK, network, credential, provider selection, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share daily calibration result lineage coherence hardening"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
