@@ -40,7 +40,9 @@ CANONICAL_EXPORT_FIELDS = COMMON_FIELDS + tuple(
 
 
 def _sha256(value: object, name: str) -> str:
-    result = str(value).strip().lower()
+    if not isinstance(value, str):
+        raise ValueError(f"{name} must be lowercase SHA-256")
+    result = value
     if len(result) != 64 or any(character not in "0123456789abcdef" for character in result):
         raise ValueError(f"{name} must be lowercase SHA-256")
     return result
@@ -79,7 +81,11 @@ class RegisteredBTCLocalExport:
         object.__setattr__(self, "artifact_id", identifier(self.artifact_id, "artifact_id"))
         object.__setattr__(self, "source_id", identifier(self.source_id, "source_id"))
         object.__setattr__(self, "content_sha256", _sha256(self.content_sha256, "content_sha256"))
-        if isinstance(self.byte_length, bool) or not 1 <= self.byte_length <= 25_000_000:
+        if (
+            isinstance(self.byte_length, bool)
+            or not isinstance(self.byte_length, int)
+            or not 1 <= self.byte_length <= 25_000_000
+        ):
             raise ValueError("byte_length exceeds the bounded local export limit")
         object.__setattr__(
             self, "registered_at_utc", utc(self.registered_at_utc, "registered_at_utc")
@@ -91,8 +97,8 @@ class RegisteredBTCLocalExport:
         if (
             self.operator_registered is not True
             or self.local_only is not True
-            or self.raw_repository_storage_allowed
-            or self.provider_selected
+            or self.raw_repository_storage_allowed is not False
+            or self.provider_selected is not False
         ):
             raise ValueError("local export must remain registered-local and provider-unselected")
 
@@ -147,7 +153,10 @@ class BTCLocalExportBridgeManifest:
             raise ValueError("manifest requires unique observation hashes")
         if self.schema_version != "btc-market-ndjson-v1":
             raise ValueError("manifest schema is not registered")
-        if self.operator_review_required is not True or self.provider_selected:
+        if (
+            self.operator_review_required is not True
+            or self.provider_selected is not False
+        ):
             raise ValueError("manifest cannot bypass review or select a provider")
         object.__setattr__(self, "observation_hashes", hashes)
         object.__setattr__(self, "as_of_utc", utc(self.as_of_utc, "as_of_utc"))

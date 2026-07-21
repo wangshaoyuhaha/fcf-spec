@@ -53,7 +53,11 @@ class RegisteredLocalDailyExport:
         object.__setattr__(
             self, "artifact_sha256", digest(self.artifact_sha256, "artifact_sha256")
         )
-        if isinstance(self.byte_length, bool) or not 1 <= self.byte_length <= 50_000_000:
+        if (
+            isinstance(self.byte_length, bool)
+            or not isinstance(self.byte_length, int)
+            or not 1 <= self.byte_length <= 50_000_000
+        ):
             raise ValueError("byte_length exceeds the bounded local export limit")
         object.__setattr__(
             self, "registered_at_utc", utc(self.registered_at_utc, "registered_at_utc")
@@ -66,7 +70,10 @@ class RegisteredLocalDailyExport:
             raise ValueError("usage_scope must remain local evaluation only")
         if self.operator_registered is not True or self.local_artifact_only is not True:
             raise ValueError("export requires Operator-registered local bytes")
-        if self.raw_repository_storage_allowed or self.provider_selected:
+        if (
+            self.raw_repository_storage_allowed is not False
+            or self.provider_selected is not False
+        ):
             raise ValueError("export registration cannot grant storage or provider authority")
 
 
@@ -111,7 +118,7 @@ class LocalDailyExportProfile:
             raise ValueError("profile source fields must be unique")
         if self.delimiter != "," or self.encoding != "UTF-8":
             raise ValueError("bridge supports only UTF-8 comma-delimited exports")
-        if self.operator_registered is not True or self.provider_selected:
+        if self.operator_registered is not True or self.provider_selected is not False:
             raise ValueError("profile must remain Operator-registered and provider-unselected")
         object.__setattr__(self, "canonical_to_source", MappingProxyType(mapping))
         object.__setattr__(self, "instrument_format", instrument_format)
@@ -238,8 +245,12 @@ class LocalDailyExportBridgeManifest:
             "canonical_artifact_sha256",
         ):
             object.__setattr__(self, name, digest(getattr(self, name), name))
-        if isinstance(self.row_count, bool) or self.row_count <= 0:
-            raise ValueError("row_count must be positive")
+        if (
+            isinstance(self.row_count, bool)
+            or not isinstance(self.row_count, int)
+            or self.row_count <= 0
+        ):
+            raise ValueError("row_count must be a positive integer")
         warnings = tuple(sorted(set(self.warning_codes)))
         object.__setattr__(self, "warning_codes", warnings)
         object.__setattr__(
