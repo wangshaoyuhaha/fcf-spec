@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 34,
+  "next_proposal_sequence": 35,
   "proposals": [
     {
       "adr_refs": [],
@@ -973,6 +973,39 @@
       "summary": "Require cross-market readiness rows to preserve explicit deterministic ordered dataset identity and digest pairs copied from typed A-share and BTC reconciliation results, keep market lineage isolated, and commit inspectable dataset identity lineage in row and packet hashes. The bounded hardening preserves immutable calculation, evidence, AI, and Operator-review authority identities. It authorizes no SDK, network, credential, provider selection, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
       "supersedes": [],
       "title": "Cross-market readiness dataset lineage visibility hardening"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-034"
+      ],
+      "architecture_refs": [
+        "FCF-V2-BTC-PERPETUAL-LEVERAGE-PAPER-RESEARCH"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0034_BTC_PERPETUAL_LEVERAGE_PAPER_RESEARCH_ARCHITECTURE_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-039",
+        "V2-FR-GAP-040",
+        "V2-FR-GAP-095",
+        "V2-FR-GAP-096",
+        "V2-FR-GAP-097",
+        "V2-FR-GAP-098",
+        "V2-FR-GAP-099",
+        "V2-FR-GAP-100",
+        "V2-FR-GAP-101",
+        "V2-FR-GAP-102",
+        "V2-FR-GAP-103"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0034",
+      "source": "operator-directed-btc-perpetual-leverage-architecture-preservation",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T09:10:40Z",
+      "summary": "Preserve a provider-neutral, Paper-only BTC perpetual leverage research architecture that separates signal research from contract, collateral, margin, PnL, funding, liquidation, ADL, insurance-fund, outage, and lifecycle semantics. Require venue-versioned evidence, deterministic stress tests, hard risk gates, and mandatory Operator review. This proposal does not implement a leverage engine or Paper order, select a venue, close a gap, or authorize an SDK, network, credential, wallet, account, balance, position, real order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC perpetual leverage Paper research architecture"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
