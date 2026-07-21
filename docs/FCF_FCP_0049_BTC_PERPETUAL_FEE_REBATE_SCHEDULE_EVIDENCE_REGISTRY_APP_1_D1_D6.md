@@ -1,6 +1,6 @@
 # FCF FCP 0049 BTC Perpetual Fee Rebate Schedule Evidence Registry App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Registered Rule Evidence
 
@@ -33,7 +33,7 @@ use.
 Run isolated, affected, all-FCP, full-pytest, all-checks, generated-output,
 exact-file, ASCII, and diff validation before merge and final synchronization.
 
-Validation evidence:
+Validation evidence before merge:
 
 - isolated FCP-0049 suite: 16 passed
 - affected governance suite: 68 passed
@@ -41,6 +41,13 @@ Validation evidence:
 - full pytest: 6227 passed
 - `scripts/run_all_checks.py`: passed
 - generated output restoration: no generated delta
+- post-merge affected suite: 68 passed
+
+The registry is implemented, merged, validated, and guarded. It grants no
+account-tier selection, fee or rebate calculation, balance, position, PnL,
+liquidation, funding, source, GAP-closure, acquisition, SDK, network,
+credential, realtime, wallet, account, order, execution, product, P48, tag,
+release, or deployment authority. No successor phase is selected.
 
 Synthetic fixtures do not close GAP-099 or GAP-102 and grant no acquisition,
 SDK, network, credential, realtime, wallet, account, balance, position, order,
