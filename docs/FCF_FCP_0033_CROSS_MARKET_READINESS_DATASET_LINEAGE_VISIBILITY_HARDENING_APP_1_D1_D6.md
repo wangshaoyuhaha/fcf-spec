@@ -1,6 +1,6 @@
 # FCF FCP 0033 Cross Market Readiness Dataset Lineage Visibility Hardening App 1 D1-D6
 
-Status: COMPLETED_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Dataset Identity Visibility
 

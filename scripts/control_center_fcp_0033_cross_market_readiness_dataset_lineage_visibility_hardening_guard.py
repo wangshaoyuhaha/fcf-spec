@@ -63,7 +63,12 @@ def build_fcp_0033_guard_report(root=ROOT):
         "final_evidence_when_closed": not closed or (
             (root / "FCF_CURRENT_STATE_FCP_0033_CROSS_MARKET_READINESS_DATASET_LINEAGE_VISIBILITY_HARDENING_APP_1_FINAL.md").is_file()
             and all(finals)
-            and all(term in finals[0] for term in ("SIDE_COMMIT_PLACEHOLDER", "MERGE_COMMIT_PLACEHOLDER", "FULL_TEST_PLACEHOLDER", "ALL CHECKS PASSED"))
+            and all(term in finals[0] for term in (
+                "56b7cafee8e3d08be5c1fee62e29b9ea21a0c569",
+                "686f0abf1ea2ba4358b3c3f999ed645ae0d8e039",
+                "6008 passed",
+                "ALL CHECKS PASSED",
+            ))
         ),
         "manifest_state_safe": active or closed or is_historical_delivery_state_safe(truth, DELIVERY_ID),
         "proposal_safe": proposal.get("status") == "ACCEPTED_ARCHITECTURE" and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE" and proposal.get("phase_id") == "NONE",
