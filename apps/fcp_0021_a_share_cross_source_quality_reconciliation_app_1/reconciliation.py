@@ -162,6 +162,7 @@ def reconcile_canonical_a_share_daily_datasets(
                     )
     findings.sort(key=lambda item: item.finding_hash)
     return AShareCrossSourceReconciliationResult(
+        dataset_ids=tuple(item.dataset_id for item in ordered),
         dataset_hashes=tuple(item.dataset_hash for item in ordered),
         policy_hash=policy.policy_hash,
         union_key_count=len(union),

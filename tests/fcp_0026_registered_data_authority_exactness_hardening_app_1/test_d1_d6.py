@@ -18,6 +18,7 @@ from apps.fcp_0024_cross_market_registered_data_readiness_review_packet_app_1.co
 
 def a_share_result(**updates):
     values = {
+        "dataset_ids": ("dataset-a", "dataset-b"),
         "dataset_hashes": ("a" * 64, "b" * 64),
         "policy_hash": "c" * 64,
         "union_key_count": 1,

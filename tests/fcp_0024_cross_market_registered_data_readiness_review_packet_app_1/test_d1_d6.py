@@ -24,7 +24,8 @@ def a_share(blocked=False):
         findings = (CrossSourceQualityFinding("COVERAGE_GAP", "BLOCK", ("a-one", "a-two")),)
     return AShareCrossSourceReconciliationResult(
         ("a" * 64, "b" * 64), "c" * 64, 2, 1 if blocked else 2,
-        findings, "QUARANTINE_REVIEW_REQUIRED" if blocked else "CONSISTENT"
+        findings, "QUARANTINE_REVIEW_REQUIRED" if blocked else "CONSISTENT",
+        ("a-one", "a-two"),
     )
 
 
