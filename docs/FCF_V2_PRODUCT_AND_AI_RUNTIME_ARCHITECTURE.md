@@ -12730,3 +12730,29 @@ calculation authority, Registered Evidence remains evidence authority, AI
 remains advisory, and Operator review remains mandatory.
 
 <!-- FCP 0019 A SHARE LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 APPROVAL END -->
+
+<!-- FCP 0019 A SHARE LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 LOCK START -->
+
+## FCP 0019 A-Share Local Export Canonicalization Bridge App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- immutable provider-neutral local export registration and field profiles
+- exact local byte-length, SHA-256, UTF-8, and source-column verification
+- canonical and code-plus-exchange A-share instrument normalization
+- explicit PIT clocks, factor lineage, revision, and trading status supplements
+- deterministic 17-column ASCII output accepted by FCP-0017
+- fail-closed missing evidence and mandatory Operator review
+- no SDK, network, credential, provider-selection, broker, order, or execution path
+
+Validation evidence:
+
+- FCP-0019 isolated suite: 20 passed
+- FCP governance targeted suite: 447 passed
+- full pytest: 5763 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: no tracked output changed; no restoration required
+
+<!-- FCP 0019 A SHARE LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 LOCK END -->

@@ -89,6 +89,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0018_btc_trusted_market_data_substrate_local_replay_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0019_a_share_local_export_canonicalization_bridge_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
