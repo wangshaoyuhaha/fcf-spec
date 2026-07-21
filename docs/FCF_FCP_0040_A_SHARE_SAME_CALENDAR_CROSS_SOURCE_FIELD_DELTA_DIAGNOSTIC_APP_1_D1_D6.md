@@ -1,6 +1,6 @@
 # FCF FCP 0040 A Share Same Calendar Cross Source Field Delta Diagnostic App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Typed Inputs
 
@@ -42,4 +42,5 @@ Validation evidence before merge:
 - All FCP governance suites: `769 passed`.
 - Full pytest: `6106 passed`.
 - `scripts/run_all_checks.py`: `ALL CHECKS PASSED`.
+- Post-merge affected suite: `118 passed`.
 - Generated outputs: restored; no generated-output delta remained.

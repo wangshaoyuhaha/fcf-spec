@@ -13175,3 +13175,34 @@ P48, account, balance, position, order, execution, tag, release, or deployment
 is authorized. Synthetic tests do not close GAP-109.
 
 <!-- FCP 0040 A SHARE SAME CALENDAR CROSS SOURCE FIELD DELTA DIAGNOSTIC APP 1 LOCK END -->
+
+
+<!-- FCP 0040 A SHARE SAME CALENDAR CROSS SOURCE FIELD DELTA DIAGNOSTIC APP 1 FINAL START -->
+
+## FCP 0040 A Share Same Calendar Cross Source Field Delta Diagnostic App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Evidence commits:
+
+- governance approval: `6587bb2bc670b94875335cf21036da38184f9252`
+- sidecar delivery: `0249d09b3dd086714ca41988936cdc9e46fd9117`
+- main delivery merge: `ee849e59bc6e96fb93287cf0cb060180da68bc2a`
+
+Validated result:
+
+- FCP-0040 isolated suite: 9 passed
+- affected cross-source, calendar, and governance suite: 118 passed
+- FCP governance stage suite: 769 passed
+- full pytest: 6106 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- post-merge affected suite: 118 passed
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Exact cross-source field-delta diagnostics are implemented, merged, validated,
+and guarded. They grant no acquisition, SDK, network, credential, source
+selection, realtime, product phase, P48, account, balance, position, order,
+execution, tag, release, or deployment authority. Synthetic evidence does not
+close GAP-109. No successor phase is selected.
+
+<!-- FCP 0040 A SHARE SAME CALENDAR CROSS SOURCE FIELD DELTA DIAGNOSTIC APP 1 FINAL END -->
