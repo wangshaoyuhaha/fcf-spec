@@ -1,6 +1,6 @@
 # FCF FCP 0037 A Share Registered Expected Trading Date Artifact Profile App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Artifact Authority
 
@@ -42,3 +42,10 @@ Validated before merge:
 - full pytest: 6070 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `fb15a36c79d36c257ae687322a9c97b13c7c2953`
+- sidecar delivery: `db7f9b764b260072c24f1266667307a5c8c94592`
+- main delivery merge: `e66907bf03035ae35cccce88e69083b68388d692`
+- post-merge affected suite: 66 passed

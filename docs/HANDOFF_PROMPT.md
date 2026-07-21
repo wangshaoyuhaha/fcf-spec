@@ -12077,3 +12077,35 @@ account, balance, position, order, execution, tag, release, or deployment is
 authorized.
 
 <!-- FCP 0037 A SHARE REGISTERED EXPECTED TRADING DATE ARTIFACT PROFILE APP 1 LOCK END -->
+
+
+<!-- FCP 0037 A SHARE REGISTERED EXPECTED TRADING DATE ARTIFACT PROFILE APP 1 FINAL START -->
+
+## FCP 0037 A Share Registered Expected Trading Date Artifact Profile App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Evidence commits:
+
+- governance approval: `fb15a36c79d36c257ae687322a9c97b13c7c2953`
+- sidecar delivery: `db7f9b764b260072c24f1266667307a5c8c94592`
+- main delivery merge: `e66907bf03035ae35cccce88e69083b68388d692`
+
+Validated result:
+
+- FCP-0037 isolated suite: 21 passed
+- affected calendar and governance suite: 66 passed
+- FCP governance stage suite: 733 passed
+- full pytest: 6070 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- post-merge affected suite: 66 passed
+- generated runtime outputs: restored; no tracked generated changes remained
+
+The registered expected trading-date artifact profile is implemented, merged,
+validated, and guarded. It grants no calendar scraping, SDK, network,
+credential, provider selection, raw repository retention, realtime, product
+phase, P48, account, balance, position, order, execution, tag, release, or
+deployment authority. GAP-107 remains research-required. No successor phase is
+selected.
+
+<!-- FCP 0037 A SHARE REGISTERED EXPECTED TRADING DATE ARTIFACT PROFILE APP 1 FINAL END -->
