@@ -201,6 +201,10 @@ not-implemented capability groups:
   ASCII bytes, source revision, market, instrument, coverage, rights, retention,
   point-in-time availability lineage, explicit FCP-0036 compatibility, and no
   weekday or natural-day inference
+- registered same-calendar A-share cross-source coverage reconciliation with
+  explicit QMT and independent-reference roles, one instrument, source-specific
+  date gaps, nested FCP-0021 quality evidence, immutable lineage, quarantine,
+  and no source selection
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
