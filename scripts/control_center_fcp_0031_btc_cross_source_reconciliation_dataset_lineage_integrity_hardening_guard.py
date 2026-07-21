@@ -70,7 +70,7 @@ def build_fcp_0031_guard_report(root: Path = ROOT) -> dict[str, object]:
         "final_evidence_when_closed": not closed or (
             (root / "FCF_CURRENT_STATE_FCP_0031_BTC_CROSS_SOURCE_RECONCILIATION_DATASET_LINEAGE_INTEGRITY_HARDENING_APP_1_FINAL.md").is_file()
             and all(finals)
-            and all(term in finals[0] for term in ("SIDE_COMMIT_PLACEHOLDER", "MERGE_COMMIT_PLACEHOLDER", "FULL_TEST_PLACEHOLDER", "ALL CHECKS PASSED"))
+            and all(term in finals[0] for term in ("b9ae0895501dd7cfe230f629cc9b1681d2a38f10", "6bccf62ab288d4aa45d069a0e9f2504949dc4a2d", "5986 passed", "ALL CHECKS PASSED"))
         ),
         "manifest_state_safe": active or closed or is_historical_delivery_state_safe(truth, DELIVERY_ID),
         "proposal_safe": proposal.get("status") == "ACCEPTED_ARCHITECTURE" and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE" and proposal.get("phase_id") == "NONE",

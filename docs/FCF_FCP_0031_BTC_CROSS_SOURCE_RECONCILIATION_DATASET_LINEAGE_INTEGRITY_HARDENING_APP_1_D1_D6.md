@@ -1,6 +1,6 @@
 # FCF FCP 0031 BTC Cross Source Reconciliation Dataset Lineage Integrity Hardening App 1 D1-D6
 
-Status: COMPLETED_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Finding Keys
 
