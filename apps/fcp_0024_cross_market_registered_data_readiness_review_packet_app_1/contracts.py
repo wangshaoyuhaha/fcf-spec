@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 import re
 
 from apps.fcp_0018_btc_trusted_market_data_substrate_local_replay_app_1.contracts import canonical_sha256
-from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import utc
+from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import identifier, utc
 
 
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
@@ -24,6 +24,7 @@ class MarketDataReadinessRow:
     market: str
     reconciliation_result_hash: str
     dataset_hashes: tuple[str, ...]
+    dataset_ids: tuple[str, ...]
     quality_state: str
     blocking_finding_count: int
     warning_finding_count: int
@@ -43,8 +44,17 @@ class MarketDataReadinessRow:
             raise ValueError("readiness_state and quality_state disagree")
         result_hash = _digest(self.reconciliation_result_hash, "reconciliation_result_hash")
         dataset_hashes = tuple(_digest(item, "dataset_hash") for item in self.dataset_hashes)
+        if any(not isinstance(item, str) for item in self.dataset_ids):
+            raise ValueError("dataset_id must be text")
+        dataset_ids = tuple(identifier(item, "dataset_id") for item in self.dataset_ids)
         if len(dataset_hashes) < 2 or len(dataset_hashes) != len(set(dataset_hashes)):
             raise ValueError("readiness row requires distinct dataset hashes")
+        if (
+            len(dataset_ids) != len(dataset_hashes)
+            or len(dataset_ids) != len(set(dataset_ids))
+            or dataset_ids != tuple(sorted(dataset_ids))
+        ):
+            raise ValueError("readiness row requires ordered dataset identity and digest pairs")
         if self.source_selected is not False:
             raise ValueError("readiness row cannot select a source")
         counts = (self.blocking_finding_count, self.warning_finding_count, self.union_key_count, self.overlap_key_count)
@@ -56,13 +66,14 @@ class MarketDataReadinessRow:
             raise ValueError("blocking findings and quality_state disagree")
         object.__setattr__(self, "reconciliation_result_hash", result_hash)
         object.__setattr__(self, "dataset_hashes", dataset_hashes)
+        object.__setattr__(self, "dataset_ids", dataset_ids)
         object.__setattr__(
             self,
             "row_hash",
             canonical_sha256(
                 {
                     "blocking_finding_count": self.blocking_finding_count,
-                    "dataset_hashes": dataset_hashes,
+                    "dataset_lineage": list(zip(dataset_ids, dataset_hashes, strict=True)),
                     "market": self.market,
                     "overlap_key_count": self.overlap_key_count,
                     "quality_state": self.quality_state,

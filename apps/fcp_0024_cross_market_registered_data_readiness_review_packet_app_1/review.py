@@ -15,6 +15,7 @@ def _row(market, result):
         market=market,
         reconciliation_result_hash=result.result_hash,
         dataset_hashes=result.dataset_hashes,
+        dataset_ids=result.dataset_ids,
         quality_state=result.quality_state,
         blocking_finding_count=sum(item.severity == "BLOCK" for item in result.findings),
         warning_finding_count=sum(item.severity == "WARN" for item in result.findings),

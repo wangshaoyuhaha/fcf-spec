@@ -145,6 +145,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0032_a_share_cross_source_reconciliation_dataset_lineage_authority_integrity_hardening_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0033_cross_market_readiness_dataset_lineage_visibility_hardening_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
