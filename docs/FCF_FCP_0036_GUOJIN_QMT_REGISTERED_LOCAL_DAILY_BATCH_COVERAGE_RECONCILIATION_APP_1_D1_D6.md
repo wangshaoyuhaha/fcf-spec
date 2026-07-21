@@ -1,6 +1,6 @@
 # FCF FCP 0036 Guojin QMT Registered Local Daily Batch Coverage Reconciliation App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Expected-Date Authority
 
@@ -45,3 +45,10 @@ Validated before merge:
 - full pytest: 6049 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `366b4e0a05b2de6603c239358d0e026eaf3d0395`
+- sidecar delivery: `74987d9e05a8a5c104064d28020ce68d8fd33a86`
+- main delivery merge: `986256a0967d6a39c6c4cc90f5e21fa6a4f2f859`
+- post-merge affected suite: 83 passed

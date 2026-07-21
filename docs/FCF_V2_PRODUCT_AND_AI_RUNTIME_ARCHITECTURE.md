@@ -14196,3 +14196,36 @@ trading API, account, balance, position, order, execution, tag, release, or
 deployment is authorized.
 
 <!-- FCP 0036 GUOJIN QMT REGISTERED LOCAL DAILY BATCH COVERAGE RECONCILIATION APP 1 LOCK END -->
+
+
+<!-- FCP 0036 GUOJIN QMT REGISTERED LOCAL DAILY BATCH COVERAGE RECONCILIATION APP 1 FINAL START -->
+
+## FCP 0036 Guojin QMT Registered Local Daily Batch Coverage Reconciliation App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Evidence commits:
+
+- governance approval: `366b4e0a05b2de6603c239358d0e026eaf3d0395`
+- sidecar delivery: `74987d9e05a8a5c104064d28020ce68d8fd33a86`
+- main delivery merge: `986256a0967d6a39c6c4cc90f5e21fa6a4f2f859`
+
+Validated result:
+
+- FCP-0036 isolated suite: 15 passed
+- affected QMT bridge and governance suite: 83 passed
+- FCP governance stage suite: 712 passed
+- full pytest: 6049 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- post-merge affected suite: 83 passed
+- generated runtime outputs: restored; no tracked generated changes remained
+
+The registered local QMT batch coverage reconciler is implemented, merged,
+validated, and guarded. It preserves exact expected-date authority, ordered
+batch lineage, deterministic merge, overlap quarantine, and visible coverage
+findings. It grants no SDK, network, credential, provider selection, raw
+repository retention, realtime, product phase, P48, account, balance, position,
+order, execution, tag, release, or deployment authority. No successor phase is
+selected.
+
+<!-- FCP 0036 GUOJIN QMT REGISTERED LOCAL DAILY BATCH COVERAGE RECONCILIATION APP 1 FINAL END -->
