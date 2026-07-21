@@ -11979,3 +11979,29 @@ credential, wallet, account, order, execution, realtime, product, P48, tag,
 release, or deployment authority. No successor phase is selected.
 
 <!-- FCP 0026 REGISTERED DATA AUTHORITY EXACTNESS HARDENING APP 1 FINAL END -->
+
+
+<!-- FCP 0027 REGISTERED DATA PRIMITIVE TYPE INTEGRITY HARDENING APP 1 APPROVAL START -->
+
+## FCP 0027 Registered Data Primitive Type Integrity Hardening App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0027-registered-data-primitive-type-integrity-hardening-app-1`
+
+Approved scope:
+
+- exact lowercase SHA-256 inputs without silent normalization in BTC substrate and bridge contracts
+- strict non-boolean integers for bounded byte, count, sequence, and schema fields
+- exact closed boolean flags across local A-share and BTC bridge authority boundaries
+- isolated regression coverage for every independently reproduced acceptance defect
+- preserved provider neutrality, market isolation, and mandatory Operator review
+- validation, merge, and authority synchronization
+
+No SDK, network, credential, provider selection, wallet, account, balance,
+position, order, execution, realtime, product phase, P48, tag, release, or
+deployment is authorized.
+
+<!-- FCP 0027 REGISTERED DATA PRIMITIVE TYPE INTEGRITY HARDENING APP 1 APPROVAL END -->
