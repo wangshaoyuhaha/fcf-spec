@@ -1,6 +1,6 @@
 # FCF FCP 0027 Registered Data Primitive Type Integrity Hardening App 1 D1-D6
 
-Status: COMPLETED_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact BTC Digests
 

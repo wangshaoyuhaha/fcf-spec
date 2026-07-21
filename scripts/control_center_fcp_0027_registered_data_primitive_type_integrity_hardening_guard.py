@@ -93,6 +93,24 @@ def build_fcp_0027_guard_report(root: Path = ROOT) -> dict[str, object]:
         or (len(texts) == 5 and all(locks) and len(set(locks)) == 1),
         "final_exact_when_closed": not closed
         or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
+        "final_evidence_when_closed": not closed
+        or (
+            (
+                root
+                / "FCF_CURRENT_STATE_FCP_0027_REGISTERED_DATA_PRIMITIVE_TYPE_INTEGRITY_HARDENING_APP_1_FINAL.md"
+            ).is_file()
+            and all(finals)
+            and all(
+                term in finals[0]
+                for term in (
+                    "2c259d5",
+                    "70e4e1e",
+                    "90c287d39e9c9fd35ca364968dd94affa3b5f2f5",
+                    "5928 passed",
+                    "ALL CHECKS PASSED",
+                )
+            )
+        ),
         "manifest_state_safe": active
         or closed
         or is_historical_delivery_state_safe(truth, DELIVERY_ID),
@@ -124,6 +142,7 @@ def build_fcp_0027_guard_report(root: Path = ROOT) -> dict[str, object]:
             for path in (
                 "FCF_CURRENT_STATE_FCP_0027_REGISTERED_DATA_PRIMITIVE_TYPE_INTEGRITY_HARDENING_APP_1_APPROVED.md",
                 "FCF_CURRENT_STATE_FCP_0027_REGISTERED_DATA_PRIMITIVE_TYPE_INTEGRITY_HARDENING_APP_1_DELIVERED.md",
+                "FCF_CURRENT_STATE_FCP_0027_REGISTERED_DATA_PRIMITIVE_TYPE_INTEGRITY_HARDENING_APP_1_FINAL.md",
                 "docs/FCF_FCP_0027_REGISTERED_DATA_PRIMITIVE_TYPE_INTEGRITY_HARDENING_APP_1_D1_D6.md",
                 "tests/fcp_0027_registered_data_primitive_type_integrity_hardening_app_1/test_d1_d6.py",
             )
