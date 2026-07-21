@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 22,
+  "next_proposal_sequence": 23,
   "proposals": [
     {
       "adr_refs": [],
@@ -662,6 +662,33 @@
       "summary": "Reconcile two or more registered local canonical A-share daily datasets through exact schema, unit, currency, rights, lineage, key coverage, price, volume, amount, adjustment-factor, trading-status, availability, and revision comparisons. Produce immutable findings and quarantine recommendations without selecting or automatically trusting a source. This bounded foundation does not close V2-FR-GAP-092 and authorizes no SDK, network, credential, provider selection, product phase, broker, order, execution, P48, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share cross-source quality reconciliation"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-031",
+        "FCF-V2-ADR-032",
+        "FCF-V2-ADR-033"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0022_BTC_LOCAL_EXPORT_CANONICALIZATION_BRIDGE_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-087",
+        "V2-FR-GAP-088",
+        "V2-FR-GAP-095"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0022",
+      "source": "operator-directed-btc-data-source-continuation",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T01:50:00Z",
+      "summary": "Bridge exact Operator-registered local BTC venue exports into the FCP-0018 typed market-event contract through immutable field profiles, strict venue and instrument mapping, explicit source sequences and UTC clocks, deterministic trade, book snapshot, book delta, reference-price, and funding records, canonical ASCII NDJSON, and replay-compatible lineage. Missing evidence must fail closed and must never be inferred. This bounded foundation does not close referenced production gaps and authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC local export canonicalization bridge"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

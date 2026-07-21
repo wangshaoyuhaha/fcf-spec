@@ -12947,3 +12947,31 @@ deployment authority. No successor governance or product phase is selected or
 approved.
 
 <!-- FCP 0021 A SHARE CROSS SOURCE QUALITY RECONCILIATION APP 1 FINAL END -->
+
+
+<!-- FCP 0022 BTC LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 APPROVAL START -->
+
+## FCP 0022 BTC Local Export Canonicalization Bridge App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0022-btc-local-export-canonicalization-bridge-app-1`
+
+Approved order:
+
+- D1 immutable provider-neutral local-export profile and artifact contracts
+- D2 exact source-column mapping and BTC venue/instrument normalization
+- D3 deterministic typed trade, book, reference-price, and funding construction
+- D4 explicit sequence, clock, book-level, and instrument-kind validation
+- D5 canonical ASCII NDJSON and FCP-0018 replay compatibility
+- D6 guards, validation, merge, and final authority synchronization
+
+Only exact Operator-registered local export bytes may enter this bridge. Missing
+sequence, clock, side, level, reference-price, or funding evidence must not be
+guessed. No SDK, network, credential, provider selection, wallet, account,
+balance, position, order, execution, realtime activation, product phase, P48,
+tag, release, or deployment is authorized.
+
+<!-- FCP 0022 BTC LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 APPROVAL END -->
