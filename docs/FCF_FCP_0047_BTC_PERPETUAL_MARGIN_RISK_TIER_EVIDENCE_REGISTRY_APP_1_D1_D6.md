@@ -1,6 +1,6 @@
 # FCF FCP 0047 BTC Perpetual Margin Risk Tier Evidence Registry App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Registered Rule Evidence
 
@@ -42,6 +42,14 @@ Validation evidence before merge:
 - Full pytest: `6195 passed`.
 - `scripts/run_all_checks.py`: `ALL CHECKS PASSED`.
 - Generated outputs: no generated-output delta remained.
+- Post-merge affected suite: `69 passed`.
+- Generated runtime outputs: restored; no tracked generated changes remained.
+
+The registry is implemented, merged, validated, and guarded. It grants no
+balance, position, margin, PnL, liquidation, funding, fee, source-selection,
+GAP-closure, acquisition, SDK, network, credential, realtime, wallet, account,
+order, execution, product, P48, tag, release, or deployment authority. No
+successor phase is selected.
 
 Synthetic fixtures do not close GAP-097 or GAP-102 and grant no acquisition,
 SDK, network, credential, realtime, wallet, account, balance, position, order,
