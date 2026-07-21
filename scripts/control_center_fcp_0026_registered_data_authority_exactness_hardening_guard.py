@@ -52,6 +52,11 @@ def build_fcp_0026_guard_report(root=ROOT):
         "approval_exact": len(texts) == 5 and all(approvals) and len(set(approvals)) == 1,
         "lock_exact_when_validated": status != "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE" or (len(texts) == 5 and all(locks) and len(set(locks)) == 1),
         "final_exact_when_closed": not closed or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
+        "final_evidence_when_closed": not closed or (
+            (root / "FCF_CURRENT_STATE_FCP_0026_REGISTERED_DATA_AUTHORITY_EXACTNESS_HARDENING_APP_1_FINAL.md").is_file()
+            and all(finals)
+            and all(term in finals[0] for term in ("460d293", "57ed2d8", "806e9d128be3f7de855f9291f84b8d6ff0dadbe6", "5903 passed", "ALL CHECKS PASSED"))
+        ),
         "manifest_state_safe": active or closed or is_historical_delivery_state_safe(truth, DELIVERY_ID),
         "proposal_safe": proposal.get("status") == "ACCEPTED_ARCHITECTURE" and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE" and proposal.get("phase_id") == "NONE",
         "digest_exact": "result = value" in a_base and "result = value" in btc and "result = value" in packet,
