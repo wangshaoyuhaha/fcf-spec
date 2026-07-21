@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 28,
+  "next_proposal_sequence": 29,
   "proposals": [
     {
       "adr_refs": [],
@@ -822,6 +822,29 @@
       "summary": "Reject silent digest normalization, fractional integral fields, and non-boolean closed flags across the registered local A-share and BTC substrate and canonicalization bridges. The bounded hardening preserves exact registered evidence, provider neutrality, market isolation, and mandatory Operator review. It authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
       "supersedes": [],
       "title": "Registered data primitive type integrity hardening"
+    },
+    {
+      "adr_refs": [],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0028_REGISTERED_BRIDGE_RESULT_LINEAGE_COHERENCE_HARDENING_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-084",
+        "V2-FR-GAP-092",
+        "V2-FR-GAP-095"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0028",
+      "source": "codex-bridge-result-lineage-audit-with-operator-continuation-authority",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T04:50:00Z",
+      "summary": "Require immutable A-share and BTC canonical bridge results to prove byte digest, byte length, row or observation count, typed observation, artifact identity, and manifest lineage coherence at construction time. The bounded hardening preserves registered evidence authority, provider neutrality, market isolation, and mandatory Operator review. It authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "Registered bridge result lineage coherence hardening"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
