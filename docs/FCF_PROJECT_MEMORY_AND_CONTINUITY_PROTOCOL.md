@@ -224,6 +224,9 @@ not-implemented capability groups:
 - cross-source Operator review-receipt ledgers with complete immutable receipt
   history, stable registered-time order, unique review and receipt identities,
   closed disposition counts, and no mutation, deletion, or decision authority
+- BTC cross-source exact observation-delta ledgers with every ordered dataset
+  pair, pairwise union key, closed observation field, exact source value,
+  explicit incomplete state, and immutable upstream reconciliation lineage
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

@@ -258,3 +258,13 @@ severity, recommend, set a tolerance, rank or select a source, replace evidence,
 acquire data, invoke an SDK, retrieve network data, accept credentials, activate
 realtime, authorize a product, account, order, or execution path, or close
 GAP-109.
+
+Proposal `FCF-FCP-0045` creates deterministic local-only exact BTC observation
+delta evidence from typed FCP-0023 datasets, policy, and result. It recomputes
+the result, enumerates every registered dataset pair and pairwise union key,
+and preserves closed exact fields, deltas, incomplete states, and lineage.
+
+FCP-0045 cannot change a tolerance, severity, or quality state, rank or select
+a venue or source, replace evidence, acquire data, invoke an SDK, retrieve
+network data, accept credentials, activate realtime, authorize a wallet,
+product, account, order, or execution path, or close GAP-092 or GAP-095.

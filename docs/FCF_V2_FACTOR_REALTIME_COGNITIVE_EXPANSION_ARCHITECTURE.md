@@ -1792,3 +1792,22 @@ result, while any receipt mutation changes ledger identity or fails validation.
 The ledger cannot delete or replace history, validate or reject evidence,
 assign severity, recommend, set a threshold, rank or select a source, replace
 evidence, or close GAP-109. Synthetic fixtures remain non-authoritative.
+
+## 78. BTC Cross-Source Exact Observation Delta Evidence Ledger
+
+The BTC ledger consumes typed FCP-0023 datasets, policy, and reconciliation
+result. It recomputes the result before emitting evidence, orders datasets by
+registered identity, enumerates every dataset pair, and preserves every
+pairwise union comparison key. Missing observations remain explicit.
+
+Each key expands into a closed field set for its registered observation kind.
+The ledger preserves exact header, hash, trade, book, reference-price, and
+funding values. Decimal and integer fields expose exact absolute deltas, clocks
+expose absolute seconds, and book levels use canonical exact JSON. Stable
+ordering and immutable hashes bind all dataset, artifact, policy, finding,
+result, and entry lineage.
+
+This is read-only registered evidence. It cannot change reconciliation
+tolerances, severity, or quality state; rank or select a venue or source;
+replace evidence; or close GAP-092 or GAP-095. Operator review remains
+mandatory.
