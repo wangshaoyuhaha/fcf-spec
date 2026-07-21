@@ -13737,3 +13737,34 @@ position, order, execution, realtime, product phase, P48, tag, release, or
 deployment is authorized.
 
 <!-- FCP 0031 BTC CROSS SOURCE RECONCILIATION DATASET LINEAGE INTEGRITY HARDENING APP 1 APPROVAL END -->
+
+
+<!-- FCP 0031 BTC CROSS SOURCE RECONCILIATION DATASET LINEAGE INTEGRITY HARDENING APP 1 LOCK START -->
+
+## FCP 0031 BTC Cross Source Reconciliation Dataset Lineage Integrity Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- exact nonempty text comparison keys
+- deterministic ordered dataset identity and digest lineage pairs
+- finding dataset lineage constrained to reconciliation inputs
+- result hashes that commit to dataset identities and digests
+- unchanged deterministic, evidence, AI, and Operator-review authorities
+
+Validation evidence:
+
+- FCP-0031 isolated suite: 12 passed
+- affected BTC reconciliation and consumer suite: 80 passed
+- FCP governance stage suite: 649 passed
+- project governance suite: 21 passed
+- full pytest: 5986 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: final run left no tracked generated changes
+
+No SDK, network, credential, provider selection, wallet, account, balance,
+position, order, execution, realtime, product phase, P48, tag, release, or
+deployment is authorized.
+
+<!-- FCP 0031 BTC CROSS SOURCE RECONCILIATION DATASET LINEAGE INTEGRITY HARDENING APP 1 LOCK END -->
