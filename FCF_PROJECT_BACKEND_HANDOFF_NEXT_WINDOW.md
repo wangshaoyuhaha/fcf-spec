@@ -13756,3 +13756,30 @@ wallet, account, balance, position, order, execution, tag, release, or
 deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0047 BTC PERPETUAL MARGIN RISK TIER EVIDENCE REGISTRY APP 1 FINAL END -->
+
+
+<!-- FCP 0048 BTC PERPETUAL FUNDING METHOD SCHEDULE EVIDENCE REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0048 BTC Perpetual Funding Method Schedule Evidence Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0048-btc-perpetual-funding-method-schedule-evidence-registry-app-1`
+
+Approved scope:
+
+- register immutable local BTC perpetual funding-method rule evidence
+- preserve method, basis, interval, anchor, cap, floor, and payer convention
+- preserve exact interest component and effective-time rule versions
+- bind every version to one exact FCP-0046 contract-registry identity
+- fail closed on point-in-time gaps or overlaps
+
+The registry cannot calculate a funding rate, payment, balance, position, PnL,
+liquidation, fee, execution, or source preference. Synthetic fixtures do not
+close GAP-099 or GAP-102. No acquisition, SDK, network, credential, source
+selection, raw repository retention, realtime, product, P48, wallet, account,
+balance, position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0048 BTC PERPETUAL FUNDING METHOD SCHEDULE EVIDENCE REGISTRY APP 1 APPROVAL END -->
