@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 36,
+  "next_proposal_sequence": 37,
   "proposals": [
     {
       "adr_refs": [],
@@ -1043,6 +1043,35 @@
       "summary": "Add a bounded local-only adapter for exact Operator-registered Guojin QMT daily export bytes. Preserve the exact seven-column source schema, explicit instrument registration, YYYYMMDD date normalization, 100-share lot conversion, deterministic ASCII bridge bytes, range truncation findings, and additive front-adjustment reference evidence without fabricating a multiplicative adjustment factor. Missing point-in-time clocks, factor lineage, trading status, MiniQMT entitlement, or complete requested coverage must fail closed. This acceptance does not authorize SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "Guojin QMT registered local daily export profile"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-036"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0036_GUOJIN_QMT_REGISTERED_LOCAL_DAILY_BATCH_COVERAGE_RECONCILIATION_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0036_GUOJIN_QMT_REGISTERED_LOCAL_DAILY_BATCH_COVERAGE_RECONCILIATION_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0036_GUOJIN_QMT_REGISTERED_LOCAL_DAILY_BATCH_COVERAGE_RECONCILIATION_APP_1_FINAL.md",
+        "docs/FCF_FCP_0036_GUOJIN_QMT_REGISTERED_LOCAL_DAILY_BATCH_COVERAGE_RECONCILIATION_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-105",
+        "V2-FR-GAP-107",
+        "V2-FR-GAP-108",
+        "V2-FR-GAP-109"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0036",
+      "source": "operator-directed-continuous-development-qmt-batch-coverage",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T12:30:00Z",
+      "summary": "Add deterministic reconciliation for multiple exact Operator-registered Guojin QMT daily export batches. Require an explicit registered expected trading-date set, stable ordered batch lineage, identical-overlap deduplication, conflicting-overlap quarantine, visible missing and unexpected dates, row-cap findings, and exact merged ASCII output without natural-day completeness inference. This proposal does not authorize SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "Guojin QMT registered local daily batch coverage reconciliation"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
