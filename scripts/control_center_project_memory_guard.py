@@ -894,7 +894,7 @@ FUTURE_STATUSES = (
 )
 ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 23))
 ROADMAP_STATUS = "PLANNED_NOT_APPROVED_NOT_STARTED"
-GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 104))
+GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 107))
 GAP_ROADMAP_FINAL_LINES = (
     "| V2-R1 | Factor Contract Foundation | "
     "COMPLETED / CONTRACT_FOUNDATION_ONLY |",

@@ -152,3 +152,17 @@ FCP-0034 remains `phase_id: NONE` and `NOT_IMPLEMENTED`. It does not authorize
 a leverage runtime, virtual account, Paper order, venue selection or adapter,
 SDK, network, credential, wallet, account, balance, position, real order,
 execution, realtime activation, product phase, P48, tag, release, or deploy.
+
+Proposal `FCF-FCP-0035` registers the bounded Guojin QMT local daily-export
+profile under the existing trusted-data-supply-chain architecture. It accepts
+exact Operator-registered ASCII bytes, explicit instrument identity,
+YYYYMMDD normalization, and 100-share lot conversion. It preserves requested
+and actual coverage and treats QMT front-adjusted output as additive reference
+evidence only.
+
+FCP-0035 cannot derive a multiplicative adjustment factor, infer an instrument
+from a filename, silently accept incomplete range coverage, or supply missing
+point-in-time and trading-status evidence. It does not authorize MiniQMT SDK
+invocation, network retrieval, credential, provider selection, raw repository
+retention, realtime activation, trading API, product phase, P48, order,
+execution, tag, release, or deployment.

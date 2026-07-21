@@ -499,6 +499,30 @@ evidence.
 Not authorized: leverage runtime, virtual account, Paper order, venue adapter,
 wallet, credential, account, balance, position, real order, or execution.
 
+## FCF-V2-ADR-035 Preserve QMT Additive Adjustment as Reference Only
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Exact registered Guojin QMT raw daily exports may be normalized into
+the FCP-0019 local bridge schema after explicit instrument registration,
+YYYYMMDD date normalization, and exact 100-share lot conversion. A paired QMT
+front-adjusted export is additive price-offset reference evidence only and
+must not be converted into a multiplicative adjustment factor.
+
+Consequence: The adapter preserves raw prices, amount, volume, source bytes,
+requested and actual coverage, and front-reference boundaries. Calibration
+remains blocked until independent adjustment-factor lineage, trading status,
+and point-in-time supplements are registered. Filename inference, silent row
+cap acceptance, and factor fabrication fail closed.
+
+Rejected shortcut: derive one daily factor from adjusted close and apply it to
+raw OHLC, treat the QMT front export as corporate-action authority, infer the
+instrument from `price_600028.txt`, or accept `volumn` as shares.
+
+Not authorized: MiniQMT SDK invocation, network retrieval, credential, provider
+selection, raw repository retention, realtime activation, trading API, order,
+execution, product phase, tag, release, or deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.

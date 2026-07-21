@@ -28,8 +28,8 @@ INSTITUTIONAL_REGISTRATION_END = (
     "<!-- FCF INSTITUTIONAL CALENDAR CAUSAL MARKET INTELLIGENCE "
     "REGISTRATION END -->"
 )
-ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 35))
-GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 104))
+ADR_IDS = tuple(f"FCF-V2-ADR-{index:03d}" for index in range(1, 36))
+GAP_IDS = tuple(f"V2-FR-GAP-{index:03d}" for index in range(1, 107))
 ROADMAP_PHASES = tuple(f"V2-R{index}" for index in range(1, 23))
 REQUIRED_ARCHITECTURE_TERMS = (
     "Deterministic Factor Registry",
@@ -100,6 +100,10 @@ REQUIRED_ARCHITECTURE_TERMS = (
     "BTC Perpetual Leverage Paper Research Architecture",
     "partial liquidation, liquidation fee, insurance-fund, ADL",
     "isolated or cross margin and one-way or hedge position-mode semantics",
+    "Guojin QMT Registered Local Daily Export Profile",
+    "Integral `volumn` lots are multiplied by exactly 100",
+    "front-adjusted reference exports may be compared only as additive price",
+    "offset evidence. They cannot become the multiplicative adjustment-factor",
 )
 
 
