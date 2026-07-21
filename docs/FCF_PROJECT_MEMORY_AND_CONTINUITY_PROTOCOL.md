@@ -197,6 +197,10 @@ not-implemented capability groups:
   exact expected trading-date evidence, identical-overlap deduplication,
   conflicting-overlap quarantine, row-cap visibility, and no natural-day
   trading-session inference
+- registered A-share expected trading-date artifact profiles with exact local
+  ASCII bytes, source revision, market, instrument, coverage, rights, retention,
+  point-in-time availability lineage, explicit FCP-0036 compatibility, and no
+  weekday or natural-day inference
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
