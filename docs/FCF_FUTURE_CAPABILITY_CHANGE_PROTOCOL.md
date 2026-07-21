@@ -228,3 +228,12 @@ rank or select a source, replace registered evidence, acquire data, invoke an
 SDK, retrieve network data, accept credentials, activate realtime, or authorize
 a product, account, order, or execution path. Synthetic tests do not close
 GAP-109.
+
+Proposal `FCF-FCP-0042` derives a deterministic Operator review packet from one
+typed FCP-0041 ledger. It preserves complete per-field match, delta, incomplete,
+and affected-date facts and emits only closed descriptive finding codes.
+
+FCP-0042 cannot assign severity, recommend, set a tolerance, rank or select a
+source, replace evidence, acquire data, invoke an SDK, retrieve network data,
+accept credentials, activate realtime, or authorize a product, account, order,
+or execution path. Synthetic tests do not close GAP-109.

@@ -660,6 +660,28 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, trading
 API, account, order, execution, product phase, tag, release, or deployment.
 
+## FCF-V2-ADR-042 Separate Review Facts from Source Decisions
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: An Operator delta-review packet derives only closed ordered field
+facts and deterministic finding codes from one typed FCP-0041 ledger. Exact
+parity still requires Operator confirmation; any delta or incomplete pair
+requires Operator review.
+
+Consequence: Review presentation can expose what differs and on which dates
+without assigning severity, recommending a provider, setting a tolerance, or
+granting acceptance authority. Packet identity binds the ledger and all
+inherited upstream hashes.
+
+Rejected shortcut: call exact parity accepted automatically, sort findings by
+desirability, label a source better, collapse incomplete evidence into a match,
+or turn descriptive counts into a recommendation.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, trading
+API, account, order, execution, product phase, tag, release, or deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.

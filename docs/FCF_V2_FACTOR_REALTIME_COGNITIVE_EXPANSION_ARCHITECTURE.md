@@ -1742,3 +1742,20 @@ and aggregate diagnostic hash.
 The ledger is read-only registered evidence. It cannot set a tolerance, order
 entries by desirability, rank a provider, select a source, or replace evidence.
 Synthetic fixtures do not close GAP-109. Operator review remains mandatory.
+
+## 75. A-Share Cross-Source Operator Delta Review Packet
+
+The Operator review packet derives from one immutable FCP-0041 ledger. For
+every closed field it records exact-match, delta-present, and pair-incomplete
+counts plus the ordered unique dates affected by nonmatching evidence. Counts
+must equal the ledger overlap for every field.
+
+A closed finding-code set distinguishes exact parity, numeric deltas, text
+deltas, clock deltas, and incomplete pairs. Exact parity yields an Operator
+confirmation state; all other facts yield an Operator review state. Neither
+state accepts evidence or confers calculation or source authority.
+
+The packet assigns no severity, recommendation, threshold, ranking, or winning
+source and cannot replace evidence. Its hash binds the ledger, diagnostic,
+coverage, artifact-independence, role, fact, finding, and review-state lineage.
+Synthetic fixtures do not close GAP-109.

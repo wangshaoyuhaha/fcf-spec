@@ -215,6 +215,9 @@ not-implemented capability groups:
 - cross-source row-delta evidence ledgers with complete exact-match, delta, and
   incomplete entries in stable instrument, date, and closed-field order; bound
   to upstream coverage, artifact-independence, role, and diagnostic hashes
+- cross-source Operator delta-review packets with closed per-field facts,
+  affected dates, deterministic finding codes, mandatory review, and no
+  severity, recommendation, threshold, ranking, selection, or replacement
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
