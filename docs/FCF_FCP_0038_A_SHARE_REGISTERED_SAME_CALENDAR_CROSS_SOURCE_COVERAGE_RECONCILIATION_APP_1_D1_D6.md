@@ -1,6 +1,6 @@
 # FCF FCP 0038 A Share Registered Same Calendar Cross Source Coverage Reconciliation App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Explicit Source Roles
 
@@ -43,4 +43,5 @@ Validation evidence before merge:
 - All FCP governance suites: `746 passed`.
 - Full pytest: `6083 passed`.
 - `scripts/run_all_checks.py`: `ALL CHECKS PASSED`.
+- Post-merge affected suite: `95 passed`.
 - Generated outputs: restored; no generated-output delta remained.
