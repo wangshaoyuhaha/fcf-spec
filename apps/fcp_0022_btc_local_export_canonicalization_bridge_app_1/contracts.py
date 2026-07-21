@@ -10,7 +10,13 @@ from apps.fcp_0018_btc_trusted_market_data_substrate_local_replay_app_1 import (
     BTCRegisteredArtifact,
 )
 from apps.fcp_0018_btc_trusted_market_data_substrate_local_replay_app_1.contracts import (
+    BTCBookDelta,
+    BTCBookSnapshot,
+    BTCFundingObservation,
     BTCObservation,
+    BTCReferencePriceObservation,
+    BTCTradeObservation,
+    decimal_text,
 )
 from apps.v2_r3_local_event_ingress_foundation_app_1 import LocalEventRights
 from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import identifier, utc
@@ -34,6 +40,84 @@ KIND_FIELDS = {
     "REFERENCE_PRICE": ("mark_price", "index_price"),
     "FUNDING": ("funding_rate", "interval_start_utc", "interval_end_utc"),
 }
+BTC_OBSERVATION_TYPES = (
+    BTCTradeObservation,
+    BTCBookSnapshot,
+    BTCBookDelta,
+    BTCReferencePriceObservation,
+    BTCFundingObservation,
+)
+
+
+def _canonical_observation_row(observation: BTCObservation) -> dict[str, object]:
+    header = observation.header
+    result: dict[str, object] = {
+        "artifact_id": header.artifact_id,
+        "event_at_utc": header.event_at_utc,
+        "ingested_at_utc": header.ingested_at_utc,
+        "instrument_id": header.instrument_id,
+        "instrument_kind": header.instrument_kind,
+        "observation_id": header.observation_id,
+        "observation_kind": header.observation_kind,
+        "received_at_utc": header.received_at_utc,
+        "schema_version": header.schema_version,
+        "source_sequence": header.source_sequence,
+        "venue_id": header.venue_id,
+    }
+    if isinstance(observation, BTCTradeObservation):
+        result.update(
+            price=decimal_text(observation.price),
+            quantity=decimal_text(observation.quantity),
+            aggressor_side=observation.aggressor_side,
+        )
+    elif isinstance(observation, BTCBookSnapshot):
+        result.update(
+            bids=[
+                [decimal_text(item.price), decimal_text(item.quantity)]
+                for item in observation.bids
+            ],
+            asks=[
+                [decimal_text(item.price), decimal_text(item.quantity)]
+                for item in observation.asks
+            ],
+        )
+    elif isinstance(observation, BTCBookDelta):
+        result.update(
+            previous_sequence=observation.previous_sequence,
+            bid_updates=[
+                [decimal_text(item.price), decimal_text(item.quantity)]
+                for item in observation.bid_updates
+            ],
+            ask_updates=[
+                [decimal_text(item.price), decimal_text(item.quantity)]
+                for item in observation.ask_updates
+            ],
+        )
+    elif isinstance(observation, BTCReferencePriceObservation):
+        result.update(
+            mark_price=decimal_text(observation.mark_price),
+            index_price=decimal_text(observation.index_price),
+        )
+    elif isinstance(observation, BTCFundingObservation):
+        result.update(
+            funding_rate=decimal_text(observation.funding_rate),
+            interval_start_utc=observation.interval_start_utc,
+            interval_end_utc=observation.interval_end_utc,
+        )
+    return result
+
+
+def canonical_observations_ndjson(observations: tuple[BTCObservation, ...]) -> bytes:
+    return b"".join(
+        json.dumps(
+            _canonical_observation_row(item),
+            ensure_ascii=True,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("ascii")
+        + b"\n"
+        for item in observations
+    )
 CANONICAL_EXPORT_FIELDS = COMMON_FIELDS + tuple(
     field_name for fields in KIND_FIELDS.values() for field_name in fields
 )
@@ -193,10 +277,31 @@ class BTCLocalExportBridgeResult:
             raise ValueError("bridge result requires canonical bytes")
         if not isinstance(self.canonical_registration, BTCRegisteredArtifact):
             raise ValueError("bridge result requires canonical registration")
-        if not observations or not all(hasattr(item, "observation_hash") for item in observations):
+        if not observations or not all(
+            isinstance(item, BTC_OBSERVATION_TYPES) for item in observations
+        ):
             raise ValueError("bridge result requires typed observations")
         if not isinstance(self.manifest, BTCLocalExportBridgeManifest):
             raise ValueError("bridge result requires a typed manifest")
         if self.quality_state != "READY_FOR_REPLAY" or self.operator_review_required is not True:
             raise ValueError("bridge result cannot bypass replay or Operator review")
+        canonical_hash = hashlib.sha256(self.canonical_ndjson).hexdigest()
+        if self.canonical_registration.content_sha256 != canonical_hash:
+            raise ValueError("canonical registration digest disagrees with bytes")
+        if self.canonical_registration.byte_length != len(self.canonical_ndjson):
+            raise ValueError("canonical registration byte length disagrees with bytes")
+        if self.manifest.canonical_artifact_id != self.canonical_registration.artifact_id:
+            raise ValueError("bridge manifest canonical artifact identity disagrees")
+        if self.manifest.canonical_artifact_sha256 != canonical_hash:
+            raise ValueError("bridge manifest digest disagrees with canonical bytes")
+        observation_hashes = tuple(item.observation_hash for item in observations)
+        if self.manifest.observation_hashes != observation_hashes:
+            raise ValueError("bridge manifest observation hashes disagree")
+        if any(
+            item.header.artifact_id != self.canonical_registration.artifact_id
+            for item in observations
+        ):
+            raise ValueError("observation artifact lineage disagrees with registration")
+        if canonical_observations_ndjson(observations) != self.canonical_ndjson:
+            raise ValueError("canonical bytes disagree with typed observations")
         object.__setattr__(self, "observations", observations)

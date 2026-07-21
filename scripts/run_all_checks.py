@@ -125,6 +125,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0027_registered_data_primitive_type_integrity_hardening_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0028_registered_bridge_result_lineage_coherence_hardening_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
