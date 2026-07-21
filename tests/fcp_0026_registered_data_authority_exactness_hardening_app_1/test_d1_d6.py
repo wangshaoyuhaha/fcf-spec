@@ -49,6 +49,7 @@ def row(market, first, second, **updates):
         "market": market,
         "reconciliation_result_hash": "1" * 64,
         "dataset_hashes": (first * 64, second * 64),
+        "dataset_ids": (f"{market.lower()}-{first}", f"{market.lower()}-{second}"),
         "quality_state": "CONSISTENT",
         "blocking_finding_count": 0,
         "warning_finding_count": 0,
