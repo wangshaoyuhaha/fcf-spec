@@ -103,9 +103,9 @@ def build_fcp_0030_guard_report(root: Path = ROOT) -> dict[str, object]:
             and all(
                 term in finals[0]
                 for term in (
-                    "SIDE_COMMIT_PLACEHOLDER",
-                    "MERGE_COMMIT_PLACEHOLDER",
-                    "FULL_TEST_PLACEHOLDER",
+                    "39e178eb8f9df3f85caa9fa7ef3d55d01a6a8012",
+                    "b17ab306f1392cb8ce9e6d953506c9fb2e195603",
+                    "5974 passed",
                     "ALL CHECKS PASSED",
                 )
             )
