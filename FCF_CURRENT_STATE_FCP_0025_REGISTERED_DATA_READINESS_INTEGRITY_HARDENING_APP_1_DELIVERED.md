@@ -1,6 +1,6 @@
 # FCF Current State FCP 0025 Registered Data Readiness Integrity Hardening App 1 Delivered
 
-Status: GOVERNANCE_DELIVERY_IMPLEMENTED_PENDING_VALIDATION
+Status: COMPLETED_MERGED_VALIDATED
 
 Implemented scope:
 
@@ -14,3 +14,12 @@ Implemented scope:
 The implementation contains no SDK, network, credential, provider selection,
 wallet, account, balance, position, order, execution, realtime, product phase,
 P48, tag, release, or deployment path.
+
+Validated result:
+
+- FCP-0025 isolated suite: 15 passed
+- affected FCP-0023 and FCP-0024 regression suite: 31 passed
+- FCP governance targeted suite: 565 passed
+- full pytest: 5881 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: four tracked check outputs restored exactly

@@ -51,6 +51,11 @@ def build_fcp_0025_guard_report(root=ROOT):
         "approval_exact": len(texts) == 5 and all(approvals) and len(set(approvals)) == 1,
         "lock_exact_when_validated": status != "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE" or (len(texts) == 5 and all(locks) and len(set(locks)) == 1),
         "final_exact_when_closed": not closed or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
+        "final_evidence_when_closed": not closed or (
+            (root / "FCF_CURRENT_STATE_FCP_0025_REGISTERED_DATA_READINESS_INTEGRITY_HARDENING_APP_1_FINAL.md").is_file()
+            and all(finals)
+            and all(term in finals[0] for term in ("97ddf5c", "6a9dc39", "60f4cfd1936c370818a9add0326dc6014384f79c", "5881 passed", "ALL CHECKS PASSED"))
+        ),
         "manifest_state_safe": active or closed or is_historical_delivery_state_safe(truth, DELIVERY_ID),
         "proposal_safe": proposal.get("status") == "ACCEPTED_ARCHITECTURE" and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE" and proposal.get("phase_id") == "NONE",
         "btc_integrity_hardened": all(term in btc_contracts for term in ("must be lowercase SHA-256", "result findings must be typed", "must be decimal-compatible")),
