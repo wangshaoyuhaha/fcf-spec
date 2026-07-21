@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 24,
+  "next_proposal_sequence": 25,
   "proposals": [
     {
       "adr_refs": [],
@@ -717,6 +717,30 @@
       "summary": "Reconcile immutable Operator-registered local BTC canonical event sets across distinct sources and comparable venue semantics. The bounded deterministic runtime records coverage, payload, clock, sequence, book, reference-price, and funding conflicts as immutable quarantine evidence without selecting or trusting a source. It does not close production gaps and authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC cross-source venue quality reconciliation"
+    },
+    {
+      "adr_refs": [],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0024_CROSS_MARKET_REGISTERED_DATA_READINESS_REVIEW_PACKET_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-084",
+        "V2-FR-GAP-091",
+        "V2-FR-GAP-092",
+        "V2-FR-GAP-095"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0024",
+      "source": "operator-directed-trusted-data-review-continuation",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T02:40:00Z",
+      "summary": "Create an immutable cross-market registered-data readiness review packet from typed A-share and BTC reconciliation evidence while preserving separate market semantics. The deterministic packet summarizes blockers, coverage, and quality states for mandatory Operator review without ranking, selecting, or trusting a source. It does not close production gaps and authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "Cross-market registered data readiness review packet"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

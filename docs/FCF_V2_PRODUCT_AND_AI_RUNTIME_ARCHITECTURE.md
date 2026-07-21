@@ -13111,3 +13111,30 @@ product, P48, tag, release, or deployment authority. No successor governance or
 product phase is selected or approved.
 
 <!-- FCP 0023 BTC CROSS SOURCE VENUE QUALITY RECONCILIATION APP 1 FINAL END -->
+
++<!-- FCP 0024 CROSS MARKET REGISTERED DATA READINESS REVIEW PACKET APP 1 APPROVAL START -->
+
+## FCP 0024 Cross-Market Registered Data Readiness Review Packet App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0024-cross-market-registered-data-readiness-review-packet-app-1`
+
+Approved order:
+
+- D1 typed A-share and BTC reconciliation evidence inputs
+- D2 market-isolated readiness rows without score blending
+- D3 deterministic blocker, coverage, and quality-state summaries
+- D4 aggregate mandatory Operator review state
+- D5 immutable registered-evidence packet without source selection
+- D6 guards, validation, merge, and final authority synchronization
+
+A-share and BTC semantics must remain isolated. The packet may summarize typed
+reconciliation evidence but must not rank, select, or trust a source. No SDK,
+network, credential, provider selection, wallet, account, balance, position,
+order, execution, realtime activation, product phase, P48, tag, release, or
+deployment is authorized.
+
+<!-- FCP 0024 CROSS MARKET REGISTERED DATA READINESS REVIEW PACKET APP 1 APPROVAL END -->
