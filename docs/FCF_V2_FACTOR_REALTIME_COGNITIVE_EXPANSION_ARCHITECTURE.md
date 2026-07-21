@@ -1811,3 +1811,20 @@ This is read-only registered evidence. It cannot change reconciliation
 tolerances, severity, or quality state; rank or select a venue or source;
 replace evidence; or close GAP-092 or GAP-095. Operator review remains
 mandatory.
+
+## 79. BTC Perpetual Venue Contract Lifecycle Registry
+
+The registry consumes one Operator-registered local JSON rule artifact and
+preserves exact venue and contract identity, linear or inverse settlement,
+base, quote, settlement and collateral assets, multiplier, price tick,
+quantity step, minimum quantity, and minimum notional.
+
+Each contract version owns one half-open UTC effective interval and one closed
+lifecycle state: ACTIVE, CLOSE_ONLY, DELISTED, or MIGRATED. Migration requires
+a distinct target contract. Entries and versions are unique, stable, bound to
+the same artifact, and nonoverlapping within a venue-contract identity.
+
+Point-in-time lookup returns exactly one registered version or fails closed on
+a gap or ambiguity. The registry supplies contract evidence only; it cannot
+calculate margin, liquidation, PnL, funding, execution, or source preference,
+and it does not close GAP-096 or GAP-102.

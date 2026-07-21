@@ -726,6 +726,29 @@ API, account, order, execution, product phase, tag, release, or deployment.
 
 ## Register Rules
 
+## FCF-V2-ADR-046 Resolve BTC Contract Rules Only by Registered Effective Time
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Preserve every BTC perpetual contract-rule version as typed local
+registered evidence with exact settlement, asset, multiplier, precision,
+minimum, lifecycle, migration, and half-open UTC effective-time semantics.
+Point-in-time resolution must return exactly one version or fail closed.
+
+Consequence: Later Paper accounting can reference reproducible historical
+contract semantics without treating current venue rules as timeless constants.
+
+Rejected shortcut: hard-code one global BTC contract, accept float precision,
+project linear rules onto inverse contracts, overlap versions, fill time gaps,
+infer migration targets, or use the registry as a calculation or execution
+engine.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, realtime activation, margin, liquidation, PnL, funding,
+wallet, account, order, execution, product phase, tag, release, or deployment.
+
+## Register Rules
+
 ## FCF-V2-ADR-045 Preserve Exact BTC Observation Deltas Across Every Source Pair
 
 Status: ACCEPTED_ARCHITECTURE

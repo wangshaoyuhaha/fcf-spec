@@ -268,3 +268,13 @@ FCP-0045 cannot change a tolerance, severity, or quality state, rank or select
 a venue or source, replace evidence, acquire data, invoke an SDK, retrieve
 network data, accept credentials, activate realtime, authorize a wallet,
 product, account, order, or execution path, or close GAP-092 or GAP-095.
+
+Proposal `FCF-FCP-0046` creates a deterministic local-only venue-versioned BTC
+perpetual contract and lifecycle registry from registered rule evidence. It
+preserves settlement, assets, multiplier, precision, minimums, effective-time
+intervals, lifecycle state, migration target, and exact artifact lineage.
+
+FCP-0046 cannot calculate margin, liquidation, PnL, funding, or execution,
+select a source, acquire data, invoke an SDK, retrieve network data, accept
+credentials, activate realtime, authorize a wallet, product, account, order,
+or execution path, or close GAP-096 or GAP-102.
