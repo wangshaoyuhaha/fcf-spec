@@ -1,6 +1,6 @@
 # FCF FCP 0041 A Share Cross Source Row Delta Evidence Ledger App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Upstream Evidence
 
@@ -40,4 +40,5 @@ Validation evidence before merge:
 - All FCP governance suites: `780 passed`.
 - Full pytest: `6117 passed`.
 - `scripts/run_all_checks.py`: `ALL CHECKS PASSED`.
+- Post-merge affected suite: `129 passed`.
 - Generated outputs: restored; no generated-output delta remained.
