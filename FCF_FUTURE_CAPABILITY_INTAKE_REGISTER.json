@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 21,
+  "next_proposal_sequence": 22,
   "proposals": [
     {
       "adr_refs": [],
@@ -635,6 +635,30 @@
       "summary": "Replace brittle per-phase historical successor enumeration with a strict reusable FCP governance sequence validator. Preserve exact active and closed delivery semantics while rejecting malformed, regressive, skipped, product-active, or unsafe states. This acceptance changes governance validation mechanics only and authorizes no product phase, data provider, network, credential, broker, order, execution, P48, tag, release, or deployment behavior.",
       "supersedes": [],
       "title": "Governance successor state scalability hardening"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-031",
+        "FCF-V2-ADR-032"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0021_A_SHARE_CROSS_SOURCE_QUALITY_RECONCILIATION_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-092"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0021",
+      "source": "operator-directed-a-share-data-quality-continuation",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T01:12:00Z",
+      "summary": "Reconcile two or more registered local canonical A-share daily datasets through exact schema, unit, currency, rights, lineage, key coverage, price, volume, amount, adjustment-factor, trading-status, availability, and revision comparisons. Produce immutable findings and quarantine recommendations without selecting or automatically trusting a source. This bounded foundation does not close V2-FR-GAP-092 and authorizes no SDK, network, credential, provider selection, product phase, broker, order, execution, P48, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share cross-source quality reconciliation"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

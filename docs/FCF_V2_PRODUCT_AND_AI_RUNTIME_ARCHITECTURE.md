@@ -12865,3 +12865,29 @@ broker, order, execution, P48, tag, release, or deployment boundaries. No
 successor governance or product phase is selected or approved.
 
 <!-- FCP 0020 GOVERNANCE SUCCESSOR STATE SCALABILITY HARDENING APP 1 FINAL END -->
+
+<!-- FCP 0021 A SHARE CROSS SOURCE QUALITY RECONCILIATION APP 1 APPROVAL START -->
+
+## FCP 0021 A-Share Cross-Source Quality Reconciliation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0021-a-share-cross-source-quality-reconciliation-app-1`
+
+Approved order:
+
+- D1 immutable registered canonical-dataset and comparison-policy contracts
+- D2 strict unit, currency, schema, rights, and lineage compatibility gates
+- D3 deterministic key coverage and field-level cross-source comparison
+- D4 explicit price, volume, amount, factor, status, and clock findings
+- D5 immutable quarantine recommendations without source selection authority
+- D6 guards, validation, merge, and final authority synchronization
+
+The phase advances a bounded registered-local foundation toward V2-FR-GAP-092
+without closing that production gap. It consumes typed canonical observations
+only and authorizes no SDK, network, credential, provider selection, automatic
+trust, product phase, broker, order, execution, P48, tag, release, or deployment.
+
+<!-- FCP 0021 A SHARE CROSS SOURCE QUALITY RECONCILIATION APP 1 APPROVAL END -->
