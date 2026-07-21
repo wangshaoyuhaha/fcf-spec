@@ -205,6 +205,9 @@ not-implemented capability groups:
   explicit QMT and independent-reference roles, one instrument, source-specific
   date gaps, nested FCP-0021 quality evidence, immutable lineage, quarantine,
   and no source selection
+- cross-source artifact-independence integrity with complete ordered digest
+  sets bound into role hashes, disjoint-lineage proof, fail-closed overlap, and
+  no claim that synthetic evidence closes provider-independence research
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

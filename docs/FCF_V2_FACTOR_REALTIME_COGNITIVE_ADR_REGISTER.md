@@ -593,6 +593,28 @@ credential, provider selection, raw repository retention, realtime activation,
 trading API, account, order, execution, product phase, tag, release, or
 deployment.
 
+## FCF-V2-ADR-039 Bind Cross-Source Roles to Disjoint Artifact Lineage
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: A QMT role and an independent-reference role are cross-source only
+when their complete ordered registered source-artifact digest sets are nonempty
+and disjoint. Each role hash includes its digest set, and the composite result
+includes a typed independence-proof hash.
+
+Consequence: Distinct dataset or source names cannot disguise reused underlying
+bytes. Any shared artifact digest fails before calendar coverage or value
+comparison. Operator review remains mandatory and no source is selected.
+
+Rejected shortcut: treat different labels as independent, sample only one row
+digest, omit artifact lineage from role identity, or continue comparison after
+detecting shared bytes.
+
+Not authorized: data acquisition, SDK invocation, network retrieval,
+credential, provider selection, raw repository retention, realtime activation,
+trading API, account, order, execution, product phase, tag, release, or
+deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.

@@ -12,6 +12,9 @@ from apps.fcp_0021_a_share_cross_source_quality_reconciliation_app_1 import (
     AShareCrossSourceReconciliationResult,
     RegisteredCanonicalDailyDataset,
 )
+from apps.fcp_0039_a_share_cross_source_artifact_independence_integrity_hardening_app_1 import (
+    CrossSourceArtifactIndependenceProof,
+)
 
 
 ROLES = ("QMT_LOCAL_EXPORT", "INDEPENDENT_REFERENCE")
@@ -26,6 +29,7 @@ _CALENDAR_QUALITY_STATES = {
 class SourceRoleDataset:
     role: str
     dataset: RegisteredCanonicalDailyDataset
+    source_artifact_hashes: tuple[str, ...] = field(init=False)
     role_hash: str = field(init=False)
 
     def __post_init__(self) -> None:
@@ -34,7 +38,18 @@ class SourceRoleDataset:
             raise ValueError("source role is not registered")
         if not isinstance(self.dataset, RegisteredCanonicalDailyDataset):
             raise TypeError("dataset must be RegisteredCanonicalDailyDataset")
+        source_artifact_hashes = tuple(
+            sorted(
+                {
+                    digest(item.source_artifact_sha256, "source_artifact_sha256")
+                    for item in self.dataset.observations
+                }
+            )
+        )
+        if not source_artifact_hashes:
+            raise ValueError("source role requires source-artifact lineage")
         object.__setattr__(self, "role", role)
+        object.__setattr__(self, "source_artifact_hashes", source_artifact_hashes)
         object.__setattr__(
             self,
             "role_hash",
@@ -43,6 +58,7 @@ class SourceRoleDataset:
                     "dataset_hash": self.dataset.dataset_hash,
                     "dataset_id": self.dataset.dataset_id,
                     "role": role,
+                    "source_artifact_hashes": source_artifact_hashes,
                     "source_id": self.dataset.source_id,
                 }
             ),
@@ -56,6 +72,7 @@ class SameCalendarCrossSourceCoverageResult:
     calendar_quality_state: str
     qmt_role_hash: str
     independent_role_hash: str
+    artifact_independence: CrossSourceArtifactIndependenceProof
     qmt_missing_dates: tuple[str, ...]
     qmt_unexpected_dates: tuple[str, ...]
     independent_missing_dates: tuple[str, ...]
@@ -80,6 +97,16 @@ class SameCalendarCrossSourceCoverageResult:
             object.__setattr__(self, name, digest(getattr(self, name), name))
         if self.qmt_role_hash == self.independent_role_hash:
             raise ValueError("cross-source role hashes must be distinct")
+        if not isinstance(
+            self.artifact_independence, CrossSourceArtifactIndependenceProof
+        ):
+            raise TypeError("artifact_independence must be typed")
+        if (
+            self.artifact_independence.qmt_role_hash != self.qmt_role_hash
+            or self.artifact_independence.independent_role_hash
+            != self.independent_role_hash
+        ):
+            raise ValueError("artifact-independence role lineage disagrees")
         if self.calendar_quality_state not in _CALENDAR_QUALITY_STATES:
             raise ValueError("calendar_quality_state is not registered")
         if not isinstance(
@@ -138,6 +165,7 @@ class SameCalendarCrossSourceCoverageResult:
             "result_hash",
             canonical_sha256(
                 {
+                    "artifact_independence_proof_hash": self.artifact_independence.proof_hash,
                     "calendar_manifest_hash": self.calendar_manifest_hash,
                     "calendar_quality_state": self.calendar_quality_state,
                     "cross_source_result_hash": self.cross_source_result.result_hash,
