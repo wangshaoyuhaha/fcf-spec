@@ -227,6 +227,9 @@ not-implemented capability groups:
 - BTC cross-source exact observation-delta ledgers with every ordered dataset
   pair, pairwise union key, closed observation field, exact source value,
   explicit incomplete state, and immutable upstream reconciliation lineage
+- BTC perpetual venue contract-lifecycle registries with registered rule
+  artifacts, exact settlement and precision semantics, half-open effective
+  intervals, explicit migration targets, and fail-closed point-in-time lookup
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

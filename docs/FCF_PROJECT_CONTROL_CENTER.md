@@ -20534,3 +20534,24 @@ P48, wallet, account, balance, position, order, execution, tag, release, or
 deployment is authorized. Synthetic tests do not close GAP-096 or GAP-102.
 
 <!-- FCP 0046 BTC PERPETUAL VENUE CONTRACT LIFECYCLE REGISTRY APP 1 APPROVAL END -->
+
+
+<!-- FCP 0046 BTC PERPETUAL VENUE CONTRACT LIFECYCLE REGISTRY APP 1 LOCK START -->
+
+## FCP 0046 BTC Perpetual Venue Contract Lifecycle Registry App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- registered local contract-rule artifact and exact evidence lineage
+- linear or inverse settlement, assets, multiplier, precision, and minimums
+- versioned effective-time lifecycle, delisting, and migration semantics
+- nonoverlapping registry entries and fail-closed point-in-time lookup
+- no margin, liquidation, PnL, funding, source, or execution authority
+
+No acquisition, SDK, network, credential, source selection, realtime, product,
+P48, wallet, account, balance, position, order, execution, tag, release, or
+deployment is authorized. Synthetic tests do not close GAP-096 or GAP-102.
+
+<!-- FCP 0046 BTC PERPETUAL VENUE CONTRACT LIFECYCLE REGISTRY APP 1 LOCK END -->

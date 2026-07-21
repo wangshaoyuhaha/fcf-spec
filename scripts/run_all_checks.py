@@ -197,6 +197,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0045_btc_cross_source_exact_observation_delta_evidence_ledger_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0046_btc_perpetual_venue_contract_lifecycle_registry_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
