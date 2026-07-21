@@ -278,3 +278,14 @@ FCP-0046 cannot calculate margin, liquidation, PnL, funding, or execution,
 select a source, acquire data, invoke an SDK, retrieve network data, accept
 credentials, activate realtime, authorize a wallet, product, account, order,
 or execution path, or close GAP-096 or GAP-102.
+
+Proposal `FCF-FCP-0047` creates a deterministic local-only BTC perpetual margin
+and risk-tier evidence registry bound to exact FCP-0046 contract lineage. It
+preserves margin and position modes, exact risk tiers, rates, deductions,
+limits, collateral haircuts, and effective-time rule versions.
+
+FCP-0047 cannot calculate balances, positions, margin amounts, PnL,
+liquidation, funding, fees, or execution, select a source, acquire data, invoke
+an SDK, retrieve network data, accept credentials, activate realtime,
+authorize a wallet, product, account, order, or execution path, or close
+GAP-097 or GAP-102.

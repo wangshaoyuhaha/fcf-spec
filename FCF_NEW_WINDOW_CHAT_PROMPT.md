@@ -13663,3 +13663,26 @@ repository retention, realtime, product, P48, wallet, account, balance,
 position, order, execution, tag, release, or deployment is authorized.
 
 <!-- FCP 0047 BTC PERPETUAL MARGIN RISK TIER EVIDENCE REGISTRY APP 1 APPROVAL END -->
+
+
+<!-- FCP 0047 BTC PERPETUAL MARGIN RISK TIER EVIDENCE REGISTRY APP 1 LOCK START -->
+
+## FCP 0047 BTC Perpetual Margin Risk Tier Evidence Registry App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- registered local BTC perpetual margin-rule artifact evidence
+- exact margin-mode, position-mode, risk-tier, and collateral semantics
+- exact FCP-0046 contract-entry lineage and half-open effective-time versions
+- deterministic fail-closed version, tier, and collateral lookup
+- immutable evidence hashes and non-calculation authority boundary
+
+The registry cannot calculate balances, positions, margin amounts, PnL,
+liquidation, funding, fees, or execution; select a source; or close GAP-097 or
+GAP-102. No acquisition, SDK, network, credential, source selection, realtime,
+product, P48, wallet, account, balance, position, order, execution, tag,
+release, or deployment is authorized.
+
+<!-- FCP 0047 BTC PERPETUAL MARGIN RISK TIER EVIDENCE REGISTRY APP 1 LOCK END -->

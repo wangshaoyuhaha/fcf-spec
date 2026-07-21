@@ -230,6 +230,9 @@ not-implemented capability groups:
 - BTC perpetual venue contract-lifecycle registries with registered rule
   artifacts, exact settlement and precision semantics, half-open effective
   intervals, explicit migration targets, and fail-closed point-in-time lookup
+- BTC perpetual margin risk-tier registries with exact FCP-0046 contract
+  lineage, closed margin and position modes, contiguous exact tiers,
+  collateral haircuts, half-open effective intervals, and fail-closed lookup
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

@@ -726,6 +726,31 @@ API, account, order, execution, product phase, tag, release, or deployment.
 
 ## Register Rules
 
+## FCF-V2-ADR-047 Resolve BTC Margin Rules Only From Exact Contract-Bound Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Preserve BTC perpetual margin rules as exact typed local evidence.
+Bind each version to one immutable FCP-0046 contract entry, preserve closed
+margin and position modes, contiguous exact risk tiers, collateral haircuts,
+and half-open UTC effective-time semantics. Every lookup must return exactly
+one registered rule or fail closed.
+
+Consequence: Later deterministic Paper accounting can consume reproducible
+historical rate evidence without treating current venue tiers as timeless or
+confusing rule lookup with balance, position, margin, or liquidation math.
+
+Rejected shortcut: use floats, infer missing tiers, fill effective-time gaps,
+overlap notional bands, accept an unbound contract, use a current venue default,
+or let the registry calculate balances, positions, PnL, or liquidation.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, realtime activation, wallet, account, balance, position,
+margin calculation, PnL, liquidation, funding, fee, order, execution, product
+phase, tag, release, or deployment.
+
+## Register Rules
+
 ## FCF-V2-ADR-046 Resolve BTC Contract Rules Only by Registered Effective Time
 
 Status: ACCEPTED_ARCHITECTURE

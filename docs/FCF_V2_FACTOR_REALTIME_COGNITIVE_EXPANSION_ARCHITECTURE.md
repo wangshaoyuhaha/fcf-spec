@@ -1828,3 +1828,21 @@ Point-in-time lookup returns exactly one registered version or fails closed on
 a gap or ambiguity. The registry supplies contract evidence only; it cannot
 calculate margin, liquidation, PnL, funding, execution, or source preference,
 and it does not close GAP-096 or GAP-102.
+
+## 80. BTC Perpetual Margin Risk Tier Evidence Registry
+
+The registry consumes one Operator-registered local JSON margin-rule artifact
+and one exact FCP-0046 contract registry. Every margin version binds to one
+contract-entry hash and preserves a closed ISOLATED or CROSS margin mode and a
+closed ONE_WAY or HEDGE position mode.
+
+Risk tiers use exact decimals, begin at zero, remain contiguous and
+nonoverlapping, and preserve notional floors and caps, initial and maintenance
+rates, maintenance deductions, and risk limits. Collateral rules preserve exact
+asset, valuation asset, and haircut evidence in stable order.
+
+Each version owns one half-open UTC effective interval. Point-in-time, tier,
+and collateral lookup returns exactly one registered rule or fails closed. The
+registry supplies evidence only; it cannot calculate balances, positions,
+margin amounts, PnL, liquidation, funding, fees, execution, or source
+preference, and it does not close GAP-097 or GAP-102.
