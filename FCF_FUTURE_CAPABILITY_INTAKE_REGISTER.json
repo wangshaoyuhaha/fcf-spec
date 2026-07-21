@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 23,
+  "next_proposal_sequence": 24,
   "proposals": [
     {
       "adr_refs": [],
@@ -692,6 +692,28 @@
       "summary": "Bridge exact Operator-registered local BTC venue exports into the FCP-0018 typed market-event contract through immutable field profiles, strict venue and instrument mapping, explicit source sequences and UTC clocks, deterministic trade, book snapshot, book delta, reference-price, and funding records, canonical ASCII NDJSON, and replay-compatible lineage. Missing evidence must fail closed and must never be inferred. This bounded foundation does not close referenced production gaps and authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC local export canonicalization bridge"
+    },
+    {
+      "adr_refs": [],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0023_BTC_CROSS_SOURCE_VENUE_QUALITY_RECONCILIATION_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-092",
+        "V2-FR-GAP-095"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0023",
+      "source": "operator-directed-btc-data-quality-continuation",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T02:15:00Z",
+      "summary": "Reconcile immutable Operator-registered local BTC canonical event sets across distinct sources and comparable venue semantics. The bounded deterministic runtime records coverage, payload, clock, sequence, book, reference-price, and funding conflicts as immutable quarantine evidence without selecting or trusting a source. It does not close production gaps and authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC cross-source venue quality reconciliation"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

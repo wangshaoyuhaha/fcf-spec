@@ -18603,3 +18603,31 @@ position, order, execution, realtime, product, P48, tag, release, or deployment
 authority. No successor governance or product phase is selected or approved.
 
 <!-- FCP 0022 BTC LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 FINAL END -->
+
++<!-- FCP 0023 BTC CROSS SOURCE VENUE QUALITY RECONCILIATION APP 1 APPROVAL START -->
+
+## FCP 0023 BTC Cross-Source Venue Quality Reconciliation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0023-btc-cross-source-venue-quality-reconciliation-app-1`
+
+Approved order:
+
+- D1 immutable registered BTC comparison-set and bounded policy contracts
+- D2 canonical observation identity across source and venue evidence
+- D3 deterministic coverage and all-pairs payload reconciliation
+- D4 sequence, clock, book, reference-price, and funding conflict findings
+- D5 immutable quarantine result without source selection or automatic trust
+- D6 guards, validation, merge, and final authority synchronization
+
+Only typed BTC events backed by exact Operator-registered local artifacts may enter
+this reconciliation. Missing venue comparability, sequence, clock, book,
+reference-price, or funding evidence must not be guessed. No SDK, network,
+credential, provider selection, wallet, account, balance, position, order,
+execution, realtime activation, product phase, P48, tag, release, or deployment
+is authorized.
+
+<!-- FCP 0023 BTC CROSS SOURCE VENUE QUALITY RECONCILIATION APP 1 APPROVAL END -->
