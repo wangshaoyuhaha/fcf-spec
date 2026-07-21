@@ -24,4 +24,3 @@ fee or rebate calculation, balance, position, PnL, liquidation, funding,
 source, execution, or GAP authority. No acquisition, SDK, network, credential,
 realtime, product, P48, wallet, account, balance, position, order, execution,
 tag, release, or deployment is authorized. No successor phase is selected.
-
