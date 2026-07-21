@@ -59,7 +59,7 @@ class RegisteredCanonicalDailyDataset:
         if (
             self.operator_registered is not True
             or self.local_only is not True
-            or self.provider_selected
+            or self.provider_selected is not False
         ):
             raise ValueError("dataset must remain registered-local and provider-unselected")
         as_of = utc(self.as_of_utc, "as_of_utc")
@@ -138,7 +138,7 @@ class AShareCrossSourceReconciliationPolicy:
             or not 0 <= self.clock_tolerance_seconds <= 86_400
         ):
             raise ValueError("clock_tolerance_seconds is outside its bounded domain")
-        if self.operator_registered is not True or self.source_selection_allowed:
+        if self.operator_registered is not True or self.source_selection_allowed is not False:
             raise ValueError("policy requires Operator registration and cannot select a source")
         object.__setattr__(self, "price_tolerance", price)
         object.__setattr__(self, "amount_tolerance", amount)
@@ -243,9 +243,12 @@ class AShareCrossSourceReconciliationResult:
         blocked = any(item.severity == "BLOCK" for item in findings)
         if (self.quality_state == "QUARANTINE_REVIEW_REQUIRED") != blocked:
             raise ValueError("quality_state and findings disagree")
-        if self.operator_review_required is not True or self.source_selected:
+        if self.operator_review_required is not True or self.source_selected is not False:
             raise ValueError("reconciliation cannot bypass review or select a source")
-        if not 0 <= self.overlap_key_count <= self.union_key_count:
+        counts = (self.union_key_count, self.overlap_key_count)
+        if any(isinstance(item, bool) or not isinstance(item, int) or item < 0 for item in counts):
+            raise ValueError("reconciliation key counts must be nonnegative integers")
+        if self.overlap_key_count > self.union_key_count:
             raise ValueError("reconciliation key counts are inconsistent")
         object.__setattr__(self, "dataset_hashes", dataset_hashes)
         object.__setattr__(self, "policy_hash", policy_hash)

@@ -43,7 +43,9 @@ def identifier(value: object, name: str) -> str:
 
 
 def digest(value: object, name: str) -> str:
-    result = str(value).strip().lower()
+    if not isinstance(value, str):
+        raise ValueError(f"{name} must be lowercase SHA-256")
+    result = value
     if len(result) != 64 or any(character not in "0123456789abcdef" for character in result):
         raise ValueError(f"{name} must be lowercase SHA-256")
     return result
@@ -122,7 +124,10 @@ class RegisteredDailyArtifact:
             raise ValueError("usage_scope must remain local evaluation only")
         if self.operator_registered is not True:
             raise ValueError("artifact requires Operator registration")
-        if self.raw_repository_storage_allowed or self.provider_selected:
+        if (
+            self.raw_repository_storage_allowed is not False
+            or self.provider_selected is not False
+        ):
             raise ValueError("local calibration cannot grant storage or provider authority")
 
 
