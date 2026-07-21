@@ -1,6 +1,6 @@
 # FCF FCP 0023 BTC Cross-Source Venue Quality Reconciliation App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Registered Comparison Contract
 
