@@ -1725,3 +1725,20 @@ Diagnostics are descriptive registered evidence only. They set no tolerance,
 rank no provider, select no source, and replace no evidence. Synthetic fixtures
 do not close GAP-109 or claim independent-provider evidence. Operator review
 remains mandatory.
+
+## 74. A-Share Cross-Source Row-Delta Evidence Ledger
+
+The row-delta ledger expands one typed FCP-0040 aggregate diagnostic only after
+recomputing it from the same FCP-0038 and FCP-0039 inputs. It emits one entry
+for every overlapping instrument, trade date, and closed numeric, text, or
+registered-clock field, including exact matches and incomplete pairs.
+
+Each entry preserves exact source values, the applicable exact decimal or
+absolute-second delta, and an exact-match, delta-present, or pair-incomplete
+state. Entries use stable key-then-field ordering and immutable hashes. The
+ledger binds the coverage result, artifact-independence proof, both role hashes,
+and aggregate diagnostic hash.
+
+The ledger is read-only registered evidence. It cannot set a tolerance, order
+entries by desirability, rank a provider, select a source, or replace evidence.
+Synthetic fixtures do not close GAP-109. Operator review remains mandatory.

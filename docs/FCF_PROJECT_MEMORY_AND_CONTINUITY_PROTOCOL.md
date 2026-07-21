@@ -212,6 +212,9 @@ not-implemented capability groups:
   numeric and clock summaries, explicit factor and status mismatches, immutable
   upstream lineage, mandatory Operator review, and no threshold, ranking,
   selection, or evidence replacement
+- cross-source row-delta evidence ledgers with complete exact-match, delta, and
+  incomplete entries in stable instrument, date, and closed-field order; bound
+  to upstream coverage, artifact-independence, role, and diagnostic hashes
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
