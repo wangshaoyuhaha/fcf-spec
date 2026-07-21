@@ -615,6 +615,29 @@ credential, provider selection, raw repository retention, realtime activation,
 trading API, account, order, execution, product phase, tag, release, or
 deployment.
 
+## FCF-V2-ADR-040 Keep Cross-Source Delta Diagnostics Non-Decisional
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Exact field-delta diagnostics consume only an existing FCP-0038
+same-calendar result with its FCP-0039 artifact-independence proof. Diagnostics
+operate only on overlapping registered row keys and bind role, dataset,
+coverage, proof, field-summary, mismatch, and clock lineage into immutable
+hashes.
+
+Consequence: Raw OHLC, volume, amount, paired adjustment factor, factor
+version, trading status, and registered clock differences remain visible as
+exact descriptive evidence. No diagnostic value is a tolerance, score,
+provider rank, or source-selection decision. Operator review remains mandatory.
+
+Rejected shortcut: compare non-overlapping dates, discard missing factor pairs,
+infer a preferred provider from the smallest delta, set an implicit tolerance,
+or replace either registered source with a derived diagnostic.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, trading
+API, account, order, execution, product phase, tag, release, or deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.
