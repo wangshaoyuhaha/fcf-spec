@@ -186,6 +186,9 @@ not-implemented capability groups:
   candidate treatment without provider selection or trial-data harvesting
 - separate A-share and BTC source semantics and evidence-based data-cost value
   gates without profitability claims
+- BTC perpetual Paper research with venue-versioned contract, collateral,
+  margin, PnL, funding, liquidation, ADL, insurance-fund, lifecycle, cost,
+  stress, and hard-gate semantics separated from reusable signal evidence
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

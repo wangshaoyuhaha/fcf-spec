@@ -1528,6 +1528,50 @@ venue identity, index or mark price, funding, contract metadata, and cross-venue
 divergence where the licensed source provides them.
 
 No A-share suspension rule or daily adjustment policy is projected onto BTC.
+
+## 66. BTC Perpetual Leverage Paper Research Architecture
+
+Architecture ID: `FCF-V2-BTC-PERPETUAL-LEVERAGE-PAPER-RESEARCH`
+
+Status: ACCEPTED_ARCHITECTURE
+
+Implementation status: NOT_IMPLEMENTED
+
+This architecture extends the existing BTC short-horizon and trusted-data
+contracts. It does not replace them and does not convert a spot signal into a
+leveraged decision. Signal research, contract semantics, collateral
+accounting, risk accounting, and simulated execution evidence remain separate
+deterministic layers.
+
+Required future contracts:
+
+- a venue-versioned contract registry covering linear or inverse settlement,
+  quote and collateral asset, multiplier, tick, step, minimum notional,
+  lifecycle status, effective time, and delisting or migration evidence
+- isolated or cross margin and one-way or hedge position-mode semantics
+- initial and maintenance margin tiers, collateral haircuts, risk limits, and
+  deterministic realized and unrealized PnL accounting
+- index, mark, last, bankruptcy, and liquidation price separation
+- partial liquidation, liquidation fee, insurance-fund, ADL, and cascade state
+- funding interval, cap, floor, direction, settlement clock, and basis evidence
+- maker or taker fee, rebate, spread, depth, partial-fill, latency, outage,
+  resync, and adverse-selection calibration
+- deterministic Paper stress scenarios for gaps, thin books, venue outage,
+  funding shocks, loss streaks, collateral drawdown, and liquidation distance
+- hard research gates for leverage cap, notional cap, liquidation buffer,
+  concentration, daily loss, stale data, contradiction, and abstention
+
+Venue rules are versioned evidence, not universal constants. Contract
+termination, symbol migration, collateral conversion, risk-tier changes, and
+funding-method changes must be reproducible at their effective times. A model
+signal cannot alter margin, liquidation, funding, fee, or contract rules.
+
+The future deliverable is a registered local Paper research artifact. It is
+not a virtual account, Paper order dispatcher, live leverage runtime, venue
+adapter, wallet, credential, balance, position, order, execution, or realtime
+authorization. Deterministic Engine remains calculation authority, Registered
+Evidence remains evidence authority, AI remains advisory, and Operator review
+is mandatory.
 No single mixed score combines the two markets.
 
 ## 66. Data Cost and Incremental Value Gate

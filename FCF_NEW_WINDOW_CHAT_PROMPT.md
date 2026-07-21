@@ -12626,3 +12626,30 @@ position, Paper order, leverage runtime, real order, execution, realtime,
 product phase, P48, tag, release, or deployment is authorized.
 
 <!-- FCP 0034 BTC PERPETUAL LEVERAGE PAPER RESEARCH ARCHITECTURE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0034 BTC PERPETUAL LEVERAGE PAPER RESEARCH ARCHITECTURE APP 1 LOCK START -->
+
+## FCP 0034 BTC Perpetual Leverage Paper Research Architecture App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- venue-versioned perpetual contract, collateral, settlement, and lifecycle semantics
+- isolated or cross margin, position mode, margin tier, PnL, and risk-limit separation
+- funding, fee, slippage, latency, outage, liquidation, ADL, and insurance-fund evidence
+- deterministic Paper stress cases, hard risk gates, and signal-accounting isolation
+- seven-file governance registration with no product-phase selection
+
+Validation evidence:
+
+- FCP-0034 isolated and governance-targeted suite: 38 passed
+- exact approval blocks synchronized across all five active authority files
+- manifest, intake, ADR, Gap, architecture, protocol, and guard syntax validated
+
+No SDK, network, credential, venue selection, wallet, account, balance,
+position, Paper order, leverage runtime, real order, execution, realtime,
+product phase, P48, tag, release, or deployment is authorized.
+
+<!-- FCP 0034 BTC PERPETUAL LEVERAGE PAPER RESEARCH ARCHITECTURE APP 1 LOCK END -->
