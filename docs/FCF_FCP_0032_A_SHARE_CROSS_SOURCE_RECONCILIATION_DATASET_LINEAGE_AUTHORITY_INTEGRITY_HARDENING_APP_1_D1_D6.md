@@ -1,6 +1,6 @@
 # FCF FCP 0032 A Share Cross Source Reconciliation Dataset Lineage Authority Integrity Hardening App 1 D1-D6
 
-Status: COMPLETED_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Dataset Identity Lineage
 
