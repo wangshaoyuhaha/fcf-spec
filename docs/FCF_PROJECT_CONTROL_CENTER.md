@@ -20697,3 +20697,26 @@ selection, raw repository retention, realtime, product, P48, wallet, account,
 balance, position, order, execution, tag, release, or deployment is authorized.
 
 <!-- FCP 0048 BTC PERPETUAL FUNDING METHOD SCHEDULE EVIDENCE REGISTRY APP 1 APPROVAL END -->
+
+
+<!-- FCP 0048 BTC PERPETUAL FUNDING METHOD SCHEDULE EVIDENCE REGISTRY APP 1 LOCK START -->
+
+## FCP 0048 BTC Perpetual Funding Method Schedule Evidence Registry App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- registered local BTC perpetual funding-rule artifact evidence
+- exact method, basis, schedule, signed bounds, interest, and payer semantics
+- exact FCP-0046 contract-entry lineage and half-open effective-time versions
+- deterministic fail-closed point-in-time lookup
+- immutable evidence hashes and non-calculation authority boundary
+
+The registry cannot calculate funding rates or payments, balances, positions,
+PnL, liquidation, fees, or execution; select a source; or close GAP-099 or
+GAP-102. No acquisition, SDK, network, credential, source selection, realtime,
+product, P48, wallet, account, balance, position, order, execution, tag,
+release, or deployment is authorized.
+
+<!-- FCP 0048 BTC PERPETUAL FUNDING METHOD SCHEDULE EVIDENCE REGISTRY APP 1 LOCK END -->

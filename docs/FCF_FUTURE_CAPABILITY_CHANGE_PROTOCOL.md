@@ -289,3 +289,13 @@ liquidation, funding, fees, or execution, select a source, acquire data, invoke
 an SDK, retrieve network data, accept credentials, activate realtime,
 authorize a wallet, product, account, order, or execution path, or close
 GAP-097 or GAP-102.
+
+Proposal `FCF-FCP-0048` creates a deterministic local-only BTC perpetual
+funding-method and schedule evidence registry bound to exact FCP-0046 contract
+lineage. It preserves method, basis, interval, anchor, signed rate bounds,
+interest component, payer convention, and effective-time rule versions.
+
+FCP-0048 cannot calculate a funding rate, payment, balance, position, PnL,
+liquidation, fee, or execution, select a source, acquire data, invoke an SDK,
+retrieve network data, accept credentials, activate realtime, authorize a
+wallet, product, account, order, or execution path, or close GAP-099 or GAP-102.
