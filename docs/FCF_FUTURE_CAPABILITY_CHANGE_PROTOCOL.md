@@ -237,3 +237,13 @@ FCP-0042 cannot assign severity, recommend, set a tolerance, rank or select a
 source, replace evidence, acquire data, invoke an SDK, retrieve network data,
 accept credentials, activate realtime, or authorize a product, account, order,
 or execution path. Synthetic tests do not close GAP-109.
+
+Proposal `FCF-FCP-0043` records a deterministic local-only Operator review
+receipt for one typed FCP-0042 packet. The receipt binds safe review identity,
+reviewer reference, registered UTC time, one closed non-decisional disposition,
+and exact packet, ledger, finding, and field-fact lineage.
+
+FCP-0043 cannot validate or reject evidence, assign severity, recommend, set a
+tolerance, rank or select a source, replace evidence, acquire data, invoke an
+SDK, retrieve network data, accept credentials, activate realtime, authorize a
+product, account, order, or execution path, or close GAP-109.

@@ -682,6 +682,27 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, trading
 API, account, order, execution, product phase, tag, release, or deployment.
 
+## FCF-V2-ADR-043 Separate Review Completion from Evidence Acceptance
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: One Operator review receipt may be created only from one typed
+FCP-0042 packet and explicit safe review metadata. The receipt uses one closed
+non-decisional disposition and binds the exact packet, ledger, review-state,
+finding, and field-fact lineage.
+
+Consequence: The system can prove that an Operator inspected a packet without
+claiming that either source was validated, rejected, preferred, or selected.
+Review completion does not close the underlying research gap.
+
+Rejected shortcut: treat acknowledgement as evidence acceptance, accept free
+text dispositions, omit the packet hash, mutate findings, infer a winning
+source, or close GAP-109 from a synthetic receipt.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, trading
+API, account, order, execution, product phase, tag, release, or deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.
