@@ -13191,3 +13191,30 @@ SDK, network, credential, wallet, account, order, execution, realtime, product,
 P48, tag, release, or deployment authority. No successor phase is selected.
 
 <!-- FCP 0024 CROSS MARKET REGISTERED DATA READINESS REVIEW PACKET APP 1 FINAL END -->
+
++<!-- FCP 0025 REGISTERED DATA READINESS INTEGRITY HARDENING APP 1 APPROVAL START -->
+
+## FCP 0025 Registered Data Readiness Integrity Hardening App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0025-registered-data-readiness-integrity-hardening-app-1`
+
+Approved order:
+
+- D1 strict SHA-256 result, policy, and dataset lineage validation
+- D2 exact typed finding and readiness-row validation
+- D3 bounded non-boolean count validation
+- D4 explicit BTC venue-semantics conflict evidence
+- D5 normalized fail-closed decimal input errors
+- D6 guards, validation, merge, and final authority synchronization
+
+This phase hardens FCP-0023 and FCP-0024 only. It must not alter source
+selection, activate providers, or weaken market isolation. No SDK, network,
+credential, provider selection, wallet, account, balance, position, order,
+execution, realtime activation, product phase, P48, tag, release, or deployment
+is authorized.
+
+<!-- FCP 0025 REGISTERED DATA READINESS INTEGRITY HARDENING APP 1 APPROVAL END -->
