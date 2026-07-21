@@ -1863,3 +1863,20 @@ returns exactly one registered rule or fails closed. The registry supplies
 evidence only; it cannot calculate funding rates or payments, balances,
 positions, PnL, liquidation, fees, execution, or source preference, and it does
 not close GAP-099 or GAP-102.
+
+## 82. BTC Perpetual Fee Rebate Schedule Evidence Registry
+
+The registry consumes one Operator-registered local JSON fee-rule artifact and
+one exact FCP-0046 contract registry. Every schedule version binds to one
+contract-entry hash and preserves exact signed maker and taker rates. Negative
+rates remain explicit registered rebates.
+
+Trailing-volume tiers begin at zero, remain contiguous and nonoverlapping, and
+preserve a measurement asset and positive integer window. Eligible fee assets
+remain nonempty, unique, and stably ordered.
+
+Each version owns one half-open UTC effective interval. Point-in-time lookup
+returns exactly one registered schedule or fails closed. The registry cannot
+select a real account tier or calculate fees, rebates, balances, positions,
+PnL, liquidation, funding, execution, or source preference, and it does not
+close GAP-099 or GAP-102.

@@ -299,3 +299,14 @@ FCP-0048 cannot calculate a funding rate, payment, balance, position, PnL,
 liquidation, fee, or execution, select a source, acquire data, invoke an SDK,
 retrieve network data, accept credentials, activate realtime, authorize a
 wallet, product, account, order, or execution path, or close GAP-099 or GAP-102.
+
+Proposal `FCF-FCP-0049` creates a deterministic local-only BTC perpetual fee
+and rebate schedule evidence registry bound to exact FCP-0046 contract lineage.
+It preserves exact signed maker and taker rates, contiguous trailing-volume
+tiers, measurement asset and window, fee assets, and effective-time versions.
+
+FCP-0049 cannot select a real account tier or calculate fees, rebates,
+balances, positions, PnL, liquidation, funding, or execution, select a source,
+acquire data, invoke an SDK, retrieve network data, accept credentials,
+activate realtime, authorize a wallet, product, account, order, or execution
+path, or close GAP-099 or GAP-102.
