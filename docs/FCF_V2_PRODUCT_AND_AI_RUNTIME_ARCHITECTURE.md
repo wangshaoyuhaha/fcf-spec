@@ -13645,3 +13645,36 @@ position, order, execution, realtime, product phase, P48, tag, release, or
 deployment is authorized.
 
 <!-- FCP 0030 BTC REPLAY REPORT INTEGRITY HARDENING APP 1 APPROVAL END -->
+
+
+<!-- FCP 0030 BTC REPLAY REPORT INTEGRITY HARDENING APP 1 LOCK START -->
+
+## FCP 0030 BTC Replay Report Integrity Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- concrete replay findings, book levels, manifests, and latest observations
+- exact lowercase digests and one closed normalized replay layer
+- strict book clocks, sorted noncrossed depth, and book-manifest coherence
+- complete unique observation ID and digest lineage pairs
+- exact accepted-ID and latest-observation digest coherence
+- immutable deterministic, evidence, AI, and Operator-review authority identities
+- deterministic report commitment and dedicated regression guard
+
+Validation evidence:
+
+- FCP-0030 isolated suite: 20 passed
+- affected BTC replay and bridge suite: 55 passed
+- FCP governance stage suite: 637 passed
+- project governance suite: 21 passed
+- full pytest: 5974 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: final run left no tracked generated changes
+
+No SDK, network, credential, provider selection, wallet, account, balance,
+position, order, execution, realtime, product phase, P48, tag, release, or
+deployment is authorized.
+
+<!-- FCP 0030 BTC REPLAY REPORT INTEGRITY HARDENING APP 1 LOCK END -->
