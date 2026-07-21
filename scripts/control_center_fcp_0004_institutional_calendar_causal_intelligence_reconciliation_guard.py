@@ -273,6 +273,7 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1",
             "FCF-FCP-0017-A-SHARE-TRUSTED-DAILY-DATA-SUBSTRATE-LOCAL-CALIBRATION-APP-1",
             "FCF-FCP-0018-BTC-TRUSTED-MARKET-DATA-SUBSTRATE-LOCAL-REPLAY-APP-1",
+            "FCF-FCP-0019-A-SHARE-LOCAL-EXPORT-CANONICALIZATION-BRIDGE-APP-1",
         }
         and truth.get("current_product_implementation_phase") == "NONE"
         and truth.get("next_product_implementation_phase") == "NOT_SELECTED",
@@ -296,6 +297,7 @@ def build_fcp_0004_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0016-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-SOURCE-ROUTING-ARCHITECTURE-APP-1",
             "FCF-FCP-0017-A-SHARE-TRUSTED-DAILY-DATA-SUBSTRATE-LOCAL-CALIBRATION-APP-1",
             "FCF-FCP-0018-BTC-TRUSTED-MARKET-DATA-SUBSTRATE-LOCAL-REPLAY-APP-1",
+            "FCF-FCP-0019-A-SHARE-LOCAL-EXPORT-CANONICALIZATION-BRIDGE-APP-1",
         },
         "guard_wired_into_all_checks": (
             "scripts/control_center_fcp_0004_institutional_calendar_causal_intelligence_reconciliation_guard.py"

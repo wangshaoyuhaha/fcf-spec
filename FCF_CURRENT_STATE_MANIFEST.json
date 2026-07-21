@@ -41,8 +41,8 @@
     "unfinished_work_register": "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md"
   },
   "current_truth": {
-    "current_governance_phase_id": "NONE",
-    "current_governance_phase_status": "NONE",
+    "current_governance_phase_id": "FCF-FCP-0019-A-SHARE-LOCAL-EXPORT-CANONICALIZATION-BRIDGE-APP-1",
+    "current_governance_phase_status": "APPROVED_GOVERNANCE_ONLY_NOT_STARTED",
     "current_product_implementation_phase": "NONE",
     "latest_completed_governance_delivery": "FCF-FCP-0018-BTC-TRUSTED-MARKET-DATA-SUBSTRATE-LOCAL-REPLAY-APP-1",
     "latest_completed_product_phase": "V2-R47-BROWSER-GOVERNANCE-REVIEW-MARKET-SUMMARY-PRESENTATION-APP-1",

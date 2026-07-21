@@ -12699,3 +12699,34 @@ order, execution, realtime, product, tag, release, or deployment authority.
 No successor governance or product phase is selected or approved.
 
 <!-- FCP 0018 BTC TRUSTED MARKET DATA SUBSTRATE LOCAL REPLAY APP 1 FINAL END -->
+
+
+<!-- FCP 0019 A SHARE LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 APPROVAL START -->
+
+## FCP 0019 A-Share Local Export Canonicalization Bridge App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0019-a-share-local-export-canonicalization-bridge-app-1`
+
+Approved order:
+
+- D1 immutable provider-neutral local-export profile and registered artifact contracts
+- D2 exact source-column mapping and A-share instrument normalization
+- D3 explicit point-in-time supplement records without inferred clocks or status
+- D4 deterministic canonical FCP-0017 CSV construction and lineage manifest
+- D5 bridge-to-FCP-0017 compatibility, fail-closed quality tests, and provider isolation
+- D6 guards, validation, merge, and final authority synchronization
+
+Only exact Operator-registered local export bytes may enter this bridge. Missing
+availability, first-tradable, revision, factor, or trading-status evidence must
+not be guessed. No SDK, network, credential, provider selection, raw repository
+retention, realtime activation, trading, or execution is authorized.
+
+P1-P47 remain frozen and no P48 is created. The Deterministic Engine remains
+calculation authority, Registered Evidence remains evidence authority, AI
+remains advisory, and Operator review remains mandatory.
+
+<!-- FCP 0019 A SHARE LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 APPROVAL END -->
