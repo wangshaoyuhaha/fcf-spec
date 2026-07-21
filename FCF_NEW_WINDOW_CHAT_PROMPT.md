@@ -11760,3 +11760,28 @@ order, execution, realtime activation, product phase, P48, tag, release, or
 deployment is authorized.
 
 <!-- FCP 0024 CROSS MARKET REGISTERED DATA READINESS REVIEW PACKET APP 1 APPROVAL END -->
+
++<!-- FCP 0024 CROSS MARKET REGISTERED DATA READINESS REVIEW PACKET APP 1 LOCK START -->
+
+## FCP 0024 Cross-Market Registered Data Readiness Review Packet App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- typed A-share and BTC reconciliation evidence inputs
+- exact isolated market rows with lineage, quality, and coverage summaries
+- deterministic aggregate state with any quarantine preserved
+- immutable packet with no ranking, source selection, or automatic trust
+- mandatory Operator review and preserved authority boundaries
+- no SDK, network, credential, wallet, account, order, or execution path
+
+Validation evidence:
+
+- FCP-0024 isolated suite: 13 passed
+- FCP governance targeted suite: 550 passed
+- full pytest: 5866 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: four tracked check outputs restored exactly
+
+<!-- FCP 0024 CROSS MARKET REGISTERED DATA READINESS REVIEW PACKET APP 1 LOCK END -->
