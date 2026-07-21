@@ -11,7 +11,9 @@ _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 
 
 def _digest(value: object, name: str) -> str:
-    result = str(value).strip().lower()
+    if not isinstance(value, str):
+        raise ValueError(f"{name} must be lowercase SHA-256")
+    result = value
     if _SHA256.fullmatch(result) is None:
         raise ValueError(f"{name} must be lowercase SHA-256")
     return result
@@ -43,7 +45,7 @@ class MarketDataReadinessRow:
         dataset_hashes = tuple(_digest(item, "dataset_hash") for item in self.dataset_hashes)
         if len(dataset_hashes) < 2 or len(dataset_hashes) != len(set(dataset_hashes)):
             raise ValueError("readiness row requires distinct dataset hashes")
-        if self.source_selected:
+        if self.source_selected is not False:
             raise ValueError("readiness row cannot select a source")
         counts = (self.blocking_finding_count, self.warning_finding_count, self.union_key_count, self.overlap_key_count)
         if any(isinstance(item, bool) or not isinstance(item, int) or item < 0 for item in counts):
@@ -94,8 +96,14 @@ class CrossMarketDataReadinessPacket:
         expected = "READY_FOR_OPERATOR_REVIEW" if all(item.readiness_state == "READY_FOR_OPERATOR_REVIEW" for item in rows) else "QUARANTINE_REVIEW_REQUIRED"
         if self.aggregate_state != expected:
             raise ValueError("aggregate_state and market rows disagree")
-        if self.operator_review_required is not True or self.source_selected:
+        if self.operator_review_required is not True or self.source_selected is not False:
             raise ValueError("packet cannot bypass review or select a source")
+        if (
+            self.calculation_authority != "DETERMINISTIC_ENGINE"
+            or self.evidence_authority != "REGISTERED_EVIDENCE"
+            or self.ai_role != "ADVISORY_ONLY"
+        ):
+            raise ValueError("packet authority identities are immutable")
         as_of = utc(self.as_of_utc, "as_of_utc")
         object.__setattr__(self, "rows", rows)
         object.__setattr__(self, "as_of_utc", as_of)

@@ -35,7 +35,9 @@ _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 
 
 def _digest(value: object, name: str) -> str:
-    result = str(value).strip().lower()
+    if not isinstance(value, str):
+        raise ValueError(f"{name} must be lowercase SHA-256")
+    result = value
     if _SHA256.fullmatch(result) is None:
         raise ValueError(f"{name} must be lowercase SHA-256")
     return result
@@ -110,7 +112,7 @@ class RegisteredCanonicalBTCObservationSet:
             raise ValueError("retention_state is not registered")
         if self.schema_version != "btc-observation-set-v1":
             raise ValueError("schema_version is not registered")
-        if self.operator_registered is not True or self.local_only is not True or self.provider_selected:
+        if self.operator_registered is not True or self.local_only is not True or self.provider_selected is not False:
             raise ValueError("dataset must remain registered-local and provider-unselected")
         object.__setattr__(self, "observations", observations)
         object.__setattr__(self, "as_of_utc", as_of)
@@ -151,11 +153,15 @@ class BTCCrossSourceReconciliationPolicy:
         price = _bounded_decimal(self.price_tolerance, "price_tolerance", "1000000")
         quantity = _bounded_decimal(self.quantity_tolerance, "quantity_tolerance", "1000000")
         funding = _bounded_decimal(self.funding_rate_tolerance, "funding_rate_tolerance", "1")
-        if isinstance(self.clock_tolerance_seconds, bool) or not 0 <= self.clock_tolerance_seconds <= 86400:
+        if (
+            isinstance(self.clock_tolerance_seconds, bool)
+            or not isinstance(self.clock_tolerance_seconds, int)
+            or not 0 <= self.clock_tolerance_seconds <= 86400
+        ):
             raise ValueError("clock_tolerance_seconds is outside its bounded domain")
         if not isinstance(self.require_same_venue, bool):
             raise ValueError("require_same_venue must be boolean")
-        if self.operator_registered is not True or self.source_selection_allowed:
+        if self.operator_registered is not True or self.source_selection_allowed is not False:
             raise ValueError("policy requires Operator registration and cannot select a source")
         object.__setattr__(self, "price_tolerance", price)
         object.__setattr__(self, "quantity_tolerance", quantity)
@@ -247,10 +253,19 @@ class BTCCrossSourceReconciliationResult:
             raise ValueError("quality_state is not registered")
         if (self.quality_state == "QUARANTINE_REVIEW_REQUIRED") != blocked:
             raise ValueError("quality_state and findings disagree")
-        if self.operator_review_required is not True or self.source_selected:
+        if self.operator_review_required is not True or self.source_selected is not False:
             raise ValueError("reconciliation cannot bypass review or select a source")
-        if not 0 <= self.overlap_key_count <= self.union_key_count:
+        counts = (self.union_key_count, self.overlap_key_count)
+        if any(isinstance(item, bool) or not isinstance(item, int) or item < 0 for item in counts):
+            raise ValueError("reconciliation key counts must be nonnegative integers")
+        if self.overlap_key_count > self.union_key_count:
             raise ValueError("reconciliation key counts are inconsistent")
+        if (
+            self.calculation_authority != "DETERMINISTIC_ENGINE"
+            or self.evidence_authority != "REGISTERED_EVIDENCE"
+            or self.ai_role != "ADVISORY_ONLY"
+        ):
+            raise ValueError("reconciliation authority identities are immutable")
         object.__setattr__(self, "findings", findings)
         object.__setattr__(self, "dataset_hashes", hashes)
         object.__setattr__(self, "policy_hash", policy_hash)

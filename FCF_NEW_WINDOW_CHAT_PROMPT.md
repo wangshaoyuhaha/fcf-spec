@@ -11921,3 +11921,30 @@ position, order, execution, realtime, product phase, P48, tag, release, or
 deployment is authorized.
 
 <!-- FCP 0026 REGISTERED DATA AUTHORITY EXACTNESS HARDENING APP 1 APPROVAL END -->
+
+<!-- FCP 0026 REGISTERED DATA AUTHORITY EXACTNESS HARDENING APP 1 LOCK START -->
+
+## FCP 0026 Registered Data Authority Exactness Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- exact lowercase SHA-256 inputs without silent normalization
+- non-boolean A-share and BTC reconciliation counts
+- exact boolean registration, review, and source-selection boundaries
+- immutable calculation, evidence, and AI authority identities
+- preserved market isolation, no source selection, and Operator review
+- no SDK, network, credential, wallet, account, order, or execution path
+
+Validation evidence:
+
+- FCP-0026 isolated suite: 22 passed
+- affected A-share, BTC, and readiness regression suite: 90 passed
+- FCP governance stage suite: 566 passed
+- project governance suite: 21 passed
+- full pytest: 5903 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: four tracked check outputs restored exactly
+
+<!-- FCP 0026 REGISTERED DATA AUTHORITY EXACTNESS HARDENING APP 1 LOCK END -->
