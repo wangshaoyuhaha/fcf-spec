@@ -1,6 +1,6 @@
 # FCF FCP 0022 BTC Local Export Canonicalization Bridge App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Registered Local Export Contract
 
@@ -41,4 +41,4 @@ Validated result:
 - FCP governance targeted suite: 519 passed
 - full pytest: 5835 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
-- generated runtime outputs: no tracked output changed; no restoration required
+- generated runtime outputs: four tracked check outputs restored exactly

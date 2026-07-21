@@ -82,6 +82,21 @@ def build_fcp_0022_guard_report(root: Path = ROOT) -> dict[str, object]:
         or (len(texts) == 5 and all(locks) and len(set(locks)) == 1),
         "final_exact_when_closed": not closed
         or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
+        "final_evidence_when_closed": not closed
+        or (
+            (root / "FCF_CURRENT_STATE_FCP_0022_BTC_LOCAL_EXPORT_CANONICALIZATION_BRIDGE_APP_1_FINAL.md").is_file()
+            and all(finals)
+            and all(
+                term in finals[0]
+                for term in (
+                    "5a77459",
+                    "2cdfe0a",
+                    "d7d122be06bf37de20e882b62d3fbbe1bed5ee09",
+                    "5835 passed",
+                    "ALL CHECKS PASSED",
+                )
+            )
+        ),
         "manifest_state_safe": active
         or closed
         or is_historical_delivery_state_safe(truth, DELIVERY_ID),
