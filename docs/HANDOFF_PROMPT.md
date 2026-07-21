@@ -12266,3 +12266,28 @@ order, execution, tag, release, or deployment authority. Synthetic evidence
 does not close GAP-109. No successor phase is selected.
 
 <!-- FCP 0039 A SHARE CROSS SOURCE ARTIFACT INDEPENDENCE INTEGRITY HARDENING APP 1 FINAL END -->
+
+
+<!-- FCP 0040 A SHARE SAME CALENDAR CROSS SOURCE FIELD DELTA DIAGNOSTIC APP 1 APPROVAL START -->
+
+## FCP 0040 A Share Same Calendar Cross Source Field Delta Diagnostic App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0040-a-share-same-calendar-cross-source-field-delta-diagnostic-app-1`
+
+Approved scope:
+
+- require existing FCP-0038 and FCP-0039 typed evidence
+- compute exact field deltas only across overlapping registered row keys
+- summarize price, volume, amount, factor, status, and clock differences
+- preserve upstream lineage and deterministic diagnostic hashes
+- forbid threshold setting, source ranking, selection, or evidence replacement
+
+No acquisition, SDK, network, credential, source selection, realtime, product,
+P48, account, balance, position, order, execution, tag, release, or deployment
+is authorized. Synthetic tests do not close GAP-109.
+
+<!-- FCP 0040 A SHARE SAME CALENDAR CROSS SOURCE FIELD DELTA DIAGNOSTIC APP 1 APPROVAL END -->
