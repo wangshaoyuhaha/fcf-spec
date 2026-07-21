@@ -638,6 +638,28 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, trading
 API, account, order, execution, product phase, tag, release, or deployment.
 
+## FCF-V2-ADR-041 Bind Aggregate Diagnostics to Exact Row Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Every aggregate FCP-0040 field-delta diagnostic may be expanded only
+from the same typed roles and FCP-0038 coverage evidence into a complete stable
+ledger ordered by instrument, trade date, and closed field order. Each entry
+retains exact source values and its match, delta, or incomplete state.
+
+Consequence: An aggregate difference can be traced to exact registered row
+evidence without inventing a threshold or preferred source. The ledger binds
+coverage, artifact-independence, role, diagnostic, and entry hashes. Operator
+review remains mandatory.
+
+Rejected shortcut: retain only mismatches, omit incomplete factor pairs, reorder
+entries by delta size, accept a diagnostic from different inputs, or treat a
+row ledger as authority to replace either source.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, trading
+API, account, order, execution, product phase, tag, release, or deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.

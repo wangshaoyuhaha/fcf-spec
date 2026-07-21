@@ -217,3 +217,14 @@ FCP-0040 cannot set a tolerance, rank or select a source, replace registered
 evidence, acquire data, invoke an SDK, retrieve network data, accept credentials,
 activate realtime, or authorize a product, account, order, or execution path.
 Synthetic tests do not close GAP-109.
+
+Proposal `FCF-FCP-0041` expands a typed FCP-0040 aggregate diagnostic into a
+complete stable row-addressable evidence ledger. It preserves every exact
+overlapping key and closed field, including matches and incomplete pairs, and
+binds all upstream lineage into immutable hashes.
+
+FCP-0041 cannot omit inconvenient rows, sort by desirability, set a tolerance,
+rank or select a source, replace registered evidence, acquire data, invoke an
+SDK, retrieve network data, accept credentials, activate realtime, or authorize
+a product, account, order, or execution path. Synthetic tests do not close
+GAP-109.
