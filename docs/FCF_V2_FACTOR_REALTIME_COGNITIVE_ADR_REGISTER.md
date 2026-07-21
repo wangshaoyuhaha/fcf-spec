@@ -703,6 +703,27 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, trading
 API, account, order, execution, product phase, tag, release, or deployment.
 
+## FCF-V2-ADR-044 Preserve Operator Review Receipts as Immutable History
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: A receipt ledger accepts only a nonempty typed FCP-0043 sequence,
+orders it by registered review time and review ID, requires unique review IDs
+and receipt hashes, and retains every exact packet identity and closed
+disposition count.
+
+Consequence: Later review activity cannot silently overwrite, delete, or hide
+earlier receipts. Ledger identity commits to the complete ordered history but
+does not confer evidence acceptance or source authority.
+
+Rejected shortcut: retain only the latest receipt, sort by disposition, omit
+zero counts, accept duplicate review identities, delete deferred reviews, or
+infer that the most common disposition resolves GAP-109.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, trading
+API, account, order, execution, product phase, tag, release, or deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.
