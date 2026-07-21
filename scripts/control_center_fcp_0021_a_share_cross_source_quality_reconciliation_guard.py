@@ -83,6 +83,21 @@ def build_fcp_0021_guard_report(root: Path = ROOT) -> dict[str, object]:
         or (len(texts) == 5 and all(locks) and len(set(locks)) == 1),
         "final_exact_when_closed": not closed
         or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
+        "final_evidence_when_closed": not closed
+        or (
+            (root / "FCF_CURRENT_STATE_FCP_0021_A_SHARE_CROSS_SOURCE_QUALITY_RECONCILIATION_APP_1_FINAL.md").is_file()
+            and all(finals)
+            and all(
+                term in finals[0]
+                for term in (
+                    "abd8b58",
+                    "fe127a0",
+                    "8d0e3d5e5a77c311e65317dd6bd4ed50570827a6",
+                    "5816 passed",
+                    "ALL CHECKS PASSED",
+                )
+            )
+        ),
         "manifest_state_safe": active
         or closed
         or is_historical_delivery_state_safe(truth, DELIVERY_ID),
