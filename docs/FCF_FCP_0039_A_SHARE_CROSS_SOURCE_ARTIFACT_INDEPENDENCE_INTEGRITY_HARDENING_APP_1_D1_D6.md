@@ -1,6 +1,6 @@
 # FCF FCP 0039 A Share Cross Source Artifact Independence Integrity Hardening App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Artifact Lineage
 
@@ -40,4 +40,5 @@ Validation evidence before merge:
 - All FCP governance suites: `758 passed`.
 - Full pytest: `6095 passed`.
 - `scripts/run_all_checks.py`: `ALL CHECKS PASSED`.
+- Post-merge affected suite: `107 passed`.
 - Generated outputs: restored; no generated-output delta remained.
