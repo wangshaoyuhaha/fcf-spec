@@ -23,6 +23,7 @@ from apps.v2_r3_local_event_ingress_foundation_app_1 import LocalEventRights
 
 def result(**updates):
     values = {
+        "dataset_ids": ("dataset-a", "dataset-b"),
         "dataset_hashes": ("a" * 64, "b" * 64),
         "policy_hash": "c" * 64,
         "union_key_count": 1,

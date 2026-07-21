@@ -31,6 +31,7 @@ def a_share_result(**updates):
 
 def btc_result(**updates):
     values = {
+        "dataset_ids": ("dataset-a", "dataset-b"),
         "dataset_hashes": ("d" * 64, "e" * 64),
         "policy_hash": "f" * 64,
         "union_key_count": 1,

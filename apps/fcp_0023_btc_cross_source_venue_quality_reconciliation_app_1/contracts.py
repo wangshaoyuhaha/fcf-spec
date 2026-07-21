@@ -199,8 +199,11 @@ class BTCCrossSourceFinding:
         datasets = tuple(sorted(set(identifier(item, "dataset_id") for item in self.dataset_ids)))
         if not datasets:
             raise ValueError("finding requires dataset lineage")
-        if self.comparison_key is not None and not str(self.comparison_key).strip():
-            raise ValueError("comparison_key cannot be blank")
+        if self.comparison_key is not None and (
+            not isinstance(self.comparison_key, str)
+            or not self.comparison_key.strip()
+        ):
+            raise ValueError("comparison_key must be nonempty text")
         if self.field_name is not None:
             object.__setattr__(self, "field_name", identifier(self.field_name, "field_name"))
         detail = {identifier(key, "detail key"): str(value) for key, value in self.detail.items()}
@@ -231,6 +234,7 @@ class BTCCrossSourceReconciliationResult:
     overlap_key_count: int
     findings: tuple[BTCCrossSourceFinding, ...]
     quality_state: str
+    dataset_ids: tuple[str, ...]
     operator_review_required: bool = True
     source_selected: bool = False
     calculation_authority: str = "DETERMINISTIC_ENGINE"
@@ -240,14 +244,23 @@ class BTCCrossSourceReconciliationResult:
 
     def __post_init__(self) -> None:
         hashes = tuple(_digest(item, "dataset_hash") for item in self.dataset_hashes)
+        dataset_ids = tuple(identifier(item, "dataset_id") for item in self.dataset_ids)
         policy_hash = _digest(self.policy_hash, "policy_hash")
         findings = tuple(self.findings)
         if len(hashes) < 2 or len(hashes) != len(set(hashes)):
             raise ValueError("result requires distinct dataset hashes")
+        if (
+            len(dataset_ids) != len(hashes)
+            or len(dataset_ids) != len(set(dataset_ids))
+            or dataset_ids != tuple(sorted(dataset_ids))
+        ):
+            raise ValueError("result requires ordered dataset identity and digest pairs")
         if not all(isinstance(item, BTCCrossSourceFinding) for item in findings):
             raise ValueError("result findings must be typed")
         if findings != tuple(sorted(findings, key=lambda item: item.finding_hash)):
             raise ValueError("result findings must be deterministically ordered")
+        if any(not set(item.dataset_ids).issubset(dataset_ids) for item in findings):
+            raise ValueError("result finding dataset lineage is not registered")
         blocked = any(item.severity == "BLOCK" for item in findings)
         if self.quality_state not in {"CONSISTENT", "QUARANTINE_REVIEW_REQUIRED"}:
             raise ValueError("quality_state is not registered")
@@ -267,6 +280,7 @@ class BTCCrossSourceReconciliationResult:
         ):
             raise ValueError("reconciliation authority identities are immutable")
         object.__setattr__(self, "findings", findings)
+        object.__setattr__(self, "dataset_ids", dataset_ids)
         object.__setattr__(self, "dataset_hashes", hashes)
         object.__setattr__(self, "policy_hash", policy_hash)
         object.__setattr__(
@@ -274,7 +288,7 @@ class BTCCrossSourceReconciliationResult:
             "result_hash",
             canonical_sha256(
                 {
-                    "dataset_hashes": hashes,
+                    "dataset_lineage": list(zip(dataset_ids, hashes, strict=True)),
                     "finding_hashes": [item.finding_hash for item in findings],
                     "overlap_key_count": self.overlap_key_count,
                     "policy_hash": policy_hash,

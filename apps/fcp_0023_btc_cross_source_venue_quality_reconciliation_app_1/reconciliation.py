@@ -123,6 +123,7 @@ def reconcile_canonical_btc_observation_sets(datasets, policy):
                     findings.append(_finding("FUNDING_INTERVAL_MISMATCH", pair, row=left, field_name="funding_interval"))
     findings.sort(key=lambda item: item.finding_hash)
     return BTCCrossSourceReconciliationResult(
+        dataset_ids=tuple(item.dataset_id for item in ordered),
         dataset_hashes=tuple(item.dataset_hash for item in ordered),
         policy_hash=policy.policy_hash,
         union_key_count=len(union),

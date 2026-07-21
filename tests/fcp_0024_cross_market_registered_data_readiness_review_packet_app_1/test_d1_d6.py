@@ -34,7 +34,8 @@ def btc(blocked=False):
         findings = (BTCCrossSourceFinding("VENUE_MISMATCH", "BLOCK", ("b-one", "b-two")),)
     return BTCCrossSourceReconciliationResult(
         ("d" * 64, "e" * 64), "f" * 64, 2, 1 if blocked else 2,
-        findings, "QUARANTINE_REVIEW_REQUIRED" if blocked else "CONSISTENT"
+        findings, "QUARANTINE_REVIEW_REQUIRED" if blocked else "CONSISTENT",
+        ("b-one", "b-two"),
     )
 
 
