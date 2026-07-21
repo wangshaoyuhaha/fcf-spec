@@ -12343,3 +12343,28 @@ execution, tag, release, or deployment authority. Synthetic evidence does not
 close GAP-109. No successor phase is selected.
 
 <!-- FCP 0040 A SHARE SAME CALENDAR CROSS SOURCE FIELD DELTA DIAGNOSTIC APP 1 FINAL END -->
+
+
+<!-- FCP 0041 A SHARE CROSS SOURCE ROW DELTA EVIDENCE LEDGER APP 1 APPROVAL START -->
+
+## FCP 0041 A Share Cross Source Row Delta Evidence Ledger App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0041-a-share-cross-source-row-delta-evidence-ledger-app-1`
+
+Approved scope:
+
+- require typed FCP-0038, FCP-0039, and FCP-0040 evidence
+- emit entries only for exact registered overlapping instrument and date keys
+- preserve closed field order, exact source values, deltas, and mismatch states
+- bind ledger identity to all upstream role, proof, coverage, and diagnostic hashes
+- forbid thresholds, source ranking, selection, or evidence replacement
+
+No acquisition, SDK, network, credential, source selection, realtime, product,
+P48, account, balance, position, order, execution, tag, release, or deployment
+is authorized. Synthetic tests do not close GAP-109.
+
+<!-- FCP 0041 A SHARE CROSS SOURCE ROW DELTA EVIDENCE LEDGER APP 1 APPROVAL END -->
