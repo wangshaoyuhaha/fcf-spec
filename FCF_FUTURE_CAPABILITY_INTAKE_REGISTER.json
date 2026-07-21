@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 20,
+  "next_proposal_sequence": 21,
   "proposals": [
     {
       "adr_refs": [],
@@ -611,6 +611,27 @@
       "summary": "Bridge exact Operator-registered local A-share provider exports into the FCP-0017 canonical daily-data contract through immutable field profiles, strict instrument mapping, explicit point-in-time supplements, deterministic canonical ASCII CSV bytes, and lineage manifests. Missing clocks, revision, adjustment-factor, or trading-status evidence must fail closed and must never be inferred. This acceptance does not authorize provider SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, product implementation, P48, trading, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share local export canonicalization bridge"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-031"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0020_GOVERNANCE_SUCCESSOR_STATE_SCALABILITY_HARDENING_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0020",
+      "source": "operator-directed-continuous-governance-hardening",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T00:40:00Z",
+      "summary": "Replace brittle per-phase historical successor enumeration with a strict reusable FCP governance sequence validator. Preserve exact active and closed delivery semantics while rejecting malformed, regressive, skipped, product-active, or unsafe states. This acceptance changes governance validation mechanics only and authorizes no product phase, data provider, network, credential, broker, order, execution, P48, tag, release, or deployment behavior.",
+      "supersedes": [],
+      "title": "Governance successor state scalability hardening"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
