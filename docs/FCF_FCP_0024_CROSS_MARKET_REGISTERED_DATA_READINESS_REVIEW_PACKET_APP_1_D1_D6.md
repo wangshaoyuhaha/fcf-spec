@@ -1,6 +1,6 @@
 # FCF FCP 0024 Cross-Market Registered Data Readiness Review Packet App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Typed Evidence Inputs
 
