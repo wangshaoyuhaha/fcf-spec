@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 39,
+  "next_proposal_sequence": 40,
   "proposals": [
     {
       "adr_refs": [],
@@ -1124,6 +1124,32 @@
       "summary": "Compose FCP-0021, FCP-0036, and FCP-0037 into a deterministic local-only same-calendar A-share cross-source coverage reconciliation packet. Require explicit QMT and independent-reference roles, one instrument, the same registered expected trading-date set, visible per-source missing and unexpected dates, immutable lineage, and mandatory Operator review. Synthetic tests do not close GAP-109. This proposal does not authorize acquisition, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share registered same-calendar cross-source coverage reconciliation"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-039"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0039_A_SHARE_CROSS_SOURCE_ARTIFACT_INDEPENDENCE_INTEGRITY_HARDENING_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0039_A_SHARE_CROSS_SOURCE_ARTIFACT_INDEPENDENCE_INTEGRITY_HARDENING_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0039_A_SHARE_CROSS_SOURCE_ARTIFACT_INDEPENDENCE_INTEGRITY_HARDENING_APP_1_FINAL.md",
+        "docs/FCF_FCP_0039_A_SHARE_CROSS_SOURCE_ARTIFACT_INDEPENDENCE_INTEGRITY_HARDENING_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-109"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0039",
+      "source": "operator-directed-continuous-development-cross-source-artifact-independence",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T13:30:00Z",
+      "summary": "Harden FCP-0038 so QMT and independent-reference roles cannot share any underlying registered source-artifact digest. Bind each role's ordered artifact digest set into its immutable role hash, reject empty lineage, and reject any cross-role digest overlap before same-calendar or value comparison. Synthetic tests do not establish real independence or close GAP-109. This proposal does not authorize acquisition, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share cross-source artifact independence integrity hardening"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
