@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
+import re
 from types import MappingProxyType
 from typing import Mapping
 
@@ -30,6 +31,14 @@ OBSERVATION_TYPES = (
     BTCReferencePriceObservation,
     BTCFundingObservation,
 )
+_SHA256 = re.compile(r"^[0-9a-f]{64}$")
+
+
+def _digest(value: object, name: str) -> str:
+    result = str(value).strip().lower()
+    if _SHA256.fullmatch(result) is None:
+        raise ValueError(f"{name} must be lowercase SHA-256")
+    return result
 
 
 def comparison_key(observation: BTCObservation) -> tuple[str, str, str, str]:
@@ -49,7 +58,10 @@ def comparison_key_text(observation: BTCObservation) -> str:
 def _bounded_decimal(value: object, name: str, upper: str) -> Decimal:
     if isinstance(value, bool) or isinstance(value, float):
         raise ValueError(f"{name} must use an exact decimal value")
-    result = Decimal(str(value))
+    try:
+        result = Decimal(str(value))
+    except (InvalidOperation, ValueError) as exc:
+        raise ValueError(f"{name} must be decimal-compatible") from exc
     if not result.is_finite() or result < 0 or result > Decimal(upper):
         raise ValueError(f"{name} is outside its bounded domain")
     return result
@@ -221,10 +233,13 @@ class BTCCrossSourceReconciliationResult:
     result_hash: str = field(init=False)
 
     def __post_init__(self) -> None:
-        hashes = tuple(self.dataset_hashes)
+        hashes = tuple(_digest(item, "dataset_hash") for item in self.dataset_hashes)
+        policy_hash = _digest(self.policy_hash, "policy_hash")
         findings = tuple(self.findings)
         if len(hashes) < 2 or len(hashes) != len(set(hashes)):
             raise ValueError("result requires distinct dataset hashes")
+        if not all(isinstance(item, BTCCrossSourceFinding) for item in findings):
+            raise ValueError("result findings must be typed")
         if findings != tuple(sorted(findings, key=lambda item: item.finding_hash)):
             raise ValueError("result findings must be deterministically ordered")
         blocked = any(item.severity == "BLOCK" for item in findings)
@@ -237,6 +252,8 @@ class BTCCrossSourceReconciliationResult:
         if not 0 <= self.overlap_key_count <= self.union_key_count:
             raise ValueError("reconciliation key counts are inconsistent")
         object.__setattr__(self, "findings", findings)
+        object.__setattr__(self, "dataset_hashes", hashes)
+        object.__setattr__(self, "policy_hash", policy_hash)
         object.__setattr__(
             self,
             "result_hash",
@@ -245,7 +262,7 @@ class BTCCrossSourceReconciliationResult:
                     "dataset_hashes": hashes,
                     "finding_hashes": [item.finding_hash for item in findings],
                     "overlap_key_count": self.overlap_key_count,
-                    "policy_hash": self.policy_hash,
+                    "policy_hash": policy_hash,
                     "quality_state": self.quality_state,
                     "union_key_count": self.union_key_count,
                 }

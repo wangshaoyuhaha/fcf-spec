@@ -65,6 +65,19 @@ def reconcile_canonical_btc_observation_sets(datasets, policy):
             findings.append(_finding("RIGHTS_UNRESOLVED", (dataset,)))
         if dataset.retention_state == "UNRESOLVED":
             findings.append(_finding("RETENTION_UNRESOLVED", (dataset,)))
+    for left, right in combinations(ordered, 2):
+        if left.venue_semantics_id != right.venue_semantics_id:
+            findings.append(
+                _finding(
+                    "VENUE_SEMANTICS_MISMATCH",
+                    (left, right),
+                    field_name="venue_semantics_id",
+                    detail={
+                        "left": left.venue_semantics_id,
+                        "right": right.venue_semantics_id,
+                    },
+                )
+            )
     for key in sorted(union):
         missing = tuple(dataset for dataset, mapping in zip(ordered, maps) if key not in mapping)
         if missing:

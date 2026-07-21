@@ -11015,3 +11015,29 @@ execution, realtime activation, product phase, P48, tag, release, or deployment
 is authorized.
 
 <!-- FCP 0025 REGISTERED DATA READINESS INTEGRITY HARDENING APP 1 APPROVAL END -->
+
++<!-- FCP 0025 REGISTERED DATA READINESS INTEGRITY HARDENING APP 1 LOCK START -->
+
+## FCP 0025 Registered Data Readiness Integrity Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- strict SHA-256 result, policy, and dataset lineage validation
+- typed findings and readiness rows with non-boolean count enforcement
+- explicit BTC venue-semantics conflict quarantine evidence
+- normalized fail-closed decimal conversion errors
+- preserved market isolation, no source selection, and Operator review
+- no SDK, network, credential, wallet, account, order, or execution path
+
+Validation evidence:
+
+- FCP-0025 isolated suite: 15 passed
+- affected FCP-0023 and FCP-0024 regression suite: 31 passed
+- FCP governance targeted suite: 565 passed
+- full pytest: 5881 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: four tracked check outputs restored exactly
+
+<!-- FCP 0025 REGISTERED DATA READINESS INTEGRITY HARDENING APP 1 LOCK END -->
