@@ -12005,3 +12005,31 @@ position, order, execution, realtime, product phase, P48, tag, release, or
 deployment is authorized.
 
 <!-- FCP 0027 REGISTERED DATA PRIMITIVE TYPE INTEGRITY HARDENING APP 1 APPROVAL END -->
+
+
+<!-- FCP 0027 REGISTERED DATA PRIMITIVE TYPE INTEGRITY HARDENING APP 1 LOCK START -->
+
+## FCP 0027 Registered Data Primitive Type Integrity Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- exact lowercase SHA-256 inputs in BTC substrate and bridge contracts
+- non-boolean integral byte, count, sequence, and schema fields
+- exact false-only local storage and provider-selection boundaries
+- regression coverage for every independently reproduced defect
+- preserved provider neutrality, market isolation, and Operator review
+- no SDK, network, credential, wallet, account, order, or execution path
+
+Validation evidence:
+
+- FCP-0027 isolated suite: 25 passed
+- affected A-share and BTC substrate and bridge suite: 93 passed
+- FCP governance stage suite: 591 passed
+- project governance suite: 21 passed
+- full pytest: 5928 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: final run left no tracked generated changes
+
+<!-- FCP 0027 REGISTERED DATA PRIMITIVE TYPE INTEGRITY HARDENING APP 1 LOCK END -->

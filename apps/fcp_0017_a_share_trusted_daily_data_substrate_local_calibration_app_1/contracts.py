@@ -113,7 +113,11 @@ class RegisteredDailyArtifact:
         object.__setattr__(self, "artifact_id", identifier(self.artifact_id, "artifact_id"))
         object.__setattr__(self, "source_id", identifier(self.source_id, "source_id"))
         object.__setattr__(self, "artifact_sha256", digest(self.artifact_sha256, "artifact_sha256"))
-        if isinstance(self.byte_length, bool) or not 1 <= self.byte_length <= 25_000_000:
+        if (
+            isinstance(self.byte_length, bool)
+            or not isinstance(self.byte_length, int)
+            or not 1 <= self.byte_length <= 25_000_000
+        ):
             raise ValueError("byte_length exceeds the bounded local calibration limit")
         object.__setattr__(self, "registered_at_utc", utc(self.registered_at_utc, "registered_at_utc"))
         if self.rights_state not in {"UNRESOLVED", "DECLARED_LOCAL_RESEARCH"}:
@@ -280,8 +284,12 @@ class DailyLayerManifest:
             object.__setattr__(self, name, identifier(getattr(self, name), name))
         for name in ("content_sha256", "parent_sha256"):
             object.__setattr__(self, name, digest(getattr(self, name), name))
-        if isinstance(self.record_count, bool) or self.record_count < 0:
-            raise ValueError("record_count must be nonnegative")
+        if (
+            isinstance(self.record_count, bool)
+            or not isinstance(self.record_count, int)
+            or self.record_count < 0
+        ):
+            raise ValueError("record_count must be a nonnegative integer")
 
 
 @dataclass(frozen=True)

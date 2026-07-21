@@ -67,12 +67,18 @@ class BTCRegisteredArtifact:
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "artifact_id", identifier(self.artifact_id, "artifact_id"))
-        digest = str(self.content_sha256).strip().lower()
+        if not isinstance(self.content_sha256, str):
+            raise ValueError("content_sha256 must be lowercase SHA-256")
+        digest = self.content_sha256
         if _SHA256.fullmatch(digest) is None:
             raise ValueError("content_sha256 must be lowercase SHA-256")
         object.__setattr__(self, "content_sha256", digest)
-        if isinstance(self.byte_length, bool) or self.byte_length <= 0:
-            raise ValueError("byte_length must be positive")
+        if (
+            isinstance(self.byte_length, bool)
+            or not isinstance(self.byte_length, int)
+            or self.byte_length <= 0
+        ):
+            raise ValueError("byte_length must be a positive integer")
         if not isinstance(self.rights, LocalEventRights):
             raise ValueError("artifact requires explicit registered local rights")
         if self.media_type != "application/x-ndjson" or self.market != "BTC":
@@ -107,10 +113,18 @@ class BTCObservationHeader:
             raise ValueError("observation_kind is not registered")
         object.__setattr__(self, "instrument_kind", instrument_kind)
         object.__setattr__(self, "observation_kind", observation_kind)
-        if isinstance(self.source_sequence, bool) or self.source_sequence <= 0:
-            raise ValueError("source_sequence must be positive")
-        if isinstance(self.schema_version, bool) or self.schema_version <= 0:
-            raise ValueError("schema_version must be positive")
+        if (
+            isinstance(self.source_sequence, bool)
+            or not isinstance(self.source_sequence, int)
+            or self.source_sequence <= 0
+        ):
+            raise ValueError("source_sequence must be a positive integer")
+        if (
+            isinstance(self.schema_version, bool)
+            or not isinstance(self.schema_version, int)
+            or self.schema_version <= 0
+        ):
+            raise ValueError("schema_version must be a positive integer")
         for name in ("event_at_utc", "received_at_utc", "ingested_at_utc"):
             object.__setattr__(self, name, utc(getattr(self, name), name))
         if not (
@@ -248,8 +262,12 @@ class BTCBookDelta:
 
     def __post_init__(self) -> None:
         _require_kind(self.header, "BOOK_DELTA")
-        if isinstance(self.previous_sequence, bool) or self.previous_sequence <= 0:
-            raise ValueError("previous_sequence must be positive")
+        if (
+            isinstance(self.previous_sequence, bool)
+            or not isinstance(self.previous_sequence, int)
+            or self.previous_sequence <= 0
+        ):
+            raise ValueError("previous_sequence must be a positive integer")
         if self.previous_sequence >= self.header.source_sequence:
             raise ValueError("delta sequence must follow previous_sequence")
         bids = _levels(
