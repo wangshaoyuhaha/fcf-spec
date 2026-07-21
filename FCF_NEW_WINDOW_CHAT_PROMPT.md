@@ -13504,3 +13504,24 @@ P48, wallet, account, balance, position, order, execution, tag, release, or
 deployment is authorized. Synthetic tests do not close GAP-092 or GAP-095.
 
 <!-- FCP 0045 BTC CROSS SOURCE EXACT OBSERVATION DELTA EVIDENCE LEDGER APP 1 APPROVAL END -->
+
+
+<!-- FCP 0045 BTC CROSS SOURCE EXACT OBSERVATION DELTA EVIDENCE LEDGER APP 1 LOCK START -->
+
+## FCP 0045 BTC Cross Source Exact Observation Delta Evidence Ledger App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- typed FCP-0023 dataset, policy, and result inputs with exact recomputation
+- all ordered dataset pairs and pairwise union comparison keys
+- closed fields for trade, book snapshot, book delta, reference price, and funding
+- exact values, exact decimal or absolute-time deltas, states, and immutable hashes
+- no tolerance, severity, quality-state, source-choice, or GAP mutation
+
+No acquisition, SDK, network, credential, source selection, realtime, product,
+P48, wallet, account, balance, position, order, execution, tag, release, or
+deployment is authorized. Synthetic tests do not close GAP-092 or GAP-095.
+
+<!-- FCP 0045 BTC CROSS SOURCE EXACT OBSERVATION DELTA EVIDENCE LEDGER APP 1 LOCK END -->

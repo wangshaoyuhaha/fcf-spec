@@ -726,6 +726,30 @@ API, account, order, execution, product phase, tag, release, or deployment.
 
 ## Register Rules
 
+## FCF-V2-ADR-045 Preserve Exact BTC Observation Deltas Across Every Source Pair
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Derive one immutable ledger only after exact FCP-0023 result
+recomputation. Preserve all ordered dataset pairs, pairwise union keys, closed
+observation fields, exact source values, exact applicable deltas, explicit
+incomplete states, and complete upstream hash lineage.
+
+Consequence: Operator review can inspect the exact value behind every BTC
+cross-source finding or coverage gap without changing the registered
+reconciliation policy or result.
+
+Rejected shortcut: retain findings without values, compare only the all-source
+intersection, fill missing observations, round decimal values, omit book
+levels, change a tolerance, infer a better venue, or close a research gap.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, trading
+API, wallet, account, order, execution, product phase, tag, release, or
+deployment.
+
+## Register Rules
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.
