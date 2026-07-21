@@ -1,6 +1,6 @@
 # FCF Current State FCP 0034 BTC Perpetual Leverage Paper Research Architecture App 1 Delivered
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 Delivered scope:
 

@@ -1,6 +1,6 @@
 # FCF FCP 0034 BTC Perpetual Leverage Paper Research Architecture App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Contract And Collateral Registry
 
@@ -35,3 +35,10 @@ dedicated guards, validation evidence, merge state, and final clean handoff.
 
 No product phase, leverage runtime, Paper order, venue integration, or real
 execution is authorized.
+
+Validated result:
+
+- FCP-0034 isolated and governance-targeted suite: 38 passed
+- full pytest: 6016 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored with no tracked changes

@@ -121,6 +121,23 @@ def build_fcp_0034_guard_report(root: Path = ROOT) -> dict[str, object]:
         or (all(locks) and len(set(locks)) == 1),
         "final_exact_when_closed": not closed
         or (all(finals) and len(set(finals)) == 1),
+        "final_evidence_when_closed": not closed
+        or (
+            (
+                root
+                / "FCF_CURRENT_STATE_FCP_0034_BTC_PERPETUAL_LEVERAGE_PAPER_RESEARCH_ARCHITECTURE_APP_1_FINAL.md"
+            ).is_file()
+            and all(finals)
+            and all(
+                term in finals[0]
+                for term in (
+                    "22260f6ec60580b77c29926bdf0684530dfc4e8f",
+                    "a85a2ff7d69ace4b9a680b9c0ff791169febcabc",
+                    "6016 passed",
+                    "ALL CHECKS PASSED",
+                )
+            )
+        ),
         "manifest_state_safe": active
         or closed
         or is_historical_delivery_state_safe(truth, DELIVERY_ID),
