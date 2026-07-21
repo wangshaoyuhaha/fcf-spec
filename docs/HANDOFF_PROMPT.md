@@ -11355,3 +11355,30 @@ order, execution, realtime, product phase, P48, tag, release, or deployment is
 authorized.
 
 <!-- FCP 0029 A SHARE DAILY CALIBRATION RESULT LINEAGE COHERENCE HARDENING APP 1 APPROVAL END -->
+
+
+<!-- FCP 0029 A SHARE DAILY CALIBRATION RESULT LINEAGE COHERENCE HARDENING APP 1 LOCK START -->
+
+## FCP 0029 A Share Daily Calibration Result Lineage Coherence Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- concrete typed A-share daily observations and manifests
+- deterministic unique observation order and point-in-time bounds
+- exact three-layer counts, digest parents, source, and artifact lineage
+- result hash commitment to typed observation payloads
+- no SDK, network, credential, account, order, or execution path
+
+Validation evidence:
+
+- FCP-0029 isolated suite: 11 passed
+- affected A-share substrate and bridge suite: 44 passed
+- FCP governance stage suite: 617 passed
+- project governance suite: 21 passed
+- full pytest: 5954 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: final run left no tracked generated changes
+
+<!-- FCP 0029 A SHARE DAILY CALIBRATION RESULT LINEAGE COHERENCE HARDENING APP 1 LOCK END -->

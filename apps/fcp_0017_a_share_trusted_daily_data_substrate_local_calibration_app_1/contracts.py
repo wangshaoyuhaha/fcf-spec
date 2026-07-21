@@ -305,8 +305,78 @@ class DailyCalibrationResult:
         observations = tuple(self.observations)
         manifests = tuple(self.manifests)
         findings = tuple(sorted(set(self.finding_codes)))
-        if not observations or tuple(item.layer for item in manifests) != LAYERS:
+        if not observations or not all(
+            isinstance(item, AShareDailyObservation) for item in observations
+        ):
+            raise ValueError("calibration requires typed observations")
+        if not all(isinstance(item, DailyLayerManifest) for item in manifests):
+            raise ValueError("calibration requires typed manifests")
+        if tuple(item.layer for item in manifests) != LAYERS:
             raise ValueError("calibration requires observations and all three layers")
+        keys = tuple((item.instrument_id, item.trade_date) for item in observations)
+        if len(keys) != len(set(keys)) or keys != tuple(sorted(keys)):
+            raise ValueError("calibration observations require unique deterministic order")
+        as_of_utc = utc(self.as_of_utc, "as_of_utc")
+        as_of = instant(as_of_utc, "as_of_utc")
+        if any(
+            instant(item.available_at_utc, "available_at_utc") > as_of
+            or instant(item.revision_at_utc, "revision_at_utc") > as_of
+            or (
+                item.factor_available_at_utc is not None
+                and instant(item.factor_available_at_utc, "factor_available_at_utc")
+                > as_of
+            )
+            for item in observations
+        ):
+            raise ValueError("calibration observations exceed the point-in-time boundary")
+        raw_manifest, normalized_manifest, research_manifest = manifests
+        expected_findings = []
+        if raw_manifest.rights_state == "UNRESOLVED":
+            expected_findings.append("COMMERCIAL_RIGHTS_UNRESOLVED")
+        if raw_manifest.retention_state == "UNRESOLVED":
+            expected_findings.append("RETENTION_RIGHTS_UNRESOLVED")
+        if any(item.adjustment_factor is None for item in observations):
+            expected_findings.append("ADJUSTMENT_FACTOR_MISSING")
+        if any(item.trading_status == "UNKNOWN" for item in observations):
+            expected_findings.append("TRADING_STATUS_UNKNOWN")
+        if findings != tuple(sorted(expected_findings)):
+            raise ValueError("calibration findings disagree with registered evidence")
+        raw_payloads = [dict(item.raw_payload()) for item in observations]
+        research_payloads = (
+            [dict(item.research_payload()) for item in observations]
+            if not any(item.adjustment_factor is None for item in observations)
+            else []
+        )
+        normalized_sha256 = canonical_sha256(raw_payloads)
+        research_sha256 = canonical_sha256(
+            research_payloads
+            if research_payloads
+            else {"state": "BLOCKED", "findings": list(findings)}
+        )
+        if any(
+            item.source_artifact_sha256 != raw_manifest.content_sha256
+            for item in observations
+        ):
+            raise ValueError("observation source lineage disagrees with RAW manifest")
+        if (
+            raw_manifest.parent_sha256 != raw_manifest.content_sha256
+            or normalized_manifest.parent_sha256 != raw_manifest.content_sha256
+            or research_manifest.parent_sha256 != normalized_manifest.content_sha256
+            or normalized_manifest.content_sha256 != normalized_sha256
+            or research_manifest.content_sha256 != research_sha256
+        ):
+            raise ValueError("calibration manifest digest lineage disagrees")
+        if (
+            raw_manifest.artifact_id + "-normalized" != normalized_manifest.artifact_id
+            or raw_manifest.artifact_id + "-research" != research_manifest.artifact_id
+        ):
+            raise ValueError("calibration manifest artifact lineage disagrees")
+        if (
+            raw_manifest.record_count != len(observations)
+            or normalized_manifest.record_count != len(observations)
+            or research_manifest.record_count != len(research_payloads)
+        ):
+            raise ValueError("calibration manifest counts disagree with observations")
         if self.quality_state not in {"READY_FOR_RESEARCH", "BLOCKED"}:
             raise ValueError("quality_state is not registered")
         if (self.quality_state == "READY_FOR_RESEARCH") == bool(findings):
@@ -314,7 +384,7 @@ class DailyCalibrationResult:
         object.__setattr__(self, "observations", observations)
         object.__setattr__(self, "manifests", manifests)
         object.__setattr__(self, "finding_codes", findings)
-        object.__setattr__(self, "as_of_utc", utc(self.as_of_utc, "as_of_utc"))
+        object.__setattr__(self, "as_of_utc", as_of_utc)
         object.__setattr__(
             self,
             "result_sha256",
@@ -322,6 +392,8 @@ class DailyCalibrationResult:
                 {
                     "as_of_utc": self.as_of_utc,
                     "finding_codes": findings,
+                    "observation_raw_payloads": raw_payloads,
+                    "observation_research_payloads": research_payloads,
                     "manifests": [
                         {
                             "content_sha256": item.content_sha256,
