@@ -92,6 +92,24 @@ def build_fcp_0029_guard_report(root: Path = ROOT) -> dict[str, object]:
         or (len(texts) == 5 and all(locks) and len(set(locks)) == 1),
         "final_exact_when_closed": not closed
         or (len(texts) == 5 and all(finals) and len(set(finals)) == 1),
+        "final_evidence_when_closed": not closed
+        or (
+            (
+                root
+                / "FCF_CURRENT_STATE_FCP_0029_A_SHARE_DAILY_CALIBRATION_RESULT_LINEAGE_COHERENCE_HARDENING_APP_1_FINAL.md"
+            ).is_file()
+            and all(finals)
+            and all(
+                term in finals[0]
+                for term in (
+                    "ff5df85",
+                    "8bb9b9717f4145fce00ac4151b5d97c63109741c",
+                    "32d98accbc8139e1b510368976dd27cf58b9072f",
+                    "5954 passed",
+                    "ALL CHECKS PASSED",
+                )
+            )
+        ),
         "manifest_state_safe": active
         or closed
         or is_historical_delivery_state_safe(truth, DELIVERY_ID),
