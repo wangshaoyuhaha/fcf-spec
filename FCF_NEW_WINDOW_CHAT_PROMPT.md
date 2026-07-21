@@ -13557,3 +13557,28 @@ balance, position, order, execution, tag, release, or deployment is authorized.
 No successor phase is selected.
 
 <!-- FCP 0045 BTC CROSS SOURCE EXACT OBSERVATION DELTA EVIDENCE LEDGER APP 1 FINAL END -->
+
+
+<!-- FCP 0046 BTC PERPETUAL VENUE CONTRACT LIFECYCLE REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0046 BTC Perpetual Venue Contract Lifecycle Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0046-btc-perpetual-venue-contract-lifecycle-registry-app-1`
+
+Approved scope:
+
+- register exact venue-versioned BTC perpetual contract semantics
+- preserve settlement, asset, multiplier, precision, and minimum definitions
+- preserve effective-time lifecycle, delisting, and migration evidence
+- provide deterministic point-in-time lookup with gap and overlap rejection
+- forbid margin, liquidation, PnL, funding, execution, or source decisions
+
+No acquisition, SDK, network, credential, source selection, realtime, product,
+P48, wallet, account, balance, position, order, execution, tag, release, or
+deployment is authorized. Synthetic tests do not close GAP-096 or GAP-102.
+
+<!-- FCP 0046 BTC PERPETUAL VENUE CONTRACT LIFECYCLE REGISTRY APP 1 APPROVAL END -->
