@@ -1776,3 +1776,19 @@ changing the registered evidence or calculation authority.
 Review completion does not validate or reject evidence, assign severity,
 recommend, set a threshold, rank or select a source, replace evidence, or close
 GAP-109. Synthetic fixtures remain non-authoritative.
+
+## 77. A-Share Cross-Source Operator Review Receipt Ledger
+
+The receipt ledger consumes a nonempty typed sequence of FCP-0043 receipts and
+preserves every entry. Canonical order is registered review time followed by
+review ID. Review IDs and receipt hashes are unique; packet hashes remain exact
+and may repeat when multiple reviews address the same packet.
+
+The ledger exposes all three closed dispositions in their registered order,
+including zero counts. Its hash commits to the complete review-ID, receipt-hash,
+packet-hash, and disposition-count sequence. Input order cannot change the
+result, while any receipt mutation changes ledger identity or fails validation.
+
+The ledger cannot delete or replace history, validate or reject evidence,
+assign severity, recommend, set a threshold, rank or select a source, replace
+evidence, or close GAP-109. Synthetic fixtures remain non-authoritative.

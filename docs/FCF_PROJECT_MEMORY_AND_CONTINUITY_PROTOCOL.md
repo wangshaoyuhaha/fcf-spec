@@ -221,6 +221,9 @@ not-implemented capability groups:
 - cross-source Operator delta-review receipts with safe review metadata, exact
   packet lineage, three closed non-decisional dispositions, and no evidence
   validation, rejection, source selection, replacement, or GAP closure
+- cross-source Operator review-receipt ledgers with complete immutable receipt
+  history, stable registered-time order, unique review and receipt identities,
+  closed disposition counts, and no mutation, deletion, or decision authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

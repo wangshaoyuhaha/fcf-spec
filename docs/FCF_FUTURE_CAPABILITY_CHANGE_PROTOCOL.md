@@ -247,3 +247,14 @@ FCP-0043 cannot validate or reject evidence, assign severity, recommend, set a
 tolerance, rank or select a source, replace evidence, acquire data, invoke an
 SDK, retrieve network data, accept credentials, activate realtime, authorize a
 product, account, order, or execution path, or close GAP-109.
+
+Proposal `FCF-FCP-0044` creates a deterministic local-only ledger from a
+nonempty sequence of typed FCP-0043 receipts. It preserves every receipt in
+stable registered-time and review-ID order, requires unique review IDs and
+receipt hashes, and binds closed disposition counts and exact packet identities.
+
+FCP-0044 cannot mutate or delete receipts, validate or reject evidence, assign
+severity, recommend, set a tolerance, rank or select a source, replace evidence,
+acquire data, invoke an SDK, retrieve network data, accept credentials, activate
+realtime, authorize a product, account, order, or execution path, or close
+GAP-109.
