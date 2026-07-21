@@ -224,8 +224,12 @@ class AShareCrossSourceReconciliationResult:
     overlap_key_count: int
     findings: tuple[CrossSourceQualityFinding, ...]
     quality_state: str
+    dataset_ids: tuple[str, ...]
     operator_review_required: bool = True
     source_selected: bool = False
+    calculation_authority: str = "DETERMINISTIC_ENGINE"
+    evidence_authority: str = "REGISTERED_EVIDENCE"
+    ai_role: str = "ADVISORY_ONLY"
     result_hash: str = field(init=False)
 
     def __post_init__(self) -> None:
@@ -235,8 +239,17 @@ class AShareCrossSourceReconciliationResult:
         if findings != tuple(sorted(findings, key=lambda item: item.finding_hash)):
             raise ValueError("result findings must be deterministically ordered")
         dataset_hashes = tuple(digest(item, "dataset_hash") for item in self.dataset_hashes)
+        dataset_ids = tuple(identifier(item, "dataset_id") for item in self.dataset_ids)
         if len(dataset_hashes) < 2 or len(dataset_hashes) != len(set(dataset_hashes)):
             raise ValueError("result requires distinct dataset hashes")
+        if (
+            len(dataset_ids) != len(dataset_hashes)
+            or len(dataset_ids) != len(set(dataset_ids))
+            or dataset_ids != tuple(sorted(dataset_ids))
+        ):
+            raise ValueError("result requires ordered dataset identity and digest pairs")
+        if any(not set(item.dataset_ids).issubset(dataset_ids) for item in findings):
+            raise ValueError("result finding dataset lineage is not registered")
         policy_hash = digest(self.policy_hash, "policy_hash")
         if self.quality_state not in {"CONSISTENT", "QUARANTINE_REVIEW_REQUIRED"}:
             raise ValueError("quality_state is not registered")
@@ -245,12 +258,19 @@ class AShareCrossSourceReconciliationResult:
             raise ValueError("quality_state and findings disagree")
         if self.operator_review_required is not True or self.source_selected is not False:
             raise ValueError("reconciliation cannot bypass review or select a source")
+        if (
+            self.calculation_authority != "DETERMINISTIC_ENGINE"
+            or self.evidence_authority != "REGISTERED_EVIDENCE"
+            or self.ai_role != "ADVISORY_ONLY"
+        ):
+            raise ValueError("reconciliation authority identities are immutable")
         counts = (self.union_key_count, self.overlap_key_count)
         if any(isinstance(item, bool) or not isinstance(item, int) or item < 0 for item in counts):
             raise ValueError("reconciliation key counts must be nonnegative integers")
         if self.overlap_key_count > self.union_key_count:
             raise ValueError("reconciliation key counts are inconsistent")
         object.__setattr__(self, "dataset_hashes", dataset_hashes)
+        object.__setattr__(self, "dataset_ids", dataset_ids)
         object.__setattr__(self, "policy_hash", policy_hash)
         object.__setattr__(self, "findings", findings)
         object.__setattr__(
@@ -258,7 +278,9 @@ class AShareCrossSourceReconciliationResult:
             "result_hash",
             canonical_sha256(
                 {
-                    "dataset_hashes": dataset_hashes,
+                    "dataset_lineage": list(
+                        zip(dataset_ids, dataset_hashes, strict=True)
+                    ),
                     "finding_hashes": [item.finding_hash for item in findings],
                     "overlap_key_count": self.overlap_key_count,
                     "policy_hash": policy_hash,
