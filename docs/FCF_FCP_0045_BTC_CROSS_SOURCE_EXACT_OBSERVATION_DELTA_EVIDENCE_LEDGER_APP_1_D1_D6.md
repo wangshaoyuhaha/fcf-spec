@@ -1,6 +1,6 @@
 # FCF FCP 0045 BTC Cross Source Exact Observation Delta Evidence Ledger App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Typed Inputs
 
@@ -43,6 +43,14 @@ Validation evidence before merge:
 - Full pytest: `6164 passed`.
 - `scripts/run_all_checks.py`: `ALL CHECKS PASSED`.
 - Generated outputs: no generated-output delta remained.
+- Post-merge affected suite: `137 passed`.
+- Generated runtime outputs: restored; no tracked generated changes remained.
+
+The exact BTC observation-delta ledger is implemented, merged, validated, and
+guarded. It grants no tolerance change, evidence acceptance, source selection,
+GAP closure, acquisition, SDK, network, credential, realtime, wallet, account,
+balance, position, order, execution, product, P48, tag, release, or deployment
+authority. No successor phase is selected.
 
 Synthetic fixtures do not close GAP-092 or GAP-095 and grant no acquisition,
 SDK, network, credential, realtime, wallet, account, balance, position, order,
