@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 30,
+  "next_proposal_sequence": 31,
   "proposals": [
     {
       "adr_refs": [],
@@ -873,6 +873,28 @@
       "summary": "Require A-share daily calibration results to contain concrete typed observations, deterministic unique key order, exact point-in-time bounds, exact RAW, NORMALIZED, and RESEARCH manifest counts and digest parent lineage, and result hashes that commit to observation payloads. The bounded hardening preserves registered evidence authority, provider neutrality, and local mandatory review boundaries. It authorizes no SDK, network, credential, provider selection, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share daily calibration result lineage coherence hardening"
+    },
+    {
+      "adr_refs": [],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0030_BTC_REPLAY_REPORT_INTEGRITY_HARDENING_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-092",
+        "V2-FR-GAP-095"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0030",
+      "source": "codex-btc-replay-report-audit-with-operator-continuation-authority",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T05:38:00Z",
+      "summary": "Harden BTC local replay findings, book state, manifests, and reports with concrete types, exact lowercase digests, deterministic ordered depth, accepted-observation cardinality, book-manifest coherence, latest-observation membership, immutable authority identities, and a report hash. The bounded hardening preserves registered evidence authority and mandatory Operator review. It authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC replay report integrity hardening"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

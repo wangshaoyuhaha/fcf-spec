@@ -4104,6 +4104,28 @@ FCP_0029_FINAL_STATE = {
     ),
 }
 FCP_0029_FINAL_ROADMAP = V2_R47_FINAL_ROADMAP
+FCP_0030_APPROVAL_STATE = {
+    **FCP_0029_FINAL_STATE,
+    "current_governance_phase_id": (
+        "FCF-FCP-0030-BTC-REPLAY-REPORT-INTEGRITY-HARDENING-APP-1"
+    ),
+    "current_governance_phase_status": "APPROVED_GOVERNANCE_ONLY_NOT_STARTED",
+}
+FCP_0030_DELIVERY_STATE = {
+    **FCP_0030_APPROVAL_STATE,
+    "current_governance_phase_status": "GOVERNANCE_DELIVERY_IMPLEMENTED_PENDING_VALIDATION",
+}
+FCP_0030_VALIDATED_STATE = {
+    **FCP_0030_APPROVAL_STATE,
+    "current_governance_phase_status": "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE",
+}
+FCP_0030_FINAL_STATE = {
+    **V2_R47_FINAL_STATE,
+    "latest_completed_governance_delivery": (
+        "FCF-FCP-0030-BTC-REPLAY-REPORT-INTEGRITY-HARDENING-APP-1"
+    ),
+}
+FCP_0030_FINAL_ROADMAP = V2_R47_FINAL_ROADMAP
 EXPECTED_SAFETY = {
     "ai_advisory_only": True,
     "broker_path_allowed": False,
@@ -4422,6 +4444,10 @@ def build_project_memory_guard_report(
         FCP_0029_DELIVERY_STATE,
         FCP_0029_VALIDATED_STATE,
         FCP_0029_FINAL_STATE,
+        FCP_0030_APPROVAL_STATE,
+        FCP_0030_DELIVERY_STATE,
+        FCP_0030_VALIDATED_STATE,
+        FCP_0030_FINAL_STATE,
     )
     memory_final_blocks = tuple(
         extract_single_block(text, MEMORY_FINAL_START, MEMORY_FINAL_END)
@@ -4984,6 +5010,12 @@ def build_project_memory_guard_report(
                 FCP_0029_DELIVERY_STATE,
                 FCP_0029_VALIDATED_STATE,
                 FCP_0029_FINAL_STATE,
+            )
+            else FCP_0030_FINAL_ROADMAP if current_truth in (
+                FCP_0030_APPROVAL_STATE,
+                FCP_0030_DELIVERY_STATE,
+                FCP_0030_VALIDATED_STATE,
+                FCP_0030_FINAL_STATE,
             )
             else expected_roadmap
         ),
