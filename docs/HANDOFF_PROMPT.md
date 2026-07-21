@@ -11268,3 +11268,30 @@ position, order, execution, realtime, product phase, P48, tag, release, or
 deployment is authorized.
 
 <!-- FCP 0028 REGISTERED BRIDGE RESULT LINEAGE COHERENCE HARDENING APP 1 APPROVAL END -->
+
+
+<!-- FCP 0028 REGISTERED BRIDGE RESULT LINEAGE COHERENCE HARDENING APP 1 LOCK START -->
+
+## FCP 0028 Registered Bridge Result Lineage Coherence Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- exact A-share canonical byte, registration, manifest, and row-count coherence
+- concrete BTC observation types and deterministic canonical NDJSON reconstruction
+- exact BTC registration, manifest, observation-hash, and artifact-identity lineage
+- preserved provider neutrality, market isolation, and Operator review
+- no SDK, network, credential, wallet, account, order, or execution path
+
+Validation evidence:
+
+- FCP-0028 isolated suite: 15 passed
+- affected A-share and BTC bridge suite: 54 passed
+- FCP governance stage suite: 606 passed
+- project governance suite: 21 passed
+- full pytest: 5943 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: final run left no tracked generated changes
+
+<!-- FCP 0028 REGISTERED BRIDGE RESULT LINEAGE COHERENCE HARDENING APP 1 LOCK END -->

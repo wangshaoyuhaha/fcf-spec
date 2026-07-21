@@ -17,7 +17,6 @@ from apps.fcp_0018_btc_trusted_market_data_substrate_local_replay_app_1 import (
 )
 from apps.fcp_0018_btc_trusted_market_data_substrate_local_replay_app_1.contracts import (
     BTCObservation,
-    decimal_text,
 )
 from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import instant, utc
 
@@ -26,6 +25,7 @@ from .contracts import (
     BTCLocalExportBridgeResult,
     BTCLocalExportProfile,
     RegisteredBTCLocalExport,
+    canonical_observations_ndjson,
 )
 
 
@@ -123,52 +123,6 @@ def _observation(
     raise ValueError("source observation kind is not registered")
 
 
-def _canonical_row(observation: BTCObservation) -> dict[str, object]:
-    header = observation.header
-    result: dict[str, object] = {
-        "artifact_id": header.artifact_id,
-        "event_at_utc": header.event_at_utc,
-        "ingested_at_utc": header.ingested_at_utc,
-        "instrument_id": header.instrument_id,
-        "instrument_kind": header.instrument_kind,
-        "observation_id": header.observation_id,
-        "observation_kind": header.observation_kind,
-        "received_at_utc": header.received_at_utc,
-        "schema_version": header.schema_version,
-        "source_sequence": header.source_sequence,
-        "venue_id": header.venue_id,
-    }
-    if isinstance(observation, BTCTradeObservation):
-        result.update(
-            price=decimal_text(observation.price),
-            quantity=decimal_text(observation.quantity),
-            aggressor_side=observation.aggressor_side,
-        )
-    elif isinstance(observation, BTCBookSnapshot):
-        result.update(
-            bids=[[decimal_text(item.price), decimal_text(item.quantity)] for item in observation.bids],
-            asks=[[decimal_text(item.price), decimal_text(item.quantity)] for item in observation.asks],
-        )
-    elif isinstance(observation, BTCBookDelta):
-        result.update(
-            previous_sequence=observation.previous_sequence,
-            bid_updates=[[decimal_text(item.price), decimal_text(item.quantity)] for item in observation.bid_updates],
-            ask_updates=[[decimal_text(item.price), decimal_text(item.quantity)] for item in observation.ask_updates],
-        )
-    elif isinstance(observation, BTCReferencePriceObservation):
-        result.update(
-            mark_price=decimal_text(observation.mark_price),
-            index_price=decimal_text(observation.index_price),
-        )
-    elif isinstance(observation, BTCFundingObservation):
-        result.update(
-            funding_rate=decimal_text(observation.funding_rate),
-            interval_start_utc=observation.interval_start_utc,
-            interval_end_utc=observation.interval_end_utc,
-        )
-    return result
-
-
 def canonicalize_registered_btc_local_export(
     file_path: Path,
     registration: RegisteredBTCLocalExport,
@@ -215,13 +169,7 @@ def canonicalize_registered_btc_local_export(
     as_of = instant(utc(as_of_utc, "as_of_utc"))
     if any(instant(item.header.ingested_at_utc) > as_of for item in observations):
         raise ValueError("registered local export contains future ingestion")
-    canonical = b"".join(
-        json.dumps(
-            _canonical_row(item), ensure_ascii=True, separators=(",", ":"), sort_keys=True
-        ).encode("ascii")
-        + b"\n"
-        for item in observations
-    )
+    canonical = canonical_observations_ndjson(observations)
     canonical_hash = hashlib.sha256(canonical).hexdigest()
     canonical_registration = BTCRegisteredArtifact(
         artifact_id=output_artifact_id,

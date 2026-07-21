@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass, field
 from datetime import date
@@ -285,6 +286,16 @@ class LocalDailyExportBridgeResult:
             raise ValueError("canonical_registration is invalid")
         if not isinstance(self.manifest, LocalDailyExportBridgeManifest):
             raise ValueError("manifest is invalid")
+        canonical_hash = hashlib.sha256(self.canonical_csv).hexdigest()
+        if self.canonical_registration.artifact_sha256 != canonical_hash:
+            raise ValueError("canonical registration digest disagrees with bytes")
+        if self.canonical_registration.byte_length != len(self.canonical_csv):
+            raise ValueError("canonical registration byte length disagrees with bytes")
+        if self.manifest.canonical_artifact_sha256 != canonical_hash:
+            raise ValueError("bridge manifest digest disagrees with canonical bytes")
+        row_count = len(self.canonical_csv.splitlines()) - 1
+        if row_count <= 0 or self.manifest.row_count != row_count:
+            raise ValueError("bridge manifest row count disagrees with canonical bytes")
         findings = tuple(sorted(set(self.finding_codes)))
         if self.quality_state not in {"READY_FOR_CALIBRATION", "BLOCKED"}:
             raise ValueError("quality_state is not registered")
