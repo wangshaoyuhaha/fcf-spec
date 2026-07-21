@@ -11635,3 +11635,29 @@ balance, position, order, execution, realtime activation, product phase, P48,
 tag, release, or deployment is authorized.
 
 <!-- FCP 0022 BTC LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0022 BTC LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 LOCK START -->
+
+## FCP 0022 BTC Local Export Canonicalization Bridge App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Validated scope:
+
+- immutable registered-local BTC export and provider-neutral field profiles
+- exact byte length, SHA-256, UTF-8, NDJSON, rights, and lineage verification
+- typed trade, book snapshot, book delta, reference-price, and funding records
+- strict sequences, UTC clocks, book shape, perpetual semantics, and as-of gates
+- deterministic ASCII NDJSON accepted directly by the FCP-0018 replay engine
+- no SDK, network, credential, wallet, account, order, or execution path
+
+Validation evidence:
+
+- FCP-0022 isolated suite: 19 passed
+- FCP governance targeted suite: 519 passed
+- full pytest: 5835 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: no tracked output changed; no restoration required
+
+<!-- FCP 0022 BTC LOCAL EXPORT CANONICALIZATION BRIDGE APP 1 LOCK END -->
