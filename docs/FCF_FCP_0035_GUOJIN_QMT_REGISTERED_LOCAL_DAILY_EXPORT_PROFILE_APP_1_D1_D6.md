@@ -1,6 +1,6 @@
 # FCF FCP 0035 Guojin QMT Registered Local Daily Export Profile App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Registered Source Contract
 
@@ -47,3 +47,10 @@ Validated before merge:
 - full pytest: 6034 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `7970b64974747f9b48ea49b76caefc39faf69d73`
+- sidecar delivery: `c72505c68155507ae7aef512a785aeb007ea0ba4`
+- main delivery merge: `c9ce59fee3cf80644c5e18d9194011203b098c50`
+- post-merge affected suite: 81 passed

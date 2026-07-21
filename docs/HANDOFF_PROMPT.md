@@ -11909,3 +11909,36 @@ retention, realtime activation, product phase, P48, trading API, account,
 balance, position, order, execution, tag, release, or deployment is authorized.
 
 <!-- FCP 0035 GUOJIN QMT REGISTERED LOCAL DAILY EXPORT PROFILE APP 1 LOCK END -->
+
+
+<!-- FCP 0035 GUOJIN QMT REGISTERED LOCAL DAILY EXPORT PROFILE APP 1 FINAL START -->
+
+## FCP 0035 Guojin QMT Registered Local Daily Export Profile App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Evidence commits:
+
+- governance approval: `7970b64974747f9b48ea49b76caefc39faf69d73`
+- sidecar delivery: `c72505c68155507ae7aef512a785aeb007ea0ba4`
+- main delivery merge: `c9ce59fee3cf80644c5e18d9194011203b098c50`
+
+Validated result:
+
+- FCP-0035 isolated suite: 18 passed
+- affected A-share bridge and governance suite: 81 passed
+- FCP governance stage suite: 697 passed
+- full pytest: 6034 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- post-merge affected suite: 81 passed
+- generated runtime outputs: restored; no tracked generated changes remained
+
+The exact local QMT export profile is implemented, merged, validated, and
+guarded. It preserves explicit identity, deterministic date and lot-unit
+normalization, exact lineage, additive front-adjustment reference evidence,
+and visible fail-closed gaps. It grants no SDK, network, credential, provider
+selection, raw repository retention, realtime, product phase, P48, account,
+balance, position, order, execution, tag, release, or deployment authority.
+No successor phase is selected.
+
+<!-- FCP 0035 GUOJIN QMT REGISTERED LOCAL DAILY EXPORT PROFILE APP 1 FINAL END -->
