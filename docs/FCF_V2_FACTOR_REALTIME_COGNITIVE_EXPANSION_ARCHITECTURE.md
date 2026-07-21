@@ -1706,3 +1706,22 @@ This deterministic check proves only digest-set disjointness for registered
 local evidence. It does not prove provider corporate independence, acquire an
 independent dataset, or close GAP-109. Operator review remains mandatory and no
 source is selected.
+
+## 73. A-Share Same-Calendar Cross-Source Field-Delta Diagnostics
+
+Field-delta diagnostics consume the typed FCP-0038 same-calendar reconciliation
+result and its FCP-0039 artifact-independence proof. Role hashes, dataset hashes,
+complete registered artifact digest sets, the independence proof, and exact
+overlap count must agree before any delta is emitted.
+
+The closed numeric set is raw OHLC, share volume, yuan amount, and paired
+adjustment factors. Each field records observation count, nonzero count, total
+absolute delta, and maximum absolute delta. Missing factor pairs, factor-version
+mismatches, and trading-status mismatches remain explicit counts. The closed
+clock set records exact absolute seconds for availability, factor availability,
+first tradability, and revision when both values exist.
+
+Diagnostics are descriptive registered evidence only. They set no tolerance,
+rank no provider, select no source, and replace no evidence. Synthetic fixtures
+do not close GAP-109 or claim independent-provider evidence. Operator review
+remains mandatory.

@@ -208,6 +208,10 @@ not-implemented capability groups:
 - cross-source artifact-independence integrity with complete ordered digest
   sets bound into role hashes, disjoint-lineage proof, fail-closed overlap, and
   no claim that synthetic evidence closes provider-independence research
+- same-calendar cross-source field-delta diagnostics with exact overlap-only
+  numeric and clock summaries, explicit factor and status mismatches, immutable
+  upstream lineage, mandatory Operator review, and no threshold, ranking,
+  selection, or evidence replacement
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

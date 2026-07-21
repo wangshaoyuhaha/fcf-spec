@@ -207,3 +207,13 @@ FCP-0039 cannot prove corporate provider independence, acquire either source,
 accept credentials, select a provider, activate realtime, or authorize a
 product, account, order, or execution path. Synthetic tests do not close
 GAP-109.
+
+Proposal `FCF-FCP-0040` adds exact same-calendar field-delta diagnostics on top
+of typed FCP-0038 coverage and FCP-0039 artifact-independence evidence. It
+summarizes overlapping raw price, volume, amount, factor, status, and registered
+clock differences with immutable lineage.
+
+FCP-0040 cannot set a tolerance, rank or select a source, replace registered
+evidence, acquire data, invoke an SDK, retrieve network data, accept credentials,
+activate realtime, or authorize a product, account, order, or execution path.
+Synthetic tests do not close GAP-109.
