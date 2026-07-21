@@ -218,6 +218,9 @@ not-implemented capability groups:
 - cross-source Operator delta-review packets with closed per-field facts,
   affected dates, deterministic finding codes, mandatory review, and no
   severity, recommendation, threshold, ranking, selection, or replacement
+- cross-source Operator delta-review receipts with safe review metadata, exact
+  packet lineage, three closed non-decisional dispositions, and no evidence
+  validation, rejection, source selection, replacement, or GAP closure
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

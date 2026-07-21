@@ -1759,3 +1759,20 @@ The packet assigns no severity, recommendation, threshold, ranking, or winning
 source and cannot replace evidence. Its hash binds the ledger, diagnostic,
 coverage, artifact-independence, role, fact, finding, and review-state lineage.
 Synthetic fixtures do not close GAP-109.
+
+## 76. A-Share Cross-Source Operator Delta Review Receipt
+
+The review receipt consumes one typed FCP-0042 packet and explicit registered
+review metadata. Review ID and reviewer reference use safe identifiers, and the
+review timestamp is an explicit UTC value. The only dispositions are
+REVIEWED_NO_RESOLUTION, DEFERRED_PENDING_EVIDENCE, and
+ESCALATED_FOR_RESEARCH.
+
+The receipt hash binds the exact packet and ledger identities, packet review
+state, closed finding order, every field-fact hash, review metadata, and the
+chosen disposition. A receipt therefore proves review occurrence without
+changing the registered evidence or calculation authority.
+
+Review completion does not validate or reject evidence, assign severity,
+recommend, set a threshold, rank or select a source, replace evidence, or close
+GAP-109. Synthetic fixtures remain non-authoritative.
