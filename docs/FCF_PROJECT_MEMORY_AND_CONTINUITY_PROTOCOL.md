@@ -236,6 +236,9 @@ not-implemented capability groups:
 - BTC perpetual funding method-schedule registries with exact FCP-0046 contract
   lineage, closed method and basis, interval, anchor, signed bounds, payer
   convention, half-open effective intervals, and fail-closed lookup
+- BTC perpetual fee-rebate schedule registries with exact FCP-0046 contract
+  lineage, signed maker and taker rates, contiguous volume tiers, fee assets,
+  half-open effective intervals, and no real account-tier selection
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

@@ -209,6 +209,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0048_btc_perpetual_funding_method_schedule_evidence_registry_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0049_btc_perpetual_fee_rebate_schedule_evidence_registry_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],

@@ -13003,3 +13003,26 @@ P48, wallet, account, balance, position, order, execution, tag, release, or
 deployment is authorized.
 
 <!-- FCP 0049 BTC PERPETUAL FEE REBATE SCHEDULE EVIDENCE REGISTRY APP 1 APPROVAL END -->
+
+
+<!-- FCP 0049 BTC PERPETUAL FEE REBATE SCHEDULE EVIDENCE REGISTRY APP 1 LOCK START -->
+
+## FCP 0049 BTC Perpetual Fee Rebate Schedule Evidence Registry App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- registered local BTC perpetual fee-rule artifact evidence
+- exact signed maker and taker rates and contiguous volume tiers
+- measurement window, fee assets, and FCP-0046 contract-entry lineage
+- half-open effective versions and fail-closed point-in-time lookup
+- immutable evidence hashes and non-calculation authority boundary
+
+The registry cannot select an account tier or calculate fees, rebates, balances,
+positions, PnL, liquidation, funding, or execution; select a source; or close
+GAP-099 or GAP-102. No acquisition, SDK, network, credential, source selection,
+realtime, product, P48, wallet, account, balance, position, order, execution,
+tag, release, or deployment is authorized.
+
+<!-- FCP 0049 BTC PERPETUAL FEE REBATE SCHEDULE EVIDENCE REGISTRY APP 1 LOCK END -->

@@ -726,6 +726,30 @@ API, account, order, execution, product phase, tag, release, or deployment.
 
 ## Register Rules
 
+## FCF-V2-ADR-049 Preserve Signed BTC Fee And Rebate Schedules As Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Preserve BTC perpetual fee and rebate schedules as exact typed local
+evidence. Bind each version to one immutable FCP-0046 contract entry and retain
+signed maker and taker rates, contiguous trailing-volume tiers, measurement
+asset and window, fee assets, and half-open UTC effective-time semantics.
+
+Consequence: Later deterministic Paper cost accounting can consume reproducible
+historical schedule evidence without treating current venue fees as timeless,
+discarding rebates, or selecting a real account tier.
+
+Rejected shortcut: use floats, clamp negative rebates to zero, infer a tier,
+fill missing ranges, overlap volume bands or effective intervals, accept an
+unbound contract, or let the registry calculate costs.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, realtime activation, wallet, account, balance, position,
+account-tier selection, fee or rebate calculation, PnL, liquidation, funding,
+order, execution, product phase, tag, release, or deployment.
+
+## Register Rules
+
 ## FCF-V2-ADR-048 Resolve BTC Funding Rules Only From Exact Contract-Bound Evidence
 
 Status: ACCEPTED_ARCHITECTURE
