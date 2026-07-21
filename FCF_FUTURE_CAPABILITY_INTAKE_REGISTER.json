@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 26,
+  "next_proposal_sequence": 27,
   "proposals": [
     {
       "adr_refs": [],
@@ -770,6 +770,29 @@
       "summary": "Harden the registered-local BTC reconciliation and cross-market readiness packet against malformed digest lineage, untyped findings or rows, boolean count substitution, hidden venue-semantics conflicts, and unnormalized decimal conversion errors. The bounded hardening preserves market isolation, mandatory Operator review, and no source selection. It authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
       "supersedes": [],
       "title": "Registered data readiness integrity hardening"
+    },
+    {
+      "adr_refs": [],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0026_REGISTERED_DATA_AUTHORITY_EXACTNESS_HARDENING_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-084",
+        "V2-FR-GAP-092",
+        "V2-FR-GAP-095"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0026",
+      "source": "codex-post-closeout-integrity-audit-with-operator-continuation-authority",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T03:30:00Z",
+      "summary": "Require exact lowercase digest inputs, strict non-boolean reconciliation counts, exact boolean boundary flags, and immutable calculation, evidence, and AI authority identities across registered A-share, BTC, and cross-market readiness evidence. The bounded hardening preserves market isolation, mandatory Operator review, and no source selection. It authorizes no SDK, network, credential, provider selection, wallet, account, balance, position, order, execution, realtime activation, product phase, P48, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "Registered data authority exactness hardening"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
