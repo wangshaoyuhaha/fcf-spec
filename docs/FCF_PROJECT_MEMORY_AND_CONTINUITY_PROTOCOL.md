@@ -233,6 +233,9 @@ not-implemented capability groups:
 - BTC perpetual margin risk-tier registries with exact FCP-0046 contract
   lineage, closed margin and position modes, contiguous exact tiers,
   collateral haircuts, half-open effective intervals, and fail-closed lookup
+- BTC perpetual funding method-schedule registries with exact FCP-0046 contract
+  lineage, closed method and basis, interval, anchor, signed bounds, payer
+  convention, half-open effective intervals, and fail-closed lookup
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

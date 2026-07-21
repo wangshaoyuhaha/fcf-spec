@@ -1846,3 +1846,20 @@ and collateral lookup returns exactly one registered rule or fails closed. The
 registry supplies evidence only; it cannot calculate balances, positions,
 margin amounts, PnL, liquidation, funding, fees, execution, or source
 preference, and it does not close GAP-097 or GAP-102.
+
+## 81. BTC Perpetual Funding Method Schedule Evidence Registry
+
+The registry consumes one Operator-registered local JSON funding-rule artifact
+and one exact FCP-0046 contract registry. Every funding version binds to one
+contract-entry hash and preserves a closed funding method and basis.
+
+Schedule evidence preserves a positive integer interval, UTC anchor, exact
+signed rate floor and cap, exact interest component, and the closed party that
+pays when the rate is positive. Entries remain unique, stable, and
+nonoverlapping within a venue-contract identity.
+
+Each version owns one half-open UTC effective interval. Point-in-time lookup
+returns exactly one registered rule or fails closed. The registry supplies
+evidence only; it cannot calculate funding rates or payments, balances,
+positions, PnL, liquidation, fees, execution, or source preference, and it does
+not close GAP-099 or GAP-102.
