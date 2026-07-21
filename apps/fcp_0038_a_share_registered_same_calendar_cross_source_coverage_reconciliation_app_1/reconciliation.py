@@ -7,6 +7,9 @@ from apps.fcp_0021_a_share_cross_source_quality_reconciliation_app_1 import (
 from apps.fcp_0037_a_share_registered_expected_trading_date_artifact_profile_app_1 import (
     RegisteredExpectedTradingDateProfile,
 )
+from apps.fcp_0039_a_share_cross_source_artifact_independence_integrity_hardening_app_1 import (
+    build_cross_source_artifact_independence_proof,
+)
 
 from .contracts import SameCalendarCrossSourceCoverageResult, SourceRoleDataset
 
@@ -37,6 +40,12 @@ def reconcile_same_calendar_cross_source_coverage(
         raise TypeError("calendar must be RegisteredExpectedTradingDateProfile")
     if qmt.dataset.source_id == independent.dataset.source_id:
         raise ValueError("cross-source roles require distinct source identities")
+    artifact_independence = build_cross_source_artifact_independence_proof(
+        qmt_role_hash=qmt.role_hash,
+        independent_role_hash=independent.role_hash,
+        qmt_source_artifact_hashes=qmt.source_artifact_hashes,
+        independent_source_artifact_hashes=independent.source_artifact_hashes,
+    )
     qmt_instrument, qmt_dates = _instrument_and_dates(qmt)
     independent_instrument, independent_dates = _instrument_and_dates(independent)
     if not (
@@ -77,6 +86,7 @@ def reconcile_same_calendar_cross_source_coverage(
         calendar_quality_state=calendar.manifest.quality_state,
         qmt_role_hash=qmt.role_hash,
         independent_role_hash=independent.role_hash,
+        artifact_independence=artifact_independence,
         qmt_missing_dates=qmt_missing,
         qmt_unexpected_dates=qmt_unexpected,
         independent_missing_dates=independent_missing,

@@ -1689,3 +1689,20 @@ The composite evidence preserves calendar manifest, role, dataset, policy,
 finding, and nested result hashes. Any coverage or quality mismatch is
 quarantined. No source is selected and Operator review remains mandatory.
 Synthetic fixtures do not close GAP-109 or claim independent provider evidence.
+
+## 72. A-Share Cross-Source Artifact Independence Integrity
+
+Distinct dataset IDs and source IDs are necessary but not sufficient evidence
+of independent provenance. Every FCP-0038 source role derives a nonempty,
+ordered, unique set of registered source-artifact SHA-256 digests from all of
+its observations and binds that complete set into the role hash.
+
+A typed independence proof binds both role hashes and both artifact-digest
+sets. Any digest overlap fails before calendar or value comparison. The proof
+hash is part of the same-calendar composite result hash, so artifact lineage
+cannot be removed without changing result identity.
+
+This deterministic check proves only digest-set disjointness for registered
+local evidence. It does not prove provider corporate independence, acquire an
+independent dataset, or close GAP-109. Operator review remains mandatory and no
+source is selected.

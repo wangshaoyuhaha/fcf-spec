@@ -198,3 +198,12 @@ unexpected dates, nested deterministic quality findings, and immutable lineage.
 FCP-0038 cannot acquire either dataset, infer roles, compare different calendar
 authorities, select a source, activate realtime, or authorize a product,
 account, order, or execution path. Synthetic tests do not close GAP-109.
+
+Proposal `FCF-FCP-0039` hardens FCP-0038 by binding every source role to its
+complete ordered registered source-artifact digest set and requiring disjoint
+digest lineage across QMT and independent-reference roles.
+
+FCP-0039 cannot prove corporate provider independence, acquire either source,
+accept credentials, select a provider, activate realtime, or authorize a
+product, account, order, or execution path. Synthetic tests do not close
+GAP-109.

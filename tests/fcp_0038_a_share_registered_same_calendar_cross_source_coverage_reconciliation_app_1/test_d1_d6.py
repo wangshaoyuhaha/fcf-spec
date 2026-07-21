@@ -88,11 +88,12 @@ def _observation(
 def _dataset(
     suffix: str,
     dates: tuple[str, ...] = ("2026-07-17", "2026-07-20", "2026-07-21"),
+    source_hash: str | None = None,
     **row_changes: object,
 ) -> RegisteredCanonicalDailyDataset:
-    source_hash = ("a" if suffix == "qmt" else "b") * 64
+    artifact_hash = source_hash or (("a" if suffix == "qmt" else "b") * 64)
     rows = tuple(
-        _observation(date, source_hash, **row_changes) for date in dates
+        _observation(date, artifact_hash, **row_changes) for date in dates
     )
     return RegisteredCanonicalDailyDataset(
         dataset_id=f"dataset-{suffix}",
@@ -124,6 +125,9 @@ def test_same_calendar_identical_sources_are_consistent(tmp_path: Path) -> None:
     assert result.cross_source_result.quality_state == "CONSISTENT"
     assert result.operator_review_required is True
     assert result.source_selected is False
+    assert result.artifact_independence.quality_state == (
+        "DISJOINT_REGISTERED_ARTIFACT_LINEAGE"
+    )
 
 
 def test_qmt_missing_date_is_role_specific(tmp_path: Path) -> None:
@@ -246,6 +250,26 @@ def test_same_source_identity_is_rejected(tmp_path: Path) -> None:
         reconcile_same_calendar_cross_source_coverage(
             qmt, independent, _calendar(tmp_path), _policy()
         )
+
+
+def test_shared_source_artifact_lineage_is_rejected(tmp_path: Path) -> None:
+    shared = "c" * 64
+    with pytest.raises(ValueError, match="share source-artifact lineage"):
+        reconcile_same_calendar_cross_source_coverage(
+            _role("QMT_LOCAL_EXPORT", "qmt", source_hash=shared),
+            _role("INDEPENDENT_REFERENCE", "independent", source_hash=shared),
+            _calendar(tmp_path),
+            _policy(),
+        )
+
+
+def test_source_artifact_lineage_is_bound_into_role_hash() -> None:
+    first = _role("QMT_LOCAL_EXPORT", "qmt", source_hash="a" * 64)
+    second = _role("QMT_LOCAL_EXPORT", "qmt", source_hash="c" * 64)
+
+    assert first.source_artifact_hashes == ("a" * 64,)
+    assert second.source_artifact_hashes == ("c" * 64,)
+    assert first.role_hash != second.role_hash
 
 
 def test_instrument_disagreement_is_rejected(tmp_path: Path) -> None:
