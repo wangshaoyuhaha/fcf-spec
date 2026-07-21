@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 42,
+  "next_proposal_sequence": 43,
   "proposals": [
     {
       "adr_refs": [],
@@ -1202,6 +1202,32 @@
       "summary": "Add a deterministic local-only row-addressable evidence ledger beneath FCP-0040 aggregate diagnostics. Record exact overlapping instrument, trade-date, field, source values, absolute deltas, mismatch states, and upstream coverage, independence-proof, role, and diagnostic lineage in a stable closed order. The ledger cannot set tolerances, rank sources, select a winner, replace registered evidence, or close GAP-109. This proposal does not authorize acquisition, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share cross-source row-delta evidence ledger"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-042"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0042_A_SHARE_CROSS_SOURCE_OPERATOR_DELTA_REVIEW_PACKET_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0042_A_SHARE_CROSS_SOURCE_OPERATOR_DELTA_REVIEW_PACKET_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0042_A_SHARE_CROSS_SOURCE_OPERATOR_DELTA_REVIEW_PACKET_APP_1_FINAL.md",
+        "docs/FCF_FCP_0042_A_SHARE_CROSS_SOURCE_OPERATOR_DELTA_REVIEW_PACKET_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-109"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0042",
+      "source": "operator-directed-continuous-development-delta-review-packet",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T15:30:00Z",
+      "summary": "Add a deterministic local-only Operator review packet derived from an exact FCP-0041 row-delta evidence ledger. Preserve closed field facts, exact match, delta, and incomplete counts, finding codes, affected date counts, and all upstream lineage in stable order. The packet cannot assign severity, set tolerances, recommend or rank a source, select a winner, replace evidence, or close GAP-109. This proposal does not authorize acquisition, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share cross-source Operator delta review packet"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
