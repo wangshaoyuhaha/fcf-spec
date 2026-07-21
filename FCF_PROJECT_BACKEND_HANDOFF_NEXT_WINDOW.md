@@ -12972,3 +12972,31 @@ deployment authority. GAP-107 remains research-required. No successor phase is
 selected.
 
 <!-- FCP 0037 A SHARE REGISTERED EXPECTED TRADING DATE ARTIFACT PROFILE APP 1 FINAL END -->
+
+
+<!-- FCP 0038 A SHARE REGISTERED SAME CALENDAR CROSS SOURCE COVERAGE RECONCILIATION APP 1 APPROVAL START -->
+
+## FCP 0038 A Share Registered Same Calendar Cross Source Coverage Reconciliation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0038-a-share-registered-same-calendar-cross-source-coverage-reconciliation-app-1`
+
+Approved scope:
+
+- require registered QMT and independent-reference canonical datasets
+- require both datasets to target one explicit A-share instrument
+- compare both sources against the same FCP-0037 registered calendar
+- expose per-source missing and unexpected dates without source selection
+- reuse FCP-0021 deterministic value and lineage reconciliation
+- preserve calendar, dataset, policy, finding, and result hashes
+- require Operator review and keep GAP-109 open without real evidence
+
+No data acquisition, SDK, network retrieval, credential, provider selection,
+raw repository retention, realtime activation, product phase, P48, trading API,
+account, balance, position, order, execution, tag, release, or deployment is
+authorized.
+
+<!-- FCP 0038 A SHARE REGISTERED SAME CALENDAR CROSS SOURCE COVERAGE RECONCILIATION APP 1 APPROVAL END -->

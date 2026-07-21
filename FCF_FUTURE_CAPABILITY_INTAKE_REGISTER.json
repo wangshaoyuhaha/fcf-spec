@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 38,
+  "next_proposal_sequence": 39,
   "proposals": [
     {
       "adr_refs": [],
@@ -1098,6 +1098,32 @@
       "summary": "Add a provider-neutral local-only profile for exact Operator-registered A-share expected trading-date artifacts. Require explicit market and instrument scope, source revision, rights, retention, usage, availability, registration, revision, as-of, ordered unique ISO dates, exact ASCII schema, immutable hashes, and deterministic compatibility with FCP-0036. Natural-day inference remains forbidden. This proposal does not authorize calendar scraping, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share registered expected trading-date artifact profile"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-038"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0038_A_SHARE_REGISTERED_SAME_CALENDAR_CROSS_SOURCE_COVERAGE_RECONCILIATION_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0038_A_SHARE_REGISTERED_SAME_CALENDAR_CROSS_SOURCE_COVERAGE_RECONCILIATION_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0038_A_SHARE_REGISTERED_SAME_CALENDAR_CROSS_SOURCE_COVERAGE_RECONCILIATION_APP_1_FINAL.md",
+        "docs/FCF_FCP_0038_A_SHARE_REGISTERED_SAME_CALENDAR_CROSS_SOURCE_COVERAGE_RECONCILIATION_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-109"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0038",
+      "source": "operator-directed-continuous-development-same-calendar-cross-source-coverage",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-21T14:00:00Z",
+      "summary": "Compose FCP-0021, FCP-0036, and FCP-0037 into a deterministic local-only same-calendar A-share cross-source coverage reconciliation packet. Require explicit QMT and independent-reference roles, one instrument, the same registered expected trading-date set, visible per-source missing and unexpected dates, immutable lineage, and mandatory Operator review. Synthetic tests do not close GAP-109. This proposal does not authorize acquisition, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share registered same-calendar cross-source coverage reconciliation"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
