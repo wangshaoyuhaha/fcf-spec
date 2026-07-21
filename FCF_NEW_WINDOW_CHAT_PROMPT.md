@@ -13635,3 +13635,31 @@ wallet, account, balance, position, order, execution, tag, release, or
 deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0046 BTC PERPETUAL VENUE CONTRACT LIFECYCLE REGISTRY APP 1 FINAL END -->
+
+
+<!-- FCP 0047 BTC PERPETUAL MARGIN RISK TIER EVIDENCE REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0047 BTC Perpetual Margin Risk Tier Evidence Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0047-btc-perpetual-margin-risk-tier-evidence-registry-app-1`
+
+Approved scope:
+
+- register immutable local BTC perpetual margin and risk-tier rule evidence
+- preserve isolated or cross margin and one-way or hedge mode semantics
+- preserve exact initial and maintenance rates, risk limits, and deductions
+- preserve collateral eligibility, valuation asset, haircut, and effective time
+- bind every version to one exact FCP-0046 contract-registry identity
+- fail closed on point-in-time gaps or overlaps
+
+The registry cannot calculate balances, positions, PnL, liquidation, funding,
+fees, execution, or source preference. Synthetic fixtures do not close GAP-097
+or GAP-102. No acquisition, SDK, network, credential, source selection, raw
+repository retention, realtime, product, P48, wallet, account, balance,
+position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0047 BTC PERPETUAL MARGIN RISK TIER EVIDENCE REGISTRY APP 1 APPROVAL END -->
