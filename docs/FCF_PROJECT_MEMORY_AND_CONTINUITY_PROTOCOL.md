@@ -193,6 +193,10 @@ not-implemented capability groups:
   bytes, explicit instrument identity, ISO dates, 100-share lot conversion,
   additive front-adjustment reference evidence, visible range mismatch, and
   fail-closed factor, trading-status, entitlement, and point-in-time gaps
+- registered QMT multi-batch coverage reconciliation with immutable batch order,
+  exact expected trading-date evidence, identical-overlap deduplication,
+  conflicting-overlap quarantine, row-cap visibility, and no natural-day
+  trading-session inference
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

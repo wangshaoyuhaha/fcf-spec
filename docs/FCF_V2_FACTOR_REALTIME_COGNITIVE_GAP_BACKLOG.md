@@ -190,6 +190,9 @@ factor is activated.
 | V2-FR-GAP-104 | Guojin MiniQMT external Python market-data entitlement and compatible local sidecar evidence | RESEARCH_REQUIRED |
 | V2-FR-GAP-105 | Guojin QMT local-export requested-range completeness, row-cap, pagination, and deterministic batch coverage evidence | RESEARCH_REQUIRED |
 | V2-FR-GAP-106 | Guojin QMT adjustment-factor lineage, observed trading status, revision, availability, and first-tradable point-in-time supplements | RESEARCH_REQUIRED |
+| V2-FR-GAP-107 | exact registered A-share expected trading-date artifacts with source, revision, rights, instrument, and availability lineage | RESEARCH_REQUIRED |
+| V2-FR-GAP-108 | complete multi-batch QMT export evidence spanning the requested range with observed row-cap, pagination, and deterministic batch-order behavior | RESEARCH_REQUIRED |
+| V2-FR-GAP-109 | QMT versus independent provider coverage reconciliation across the same registered expected trading-date set | RESEARCH_REQUIRED |
 
 ## Roadmap Backlog
 

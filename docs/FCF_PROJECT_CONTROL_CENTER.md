@@ -19747,3 +19747,26 @@ phase, P48, trading API, account, balance, position, order, execution, tag,
 release, or deployment is authorized.
 
 <!-- FCP 0036 GUOJIN QMT REGISTERED LOCAL DAILY BATCH COVERAGE RECONCILIATION APP 1 APPROVAL END -->
+
+
+<!-- FCP 0036 GUOJIN QMT REGISTERED LOCAL DAILY BATCH COVERAGE RECONCILIATION APP 1 LOCK START -->
+
+## FCP 0036 Guojin QMT Registered Local Daily Batch Coverage Reconciliation App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact registered expected trading-date artifact verification
+- immutable contiguous QMT batch order and source lineage
+- deterministic FCP-0035 normalization and FCP-0019-compatible merge
+- identical-overlap deduplication and conflicting-overlap quarantine
+- visible missing, unexpected, and declared-row-cap findings
+- mandatory Operator review with provider-unselected status
+
+No natural-day inference, SDK, network retrieval, credential, provider
+selection, raw repository retention, realtime activation, product phase, P48,
+trading API, account, balance, position, order, execution, tag, release, or
+deployment is authorized.
+
+<!-- FCP 0036 GUOJIN QMT REGISTERED LOCAL DAILY BATCH COVERAGE RECONCILIATION APP 1 LOCK END -->

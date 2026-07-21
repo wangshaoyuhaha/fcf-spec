@@ -523,6 +523,30 @@ Not authorized: MiniQMT SDK invocation, network retrieval, credential, provider
 selection, raw repository retention, realtime activation, trading API, order,
 execution, product phase, tag, release, or deployment.
 
+## FCF-V2-ADR-036 Require Registered Trading Dates for Batch Completeness
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: QMT batch completeness is the deterministic set comparison between
+merged registered observations and an exact Operator-registered expected
+trading-date artifact for the same instrument. Natural days, weekdays,
+filenames, directory ordering, and silent row-cap assumptions are not session
+authority. Batch sequence and every source digest are immutable lineage.
+
+Consequence: Byte-identical overlaps may be deduplicated. A conflicting overlap
+is removed from the merged artifact and quarantined. Missing, unexpected,
+conflicting, and declared-row-cap observations remain visible findings.
+Coverage completion cannot supply factor, trading-status, or point-in-time
+authority.
+
+Rejected shortcut: infer exchange sessions from Monday through Friday, accept
+the latest duplicate silently, concatenate files in filesystem order, or label
+a 500-row export complete because its final date matches the request.
+
+Not authorized: SDK invocation, network retrieval, credential, provider
+selection, raw repository retention, realtime activation, trading API, account,
+balance, position, order, execution, product phase, tag, release, or deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.
