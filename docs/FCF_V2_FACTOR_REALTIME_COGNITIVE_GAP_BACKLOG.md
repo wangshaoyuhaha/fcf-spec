@@ -187,6 +187,9 @@ factor is activated.
 | V2-FR-GAP-101 | leverage, notional, liquidation-buffer, concentration, loss, stale-data, contradiction, abstention, and stop-rule research gates | RESEARCH_REQUIRED |
 | V2-FR-GAP-102 | effective-time venue rule, risk-tier, funding-method, collateral-conversion, symbol migration, and contract termination evidence | RESEARCH_REQUIRED |
 | V2-FR-GAP-103 | explicit separation and evaluation of reusable BTC signal evidence from contract, leverage, margin, cost, liquidation, and outcome accounting | NOT_IMPLEMENTED |
+| V2-FR-GAP-104 | Guojin MiniQMT external Python market-data entitlement and compatible local sidecar evidence | RESEARCH_REQUIRED |
+| V2-FR-GAP-105 | Guojin QMT local-export requested-range completeness, row-cap, pagination, and deterministic batch coverage evidence | RESEARCH_REQUIRED |
+| V2-FR-GAP-106 | Guojin QMT adjustment-factor lineage, observed trading status, revision, availability, and first-tradable point-in-time supplements | RESEARCH_REQUIRED |
 
 ## Roadmap Backlog
 

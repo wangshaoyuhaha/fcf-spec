@@ -11886,3 +11886,26 @@ retention, realtime activation, product phase, P48, trading API, order,
 execution, tag, release, or deployment is authorized.
 
 <!-- FCP 0035 GUOJIN QMT REGISTERED LOCAL DAILY EXPORT PROFILE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0035 GUOJIN QMT REGISTERED LOCAL DAILY EXPORT PROFILE APP 1 LOCK START -->
+
+## FCP 0035 Guojin QMT Registered Local Daily Export Profile App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact Operator-registered local QMT daily-export byte verification
+- closed seven-column schema and explicit canonical instrument identity
+- deterministic YYYYMMDD and 100-share lot normalization for FCP-0019
+- source, normalized artifact, profile, manifest, and bridge lineage hashes
+- additive front-adjustment reference evidence with no fabricated factor
+- visible coverage, entitlement, factor, status, and point-in-time blockers
+
+Real QMT export observations remain registered evidence outside the repository.
+No SDK, network retrieval, credential, provider selection, raw repository
+retention, realtime activation, product phase, P48, trading API, account,
+balance, position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0035 GUOJIN QMT REGISTERED LOCAL DAILY EXPORT PROFILE APP 1 LOCK END -->

@@ -1606,3 +1606,25 @@ revision and provider-replacement stability, and Paper-versus-replay divergence.
 No AI statement, provider marketing claim, trial result, or in-sample result can
 authorize purchase, activation, factor promotion, or a profitability claim.
 Deterministic evaluation and explicit Operator review remain mandatory.
+
+## 68. Guojin QMT Registered Local Daily Export Profile
+
+The registered local Guojin QMT daily export profile accepts exact ASCII bytes
+with the closed source header `timetag,open,high,low,close,volumn,amount`.
+Instrument identity is an explicit Operator registration and is never inferred
+from a file or directory name. `timetag` is normalized from `YYYYMMDD` to an
+ISO trade date. Integral `volumn` lots are multiplied by exactly 100 to produce
+share volume. Raw OHLC and yuan amount remain deterministic source evidence.
+
+QMT front-adjusted reference exports may be compared only as additive price
+offset evidence. They cannot become the multiplicative adjustment-factor
+authority required by the FCP-0017 canonical daily contract. Missing factor
+lineage, trading status, point-in-time clocks, MiniQMT entitlement, or exact
+requested coverage remains a visible blocker. Observed source-range mismatch
+does not authorize pagination or completeness inference.
+
+The adapter emits deterministic ASCII bytes compatible with the FCP-0019
+bridge, preserves exact source and profile hashes, requires Operator review,
+and retains provider-unselected status. It grants no SDK, network, credential,
+raw repository retention, realtime, trading, order, execution, or product
+authority.

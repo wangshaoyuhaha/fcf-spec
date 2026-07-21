@@ -189,6 +189,10 @@ not-implemented capability groups:
 - BTC perpetual Paper research with venue-versioned contract, collateral,
   margin, PnL, funding, liquidation, ADL, insurance-fund, lifecycle, cost,
   stress, and hard-gate semantics separated from reusable signal evidence
+- registered Guojin QMT local daily-export normalization with exact source
+  bytes, explicit instrument identity, ISO dates, 100-share lot conversion,
+  additive front-adjustment reference evidence, visible range mismatch, and
+  fail-closed factor, trading-status, entitlement, and point-in-time gaps
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
