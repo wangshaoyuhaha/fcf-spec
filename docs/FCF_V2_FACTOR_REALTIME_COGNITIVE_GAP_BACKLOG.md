@@ -179,6 +179,14 @@ factor is activated.
 | V2-FR-GAP-093 | isolated candidate-provider compatibility and evidence matrix for RQData, MiniQMT market data, Tushare, AkShare, and BaoStock | RESEARCH_REQUIRED |
 | V2-FR-GAP-094 | incremental after-cost data-value experiment, research budget, purchase, renewal, and stop evidence | RESEARCH_REQUIRED |
 | V2-FR-GAP-095 | BTC 24x7 event-time, sequence, mark or index price, funding, contract, and cross-venue source semantics | RESEARCH_REQUIRED |
+| V2-FR-GAP-096 | venue-versioned BTC perpetual contract, collateral, settlement, multiplier, precision, minimum, lifecycle, delisting, and migration registry | NOT_IMPLEMENTED |
+| V2-FR-GAP-097 | isolated or cross margin, one-way or hedge position mode, initial and maintenance tiers, collateral haircut, risk limit, and deterministic PnL accounting | NOT_IMPLEMENTED |
+| V2-FR-GAP-098 | mark, index, bankruptcy, partial-liquidation, liquidation-fee, insurance-fund, ADL, and cascade-state simulation evidence | RESEARCH_REQUIRED |
+| V2-FR-GAP-099 | funding interval, cap, floor, payment direction, basis, fee, rebate, spread, depth, partial-fill, latency, and adverse-selection calibration | RESEARCH_REQUIRED |
+| V2-FR-GAP-100 | BTC perpetual Paper stress suite for gaps, thin books, venue outage, resync, funding shock, loss streak, collateral drawdown, and liquidation distance | NOT_IMPLEMENTED |
+| V2-FR-GAP-101 | leverage, notional, liquidation-buffer, concentration, loss, stale-data, contradiction, abstention, and stop-rule research gates | RESEARCH_REQUIRED |
+| V2-FR-GAP-102 | effective-time venue rule, risk-tier, funding-method, collateral-conversion, symbol migration, and contract termination evidence | RESEARCH_REQUIRED |
+| V2-FR-GAP-103 | explicit separation and evaluation of reusable BTC signal evidence from contract, leverage, margin, cost, liquidation, and outcome accounting | NOT_IMPLEMENTED |
 
 ## Roadmap Backlog
 

@@ -477,6 +477,28 @@ market data and trading APIs.
 Not authorized: procurement, renewal, provider selection, external activation,
 broker or exchange integration, account access, order, or execution.
 
+## FCF-V2-ADR-034 Separate BTC Signal, Contract, and Leverage Accounting
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: BTC spot or short-horizon signals may be reused only as registered
+research inputs. Perpetual contract identity, collateral, position mode,
+margin, PnL, funding, liquidation, ADL, insurance-fund, venue lifecycle, and
+cost evidence remain separate deterministic contracts with effective-time
+versions.
+
+Consequence: A profitable spot backtest cannot be labeled a leveraged result.
+No leverage level is safe by implication, and last price cannot substitute for
+index, mark, bankruptcy, or liquidation price. Venue defaults cannot become
+universal FCF rules.
+
+Rejected shortcut: multiply spot returns by leverage or model liquidation from
+one fixed percentage without contract, collateral, tier, cost, and event-time
+evidence.
+
+Not authorized: leverage runtime, virtual account, Paper order, venue adapter,
+wallet, credential, account, balance, position, real order, or execution.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.

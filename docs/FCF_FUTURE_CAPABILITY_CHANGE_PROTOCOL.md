@@ -141,3 +141,14 @@ provider. It does not authorize an SDK, network access, credentials, data
 purchase, permanent trial-data retention, realtime activation, trading API,
 product phase, or gap closure. MiniQMT market data and trading surfaces remain
 process-isolated, and trading surfaces are prohibited in this repository.
+
+Proposal `FCF-FCP-0034` registers the accepted, non-authorizing BTC perpetual
+leverage Paper research architecture. It separates reusable signal evidence
+from venue-versioned contract, collateral, position-mode, margin, PnL,
+funding, liquidation, ADL, insurance-fund, cost, outage, lifecycle, and stress
+evidence. It links ADR-034 and Gaps 039, 040, and 095 through 103.
+
+FCP-0034 remains `phase_id: NONE` and `NOT_IMPLEMENTED`. It does not authorize
+a leverage runtime, virtual account, Paper order, venue selection or adapter,
+SDK, network, credential, wallet, account, balance, position, real order,
+execution, realtime activation, product phase, P48, tag, release, or deploy.
