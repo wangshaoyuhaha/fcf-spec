@@ -1,0 +1,65 @@
+{
+  "adjustment_ratio_mismatch_row_count": 0,
+  "code_mismatch_row_count": 0,
+  "duplicate_date_count": 0,
+  "earliest_trade_date": "1990-12-19",
+  "evidence_hash": "9a323cd5cc11bc30b05ac7283800d2bb706151a03c9485573471cdf05bb00ac2",
+  "evidence_id": "a-share-external-candidate-daily-corpus-quality-v1",
+  "factor_calculation_allowed": false,
+  "file_count": 5607,
+  "first_adjustment_ratio_unit_file_count": 5607,
+  "header_hash": "0fe0f64c253041977cab754bcf1e405ee8c3c2ff50b4cfaa542d45f8d270a1e4",
+  "header_mismatch_file_count": 0,
+  "invalid_filename_count": 0,
+  "invalid_ohlc_row_count": 13,
+  "latest_terminal_date": "2024-04-24",
+  "latest_terminal_file_count": 5357,
+  "latest_trade_date": "2024-04-24",
+  "malformed_file_count": 0,
+  "malformed_row_count": 84,
+  "manifest_hash": "a6186a77a1a96ab1b3bb5c15d23b7eb836c85f453c823b1d3e233bb8b7e2cd17",
+  "market_file_counts": [
+    [
+      "bj",
+      248
+    ],
+    [
+      "sh",
+      2375
+    ],
+    [
+      "sz",
+      2984
+    ],
+    [
+      "other",
+      0
+    ]
+  ],
+  "negative_numeric_row_count": 0,
+  "non_monotonic_date_count": 0,
+  "observed_at_utc": "2026-07-22T16:32:25Z",
+  "provider_selection_allowed": false,
+  "quarantine_reasons": [
+    "PROVIDER_UNVERIFIED",
+    "RIGHTS_UNVERIFIED",
+    "REVISION_LINEAGE_MISSING",
+    "CORPORATE_ACTION_LINEAGE_MISSING",
+    "ADJUSTMENT_FACTOR_AUTHORITY_MISSING",
+    "TRADING_STATUS_AUTHORITY_MISSING",
+    "EXPECTED_CALENDAR_MISSING",
+    "POINT_IN_TIME_AVAILABILITY_MISSING"
+  ],
+  "raw_rows_embedded": false,
+  "registered_evidence_promotion_allowed": false,
+  "return_mismatch_row_count": 0,
+  "row_count": 14992089,
+  "schema_version": "a-share-external-candidate-daily-corpus-quality-v1",
+  "stale_terminal_file_count": 250,
+  "status": "QUARANTINED_UNVERIFIED_EXTERNAL_CANDIDATE",
+  "terminal_adjustment_ratio_nonunit_file_count": 5309,
+  "total_bytes": 2979854382,
+  "training_label_allowed": false,
+  "unexpected_entry_count": 0,
+  "zero_volume_row_count": 0
+}

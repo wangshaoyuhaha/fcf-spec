@@ -14945,3 +14945,26 @@ a product phase, create P48, or authorize account, order, execution, tag,
 release, or deployment paths.
 
 <!-- FCP 0075 A SHARE EXTERNAL CANDIDATE DAILY CORPUS QUALITY QUARANTINE EVIDENCE APP 1 APPROVAL END -->
+
+<!-- FCP 0075 A SHARE EXTERNAL CANDIDATE DAILY CORPUS QUALITY QUARANTINE EVIDENCE APP 1 LOCK START -->
+
+## FCP 0075 A-Share External Candidate Daily Corpus Quality Quarantine Evidence App 1 Delivery Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The deterministic local scanner registered path-free quarantine evidence for
+5,607 external candidate files, 14,992,089 parseable rows, and 2,979,854,382
+bytes. It recorded 84 malformed rows, 13 invalid OHLC rows, and 250 stale
+terminal files without retaining raw rows, file names, or local paths in Git.
+
+The candidate remains `QUARANTINED_UNVERIFIED_EXTERNAL_CANDIDATE`. Provider,
+rights, revision, corporate-action, adjustment-factor, trading-status,
+calendar, and point-in-time authority gaps remain mandatory and unresolved.
+
+The delivery cannot promote candidate rows, calculate factors, create labels,
+select a provider, claim completeness or accuracy, access MiniQMT, use
+credentials, activate realtime data, start a product phase, create P48, or
+authorize broker, exchange, account, order, execution, tag, release, or
+deployment paths.
+
+<!-- FCP 0075 A SHARE EXTERNAL CANDIDATE DAILY CORPUS QUALITY QUARANTINE EVIDENCE APP 1 LOCK END -->
