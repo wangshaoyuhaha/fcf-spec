@@ -1,6 +1,6 @@
 # FCF FCP 0051 Guojin QMT Historical Coverage Completeness Gate App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Upstream Evidence Binding
 
@@ -50,6 +50,19 @@ Validated before merge:
 - isolated FCP-0051 suite: 17 passed
 - affected QMT and governance suite: 144 passed
 - all FCP suites: 919 passed
+- full pytest: 6256 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `18cbc54e95f1a58db8f1800f47d6ea286f6aa422`
+- sidecar delivery: `af87374615c3a0ff6714428f98d1c187361e32bc`
+- main delivery merge: `620baf8fb98604ab3fe4c60af2b783e98f2a9413`
+
+Validated after merge:
+
+- affected QMT and governance suite: 144 passed
 - full pytest: 6256 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored; no tracked generated changes remained
