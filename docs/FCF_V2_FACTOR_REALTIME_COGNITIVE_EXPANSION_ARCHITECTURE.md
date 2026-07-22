@@ -1980,3 +1980,21 @@ returns exactly one registered rule or fails closed. The registry supplies
 evidence only; it cannot calculate prices, margin, liquidation, balances,
 positions, PnL, ADL actions, orders, execution, or source preference and does
 not close GAP-098, GAP-100, GAP-101, or GAP-102.
+
+## 88. BTC Perpetual Complete Rule Bundle Coherence Hardening
+
+The hardening layer consumes one exact typed FCP-0053 rule-bundle snapshot and
+the typed FCP-0054 liquidation-mechanics registry used for the same venue,
+contract, margin mode, position mode, and UTC lookup instant.
+
+Both inputs must bind the same exact FCP-0046 contract-registry hash. The
+resolved liquidation rule must bind the same contract-entry hash already
+preserved by FCP-0053. Artifact registration time, rule effective interval,
+venue, contract, registry, and entry identities must all be coherent.
+
+The output adds only the immutable liquidation registry and rule-entry hashes
+to a complete evidence snapshot. Missing, stale, cross-registry, cross-contract,
+and effective-time-incoherent evidence fails closed. The layer cannot calculate
+prices, margin, leverage, liquidation, funding, fees, balances, positions, PnL,
+insurance-fund changes, ADL actions, orders, execution, or source preference and
+does not close GAP-098, GAP-100, GAP-101, or GAP-102.

@@ -370,3 +370,15 @@ position, PnL, ADL action, order, or execution, select a source or venue,
 acquire data, invoke an SDK, retrieve network data, accept credentials,
 activate realtime, authorize an exchange, wallet, account, order, or execution
 path, or close GAP-098, GAP-100, GAP-101, or GAP-102.
+
+Proposal `FCF-FCP-0055` hardens the deterministic local-only FCP-0053 rule
+bundle with exact typed FCP-0054 liquidation-mechanics evidence. The gate
+requires shared FCP-0046 registry and contract-entry lineage plus coherent
+artifact registration and effective-time resolution.
+
+FCP-0055 cannot calculate prices, margin, leverage, liquidation, funding,
+fees, balances, positions, PnL, insurance-fund changes, ADL actions, orders,
+execution, or source preference, acquire data, invoke an SDK, retrieve network
+data, accept credentials, activate realtime, authorize an exchange, wallet,
+account, order, or execution path, or close GAP-098, GAP-100, GAP-101, or
+GAP-102.

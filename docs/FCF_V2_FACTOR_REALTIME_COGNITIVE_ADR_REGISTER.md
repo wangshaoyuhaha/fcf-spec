@@ -966,6 +966,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-055 Require Liquidation Evidence In The Complete BTC Rule Bundle
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Harden the FCP-0053 point-in-time rule bundle with one exact typed
+FCP-0054 liquidation-mechanics registry. Require both inputs to share the exact
+FCP-0046 contract-registry hash and resolved contract-entry hash before
+producing an immutable complete-rule snapshot.
+
+Consequence: Later deterministic Paper stress and risk gates can consume one
+coherent contract, margin, funding, fee, and liquidation evidence context
+without independently joining rule versions or silently mixing effective time.
+
+Rejected shortcut: attach an FCP-0054 hash without resolving its effective rule,
+accept a different contract registry or contract entry, infer missing evidence,
+or calculate liquidation, account state, or execution inside the gate.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

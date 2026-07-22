@@ -255,6 +255,9 @@ not-implemented capability groups:
 - BTC perpetual mark-index-liquidation mechanics registries with exact
   FCP-0046 lineage, partial-liquidation tiers, insurance-fund, ADL-ranking,
   cascade-state evidence, and no price, liquidation, or execution calculation
+- BTC perpetual complete-rule-bundle coherence hardening with exact FCP-0053
+  and FCP-0054 registry, contract-entry, artifact-time, and effective-time
+  agreement before later Paper stress or risk-gate consumption
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

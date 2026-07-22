@@ -14368,3 +14368,32 @@ P48, exchange, wallet, account, balance, position, order, execution, tag,
 release, or deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0054 BTC PERPETUAL MARK INDEX LIQUIDATION MECHANICS EVIDENCE REGISTRY APP 1 FINAL END -->
+
+
+<!-- FCP 0055 BTC PERPETUAL COMPLETE RULE BUNDLE COHERENCE HARDENING APP 1 APPROVAL START -->
+
+## FCP 0055 BTC Perpetual Complete Rule Bundle Coherence Hardening App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0055-btc-perpetual-complete-rule-bundle-coherence-hardening-app-1`
+
+Approved order:
+
+- D1 consume exact typed FCP-0053 and FCP-0054 evidence
+- D2 require one shared FCP-0046 registry and contract-entry lineage
+- D3 resolve one effective FCP-0054 liquidation rule at the bundle instant
+- D4 reject stale, missing, cross-registry, cross-contract, and incoherent input
+- D5 preserve immutable evidence hashes and mandatory Operator review
+- D6 run guards, validation, merge, and final authority synchronization
+
+The hardening cannot calculate prices, margin, leverage, liquidation, funding,
+fees, rebates, balances, positions, PnL, insurance-fund mutations, ADL, orders,
+execution, or source preference. It cannot close GAP-098, GAP-100, GAP-101, or
+GAP-102. No acquisition, SDK, network, credential, provider selection, raw
+repository retention, realtime, product, P48, exchange, wallet, account,
+balance, position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0055 BTC PERPETUAL COMPLETE RULE BUNDLE COHERENCE HARDENING APP 1 APPROVAL END -->
