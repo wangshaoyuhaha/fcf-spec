@@ -1,6 +1,6 @@
 # FCF FCP 0080 A-Share Open Candidate Provider Compatibility Profile App 1 D1-D6
 
-Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
 
 ## D1 Closed Candidate Vocabulary
 
@@ -33,3 +33,9 @@ requirements.
 Run isolated, affected-governance, all-FCP, full-pytest, all-checks,
 generated-output, exact-file, ASCII, and diff validation before merge and final
 synchronization.
+
+Implementation evidence:
+
+- Profile-set hash: `b384a3172929e36c26a88658cae2287b233c42a691bd52d72d75389d6040978a`
+- Augmented matrix hash: `2f9853264ef7bcaa34e34867976e59bd5161e84403ef69a559ac3ee67b20abcf`
+- All profiles remain declared, unverified, blocked, local-only, and non-authorizing.

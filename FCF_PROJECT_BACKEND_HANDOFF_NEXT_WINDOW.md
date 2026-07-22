@@ -16147,3 +16147,26 @@ phase, create P48, or authorize broker, exchange, account, order, execution,
 tag, release, or deployment paths.
 
 <!-- FCP 0080 A SHARE OPEN CANDIDATE PROVIDER COMPATIBILITY PROFILE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0080 A SHARE OPEN CANDIDATE PROVIDER COMPATIBILITY PROFILE APP 1 LOCK START -->
+
+## FCP 0080 A-Share Open Candidate Provider Compatibility Profile App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar implements immutable, isolated, registered-local compatibility
+profiles for Tushare, AkShare, and BaoStock. Each profile remains unverified,
+blocked, non-authorizing, and subject to mandatory Operator review.
+
+Profile-set hash:
+`b384a3172929e36c26a88658cae2287b233c42a691bd52d72d75389d6040978a`.
+Augmented matrix hash:
+`2f9853264ef7bcaa34e34867976e59bd5161e84403ef69a559ac3ee67b20abcf`.
+
+Gap V2-FR-GAP-093 remains open. No provider is selected or endorsed, and no
+SDK, network, credential, realtime, acquisition, promotion, calculation,
+label, product, P48, broker, exchange, account, order, execution, tag,
+release, or deployment authority is created.
+
+<!-- FCP 0080 A SHARE OPEN CANDIDATE PROVIDER COMPATIBILITY PROFILE APP 1 LOCK END -->
