@@ -566,3 +566,13 @@ FCP-0072 cannot assign a disposition, approve, reject, recommend, or perform
 account, margin, leverage, liquidation, balance, position, PnL, insurance,
 ADL, order, or execution actions. It does not close GAP-098 through GAP-101 or
 authorize product work, P48, release, or deployment.
+
+Proposal `FCF-FCP-0073` registers one deterministic local-only explicit
+Operator review receipt against one exact typed FCP-0072 packet. It preserves
+complete packet lineage, reviewer reference, reviewed UTC time, and one closed
+non-authorizing review disposition.
+
+FCP-0073 cannot approve or reject evidence, resolve a result, recommend, or
+perform account, margin, leverage, liquidation, balance, position, PnL,
+insurance, ADL, order, or execution actions. It does not close GAP-098 through
+GAP-101 or authorize product work, P48, release, or deployment.

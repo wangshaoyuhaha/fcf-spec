@@ -1359,6 +1359,27 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-073 Record Explicit Review Without Resolution Authority
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Register one immutable explicit Operator review receipt against one
+exact typed FCP-0072 packet. Preserve packet and record-hash lineage, reviewer
+reference, reviewed UTC time, and one closed non-authorizing disposition.
+
+Consequence: Later audit can prove that an Operator inspected the complete
+packet without treating review occurrence as evidence approval, rejection,
+result resolution, action authorization, or Gap closure.
+
+Rejected shortcut: omit packet records, accept an unregistered disposition,
+backdate the receipt, approve or reject evidence, recommend an action,
+calculate account state, or close a Gap from synthetic Paper review evidence.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.
