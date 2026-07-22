@@ -1880,3 +1880,26 @@ returns exactly one registered schedule or fails closed. The registry cannot
 select a real account tier or calculate fees, rebates, balances, positions,
 PnL, liquidation, funding, execution, or source preference, and it does not
 close GAP-099 or GAP-102.
+
+## 83. Guojin QMT Registered Dual Export Quality Evidence
+
+The evidence builder consumes one exact Operator-registered raw daily export
+and one exact Operator-registered front-adjusted daily export for the same
+A-share instrument. Registration preserves artifact ID, SHA-256 digest, byte
+length, rights, retention, and observation lineage while actual provider bytes
+and local paths remain outside the repository.
+
+Both artifacts must expose the exact ASCII header
+`timetag,open,high,low,close,volumn,amount`. Deterministic validation preserves
+ordered unique ISO dates, exact decimal OHLC values, nonnegative integral lots
+and notional, OHLC range integrity, raw/front date parity, and exact volume and
+amount parity. The raw notional-derived price provides only a closed
+100-share-lot consistency check against the registered daily range.
+
+Per-row front-minus-raw price deltas and their observed boundaries remain
+additive adjustment-reference evidence. They cannot become official adjustment
+factors. Exact row count and a registered row-cap observation remain visible,
+but neither implies requested-range completeness. The output remains blocked
+for missing calendar, pagination, factor, trading-status, point-in-time,
+multi-batch, and independent-source evidence and does not close GAP-104 through
+GAP-109.

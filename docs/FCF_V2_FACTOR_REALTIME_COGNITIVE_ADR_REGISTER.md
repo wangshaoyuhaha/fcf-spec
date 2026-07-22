@@ -726,6 +726,33 @@ API, account, order, execution, product phase, tag, release, or deployment.
 
 ## Register Rules
 
+## FCF-V2-ADR-050 Preserve QMT Dual-Export Facts Without Inventing Adjustment Authority
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Register exact local raw and front-adjusted QMT daily-export artifact
+identity before parsing. Preserve the provider's exact ASCII header, ordered
+rows, raw/front parity, 100-share-lot consistency evidence, additive adjustment
+references, observed offset boundaries, exact row count, and visible row-cap
+state. Keep actual raw bytes and local paths outside the repository.
+
+Consequence: Operator review can audit facts derived from the exact two-file
+export without treating a front-adjusted price difference as an official
+factor, treating 500 observed rows as complete history, or hiding unresolved
+rights, calendar, point-in-time, status, pagination, and independence gaps.
+
+Rejected shortcut: commit provider bytes, store local paths, accept a different
+header, use binary floats, infer trading sessions, declare a row-cap value from
+row count alone, infer an official factor from additive deltas, or claim that
+one paired export closes any source-research gap.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, broker,
+account, balance, position, order, execution, product phase, P48, tag, release,
+or deployment.
+
+## Register Rules
+
 ## FCF-V2-ADR-049 Preserve Signed BTC Fee And Rebate Schedules As Evidence
 
 Status: ACCEPTED_ARCHITECTURE

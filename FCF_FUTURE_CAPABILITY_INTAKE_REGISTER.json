@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 50,
+  "next_proposal_sequence": 51,
   "proposals": [
     {
       "adr_refs": [],
@@ -1415,6 +1415,38 @@
       "summary": "Add a deterministic local-only BTC perpetual fee and rebate schedule evidence registry bound to exact FCP-0046 contract-registry identity. Preserve exact signed maker and taker rates, contiguous trailing-volume tiers, measurement asset and window, eligible fee assets, and effective-time rule versions. The registry cannot select a real account tier or calculate fees, rebates, balances, positions, PnL, liquidation, funding, execution, or source preference and does not close GAP-099 or GAP-102. It authorizes no acquisition, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, wallet, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC perpetual fee rebate schedule evidence registry"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-050"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0050_GUOJIN_QMT_REGISTERED_DUAL_EXPORT_QUALITY_EVIDENCE_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0050_GUOJIN_QMT_REGISTERED_DUAL_EXPORT_QUALITY_EVIDENCE_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0050_GUOJIN_QMT_REGISTERED_DUAL_EXPORT_QUALITY_EVIDENCE_APP_1_FINAL.md",
+        "FCF_REGISTERED_EVIDENCE_FCP_0050_GUOJIN_QMT_DUAL_EXPORT_QUALITY.json",
+        "docs/FCF_FCP_0050_GUOJIN_QMT_REGISTERED_DUAL_EXPORT_QUALITY_EVIDENCE_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-104",
+        "V2-FR-GAP-105",
+        "V2-FR-GAP-106",
+        "V2-FR-GAP-107",
+        "V2-FR-GAP-108",
+        "V2-FR-GAP-109"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0050",
+      "source": "operator-authorized-qmt-dual-export-quality-evidence",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T00:02:43Z",
+      "summary": "Add deterministic local-only quality evidence for one Operator-registered Guojin QMT raw and front-adjusted daily-export pair. Preserve exact artifact identity, ASCII schema, date and value invariants, 100-share-lot consistency evidence, raw/front parity, additive adjustment-reference deltas, observed regime boundaries, row count, and visible row-cap state. Actual raw bytes and local paths remain outside the repository. This evidence cannot become adjustment-factor authority, infer missing sessions, claim historical completeness, select a provider, or close GAP-104 through GAP-109. It authorizes no acquisition, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, broker, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "Guojin QMT registered dual export quality evidence"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

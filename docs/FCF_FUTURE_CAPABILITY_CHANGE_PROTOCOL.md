@@ -310,3 +310,16 @@ balances, positions, PnL, liquidation, funding, or execution, select a source,
 acquire data, invoke an SDK, retrieve network data, accept credentials,
 activate realtime, authorize a wallet, product, account, order, or execution
 path, or close GAP-099 or GAP-102.
+
+Proposal `FCF-FCP-0050` creates deterministic local-only quality evidence from
+one exact Operator-registered Guojin QMT raw and front-adjusted daily-export
+pair. It preserves artifact identity, exact ASCII schema, row invariants,
+100-share-lot consistency evidence, raw/front parity, additive adjustment
+references, observed regime boundaries, row count, and visible row-cap state.
+
+FCP-0050 cannot treat adjustment references as factor authority, infer missing
+sessions, claim historical completeness, select a provider, acquire data,
+invoke an SDK, retrieve network data, accept credentials, activate realtime,
+authorize a broker, product, account, balance, position, order, or execution
+path, or close GAP-104 through GAP-109. Actual raw bytes and local paths remain
+outside the repository.

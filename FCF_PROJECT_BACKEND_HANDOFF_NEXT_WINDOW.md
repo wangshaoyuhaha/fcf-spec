@@ -13921,3 +13921,30 @@ realtime, product, P48, wallet, account, balance, position, order, execution,
 tag, release, or deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0049 BTC PERPETUAL FEE REBATE SCHEDULE EVIDENCE REGISTRY APP 1 FINAL END -->
+
+
+<!-- FCP 0050 GUOJIN QMT REGISTERED DUAL EXPORT QUALITY EVIDENCE APP 1 APPROVAL START -->
+
+## FCP 0050 Guojin QMT Registered Dual Export Quality Evidence App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0050-guojin-qmt-registered-dual-export-quality-evidence-app-1`
+
+Approved scope:
+
+- register exact local raw and front-adjusted QMT daily-export artifacts
+- validate exact ASCII schema, row order, values, and raw/front parity
+- preserve 100-share-lot consistency evidence and additive adjustment references
+- preserve observed offset boundaries, row count, and visible row-cap state
+- emit immutable evidence with actual raw bytes and local paths excluded
+
+The phase cannot invent official adjustment factors, infer missing sessions,
+claim historical completeness, select a provider, or close GAP-104 through
+GAP-109. No acquisition, SDK, network, credential, raw repository retention,
+realtime, product, P48, broker, account, balance, position, order, execution,
+tag, release, or deployment is authorized.
+
+<!-- FCP 0050 GUOJIN QMT REGISTERED DUAL EXPORT QUALITY EVIDENCE APP 1 APPROVAL END -->

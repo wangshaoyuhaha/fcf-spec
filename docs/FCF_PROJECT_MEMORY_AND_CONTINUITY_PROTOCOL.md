@@ -239,6 +239,10 @@ not-implemented capability groups:
 - BTC perpetual fee-rebate schedule registries with exact FCP-0046 contract
   lineage, signed maker and taker rates, contiguous volume tiers, fee assets,
   half-open effective intervals, and no real account-tier selection
+- registered Guojin QMT dual-export quality evidence with exact raw and
+  front-adjusted artifact identity, ASCII schema, 100-share-lot consistency,
+  raw/front parity, additive adjustment references, visible row-cap state, no
+  raw repository bytes, and no completeness or factor-authority claim
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
