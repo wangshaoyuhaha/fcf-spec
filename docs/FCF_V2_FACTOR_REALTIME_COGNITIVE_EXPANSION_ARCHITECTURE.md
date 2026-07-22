@@ -2186,3 +2186,29 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
+
+## 101. BTC Perpetual Paper Stress Evaluation Trigger Predicate Semantics Registry
+
+The registry consumes one exact typed FCP-0067 measure-formula semantics
+registry. It binds one closed trigger predicate to every scenario kind:
+strict measure-greater-than-parameter for collateral drawdown, funding shock,
+and price gap; inclusive measure-less-than-or-equal-to-parameter for
+liquidation distance; inclusive measure-greater-than-or-equal-to-parameter for
+loss streak, resync, and venue outage; and strict
+measure-less-than-parameter for thin book.
+
+Every predicate binds exact left and right roles, the FCP-0067 parameter
+transform, and a strict or inclusive boundary policy. Operator identifiers are
+closed symbolic data, not executable expressions or evaluated booleans.
+
+Validation is fail-closed on untyped FCP-0067 lineage, hash substitution,
+missing, duplicate, reordered, or extra kinds, incompatible formula or
+direction semantics, reversed roles, unknown operators, changed boundary
+policy, or authority escalation. The registry cannot evaluate observations or
+calculate a trigger, threshold, magnitude, severity, account state, or
+execution result, or close GAP-098, GAP-099, GAP-100, or GAP-101.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.

@@ -512,3 +512,16 @@ ADL actions, orders, execution, or source preference, acquire data, invoke an
 SDK, retrieve network data, accept credentials, activate realtime, authorize
 an exchange, wallet, account, order, or execution path, or close GAP-098,
 GAP-099, GAP-100, or GAP-101.
+
+Proposal `FCF-FCP-0068` creates a deterministic local-only BTC perpetual Paper
+stress-evaluation trigger-predicate semantics registry bound to one exact typed
+FCP-0067 measure-formula registry. It registers closed comparison, role-order,
+parameter-transform, and strict or inclusive boundary semantics before any
+evaluator is introduced.
+
+FCP-0068 cannot evaluate observations or calculate triggers, thresholds,
+magnitudes, severities, prices, margin, leverage, liquidation, balances,
+positions, PnL, ADL actions, orders, execution, or source preference, acquire
+data, invoke an SDK, retrieve network data, accept credentials, activate
+realtime, authorize an exchange, wallet, account, order, or execution path, or
+close GAP-098, GAP-099, GAP-100, or GAP-101.

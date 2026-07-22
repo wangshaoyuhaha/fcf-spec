@@ -15389,3 +15389,22 @@ open. No product phase, P48, account, execution, tag, release, or deployment
 path was created.
 
 <!-- FCP 0067 BTC PERPETUAL PAPER STRESS EVALUATION MEASURE FORMULA SEMANTICS REGISTRY APP 1 FINAL END -->
+
+<!-- FCP 0068 BTC PERPETUAL PAPER STRESS EVALUATION TRIGGER PREDICATE SEMANTICS REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0068 BTC Perpetual Paper Stress Evaluation Trigger Predicate Semantics Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0068-btc-perpetual-paper-stress-evaluation-trigger-predicate-semantics-registry-app-1`
+
+Approved scope binds one exact typed FCP-0067 measure-formula registry and
+registers one closed comparison operator, left-right role order, parameter
+transform, and strict or inclusive boundary policy for every stress kind.
+
+The phase cannot evaluate observations, calculate triggers, thresholds,
+magnitudes, or severities, close GAP-098 through GAP-101, start a product
+phase, create P48, or authorize broker, exchange, credential, wallet, account,
+balance, position, order, execution, tag, release, or deployment.
+
+<!-- FCP 0068 BTC PERPETUAL PAPER STRESS EVALUATION TRIGGER PREDICATE SEMANTICS REGISTRY APP 1 APPROVAL END -->

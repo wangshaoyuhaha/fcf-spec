@@ -1249,6 +1249,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-068 Bind Closed Stress Trigger Predicates Before Evaluation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind one exact typed FCP-0067 formula registry and register one
+closed comparison operator, left-right role order, parameter transform, and
+strict or inclusive boundary policy for each of the eight BTC perpetual Paper
+stress kinds before any evaluator is introduced.
+
+Consequence: A later deterministic evaluator cannot reverse comparison roles,
+change strictness at a threshold boundary, detach a predicate from its formula
+or parameter transform, or introduce arbitrary executable expressions.
+
+Rejected shortcut: infer operators from names, store arbitrary predicates,
+evaluate a boolean in the registry, ignore equality policy, reverse left and
+right roles, or treat predicate registration as a stress result.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.
