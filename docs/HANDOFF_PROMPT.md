@@ -14601,3 +14601,20 @@ product phase, create P48, or authorize broker, exchange, credential, wallet,
 account, balance, position, order, execution, tag, release, or deployment.
 
 <!-- FCP 0069 BTC PERPETUAL PAPER STRESS EVALUATION INPUT BINDING REGISTRY APP 1 APPROVAL END -->
+
+<!-- FCP 0069 BTC PERPETUAL PAPER STRESS EVALUATION INPUT BINDING REGISTRY APP 1 LOCK START -->
+
+## FCP 0069 BTC Perpetual Paper Stress Evaluation Input Binding Registry App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar delivery binds exact typed FCP-0068 predicate, FCP-0064 operand,
+and FCP-0056 scenario registries into eight ordered predicate, observation,
+and parameter-hash bindings. It rejects lineage, kind, order, role, parameter,
+schema, hash, contract, and UTC substitution.
+
+This registry cannot evaluate observations or calculate measures, triggers,
+thresholds, magnitudes, or severities, close GAP-098 through GAP-101, start a
+product phase, create P48, or authorize any account or execution path.
+
+<!-- FCP 0069 BTC PERPETUAL PAPER STRESS EVALUATION INPUT BINDING REGISTRY APP 1 LOCK END -->
