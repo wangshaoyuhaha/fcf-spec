@@ -14449,3 +14449,23 @@ severities, evaluate stress, close GAP-098 through GAP-101, start a product
 phase, create P48, or authorize any account or execution path.
 
 <!-- FCP 0066 BTC PERPETUAL PAPER STRESS EVALUATION DIRECTION SEMANTICS REGISTRY APP 1 LOCK END -->
+
+<!-- FCP 0066 BTC PERPETUAL PAPER STRESS EVALUATION DIRECTION SEMANTICS REGISTRY APP 1 FINAL START -->
+
+## FCP 0066 BTC Perpetual Paper Stress Evaluation Direction Semantics Registry App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact FCP-0065-bound direction-semantics registry is merged and validated.
+Isolated FCP-0066 tests passed 19, affected BTC and governance tests passed
+395 before and after merge, all FCP tests passed 1201, full pytest passed 6538
+before and after merge, and `scripts/run_all_checks.py` reported
+ALL CHECKS PASSED before and after merge. Generated runtime outputs were restored.
+
+Approval `28013bb5a15ced2e0154d02158d24c32d1fb8050`; delivery
+`6606b3e845dc79664d77203f26b40e49f5a98651`; merge
+`4640d0e48092561530ccb69cee90975762a908e6`. GAP-098 through GAP-101 remain
+open. No product phase, P48, account, execution, tag, release, or deployment
+path was created.
+
+<!-- FCP 0066 BTC PERPETUAL PAPER STRESS EVALUATION DIRECTION SEMANTICS REGISTRY APP 1 FINAL END -->

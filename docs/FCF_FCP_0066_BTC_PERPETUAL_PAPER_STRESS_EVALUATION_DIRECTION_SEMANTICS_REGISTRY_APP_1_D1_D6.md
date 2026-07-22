@@ -1,6 +1,6 @@
 # FCF FCP 0066 BTC Perpetual Paper Stress Evaluation Direction Semantics Registry App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Typed Context
 
@@ -39,3 +39,16 @@ Validation evidence before merge:
 - full pytest: 6538 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC perpetual rule, stress, and governance suite: 395 passed
+- full pytest: 6538 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `28013bb5a15ced2e0154d02158d24c32d1fb8050`
+- sidecar delivery: `6606b3e845dc79664d77203f26b40e49f5a98651`
+- main delivery merge: `4640d0e48092561530ccb69cee90975762a908e6`
