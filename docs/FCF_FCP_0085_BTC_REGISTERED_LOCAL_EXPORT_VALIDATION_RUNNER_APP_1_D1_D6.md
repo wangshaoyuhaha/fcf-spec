@@ -1,6 +1,6 @@
 # FCF FCP 0085 BTC Registered Local Export Validation Runner App 1 D1-D6
 
-Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
 
 ## D1 Closed Validation Request
 
