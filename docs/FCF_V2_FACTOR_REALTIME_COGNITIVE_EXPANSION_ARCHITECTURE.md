@@ -1903,3 +1903,27 @@ but neither implies requested-range completeness. The output remains blocked
 for missing calendar, pagination, factor, trading-status, point-in-time,
 multi-batch, and independent-source evidence and does not close GAP-104 through
 GAP-109.
+
+## 84. Guojin QMT Historical Coverage Completeness Gate
+
+The gate consumes one exact registered FCP-0050 evidence record. It binds the
+record hash, dual-export artifact hashes, requested and observed boundaries,
+row count, row-cap state, quality state, and upstream normalization lineage.
+Provider bytes and local paths remain outside the derived evidence.
+
+Boundary comparison is exact and calendar-neutral. An observed start after the
+requested start creates an unresolved leading interval; an observed end before
+the requested end creates an unresolved trailing interval. The gate never
+expands either interval into natural days or inferred trading sessions.
+
+Historical completeness requires all closed conditions to be true: requested
+boundaries are covered, an exact registered expected trading-date artifact is
+available, pagination behavior is registered, deterministic multi-batch
+coverage has been reconciled through FCP-0036, no missing, unexpected, or
+conflicting dates remain, and point-in-time supplements are registered. A row
+count equal to an observed cap never proves completeness.
+
+The result is either `COMPLETE_WITH_REGISTERED_EVIDENCE` or a fail-closed
+blocked state with exact requirement findings. It cannot select a provider,
+invent sessions, acquire data, invoke an SDK, or close GAP-105, GAP-107, or
+GAP-108.

@@ -243,6 +243,9 @@ not-implemented capability groups:
   front-adjusted artifact identity, ASCII schema, 100-share-lot consistency,
   raw/front parity, additive adjustment references, visible row-cap state, no
   raw repository bytes, and no completeness or factor-authority claim
+- QMT historical coverage completeness gates with exact FCP-0050 lineage,
+  requested-versus-observed boundary relations, closed positive-proof
+  requirements, explicit supplement needs, and no inferred trading sessions
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

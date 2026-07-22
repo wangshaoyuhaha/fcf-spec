@@ -871,6 +871,31 @@ provider selection, raw repository retention, realtime activation, trading
 API, wallet, account, order, execution, product phase, tag, release, or
 deployment.
 
+## FCF-V2-ADR-051 Require Positive Registered Proof Before Claiming QMT Historical Completeness
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind completeness assessment to one exact FCP-0050 record and a
+closed requirement matrix. Requested-boundary coverage, expected trading-date
+authority, pagination evidence, deterministic FCP-0036 multi-batch coverage,
+conflict-free reconciliation, and point-in-time supplements must all be
+positively registered before completeness can be true.
+
+Consequence: The current 500-row export produces useful quality evidence and
+an exact unresolved leading interval, while remaining blocked instead of being
+mistaken for complete history. Future supplemental batches can satisfy the
+same contract without changing upstream factor or strategy code.
+
+Rejected shortcut: infer sessions from weekdays or natural days, treat a row
+cap as a complete result, infer provider pagination, omit expected-date
+authority, ignore overlap conflicts, or weaken the gate to accept absent
+evidence.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, broker,
+account, balance, position, order, execution, product phase, P48, tag, release,
+or deployment.
+
 ## Register Rules
 
 - An ADR change requires explicit Operator approval and impact analysis.

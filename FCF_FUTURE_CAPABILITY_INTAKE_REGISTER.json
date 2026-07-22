@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 51,
+  "next_proposal_sequence": 52,
   "proposals": [
     {
       "adr_refs": [],
@@ -1447,6 +1447,35 @@
       "summary": "Add deterministic local-only quality evidence for one Operator-registered Guojin QMT raw and front-adjusted daily-export pair. Preserve exact artifact identity, ASCII schema, date and value invariants, 100-share-lot consistency evidence, raw/front parity, additive adjustment-reference deltas, observed regime boundaries, row count, and visible row-cap state. Actual raw bytes and local paths remain outside the repository. This evidence cannot become adjustment-factor authority, infer missing sessions, claim historical completeness, select a provider, or close GAP-104 through GAP-109. It authorizes no acquisition, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, broker, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "Guojin QMT registered dual export quality evidence"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-051"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0051_GUOJIN_QMT_HISTORICAL_COVERAGE_COMPLETENESS_GATE_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0051_GUOJIN_QMT_HISTORICAL_COVERAGE_COMPLETENESS_GATE_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0051_GUOJIN_QMT_HISTORICAL_COVERAGE_COMPLETENESS_GATE_APP_1_FINAL.md",
+        "FCF_REGISTERED_EVIDENCE_FCP_0051_GUOJIN_QMT_HISTORICAL_COVERAGE_COMPLETENESS_GATE.json",
+        "docs/FCF_FCP_0051_GUOJIN_QMT_HISTORICAL_COVERAGE_COMPLETENESS_GATE_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-105",
+        "V2-FR-GAP-107",
+        "V2-FR-GAP-108"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0051",
+      "source": "operator-authorized-qmt-historical-coverage-completeness-gate",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T00:51:19Z",
+      "summary": "Add a deterministic local-only historical coverage completeness gate bound to one exact FCP-0050 registered QMT dual-export evidence record. Compare requested and observed boundaries, preserve the visible row-cap condition, and evaluate closed requirements for expected trading-date authority, pagination, multi-batch coverage, conflict-free reconciliation, and point-in-time supplement readiness. The current one-batch evidence must fail closed without inventing sessions or claiming completeness. The gate cannot invoke SDKs, acquire data, select a provider, retain raw bytes, or close GAP-105, GAP-107, or GAP-108. It authorizes no network retrieval, credentials, realtime activation, trading APIs, product implementation, P48, broker, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "Guojin QMT historical coverage completeness gate"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

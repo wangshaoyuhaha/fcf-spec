@@ -15347,3 +15347,31 @@ raw repository retention, realtime, product, P48, tag, release, or deployment
 is authorized. No successor phase is selected.
 
 <!-- FCP 0050 GUOJIN QMT REGISTERED DUAL EXPORT QUALITY EVIDENCE APP 1 FINAL END -->
+
+
+<!-- FCP 0051 GUOJIN QMT HISTORICAL COVERAGE COMPLETENESS GATE APP 1 APPROVAL START -->
+
+## FCP 0051 Guojin QMT Historical Coverage Completeness Gate App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0051-guojin-qmt-historical-coverage-completeness-gate-app-1`
+
+Approved order:
+
+- D1 bind exact FCP-0050 evidence and immutable upstream lineage
+- D2 derive exact requested-versus-observed coverage boundary relations
+- D3 evaluate a closed positive-proof completeness requirement matrix
+- D4 fail closed on cap, calendar, pagination, batch, conflict, or PIT ambiguity
+- D5 emit registered derived evidence and explicit supplement requirements
+- D6 run guards, validation, merge, and final authority synchronization
+
+The gate cannot infer trading sessions, treat one capped export as complete,
+invoke FCP-0036 without registered inputs, select a provider, or close GAP-105,
+GAP-107, or GAP-108. No acquisition, SDK, network, credential, raw repository
+retention, realtime, product, P48, broker, account, balance, position, order,
+execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0051 GUOJIN QMT HISTORICAL COVERAGE COMPLETENESS GATE APP 1 APPROVAL END -->

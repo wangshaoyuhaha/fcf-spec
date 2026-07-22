@@ -323,3 +323,15 @@ invoke an SDK, retrieve network data, accept credentials, activate realtime,
 authorize a broker, product, account, balance, position, order, or execution
 path, or close GAP-104 through GAP-109. Actual raw bytes and local paths remain
 outside the repository.
+
+Proposal `FCF-FCP-0051` creates a deterministic local-only historical coverage
+completeness gate bound to one exact FCP-0050 evidence record. It preserves
+requested and observed interval relations, row-cap ambiguity, a closed
+requirement matrix, exact upstream lineage, and explicit supplement needs.
+
+FCP-0051 cannot infer expected trading sessions, treat one capped batch as
+complete, invoke FCP-0036 without registered inputs, acquire data, invoke an
+SDK, retrieve network data, accept credentials, select a provider, retain raw
+provider bytes, activate realtime, authorize a broker, product, account,
+balance, position, order, or execution path, or close GAP-105, GAP-107, or
+GAP-108.
