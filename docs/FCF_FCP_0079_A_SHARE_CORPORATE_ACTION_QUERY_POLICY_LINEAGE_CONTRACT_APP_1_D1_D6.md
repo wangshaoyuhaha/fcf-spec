@@ -1,6 +1,6 @@
 # FCF FCP 0079 A-Share Corporate Action Query Policy Lineage Contract App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Corporate Action Vocabulary
 
@@ -47,3 +47,9 @@ Validation evidence before delivery commit:
 - generated runtime outputs: no tracked generated delta
 - exact changed files and ASCII scope verified before commit
 - `git diff --check`: required before commit
+
+Evidence commits:
+
+- governance approval: `218293bf7251b5371b8251d4c62f16a1bf5a22b3`
+- sidecar delivery: `0e8dea760f4614c398a6d541f2a774cb20eacc92`
+- main delivery merge: `ba443252713cbbeca827c63758699ecf7cb8eb91`

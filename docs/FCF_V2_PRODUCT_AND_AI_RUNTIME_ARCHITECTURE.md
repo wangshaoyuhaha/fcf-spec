@@ -17437,3 +17437,30 @@ product phase, P48, broker, exchange, account, order, execution, tag, release,
 or deployment path is authorized.
 
 <!-- FCP 0079 A SHARE CORPORATE ACTION QUERY POLICY LINEAGE CONTRACT APP 1 LOCK END -->
+
+
+<!-- FCP 0079 A SHARE CORPORATE ACTION QUERY POLICY LINEAGE CONTRACT APP 1 FINAL START -->
+
+## FCP 0079 A-Share Corporate Action Query Policy Lineage Contract App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The immutable corporate-action revision, adjustment-factor revision, explicit
+RAW or FORWARD_ADJUSTED query-policy, revision-chain, and point-in-time
+resolution contracts are merged to main. Exact implementation evidence makes
+the price-lineage foundation fully covered while the Gap remains open.
+
+Validation: isolated 36 passed; affected 125 passed; all FCP 1571 passed; full
+pytest 6908 passed before and after merge; `scripts/run_all_checks.py` reported
+ALL CHECKS PASSED before and after merge. Matrix hash:
+`a522a720a7115b59a8146e675c5e9c26892a98f07b3f5f4557949d834b5b0e08`.
+
+Evidence commits: approval
+`218293bf7251b5371b8251d4c62f16a1bf5a22b3`; sidecar delivery
+`0e8dea760f4614c398a6d541f2a774cb20eacc92`; main merge
+`ba443252713cbbeca827c63758699ecf7cb8eb91`.
+
+No official action or factor, provider, data, product, broker, exchange,
+account, order, execution, tag, release, or deployment authority was created.
+
+<!-- FCP 0079 A SHARE CORPORATE ACTION QUERY POLICY LINEAGE CONTRACT APP 1 FINAL END -->
