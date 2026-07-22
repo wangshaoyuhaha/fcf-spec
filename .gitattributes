@@ -17,6 +17,7 @@ apps/fcp_0085_btc_registered_local_export_validation_runner_app_1/contracts.py t
 apps/fcp_0085_btc_registered_local_export_validation_runner_app_1/runner.py text eol=lf
 apps/fcp_0086_btc_registered_local_export_operator_review_packet_app_1/contracts.py text eol=lf
 apps/fcp_0086_btc_registered_local_export_operator_review_packet_app_1/builder.py text eol=lf
+apps/fcp_0087_btc_registered_local_export_operator_review_receipt_app_1/contracts.py text eol=lf
 examples/browser_product_console_starter/*.json text eol=lf
 examples/browser_product_console_starter/registered/*.json text eol=lf
 FCF_LOCAL_ARTIFACT_FCP_0012_RQDATA_TRIAL_SESSION.json -text
