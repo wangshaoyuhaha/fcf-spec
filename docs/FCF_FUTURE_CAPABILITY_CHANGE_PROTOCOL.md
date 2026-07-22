@@ -556,3 +556,13 @@ FCP-0071 cannot recommend or perform account, margin, leverage, liquidation,
 balance, position, PnL, insurance, ADL, order, or execution actions. It does
 not close GAP-098 through GAP-101 or authorize product work, P48, release, or
 deployment.
+
+Proposal `FCF-FCP-0072` creates one deterministic local-only BTC perpetual
+Paper stress trigger-result Operator review packet bound to one exact typed
+FCP-0071 review registry. It preserves all eight ordered record hashes and
+exact triggered and non-triggered evidence groups for mandatory review.
+
+FCP-0072 cannot assign a disposition, approve, reject, recommend, or perform
+account, margin, leverage, liquidation, balance, position, PnL, insurance,
+ADL, order, or execution actions. It does not close GAP-098 through GAP-101 or
+authorize product work, P48, release, or deployment.

@@ -1337,6 +1337,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-072 Package Stress Trigger Review Evidence Without Disposition
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Build one immutable Operator review packet from one exact typed
+FCP-0071 review registry. Preserve every ordered review-record hash and exact
+triggered or non-triggered membership while exposing complete packet lineage
+and mandatory Operator review state.
+
+Consequence: A later explicit review receipt can refer to one complete packet
+without dropping non-triggered evidence, rewriting scenario severity, or
+detaching any result from its registered lineage.
+
+Rejected shortcut: omit non-triggered records, reorder evidence, infer a
+disposition, approve or reject a result, recommend an action, calculate
+account state, or treat the synthetic Paper packet as Gap-closing evidence.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

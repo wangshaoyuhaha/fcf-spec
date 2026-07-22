@@ -308,6 +308,10 @@ not-implemented capability groups:
 - BTC perpetual Paper stress trigger-result review registries with exact typed
   FCP-0070 and FCP-0056 lineage, scenario identity, version, severity, horizon,
   and trigger evidence, and no calculation, recommendation, or action authority
+- BTC perpetual Paper stress trigger-result Operator review packets with exact
+  typed FCP-0071 lineage, complete ordered record hashes, triggered and
+  non-triggered evidence groups, and no disposition, recommendation, or action
+  authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
