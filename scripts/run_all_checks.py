@@ -277,6 +277,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0065_btc_perpetual_paper_stress_evaluation_context_coherence_gate_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0066_btc_perpetual_paper_stress_evaluation_direction_semantics_registry_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],

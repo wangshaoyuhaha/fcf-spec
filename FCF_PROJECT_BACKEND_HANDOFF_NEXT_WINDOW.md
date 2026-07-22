@@ -15296,3 +15296,19 @@ phase, create P48, or authorize broker, exchange, credential, wallet, account,
 balance, position, order, execution, tag, release, or deployment.
 
 <!-- FCP 0066 BTC PERPETUAL PAPER STRESS EVALUATION DIRECTION SEMANTICS REGISTRY APP 1 APPROVAL END -->
+
+<!-- FCP 0066 BTC PERPETUAL PAPER STRESS EVALUATION DIRECTION SEMANTICS REGISTRY APP 1 LOCK START -->
+
+## FCP 0066 BTC Perpetual Paper Stress Evaluation Direction Semantics Registry App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar delivery binds one exact typed FCP-0065 evaluation context and
+registers all eight closed direction, comparison, operand-role, and equality
+semantics. It rejects kind, order, role, schema, hash, and UTC substitution.
+
+This registry cannot register formulas, calculate thresholds, magnitudes, or
+severities, evaluate stress, close GAP-098 through GAP-101, start a product
+phase, create P48, or authorize any account or execution path.
+
+<!-- FCP 0066 BTC PERPETUAL PAPER STRESS EVALUATION DIRECTION SEMANTICS REGISTRY APP 1 LOCK END -->
