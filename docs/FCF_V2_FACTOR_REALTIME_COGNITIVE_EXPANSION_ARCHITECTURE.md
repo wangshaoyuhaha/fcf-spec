@@ -2288,7 +2288,7 @@ release, or deployment.
 The packet consumes one exact typed FCP-0071 trigger-result review registry.
 It preserves the registry hash, evaluation and scenario lineage, venue,
 contract, UTC registration time, all eight ordered review-record hashes, and
-exact triggered and non-triggered record groups.
+exact triggered and non-triggered evidence groups.
 
 The output is immutable local Paper evidence with mandatory Operator review.
 It may expose exact group counts derived from the closed ordered records, but
