@@ -16692,3 +16692,20 @@ or authorize broker, exchange, credential, wallet, account, balance, position,
 order, execution, tag, release, or deployment.
 
 <!-- FCP 0067 BTC PERPETUAL PAPER STRESS EVALUATION MEASURE FORMULA SEMANTICS REGISTRY APP 1 APPROVAL END -->
+
+<!-- FCP 0067 BTC PERPETUAL PAPER STRESS EVALUATION MEASURE FORMULA SEMANTICS REGISTRY APP 1 LOCK START -->
+
+## FCP 0067 BTC Perpetual Paper Stress Evaluation Measure Formula Semantics Registry App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar delivery binds one exact typed FCP-0066 direction registry and
+registers all eight closed symbolic formula, operand, parameter, output-unit,
+transform, and denominator-policy semantics. It rejects kind, order, role,
+parameter, unit, schema, hash, denominator, and UTC substitution.
+
+This registry cannot evaluate observations, calculate thresholds, magnitudes,
+or severities, close GAP-098 through GAP-101, start a product phase, create
+P48, or authorize any account or execution path.
+
+<!-- FCP 0067 BTC PERPETUAL PAPER STRESS EVALUATION MEASURE FORMULA SEMANTICS REGISTRY APP 1 LOCK END -->
