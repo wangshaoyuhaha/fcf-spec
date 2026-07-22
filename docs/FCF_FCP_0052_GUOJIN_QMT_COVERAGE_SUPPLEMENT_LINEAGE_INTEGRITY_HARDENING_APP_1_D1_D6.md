@@ -1,6 +1,6 @@
 # FCF FCP 0052 Guojin QMT Coverage Supplement Lineage Integrity Hardening App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Gate Binding
 
@@ -41,6 +41,19 @@ Validated before merge:
 - isolated FCP-0052 suite: 12 passed
 - affected QMT lineage and governance suite: 147 passed
 - all FCP suites: 931 passed
+- full pytest: 6268 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `01fd61df7a16027aa601b8eb62f1a668986c73f4`
+- sidecar delivery: `9d6cff8ba5d9fc52296381b017e6d556430900fc`
+- main delivery merge: `1faa961d9932468e0004a5fe3f827099f1057667`
+
+Validated after merge:
+
+- affected QMT lineage and governance suite: 147 passed
 - full pytest: 6268 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored; no tracked generated changes remained
