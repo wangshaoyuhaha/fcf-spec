@@ -13948,3 +13948,26 @@ realtime, product, P48, broker, account, balance, position, order, execution,
 tag, release, or deployment is authorized.
 
 <!-- FCP 0050 GUOJIN QMT REGISTERED DUAL EXPORT QUALITY EVIDENCE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0050 GUOJIN QMT REGISTERED DUAL EXPORT QUALITY EVIDENCE APP 1 LOCK START -->
+
+## FCP 0050 Guojin QMT Registered Dual Export Quality Evidence App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact registered raw and front-adjusted local QMT artifact identity
+- exact ASCII schema, ordered rows, OHLC, lots, and notional validation
+- raw/front date, volume, and amount parity
+- additive offset ledger, distribution, and observed boundaries
+- registered row-cap observation with no completeness authority
+- immutable evidence without provider bytes or local paths
+
+The evidence remains blocked and cannot become factor, completeness, provider,
+SDK, network, broker, account, balance, position, order, execution, or GAP
+authority. GAP-104 through GAP-109 remain research-required. No realtime,
+product, P48, tag, release, or deployment is authorized.
+
+<!-- FCP 0050 GUOJIN QMT REGISTERED DUAL EXPORT QUALITY EVIDENCE APP 1 LOCK END -->
