@@ -15750,3 +15750,23 @@ broker, exchange, credential, wallet, account, balance, position, PnL, order,
 execution, tag, release, or deployment.
 
 <!-- FCP 0074 BTC PERPETUAL PAPER SIGNAL EVIDENCE SEPARATION CONTRACT APP 1 APPROVAL END -->
+
+<!-- FCP 0074 BTC PERPETUAL PAPER SIGNAL EVIDENCE SEPARATION CONTRACT APP 1 LOCK START -->
+
+## FCP 0074 BTC Perpetual Paper Signal Evidence Separation Contract App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+D1-D6 implement one immutable local Paper six-domain separation contract with
+registered artifact hashes, explicit UTC lineage, complete ordered coverage,
+and exact reusable versus derivative-specific evidence partitioning.
+
+Validation passed: isolated FCP-0074 tests 32, all FCP tests 1430, full pytest
+6767, and `scripts/run_all_checks.py` ALL CHECKS PASSED. Generated runtime
+outputs produced no tracked delta.
+
+The implementation cannot calculate a signal, promote a factor, select a
+strategy, claim profitability, close GAP-103, create P48, or authorize account,
+order, execution, tag, release, or deployment paths.
+
+<!-- FCP 0074 BTC PERPETUAL PAPER SIGNAL EVIDENCE SEPARATION CONTRACT APP 1 LOCK END -->
