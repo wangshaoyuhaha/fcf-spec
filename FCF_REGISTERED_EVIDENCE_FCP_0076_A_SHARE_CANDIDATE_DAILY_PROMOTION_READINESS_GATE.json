@@ -1,0 +1,28 @@
+{
+  "authority_references": [],
+  "blocker_codes": [
+    "QUALITY_MALFORMED_ROW",
+    "QUALITY_INVALID_OHLC",
+    "QUALITY_STALE_TERMINAL",
+    "MISSING_PROVIDER_IDENTITY",
+    "MISSING_RIGHTS_AND_RETENTION",
+    "MISSING_REVISION_LINEAGE",
+    "MISSING_CORPORATE_ACTION_LINEAGE",
+    "MISSING_ADJUSTMENT_FACTOR_AUTHORITY",
+    "MISSING_TRADING_STATUS_AUTHORITY",
+    "MISSING_EXPECTED_CALENDAR_AUTHORITY",
+    "MISSING_POINT_IN_TIME_AVAILABILITY"
+  ],
+  "candidate_promotion_allowed": false,
+  "evaluated_at_utc": "2026-07-22T17:30:00Z",
+  "factor_calculation_allowed": false,
+  "gate_hash": "d6e6b8d1c4211e61d3325d932800cbceb51837df95ab89b3f0dacf4e81401e6d",
+  "gate_id": "a-share-candidate-daily-promotion-readiness-v1",
+  "operator_review_mandatory": true,
+  "provider_selection_allowed": false,
+  "quality_evidence_hash": "9a323cd5cc11bc30b05ac7283800d2bb706151a03c9485573471cdf05bb00ac2",
+  "ready_for_operator_review": false,
+  "schema_version": "a-share-candidate-daily-promotion-readiness-v1",
+  "status": "BLOCKED_NOT_READY_FOR_OPERATOR_REVIEW",
+  "training_label_allowed": false
+}
