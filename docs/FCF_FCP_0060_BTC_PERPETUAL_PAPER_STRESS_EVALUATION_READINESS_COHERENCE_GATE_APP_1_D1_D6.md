@@ -1,6 +1,6 @@
 # FCF FCP 0060 BTC Perpetual Paper Stress Evaluation Readiness Coherence Gate App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Typed Inputs
 
@@ -40,6 +40,19 @@ Validation evidence before merge:
 - full pytest: 6409 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC stress-readiness and governance suite: 581 passed
+- full pytest: 6409 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `03c0809b68fc378abda08ff37ba17a214de27193`
+- sidecar delivery: `7b858e64f16de9442664a09981e4383237d31385`
+- main delivery merge: `93e766bd0d523fefc4479923a58a652b208db874`
 
 The gate does not close GAP-098, GAP-099, GAP-100, or GAP-101 and grants no
 acquisition, SDK, network, credential, realtime, exchange, wallet, account,
