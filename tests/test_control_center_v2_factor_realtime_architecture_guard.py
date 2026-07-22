@@ -29,7 +29,7 @@ def test_v2_factor_realtime_architecture_registers_exact_adr_set():
         ROOT / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md"
     ).read_text(encoding="ascii")
 
-    assert len(ADR_IDS) == 49
+    assert len(ADR_IDS) == 50
     assert all(text.count(adr_id) == 1 for adr_id in ADR_IDS)
 
 

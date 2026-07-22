@@ -1,0 +1,106 @@
+{
+  "artifact_pair": {
+    "front": {
+      "artifact_id": "qmt-front-600028-ca509e50",
+      "artifact_sha256": "ca509e505f9df82812ee822de72726149a9df878b0ca6e47504a5818d4686c6c",
+      "byte_length": 26711,
+      "retention_state": "SESSION_ONLY",
+      "rights_state": "DECLARED_LOCAL_RESEARCH"
+    },
+    "local_paths_committed": false,
+    "raw": {
+      "artifact_id": "qmt-raw-600028-4c61b151",
+      "artifact_sha256": "4c61b151c7dda4d321d1bbf6143d9cde2dec7db593f90d14a47fa79ac15e8da6",
+      "byte_length": 26711,
+      "retention_state": "SESSION_ONLY",
+      "rights_state": "DECLARED_LOCAL_RESEARCH"
+    },
+    "raw_provider_bytes_committed": false,
+    "source_id": "guojin-qmt-local-export"
+  },
+  "evidence_id": "fcp-0050-guojin-qmt-dual-export-quality-evidence-v1",
+  "lineage": {
+    "evidence_hash": "5dca9b616d250536cd416f5ced9f9da6bd66290a1203ee90d210a56f9e81db5f",
+    "front_reference_hash": "7f99c1c96a13d37fde25f3e1f475cda01bb02cd4beb0fa5d96bca3de02ba5589",
+    "normalization_manifest_hash": "de242e3fb81f5ee07a3172b392eb91cf5bc44ec0508b0b7c0f1c1419b1985dad",
+    "normalized_artifact_sha256": "ad826b01d31b3df36b6ae9a94c2de34a1dcfe612576200805e5a7b4b8b716c1c",
+    "profile_hash": "89b66ccf4f6bfc4bd9c1efbe2375fbb88b5eb7a19f0f18c92d4e65b1d3498d50",
+    "row_ledger_sha256": "cbfd596183e87238e437d6a795f744aea7bfb93da6122aa543be236d57620c46"
+  },
+  "observation": {
+    "actual_end_date": "2026-07-21",
+    "actual_start_date": "2024-06-28",
+    "boundary_dates": [
+      "2024-07-16",
+      "2024-09-13",
+      "2025-06-18",
+      "2025-09-12",
+      "2026-06-17"
+    ],
+    "instrument_id": "600028.XSHG",
+    "lot_size_consistency_state": "CONSISTENT_WITH_100_SHARE_LOTS",
+    "offset_distribution": [
+      {
+        "raw_minus_front_cash_offset": "0",
+        "row_count": 24
+      },
+      {
+        "raw_minus_front_cash_offset": "0.11",
+        "row_count": 180
+      },
+      {
+        "raw_minus_front_cash_offset": "0.2",
+        "row_count": 62
+      },
+      {
+        "raw_minus_front_cash_offset": "0.34",
+        "row_count": 179
+      },
+      {
+        "raw_minus_front_cash_offset": "0.49",
+        "row_count": 43
+      },
+      {
+        "raw_minus_front_cash_offset": "0.69",
+        "row_count": 12
+      }
+    ],
+    "raw_front_parity_state": "DATE_VOLUME_AMOUNT_EXACT",
+    "requested_end_date": "2026-07-21",
+    "requested_start_date": "2021-01-01",
+    "row_cap_observation_hash": "f453907448a264fac4784a4a9c8919fc79d7307ea46572a682c897abfb9233cd",
+    "row_cap_state": "AT_REGISTERED_CAP",
+    "row_count": 500,
+    "volume_lot_size": 100
+  },
+  "operator_review_required": true,
+  "quality": {
+    "adjustment_factor_authority": false,
+    "finding_codes": [
+      "ACTUAL_REGISTERED_ARTIFACT_PAIR_VALIDATED",
+      "ADJUSTMENT_FACTOR_MISSING",
+      "ADJUSTMENT_REFERENCE_ONLY",
+      "EXPECTED_TRADING_CALENDAR_MISSING",
+      "EXTERNAL_SDK_ENTITLEMENT_UNRESOLVED",
+      "HISTORICAL_COMPLETENESS_UNPROVEN",
+      "INDEPENDENT_SOURCE_RECONCILIATION_MISSING",
+      "LOT_SIZE_100_NOTIONAL_RANGE_CONSISTENT",
+      "MULTI_BATCH_COVERAGE_MISSING",
+      "POINT_IN_TIME_SUPPLEMENTS_MISSING",
+      "RAW_FRONT_DATE_VOLUME_AMOUNT_PARITY",
+      "REQUESTED_RANGE_START_MISMATCH",
+      "ROW_CAP_DOES_NOT_PROVE_COMPLETENESS",
+      "ROW_CAP_OBSERVED",
+      "TRADING_STATUS_UNKNOWN"
+    ],
+    "gap_closed": false,
+    "historical_completeness_claimed": false,
+    "network_used": false,
+    "provider_selected": false,
+    "quality_state": "BLOCKED_PENDING_SUPPLEMENTS",
+    "sdk_used": false
+  },
+  "record_sha256": "9d6829e852cc0d6b86ac8f678d27cfd73d548be582ed5bed2d1814281487d0ed",
+  "registered_at_utc": "2026-07-22T00:02:43Z",
+  "schema_version": 1
+}
