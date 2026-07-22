@@ -1,6 +1,6 @@
 # FCF FCP 0080 A-Share Open Candidate Provider Compatibility Profile App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Candidate Vocabulary
 
@@ -39,3 +39,8 @@ Implementation evidence:
 - Profile-set hash: `b384a3172929e36c26a88658cae2287b233c42a691bd52d72d75389d6040978a`
 - Augmented matrix hash: `2f9853264ef7bcaa34e34867976e59bd5161e84403ef69a559ac3ee67b20abcf`
 - All profiles remain declared, unverified, blocked, local-only, and non-authorizing.
+- Isolated tests: 25 passed.
+- Affected tests: 269 passed.
+- All FCP tests: 1596 passed.
+- Full pytest: 6933 passed.
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED before and after merge.

@@ -16132,3 +16132,33 @@ label, product, P48, broker, exchange, account, order, execution, tag,
 release, or deployment authority is created.
 
 <!-- FCP 0080 A SHARE OPEN CANDIDATE PROVIDER COMPATIBILITY PROFILE APP 1 LOCK END -->
+
+
+<!-- FCP 0080 A SHARE OPEN CANDIDATE PROVIDER COMPATIBILITY PROFILE APP 1 FINAL START -->
+
+## FCP 0080 A-Share Open Candidate Provider Compatibility Profile App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The immutable registered-local compatibility profiles for Tushare, AkShare,
+and BaoStock are implemented, validated, merged to main, and synchronized.
+They remain isolated, declared, unverified, blocked, and non-authorizing.
+
+Isolated tests: 25 passed. Affected tests: 269 passed. All FCP tests: 1596
+passed. Full pytest: 6933 passed.
+`scripts/run_all_checks.py`: ALL CHECKS PASSED before and after merge. Profile-set hash:
+`b384a3172929e36c26a88658cae2287b233c42a691bd52d72d75389d6040978a`.
+Augmented matrix hash:
+`2f9853264ef7bcaa34e34867976e59bd5161e84403ef69a559ac3ee67b20abcf`.
+
+Evidence commits: approval
+`0039237c9d19abd50a855e3074ed2d8150f2f941`; sidecar delivery
+`a16140523c1420f2ab7cc71b91166a8011dd7ae6`; main merge
+`ebd315e3f4e522577e3d28b4e977ee1730c76954`.
+
+Gap V2-FR-GAP-093 remains open. No provider, SDK, network, credential,
+realtime, acquisition, promotion, calculation, label, product, P48, broker,
+exchange, account, order, execution, tag, release, or deployment authority was
+created.
+
+<!-- FCP 0080 A SHARE OPEN CANDIDATE PROVIDER COMPATIBILITY PROFILE APP 1 FINAL END -->
