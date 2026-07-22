@@ -1,6 +1,6 @@
 # FCF FCP 0070 BTC Perpetual Paper Stress Deterministic Trigger Evaluation App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Bound Inputs
 
@@ -41,3 +41,16 @@ Validation evidence before merge:
 - full pytest: 6641 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC perpetual rule, stress, and governance suite: 498 passed
+- full pytest: 6641 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `3de0442dfcb245059e2c837a10acc6d05d9dfb7c`
+- sidecar delivery: `af645800e27023c48e98cb34a318ae55066bd457`
+- main delivery merge: `7ae811358fd1a941ccc2628a44b8759d47f0a3c3`

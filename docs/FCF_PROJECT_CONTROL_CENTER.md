@@ -22452,3 +22452,23 @@ execution state, close GAP-098 through GAP-101, start a product phase, create
 P48, tag, release, or deploy.
 
 <!-- FCP 0070 BTC PERPETUAL PAPER STRESS DETERMINISTIC TRIGGER EVALUATION APP 1 LOCK END -->
+
+<!-- FCP 0070 BTC PERPETUAL PAPER STRESS DETERMINISTIC TRIGGER EVALUATION APP 1 FINAL START -->
+
+## FCP 0070 BTC Perpetual Paper Stress Deterministic Trigger Evaluation App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact FCP-0069-bound deterministic local Paper trigger evaluation is
+merged and validated. Isolated FCP-0070 tests passed 31, affected BTC and
+governance tests passed 498 before and after merge, all FCP tests passed 1304,
+full pytest passed 6641 before and after merge, and
+`scripts/run_all_checks.py` reported ALL CHECKS PASSED before and after merge.
+
+Approval `3de0442dfcb245059e2c837a10acc6d05d9dfb7c`; delivery
+`af645800e27023c48e98cb34a318ae55066bd457`; merge
+`7ae811358fd1a941ccc2628a44b8759d47f0a3c3`. GAP-098 through GAP-101 remain
+open. No product phase, P48, account, execution, tag, release, or deployment
+path was created.
+
+<!-- FCP 0070 BTC PERPETUAL PAPER STRESS DETERMINISTIC TRIGGER EVALUATION APP 1 FINAL END -->
