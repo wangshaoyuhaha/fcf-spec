@@ -1,6 +1,6 @@
 # FCF FCP 0059 BTC Perpetual Paper Stress Evaluation Input Domain Semantics Hardening App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact FCP-0058 Registry
 
@@ -43,6 +43,19 @@ Validation evidence before merge:
 - full pytest: 6394 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC stress-domain and governance suite: 566 passed
+- full pytest: 6394 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `aa64937a2fd2afa8b7caa936042c8d6f3f84a4c4`
+- sidecar delivery: `c7604bb47177c81c2cfbbaade1627925631a850c`
+- main delivery merge: `d38dae059883e1c44fc28cc92521f157f9f6cb53`
 
 Synthetic fixtures do not close GAP-098, GAP-099, GAP-100, or GAP-101 and grant
 no acquisition, SDK, network, credential, realtime, exchange, wallet, account,
