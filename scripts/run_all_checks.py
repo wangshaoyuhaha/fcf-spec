@@ -342,6 +342,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0085_btc_registered_local_export_validation_runner_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0086_btc_registered_local_export_operator_review_packet_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
