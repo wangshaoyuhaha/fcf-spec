@@ -47,7 +47,7 @@
   },
   "current_truth": {
     "current_governance_phase_id": "FCF-FCP-0074-BTC-PERPETUAL-PAPER-SIGNAL-EVIDENCE-SEPARATION-CONTRACT-APP-1",
-    "current_governance_phase_status": "APPROVED_GOVERNANCE_ONLY_NOT_STARTED",
+    "current_governance_phase_status": "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE",
     "current_product_implementation_phase": "NONE",
     "latest_completed_governance_delivery": "FCF-FCP-0073-BTC-PERPETUAL-PAPER-STRESS-TRIGGER-RESULT-OPERATOR-REVIEW-RECEIPT-APP-1",
     "latest_completed_product_phase": "V2-R47-BROWSER-GOVERNANCE-REVIEW-MARKET-SUMMARY-PRESENTATION-APP-1",
