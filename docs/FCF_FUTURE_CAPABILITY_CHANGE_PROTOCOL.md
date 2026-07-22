@@ -693,6 +693,9 @@ Proposal `FCF-FCP-0084` may add immutable sanitized export-batch contracts, a
 bounded read-only local scanner, deterministic coverage topology, tests,
 guard, and closeout evidence. Raw rows and local paths remain outside Git.
 
+Implementation must delegate registered-byte parsing and normalization to
+FCP-0035. It must not duplicate or bypass FCP-0036 expected-date reconciliation.
+
 The phase cannot invoke MiniQMT or xtquant, use a network or credentials,
 infer requested parameters, calendars, pagination, official row caps,
 completeness, adjustment authority, or trading status, promote data, close

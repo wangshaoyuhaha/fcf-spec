@@ -334,6 +334,10 @@ COMMANDS = [
         "scripts/control_center_fcp_0082_a_share_guojin_miniqmt_python_market_data_entitlement_evidence_contract_guard.py",
         "scripts/control_center_fcp_0083_a_share_guojin_miniqmt_sanitized_evidence_local_validation_runner_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0084_a_share_guojin_qmt_local_export_batch_coverage_evidence_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
