@@ -280,6 +280,9 @@ not-implemented capability groups:
 - BTC perpetual Paper stress-readiness parameter-domain coherence hardening
   with exact FCP-0060 and FCP-0061 lineage, immutable extended-readiness
   evidence, and no direction, evaluation, or execution authority
+- BTC perpetual Paper stress-evaluation operand-schema registries with exact
+  FCP-0062 lineage, closed threshold-only or paired baseline-current operand
+  requirements, and no direction, evaluation, or execution authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

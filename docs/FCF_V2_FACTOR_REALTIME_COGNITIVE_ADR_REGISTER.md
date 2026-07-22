@@ -984,6 +984,27 @@ Not authorized: acquisition, SDK, network, credential, realtime, product, P48,
 exchange, wallet, account, balance, position, order, execution, tag, release,
 or deployment.
 
+## FCF-V2-ADR-063 Register Complete Stress Evaluation Operands Before Direction
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind one exact typed FCP-0062 extended-readiness snapshot and
+register closed operand roles, metric identifiers, and units for every BTC
+perpetual Paper stress kind. Distinguish threshold-only observations from
+paired baseline-current evidence before any direction or evaluation logic.
+
+Consequence: A later deterministic Paper evaluator cannot infer a price gap,
+collateral drawdown, funding shock, or depth-retention change from an
+insufficient single-point observation.
+
+Rejected shortcut: infer missing baselines, reuse one metric across roles,
+accept arbitrary mappings, define direction implicitly, or treat operand
+schema registration as a stress result.
+
+Not authorized: acquisition, SDK, network, credential, realtime, product, P48,
+exchange, wallet, account, balance, position, order, execution, tag, release,
+or deployment.
+
 ## FCF-V2-ADR-060 Require Coherent Stress Evaluation Readiness Evidence
 
 Status: ACCEPTED_ARCHITECTURE

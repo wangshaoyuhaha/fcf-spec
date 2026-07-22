@@ -16423,3 +16423,23 @@ balance, position, order, execution, tag, release, or deployment is authorized.
 No successor phase is selected.
 
 <!-- FCP 0062 BTC PERPETUAL PAPER STRESS EVALUATION READINESS PARAMETER DOMAIN COHERENCE HARDENING APP 1 FINAL END -->
+
+
+<!-- FCP 0063 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND SCHEMA REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0063 BTC Perpetual Paper Stress Evaluation Operand Schema Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0063-btc-perpetual-paper-stress-evaluation-operand-schema-registry-app-1`
+
+Approved order: bind exact typed FCP-0062 extended readiness; register exact
+operand roles, metric identifiers, and units for every closed scenario kind;
+distinguish threshold-only and paired baseline-current requirements; reject
+incomplete, extra, cross-kind, or untyped schemas; preserve immutable
+schema-only evidence; validate, merge, and synchronize final authorities.
+
+The registry cannot define direction, evaluate stress, calculate account or
+execution state, or close GAP-098 through GAP-101.
+
+<!-- FCP 0063 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND SCHEMA REGISTRY APP 1 APPROVAL END -->

@@ -2105,3 +2105,15 @@ Validation is fail-closed on untyped evidence, hash substitution, identity or
 scenario mismatch, schema divergence, time reversal, or authority escalation.
 It cannot define direction, evaluate stress, or calculate account or execution
 state and does not close GAP-098, GAP-099, GAP-100, or GAP-101.
+
+## 96. BTC Perpetual Paper Stress Evaluation Operand Schema Registry
+
+The registry consumes one exact typed FCP-0062 extended-readiness snapshot and
+defines the closed operand roles, metric identifiers, and units required by
+every stress kind. It distinguishes threshold-only observations from paired
+baseline-current evidence requirements.
+
+Validation is fail-closed on missing, duplicate, extra, cross-kind, untyped,
+or unit-incompatible operand schemas. It cannot define direction, evaluate
+stress, calculate account or execution state, or close GAP-098, GAP-099,
+GAP-100, or GAP-101.
