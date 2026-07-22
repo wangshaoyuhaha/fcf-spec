@@ -13172,3 +13172,27 @@ retention, realtime, product, P48, broker, account, balance, position, order,
 execution, tag, release, or deployment is authorized.
 
 <!-- FCP 0051 GUOJIN QMT HISTORICAL COVERAGE COMPLETENESS GATE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0051 GUOJIN QMT HISTORICAL COVERAGE COMPLETENESS GATE APP 1 LOCK START -->
+
+## FCP 0051 Guojin QMT Historical Coverage Completeness Gate App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact FCP-0050 registered-record verification and immutable lineage binding
+- calendar-neutral requested-versus-observed boundary relations
+- closed positive-proof completeness requirement matrix
+- fail-closed cap, calendar, pagination, batch, conflict, and PIT states
+- deterministic registered evidence without provider bytes or local paths
+- explicit Operator supplement requirements
+
+The actual gate remains `BLOCKED_INCOMPLETE_REQUESTED_RANGE`; it does not
+invent trading sessions, claim capped history is complete, select a provider,
+or close GAP-105, GAP-107, or GAP-108. No acquisition, SDK, network,
+credential, raw repository retention, realtime, product, P48, broker, account,
+balance, position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0051 GUOJIN QMT HISTORICAL COVERAGE COMPLETENESS GATE APP 1 LOCK END -->
