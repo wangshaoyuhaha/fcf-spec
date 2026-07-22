@@ -964,6 +964,26 @@ Not authorized: acquisition, SDK, network, credential, realtime, product, P48,
 exchange, wallet, account, balance, position, order, execution, tag, release,
 or deployment.
 
+## FCF-V2-ADR-062 Require Parameter-Domain-Coherent Stress Readiness
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind exact typed FCP-0060 readiness and FCP-0061 scenario-parameter
+domain snapshots. Require exact coverage, complete-rule, venue, contract,
+scenario, definition, parameter-schema, and monotonic UTC lineage.
+
+Consequence: Later deterministic Paper evaluation cannot bypass the
+kind-specific parameter-domain validation by consuming the earlier readiness
+receipt alone.
+
+Rejected shortcut: trust labels, accept either receipt independently, ignore
+definition or schema hashes, permit time reversal, or treat coherence as a
+stress result.
+
+Not authorized: acquisition, SDK, network, credential, realtime, product, P48,
+exchange, wallet, account, balance, position, order, execution, tag, release,
+or deployment.
+
 ## FCF-V2-ADR-060 Require Coherent Stress Evaluation Readiness Evidence
 
 Status: ACCEPTED_ARCHITECTURE

@@ -277,6 +277,9 @@ not-implemented capability groups:
   FCP-0056 and FCP-0057 lineage, signed funding shocks, bounded ratios,
   positive integral counts or seconds, immutable validation-only evidence,
   and no evaluation authority
+- BTC perpetual Paper stress-readiness parameter-domain coherence hardening
+  with exact FCP-0060 and FCP-0061 lineage, immutable extended-readiness
+  evidence, and no direction, evaluation, or execution authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

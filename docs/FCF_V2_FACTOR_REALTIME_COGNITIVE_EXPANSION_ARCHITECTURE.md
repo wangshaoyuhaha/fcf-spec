@@ -2093,3 +2093,15 @@ Validation is fail-closed on untyped evidence, schema or hash substitutions,
 negative durations, fractional counts, out-of-range ratios, or authority
 escalation. It does not define direction or evaluate any stress result.
 It emits immutable validation-only evidence with mandatory Operator review.
+
+## 95. BTC Perpetual Paper Stress Readiness Parameter-Domain Coherence Hardening
+
+The gate consumes exact typed FCP-0060 readiness and FCP-0061
+scenario-parameter domain snapshots. It binds shared coverage, complete-rule,
+venue, contract, scenario, definition, parameter-schema, and monotonic UTC
+lineage into immutable extended-readiness evidence.
+
+Validation is fail-closed on untyped evidence, hash substitution, identity or
+scenario mismatch, schema divergence, time reversal, or authority escalation.
+It cannot define direction, evaluate stress, or calculate account or execution
+state and does not close GAP-098, GAP-099, GAP-100, or GAP-101.
