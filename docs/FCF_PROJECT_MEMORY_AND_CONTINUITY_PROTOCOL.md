@@ -336,6 +336,10 @@ not-implemented capability groups:
 - isolated Tushare, AkShare, and BaoStock candidate compatibility profiles with
   explicit schemas, units, clocks, adjustment and rights states, blockers, and
   no provider-selection or external-authority claim
+- incremental after-cost candidate-provider experiment contracts with exact
+  comparable evidence, zero authorized spend, deterministic stop or review
+  eligibility, and no provider-selection, purchase, renewal, or value-authority
+  claim
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

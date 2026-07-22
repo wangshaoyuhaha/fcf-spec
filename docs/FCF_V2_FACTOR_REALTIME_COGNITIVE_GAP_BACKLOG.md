@@ -211,6 +211,12 @@ BaoStock compatibility-profile foundations for the provider-compatibility gap.
 Its registered status remains unchanged; profiles cannot invoke or select a
 provider, prove external authority, promote rows, or close the gap.
 
+FCP-0081 is approved to add a deterministic local-only incremental after-cost
+data-value experiment foundation for the cost-aware evidence gap. Current
+authorized spend remains zero. The Gap remains RESEARCH_REQUIRED; experiment
+results cannot select, purchase, renew, cancel, or endorse a provider, prove
+profitability or authority, promote rows, or close the gap.
+
 ## External Research Intake Observation
 
 The 2026-07-22 external indicator package and A-share CSV collection review is

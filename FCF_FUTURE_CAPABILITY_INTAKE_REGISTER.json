@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 81,
+  "next_proposal_sequence": 82,
   "proposals": [
     {
       "adr_refs": [],
@@ -2313,6 +2313,32 @@
       "summary": "Define deterministic local-only compatibility profiles for Tushare, AkShare, and BaoStock candidate A-share daily-data artifacts. Each immutable profile declares exact source columns, canonical mappings, units, identifier and clock semantics, adjustment state, rights state, and fail-closed blockers without invoking a provider. The profiles may become verified PROVIDER_PROFILE_TUSHARE, PROVIDER_PROFILE_AKSHARE, and PROVIDER_PROFILE_BAOSTOCK foundation evidence in the FCP-0077 matrix but cannot close GAP-093, select or endorse a provider, access an SDK or network, store credentials, infer missing semantics, establish provider, data, rights, quality, completeness, adjustment, calendar, revision, point-in-time, or Registered Evidence authority, promote rows, calculate factors, create labels, start product work, create P48, or authorize broker, exchange, account, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share open candidate provider compatibility profiles"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-081"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0081_A_SHARE_CANDIDATE_PROVIDER_AFTER_COST_DATA_VALUE_EXPERIMENT_CONTRACT_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0081_A_SHARE_CANDIDATE_PROVIDER_AFTER_COST_DATA_VALUE_EXPERIMENT_CONTRACT_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0081_A_SHARE_CANDIDATE_PROVIDER_AFTER_COST_DATA_VALUE_EXPERIMENT_CONTRACT_APP_1_FINAL.md",
+        "docs/FCF_FCP_0081_A_SHARE_CANDIDATE_PROVIDER_AFTER_COST_DATA_VALUE_EXPERIMENT_CONTRACT_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-094"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0081",
+      "source": "operator-authorized-continuous-a-share-candidate-provider-after-cost-data-value-experiment-contract",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-23T06:00:00Z",
+      "summary": "Define one deterministic local-only A-share candidate-provider incremental after-cost data-value experiment contract. The contract binds registered baseline and candidate evidence, exact comparable windows, coverage, freshness, conflict, point-in-time, adjustment, trading-status, rights, retention, fixed cost, benefit, renewal, and stop evidence. Current authorized spend remains zero. The bounded phase cannot acquire data, invoke an SDK or network, use credentials, select, endorse, purchase, renew, or cancel a provider, infer missing evidence, claim alpha or profitability, establish data or Registered Evidence authority, promote rows, close GAP-094, calculate production factors, create labels, start product work, create P48, or authorize broker, exchange, account, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share candidate provider after-cost data-value experiment contract"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

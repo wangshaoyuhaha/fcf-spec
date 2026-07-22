@@ -653,3 +653,15 @@ select or endorse a provider, infer missing semantics, close GAP-093,
 establish data or rights authority, promote candidate rows, calculate factors,
 create labels, or authorize product work, P48, broker, exchange, account,
 order, execution, release, or deployment.
+
+Proposal `FCF-FCP-0081` defines a deterministic local-only incremental
+after-cost data-value experiment contract for A-share candidate providers. It
+preserves exact baseline and candidate evidence, common windows, quality,
+rights, retention, fixed cost, measured benefit, renewal, and stop evidence.
+
+FCP-0081 keeps current authorized spend at zero. It cannot acquire data, invoke
+an SDK or network, use credentials, select, endorse, purchase, renew, or cancel
+a provider, infer missing observations, claim alpha or profitability, close
+GAP-094, establish data authority, promote rows, calculate production factors,
+create labels, or authorize product work, P48, broker, exchange, account,
+order, execution, release, or deployment.

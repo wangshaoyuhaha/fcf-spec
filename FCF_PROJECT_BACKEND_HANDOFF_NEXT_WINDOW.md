@@ -16200,3 +16200,27 @@ exchange, account, order, execution, tag, release, or deployment authority was
 created.
 
 <!-- FCP 0080 A SHARE OPEN CANDIDATE PROVIDER COMPATIBILITY PROFILE APP 1 FINAL END -->
+
+
+<!-- FCP 0081 A SHARE CANDIDATE PROVIDER AFTER COST DATA VALUE EXPERIMENT CONTRACT APP 1 APPROVAL START -->
+
+## FCP 0081 A-Share Candidate Provider After-Cost Data-Value Experiment Contract App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+`sidecar-fcp-0081-a-share-candidate-provider-after-cost-data-value-experiment-contract-app-1`
+
+Approved scope defines deterministic local-only incremental after-cost data
+value experiment contracts. Exact registered baseline and candidate evidence,
+comparable windows, quality metrics, rights, retention, fixed cost, measured
+benefit, renewal, and stop evidence remain explicit and hash-bound.
+
+Current authorized spend is zero. The phase cannot acquire data, invoke an SDK
+or network, use credentials, select, endorse, purchase, renew, or cancel a
+provider, infer missing evidence, claim alpha or profitability, establish data
+authority, promote rows, close Gap V2-FR-GAP-094, calculate production factors,
+create labels, start product work, create P48, or authorize broker, exchange,
+account, order, execution, tag, release, or deployment.
+
+<!-- FCP 0081 A SHARE CANDIDATE PROVIDER AFTER COST DATA VALUE EXPERIMENT CONTRACT APP 1 APPROVAL END -->

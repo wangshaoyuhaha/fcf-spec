@@ -2488,3 +2488,26 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, repository retention of raw data, realtime activation,
 candidate promotion, broker, exchange, account, order, execution, product
 phase, P48, tag, release, or deployment.
+
+## 114. A-Share Incremental After-Cost Data-Value Experiment Contract
+
+One registered baseline and one registered candidate are compared only across
+an exact common instrument and date window. Experiment specifications bind all
+artifact hashes, profile hashes, metrics, rights, retention, and zero-spend
+boundaries before any observation is accepted.
+
+Observed coverage, freshness, conflicts, point-in-time integrity, adjustment,
+trading status, fixed cost, and measured benefit remain exact and separate.
+Missing or incomparable evidence returns insufficient evidence; no metric is
+silently imputed, normalized, or substituted.
+
+Deterministic outcomes are limited to insufficient evidence, stop, continue
+local research, or eligibility for mandatory Operator review. Review
+eligibility cannot select, endorse, purchase, renew, cancel, or activate a
+provider and cannot claim alpha, profitability, or data authority.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, purchase, renewal, cancellation, raw repository retention,
+realtime activation, data authority, Gap closure, candidate promotion, broker,
+exchange, account, order, execution, product phase, P48, tag, release, or
+deployment.

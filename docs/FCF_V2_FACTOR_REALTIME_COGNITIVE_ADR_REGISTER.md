@@ -1542,6 +1542,32 @@ provider selection, raw repository retention, realtime activation, data or
 rights authority, Gap closure, candidate promotion, broker, exchange, account,
 order, execution, product phase, P48, tag, release, or deployment.
 
+## FCF-V2-ADR-081 Require Incremental After-Cost Evidence Before Provider Spend
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Define immutable local experiment specifications and observations
+that compare one registered baseline with one registered candidate over exact
+common windows. Coverage, freshness, conflicts, point-in-time integrity,
+adjustment, trading status, rights, retention, fixed cost, measured benefit,
+renewal, and stop evidence remain independently explicit.
+
+Consequence: A candidate can become eligible for mandatory Operator review
+only after complete comparable evidence exists. Current authorized spend is
+zero, and review eligibility is neither provider selection nor purchase or
+renewal authority.
+
+Rejected shortcut: infer a price from a sales quote; use unmatched windows;
+claim value from compatibility alone; hide missing rights or clocks; treat a
+trial as permanent retention authority; or select the candidate with the best
+single metric.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, purchase, renewal, cancellation, raw repository retention,
+realtime activation, profit or alpha claims, data authority, Gap closure,
+candidate promotion, broker, exchange, account, order, execution, product
+phase, P48, tag, release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.
