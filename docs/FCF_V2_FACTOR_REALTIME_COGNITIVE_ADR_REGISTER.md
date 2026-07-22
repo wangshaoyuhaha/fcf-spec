@@ -1426,6 +1426,30 @@ provider selection, raw repository retention, realtime activation, broker,
 exchange, account, balance, position, order, execution, product phase, P48,
 tag, release, or deployment.
 
+## FCF-V2-ADR-076 Fail Closed Before Candidate Daily Promotion
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind one exact typed FCP-0075 quarantine evidence artifact to a
+closed ordered set of registered provider, rights, revision, corporate-action,
+adjustment-factor, trading-status, expected-calendar, and point-in-time
+authority references. Emit deterministic blockers and readiness for mandatory
+Operator review only.
+
+Consequence: Every downloaded file, RQData response, MiniQMT export, Tushare
+dataset, or later provider candidate crosses the same explicit gate before any
+separate promotion decision can be proposed.
+
+Rejected shortcut: treat clean syntax as authority, waive observed anomalies,
+infer rights or provenance, infer suspension from missing bars, infer official
+adjustment factors, accept an incomplete authority domain set, or let the gate
+promote data itself.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, broker,
+exchange, account, balance, position, order, execution, product phase, P48,
+tag, release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

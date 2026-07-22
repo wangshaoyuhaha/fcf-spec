@@ -17191,3 +17191,24 @@ GAP-093 remain open. The candidate remains quarantined. No product phase,
 P48, account, execution, tag, release, or deployment path was created.
 
 <!-- FCP 0075 A SHARE EXTERNAL CANDIDATE DAILY CORPUS QUALITY QUARANTINE EVIDENCE APP 1 FINAL END -->
+
+<!-- FCP 0076 A SHARE CANDIDATE DAILY PROMOTION READINESS GATE APP 1 APPROVAL START -->
+
+## FCP 0076 A-Share Candidate Daily Promotion Readiness Gate App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0076-a-share-candidate-daily-promotion-readiness-gate-app-1`
+
+Approved scope binds exact typed FCP-0075 quality quarantine evidence to a
+closed registered provider, rights, revision, corporate-action,
+adjustment-factor, trading-status, expected-calendar, and point-in-time
+authority-reference set. It emits blockers and readiness for mandatory
+Operator review only.
+
+The phase cannot promote rows, establish authority, calculate factors, create
+labels, select a provider, access an SDK, use credentials, activate realtime
+data, start a product phase, create P48, or authorize broker, exchange,
+account, order, execution, tag, release, or deployment paths.
+
+<!-- FCP 0076 A SHARE CANDIDATE DAILY PROMOTION READINESS GATE APP 1 APPROVAL END -->

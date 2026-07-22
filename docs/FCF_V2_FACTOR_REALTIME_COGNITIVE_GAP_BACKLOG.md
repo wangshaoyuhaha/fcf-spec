@@ -205,6 +205,11 @@ creating a new gap. The external material remains unverified,
 non-authoritative, outside Git data storage, and blocked from implementation or
 promotion until its documented adoption gates pass.
 
+FCP-0076 registers a fail-closed candidate daily promotion-readiness gate
+against GAP-023 and GAP-087 through GAP-093. The gate preserves every listed
+Gap as open and cannot supply missing provider, rights, revision, adjustment,
+trading-status, calendar, point-in-time, storage, or reconciliation authority.
+
 ## Roadmap Backlog
 
 | Phase | Scope | Status |

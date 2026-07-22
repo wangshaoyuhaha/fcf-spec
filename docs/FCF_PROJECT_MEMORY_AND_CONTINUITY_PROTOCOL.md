@@ -321,6 +321,9 @@ not-implemented capability groups:
 - A-share external candidate daily-corpus quality quarantine evidence with a
   path-free manifest, closed quality findings, explicit provenance and rights
   gaps, raw data outside Git, and no evidence-promotion authority
+- A-share candidate daily promotion-readiness gates with exact typed quality
+  evidence, closed registered authority-reference domains, deterministic
+  blockers, mandatory Operator review, and no promotion authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

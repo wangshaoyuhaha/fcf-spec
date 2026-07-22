@@ -599,3 +599,14 @@ adjustment factors, corporate actions, trading status, point-in-time
 availability, or Registered Evidence authority. It authorizes no acquisition,
 SDK, network, credentials, realtime, product work, P48, broker, exchange,
 account, order, execution, release, or deployment.
+
+Proposal `FCF-FCP-0076` registers one deterministic local-only A-share
+candidate daily promotion-readiness gate. It binds exact typed FCP-0075 quality
+quarantine evidence to a closed registered authority-reference domain set and
+emits exact blockers and readiness for mandatory Operator review.
+
+FCP-0076 cannot promote candidate data, establish source or rights authority,
+calculate factors, create labels, select a provider, access an SDK, use
+credentials, activate realtime data, or close GAP-023 or GAP-087 through
+GAP-093. It authorizes no product work, P48, broker, exchange, account, order,
+execution, release, or deployment.

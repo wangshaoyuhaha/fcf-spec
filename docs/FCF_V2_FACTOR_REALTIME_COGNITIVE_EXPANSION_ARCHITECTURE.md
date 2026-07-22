@@ -2374,3 +2374,25 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, repository retention of raw data, realtime activation,
 broker, exchange, account, balance, position, order, execution, product phase,
 P48, tag, release, or deployment.
+
+## 109. A-Share Candidate Daily Promotion Readiness Gate
+
+The gate consumes one exact typed FCP-0075 quality quarantine artifact and one
+closed ordered authority-reference set for provider, rights, revision,
+corporate actions, adjustment factors, trading status, expected calendar, and
+point-in-time availability. Every reference binds registered artifact identity,
+SHA-256 digest, domain identity, and observation UTC.
+
+The gate preserves every quality and authority blocker in deterministic closed
+order. A clean result means ready for mandatory Operator review only; it does
+not promote a row, establish Registered Evidence authority, select a provider,
+or authorize factor calculation or training labels.
+
+The current downloaded corpus must fail closed because FCP-0075 records
+malformed rows, invalid OHLC rows, stale terminal coverage, and all eight
+mandatory authority gaps.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, repository retention of raw data, realtime activation,
+broker, exchange, account, balance, position, order, execution, product phase,
+P48, tag, release, or deployment.
