@@ -2419,3 +2419,23 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, repository retention of raw data, realtime activation,
 broker, exchange, account, balance, position, order, execution, product phase,
 P48, tag, release, or deployment.
+
+## 111. A-Share Publication And Availability Clock Contract
+
+The contract records publication, first legal availability, retrieval, local
+ingest, first tradable, and revision clocks independently. It preserves exact
+UTC precision and predecessor lineage for registered local artifacts.
+
+Date-only or unknown publication evidence is explicit and blocked from exact
+point-in-time use. No default close, open, midnight, file timestamp, retrieval
+time, or ingest time may be substituted for source publication evidence.
+
+Verified implementation may supply the missing PUBLICATION_CLOCK foundation
+capability in the GAP-088 coverage matrix. This does not close the Gap or
+establish provider, rights, calendar, revision, point-in-time, or Registered
+Evidence authority.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, repository retention of raw data, realtime activation,
+candidate promotion, broker, exchange, account, balance, position, order,
+execution, product phase, P48, tag, release, or deployment.

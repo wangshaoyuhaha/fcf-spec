@@ -1474,6 +1474,29 @@ provider selection, raw repository retention, realtime activation, broker,
 exchange, account, balance, position, order, execution, product phase, P48,
 tag, release, or deployment.
 
+## FCF-V2-ADR-078 Preserve Exact Publication Time Without Inference
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Define one immutable A-share publication and availability clock
+record with explicit timestamp precision, legal availability, retrieval,
+ingest, first-tradable, revision, and predecessor lineage. Exact-time use must
+fail closed when publication evidence is date-only or unknown.
+
+Consequence: Point-in-time research can distinguish source publication from
+later retrieval and local ingest. Existing institutional-calendar semantics
+can be reused without treating a date label or ingestion time as publication.
+
+Rejected shortcut: infer publication time from trade date, file modification
+time, retrieval time, ingest time, or a default market-session boundary; treat
+date-only publication as an exact instant; or ignore a later revision.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, data
+authority, Gap closure, candidate promotion, broker, exchange, account,
+balance, position, order, execution, product phase, P48, tag, release, or
+deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

@@ -327,6 +327,9 @@ not-implemented capability groups:
 - A-share trusted data supply-chain coverage evidence matrices with exact
   tracked component hashes, closed GAP-087 through GAP-093 requirements,
   visible missing capabilities, and no Gap-closure or data-authority claim
+- A-share publication and availability clock contracts with explicit UTC
+  precision, legal availability, retrieval, ingest, first-tradable, revision,
+  predecessor lineage, and fail-closed unknown-time handling
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

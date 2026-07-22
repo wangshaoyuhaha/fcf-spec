@@ -620,3 +620,14 @@ FCP-0077 cannot change or close a Gap, establish data authority, promote
 candidate rows, select a provider, access an SDK, use credentials, activate
 realtime data, calculate factors, create labels, or authorize product work,
 P48, broker, exchange, account, order, execution, release, or deployment.
+
+Proposal `FCF-FCP-0078` defines one deterministic local-only A-share
+publication and availability clock contract. It preserves timestamp precision,
+legal availability, retrieval, ingest, first-tradable, revision, predecessor
+lineage, and fail-closed point-in-time selection.
+
+FCP-0078 cannot infer source publication time, close GAP-088, establish data
+authority, promote candidate rows, select a provider, access an SDK, use
+credentials, activate realtime data, calculate factors, create labels, or
+authorize product work, P48, broker, exchange, account, order, execution,
+release, or deployment.

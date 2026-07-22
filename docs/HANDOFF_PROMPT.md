@@ -15111,3 +15111,28 @@ product phase, P48, account, execution, tag, release, or deployment path was
 created.
 
 <!-- FCP 0077 A SHARE TRUSTED DATA SUPPLY CHAIN COVERAGE EVIDENCE MATRIX APP 1 FINAL END -->
+
+
+<!-- FCP 0078 A SHARE PUBLICATION AVAILABILITY CLOCK CONTRACT APP 1 APPROVAL START -->
+
+## FCP 0078 A-Share Publication Availability Clock Contract App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+`sidecar-fcp-0078-a-share-publication-availability-clock-contract-app-1`
+
+Approved scope defines one deterministic local-only publication and
+availability clock contract for A-share registered artifacts. It preserves
+explicit publication precision, legal availability, retrieval, ingest, first
+tradable, and revision lineage and must fail closed when publication time is
+unknown or only date-precise.
+
+The phase may add verified implementation evidence to the FCP-0077 matrix for
+the PUBLICATION_CLOCK capability. It cannot close GAP-088, establish data
+authority, promote candidate rows, select a provider, infer missing timestamps,
+access an SDK or network, use credentials, activate realtime data, calculate
+factors, create labels, start a product phase, create P48, or authorize broker,
+exchange, account, order, execution, tag, release, or deployment paths.
+
+<!-- FCP 0078 A SHARE PUBLICATION AVAILABILITY CLOCK CONTRACT APP 1 APPROVAL END -->

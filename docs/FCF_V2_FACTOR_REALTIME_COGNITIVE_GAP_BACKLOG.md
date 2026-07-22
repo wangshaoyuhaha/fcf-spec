@@ -184,6 +184,7 @@ factor is activated.
 | V2-FR-GAP-098 | mark, index, bankruptcy, partial-liquidation, liquidation-fee, insurance-fund, ADL, and cascade-state simulation evidence | RESEARCH_REQUIRED |
 | V2-FR-GAP-099 | funding interval, cap, floor, payment direction, basis, fee, rebate, spread, depth, partial-fill, latency, and adverse-selection calibration | RESEARCH_REQUIRED |
 | V2-FR-GAP-100 | BTC perpetual Paper stress suite for gaps, thin books, venue outage, resync, funding shock, loss streak, collateral drawdown, and liquidation distance | NOT_IMPLEMENTED |
+
 | V2-FR-GAP-101 | leverage, notional, liquidation-buffer, concentration, loss, stale-data, contradiction, abstention, and stop-rule research gates | RESEARCH_REQUIRED |
 | V2-FR-GAP-102 | effective-time venue rule, risk-tier, funding-method, collateral-conversion, symbol migration, and contract termination evidence | RESEARCH_REQUIRED |
 | V2-FR-GAP-103 | explicit separation and evaluation of reusable BTC signal evidence from contract, leverage, margin, cost, liquidation, and outcome accounting | NOT_IMPLEMENTED |
@@ -193,6 +194,11 @@ factor is activated.
 | V2-FR-GAP-107 | exact registered A-share expected trading-date artifacts with source, revision, rights, instrument, and availability lineage | RESEARCH_REQUIRED |
 | V2-FR-GAP-108 | complete multi-batch QMT export evidence spanning the requested range with observed row-cap, pagination, and deterministic batch-order behavior | RESEARCH_REQUIRED |
 | V2-FR-GAP-109 | QMT versus independent provider coverage reconciliation across the same registered expected trading-date set | RESEARCH_REQUIRED |
+
+FCP-0078 is approved to add a deterministic local-only publication and
+availability clock foundation for the publication-clock gap. Its registered
+status remains unchanged until all required implementation and authority
+evidence is accepted; the phase cannot infer external timestamps or close it.
 
 ## External Research Intake Observation
 
