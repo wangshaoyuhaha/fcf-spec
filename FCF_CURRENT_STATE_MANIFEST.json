@@ -47,7 +47,7 @@
   },
   "current_truth": {
     "current_governance_phase_id": "FCF-FCP-0059-BTC-PERPETUAL-PAPER-STRESS-EVALUATION-INPUT-DOMAIN-SEMANTICS-HARDENING-APP-1",
-    "current_governance_phase_status": "APPROVED_GOVERNANCE_ONLY_NOT_STARTED",
+    "current_governance_phase_status": "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE",
     "current_product_implementation_phase": "NONE",
     "latest_completed_governance_delivery": "FCF-FCP-0058-BTC-PERPETUAL-PAPER-STRESS-EVALUATION-INPUT-EVIDENCE-REGISTRY-APP-1",
     "latest_completed_product_phase": "V2-R47-BROWSER-GOVERNANCE-REVIEW-MARKET-SUMMARY-PRESENTATION-APP-1",

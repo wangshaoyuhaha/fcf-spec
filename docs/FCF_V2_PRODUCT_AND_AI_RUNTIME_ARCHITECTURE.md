@@ -16115,3 +16115,28 @@ retention, realtime, product, P48, exchange, wallet, account, balance,
 position, order, execution, tag, release, or deployment is authorized.
 
 <!-- FCP 0059 BTC PERPETUAL PAPER STRESS EVALUATION INPUT DOMAIN SEMANTICS HARDENING APP 1 APPROVAL END -->
+
+
+<!-- FCP 0059 BTC PERPETUAL PAPER STRESS EVALUATION INPUT DOMAIN SEMANTICS HARDENING APP 1 LOCK START -->
+
+## FCP 0059 BTC Perpetual Paper Stress Evaluation Input Domain Semantics Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact typed FCP-0058 stress-evaluation input registry lineage
+- finite signed funding-reference rate support
+- positive price, depth-notional, and collateral-index references
+- bounded liquidation-distance reference ratios
+- nonnegative integral count and seconds observations
+- immutable validation-only snapshot with mandatory Operator review
+
+The hardening cannot evaluate stress or calculate prices, margin, leverage,
+liquidation, balances, positions, PnL, insurance fund, ADL, orders, execution,
+or source preference. GAP-098, GAP-099, GAP-100, and GAP-101 remain open. No
+acquisition, SDK, network, credential, provider selection, raw repository
+retention, realtime, product, P48, exchange, wallet, account, balance,
+position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0059 BTC PERPETUAL PAPER STRESS EVALUATION INPUT DOMAIN SEMANTICS HARDENING APP 1 LOCK END -->
