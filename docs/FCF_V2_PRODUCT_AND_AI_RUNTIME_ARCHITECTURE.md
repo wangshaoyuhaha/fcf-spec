@@ -17412,3 +17412,28 @@ start a product phase, create P48, or authorize broker, exchange, account,
 order, execution, tag, release, or deployment paths.
 
 <!-- FCP 0079 A SHARE CORPORATE ACTION QUERY POLICY LINEAGE CONTRACT APP 1 APPROVAL END -->
+
+
+<!-- FCP 0079 A SHARE CORPORATE ACTION QUERY POLICY LINEAGE CONTRACT APP 1 LOCK START -->
+
+## FCP 0079 A-Share Corporate Action Query Policy Lineage Contract App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar implementation defines immutable corporate-action revisions,
+adjustment-factor revisions, explicit RAW and FORWARD_ADJUSTED query policies,
+revision-chain validation, and fail-closed point-in-time resolution. Source
+prices remain immutable and blocked results never select a factor.
+
+Exact tracked implementation evidence supplies CORPORATE_ACTION_LINEAGE and
+QUERY_POLICY_LINEAGE foundation capabilities to the augmented FCP-0077 matrix.
+The current matrix hash is
+`a522a720a7115b59a8146e675c5e9c26892a98f07b3f5f4557949d834b5b0e08`.
+
+Every Gap remains open. No official action or factor, provider, rights,
+calendar, revision, point-in-time, or Registered Evidence authority is
+established. No candidate promotion, SDK, network, credential, realtime,
+product phase, P48, broker, exchange, account, order, execution, tag, release,
+or deployment path is authorized.
+
+<!-- FCP 0079 A SHARE CORPORATE ACTION QUERY POLICY LINEAGE CONTRACT APP 1 LOCK END -->

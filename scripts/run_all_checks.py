@@ -328,6 +328,7 @@ COMMANDS = [
     [
         "python",
         "scripts/control_center_fcp_0078_a_share_publication_availability_clock_contract_guard.py",
+        "scripts/control_center_fcp_0079_a_share_corporate_action_query_policy_lineage_contract_guard.py",
     ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
