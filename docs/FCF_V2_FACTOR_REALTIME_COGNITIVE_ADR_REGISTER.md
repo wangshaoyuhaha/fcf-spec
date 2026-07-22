@@ -988,6 +988,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-056 Register BTC Paper Stress Definitions Before Evaluation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Register BTC perpetual Paper stress scenarios as immutable typed
+definitions bound to one exact FCP-0055 complete rule-bundle snapshot. Use a
+closed scenario-kind vocabulary and exact decimal parameters before any later
+stress evaluator or risk gate is introduced.
+
+Consequence: Later deterministic Paper evaluation can prove which venue-rule
+context, scenario kind, severity, horizon, and parameter evidence it consumed
+without inventing assumptions at evaluation time.
+
+Rejected shortcut: reuse a generic portfolio scenario without BTC contract
+lineage, accept arbitrary mappings or floats, treat definitions as evaluated
+results, or infer missing calibration evidence.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

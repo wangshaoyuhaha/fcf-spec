@@ -258,6 +258,9 @@ not-implemented capability groups:
 - BTC perpetual complete-rule-bundle coherence hardening with exact FCP-0053
   and FCP-0054 registry, contract-entry, artifact-time, and effective-time
   agreement before later Paper stress or risk-gate consumption
+- BTC perpetual Paper stress-scenario definition registries with exact FCP-0055
+  complete-rule lineage, closed scenario kinds, typed parameters, immutable
+  artifacts, and no evaluation, account, or execution authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

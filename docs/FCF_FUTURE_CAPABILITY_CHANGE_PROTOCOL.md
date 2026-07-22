@@ -382,3 +382,15 @@ execution, or source preference, acquire data, invoke an SDK, retrieve network
 data, accept credentials, activate realtime, authorize an exchange, wallet,
 account, order, or execution path, or close GAP-098, GAP-100, GAP-101, or
 GAP-102.
+
+Proposal `FCF-FCP-0056` creates a deterministic local-only BTC perpetual Paper
+stress-scenario definition registry bound to one exact FCP-0055 complete
+rule-bundle snapshot. It preserves closed kinds, exact parameters, severity,
+horizon, artifact lineage, and immutable definition hashes.
+
+FCP-0056 cannot evaluate stress, calculate prices, margin, leverage,
+liquidation, funding, fees, balances, positions, PnL, ADL actions, orders,
+execution, or source preference, acquire data, invoke an SDK, retrieve network
+data, accept credentials, activate realtime, authorize an exchange, wallet,
+account, order, or execution path, or close GAP-098, GAP-099, GAP-100, or
+GAP-101.

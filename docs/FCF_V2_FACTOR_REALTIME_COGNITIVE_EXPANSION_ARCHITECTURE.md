@@ -1998,3 +1998,21 @@ and effective-time-incoherent evidence fails closed. The layer cannot calculate
 prices, margin, leverage, liquidation, funding, fees, balances, positions, PnL,
 insurance-fund changes, ADL actions, orders, execution, or source preference and
 does not close GAP-098, GAP-100, GAP-101, or GAP-102.
+
+## 89. BTC Perpetual Paper Stress Scenario Definition Registry
+
+The registry consumes one exact typed FCP-0055 complete rule-bundle snapshot
+and one Operator-registered local scenario-definition artifact. Every scenario
+definition binds the complete-rule snapshot hash, venue, contract, closed kind,
+severity, bounded horizon, and an ordered tuple of exact decimal parameters.
+
+The closed kind vocabulary covers price gap, thin book, venue outage, resync,
+funding shock, loss streak, collateral drawdown, and liquidation distance.
+Scenario and parameter identities are ordered and unique. Artifact registration
+cannot follow registry as-of time, and the bound rule-bundle lookup instant
+cannot follow registry as-of time.
+
+The registry defines evidence only. It cannot evaluate a stress result,
+calculate prices, margin, leverage, liquidation, funding, fees, balances,
+positions, PnL, insurance-fund changes, ADL actions, orders, execution, or
+source preference and does not close GAP-098, GAP-099, GAP-100, or GAP-101.
