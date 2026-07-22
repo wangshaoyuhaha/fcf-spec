@@ -22074,3 +22074,23 @@ wallet, account, balance, position, order, execution, tag, release, or
 deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0063 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND SCHEMA REGISTRY APP 1 FINAL END -->
+
+
+<!-- FCP 0064 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND EVIDENCE REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0064 BTC Perpetual Paper Stress Evaluation Operand Evidence Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0064-btc-perpetual-paper-stress-evaluation-operand-evidence-registry-app-1`
+
+Approved order: bind exact typed FCP-0063 operand-schema evidence; require one
+typed local observation per registered role; preserve exact metric, unit,
+identity, time, source, digest, and rights lineage; require baselines to precede
+paired current observations; reject incomplete, future, cross-kind, or untyped
+evidence; validate, merge, and synchronize final authorities.
+
+The registry cannot define direction, evaluate stress, calculate account or
+execution state, or close GAP-098 through GAP-101.
+
+<!-- FCP 0064 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND EVIDENCE REGISTRY APP 1 APPROVAL END -->

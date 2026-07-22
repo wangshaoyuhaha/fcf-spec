@@ -442,6 +442,15 @@ FCP-0063 cannot define direction, evaluate stress, calculate prices, margin,
 leverage, liquidation, balances, positions, PnL, ADL, orders, execution, or
 close GAP-098, GAP-099, GAP-100, or GAP-101.
 
+Proposal `FCF-FCP-0064` registers one typed local observation for every exact
+FCP-0063 stress-evaluation operand role. It preserves metric, unit, venue,
+contract, event, availability, source, digest, and rights lineage and requires
+paired baselines to precede current observations.
+
+FCP-0064 cannot define direction, evaluate stress, calculate prices, margin,
+leverage, liquidation, balances, positions, PnL, ADL, orders, execution, or
+close GAP-098, GAP-099, GAP-100, or GAP-101.
+
 Proposal `FCF-FCP-0058` creates a deterministic local-only BTC perpetual Paper
 stress-evaluation input evidence registry bound to one exact FCP-0057 coverage
 snapshot. It requires one registered observation slot for every closed scenario

@@ -1005,6 +1005,27 @@ Not authorized: acquisition, SDK, network, credential, realtime, product, P48,
 exchange, wallet, account, balance, position, order, execution, tag, release,
 or deployment.
 
+## FCF-V2-ADR-064 Require Registered Evidence For Every Stress Operand
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind one exact typed FCP-0063 operand-schema snapshot and register one
+typed local observation for every required role. Preserve exact metric, unit,
+venue, contract, event, availability, source artifact, digest, and rights
+lineage, with baseline observations preceding paired current observations.
+
+Consequence: Later deterministic Paper evaluation cannot fill missing
+baselines, reuse one observation across roles, or consume future or
+unregistered operand evidence.
+
+Rejected shortcut: infer operands from labels, duplicate one observation,
+ignore point-in-time availability or rights, accept arbitrary mappings, or
+treat registration as a stress result.
+
+Not authorized: acquisition, SDK, network, credential, realtime, product, P48,
+exchange, wallet, account, balance, position, order, execution, tag, release,
+or deployment.
+
 ## FCF-V2-ADR-060 Require Coherent Stress Evaluation Readiness Evidence
 
 Status: ACCEPTED_ARCHITECTURE

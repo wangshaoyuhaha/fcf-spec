@@ -283,6 +283,9 @@ not-implemented capability groups:
 - BTC perpetual Paper stress-evaluation operand-schema registries with exact
   FCP-0062 lineage, closed threshold-only or paired baseline-current operand
   requirements, and no direction, evaluation, or execution authority
+- BTC perpetual Paper stress-evaluation operand-evidence registries with exact
+  FCP-0063 lineage, one registered local observation per operand role,
+  baseline-before-current time order, and no evaluation authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
