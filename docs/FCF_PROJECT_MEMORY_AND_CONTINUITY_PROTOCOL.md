@@ -363,3 +363,7 @@ FCP-0083 preserves the MiniQMT sanitized evidence runner as a deterministic
 read-only local adapter over FCP-0082. It reads bounded registered bytes once,
 emits canonical review JSON, and grants no entitlement, data, product, or
 execution authority.
+FCP-0084 preserves Guojin QMT local export coverage evidence as sanitized
+aggregate observations only. It cannot infer requested parameters, exchange
+calendars, official row caps, pagination, completeness, adjustment authority,
+trading status, provider authority, product authority, or execution authority.

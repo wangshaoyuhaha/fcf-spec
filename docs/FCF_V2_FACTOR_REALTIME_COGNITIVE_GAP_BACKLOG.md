@@ -229,6 +229,12 @@ RESEARCH_REQUIRED. Local validation cannot invoke MiniQMT or xtquant,
 establish entitlement, activate realtime data, select a provider, promote rows,
 or close the Gap.
 
+FCP-0084 is approved to add deterministic sanitized Guojin QMT local export
+batch coverage contracts and a bounded read-only scanner for GAP-105. The Gap
+remains RESEARCH_REQUIRED. Observed row-count bounds, dates, overlaps, or gaps
+cannot prove requested-range completeness, official row caps, pagination,
+exchange calendars, adjustment authority, provider authority, or promotion.
+
 ## External Research Intake Observation
 
 The 2026-07-22 external indicator package and A-share CSV collection review is

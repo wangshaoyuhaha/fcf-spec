@@ -687,3 +687,13 @@ The phase cannot invoke MiniQMT or xtquant, use a network, accept accounts or
 credentials, establish entitlement or Registered Evidence authority, activate
 realtime data, select a provider, promote data, close GAP-104, start product
 work, create P48, or enable trading or execution.
+## FCP-0084 QMT Local Export Coverage Evidence Change Rule
+
+Proposal `FCF-FCP-0084` may add immutable sanitized export-batch contracts, a
+bounded read-only local scanner, deterministic coverage topology, tests,
+guard, and closeout evidence. Raw rows and local paths remain outside Git.
+
+The phase cannot invoke MiniQMT or xtquant, use a network or credentials,
+infer requested parameters, calendars, pagination, official row caps,
+completeness, adjustment authority, or trading status, promote data, close
+GAP-105, start product work, create P48, or enable trading or execution.

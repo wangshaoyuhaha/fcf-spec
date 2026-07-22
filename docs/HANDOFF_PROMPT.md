@@ -15572,3 +15572,23 @@ exchange, account, balance, position, order, execution, tag, release, or
 deployment authority was created.
 
 <!-- FCP 0083 A SHARE GUOJIN MINIQMT SANITIZED EVIDENCE LOCAL VALIDATION RUNNER APP 1 FINAL END -->
+
+<!-- FCP 0084 A SHARE GUOJIN QMT LOCAL EXPORT BATCH COVERAGE EVIDENCE APP 1 APPROVAL START -->
+
+## FCP 0084 A-Share Guojin QMT Local Export Batch Coverage Evidence App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+`sidecar-fcp-0084-a-share-guojin-qmt-local-export-batch-coverage-evidence-app-1`
+
+Approved scope defines deterministic local-only contracts and a bounded
+read-only scanner for sanitized QMT daily export coverage observations.
+
+Raw rows and paths remain outside Git. The phase cannot invoke MiniQMT or
+xtquant, use a network or credentials, infer requested parameters, calendars,
+pagination, official row caps, completeness, adjustment authority, or trading
+status, promote data, close GAP-105, start product work, create P48, or enable
+accounts, orders, execution, tag, release, or deployment.
+
+<!-- FCP 0084 A SHARE GUOJIN QMT LOCAL EXPORT BATCH COVERAGE EVIDENCE APP 1 APPROVAL END -->

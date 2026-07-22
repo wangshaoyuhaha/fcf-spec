@@ -1610,3 +1610,20 @@ invalid hashes, and malformed evidence without disclosing source bytes.
 The runner cannot invoke MiniQMT or xtquant, use a network, establish
 entitlement or Registered Evidence authority, activate realtime data, select a
 provider, promote rows, close a Gap, authorize product work, or enable trading.
+## FCF-V2-ADR-084 Preserve QMT Export Coverage As Observed Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Guojin QMT daily export coverage must be represented by exact
+sanitized artifact and batch observations. A bounded read-only scanner may
+measure headers, bytes, hashes, row counts, ordered dates, duplicate dates,
+batch overlap, interval gaps, and repeated observed row-count bounds.
+
+Requested parameters must be explicit evidence and cannot be inferred from
+file contents. Missing exchange-calendar, pagination, official row-cap,
+adjustment, trading-status, rights, revision, or availability evidence fails
+closed. Equal row counts support only an observed-bound finding.
+
+Consequences: FCP-0084 may implement contracts, scanner, aggregate packet,
+guard, and tests. GAP-105 remains RESEARCH_REQUIRED and raw rows remain outside
+Git. No data promotion, provider selection, product, or execution is enabled.

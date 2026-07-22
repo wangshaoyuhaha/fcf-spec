@@ -2542,3 +2542,17 @@ packet. The runner performs no source mutation and cannot import or invoke
 MiniQMT or xtquant, use a network, accept accounts or credentials, activate
 realtime data, select a provider, promote rows, close GAP-104, create product
 authority, or enable order or execution paths.
+## 117. Guojin QMT Local Export Batch Coverage Evidence
+
+FCP-0084 defines sanitized local evidence for QMT daily export batches. Each
+artifact binds a safe identifier, exact byte length, SHA-256, header schema,
+row count, ordered date bounds, duplicate count, and declared adjustment view.
+
+Deterministic topology may report observed overlap, interval gaps, boundary
+reach, and repeated row-count bounds. Requested ranges are separate explicit
+facts. No exchange calendar, pagination, official row cap, completeness,
+adjustment authority, or trading status may be inferred.
+
+Raw rows and paths remain outside Git. Outputs are quarantined and cannot
+promote data, select a provider, close GAP-105, authorize product work, or
+enable accounts, orders, or execution.
