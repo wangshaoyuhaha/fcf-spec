@@ -22339,3 +22339,23 @@ magnitudes, or severities, close GAP-098 through GAP-101, start a product
 phase, create P48, or authorize any account or execution path.
 
 <!-- FCP 0068 BTC PERPETUAL PAPER STRESS EVALUATION TRIGGER PREDICATE SEMANTICS REGISTRY APP 1 LOCK END -->
+
+<!-- FCP 0068 BTC PERPETUAL PAPER STRESS EVALUATION TRIGGER PREDICATE SEMANTICS REGISTRY APP 1 FINAL START -->
+
+## FCP 0068 BTC Perpetual Paper Stress Evaluation Trigger Predicate Semantics Registry App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact FCP-0067-bound trigger-predicate semantics registry is merged and
+validated. Isolated FCP-0068 tests passed 24, affected BTC and governance tests
+passed 443 before and after merge, all FCP tests passed 1249, full pytest passed
+6586 before and after merge, and `scripts/run_all_checks.py` reported
+ALL CHECKS PASSED before and after merge. Generated runtime outputs were restored.
+
+Approval `c0d192941fb2665f073590875488bc23eb62d25d`; delivery
+`145d63682a78015602e77a8b46c68365135fd7be`; merge
+`6ee07e1321c8fcdf8d40b779e5e9b3f36eb01773`. GAP-098 through GAP-101 remain
+open. No product phase, P48, account, execution, tag, release, or deployment
+path was created.
+
+<!-- FCP 0068 BTC PERPETUAL PAPER STRESS EVALUATION TRIGGER PREDICATE SEMANTICS REGISTRY APP 1 FINAL END -->
