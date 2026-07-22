@@ -1,6 +1,6 @@
 # FCF FCP 0087 BTC Registered Local Export Operator Review Receipt App 1 D1-D6
 
-Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
 
 ## D1 Exact Packet Input
 

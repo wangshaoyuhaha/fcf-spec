@@ -18052,3 +18052,30 @@ GAP-095; start product work; create P48; or enable wallets, accounts, orders,
 execution, tags, releases, or deployment.
 
 <!-- FCP 0087 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW RECEIPT APP 1 APPROVAL END -->
+
+
+<!-- FCP 0087 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW RECEIPT APP 1 LOCK START -->
+
+## FCP 0087 BTC Registered Local Export Operator Review Receipt App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar implements one immutable non-authorizing receipt over an exact
+typed FCP-0086 packet. It preserves pseudonymous reviewer, review time, closed
+disposition, packet hash, validation hash, and ordered review-item hashes.
+
+Contract SHA-256:
+`c96d72ec08dc195ae0ab7cd2a603ba0e5374ab83e288e29555bb399fc5bd320b`.
+Reference receipt hash:
+`8dd43b2d7426e01342bbba25a6b5b8dc9cecd6b11b65a7e9a010490d0765fbc3`.
+Reference output SHA-256:
+`d1e23574e88519831059e3459450be6add1e98edd2c657b2d5cebce282d13143`.
+
+Receipt creation confirms review only and GAP-095 remains open. No approval,
+rejection, resolution, promotion, replay activation, source or canonical
+rows, values, paths, SDK, network, credentials, provider or venue selection,
+signal, strategy, product, P48, wallet, account, margin, leverage, position,
+PnL, liquidation, order, execution, tag, release, or deployment authority is
+created.
+
+<!-- FCP 0087 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW RECEIPT APP 1 LOCK END -->
