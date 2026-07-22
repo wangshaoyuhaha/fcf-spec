@@ -15617,3 +15617,38 @@ invocation, data promotion, product, account, order, execution, tag, release,
 or deployment authority is created.
 
 <!-- FCP 0084 A SHARE GUOJIN QMT LOCAL EXPORT BATCH COVERAGE EVIDENCE APP 1 LOCK END -->
+
+<!-- FCP 0084 A SHARE GUOJIN QMT LOCAL EXPORT BATCH COVERAGE EVIDENCE APP 1 FINAL START -->
+
+## FCP 0084 A-Share Guojin QMT Local Export Batch Coverage Evidence App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The deterministic local-only coverage probe is implemented, validated,
+merged to main, and synchronized. It reuses FCP-0035 and does not run or
+imitate FCP-0036 without registered expected trading-date evidence. Gap
+V2-FR-GAP-105 remains RESEARCH_REQUIRED.
+
+Isolated tests: 12 passed. Affected tests: 161 passed. All FCP tests: 1697
+passed. Full pytest: 7034 passed.
+`scripts/run_all_checks.py`: ALL CHECKS PASSED before and after merge.
+Contract SHA-256:
+`a178fccdeb7d874dbe18b41169d79205f013dddf4db79d414efe10f06ac9b538`.
+Runner SHA-256:
+`af2c6c9ccbc4c619a4cb87824cb8e991c46a08f83ac3fb33602d95fa67325dae`.
+Reference output SHA-256:
+`35e30a784912f65189544882f4062fb9dcbc0522e31c8657ad985536f2cd6c72`.
+
+Evidence commits: approval
+`bc0f5c05db58aff4b36214e0802aef415aa72164`; sidecar delivery
+`676ff600cfb934015fab4f318f4f9da228eca924`; main merge
+`554852113ce7536fc504f63fc0679a4f1f6f7f33`; Windows hash stabilization
+`e79f89c9f8e0b35c39515ea10835edf61c8c1d42`.
+
+No raw rows, normalized rows, paths, provider invocation, network,
+credential, Registered Evidence authority, provider selection, realtime
+activation, data promotion, product, P48, broker, exchange, account, balance,
+position, order, execution, tag, release, or deployment authority was
+created.
+
+<!-- FCP 0084 A SHARE GUOJIN QMT LOCAL EXPORT BATCH COVERAGE EVIDENCE APP 1 FINAL END -->
