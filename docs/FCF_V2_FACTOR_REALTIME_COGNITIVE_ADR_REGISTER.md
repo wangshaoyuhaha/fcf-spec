@@ -951,7 +951,8 @@ Status: ACCEPTED_ARCHITECTURE
 Decision: Validate exact typed FCP-0056 scenario parameters against a closed
 kind-specific domain schema bound to exact FCP-0057 coverage. Funding shocks
 remain signed and finite; ratios are bounded; and counts or seconds are
-positive integers where a nonzero stress duration or sequence is required.
+positive integral counts or seconds where a nonzero stress duration or
+sequence is required.
 
 Consequence: Later deterministic Paper evaluation cannot consume impossible
 negative durations, fractional loss counts, or out-of-range stress ratios.
