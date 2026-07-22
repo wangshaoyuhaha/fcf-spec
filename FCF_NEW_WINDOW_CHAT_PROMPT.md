@@ -14643,3 +14643,29 @@ account, balance, position, order, execution, tag, release, or deployment is
 authorized.
 
 <!-- FCP 0058 BTC PERPETUAL PAPER STRESS EVALUATION INPUT EVIDENCE REGISTRY APP 1 APPROVAL END -->
+
+
+<!-- FCP 0058 BTC PERPETUAL PAPER STRESS EVALUATION INPUT EVIDENCE REGISTRY APP 1 LOCK START -->
+
+## FCP 0058 BTC Perpetual Paper Stress Evaluation Input Evidence Registry App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact typed FCP-0057 stress-coverage snapshot lineage
+- one typed observation slot for every closed stress scenario kind
+- exact closed metric identifiers and units per scenario kind
+- event, availability, source artifact, digest, and local-rights lineage
+- missing, duplicate, mismatched, future, and unsafe input rejection
+- immutable registration-only registry with mandatory Operator review
+
+The registry cannot evaluate stress or calculate prices, margin, leverage,
+liquidation, funding, fees, balances, positions, PnL, insurance fund, ADL,
+orders, execution, or source preference. GAP-098, GAP-099, GAP-100, and
+GAP-101 remain open. No acquisition, SDK, network, credential, provider
+selection, raw repository retention, realtime, product, P48, exchange, wallet,
+account, balance, position, order, execution, tag, release, or deployment is
+authorized.
+
+<!-- FCP 0058 BTC PERPETUAL PAPER STRESS EVALUATION INPUT EVIDENCE REGISTRY APP 1 LOCK END -->
