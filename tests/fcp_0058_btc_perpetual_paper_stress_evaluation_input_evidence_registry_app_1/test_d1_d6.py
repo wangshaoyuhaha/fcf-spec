@@ -196,6 +196,22 @@ def test_binary_float_input_is_rejected():
         _observation("PRICE_GAP", value=50000.0)
 
 
+def test_signed_funding_reference_is_preserved_exactly():
+    observations = tuple(
+        _observation(kind, value=Decimal("-0.0001"))
+        if kind == "FUNDING_SHOCK"
+        else _observation(kind)
+        for kind in BTC_STRESS_SCENARIO_KINDS
+    )
+    registry = _registry(observations)
+
+    funding = resolve_btc_perpetual_paper_stress_evaluation_input(
+        registry,
+        scenario_kind="FUNDING_SHOCK",
+    )
+    assert funding.value == Decimal("-0.0001")
+
+
 def test_registry_hash_is_deterministic_and_evidence_bound():
     first = _registry()
     second = _registry()

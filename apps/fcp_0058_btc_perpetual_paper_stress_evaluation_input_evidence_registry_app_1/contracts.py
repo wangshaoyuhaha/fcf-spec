@@ -92,12 +92,22 @@ class BTCPerpetualPaperStressEvaluationInputObservation:
         if kind not in BTC_STRESS_SCENARIO_KINDS:
             raise ValueError("scenario_kind is not registered")
         value = _exact_decimal(self.value, "value")
-        if value < 0:
+        if self.metric_id == "funding-reference-rate":
+            pass
+        elif self.metric_id == "liquidation-distance-reference-rate":
+            if not Decimal("0") <= value <= Decimal("1"):
+                raise ValueError("liquidation distance must be between zero and one")
+        elif self.metric_id == "collateral-index-reference-level":
+            if value <= 0:
+                raise ValueError("collateral index input must be positive")
+        elif self.unit_id in {"count", "seconds"}:
+            if value < 0 or value != value.to_integral_value():
+                raise ValueError("count and seconds inputs must be nonnegative integers")
+        elif self.unit_id in {"quote-per-base", "quote-notional"}:
+            if value <= 0:
+                raise ValueError("price and depth inputs must be positive")
+        elif value < 0:
             raise ValueError("stress evaluation input value cannot be negative")
-        if self.unit_id in {"count", "seconds"} and value != value.to_integral_value():
-            raise ValueError("count and seconds inputs must be integral")
-        if self.unit_id in {"quote-per-base", "quote-notional"} and value <= 0:
-            raise ValueError("price and depth inputs must be positive")
         event_at = utc(self.event_at_utc, "event_at_utc")
         available_at = utc(self.available_at_utc, "available_at_utc")
         if instant(event_at) > instant(available_at):
