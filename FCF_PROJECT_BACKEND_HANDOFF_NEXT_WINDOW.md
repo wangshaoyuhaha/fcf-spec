@@ -15103,3 +15103,24 @@ The registry cannot define direction, evaluate stress, calculate account or
 execution state, or close GAP-098 through GAP-101.
 
 <!-- FCP 0063 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND SCHEMA REGISTRY APP 1 APPROVAL END -->
+
+
+<!-- FCP 0063 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND SCHEMA REGISTRY APP 1 LOCK START -->
+
+## FCP 0063 BTC Perpetual Paper Stress Evaluation Operand Schema Registry App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact typed FCP-0062 extended-readiness lineage
+- closed roles, metrics, and units for every stress scenario kind
+- paired baseline-current and threshold-observation requirement modes
+- immutable schema-only evidence with mandatory Operator review
+
+The registry cannot define direction, evaluate stress, calculate account or
+execution state, or close GAP-098 through GAP-101. No acquisition, SDK,
+network, credential, realtime, product, P48, exchange, wallet, account,
+balance, position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0063 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND SCHEMA REGISTRY APP 1 LOCK END -->
