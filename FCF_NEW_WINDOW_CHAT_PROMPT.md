@@ -14518,3 +14518,33 @@ P48, exchange, wallet, account, balance, position, order, execution, tag,
 release, or deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0056 BTC PERPETUAL PAPER STRESS SCENARIO DEFINITION REGISTRY APP 1 FINAL END -->
+
+
+<!-- FCP 0057 BTC PERPETUAL PAPER STRESS SCENARIO COVERAGE PARAMETER SCHEMA GATE APP 1 APPROVAL START -->
+
+## FCP 0057 BTC Perpetual Paper Stress Scenario Coverage Parameter Schema Gate App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0057-btc-perpetual-paper-stress-scenario-coverage-parameter-schema-gate-app-1`
+
+Approved order:
+
+- D1 bind one exact typed FCP-0056 stress-scenario registry
+- D2 require all eight closed BTC perpetual Paper stress kinds
+- D3 require exact parameter identifiers and units per kind
+- D4 reject missing, duplicate, extra, mismatched, or unsafe schema evidence
+- D5 preserve immutable coverage evidence and mandatory Operator review
+- D6 run guards, validation, merge, and final authority synchronization
+
+The gate cannot evaluate stress or calculate prices, margin, leverage,
+liquidation, funding, fees, balances, positions, PnL, insurance fund, ADL,
+orders, execution, or source preference. It cannot close GAP-098, GAP-099,
+GAP-100, or GAP-101. No acquisition, SDK, network, credential, provider
+selection, raw repository retention, realtime, product, P48, exchange, wallet,
+account, balance, position, order, execution, tag, release, or deployment is
+authorized.
+
+<!-- FCP 0057 BTC PERPETUAL PAPER STRESS SCENARIO COVERAGE PARAMETER SCHEMA GATE APP 1 APPROVAL END -->

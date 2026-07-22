@@ -2016,3 +2016,19 @@ The registry defines evidence only. It cannot evaluate a stress result,
 calculate prices, margin, leverage, liquidation, funding, fees, balances,
 positions, PnL, insurance-fund changes, ADL actions, orders, execution, or
 source preference and does not close GAP-098, GAP-099, GAP-100, or GAP-101.
+
+## 90. BTC Perpetual Paper Stress Coverage And Parameter Schema Gate
+
+The gate consumes one exact typed FCP-0056 stress-scenario registry. It
+requires coverage of all eight closed scenario kinds and one exact parameter
+identifier and unit schema for each kind before producing an immutable
+coverage snapshot bound to the FCP-0056 registry hash.
+
+Coverage and schema validation are fail-closed. Missing kinds, duplicate kinds,
+unknown parameter identifiers, missing parameters, extra parameters, unit
+mismatches, cross-registry lineage, and authority escalation are rejected.
+
+The gate validates definitions only. It cannot evaluate stress, calculate
+prices, margin, leverage, liquidation, funding, fees, balances, positions,
+PnL, insurance-fund changes, ADL actions, orders, execution, or source
+preference and does not close GAP-098, GAP-099, GAP-100, or GAP-101.

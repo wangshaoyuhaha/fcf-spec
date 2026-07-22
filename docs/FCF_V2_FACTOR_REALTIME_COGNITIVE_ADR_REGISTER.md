@@ -1010,6 +1010,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-057 Require Complete Stress Coverage Before Evaluation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Gate one exact FCP-0056 BTC perpetual Paper stress-definition
+registry against a closed parameter schema before any evaluator is introduced.
+Require every registered scenario kind and exact parameter identifiers and
+units, then preserve one immutable coverage snapshot.
+
+Consequence: Later deterministic Paper evaluation can consume a complete,
+schema-checked suite without silently omitting venue outage, resync, funding,
+loss, collateral, liquidation-distance, price-gap, or thin-book stress.
+
+Rejected shortcut: treat registry presence as complete coverage, accept
+arbitrary parameter names or units, infer missing scenarios, or reuse a generic
+portfolio stress definition without exact FCP-0056 lineage.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

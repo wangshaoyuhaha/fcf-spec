@@ -261,6 +261,9 @@ not-implemented capability groups:
 - BTC perpetual Paper stress-scenario definition registries with exact FCP-0055
   complete-rule lineage, closed scenario kinds, typed parameters, immutable
   artifacts, and no evaluation, account, or execution authority
+- BTC perpetual Paper stress coverage and parameter-schema gates with exact
+  FCP-0056 lineage, all eight closed kinds, exact parameter identifiers and
+  units, immutable coverage hashes, and no evaluation or execution authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

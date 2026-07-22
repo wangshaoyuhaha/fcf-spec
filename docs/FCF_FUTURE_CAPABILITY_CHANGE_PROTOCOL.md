@@ -394,3 +394,15 @@ execution, or source preference, acquire data, invoke an SDK, retrieve network
 data, accept credentials, activate realtime, authorize an exchange, wallet,
 account, order, or execution path, or close GAP-098, GAP-099, GAP-100, or
 GAP-101.
+
+Proposal `FCF-FCP-0057` creates a deterministic local-only coverage and
+parameter-schema gate over one exact FCP-0056 BTC perpetual Paper stress
+registry. It requires all eight scenario kinds and closed parameter identifiers
+and units before any later evaluator can consume the suite.
+
+FCP-0057 cannot evaluate stress, calculate prices, margin, leverage,
+liquidation, funding, fees, balances, positions, PnL, ADL actions, orders,
+execution, or source preference, acquire data, invoke an SDK, retrieve network
+data, accept credentials, activate realtime, authorize an exchange, wallet,
+account, order, or execution path, or close GAP-098, GAP-099, GAP-100, or
+GAP-101.
