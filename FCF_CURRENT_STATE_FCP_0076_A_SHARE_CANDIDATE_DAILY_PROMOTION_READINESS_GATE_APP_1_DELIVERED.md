@@ -1,6 +1,6 @@
 # FCF Current State FCP 0076 A-Share Candidate Daily Promotion Readiness Gate App 1 Delivered
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 The deterministic local gate binds exact typed FCP-0075 quality evidence to
 one closed ordered eight-domain registered authority-reference set. It emits

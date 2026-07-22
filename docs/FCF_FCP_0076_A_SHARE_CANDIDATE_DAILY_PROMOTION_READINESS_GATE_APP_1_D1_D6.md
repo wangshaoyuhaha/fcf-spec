@@ -1,6 +1,6 @@
 # FCF FCP 0076 A-Share Candidate Daily Promotion Readiness Gate App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Authority Domains
 
@@ -39,9 +39,15 @@ Validation evidence:
 
 - isolated FCP-0076 suite: 28 passed
 - affected governance and lineage suite: 71 passed
-- all FCP suites: 1480 passed
-- full pytest: 6817 passed
-- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- all FCP suites: 1480 passed before and after merge
+- full pytest: 6817 passed before and after merge
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED before and after merge
 - generated runtime outputs: no tracked generated delta
 - exact changed files and ASCII scope verified
 - `git diff --check`: passed
+
+Evidence commits:
+
+- governance approval: `4e1c783642c11887352f751aa21e76af3b23ae17`
+- sidecar delivery: `de8d3d4495a599b448084877da32a1bf91be9239`
+- main delivery merge: `b489f033d5bc1ab7426343ad04497c66fdf880ae`
