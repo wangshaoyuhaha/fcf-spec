@@ -14586,3 +14586,29 @@ account, balance, position, order, execution, tag, release, or deployment is
 authorized.
 
 <!-- FCP 0057 BTC PERPETUAL PAPER STRESS SCENARIO COVERAGE PARAMETER SCHEMA GATE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0057 BTC PERPETUAL PAPER STRESS SCENARIO COVERAGE PARAMETER SCHEMA GATE APP 1 LOCK START -->
+
+## FCP 0057 BTC Perpetual Paper Stress Scenario Coverage Parameter Schema Gate App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact typed FCP-0056 stress-scenario registry lineage
+- coverage of all eight closed BTC perpetual Paper stress kinds
+- exact closed parameter identifiers and units per kind
+- missing, duplicate, extra, and mismatched schema rejection
+- immutable parameter-schema and coverage snapshot hashes
+- mandatory Operator review with validation-only authority
+
+The gate cannot evaluate stress or calculate prices, margin, leverage,
+liquidation, funding, fees, balances, positions, PnL, insurance fund, ADL,
+orders, execution, or source preference. GAP-098, GAP-099, GAP-100, and
+GAP-101 remain open. No acquisition, SDK, network, credential, provider
+selection, raw repository retention, realtime, product, P48, exchange, wallet,
+account, balance, position, order, execution, tag, release, or deployment is
+authorized.
+
+<!-- FCP 0057 BTC PERPETUAL PAPER STRESS SCENARIO COVERAGE PARAMETER SCHEMA GATE APP 1 LOCK END -->
