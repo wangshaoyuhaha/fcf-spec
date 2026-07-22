@@ -15370,3 +15370,20 @@ phase, create P48, or authorize broker, exchange, credential, wallet, account,
 balance, position, order, execution, tag, release, or deployment.
 
 <!-- FCP 0068 BTC PERPETUAL PAPER STRESS EVALUATION TRIGGER PREDICATE SEMANTICS REGISTRY APP 1 APPROVAL END -->
+
+<!-- FCP 0068 BTC PERPETUAL PAPER STRESS EVALUATION TRIGGER PREDICATE SEMANTICS REGISTRY APP 1 LOCK START -->
+
+## FCP 0068 BTC Perpetual Paper Stress Evaluation Trigger Predicate Semantics Registry App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar delivery binds one exact typed FCP-0067 measure-formula registry
+and registers all eight closed symbolic comparison, role-order,
+parameter-transform, and strict-or-inclusive boundary semantics. It rejects
+kind, order, role, transform, boundary, schema, hash, and UTC substitution.
+
+This registry cannot evaluate observations, calculate triggers, thresholds,
+magnitudes, or severities, close GAP-098 through GAP-101, start a product
+phase, create P48, or authorize any account or execution path.
+
+<!-- FCP 0068 BTC PERPETUAL PAPER STRESS EVALUATION TRIGGER PREDICATE SEMANTICS REGISTRY APP 1 LOCK END -->
