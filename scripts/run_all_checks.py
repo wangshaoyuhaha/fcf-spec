@@ -332,6 +332,7 @@ COMMANDS = [
         "scripts/control_center_fcp_0080_a_share_open_candidate_provider_compatibility_profile_guard.py",
         "scripts/control_center_fcp_0081_a_share_candidate_provider_after_cost_data_value_experiment_contract_guard.py",
         "scripts/control_center_fcp_0082_a_share_guojin_miniqmt_python_market_data_entitlement_evidence_contract_guard.py",
+        "scripts/control_center_fcp_0083_a_share_guojin_miniqmt_sanitized_evidence_local_validation_runner_guard.py",
     ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],

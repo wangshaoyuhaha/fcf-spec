@@ -1,6 +1,6 @@
 # FCF FCP 0083 A-Share Guojin MiniQMT Sanitized Evidence Local Validation Runner App 1 D1-D6
 
-Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
 
 ## D1 Closed Runner Boundary
 
