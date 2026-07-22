@@ -1,6 +1,6 @@
 # FCF FCP 0077 A-Share Trusted Data Supply Chain Coverage Evidence Matrix App 1 D1-D6
 
-Status: APPROVED_NOT_STARTED
+Status: VALIDATED_PENDING_MERGE
 
 ## D1 Closed Gap Coverage Contract
 
@@ -26,6 +26,17 @@ and external-research evidence for every open gap.
 
 Generate one path-safe current matrix over existing A-share substrate, bridge,
 QMT, calendar, reconciliation, and quarantine components without closing gaps.
+
+Current result:
+
+- foundation covered, gap open: V2-FR-GAP-087, V2-FR-GAP-090,
+  V2-FR-GAP-091, V2-FR-GAP-092
+- foundation partial, gap open: V2-FR-GAP-088, V2-FR-GAP-089,
+  V2-FR-GAP-093
+- missing: publication clock; corporate-action and query-policy lineage;
+  AkShare, BaoStock, and Tushare provider profiles
+- matrix hash:
+  `56ae8ae03a9e0c5d37fdf8cbdff89c97ef9d32b0660569cdcf17e4837155b668`
 
 ## D6 Validation And Closeout
 

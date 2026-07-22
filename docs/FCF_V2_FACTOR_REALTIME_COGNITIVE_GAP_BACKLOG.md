@@ -210,6 +210,12 @@ against GAP-023 and GAP-087 through GAP-093. The gate preserves every listed
 Gap as open and cannot supply missing provider, rights, revision, adjustment,
 trading-status, calendar, point-in-time, storage, or reconciliation authority.
 
+FCP-0077 registers exact tracked implementation coverage evidence against
+GAP-087 through GAP-093. It records complete foundation coverage for GAP-087,
+GAP-090, GAP-091, and GAP-092, and partial foundation coverage for GAP-088,
+GAP-089, and GAP-093. These observations do not change the table statuses or
+establish external data authority; every listed Gap remains open.
+
 ## Roadmap Backlog
 
 | Phase | Scope | Status |

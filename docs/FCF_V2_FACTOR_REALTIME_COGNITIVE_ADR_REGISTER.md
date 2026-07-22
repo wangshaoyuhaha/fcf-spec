@@ -1450,6 +1450,30 @@ provider selection, raw repository retention, realtime activation, broker,
 exchange, account, balance, position, order, execution, product phase, P48,
 tag, release, or deployment.
 
+## FCF-V2-ADR-077 Separate Foundation Coverage From Data Authority
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Verify exact tracked implementation bytes and map their closed
+capability claims to V2-FR-GAP-087 through V2-FR-GAP-093 without changing the
+Gap registry. Foundation coverage and registered external authority are
+different evidence classes.
+
+Consequence: Existing schemas, clocks, storage layers, bridges,
+reconciliations, and provider profiles become visible and reusable without
+being mistaken for license, provenance, calendar, corporate-action,
+adjustment-factor, trading-status, revision, point-in-time, or provider
+authority.
+
+Rejected shortcut: treat code presence as data authority, close a Gap because
+foundation coverage is complete, accept an unverified file hash, hide missing
+capabilities, select a provider, or promote candidate data from the matrix.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, broker,
+exchange, account, balance, position, order, execution, product phase, P48,
+tag, release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

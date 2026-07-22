@@ -324,6 +324,9 @@ not-implemented capability groups:
 - A-share candidate daily promotion-readiness gates with exact typed quality
   evidence, closed registered authority-reference domains, deterministic
   blockers, mandatory Operator review, and no promotion authority
+- A-share trusted data supply-chain coverage evidence matrices with exact
+  tracked component hashes, closed GAP-087 through GAP-093 requirements,
+  visible missing capabilities, and no Gap-closure or data-authority claim
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
