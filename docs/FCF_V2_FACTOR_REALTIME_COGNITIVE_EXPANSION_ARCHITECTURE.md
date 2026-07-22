@@ -2465,3 +2465,26 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, repository retention of raw data, realtime activation,
 candidate promotion, broker, exchange, account, balance, position, order,
 execution, product phase, P48, tag, release, or deployment.
+
+## 113. A-Share Open Candidate Provider Compatibility Profiles
+
+Tushare, AkShare, and BaoStock remain isolated candidates. A compatibility
+profile records only their expected local-artifact schema, identifier mapping,
+price, volume, amount, date and clock semantics, adjustment state, rights
+state, and mandatory blockers.
+
+Profiles are declarative and immutable. They do not import or invoke provider
+libraries, connect to a network, hold credentials, download rows, perform
+fallback, select a provider, or promote data. Unknown fields, units, clocks,
+adjustment semantics, rights, and provenance fail closed.
+
+Verified implementation may supply the missing three provider-profile
+foundation capabilities in the provider-compatibility coverage matrix. This
+does not close the Gap or establish provider, rights, quality, completeness,
+adjustment, calendar, revision, point-in-time, or Registered Evidence
+authority.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, repository retention of raw data, realtime activation,
+candidate promotion, broker, exchange, account, order, execution, product
+phase, P48, tag, release, or deployment.

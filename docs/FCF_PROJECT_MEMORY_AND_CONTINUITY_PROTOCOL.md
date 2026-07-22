@@ -333,6 +333,9 @@ not-implemented capability groups:
 - A-share corporate-action and query-policy lineage contracts with immutable
   source actions, adjustment-factor revisions, explicit RAW or
   FORWARD_ADJUSTED views, and point-in-time fail-closed resolution
+- isolated Tushare, AkShare, and BaoStock candidate compatibility profiles with
+  explicit schemas, units, clocks, adjustment and rights states, blockers, and
+  no provider-selection or external-authority claim
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

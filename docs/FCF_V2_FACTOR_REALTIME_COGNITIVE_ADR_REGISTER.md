@@ -1520,6 +1520,28 @@ authority, Gap closure, candidate promotion, broker, exchange, account,
 balance, position, order, execution, product phase, P48, tag, release, or
 deployment.
 
+## FCF-V2-ADR-080 Profile Open Candidates Without Provider Selection
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Define immutable isolated compatibility profiles for Tushare,
+AkShare, and BaoStock local artifacts. Each profile declares exact source
+columns, canonical mappings, units, identifier and clock semantics, adjustment
+state, rights state, and fail-closed blockers.
+
+Consequence: Candidate formats can be tested against one canonical contract
+without invoking providers or treating compatibility as authority, quality,
+completeness, rights, or purchase evidence.
+
+Rejected shortcut: install or invoke an SDK during profiling; store a token;
+silently infer units or adjustment; use one provider as fallback for another;
+or select a provider because its static profile exists.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, data or
+rights authority, Gap closure, candidate promotion, broker, exchange, account,
+order, execution, product phase, P48, tag, release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

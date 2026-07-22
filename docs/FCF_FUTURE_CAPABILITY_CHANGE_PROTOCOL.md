@@ -642,3 +642,14 @@ GAP-089, establish data authority, overwrite source prices, promote candidate
 rows, select a provider, access an SDK, use credentials, activate realtime
 data, calculate factors, create labels, or authorize product work, P48,
 broker, exchange, account, order, execution, release, or deployment.
+
+Proposal `FCF-FCP-0080` defines deterministic local-only Tushare, AkShare, and
+BaoStock candidate compatibility profiles. It preserves explicit artifact
+schema, canonical mapping, units, clocks, adjustment state, rights state, and
+fail-closed blockers without provider invocation.
+
+FCP-0080 cannot install or invoke an SDK, access a network, use credentials,
+select or endorse a provider, infer missing semantics, close GAP-093,
+establish data or rights authority, promote candidate rows, calculate factors,
+create labels, or authorize product work, P48, broker, exchange, account,
+order, execution, release, or deployment.

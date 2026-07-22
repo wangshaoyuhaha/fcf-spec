@@ -206,6 +206,11 @@ status remains unchanged until all required external implementation and
 authority evidence is accepted; the phase cannot invent official actions or
 factors, promote candidate rows, or close the gap.
 
+FCP-0080 is approved to add deterministic local-only Tushare, AkShare, and
+BaoStock compatibility-profile foundations for the provider-compatibility gap.
+Its registered status remains unchanged; profiles cannot invoke or select a
+provider, prove external authority, promote rows, or close the gap.
+
 ## External Research Intake Observation
 
 The 2026-07-22 external indicator package and A-share CSV collection review is

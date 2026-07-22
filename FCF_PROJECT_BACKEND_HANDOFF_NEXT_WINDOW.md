@@ -16124,3 +16124,26 @@ No official action or factor, provider, data, product, broker, exchange,
 account, order, execution, tag, release, or deployment authority was created.
 
 <!-- FCP 0079 A SHARE CORPORATE ACTION QUERY POLICY LINEAGE CONTRACT APP 1 FINAL END -->
+
+
+<!-- FCP 0080 A SHARE OPEN CANDIDATE PROVIDER COMPATIBILITY PROFILE APP 1 APPROVAL START -->
+
+## FCP 0080 A-Share Open Candidate Provider Compatibility Profile App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+`sidecar-fcp-0080-a-share-open-candidate-provider-compatibility-profile-app-1`
+
+Approved scope defines deterministic local-only Tushare, AkShare, and BaoStock
+compatibility profiles. Each profile declares artifact schema, identifier and
+unit mapping, time and adjustment semantics, rights state, and exact blockers.
+
+The phase may add the three missing provider-profile foundation capabilities
+to the FCP-0077 matrix. It cannot close the provider-compatibility Gap, select
+a provider, access an SDK or network, use credentials, establish data or rights
+authority, promote rows, calculate factors, create labels, start a product
+phase, create P48, or authorize broker, exchange, account, order, execution,
+tag, release, or deployment paths.
+
+<!-- FCP 0080 A SHARE OPEN CANDIDATE PROVIDER COMPATIBILITY PROFILE APP 1 APPROVAL END -->
