@@ -9,7 +9,7 @@ and normalization to frozen FCP-0035. It emits only sanitized manifest and
 coverage metadata and does not duplicate FCP-0035 or FCP-0036 authority.
 
 Contract SHA-256:
-`3c5ba7da999a2d256373bee73ddee26b0132f2321dbe140a28df1165ef354ff5`
+`a178fccdeb7d874dbe18b41169d79205f013dddf4db79d414efe10f06ac9b538`
 
 Runner SHA-256:
 `af2c6c9ccbc4c619a4cb87824cb8e991c46a08f83ac3fb33602d95fa67325dae`

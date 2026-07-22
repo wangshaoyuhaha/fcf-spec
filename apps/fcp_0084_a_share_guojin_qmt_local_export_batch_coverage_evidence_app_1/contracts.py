@@ -11,6 +11,7 @@ from apps.fcp_0017_a_share_trusted_daily_data_substrate_local_calibration_app_1.
 from apps.v2_r3_local_event_ingress_foundation_app_1.contracts import utc
 
 
+# FCP-0035 and FCP-0036 remain the parsing and reconciliation authorities.
 FINDING_ORDER = (
     "REQUESTED_RANGE_START_MISMATCH",
     "REQUESTED_RANGE_END_MISMATCH",
