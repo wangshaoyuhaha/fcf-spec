@@ -14907,3 +14907,21 @@ strategy, claim profitability, close GAP-103, create P48, or authorize account,
 order, execution, tag, release, or deployment paths.
 
 <!-- FCP 0074 BTC PERPETUAL PAPER SIGNAL EVIDENCE SEPARATION CONTRACT APP 1 LOCK END -->
+
+<!-- FCP 0074 BTC PERPETUAL PAPER SIGNAL EVIDENCE SEPARATION CONTRACT APP 1 FINAL START -->
+
+## FCP 0074 BTC Perpetual Paper Signal Evidence Separation Contract App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The immutable local Paper six-domain separation contract is merged and
+validated. Isolated FCP-0074 tests passed 32, all FCP tests passed 1430 before
+and after merge, full pytest passed 6767 before and after merge, and
+`scripts/run_all_checks.py` reported ALL CHECKS PASSED before and after merge.
+
+Approval `6206a9bdf6be065794b165542ec1f4484516880f`; delivery
+`3026a53b682082641166e162f15d274a9e23b78c`; merge
+`ae8b03b9b6156f06ddc1a26f6d08f8cc6cf4cf5a`. GAP-103 remains open. No product
+phase, P48, account, execution, tag, release, or deployment path was created.
+
+<!-- FCP 0074 BTC PERPETUAL PAPER SIGNAL EVIDENCE SEPARATION CONTRACT APP 1 FINAL END -->

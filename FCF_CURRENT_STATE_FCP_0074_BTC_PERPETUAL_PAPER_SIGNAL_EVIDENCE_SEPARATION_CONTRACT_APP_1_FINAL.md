@@ -1,17 +1,13 @@
-# FCF Current State FCP 0074 BTC Perpetual Paper Signal Evidence Separation Contract App 1 Delivered
+# FCF Current State FCP 0074 BTC Perpetual Paper Signal Evidence Separation Contract App 1 Final
 
 Status: COMPLETED_MERGED_VALIDATED
 
-Implemented scope:
+Completed scope:
 
 - closed ordered six-domain evidence vocabulary
 - immutable registered artifact identity, digest, domain, and UTC references
 - reusable market signal isolation from derivative-specific mechanics
 - deterministic complete separation-contract hash and fail-closed validation
-
-The contract cannot calculate a signal, promote a factor, select a strategy,
-claim profitability, calculate account state, place an order, execute, or close
-GAP-103.
 
 Validation evidence:
 
@@ -26,3 +22,7 @@ Evidence commits:
 - governance approval: `6206a9bdf6be065794b165542ec1f4484516880f`
 - sidecar delivery: `3026a53b682082641166e162f15d274a9e23b78c`
 - main delivery merge: `ae8b03b9b6156f06ddc1a26f6d08f8cc6cf4cf5a`
+
+GAP-103 remains open. No product phase, P48, broker, exchange, credential,
+wallet, account, balance, position, order, execution, tag, release, or
+deployment path was created.
