@@ -1,6 +1,6 @@
 # FCF FCP 0081 A-Share Candidate Provider After-Cost Data-Value Experiment Contract App 1 D1-D6
 
-Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
 
 ## D1 Closed Experiment Vocabulary
 
@@ -32,3 +32,10 @@ all external provider, rights, quality, and value authority requirements open.
 Run isolated, affected-governance, all-FCP, full-pytest, all-checks,
 generated-output, exact-file, ASCII, and diff validation before merge and final
 synchronization.
+
+Implementation evidence:
+
+- Contract SHA-256: `3c22ac10ccbd3e8d27db97bdf2a9f851679e01f2ec336a2433b0a458f408bd1a`
+- Reference packet hash: `e54b2033f4eca1773d3a3544fe98aba77653cd1ac393f2b6c4e9f2f3e7263baf`
+- Reference outcome: `OPERATOR_REVIEW_ELIGIBLE` only.
+- Current authorized spend: `0` CNY.
