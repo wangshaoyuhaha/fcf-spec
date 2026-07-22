@@ -23219,3 +23219,26 @@ P48; or authorize broker, exchange, account, balance, position, order,
 execution, tag, release, or deployment.
 
 <!-- FCP 0082 A SHARE GUOJIN MINIQMT PYTHON MARKET DATA ENTITLEMENT EVIDENCE CONTRACT APP 1 APPROVAL END -->
+
+
+<!-- FCP 0082 A SHARE GUOJIN MINIQMT PYTHON MARKET DATA ENTITLEMENT EVIDENCE CONTRACT APP 1 LOCK START -->
+
+## FCP 0082 A-Share Guojin MiniQMT Python Market-Data Entitlement Evidence Contract App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar implements immutable registered-local artifact, entitlement
+observation, compatibility evaluation, and mandatory Operator review packet
+contracts. It never imports or invokes MiniQMT or xtquant.
+
+Contract SHA-256:
+`534bde77b16ed6254ef9314210ad937e04a7dac818487d630ae5a1c4cd745352`.
+Reference packet hash:
+`07dc7a33c5f8df3637d0b036dc0b520530e5166aa038c4c3ce3d92909c3b1852`.
+
+Gap V2-FR-GAP-104 remains open. No evidence outcome establishes entitlement,
+Registered Evidence authority, provider selection, realtime activation, data
+promotion, product authority, or Gap closure. No account, credential, network,
+order, execution, tag, release, or deployment authority is created.
+
+<!-- FCP 0082 A SHARE GUOJIN MINIQMT PYTHON MARKET DATA ENTITLEMENT EVIDENCE CONTRACT APP 1 LOCK END -->
