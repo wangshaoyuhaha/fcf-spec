@@ -15599,3 +15599,19 @@ balance, position, PnL, insurance, ADL, order, execution, tag, release, or
 deployment.
 
 <!-- FCP 0072 BTC PERPETUAL PAPER STRESS TRIGGER RESULT OPERATOR REVIEW PACKET APP 1 APPROVAL END -->
+
+<!-- FCP 0072 BTC PERPETUAL PAPER STRESS TRIGGER RESULT OPERATOR REVIEW PACKET APP 1 LOCK START -->
+
+## FCP 0072 BTC Perpetual Paper Stress Trigger Result Operator Review Packet App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+D1-D6 implement one deterministic immutable local Paper Operator review packet
+from one exact typed FCP-0071 registry. The packet preserves all eight ordered
+record hashes and exact triggered and non-triggered evidence groups.
+
+The implementation cannot assign a disposition, approve, reject, recommend,
+calculate account or execution state, close GAP-098 through GAP-101, start a
+product phase, create P48, tag, release, or deploy.
+
+<!-- FCP 0072 BTC PERPETUAL PAPER STRESS TRIGGER RESULT OPERATOR REVIEW PACKET APP 1 LOCK END -->

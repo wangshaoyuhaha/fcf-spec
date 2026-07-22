@@ -301,6 +301,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0071_btc_perpetual_paper_stress_trigger_result_review_registry_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0072_btc_perpetual_paper_stress_trigger_result_operator_review_packet_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
