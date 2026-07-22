@@ -2235,3 +2235,27 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
+
+## 103. BTC Perpetual Paper Stress Deterministic Trigger Evaluation
+
+The evaluator consumes one exact typed FCP-0069 input-binding registry and the
+exact typed FCP-0068, FCP-0064, and FCP-0056 evidence bound by it. It resolves
+registered Decimal operands and the exact registered scenario parameter,
+executes only the eight closed FCP-0067 formula families, applies the FCP-0068
+parameter transform and boundary operator, and emits one result per kind.
+
+Result evidence contains measure value and unit, transformed parameter value,
+triggered boolean, input binding hash, formula and predicate identities, UTC,
+and authority flags. Denominator policies reject nonpositive baselines. Float,
+arbitrary expressions, implicit unit conversion, and unregistered input are
+forbidden.
+
+This is local Paper evaluation only. It does not calculate or mutate margin,
+leverage, liquidation price, collateral balances, positions, PnL, insurance
+fund, ADL, orders, or execution. Operator review remains mandatory and
+GAP-098 through GAP-101 remain open pending broader registered evidence.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.

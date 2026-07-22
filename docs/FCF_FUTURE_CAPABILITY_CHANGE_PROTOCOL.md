@@ -535,3 +535,13 @@ FCP-0069 cannot evaluate observations or calculate measures, triggers,
 thresholds, magnitudes, severities, account state, or execution results. It
 does not close GAP-098 through GAP-101 or authorize acquisition, credentials,
 realtime activation, product work, P48, account, execution, release, or deploy.
+
+Proposal `FCF-FCP-0070` creates a deterministic local-only BTC perpetual Paper
+stress trigger evaluator bound to exact typed FCP-0069, FCP-0068, FCP-0064,
+and FCP-0056 evidence. It uses exact Decimal formulas and registered predicate
+boundaries to emit reviewed measure-and-trigger evidence.
+
+FCP-0070 cannot calculate or mutate margin, leverage, liquidation price,
+balance, position, PnL, insurance fund, ADL, order, or execution state. It does
+not close GAP-098 through GAP-101 or authorize product work, P48, release, or
+deployment.

@@ -16841,3 +16841,21 @@ open. No product phase, P48, account, execution, tag, release, or deployment
 path was created.
 
 <!-- FCP 0069 BTC PERPETUAL PAPER STRESS EVALUATION INPUT BINDING REGISTRY APP 1 FINAL END -->
+
+<!-- FCP 0070 BTC PERPETUAL PAPER STRESS DETERMINISTIC TRIGGER EVALUATION APP 1 APPROVAL START -->
+
+## FCP 0070 BTC Perpetual Paper Stress Deterministic Trigger Evaluation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0070-btc-perpetual-paper-stress-deterministic-trigger-evaluation-app-1`
+
+Approved scope binds exact typed FCP-0069, FCP-0068, FCP-0064, and FCP-0056
+evidence, executes only closed Decimal formulas and registered predicate
+boundaries, and emits immutable reviewed local Paper trigger results.
+
+The phase cannot calculate or mutate account, margin, leverage, liquidation
+price, balance, position, PnL, ADL, order, or execution state, close GAP-098
+through GAP-101, start a product phase, create P48, tag, release, or deploy.
+
+<!-- FCP 0070 BTC PERPETUAL PAPER STRESS DETERMINISTIC TRIGGER EVALUATION APP 1 APPROVAL END -->

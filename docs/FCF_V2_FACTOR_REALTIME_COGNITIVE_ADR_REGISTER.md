@@ -1293,6 +1293,27 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-070 Evaluate Closed Stress Triggers With Exact Decimal Arithmetic
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Evaluate only the FCP-0067 closed formulas and FCP-0068 closed
+predicates over exact FCP-0069-bound registered inputs. Use Decimal arithmetic,
+explicit denominator rejection, registered transforms, and exact strict or
+inclusive comparison boundaries.
+
+Consequence: Paper stress results are deterministic, replayable, hash-bound,
+unit-explicit, and reviewable without granting account or execution authority.
+
+Rejected shortcut: use float arithmetic, infer formulas or comparisons from
+names, accept unbound values, hide denominator failure, calculate account
+state, or treat a synthetic Paper trigger as evidence that a Gap is closed.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.
