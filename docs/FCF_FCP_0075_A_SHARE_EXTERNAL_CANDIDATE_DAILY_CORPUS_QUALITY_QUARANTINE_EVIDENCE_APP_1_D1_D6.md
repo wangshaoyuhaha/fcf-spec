@@ -1,6 +1,6 @@
 # FCF FCP 0075 A-Share External Candidate Daily Corpus Quality Quarantine Evidence App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Quarantine Contract
 
@@ -38,9 +38,15 @@ Validation evidence:
 
 - isolated FCP-0075 suite: 22 passed
 - affected governance suite: 43 passed
-- all FCP suites: 1452 passed
-- full pytest: 6789 passed
-- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- all FCP suites: 1452 passed before and after merge
+- full pytest: 6789 passed before and after merge
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED before and after merge
 - generated runtime outputs: no tracked generated delta
 - exact changed files and ASCII scope verified
 - `git diff --check`: passed
+
+Evidence commits:
+
+- governance approval: `9919bae53982cbf0f18707a17c3b6ed67e142c97`
+- sidecar delivery: `16da8ff58e7f82da1b8e8279bd1c835dfa41abff`
+- main delivery merge: `0535b53e994c7f0e265c35494541fc83995ed245`

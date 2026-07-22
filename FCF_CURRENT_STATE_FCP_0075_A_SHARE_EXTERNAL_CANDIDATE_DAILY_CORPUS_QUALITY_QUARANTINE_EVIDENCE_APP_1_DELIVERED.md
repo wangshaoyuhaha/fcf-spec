@@ -1,6 +1,6 @@
 # FCF Current State FCP 0075 A-Share External Candidate Daily Corpus Quality Quarantine Evidence App 1 Delivered
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 The bounded local scanner reads an Operator-supplied candidate daily CSV
 corpus and emits path-free immutable structural, value-quality, coverage,

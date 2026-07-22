@@ -15831,3 +15831,23 @@ authorize broker, exchange, account, order, execution, tag, release, or
 deployment paths.
 
 <!-- FCP 0075 A SHARE EXTERNAL CANDIDATE DAILY CORPUS QUALITY QUARANTINE EVIDENCE APP 1 LOCK END -->
+
+<!-- FCP 0075 A SHARE EXTERNAL CANDIDATE DAILY CORPUS QUALITY QUARANTINE EVIDENCE APP 1 FINAL START -->
+
+## FCP 0075 A-Share External Candidate Daily Corpus Quality Quarantine Evidence App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The deterministic path-free quarantine scanner and aggregate evidence are
+merged and validated. Isolated FCP-0075 tests passed 22, the affected
+governance suite passed 43, all FCP tests passed 1452 before and after merge,
+full pytest passed 6789 before and after merge, and
+`scripts/run_all_checks.py` reported ALL CHECKS PASSED before and after merge.
+
+Approval `9919bae53982cbf0f18707a17c3b6ed67e142c97`; delivery
+`16da8ff58e7f82da1b8e8279bd1c835dfa41abff`; merge
+`0535b53e994c7f0e265c35494541fc83995ed245`. GAP-023 and GAP-089 through
+GAP-093 remain open. The candidate remains quarantined. No product phase,
+P48, account, execution, tag, release, or deployment path was created.
+
+<!-- FCP 0075 A SHARE EXTERNAL CANDIDATE DAILY CORPUS QUALITY QUARANTINE EVIDENCE APP 1 FINAL END -->
