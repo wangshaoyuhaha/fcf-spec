@@ -1632,3 +1632,21 @@ Implementation clarification: FCP-0035 remains the QMT parsing and
 normalization authority and FCP-0036 remains the expected-date batch
 reconciliation authority. FCP-0084 may only project their results into a
 path-free non-authorizing coverage probe; it cannot duplicate either engine.
+## FCF-V2-ADR-085 Provide A Read-Only BTC Local Export Validator
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: FCP-0022 registered BTC local exports may be validated by one
+deterministic local runner. The runner accepts only an existing regular
+non-symlink path, exact typed FCP-0022 registration and profile contracts, a
+canonical artifact identifier, and as-of UTC.
+
+All byte verification, NDJSON parsing, provider-field mapping, typed
+observation construction, clock integrity, and canonicalization remain frozen
+FCP-0022 authority. The runner may expose only path-free aggregate metadata;
+it cannot return or store source rows, canonical rows, prices, quantities,
+book levels, funding rates, or local paths.
+
+The runner cannot invoke an SDK or network, accept credentials, select a venue
+or provider, activate realtime data, promote evidence, calculate signals or
+trades, close GAP-095, authorize product work, or enable execution.

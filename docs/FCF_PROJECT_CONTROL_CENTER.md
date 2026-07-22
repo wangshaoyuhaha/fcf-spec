@@ -23429,3 +23429,24 @@ position, order, execution, tag, release, or deployment authority was
 created.
 
 <!-- FCP 0084 A SHARE GUOJIN QMT LOCAL EXPORT BATCH COVERAGE EVIDENCE APP 1 FINAL END -->
+
+<!-- FCP 0085 BTC REGISTERED LOCAL EXPORT VALIDATION RUNNER APP 1 APPROVAL START -->
+
+## FCP 0085 BTC Registered Local Export Validation Runner App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+`sidecar-fcp-0085-btc-registered-local-export-validation-runner-app-1`
+
+Approved scope adds one deterministic bounded read-only local runner over
+frozen FCP-0022 BTC local-export canonicalization authority.
+
+Source and canonical rows and paths remain outside Git. The phase cannot
+invoke an SDK or network, use credentials, select a venue or provider,
+activate realtime, promote evidence, calculate a signal or trade, close
+GAP-095, start product work, create P48, or enable wallets, accounts, margin,
+leverage, positions, PnL, liquidation, orders, execution, tags, releases, or
+deployment.
+
+<!-- FCP 0085 BTC REGISTERED LOCAL EXPORT VALIDATION RUNNER APP 1 APPROVAL END -->

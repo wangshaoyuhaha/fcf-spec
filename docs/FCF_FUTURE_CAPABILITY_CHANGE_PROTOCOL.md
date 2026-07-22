@@ -700,3 +700,15 @@ The phase cannot invoke MiniQMT or xtquant, use a network or credentials,
 infer requested parameters, calendars, pagination, official row caps,
 completeness, adjustment authority, or trading status, promote data, close
 GAP-105, start product work, create P48, or enable trading or execution.
+## FCP-0085 BTC Registered Local Export Runner Change Rule
+
+Proposal `FCF-FCP-0085` may add one bounded read-only local runner, sanitized
+aggregate output, tests, guard, and closeout evidence over frozen FCP-0022.
+Source and canonical rows remain outside Git and are neither copied nor
+changed.
+
+The phase cannot duplicate FCP-0022 parsing or typed contracts, invoke an SDK
+or network, use credentials, select a venue or provider, activate realtime,
+promote evidence, calculate a signal, strategy, account, position, margin,
+leverage, PnL, liquidation, order, or execution, close GAP-095, start product
+work, create P48, tag, release, or deploy.

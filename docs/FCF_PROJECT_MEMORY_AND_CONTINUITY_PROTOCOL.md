@@ -340,6 +340,9 @@ not-implemented capability groups:
   comparable evidence, zero authorized spend, deterministic stop or review
   eligibility, and no provider-selection, purchase, renewal, or value-authority
   claim
+- BTC registered local-export validation runners that delegate all parsing and
+  canonicalization to FCP-0022, expose only path-free aggregate metadata, and
+  create no provider, realtime, signal, product, account, or action authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
@@ -367,3 +370,7 @@ FCP-0084 preserves Guojin QMT local export coverage evidence as sanitized
 aggregate observations only. It cannot infer requested parameters, exchange
 calendars, official row caps, pagination, completeness, adjustment authority,
 trading status, provider authority, product authority, or execution authority.
+FCP-0085 preserves BTC local-export validation as a read-only adapter over
+FCP-0022. It returns path-free aggregate review metadata only and grants no
+provider, venue, realtime, signal, product, wallet, account, or execution
+authority.

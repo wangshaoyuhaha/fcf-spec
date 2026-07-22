@@ -235,6 +235,12 @@ remains RESEARCH_REQUIRED. Observed row-count bounds, dates, overlaps, or gaps
 cannot prove requested-range completeness, official row caps, pagination,
 exchange calendars, adjustment authority, provider authority, or promotion.
 
+FCP-0085 is approved to add a deterministic read-only local validation runner
+over frozen FCP-0022 BTC local-export canonicalization. GAP-095 remains
+RESEARCH_REQUIRED. Local validation cannot invoke a provider, establish venue
+or data authority, activate realtime, promote evidence, calculate trading
+actions, or close the Gap.
+
 ## External Research Intake Observation
 
 The 2026-07-22 external indicator package and A-share CSV collection review is

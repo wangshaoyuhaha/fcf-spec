@@ -2560,3 +2560,19 @@ enable accounts, orders, or execution.
 The implementation delegates all registered-byte parsing and normalization to
 FCP-0035. FCP-0036 remains the only batch reconciliation authority and is not
 run without a registered expected trading-date artifact.
+## 118. BTC Registered Local Export Validation Runner
+
+FCP-0085 operationalizes frozen FCP-0022 through one read-only local runner.
+Inputs are one existing regular non-symlink path, an exact typed registration,
+one provider-neutral field profile, a canonical artifact identifier, and an
+as-of UTC timestamp.
+
+FCP-0022 remains the sole authority for registered-byte verification, NDJSON
+parsing, provider-field mapping, typed observation construction, clock checks,
+and canonicalization. The runner emits only path-free aggregate manifest,
+kind-count, sequence-bound, clock-bound, and review-required metadata.
+
+No source or canonical rows are stored or returned. The runner cannot invoke
+an SDK or network, use credentials, select a venue or provider, activate
+realtime data, promote evidence, calculate a signal or trade, close GAP-095,
+authorize product work, or enable accounts, wallets, orders, or execution.
