@@ -2065,3 +2065,19 @@ The layer validates input domains only. It cannot evaluate stress, calculate
 prices, margin, leverage, liquidation, balances, positions, PnL, ADL actions,
 orders, execution, or source preference and does not close GAP-098, GAP-099,
 GAP-100, or GAP-101.
+
+## 93. BTC Perpetual Paper Stress Evaluation Readiness Coherence Gate
+
+The gate consumes exact typed FCP-0055 complete-rule, FCP-0057 coverage, and
+FCP-0059 input-domain snapshots. It binds their snapshot hashes, venue,
+contract, closed scenario kinds, and monotonic effective or as-of UTC lineage
+into one immutable readiness receipt.
+
+Validation is fail-closed. Untyped mappings, hash substitutions, cross-venue or
+cross-contract joins, incomplete scenario coverage, reversed time lineage, and
+authority escalation are rejected.
+
+The gate records readiness only. It cannot evaluate stress, calculate prices,
+margin, leverage, liquidation, balances, positions, PnL, ADL actions, orders,
+execution, or source preference and does not close GAP-098, GAP-099, GAP-100,
+or GAP-101.

@@ -944,6 +944,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-060 Require Coherent Stress Evaluation Readiness Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind exact typed FCP-0055 complete-rule, FCP-0057 coverage, and
+FCP-0059 input-domain snapshots before any later BTC perpetual Paper stress
+evaluation. Require exact snapshot hashes, venue and contract identities,
+closed scenario coverage, and monotonic effective or as-of UTC ordering.
+
+Consequence: Later deterministic evaluation can receive one immutable
+readiness receipt without silently joining stale, cross-contract, or unrelated
+rule, scenario, and input evidence.
+
+Rejected shortcut: join by labels, accept arbitrary mappings, ignore snapshot
+hashes, permit reversed time lineage, infer missing scenarios, or treat
+readiness as an evaluation result.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 ## FCF-V2-ADR-054 Preserve BTC Liquidation Mechanics As Versioned Evidence Before Calculation
 
 Status: ACCEPTED_ARCHITECTURE

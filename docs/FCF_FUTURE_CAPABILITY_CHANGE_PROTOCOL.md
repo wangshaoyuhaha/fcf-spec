@@ -406,6 +406,17 @@ source preference, acquire data, invoke an SDK, retrieve network data, accept
 credentials, activate realtime, authorize an exchange, wallet, account, order,
 or execution path, or close GAP-098, GAP-099, GAP-100, or GAP-101.
 
+Proposal `FCF-FCP-0060` creates a deterministic local-only readiness coherence
+gate over exact typed FCP-0055 complete-rule, FCP-0057 coverage, and FCP-0059
+input-domain snapshots. It requires exact hash, venue, contract, scenario, and
+monotonic UTC agreement before later Paper evaluation consumption.
+
+FCP-0060 cannot evaluate stress, calculate prices, margin, leverage,
+liquidation, balances, positions, PnL, ADL actions, orders, execution, or
+source preference, acquire data, invoke an SDK, retrieve network data, accept
+credentials, activate realtime, authorize an exchange, wallet, account, order,
+or execution path, or close GAP-098, GAP-099, GAP-100, or GAP-101.
+
 Proposal `FCF-FCP-0058` creates a deterministic local-only BTC perpetual Paper
 stress-evaluation input evidence registry bound to one exact FCP-0057 coverage
 snapshot. It requires one registered observation slot for every closed scenario

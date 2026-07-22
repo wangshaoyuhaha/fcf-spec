@@ -13975,3 +13975,32 @@ product, P48, exchange, wallet, account, balance, position, order, execution,
 tag, release, or deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0059 BTC PERPETUAL PAPER STRESS EVALUATION INPUT DOMAIN SEMANTICS HARDENING APP 1 FINAL END -->
+
+
+<!-- FCP 0060 BTC PERPETUAL PAPER STRESS EVALUATION READINESS COHERENCE GATE APP 1 APPROVAL START -->
+
+## FCP 0060 BTC Perpetual Paper Stress Evaluation Readiness Coherence Gate App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0060-btc-perpetual-paper-stress-evaluation-readiness-coherence-gate-app-1`
+
+Approved order:
+
+- D1 bind exact typed FCP-0055, FCP-0057, and FCP-0059 snapshots
+- D2 require exact snapshot, venue, contract, and scenario lineage
+- D3 require monotonic effective and as-of UTC coherence
+- D4 fail closed on stale, cross-lineage, incomplete, or untyped evidence
+- D5 preserve immutable readiness-only evidence and Operator review
+- D6 run guards, validation, merge, and final authority synchronization
+
+The gate cannot evaluate stress or calculate prices, margin, leverage,
+liquidation, balances, positions, PnL, insurance fund, ADL, orders, execution,
+or source preference. It cannot close GAP-098, GAP-099, GAP-100, or GAP-101.
+No acquisition, SDK, network, credential, provider selection, raw repository
+retention, realtime, product, P48, exchange, wallet, account, balance,
+position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0060 BTC PERPETUAL PAPER STRESS EVALUATION READINESS COHERENCE GATE APP 1 APPROVAL END -->

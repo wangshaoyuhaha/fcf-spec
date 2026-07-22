@@ -270,6 +270,9 @@ not-implemented capability groups:
 - BTC perpetual Paper stress-input domain hardening with exact FCP-0058
   lineage, finite signed funding rates, metric-specific positive or nonnegative
   domains, immutable validation hashes, and no evaluation authority
+- BTC perpetual Paper stress-evaluation readiness coherence gates with exact
+  FCP-0055, FCP-0057, and FCP-0059 hash, venue, contract, scenario, and UTC
+  lineage, immutable readiness evidence, and no evaluation authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
