@@ -14746,3 +14746,32 @@ P48, exchange, wallet, account, balance, position, order, execution, tag,
 release, or deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0058 BTC PERPETUAL PAPER STRESS EVALUATION INPUT EVIDENCE REGISTRY APP 1 FINAL END -->
+
+
+<!-- FCP 0059 BTC PERPETUAL PAPER STRESS EVALUATION INPUT DOMAIN SEMANTICS HARDENING APP 1 APPROVAL START -->
+
+## FCP 0059 BTC Perpetual Paper Stress Evaluation Input Domain Semantics Hardening App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0059-btc-perpetual-paper-stress-evaluation-input-domain-semantics-hardening-app-1`
+
+Approved order:
+
+- D1 bind one exact typed FCP-0058 stress-evaluation input registry
+- D2 permit finite signed funding-reference rates
+- D3 enforce metric-specific positive, bounded, and integral domains
+- D4 reject binary floats, non-finite, invalid-sign, or unsafe evidence
+- D5 preserve immutable domain-validation evidence and Operator review
+- D6 run guards, validation, merge, and final authority synchronization
+
+The hardening cannot evaluate stress or calculate prices, margin, leverage,
+liquidation, balances, positions, PnL, insurance fund, ADL, orders, execution,
+or source preference. It cannot close GAP-098, GAP-099, GAP-100, or GAP-101.
+No acquisition, SDK, network, credential, provider selection, raw repository
+retention, realtime, product, P48, exchange, wallet, account, balance,
+position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0059 BTC PERPETUAL PAPER STRESS EVALUATION INPUT DOMAIN SEMANTICS HARDENING APP 1 APPROVAL END -->

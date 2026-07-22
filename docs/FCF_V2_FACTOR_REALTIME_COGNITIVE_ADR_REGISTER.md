@@ -1054,6 +1054,29 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-059 Use Metric-Specific Domains For Stress Inputs
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Validate FCP-0058 BTC perpetual Paper stress-evaluation inputs against
+closed metric-specific numeric domains. Funding-reference rates are finite and
+signed; price, depth, and collateral-index references are positive;
+liquidation-distance ratios are bounded from zero through one; and count and
+seconds inputs are nonnegative integers.
+
+Consequence: Later deterministic Paper evaluation can consume valid negative
+funding evidence without also admitting impossible negative prices, depth,
+durations, counts, or liquidation-distance ratios.
+
+Rejected shortcut: apply one nonnegative rule to every metric, silently clamp
+invalid inputs, accept binary floats, infer missing signs, or treat domain
+validation as a stress result or venue calibration.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

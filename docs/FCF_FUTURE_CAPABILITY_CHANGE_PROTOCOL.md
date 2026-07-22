@@ -395,6 +395,17 @@ data, accept credentials, activate realtime, authorize an exchange, wallet,
 account, order, or execution path, or close GAP-098, GAP-099, GAP-100, or
 GAP-101.
 
+Proposal `FCF-FCP-0059` hardens one exact FCP-0058 BTC perpetual Paper stress
+input registry with metric-specific numeric domains. It permits finite signed
+funding-reference rates while keeping price, depth, collateral, distance,
+count, and time semantics fail-closed.
+
+FCP-0059 cannot evaluate stress, calculate prices, margin, leverage,
+liquidation, balances, positions, PnL, ADL actions, orders, execution, or
+source preference, acquire data, invoke an SDK, retrieve network data, accept
+credentials, activate realtime, authorize an exchange, wallet, account, order,
+or execution path, or close GAP-098, GAP-099, GAP-100, or GAP-101.
+
 Proposal `FCF-FCP-0058` creates a deterministic local-only BTC perpetual Paper
 stress-evaluation input evidence registry bound to one exact FCP-0057 coverage
 snapshot. It requires one registered observation slot for every closed scenario

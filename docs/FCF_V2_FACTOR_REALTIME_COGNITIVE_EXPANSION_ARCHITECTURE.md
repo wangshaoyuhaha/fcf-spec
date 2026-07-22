@@ -2048,3 +2048,20 @@ The registry records inputs only. It cannot evaluate stress, calculate prices,
 margin, leverage, liquidation, funding, fees, balances, positions, PnL,
 insurance-fund changes, ADL actions, orders, execution, or source preference and
 does not close GAP-098, GAP-099, GAP-100, or GAP-101.
+
+## 92. BTC Perpetual Paper Stress Input Domain Semantics Hardening
+
+The hardening layer consumes one exact typed FCP-0058 stress-evaluation input
+registry. It validates each registered metric against a closed numeric domain:
+signed finite funding rates, positive price, depth, and collateral references,
+bounded liquidation-distance ratios, and nonnegative integral counts and
+seconds.
+
+Validation is fail-closed. Binary floats, non-finite decimals, negative price,
+depth, count, or time, zero market references, out-of-range distance ratios,
+unknown metrics, cross-registry lineage, and authority escalation are rejected.
+
+The layer validates input domains only. It cannot evaluate stress, calculate
+prices, margin, leverage, liquidation, balances, positions, PnL, ADL actions,
+orders, execution, or source preference and does not close GAP-098, GAP-099,
+GAP-100, or GAP-101.

@@ -267,6 +267,9 @@ not-implemented capability groups:
 - BTC perpetual Paper stress-evaluation input evidence registries with exact
   FCP-0057 lineage, one typed observation slot per closed scenario kind,
   point-in-time source lineage, and no evaluation or execution authority
+- BTC perpetual Paper stress-input domain hardening with exact FCP-0058
+  lineage, finite signed funding rates, metric-specific positive or nonnegative
+  domains, immutable validation hashes, and no evaluation authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
