@@ -2259,3 +2259,26 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
+
+## 104. BTC Perpetual Paper Stress Trigger Result Review Registry
+
+The registry consumes one exact typed FCP-0070 deterministic trigger
+evaluation and the exact typed FCP-0056 scenario registry bound by its hash.
+For every ordered stress kind it binds the result hash, scenario identity,
+version, definition hash, severity, horizon, measure and parameter values and
+units, trigger state, evaluation hash, venue, contract, and UTC lineage.
+
+All eight results, including non-triggered results, remain visible. Records are
+immutable local Paper evidence for mandatory Operator review. The registry
+does not recalculate a measure, transform a parameter, compare a predicate,
+rank severity, recommend an action, or infer account state.
+
+Validation is fail-closed on untyped lineage, registry-hash disagreement,
+missing, duplicate, reordered, or extra kinds, scenario identity, version,
+severity, horizon, definition, result, contract, or UTC substitution, and
+authority escalation. GAP-098 through GAP-101 remain open.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.

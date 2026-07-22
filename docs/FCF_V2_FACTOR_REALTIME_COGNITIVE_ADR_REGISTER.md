@@ -1314,6 +1314,29 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-071 Bind Stress Trigger Results To Reviewable Scenario Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Register one immutable review record for every exact typed FCP-0070
+trigger result and bind it to the exact FCP-0056 scenario identity, version,
+severity, horizon, definition hash, evaluation hash, measure, parameter, and
+trigger state. Preserve mandatory Operator review and add no calculation or
+action recommendation.
+
+Consequence: A later presentation or review workflow can inspect complete
+stress findings without detaching a result from its scenario definition or
+mistaking a trigger for account or execution authority.
+
+Rejected shortcut: copy unbound result values, omit non-triggered records,
+reclassify severity, infer an action from a boolean, calculate account state,
+or treat a reviewed synthetic Paper result as evidence that a Gap is closed.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

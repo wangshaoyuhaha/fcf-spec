@@ -305,6 +305,9 @@ not-implemented capability groups:
 - BTC perpetual Paper deterministic stress-trigger evaluations with exact
   typed FCP-0069-bound lineage, Decimal formula execution, registered predicate
   boundaries, reviewed result evidence, and no account or execution authority
+- BTC perpetual Paper stress trigger-result review registries with exact typed
+  FCP-0070 and FCP-0056 lineage, scenario identity, version, severity, horizon,
+  and trigger evidence, and no calculation, recommendation, or action authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

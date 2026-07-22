@@ -22472,3 +22472,23 @@ open. No product phase, P48, account, execution, tag, release, or deployment
 path was created.
 
 <!-- FCP 0070 BTC PERPETUAL PAPER STRESS DETERMINISTIC TRIGGER EVALUATION APP 1 FINAL END -->
+
+<!-- FCP 0071 BTC PERPETUAL PAPER STRESS TRIGGER RESULT REVIEW REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0071 BTC Perpetual Paper Stress Trigger Result Review Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0071-btc-perpetual-paper-stress-trigger-result-review-registry-app-1`
+
+Approved scope binds one exact typed FCP-0070 evaluation and its exact typed
+FCP-0056 scenario registry into eight immutable result-and-scenario review
+records with scenario identity, version, severity, horizon, definition hash,
+result hash, measure, parameter, trigger state, and mandatory Operator review.
+
+The phase cannot add calculations or action recommendations, close GAP-098
+through GAP-101, start a product phase, create P48, or authorize broker,
+exchange, credential, wallet, account, margin, leverage, liquidation, balance,
+position, PnL, insurance, ADL, order, execution, tag, release, or deployment.
+
+<!-- FCP 0071 BTC PERPETUAL PAPER STRESS TRIGGER RESULT REVIEW REGISTRY APP 1 APPROVAL END -->

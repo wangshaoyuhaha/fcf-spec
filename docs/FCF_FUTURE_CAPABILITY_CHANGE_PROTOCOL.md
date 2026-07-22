@@ -545,3 +545,14 @@ FCP-0070 cannot calculate or mutate margin, leverage, liquidation price,
 balance, position, PnL, insurance fund, ADL, order, or execution state. It does
 not close GAP-098 through GAP-101 or authorize product work, P48, release, or
 deployment.
+
+Proposal `FCF-FCP-0071` creates a deterministic local-only BTC perpetual Paper
+stress trigger-result review registry bound to one exact typed FCP-0070
+evaluation and its exact typed FCP-0056 scenario registry. It binds result
+evidence to scenario identity, version, severity, horizon, and evaluation
+lineage for mandatory Operator review without adding calculations.
+
+FCP-0071 cannot recommend or perform account, margin, leverage, liquidation,
+balance, position, PnL, insurance, ADL, order, or execution actions. It does
+not close GAP-098 through GAP-101 or authorize product work, P48, release, or
+deployment.
