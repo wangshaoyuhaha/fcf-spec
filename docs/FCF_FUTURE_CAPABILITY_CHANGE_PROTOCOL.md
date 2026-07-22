@@ -359,3 +359,14 @@ preference, acquire data, invoke an SDK, retrieve network data, accept
 credentials, select a provider, activate realtime, authorize an exchange,
 wallet, account, order, or execution path, or close GAP-096, GAP-097, GAP-099,
 or GAP-102.
+
+Proposal `FCF-FCP-0054` creates a deterministic local-only evidence registry
+for BTC perpetual mark, index, bankruptcy, liquidation, partial-liquidation,
+insurance-fund, ADL-ranking, and cascade-state rules bound to exact FCP-0046
+contract lineage and half-open effective intervals.
+
+FCP-0054 cannot calculate a price, margin, liquidation, funding, fee, balance,
+position, PnL, ADL action, order, or execution, select a source or venue,
+acquire data, invoke an SDK, retrieve network data, accept credentials,
+activate realtime, authorize an exchange, wallet, account, order, or execution
+path, or close GAP-098, GAP-100, GAP-101, or GAP-102.

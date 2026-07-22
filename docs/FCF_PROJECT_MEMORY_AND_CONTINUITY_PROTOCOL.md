@@ -252,6 +252,9 @@ not-implemented capability groups:
 - BTC perpetual point-in-time rule-bundle coherence gates with exact FCP-0046
   through FCP-0049 registry hashes, shared contract-entry lineage, immutable
   rule snapshots, and no account-dependent calculation or execution authority
+- BTC perpetual mark-index-liquidation mechanics registries with exact
+  FCP-0046 lineage, partial-liquidation tiers, insurance-fund, ADL-ranking,
+  cascade-state evidence, and no price, liquidation, or execution calculation
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

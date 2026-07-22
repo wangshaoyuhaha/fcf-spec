@@ -944,6 +944,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-054 Preserve BTC Liquidation Mechanics As Versioned Evidence Before Calculation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Register mark, index, bankruptcy, liquidation, partial-liquidation,
+liquidation-fee, insurance-fund, ADL-ranking, and cascade-state mechanics as
+exact point-in-time evidence bound to one FCP-0046 contract entry. Preserve
+method and component lineage without implementing the calculations.
+
+Consequence: Future deterministic Paper stress and risk engines can consume
+one auditable venue-rule version without inventing a formula, mixing contract
+versions, or granting the registry account or execution authority.
+
+Rejected shortcut: derive liquidation rules from observed prices, assume one
+venue formula, omit partial-liquidation tiers, treat insurance fund or ADL as
+an execution instruction, or infer missing effective-time evidence.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

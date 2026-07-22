@@ -1963,3 +1963,20 @@ lookup context and mandatory Operator-review state. It cannot calculate
 margin, leverage, liquidation, funding payments, fees, rebates, balances,
 positions, PnL, orders, execution, or source preference and does not close
 GAP-096, GAP-097, GAP-099, or GAP-102.
+
+## 87. BTC Perpetual Mark Index Liquidation Mechanics Evidence Registry
+
+The registry consumes one Operator-registered local JSON rule artifact and one
+exact FCP-0046 contract registry. Every version binds one contract-entry hash
+and preserves closed mark-price, index-price, bankruptcy-price, and
+liquidation-price method identifiers plus an exact index-component-set hash.
+
+Partial-liquidation tiers begin at zero, remain contiguous and nonoverlapping,
+and preserve exact reduction and liquidation-fee rates. Insurance-fund policy,
+ADL-ranking method, and cascade-state policy remain immutable identifiers.
+
+Each version owns one half-open UTC effective interval. Point-in-time lookup
+returns exactly one registered rule or fails closed. The registry supplies
+evidence only; it cannot calculate prices, margin, liquidation, balances,
+positions, PnL, ADL actions, orders, execution, or source preference and does
+not close GAP-098, GAP-100, GAP-101, or GAP-102.

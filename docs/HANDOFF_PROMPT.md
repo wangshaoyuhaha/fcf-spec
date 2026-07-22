@@ -13412,3 +13412,32 @@ position, order, execution, tag, release, or deployment is authorized. No
 successor phase is selected.
 
 <!-- FCP 0053 BTC PERPETUAL RULE BUNDLE POINT IN TIME COHERENCE GATE APP 1 FINAL END -->
+
+
+<!-- FCP 0054 BTC PERPETUAL MARK INDEX LIQUIDATION MECHANICS EVIDENCE REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0054 BTC Perpetual Mark Index Liquidation Mechanics Evidence Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0054-btc-perpetual-mark-index-liquidation-mechanics-evidence-registry-app-1`
+
+Approved order:
+
+- D1 bind exact FCP-0046 registry and contract-entry lineage
+- D2 preserve closed price-method and component-set evidence
+- D3 preserve contiguous partial-liquidation tiers and fee rates
+- D4 preserve insurance-fund, ADL-ranking, and cascade-state policy identities
+- D5 require half-open effective-time versions and fail-closed lookup
+- D6 run guards, validation, merge, and final authority synchronization
+
+The registry cannot calculate prices, margin, liquidation, funding, fees,
+balances, positions, PnL, ADL, orders, execution, or source preference. It
+cannot close GAP-098, GAP-100, GAP-101, or GAP-102. No acquisition, SDK,
+network, credential, provider selection, raw repository retention, realtime,
+product, P48, exchange, wallet, account, balance, position, order, execution,
+tag, release, or deployment is authorized.
+
+<!-- FCP 0054 BTC PERPETUAL MARK INDEX LIQUIDATION MECHANICS EVIDENCE REGISTRY APP 1 APPROVAL END -->
