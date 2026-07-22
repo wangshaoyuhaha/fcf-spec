@@ -944,6 +944,25 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-061 Use Kind-Specific Domains For Stress Scenario Parameters
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Validate exact typed FCP-0056 scenario parameters against a closed
+kind-specific domain schema bound to exact FCP-0057 coverage. Funding shocks
+remain signed and finite; ratios are bounded; and counts or seconds are
+positive integers where a nonzero stress duration or sequence is required.
+
+Consequence: Later deterministic Paper evaluation cannot consume impossible
+negative durations, fractional loss counts, or out-of-range stress ratios.
+
+Rejected shortcut: validate units only, clamp values, accept binary floats, or
+treat parameter validation as direction selection or stress evaluation.
+
+Not authorized: acquisition, SDK, network, credential, realtime, product, P48,
+exchange, wallet, account, balance, position, order, execution, tag, release,
+or deployment.
+
 ## FCF-V2-ADR-060 Require Coherent Stress Evaluation Readiness Evidence
 
 Status: ACCEPTED_ARCHITECTURE

@@ -417,6 +417,14 @@ source preference, acquire data, invoke an SDK, retrieve network data, accept
 credentials, activate realtime, authorize an exchange, wallet, account, order,
 or execution path, or close GAP-098, GAP-099, GAP-100, or GAP-101.
 
+Proposal `FCF-FCP-0061` hardens exact typed FCP-0056 stress-scenario parameters
+against closed kind-specific numeric domains bound to exact FCP-0057 coverage.
+It preserves signed funding shocks and validates ratios, counts, and seconds.
+
+FCP-0061 cannot define direction, evaluate stress, calculate prices, margin,
+leverage, liquidation, balances, positions, PnL, ADL, orders, execution, or
+close GAP-098, GAP-099, GAP-100, or GAP-101.
+
 Proposal `FCF-FCP-0058` creates a deterministic local-only BTC perpetual Paper
 stress-evaluation input evidence registry bound to one exact FCP-0057 coverage
 snapshot. It requires one registered observation slot for every closed scenario

@@ -21843,3 +21843,21 @@ product, P48, exchange, wallet, account, balance, position, order, execution,
 tag, release, or deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0060 BTC PERPETUAL PAPER STRESS EVALUATION READINESS COHERENCE GATE APP 1 FINAL END -->
+
+
+<!-- FCP 0061 BTC PERPETUAL PAPER STRESS SCENARIO PARAMETER DOMAIN SEMANTICS HARDENING APP 1 APPROVAL START -->
+
+## FCP 0061 BTC Perpetual Paper Stress Scenario Parameter Domain Semantics Hardening App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0061-btc-perpetual-paper-stress-scenario-parameter-domain-semantics-hardening-app-1`
+
+Approved order: bind exact FCP-0056 and FCP-0057 evidence; register closed
+kind-specific domains; reject invalid values and lineage; preserve immutable
+validation-only evidence; run validation, merge, and final synchronization.
+
+The hardening cannot define direction, evaluate stress, calculate account or
+execution state, or close GAP-098 through GAP-101.
+
+<!-- FCP 0061 BTC PERPETUAL PAPER STRESS SCENARIO PARAMETER DOMAIN SEMANTICS HARDENING APP 1 APPROVAL END -->

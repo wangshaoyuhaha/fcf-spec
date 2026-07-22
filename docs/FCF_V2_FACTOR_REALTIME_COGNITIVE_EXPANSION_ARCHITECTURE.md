@@ -2081,3 +2081,13 @@ The gate records readiness only. It cannot evaluate stress, calculate prices,
 margin, leverage, liquidation, balances, positions, PnL, ADL actions, orders,
 execution, or source preference and does not close GAP-098, GAP-099, GAP-100,
 or GAP-101.
+
+## 94. BTC Perpetual Paper Stress Scenario Parameter Domain Hardening
+
+The layer consumes exact typed FCP-0056 scenario definitions and exact FCP-0057
+coverage. It validates funding shocks as signed finite decimals, rate parameters
+as bounded ratios, and loss, resync, or outage parameters as positive integers.
+
+Validation is fail-closed on untyped evidence, schema or hash substitutions,
+negative durations, fractional counts, out-of-range ratios, or authority
+escalation. It does not define direction or evaluate any stress result.
