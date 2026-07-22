@@ -325,6 +325,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0077_a_share_trusted_data_supply_chain_coverage_evidence_matrix_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0078_a_share_publication_availability_clock_contract_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],

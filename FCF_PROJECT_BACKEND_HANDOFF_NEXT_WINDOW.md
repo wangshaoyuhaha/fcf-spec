@@ -15999,3 +15999,25 @@ factors, create labels, start a product phase, create P48, or authorize broker,
 exchange, account, order, execution, tag, release, or deployment paths.
 
 <!-- FCP 0078 A SHARE PUBLICATION AVAILABILITY CLOCK CONTRACT APP 1 APPROVAL END -->
+
+
+<!-- FCP 0078 A SHARE PUBLICATION AVAILABILITY CLOCK CONTRACT APP 1 LOCK START -->
+
+## FCP 0078 A-Share Publication Availability Clock Contract App 1 Delivery Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The immutable local contract preserves exact publication, legal availability,
+retrieval, ingest, first-tradable, revision, and predecessor lineage. Date-only
+and unknown publication evidence remain explicitly blocked from exact
+point-in-time use.
+
+Verified implementation adds PUBLICATION_CLOCK foundation evidence to an
+augmented FCP-0077 matrix. GAP-088 remains open, authority is not established,
+candidate data is not promoted, and Operator review remains mandatory.
+
+No inferred timestamps, provider selection, SDK, network, credential, realtime,
+calculation, label, product phase, P48, broker, exchange, account, order,
+execution, tag, release, or deployment path is created.
+
+<!-- FCP 0078 A SHARE PUBLICATION AVAILABILITY CLOCK CONTRACT APP 1 LOCK END -->

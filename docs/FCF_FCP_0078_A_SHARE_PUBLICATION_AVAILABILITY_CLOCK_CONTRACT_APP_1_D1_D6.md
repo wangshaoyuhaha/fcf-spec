@@ -1,6 +1,6 @@
 # FCF FCP 0078 A-Share Publication Availability Clock Contract App 1 D1-D6
 
-Status: APPROVED_NOT_STARTED
+Status: VALIDATED_PENDING_MERGE
 
 ## D1 Closed Clock Vocabulary
 
@@ -32,3 +32,6 @@ evidence for GAP-088 while preserving the Gap and every authority requirement.
 Run isolated, affected-governance, all-FCP, full-pytest, all-checks,
 generated-output, exact-file, ASCII, and diff validation before merge and final
 synchronization.
+
+Current augmented coverage matrix hash:
+`345ab6bc9d01293226ade1c4b50b647ed85cd133f295d9620a983339379e3397`
