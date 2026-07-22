@@ -275,7 +275,8 @@ not-implemented capability groups:
   lineage, immutable readiness evidence, and no evaluation authority
 - BTC perpetual Paper stress-scenario parameter domain hardening with exact
   FCP-0056 and FCP-0057 lineage, signed funding shocks, bounded ratios,
-  positive integral counts or seconds, and no evaluation authority
+  positive integral counts or seconds, immutable validation-only evidence,
+  and no evaluation authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

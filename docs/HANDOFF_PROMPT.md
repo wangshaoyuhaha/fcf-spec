@@ -14084,3 +14084,28 @@ The hardening cannot define direction, evaluate stress, calculate account or
 execution state, or close GAP-098 through GAP-101.
 
 <!-- FCP 0061 BTC PERPETUAL PAPER STRESS SCENARIO PARAMETER DOMAIN SEMANTICS HARDENING APP 1 APPROVAL END -->
+
+
+<!-- FCP 0061 BTC PERPETUAL PAPER STRESS SCENARIO PARAMETER DOMAIN SEMANTICS HARDENING APP 1 LOCK START -->
+
+## FCP 0061 BTC Perpetual Paper Stress Scenario Parameter Domain Semantics Hardening App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact typed FCP-0056 scenario-registry lineage
+- exact typed FCP-0057 coverage-snapshot lineage
+- closed kind-specific parameter domains
+- bounded ratio and positive integral count or seconds validation
+- signed finite funding-shock preservation
+- immutable validation-only snapshot with mandatory Operator review
+
+The hardening cannot define scenario direction, evaluate stress, or calculate
+prices, margin, leverage, liquidation, balances, positions, PnL, insurance
+fund, ADL, orders, or execution. GAP-098, GAP-099, GAP-100, and GAP-101 remain
+open. No acquisition, SDK, network, credential, provider selection, raw
+repository retention, realtime, product, P48, exchange, wallet, account,
+balance, position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0061 BTC PERPETUAL PAPER STRESS SCENARIO PARAMETER DOMAIN SEMANTICS HARDENING APP 1 LOCK END -->
