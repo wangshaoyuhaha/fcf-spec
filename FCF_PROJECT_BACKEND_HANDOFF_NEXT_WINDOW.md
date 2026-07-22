@@ -16621,3 +16621,33 @@ product work; create P48; or enable wallets, accounts, orders, execution, tags,
 releases, or deployment.
 
 <!-- FCP 0086 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW PACKET APP 1 APPROVAL END -->
+
+
+<!-- FCP 0086 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW PACKET APP 1 LOCK START -->
+
+## FCP 0086 BTC Registered Local Export Operator Review Packet App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar implements one immutable path-free mandatory Operator review
+packet over an exact typed FCP-0085 validation result. Six closed items cover
+source lineage, profile lineage, observation coverage, sequence bounds, clock
+bounds, and local-only authority.
+
+Contract SHA-256:
+`c49b67a2cebc349c55a3851bde6517e80173883ec13428b0777427d116a8c5b4`.
+Builder SHA-256:
+`cb7524dae8e4b45c5befa8d3d2a5f31fe7ec08385dc4a64246b1cd00f4f44f62`.
+Reference packet hash:
+`6ca693557d360cebeef516c9ecbc17f11ce003d6ba874696e82eee106b97e88d`.
+Reference output SHA-256:
+`3ec201a878ccd2091eb678eceee2d866b111e39ea1038ed3582aab76940ab7a7`.
+
+The packet remains undecided and GAP-095 remains open. No source or canonical
+rows, values, paths, SDK, network, credentials, provider or venue selection,
+realtime or replay activation, evidence promotion, disposition, signal,
+strategy, product, P48, wallet, account, margin, leverage, position, PnL,
+liquidation, order, execution, tag, release, or deployment authority is
+created.
+
+<!-- FCP 0086 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW PACKET APP 1 LOCK END -->
