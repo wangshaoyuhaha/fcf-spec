@@ -15142,3 +15142,22 @@ The registry cannot define direction, evaluate stress, calculate account or
 execution state, or close GAP-098 through GAP-101.
 
 <!-- FCP 0064 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND EVIDENCE REGISTRY APP 1 APPROVAL END -->
+
+<!-- FCP 0064 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND EVIDENCE REGISTRY APP 1 LOCK START -->
+
+## FCP 0064 BTC Perpetual Paper Stress Evaluation Operand Evidence Registry App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar delivery binds one exact typed FCP-0063 operand-schema snapshot to
+one exact registered local observation per required operand role. It preserves
+metric, unit, venue, contract, point-in-time source, digest, and rights lineage,
+and requires each paired baseline event to precede its current event.
+
+This delivery is registration-only. It cannot define stress direction,
+evaluate stress, calculate account or execution state, close GAP-098 through
+GAP-101, start a product phase, create P48, or authorize any broker, exchange,
+credential, wallet, account, balance, position, order, execution, tag, release,
+or deployment path.
+
+<!-- FCP 0064 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND EVIDENCE REGISTRY APP 1 LOCK END -->
