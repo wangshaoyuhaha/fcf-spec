@@ -1,6 +1,6 @@
 # FCF FCP 0062 BTC Perpetual Paper Stress Evaluation Readiness Parameter Domain Coherence Hardening App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Typed Inputs
 
@@ -39,3 +39,16 @@ Validation evidence before merge:
 - full pytest: 6454 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC stress-readiness and governance suite: 597 passed
+- full pytest: 6454 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `af85d11932513599b556a531c5c76f8812299fb9`
+- sidecar delivery: `33fa4b1b5554da7441f1873eb1a8a873380a7223`
+- main delivery merge: `10088c85835d706e4dc2a765863834523030bbbf`
