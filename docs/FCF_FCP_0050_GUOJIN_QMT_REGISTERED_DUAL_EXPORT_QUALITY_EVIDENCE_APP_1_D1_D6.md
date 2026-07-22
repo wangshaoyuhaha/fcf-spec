@@ -1,6 +1,6 @@
 # FCF FCP 0050 Guojin QMT Registered Dual Export Quality Evidence App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Immutable Dual Artifact Registration
 
@@ -57,6 +57,15 @@ Validation evidence before merge:
 - full pytest: 6239 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated runtime outputs: restored; no tracked generated changes remained
+
+Merge and closeout evidence:
+
+- governance approval: `222017630435802ec32dbf02d2dd7a5ea2ed5a31`
+- sidecar delivery: `6de945a8530e8cc560d0e6feff4a64ab4ba7c85d`
+- main delivery merge: `d60c1487f5c59af0977ed15131331ece58e323af`
+- post-merge affected suite: 176 passed
+- post-merge full pytest: 6239 passed
+- post-merge `scripts/run_all_checks.py`: ALL CHECKS PASSED
 
 GAP-104 through GAP-109 remain `RESEARCH_REQUIRED`. No acquisition, SDK,
 network, credential, provider selection, raw repository retention, realtime,
