@@ -21404,3 +21404,30 @@ account, balance, position, order, execution, tag, release, or deployment is
 authorized.
 
 <!-- FCP 0056 BTC PERPETUAL PAPER STRESS SCENARIO DEFINITION REGISTRY APP 1 APPROVAL END -->
+
+
+<!-- FCP 0056 BTC PERPETUAL PAPER STRESS SCENARIO DEFINITION REGISTRY APP 1 LOCK START -->
+
+## FCP 0056 BTC Perpetual Paper Stress Scenario Definition Registry App 1 Validation Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+Implemented scope:
+
+- exact typed FCP-0055 complete rule-bundle lineage
+- immutable registered local scenario-definition artifact evidence
+- closed scenario-kind and severity vocabularies
+- exact decimal parameters and bounded horizon evidence
+- ordered and unique definition identities
+- deterministic immutable definition and registry hashes
+- mandatory Operator review with definition-only authority
+
+The registry cannot evaluate stress or calculate prices, margin, leverage,
+liquidation, funding, fees, balances, positions, PnL, insurance fund, ADL,
+orders, execution, or source preference. GAP-098, GAP-099, GAP-100, and
+GAP-101 remain open. No acquisition, SDK, network, credential, provider
+selection, raw repository retention, realtime, product, P48, exchange, wallet,
+account, balance, position, order, execution, tag, release, or deployment is
+authorized.
+
+<!-- FCP 0056 BTC PERPETUAL PAPER STRESS SCENARIO DEFINITION REGISTRY APP 1 LOCK END -->
