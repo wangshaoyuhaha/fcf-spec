@@ -1927,3 +1927,21 @@ The result is either `COMPLETE_WITH_REGISTERED_EVIDENCE` or a fail-closed
 blocked state with exact requirement findings. It cannot select a provider,
 invent sessions, acquire data, invoke an SDK, or close GAP-105, GAP-107, or
 GAP-108.
+
+## 85. Guojin QMT Coverage Supplement Lineage Integrity Hardening
+
+The hardening layer consumes one exact FCP-0051 gate identity, one typed
+FCP-0037 expected trading-date profile, and one typed FCP-0036 multi-batch
+reconciliation result. Typed pagination, point-in-time, and row-cap-resolution
+records preserve their own immutable evidence lineage.
+
+Every input must agree on the exact A-share instrument and requested range.
+The FCP-0036 expected-date-set hash must equal the FCP-0037 date-set hash, the
+batch result must contain at least two ordered batches, and row-cap resolution
+must bind the exact pagination and batch manifests. Cross-instrument,
+cross-range, cross-calendar, and cross-manifest combinations fail closed.
+
+Only after these checks may the layer derive FCP-0051 supplement hashes and
+missing, unexpected, and conflict counts. It cannot invent evidence, acquire
+data, change the current blocked gate, select a provider, or close GAP-105,
+GAP-107, or GAP-108.

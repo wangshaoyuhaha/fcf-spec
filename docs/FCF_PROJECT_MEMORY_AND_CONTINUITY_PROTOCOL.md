@@ -246,6 +246,9 @@ not-implemented capability groups:
 - QMT historical coverage completeness gates with exact FCP-0050 lineage,
   requested-versus-observed boundary relations, closed positive-proof
   requirements, explicit supplement needs, and no inferred trading sessions
+- QMT coverage-supplement lineage hardening with typed FCP-0037 and FCP-0036
+  evidence, exact instrument, interval, calendar, pagination, point-in-time,
+  and row-cap bindings, and no arbitrary digest proof
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

@@ -15436,3 +15436,31 @@ position, order, execution, tag, release, or deployment is authorized. No
 successor phase is selected.
 
 <!-- FCP 0051 GUOJIN QMT HISTORICAL COVERAGE COMPLETENESS GATE APP 1 FINAL END -->
+
+
+<!-- FCP 0052 GUOJIN QMT COVERAGE SUPPLEMENT LINEAGE INTEGRITY HARDENING APP 1 APPROVAL START -->
+
+## FCP 0052 Guojin QMT Coverage Supplement Lineage Integrity Hardening App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0052-guojin-qmt-coverage-supplement-lineage-integrity-hardening-app-1`
+
+Approved order:
+
+- D1 bind exact FCP-0051 gate identity and requested range
+- D2 require typed FCP-0037 calendar and FCP-0036 multi-batch lineage
+- D3 register typed pagination, point-in-time, and row-cap-resolution evidence
+- D4 reject cross-instrument, cross-range, cross-calendar, and cross-manifest input
+- D5 derive FCP-0051 supplement hashes and counts from validated typed evidence
+- D6 run guards, validation, merge, and final authority synchronization
+
+The hardening cannot manufacture missing evidence, change the actual blocked
+FCP-0051 result, select a provider, or close GAP-105, GAP-107, or GAP-108. No
+acquisition, SDK, network, credential, raw repository retention, realtime,
+product, P48, broker, account, balance, position, order, execution, tag,
+release, or deployment is authorized.
+
+<!-- FCP 0052 GUOJIN QMT COVERAGE SUPPLEMENT LINEAGE INTEGRITY HARDENING APP 1 APPROVAL END -->

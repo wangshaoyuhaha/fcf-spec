@@ -898,6 +898,28 @@ or deployment.
 
 ## Register Rules
 
+## FCF-V2-ADR-052 Derive QMT Coverage Supplements Only from Typed Coherent Lineage
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind FCP-0051 coverage supplements to typed FCP-0037 calendar and
+FCP-0036 multi-batch evidence plus typed pagination, point-in-time, and row-cap
+resolution records. Exact instrument, requested range, expected date-set hash,
+and upstream manifest lineage must agree before supplement hashes are derived.
+
+Consequence: A digest cannot be inserted as apparent proof for another
+instrument, interval, calendar, or batch result. Missing real evidence remains
+missing and the existing coverage gate remains fail closed.
+
+Rejected shortcut: accept arbitrary hashes or counts, mix instruments or
+ranges, treat one batch as multi-batch evidence, infer pagination, or derive a
+row-cap resolution without exact pagination and batch lineage.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, broker,
+account, balance, position, order, execution, product phase, P48, tag, release,
+or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

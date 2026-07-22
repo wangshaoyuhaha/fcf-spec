@@ -335,3 +335,15 @@ SDK, retrieve network data, accept credentials, select a provider, retain raw
 provider bytes, activate realtime, authorize a broker, product, account,
 balance, position, order, or execution path, or close GAP-105, GAP-107, or
 GAP-108.
+
+Proposal `FCF-FCP-0052` creates deterministic local-only lineage integrity
+hardening for FCP-0051 supplements. It binds typed FCP-0037 calendar and
+FCP-0036 multi-batch evidence with typed pagination, point-in-time, and
+row-cap-resolution records before deriving supplement hashes and counts.
+
+FCP-0052 cannot accept arbitrary digest proof, mix instruments, ranges,
+calendars, or batch manifests, manufacture missing evidence, change the actual
+blocked gate, acquire data, invoke an SDK, retrieve network data, accept
+credentials, select a provider, retain raw provider bytes, activate realtime,
+authorize a broker, product, account, balance, position, order, or execution
+path, or close GAP-105, GAP-107, or GAP-108.
