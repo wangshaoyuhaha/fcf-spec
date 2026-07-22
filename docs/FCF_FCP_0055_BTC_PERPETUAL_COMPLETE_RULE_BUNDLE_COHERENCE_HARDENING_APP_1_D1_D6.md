@@ -1,6 +1,6 @@
 # FCF FCP 0055 BTC Perpetual Complete Rule Bundle Coherence Hardening App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Typed Upstream Evidence
 
@@ -41,6 +41,19 @@ Validation evidence before merge:
 - full pytest: 6308 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC complete-rule-bundle and governance suite: 543 passed
+- full pytest: 6308 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `2a1a6fe4bb0d933241cca8941588760bc7bd46e5`
+- sidecar delivery: `89adf526b29bb57522a2aac3e046247f52937b55`
+- main delivery merge: `e5923f95cbe21783ffcba010167bd7dc53969ca6`
 
 Synthetic fixtures do not close GAP-098, GAP-100, GAP-101, or GAP-102 and
 grant no acquisition, SDK, network, credential, realtime, exchange, wallet,
