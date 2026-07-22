@@ -1,17 +1,13 @@
-# FCF Current State FCP 0071 BTC Perpetual Paper Stress Trigger Result Review Registry App 1 Delivered
+# FCF Current State FCP 0071 BTC Perpetual Paper Stress Trigger Result Review Registry App 1 Final
 
 Status: COMPLETED_MERGED_VALIDATED
 
-Implemented scope:
+Completed scope:
 
 - exact typed FCP-0070 evaluation and FCP-0056 scenario lineage
 - one immutable result-and-scenario review record per stress kind
 - exact scenario, definition, result, measure, parameter, and trigger evidence
 - mandatory Operator review with no recalculation or recommendation authority
-
-The registry cannot recommend or perform account, margin, leverage,
-liquidation, balance, position, PnL, insurance, ADL, order, or execution
-actions. GAP-098 through GAP-101 remain open.
 
 Validation evidence:
 
@@ -27,3 +23,7 @@ Evidence commits:
 - governance approval: `0824d42339c14500cc2d21090c7137116a7a0292`
 - sidecar delivery: `14ede77a657dafeaea59bbcdcdd7c5c6330b131e`
 - main delivery merge: `60b7d1c1d448715655c525236343ff306f718dd2`
+
+GAP-098 through GAP-101 remain open. No product phase, P48, broker,
+exchange, credential, wallet, account, balance, position, order, execution,
+tag, release, or deployment path was created.

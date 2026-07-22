@@ -22509,3 +22509,24 @@ leverage, liquidation, balance, position, PnL, insurance, ADL, order, or
 execution actions, close GAP-098 through GAP-101, create P48, release, or deploy.
 
 <!-- FCP 0071 BTC PERPETUAL PAPER STRESS TRIGGER RESULT REVIEW REGISTRY APP 1 LOCK END -->
+
+<!-- FCP 0071 BTC PERPETUAL PAPER STRESS TRIGGER RESULT REVIEW REGISTRY APP 1 FINAL START -->
+
+## FCP 0071 BTC Perpetual Paper Stress Trigger Result Review Registry App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact FCP-0070 trigger results and FCP-0056 scenario definitions are
+merged as immutable review records with mandatory Operator review. Isolated
+FCP-0071 tests passed 21, the affected BTC and governance suite passed 519
+before merge, all FCP tests passed 1325, full pytest passed 6662 before and
+after merge, and `scripts/run_all_checks.py` reported ALL CHECKS PASSED before
+and after merge.
+
+Approval `0824d42339c14500cc2d21090c7137116a7a0292`; delivery
+`14ede77a657dafeaea59bbcdcdd7c5c6330b131e`; merge
+`60b7d1c1d448715655c525236343ff306f718dd2`. GAP-098 through GAP-101 remain
+open. No product phase, P48, account, execution, tag, release, or deployment
+path was created.
+
+<!-- FCP 0071 BTC PERPETUAL PAPER STRESS TRIGGER RESULT REVIEW REGISTRY APP 1 FINAL END -->
