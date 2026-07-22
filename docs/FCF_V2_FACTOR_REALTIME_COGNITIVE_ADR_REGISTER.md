@@ -1032,6 +1032,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-058 Require Registered Stress Inputs Before Evaluation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Register one exact typed evaluation-input observation for every
+closed FCP-0057 BTC perpetual Paper stress kind before any deterministic stress
+calculation is introduced. Bind metric, unit, event time, availability time,
+source artifact, digest, rights, and coverage-snapshot lineage.
+
+Consequence: A later deterministic Paper evaluator can consume complete,
+point-in-time input evidence without inventing missing prices, depth, funding,
+heartbeat, resync, loss, collateral-reference, or liquidation-distance values.
+
+Rejected shortcut: accept arbitrary mappings or floats, omit availability or
+rights lineage, reuse one observation for multiple kinds, infer missing venue
+evidence, or treat input registration as a calculated stress result.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

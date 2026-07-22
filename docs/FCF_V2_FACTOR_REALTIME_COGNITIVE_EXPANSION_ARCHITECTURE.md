@@ -2032,3 +2032,19 @@ The gate validates definitions only. It cannot evaluate stress, calculate
 prices, margin, leverage, liquidation, funding, fees, balances, positions,
 PnL, insurance-fund changes, ADL actions, orders, execution, or source
 preference and does not close GAP-098, GAP-099, GAP-100, or GAP-101.
+
+## 91. BTC Perpetual Paper Stress Evaluation Input Evidence Registry
+
+The registry consumes one exact typed FCP-0057 stress-coverage snapshot. It
+requires one evaluation-input observation for every closed scenario kind and
+binds each observation to an exact metric, unit, event time, availability time,
+registered source artifact, content digest, and rights reference.
+
+Input registration is fail-closed. Missing or duplicate kinds, unknown metrics,
+unit mismatches, future availability, unsafe source lineage, cross-coverage
+lineage, untyped mappings, and authority escalation are rejected.
+
+The registry records inputs only. It cannot evaluate stress, calculate prices,
+margin, leverage, liquidation, funding, fees, balances, positions, PnL,
+insurance-fund changes, ADL actions, orders, execution, or source preference and
+does not close GAP-098, GAP-099, GAP-100, or GAP-101.

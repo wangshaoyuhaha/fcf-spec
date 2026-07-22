@@ -15991,3 +15991,33 @@ P48, exchange, wallet, account, balance, position, order, execution, tag,
 release, or deployment is authorized. No successor phase is selected.
 
 <!-- FCP 0057 BTC PERPETUAL PAPER STRESS SCENARIO COVERAGE PARAMETER SCHEMA GATE APP 1 FINAL END -->
+
+
+<!-- FCP 0058 BTC PERPETUAL PAPER STRESS EVALUATION INPUT EVIDENCE REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0058 BTC Perpetual Paper Stress Evaluation Input Evidence Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0058-btc-perpetual-paper-stress-evaluation-input-evidence-registry-app-1`
+
+Approved order:
+
+- D1 bind one exact typed FCP-0057 stress-coverage snapshot
+- D2 require one typed observation slot for every closed stress scenario kind
+- D3 require exact metric identifiers and units per scenario kind
+- D4 preserve point-in-time source, digest, rights, and availability lineage
+- D5 reject missing, duplicate, mismatched, future, or unsafe input evidence
+- D6 run guards, validation, merge, and final authority synchronization
+
+The registry cannot evaluate stress or calculate prices, margin, leverage,
+liquidation, funding, fees, balances, positions, PnL, insurance fund, ADL,
+orders, execution, or source preference. It cannot close GAP-098, GAP-099,
+GAP-100, or GAP-101. No acquisition, SDK, network, credential, provider
+selection, raw repository retention, realtime, product, P48, exchange, wallet,
+account, balance, position, order, execution, tag, release, or deployment is
+authorized.
+
+<!-- FCP 0058 BTC PERPETUAL PAPER STRESS EVALUATION INPUT EVIDENCE REGISTRY APP 1 APPROVAL END -->

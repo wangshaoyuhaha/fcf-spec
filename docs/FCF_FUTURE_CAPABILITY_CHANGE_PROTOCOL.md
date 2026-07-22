@@ -395,6 +395,19 @@ data, accept credentials, activate realtime, authorize an exchange, wallet,
 account, order, or execution path, or close GAP-098, GAP-099, GAP-100, or
 GAP-101.
 
+Proposal `FCF-FCP-0058` creates a deterministic local-only BTC perpetual Paper
+stress-evaluation input evidence registry bound to one exact FCP-0057 coverage
+snapshot. It requires one registered observation slot for every closed scenario
+kind with exact metric, unit, time, availability, source, digest, and rights
+lineage before any later stress calculation.
+
+FCP-0058 cannot evaluate stress, calculate prices, margin, leverage,
+liquidation, funding, fees, balances, positions, PnL, ADL actions, orders,
+execution, or source preference, acquire data, invoke an SDK, retrieve network
+data, accept credentials, activate realtime, authorize an exchange, wallet,
+account, order, or execution path, or close GAP-098, GAP-099, GAP-100, or
+GAP-101.
+
 Proposal `FCF-FCP-0057` creates a deterministic local-only coverage and
 parameter-schema gate over one exact FCP-0056 BTC perpetual Paper stress
 registry. It requires all eight scenario kinds and closed parameter identifiers
