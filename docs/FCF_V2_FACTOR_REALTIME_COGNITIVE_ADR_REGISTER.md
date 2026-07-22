@@ -1663,3 +1663,15 @@ book levels, or funding rates. It cannot assign a disposition, approve or
 reject evidence, select a venue or provider, activate realtime or replay,
 promote evidence, calculate signals or trades, close GAP-095, authorize
 product work, or enable execution.
+## FCF-V2-ADR-087 Record Operator Review Without Granting Authority
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: an exact typed FCP-0086 packet may be bound to one immutable
+Operator review receipt. The receipt records reviewer reference, review time,
+packet lineage, and one closed non-authorizing disposition.
+
+Receipt creation confirms only that review occurred. It cannot approve or
+reject evidence, resolve findings, promote data, select or activate a source,
+authorize replay, calculate signals or trades, close GAP-095, authorize
+product work, or enable execution.

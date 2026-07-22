@@ -16650,3 +16650,27 @@ wallet, account, margin, leverage, position, PnL, liquidation, order,
 execution, tag, release, or deployment authority was created.
 
 <!-- FCP 0086 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW PACKET APP 1 FINAL END -->
+
+
+<!-- FCP 0087 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW RECEIPT APP 1 APPROVAL START -->
+
+## FCP 0087 BTC Registered Local Export Operator Review Receipt App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved sidecar branch:
+`sidecar-fcp-0087-btc-registered-local-export-operator-review-receipt-app-1`
+
+Approved scope adds one immutable non-authorizing Operator review receipt over
+an exact typed FCP-0086 packet. The receipt preserves packet and validation
+lineage, ordered review-item hashes, pseudonymous reviewer reference, review
+time, and one closed disposition.
+
+Receipt creation confirms review only. It cannot disclose source or canonical
+rows, values, or paths; approve or reject evidence; resolve findings; invoke
+an SDK or network; use credentials; select a venue or provider; activate
+realtime or replay; promote evidence; calculate a signal or trade; close
+GAP-095; start product work; create P48; or enable wallets, accounts, orders,
+execution, tags, releases, or deployment.
+
+<!-- FCP 0087 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW RECEIPT APP 1 APPROVAL END -->

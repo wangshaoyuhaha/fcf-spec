@@ -378,3 +378,7 @@ FCP-0086 preserves one FCP-0085 result as an immutable path-free mandatory
 Operator review packet. Packet construction remains undecided and grants no
 approval, promotion, provider, venue, realtime, replay, signal, product,
 wallet, account, or execution authority.
+FCP-0087 preserves explicit Operator review of one FCP-0086 packet as an
+immutable non-authorizing receipt. Receipt creation confirms review only and
+grants no approval, rejection, resolution, promotion, provider, venue,
+realtime, replay, signal, product, wallet, account, or execution authority.

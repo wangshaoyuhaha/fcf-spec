@@ -246,6 +246,11 @@ packet over the exact typed FCP-0085 validation result. GAP-095 remains
 RESEARCH_REQUIRED. Packet construction cannot assign a disposition, promote
 evidence, select or activate a source, authorize replay, or close the Gap.
 
+FCP-0087 is approved to add one immutable non-authorizing Operator review
+receipt over an exact typed FCP-0086 packet. GAP-095 remains
+RESEARCH_REQUIRED. A receipt confirms review only and cannot approve, reject,
+resolve, promote, select, activate, replay, or close the Gap.
+
 ## External Research Intake Observation
 
 The 2026-07-22 external indicator package and A-share CSV collection review is

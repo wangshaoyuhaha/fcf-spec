@@ -2589,3 +2589,14 @@ The packet contains no source or canonical rows, paths, prices, quantities,
 book levels, or funding rates. It cannot decide, approve, reject, promote,
 select, activate, replay, recommend, trade, close GAP-095, authorize product
 work, or enable accounts, wallets, orders, or execution.
+## 120. BTC Registered Local Export Operator Review Receipt
+
+FCP-0087 binds one exact typed FCP-0086 packet to an immutable review receipt.
+The receipt records a pseudonymous reviewer reference, review timestamp,
+packet and validation lineage, ordered review-item hashes, and one closed
+non-authorizing disposition.
+
+Receipt creation proves only that explicit Operator review occurred. It
+cannot approve or reject evidence, resolve findings, promote data, select or
+activate a source, authorize replay, recommend, trade, close GAP-095,
+authorize product work, or enable accounts, wallets, orders, or execution.

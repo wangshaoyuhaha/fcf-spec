@@ -723,3 +723,14 @@ assign a disposition, approve or reject evidence, invoke an SDK or network,
 use credentials, select a venue or provider, activate realtime or replay,
 promote evidence, calculate a signal or trade, close GAP-095, start product
 work, create P48, tag, release, or deploy.
+## FCP-0087 BTC Local Export Operator Review Receipt Change Rule
+
+Proposal `FCF-FCP-0087` may add one immutable receipt contract, canonical
+renderer, tests, guard, and closeout evidence over an exact typed FCP-0086
+packet.
+
+The phase cannot duplicate packet construction, disclose values or paths,
+approve or reject evidence, resolve findings, invoke an SDK or network, use
+credentials, select a venue or provider, activate realtime or replay, promote
+evidence, calculate a signal or trade, close GAP-095, start product work,
+create P48, tag, release, or deploy.

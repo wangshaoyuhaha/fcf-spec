@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 87,
+  "next_proposal_sequence": 88,
   "proposals": [
     {
       "adr_refs": [],
@@ -2471,6 +2471,31 @@
       "summary": "Add one immutable path-free Operator review packet over the exact typed FCP-0085 BTC local-export validation result. Preserve aggregate artifact, manifest, profile, observation-kind count, sequence-bound, clock-bound, quality-state, and authority lineage with a closed deterministic checklist. The packet remains undecided and cannot approve, reject, promote, select a venue or provider, invoke an SDK or network, use credentials, activate realtime or replay, calculate a signal, strategy, position, margin, leverage, PnL, liquidation, order, or execution, close GAP-095, start product work, create P48, or authorize exchange, wallet, account, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC registered local export Operator review packet"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-087"
+      ],
+      "architecture_refs": [
+        "FCF-V2-BTC-PERPETUAL-LEVERAGE-PAPER-RESEARCH",
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0087_BTC_REGISTERED_LOCAL_EXPORT_OPERATOR_REVIEW_RECEIPT_APP_1_APPROVED.md",
+        "docs/FCF_FCP_0087_BTC_REGISTERED_LOCAL_EXPORT_OPERATOR_REVIEW_RECEIPT_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-095"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0087",
+      "source": "operator-authorized-continuous-btc-local-export-operator-review-receipt",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T23:13:04Z",
+      "summary": "Add one immutable receipt contract over an exact typed FCP-0086 BTC local-export Operator review packet. Record a safe receipt identity, pseudonymous reviewer reference, review timestamp, exact packet and validation lineage, ordered review-item hashes, and one closed non-authorizing disposition. The receipt cannot approve or reject evidence, resolve findings, promote data, select a venue or provider, invoke an SDK or network, use credentials, activate realtime or replay, calculate a signal, strategy, position, margin, leverage, PnL, liquidation, order, or execution, close GAP-095, start product work, create P48, or authorize exchange, wallet, account, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC registered local export Operator review receipt"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
