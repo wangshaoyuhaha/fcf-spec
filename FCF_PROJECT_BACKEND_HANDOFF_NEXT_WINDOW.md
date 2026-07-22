@@ -16776,3 +16776,31 @@ leverage, position, PnL, liquidation, order, execution, tag, release, or
 deployment authority was created.
 
 <!-- FCP 0087 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW RECEIPT APP 1 FINAL END -->
+
+
+<!-- FCP 0088 A SHARE GUOJIN QMT REGISTERED LOCAL DUAL EXPORT OFFLINE SDK COMPATIBILITY EVIDENCE APP 1 APPROVAL START -->
+
+## FCP 0088 A-Share Guojin QMT Registered Local Dual Export Offline SDK Compatibility Evidence App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved sidecar branch:
+`sidecar-fcp-0088-a-share-guojin-qmt-local-dual-export-offline-sdk-compatibility-evidence-app-1`
+
+Approved scope combines exact registered-local QMT raw and front-adjusted
+export observations with one explicit offline SDK ABI load observation. It may
+preserve only path-free hashes, byte lengths, row and date bounds, coverage
+findings, adjustment-reference lineage, Python ABI, native-module identity,
+and load capability facts.
+
+FCP-0035 remains parsing, normalization, and front-adjustment-reference
+authority. FCP-0084 remains coverage-projection authority. The phase cannot
+connect to MiniQMT, invoke market-data functions, use a network or credentials,
+disclose rows, values, or paths, establish entitlement or rights, infer
+expected sessions, pagination, completeness, adjustment-factor authority,
+trading status, or point-in-time supplements, promote data, select a provider,
+activate realtime, close GAP-104 through GAP-106, start product work, create
+P48, or enable broker, exchange, account, balance, position, order, execution,
+tag, release, or deployment.
+
+<!-- FCP 0088 A SHARE GUOJIN QMT REGISTERED LOCAL DUAL EXPORT OFFLINE SDK COMPATIBILITY EVIDENCE APP 1 APPROVAL END -->

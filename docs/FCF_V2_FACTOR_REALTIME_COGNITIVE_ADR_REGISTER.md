@@ -1675,3 +1675,22 @@ Receipt creation confirms only that review occurred. It cannot approve or
 reject evidence, resolve findings, promote data, select or activate a source,
 authorize replay, calculate signals or trades, close GAP-095, authorize
 product work, or enable execution.
+## FCF-V2-ADR-088 Preserve Dual Export And Offline SDK Compatibility As Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: exact registered-local Guojin QMT raw and front-adjusted exports may
+be combined with one explicit offline xtquant ABI load observation. FCP-0035
+remains parsing, normalization, and front-adjustment-reference authority;
+FCP-0084 remains path-free coverage-projection authority.
+
+The combined record preserves exact hashes, byte lengths, row and date bounds,
+coverage findings, adjustment-reference lineage, Python ABI, native-module
+identity, and offline load capability. No source rows, normalized rows, values,
+or local paths enter Git.
+
+Consequences: FCP-0088 may implement immutable contracts, a deterministic
+builder, canonical renderer, guard, tests, and closeout evidence. It cannot
+connect to MiniQMT, establish entitlement or rights, infer expected sessions or
+pagination, promote data, select a provider, activate realtime, close GAP-104
+through GAP-106, authorize product work, or enable execution.

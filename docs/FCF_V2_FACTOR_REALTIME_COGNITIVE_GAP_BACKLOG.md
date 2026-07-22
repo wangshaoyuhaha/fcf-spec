@@ -344,3 +344,11 @@ decision.
 No entry authorizes P1-P47 mutation, P48, live retrieval, credentials, account,
 balance, position, wallet, broker, exchange, order, execution, automatic
 approval, automatic promotion, tag, release, or deployment.
+
+## FCP-0088 Evidence Boundary
+
+FCP-0088 may preserve registered-local dual-export and offline SDK ABI
+compatibility facts for GAP-104, GAP-105, and GAP-106. These gaps remain
+RESEARCH_REQUIRED until exact entitlement, rights, retention, expected-date,
+pagination, adjustment-factor, trading-status, and point-in-time evidence is
+registered and reviewed.

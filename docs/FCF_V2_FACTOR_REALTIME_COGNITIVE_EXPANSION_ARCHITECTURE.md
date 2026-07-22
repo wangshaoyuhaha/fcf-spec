@@ -2600,3 +2600,18 @@ Receipt creation proves only that explicit Operator review occurred. It
 cannot approve or reject evidence, resolve findings, promote data, select or
 activate a source, authorize replay, recommend, trade, close GAP-095,
 authorize product work, or enable accounts, wallets, orders, or execution.
+## 121. Guojin QMT Dual Export And Offline SDK Compatibility Evidence
+
+FCP-0088 combines one exact FCP-0084 path-free coverage result, one exact
+FCP-0035 raw-versus-front adjustment reference, and one explicit offline SDK
+ABI load observation. The composite requires exact raw hash, profile hash, row
+count, Python ABI, architecture, native-module digest, and load-fact coherence.
+
+Output contains hashes, counts, date bounds, findings, and capability facts
+only. Raw rows, normalized rows, market values, local paths, credentials, and
+account identifiers remain outside Git.
+
+Offline load compatibility is not entitlement, rights, retention, expected
+session coverage, pagination, completeness, adjustment-factor authority,
+trading status, provider selection, realtime activation, data promotion, Gap
+closure, product authority, or execution authority.

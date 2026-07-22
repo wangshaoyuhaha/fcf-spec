@@ -382,3 +382,7 @@ FCP-0087 preserves explicit Operator review of one FCP-0086 packet as an
 immutable non-authorizing receipt. Receipt creation confirms review only and
 grants no approval, rejection, resolution, promotion, provider, venue,
 realtime, replay, signal, product, wallet, account, or execution authority.
+FCP-0088 preserves exact Guojin QMT dual-export and offline xtquant ABI
+compatibility as path-free non-authorizing evidence. It delegates parsing and
+coverage to FCP-0035 and FCP-0084 and grants no entitlement, rights, provider,
+realtime, data-promotion, product, account, or execution authority.

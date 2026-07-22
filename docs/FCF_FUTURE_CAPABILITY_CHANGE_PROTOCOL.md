@@ -734,3 +734,16 @@ approve or reject evidence, resolve findings, invoke an SDK or network, use
 credentials, select a venue or provider, activate realtime or replay, promote
 evidence, calculate a signal or trade, close GAP-095, start product work,
 create P48, tag, release, or deploy.
+## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
+
+Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a
+deterministic builder and renderer, tests, guard, and closeout evidence over
+exact typed FCP-0035 and FCP-0084 results plus an explicit offline SDK ABI load
+observation.
+
+The phase cannot connect to MiniQMT, invoke market-data functions, use a
+network or credentials, disclose rows, values, or paths, establish entitlement
+or rights, infer expected sessions, pagination, completeness, adjustment-factor
+authority, trading status, or point-in-time supplements, promote data, select a
+provider, activate realtime, close GAP-104 through GAP-106, start product work,
+create P48, tag, release, or deploy.
