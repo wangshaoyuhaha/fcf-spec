@@ -6,6 +6,7 @@ scripts/fcf_safe_runner.ps1 text eol=crlf
 tests/test_fcf_safe_runner_contract.py text eol=lf
 docs/FCF_EXECUTION_SAFETY_PROTOCOL.md text eol=lf
 apps/fcp_0078_a_share_publication_availability_clock_contract_app_1/contracts.py text eol=lf
+apps/fcp_0079_a_share_corporate_action_query_policy_lineage_contract_app_1/contracts.py text eol=lf
 examples/browser_product_console_starter/*.json text eol=lf
 examples/browser_product_console_starter/registered/*.json text eol=lf
 FCF_LOCAL_ARTIFACT_FCP_0012_RQDATA_TRIAL_SESSION.json -text

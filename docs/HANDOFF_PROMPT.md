@@ -15183,3 +15183,29 @@ promotion, product phase, P48, account, execution, tag, release, or deployment
 path was created.
 
 <!-- FCP 0078 A SHARE PUBLICATION AVAILABILITY CLOCK CONTRACT APP 1 FINAL END -->
+
+
+<!-- FCP 0079 A SHARE CORPORATE ACTION QUERY POLICY LINEAGE CONTRACT APP 1 APPROVAL START -->
+
+## FCP 0079 A-Share Corporate Action Query Policy Lineage Contract App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+`sidecar-fcp-0079-a-share-corporate-action-query-policy-lineage-contract-app-1`
+
+Approved scope defines one deterministic local-only A-share corporate-action
+and price-query-policy lineage contract. It preserves registered action
+revisions, effective dates, source digests, exact adjustment-factor revisions,
+RAW and FORWARD_ADJUSTED policies, and point-in-time resolution without
+rewriting source prices.
+
+The phase may add verified implementation evidence to the FCP-0077 matrix for
+CORPORATE_ACTION_LINEAGE and QUERY_POLICY_LINEAGE. It cannot close the
+price-lineage Gap, invent official actions or factors, establish data
+authority, promote candidate rows, select a provider, access an SDK or network,
+use credentials, activate realtime data, calculate factors, create labels,
+start a product phase, create P48, or authorize broker, exchange, account,
+order, execution, tag, release, or deployment paths.
+
+<!-- FCP 0079 A SHARE CORPORATE ACTION QUERY POLICY LINEAGE CONTRACT APP 1 APPROVAL END -->

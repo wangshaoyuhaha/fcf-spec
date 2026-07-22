@@ -200,6 +200,12 @@ availability clock foundation for the publication-clock gap. Its registered
 status remains unchanged until all required implementation and authority
 evidence is accepted; the phase cannot infer external timestamps or close it.
 
+FCP-0079 is approved to add deterministic local-only corporate-action and
+query-policy lineage foundations for the price-lineage gap. Its registered
+status remains unchanged until all required external implementation and
+authority evidence is accepted; the phase cannot invent official actions or
+factors, promote candidate rows, or close the gap.
+
 ## External Research Intake Observation
 
 The 2026-07-22 external indicator package and A-share CSV collection review is

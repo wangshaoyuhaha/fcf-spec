@@ -631,3 +631,14 @@ authority, promote candidate rows, select a provider, access an SDK, use
 credentials, activate realtime data, calculate factors, create labels, or
 authorize product work, P48, broker, exchange, account, order, execution,
 release, or deployment.
+
+Proposal `FCF-FCP-0079` defines one deterministic local-only A-share
+corporate-action and price-query-policy lineage contract. It preserves action
+revisions, source digests, exact adjustment-factor revisions, RAW and
+FORWARD_ADJUSTED policies, and fail-closed point-in-time resolution.
+
+FCP-0079 cannot invent official corporate actions or adjustment factors, close
+GAP-089, establish data authority, overwrite source prices, promote candidate
+rows, select a provider, access an SDK, use credentials, activate realtime
+data, calculate factors, create labels, or authorize product work, P48,
+broker, exchange, account, order, execution, release, or deployment.

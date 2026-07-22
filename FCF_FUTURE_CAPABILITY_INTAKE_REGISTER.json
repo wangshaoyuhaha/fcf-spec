@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 79,
+  "next_proposal_sequence": 80,
   "proposals": [
     {
       "adr_refs": [],
@@ -2261,6 +2261,32 @@
       "summary": "Define one deterministic local-only A-share publication and availability clock contract with explicit timestamp precision, legal availability, retrieval, ingest, first-tradable, revision, predecessor lineage, point-in-time selection, and fail-closed unknown-time behavior. The bounded contract may become verified PUBLICATION_CLOCK foundation evidence in the FCP-0077 matrix but cannot close GAP-088, infer source timestamps, establish provider or Registered Evidence authority, promote candidate rows, select a provider, access an SDK or network, use credentials, activate realtime data, calculate factors, create labels, start product work, create P48, or authorize broker, exchange, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share publication availability clock contract"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-079"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0079_A_SHARE_CORPORATE_ACTION_QUERY_POLICY_LINEAGE_CONTRACT_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0079_A_SHARE_CORPORATE_ACTION_QUERY_POLICY_LINEAGE_CONTRACT_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0079_A_SHARE_CORPORATE_ACTION_QUERY_POLICY_LINEAGE_CONTRACT_APP_1_FINAL.md",
+        "docs/FCF_FCP_0079_A_SHARE_CORPORATE_ACTION_QUERY_POLICY_LINEAGE_CONTRACT_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-089"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0079",
+      "source": "operator-authorized-continuous-a-share-corporate-action-query-policy-lineage-contract",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-23T03:00:00Z",
+      "summary": "Define one deterministic local-only A-share corporate-action and price-query-policy lineage contract with immutable action revisions, publication and effective dates, source digests, exact adjustment-factor revisions, explicit RAW and FORWARD_ADJUSTED query policies, and fail-closed point-in-time selection. The bounded contract may become verified CORPORATE_ACTION_LINEAGE and QUERY_POLICY_LINEAGE foundation evidence in the FCP-0077 matrix but cannot close GAP-089, invent official actions or factors, establish provider or Registered Evidence authority, overwrite source prices, promote candidate rows, select a provider, access an SDK or network, use credentials, activate realtime data, calculate factors, create labels, start product work, create P48, or authorize broker, exchange, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share corporate action query policy lineage contract"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

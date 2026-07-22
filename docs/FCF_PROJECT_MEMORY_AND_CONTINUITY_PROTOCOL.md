@@ -330,6 +330,9 @@ not-implemented capability groups:
 - A-share publication and availability clock contracts with explicit UTC
   precision, legal availability, retrieval, ingest, first-tradable, revision,
   predecessor lineage, and fail-closed unknown-time handling
+- A-share corporate-action and query-policy lineage contracts with immutable
+  source actions, adjustment-factor revisions, explicit RAW or
+  FORWARD_ADJUSTED views, and point-in-time fail-closed resolution
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

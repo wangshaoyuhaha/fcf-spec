@@ -1497,6 +1497,29 @@ authority, Gap closure, candidate promotion, broker, exchange, account,
 balance, position, order, execution, product phase, P48, tag, release, or
 deployment.
 
+## FCF-V2-ADR-079 Separate Corporate Actions From Price Query Policy
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Preserve immutable corporate-action revisions, adjustment-factor
+revisions, and explicit RAW or FORWARD_ADJUSTED query policies as distinct
+lineage records. Point-in-time selection uses only source and factor revisions
+observable at the query as-of time.
+
+Consequence: A price view can prove which raw observation, action revision set,
+factor revision, and query policy produced it. Source prices remain immutable,
+and an adjusted view cannot silently inherit a provider's current factor.
+
+Rejected shortcut: overwrite raw prices; derive an official action from price
+jumps; use a future adjustment factor; accept an unspecified adjustment mode;
+or treat one current forward-adjusted series as historical point-in-time truth.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, data
+authority, Gap closure, candidate promotion, broker, exchange, account,
+balance, position, order, execution, product phase, P48, tag, release, or
+deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

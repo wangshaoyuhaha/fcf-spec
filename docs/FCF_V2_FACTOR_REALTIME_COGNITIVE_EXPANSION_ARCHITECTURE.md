@@ -2439,3 +2439,29 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, repository retention of raw data, realtime activation,
 candidate promotion, broker, exchange, account, balance, position, order,
 execution, product phase, P48, tag, release, or deployment.
+
+## 112. A-Share Corporate Action And Query Policy Lineage Contract
+
+The contract records corporate-action identity, type, source digest,
+publication and effective dates, revision and predecessor identity, and exact
+action payload digest independently from price observations.
+
+Adjustment-factor revisions bind one factor value and availability clock to an
+exact ordered corporate-action revision set. RAW and FORWARD_ADJUSTED are
+explicit immutable query policies; no unspecified or provider-default view is
+accepted.
+
+Point-in-time resolution selects only action and factor revisions observable
+at the query as-of time. Raw prices remain unchanged, and every adjusted result
+preserves the raw observation, action set, factor, query policy, and revision
+digests used to derive it.
+
+Verified implementation may supply the missing CORPORATE_ACTION_LINEAGE and
+QUERY_POLICY_LINEAGE foundation capabilities in the price-lineage coverage
+matrix. This does not close the Gap or establish provider, action, factor,
+point-in-time, or Registered Evidence authority.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, repository retention of raw data, realtime activation,
+candidate promotion, broker, exchange, account, balance, position, order,
+execution, product phase, P48, tag, release, or deployment.
