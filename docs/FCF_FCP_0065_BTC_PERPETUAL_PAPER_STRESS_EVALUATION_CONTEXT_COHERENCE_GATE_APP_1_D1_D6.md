@@ -1,6 +1,6 @@
 # FCF FCP 0065 BTC Perpetual Paper Stress Evaluation Context Coherence Gate App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Typed Inputs
 
@@ -40,3 +40,16 @@ Validation evidence before merge:
 - full pytest: 6519 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC perpetual rule, stress, and governance suite: 376 passed
+- full pytest: 6519 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `e6a80484b6c126374cc5deb877bbaf3e6cd6b7f9`
+- sidecar delivery: `6683c7a29c05cfdc4a4eb30ae7cd3d8c0299eb56`
+- main delivery merge: `a11639efddc6bcb086004bd0925a31be615d3a9c`

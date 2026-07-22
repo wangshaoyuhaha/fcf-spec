@@ -22170,3 +22170,24 @@ calculate account or execution state, close GAP-098 through GAP-101, start a
 product phase, create P48, or authorize any account or execution path.
 
 <!-- FCP 0065 BTC PERPETUAL PAPER STRESS EVALUATION CONTEXT COHERENCE GATE APP 1 LOCK END -->
+
+<!-- FCP 0065 BTC PERPETUAL PAPER STRESS EVALUATION CONTEXT COHERENCE GATE APP 1 FINAL START -->
+
+## FCP 0065 BTC Perpetual Paper Stress Evaluation Context Coherence Gate App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact FCP-0056, FCP-0062, and FCP-0064-bound evaluation context is merged
+and validated. Isolated FCP-0065 tests passed 18, affected BTC and governance
+tests passed 376 before and after merge, all FCP tests passed 1182, full
+pytest passed 6519 before and after merge, and `scripts/run_all_checks.py`
+reported ALL CHECKS PASSED before and after merge. Generated runtime outputs
+were restored.
+
+Approval `e6a80484b6c126374cc5deb877bbaf3e6cd6b7f9`; delivery
+`6683c7a29c05cfdc4a4eb30ae7cd3d8c0299eb56`; merge
+`a11639efddc6bcb086004bd0925a31be615d3a9c`. GAP-098 through GAP-101 remain
+open. No product phase, P48, account, execution, tag, release, or deployment
+path was created.
+
+<!-- FCP 0065 BTC PERPETUAL PAPER STRESS EVALUATION CONTEXT COHERENCE GATE APP 1 FINAL END -->
