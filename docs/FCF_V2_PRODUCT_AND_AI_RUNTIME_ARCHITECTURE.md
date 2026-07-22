@@ -17588,3 +17588,35 @@ product, P48, broker, exchange, account, order, execution, tag, release, or
 deployment.
 
 <!-- FCP 0081 A SHARE CANDIDATE PROVIDER AFTER COST DATA VALUE EXPERIMENT CONTRACT APP 1 LOCK END -->
+
+
+<!-- FCP 0081 A SHARE CANDIDATE PROVIDER AFTER COST DATA VALUE EXPERIMENT CONTRACT APP 1 FINAL START -->
+
+## FCP 0081 A-Share Candidate Provider After-Cost Data-Value Experiment Contract App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The immutable registered-local after-cost data-value experiment contract is
+implemented, validated, merged to main, and synchronized. Current authorized
+spend remains zero. Gap V2-FR-GAP-094 remains RESEARCH_REQUIRED.
+
+Isolated tests: 36 passed. Affected tests: 297 passed. All FCP tests: 1632
+passed. Full pytest: 6969 passed.
+`scripts/run_all_checks.py`: ALL CHECKS PASSED before and after merge.
+Contract SHA-256:
+`3c22ac10ccbd3e8d27db97bdf2a9f851679e01f2ec336a2433b0a458f408bd1a`.
+Reference packet hash:
+`e54b2033f4eca1773d3a3544fe98aba77653cd1ac393f2b6c4e9f2f3e7263baf`.
+
+Evidence commits: approval
+`0ee58942682ab2c90a57ee6fd196210d07b9e9d9`; sidecar delivery
+`9c487c48207d84fd7fbe3bcd79b1deb69609a421`; main merge
+`23e21ea6bd8222545f4e2911a16ab3df8d9b0907`.
+
+No provider was selected, endorsed, purchased, renewed, cancelled, or
+activated. No profitability or data-authority claim, acquisition, SDK,
+network, credential, realtime, promotion, calculation, label, product, P48,
+broker, exchange, account, order, execution, tag, release, or deployment
+authority was created.
+
+<!-- FCP 0081 A SHARE CANDIDATE PROVIDER AFTER COST DATA VALUE EXPERIMENT CONTRACT APP 1 FINAL END -->

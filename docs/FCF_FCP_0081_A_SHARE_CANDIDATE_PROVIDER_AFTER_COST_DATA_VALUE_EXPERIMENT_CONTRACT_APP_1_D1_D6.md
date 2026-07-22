@@ -1,6 +1,6 @@
 # FCF FCP 0081 A-Share Candidate Provider After-Cost Data-Value Experiment Contract App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Experiment Vocabulary
 
