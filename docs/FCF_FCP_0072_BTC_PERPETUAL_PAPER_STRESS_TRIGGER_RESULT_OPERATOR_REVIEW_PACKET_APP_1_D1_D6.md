@@ -1,6 +1,6 @@
 # FCF FCP 0072 BTC Perpetual Paper Stress Trigger Result Operator Review Packet App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Typed Input
 
@@ -40,3 +40,16 @@ Validation evidence before merge:
 - full pytest: 6696 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- directly affected FCP-0071 and FCP-0072 suites: 55 passed
+- full pytest: 6696 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `e0a5c80632cdc2ee7be3a565818dc432a9a8be4c`
+- sidecar delivery: `26aa29cd030e363ad461cbab44234778322d9d0c`
+- main delivery merge: `27fec465a50e48a9743a948e668685bf3167721b`
