@@ -610,3 +610,13 @@ calculate factors, create labels, select a provider, access an SDK, use
 credentials, activate realtime data, or close GAP-023 or GAP-087 through
 GAP-093. It authorizes no product work, P48, broker, exchange, account, order,
 execution, release, or deployment.
+
+Proposal `FCF-FCP-0077` creates one deterministic local-only A-share trusted
+data supply-chain coverage evidence matrix. It binds exact tracked component
+SHA-256 identities to closed requirements for GAP-087 through GAP-093 and
+separates foundation coverage from external authority evidence.
+
+FCP-0077 cannot change or close a Gap, establish data authority, promote
+candidate rows, select a provider, access an SDK, use credentials, activate
+realtime data, calculate factors, create labels, or authorize product work,
+P48, broker, exchange, account, order, execution, release, or deployment.

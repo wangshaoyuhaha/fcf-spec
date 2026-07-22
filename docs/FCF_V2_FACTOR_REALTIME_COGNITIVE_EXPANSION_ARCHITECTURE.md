@@ -2396,3 +2396,26 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, repository retention of raw data, realtime activation,
 broker, exchange, account, balance, position, order, execution, product phase,
 P48, tag, release, or deployment.
+
+## 110. A-Share Trusted Data Supply Chain Coverage Evidence Matrix
+
+The matrix binds exact SHA-256 identities of tracked implementation components
+to the closed ordered V2-FR-GAP-087 through V2-FR-GAP-093 capability
+requirements. It verifies repository-relative bytes before deriving any
+foundation-coverage claim.
+
+Foundation coverage and external authority are separate. Complete foundation
+coverage means only that the registered local contracts or transforms exist;
+it cannot establish provider, rights, calendar, revision, corporate-action,
+adjustment-factor, trading-status, or point-in-time authority.
+
+Every row exposes observed and missing capabilities and preserves the original
+Gap as open. Operator review remains required, and candidate promotion or
+provider selection is forbidden. The matrix contains no raw market rows and
+invokes no provider SDK, network, credential, realtime, broker, or execution
+surface.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, repository retention of raw data, realtime activation,
+broker, exchange, account, balance, position, order, execution, product phase,
+P48, tag, release, or deployment.
