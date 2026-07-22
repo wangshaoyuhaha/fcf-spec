@@ -22395,3 +22395,23 @@ thresholds, magnitudes, or severities, close GAP-098 through GAP-101, start a
 product phase, create P48, or authorize any account or execution path.
 
 <!-- FCP 0069 BTC PERPETUAL PAPER STRESS EVALUATION INPUT BINDING REGISTRY APP 1 LOCK END -->
+
+<!-- FCP 0069 BTC PERPETUAL PAPER STRESS EVALUATION INPUT BINDING REGISTRY APP 1 FINAL START -->
+
+## FCP 0069 BTC Perpetual Paper Stress Evaluation Input Binding Registry App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact FCP-0068, FCP-0064, and FCP-0056-bound input-binding registry is
+merged and validated. Isolated FCP-0069 tests passed 24, affected BTC and
+governance tests passed 467 before and after merge, all FCP tests passed 1273,
+full pytest passed 6610 before and after merge, and
+`scripts/run_all_checks.py` reported ALL CHECKS PASSED before and after merge.
+
+Approval `f58773b1c1acaa25e05ef09ebd93a4c373685e09`; delivery
+`ea566c2e8b8e42b234db14cca3077b4849592368`; merge
+`1bbcb96870d431d8f6962c7178109b336568fb20`. GAP-098 through GAP-101 remain
+open. No product phase, P48, account, execution, tag, release, or deployment
+path was created.
+
+<!-- FCP 0069 BTC PERPETUAL PAPER STRESS EVALUATION INPUT BINDING REGISTRY APP 1 FINAL END -->
