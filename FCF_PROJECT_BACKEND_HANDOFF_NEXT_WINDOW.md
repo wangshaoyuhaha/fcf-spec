@@ -15277,3 +15277,22 @@ open. No product phase, P48, account, execution, tag, release, or deployment
 path was created.
 
 <!-- FCP 0065 BTC PERPETUAL PAPER STRESS EVALUATION CONTEXT COHERENCE GATE APP 1 FINAL END -->
+
+<!-- FCP 0066 BTC PERPETUAL PAPER STRESS EVALUATION DIRECTION SEMANTICS REGISTRY APP 1 APPROVAL START -->
+
+## FCP 0066 BTC Perpetual Paper Stress Evaluation Direction Semantics Registry App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0066-btc-perpetual-paper-stress-evaluation-direction-semantics-registry-app-1`
+
+Approved scope binds one exact typed FCP-0065 evaluation context and registers
+one closed direction, comparison family, operand-role order, and equality
+policy for every stress scenario kind.
+
+The phase cannot register formulas, calculate thresholds, magnitudes, or
+severities, evaluate stress, close GAP-098 through GAP-101, start a product
+phase, create P48, or authorize broker, exchange, credential, wallet, account,
+balance, position, order, execution, tag, release, or deployment.
+
+<!-- FCP 0066 BTC PERPETUAL PAPER STRESS EVALUATION DIRECTION SEMANTICS REGISTRY APP 1 APPROVAL END -->

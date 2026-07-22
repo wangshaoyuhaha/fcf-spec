@@ -486,3 +486,16 @@ ADL actions, orders, execution, or source preference, acquire data, invoke an
 SDK, retrieve network data, accept credentials, activate realtime, authorize
 an exchange, wallet, account, order, or execution path, or close GAP-098,
 GAP-099, GAP-100, or GAP-101.
+
+Proposal `FCF-FCP-0066` creates a deterministic local-only BTC perpetual Paper
+stress-evaluation direction-semantics registry bound to one exact typed
+FCP-0065 evaluation context. It registers one closed direction, comparison
+family, operand-role order, and equality policy for every scenario kind before
+any formula or evaluator is introduced.
+
+FCP-0066 cannot calculate thresholds, magnitudes, severities, prices, margin,
+leverage, liquidation, balances, positions, PnL, ADL actions, orders,
+execution, or source preference, acquire data, invoke an SDK, retrieve network
+data, accept credentials, activate realtime, authorize an exchange, wallet,
+account, order, or execution path, or close GAP-098, GAP-099, GAP-100, or
+GAP-101.

@@ -1049,6 +1049,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-066 Register Explicit Stress Direction Before Formulas
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind one exact typed FCP-0065 evaluation context and register one
+closed direction, comparison family, operand-role order, and equality policy
+for each of the eight BTC perpetual Paper stress kinds before any threshold or
+severity formula is registered.
+
+Consequence: A later formula registry cannot reverse risk direction, silently
+change an inclusive boundary, confuse baseline and current operands, or treat
+signed funding and price changes as one-sided without explicit semantics.
+
+Rejected shortcut: infer direction from scenario names, embed comparisons in
+an evaluator, omit equality behavior, swap baseline and current roles, or
+treat direction registration as a stress result.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 ## FCF-V2-ADR-060 Require Coherent Stress Evaluation Readiness Evidence
 
 Status: ACCEPTED_ARCHITECTURE

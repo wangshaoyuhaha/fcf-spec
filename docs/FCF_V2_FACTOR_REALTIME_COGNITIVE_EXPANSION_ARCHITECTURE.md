@@ -2142,3 +2142,19 @@ reordered definitions, cross-contract identities, stale context, or time
 reversal. It cannot define direction, register formulas, evaluate stress,
 calculate account or execution state, or close GAP-098, GAP-099, GAP-100, or
 GAP-101.
+
+## 99. BTC Perpetual Paper Stress Evaluation Direction Semantics Registry
+
+The registry consumes one exact typed FCP-0065 evaluation context. It binds one
+closed direction and comparison family to every scenario kind: baseline
+decrease for collateral drawdown and thin book, absolute baseline divergence
+for funding shock and price gap, lower threshold proximity for liquidation
+distance, and upper threshold exceedance for loss streak, resync, and venue
+outage. Operand-role ordering and equality policy are explicit.
+
+Validation is fail-closed on untyped context, hash substitution, missing,
+duplicate, reordered, or extra kinds, incompatible operand roles, unknown
+directions, or authority escalation. It registers semantics only and cannot
+calculate a threshold, magnitude, severity, price, margin, leverage,
+liquidation, balance, position, PnL, ADL, order, or execution result, or close
+GAP-098, GAP-099, GAP-100, or GAP-101.
