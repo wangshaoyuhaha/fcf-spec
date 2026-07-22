@@ -23242,3 +23242,34 @@ promotion, product authority, or Gap closure. No account, credential, network,
 order, execution, tag, release, or deployment authority is created.
 
 <!-- FCP 0082 A SHARE GUOJIN MINIQMT PYTHON MARKET DATA ENTITLEMENT EVIDENCE CONTRACT APP 1 LOCK END -->
+
+
+<!-- FCP 0082 A SHARE GUOJIN MINIQMT PYTHON MARKET DATA ENTITLEMENT EVIDENCE CONTRACT APP 1 FINAL START -->
+
+## FCP 0082 A-Share Guojin MiniQMT Python Market-Data Entitlement Evidence Contract App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The immutable registered-local sanitized MiniQMT entitlement evidence contract
+is implemented, validated, merged to main, and synchronized. Gap
+V2-FR-GAP-104 remains RESEARCH_REQUIRED.
+
+Isolated tests: 37 passed. Affected tests: 584 passed. All FCP tests: 1669
+passed. Full pytest: 7006 passed.
+`scripts/run_all_checks.py`: ALL CHECKS PASSED before and after merge.
+Contract SHA-256:
+`534bde77b16ed6254ef9314210ad937e04a7dac818487d630ae5a1c4cd745352`.
+Reference packet hash:
+`07dc7a33c5f8df3637d0b036dc0b520530e5166aa038c4c3ce3d92909c3b1852`.
+
+Evidence commits: approval
+`8435477434a077a86a4b811e6c290ca79b0919ae`; sidecar delivery
+`55855ec723396cc812056b01579ea7113a16f0ca`; main merge
+`df71e635ed209d889ee04057951d47c4ad80a44b`.
+
+No MiniQMT or xtquant invocation, entitlement, Registered Evidence authority,
+provider selection, realtime activation, data promotion, product, P48, broker,
+exchange, account, balance, position, order, execution, tag, release, or
+deployment authority was created.
+
+<!-- FCP 0082 A SHARE GUOJIN MINIQMT PYTHON MARKET DATA ENTITLEMENT EVIDENCE CONTRACT APP 1 FINAL END -->
