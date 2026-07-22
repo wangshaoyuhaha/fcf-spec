@@ -712,3 +712,14 @@ or network, use credentials, select a venue or provider, activate realtime,
 promote evidence, calculate a signal, strategy, account, position, margin,
 leverage, PnL, liquidation, order, or execution, close GAP-095, start product
 work, create P48, tag, release, or deploy.
+## FCP-0086 BTC Local Export Operator Review Packet Change Rule
+
+Proposal `FCF-FCP-0086` may add one immutable packet contract, deterministic
+builder, canonical renderer, tests, guard, and closeout evidence over the exact
+typed FCP-0085 validation result.
+
+The phase cannot duplicate FCP-0085 validation, disclose values or paths,
+assign a disposition, approve or reject evidence, invoke an SDK or network,
+use credentials, select a venue or provider, activate realtime or replay,
+promote evidence, calculate a signal or trade, close GAP-095, start product
+work, create P48, tag, release, or deploy.

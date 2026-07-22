@@ -2576,3 +2576,16 @@ No source or canonical rows are stored or returned. The runner cannot invoke
 an SDK or network, use credentials, select a venue or provider, activate
 realtime data, promote evidence, calculate a signal or trade, close GAP-095,
 authorize product work, or enable accounts, wallets, orders, or execution.
+## 119. BTC Registered Local Export Operator Review Packet
+
+FCP-0086 consumes one exact immutable FCP-0085 validation result and projects
+only path-free aggregate lineage into a mandatory Operator review packet.
+
+The closed checklist covers source lineage, profile lineage, observation
+coverage, sequence bounds, clock bounds, and local-only authority. Every item
+is presented for review and cannot be marked approved by packet construction.
+
+The packet contains no source or canonical rows, paths, prices, quantities,
+book levels, or funding rates. It cannot decide, approve, reject, promote,
+select, activate, replay, recommend, trade, close GAP-095, authorize product
+work, or enable accounts, wallets, orders, or execution.

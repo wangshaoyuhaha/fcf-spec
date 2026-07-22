@@ -241,6 +241,11 @@ RESEARCH_REQUIRED. Local validation cannot invoke a provider, establish venue
 or data authority, activate realtime, promote evidence, calculate trading
 actions, or close the Gap.
 
+FCP-0086 is approved to add one immutable path-free mandatory Operator review
+packet over the exact typed FCP-0085 validation result. GAP-095 remains
+RESEARCH_REQUIRED. Packet construction cannot assign a disposition, promote
+evidence, select or activate a source, authorize replay, or close the Gap.
+
 ## External Research Intake Observation
 
 The 2026-07-22 external indicator package and A-share CSV collection review is

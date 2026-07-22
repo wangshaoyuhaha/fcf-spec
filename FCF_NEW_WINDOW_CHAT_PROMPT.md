@@ -16559,3 +16559,27 @@ PnL, liquidation, order, execution, tag, release, or deployment authority was
 created.
 
 <!-- FCP 0085 BTC REGISTERED LOCAL EXPORT VALIDATION RUNNER APP 1 FINAL END -->
+
+
+<!-- FCP 0086 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW PACKET APP 1 APPROVAL START -->
+
+## FCP 0086 BTC Registered Local Export Operator Review Packet App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved sidecar branch:
+`sidecar-fcp-0086-btc-registered-local-export-operator-review-packet-app-1`
+
+Approved scope adds one immutable path-free mandatory Operator review packet
+over the exact typed FCP-0085 validation result. It preserves aggregate
+artifact, manifest, profile, observation, sequence, clock, quality, and
+authority lineage with a closed review checklist.
+
+The packet remains undecided. It cannot disclose source or canonical rows,
+values, or paths; assign a disposition; approve or reject evidence; invoke an
+SDK or network; use credentials; select a venue or provider; activate realtime
+or replay; promote evidence; calculate a signal or trade; close GAP-095; start
+product work; create P48; or enable wallets, accounts, orders, execution, tags,
+releases, or deployment.
+
+<!-- FCP 0086 BTC REGISTERED LOCAL EXPORT OPERATOR REVIEW PACKET APP 1 APPROVAL END -->

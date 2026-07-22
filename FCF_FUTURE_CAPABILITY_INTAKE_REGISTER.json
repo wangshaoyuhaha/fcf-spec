@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 86,
+  "next_proposal_sequence": 87,
   "proposals": [
     {
       "adr_refs": [],
@@ -2444,6 +2444,31 @@
       "summary": "Implement one deterministic read-only local validation runner over the frozen FCP-0022 BTC local-export canonicalization bridge. The runner accepts one existing regular non-symlink Operator-registered NDJSON artifact, exact registration metadata, one provider-neutral field profile, a canonical output artifact identifier, and as-of UTC; delegates parsing and typed observation construction to FCP-0022; and emits only path-free canonical ASCII review metadata. It cannot retain source or canonical rows, invoke a provider SDK, use a network or credentials, select a venue or provider, activate realtime data, promote evidence, calculate a signal, strategy, position, margin, leverage, PnL, liquidation, order, or execution, close GAP-095, start product work, create P48, or authorize exchange, wallet, account, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC registered local export validation runner"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-086"
+      ],
+      "architecture_refs": [
+        "FCF-V2-BTC-PERPETUAL-LEVERAGE-PAPER-RESEARCH",
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0086_BTC_REGISTERED_LOCAL_EXPORT_OPERATOR_REVIEW_PACKET_APP_1_APPROVED.md",
+        "docs/FCF_FCP_0086_BTC_REGISTERED_LOCAL_EXPORT_OPERATOR_REVIEW_PACKET_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-095"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0086",
+      "source": "operator-authorized-continuous-btc-local-export-operator-review-packet",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T22:49:57Z",
+      "summary": "Add one immutable path-free Operator review packet over the exact typed FCP-0085 BTC local-export validation result. Preserve aggregate artifact, manifest, profile, observation-kind count, sequence-bound, clock-bound, quality-state, and authority lineage with a closed deterministic checklist. The packet remains undecided and cannot approve, reject, promote, select a venue or provider, invoke an SDK or network, use credentials, activate realtime or replay, calculate a signal, strategy, position, margin, leverage, PnL, liquidation, order, or execution, close GAP-095, start product work, create P48, or authorize exchange, wallet, account, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC registered local export Operator review packet"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

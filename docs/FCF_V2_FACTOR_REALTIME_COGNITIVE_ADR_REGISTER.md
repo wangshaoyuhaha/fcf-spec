@@ -1650,3 +1650,16 @@ book levels, funding rates, or local paths.
 The runner cannot invoke an SDK or network, accept credentials, select a venue
 or provider, activate realtime data, promote evidence, calculate signals or
 trades, close GAP-095, authorize product work, or enable execution.
+## FCF-V2-ADR-086 Require An Undecided BTC Local Export Review Packet
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: one exact typed FCP-0085 validation result may be projected into an
+immutable path-free packet for mandatory Operator review. The packet preserves
+aggregate validation lineage and a closed deterministic checklist.
+
+The packet cannot contain source or canonical rows, paths, prices, quantities,
+book levels, or funding rates. It cannot assign a disposition, approve or
+reject evidence, select a venue or provider, activate realtime or replay,
+promote evidence, calculate signals or trades, close GAP-095, authorize
+product work, or enable execution.

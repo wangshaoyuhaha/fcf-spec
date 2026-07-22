@@ -374,3 +374,7 @@ FCP-0085 preserves BTC local-export validation as a read-only adapter over
 FCP-0022. It returns path-free aggregate review metadata only and grants no
 provider, venue, realtime, signal, product, wallet, account, or execution
 authority.
+FCP-0086 preserves one FCP-0085 result as an immutable path-free mandatory
+Operator review packet. Packet construction remains undecided and grants no
+approval, promotion, provider, venue, realtime, replay, signal, product,
+wallet, account, or execution authority.
