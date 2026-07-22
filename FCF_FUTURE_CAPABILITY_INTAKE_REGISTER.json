@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 53,
+  "next_proposal_sequence": 54,
   "proposals": [
     {
       "adr_refs": [],
@@ -1504,6 +1504,35 @@
       "summary": "Add deterministic local-only lineage integrity hardening for FCP-0051 coverage supplements. Bind one exact FCP-0051 gate identity and requested range to typed FCP-0037 expected-date evidence, typed FCP-0036 multi-batch reconciliation, and typed pagination, point-in-time, and row-cap-resolution evidence. Derive supplement hashes and counts only after exact instrument, range, calendar, and manifest agreement. This phase cannot manufacture missing evidence, change the current blocked result, select a provider, or close GAP-105, GAP-107, or GAP-108. It authorizes no acquisition, SDK invocation, network retrieval, credentials, raw repository retention, realtime activation, trading APIs, product implementation, P48, broker, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "Guojin QMT coverage supplement lineage integrity hardening"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-053"
+      ],
+      "architecture_refs": [
+        "FCF-V2-BTC-PERPETUAL-LEVERAGE-PAPER-RESEARCH"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0053_BTC_PERPETUAL_RULE_BUNDLE_POINT_IN_TIME_COHERENCE_GATE_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0053_BTC_PERPETUAL_RULE_BUNDLE_POINT_IN_TIME_COHERENCE_GATE_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0053_BTC_PERPETUAL_RULE_BUNDLE_POINT_IN_TIME_COHERENCE_GATE_APP_1_FINAL.md",
+        "docs/FCF_FCP_0053_BTC_PERPETUAL_RULE_BUNDLE_POINT_IN_TIME_COHERENCE_GATE_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-096",
+        "V2-FR-GAP-097",
+        "V2-FR-GAP-099",
+        "V2-FR-GAP-102"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0053",
+      "source": "operator-authorized-continuous-btc-rule-bundle-coherence",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T01:48:40Z",
+      "summary": "Add a deterministic local-only point-in-time coherence gate over the exact FCP-0046 contract lifecycle, FCP-0047 margin risk-tier, FCP-0048 funding method-schedule, and FCP-0049 fee-rebate registries. Resolve one immutable rule bundle only when all registry hashes, venue and contract identities, contract-entry hashes, and effective-time rules agree. The bundle contains evidence lineage and rule-entry hashes only; it cannot calculate margin, leverage, liquidation, funding payments, fees, rebates, balances, positions, PnL, orders, execution, or source preference and does not close GAP-096, GAP-097, GAP-099, or GAP-102. It authorizes no acquisition, SDK invocation, network retrieval, credentials, provider selection, raw repository retention, realtime activation, trading APIs, product implementation, P48, exchange, wallet, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC perpetual rule bundle point-in-time coherence gate"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

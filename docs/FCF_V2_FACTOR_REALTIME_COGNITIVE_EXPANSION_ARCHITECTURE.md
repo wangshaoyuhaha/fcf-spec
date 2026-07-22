@@ -1945,3 +1945,21 @@ Only after these checks may the layer derive FCP-0051 supplement hashes and
 missing, unexpected, and conflict counts. It cannot invent evidence, acquire
 data, change the current blocked gate, select a provider, or close GAP-105,
 GAP-107, or GAP-108.
+
+## 86. BTC Perpetual Rule Bundle Point-in-Time Coherence Gate
+
+The gate consumes exact typed FCP-0046, FCP-0047, FCP-0048, and FCP-0049
+registries. Every dependent registry must bind the same exact FCP-0046
+contract-registry hash before any rule version is resolved.
+
+For one venue, contract, and UTC instant, the gate resolves one contract
+lifecycle version, one margin rule, one funding rule, and one fee-rebate rule.
+Every dependent rule must bind the resolved contract-entry hash. Missing,
+overlapping, cross-contract, cross-registry, and effective-time-incoherent
+evidence fails closed.
+
+The output preserves only immutable registry and entry hashes plus the exact
+lookup context and mandatory Operator-review state. It cannot calculate
+margin, leverage, liquidation, funding payments, fees, rebates, balances,
+positions, PnL, orders, execution, or source preference and does not close
+GAP-096, GAP-097, GAP-099, or GAP-102.

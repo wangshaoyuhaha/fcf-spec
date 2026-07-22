@@ -249,6 +249,9 @@ not-implemented capability groups:
 - QMT coverage-supplement lineage hardening with typed FCP-0037 and FCP-0036
   evidence, exact instrument, interval, calendar, pagination, point-in-time,
   and row-cap bindings, and no arbitrary digest proof
+- BTC perpetual point-in-time rule-bundle coherence gates with exact FCP-0046
+  through FCP-0049 registry hashes, shared contract-entry lineage, immutable
+  rule snapshots, and no account-dependent calculation or execution authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

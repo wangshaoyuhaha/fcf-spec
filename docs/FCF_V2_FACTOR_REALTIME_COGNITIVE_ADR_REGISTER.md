@@ -920,6 +920,30 @@ provider selection, raw repository retention, realtime activation, broker,
 account, balance, position, order, execution, product phase, P48, tag, release,
 or deployment.
 
+## FCF-V2-ADR-053 Resolve BTC Perpetual Rule Bundles Only from Coherent Point-in-Time Lineage
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind one FCP-0046 contract lifecycle registry and the dependent
+FCP-0047 margin, FCP-0048 funding, and FCP-0049 fee registries by exact
+contract-registry hash. At one UTC instant, resolve exact versions for one
+venue and contract, require every dependent rule to bind the resolved contract
+entry, and emit only an immutable evidence-lineage snapshot.
+
+Consequence: Downstream paper research can reference one coherent rule context
+without silently mixing venue rule versions or granting any calculation or
+execution authority. Missing, overlapping, or mismatched evidence fails
+closed.
+
+Rejected shortcut: combine independent registry lookups without checking their
+shared contract registry, mix contract-entry versions, infer a missing rule,
+select a preferred venue, or include account-dependent calculations.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

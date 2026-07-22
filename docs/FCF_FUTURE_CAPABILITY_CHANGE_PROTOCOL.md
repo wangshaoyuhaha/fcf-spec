@@ -347,3 +347,15 @@ blocked gate, acquire data, invoke an SDK, retrieve network data, accept
 credentials, select a provider, retain raw provider bytes, activate realtime,
 authorize a broker, product, account, balance, position, order, or execution
 path, or close GAP-105, GAP-107, or GAP-108.
+
+Proposal `FCF-FCP-0053` creates a deterministic local-only point-in-time
+coherence gate over the exact FCP-0046 through FCP-0049 BTC perpetual rule
+registries. It resolves one immutable evidence bundle only when registry,
+venue, contract, contract-entry, and effective-time lineage agree.
+
+FCP-0053 cannot calculate margin, leverage, liquidation, funding payments,
+fees, rebates, balances, positions, PnL, orders, execution, or source
+preference, acquire data, invoke an SDK, retrieve network data, accept
+credentials, select a provider, activate realtime, authorize an exchange,
+wallet, account, order, or execution path, or close GAP-096, GAP-097, GAP-099,
+or GAP-102.

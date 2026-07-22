@@ -14185,3 +14185,32 @@ account, balance, position, order, execution, tag, release, or deployment is
 authorized. No successor phase is selected.
 
 <!-- FCP 0052 GUOJIN QMT COVERAGE SUPPLEMENT LINEAGE INTEGRITY HARDENING APP 1 FINAL END -->
+
+
+<!-- FCP 0053 BTC PERPETUAL RULE BUNDLE POINT IN TIME COHERENCE GATE APP 1 APPROVAL START -->
+
+## FCP 0053 BTC Perpetual Rule Bundle Point In Time Coherence Gate App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+
+- `sidecar-fcp-0053-btc-perpetual-rule-bundle-point-in-time-coherence-gate-app-1`
+
+Approved order:
+
+- D1 bind exact FCP-0046 through FCP-0049 registry identities
+- D2 resolve one exact venue, contract, contract-entry, and UTC context
+- D3 emit one immutable evidence-lineage rule bundle
+- D4 reject cross-registry, cross-contract, and effective-time incoherence
+- D5 preserve evidence-only authority and mandatory Operator review
+- D6 run guards, validation, merge, and final authority synchronization
+
+The gate cannot calculate margin, leverage, liquidation, funding payments,
+fees, rebates, balances, positions, PnL, orders, execution, or source
+preference. It cannot close GAP-096, GAP-097, GAP-099, or GAP-102. No
+acquisition, SDK, network, credential, provider selection, raw repository
+retention, realtime, product, P48, exchange, wallet, account, balance,
+position, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0053 BTC PERPETUAL RULE BUNDLE POINT IN TIME COHERENCE GATE APP 1 APPROVAL END -->
