@@ -1,6 +1,6 @@
 # FCF FCP 0053 BTC Perpetual Rule Bundle Point In Time Coherence Gate App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Typed Registry Inputs
 
@@ -41,8 +41,20 @@ Validation evidence before merge:
 - full pytest: 6277 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+- post-merge affected suite: 512 passed
+- post-merge full pytest: 6277 passed
+- post-merge `scripts/run_all_checks.py`: ALL CHECKS PASSED
+
+Evidence commits:
+
+- governance approval: `f7c2547aaf2864bb08c592fe847897fb581fd434`
+- sidecar delivery: `2301456c5cecb0a8eda2ee8bfeae6825e89f36c5`
+- main delivery merge: `e0c6f98340ddfa4c998b5deff392b26fa9f9e2b5`
 
 Synthetic fixtures do not close GAP-096, GAP-097, GAP-099, or GAP-102 and
 grant no acquisition, SDK, network, credential, realtime, exchange, wallet,
 account, balance, position, order, execution, product, P48, tag, release, or
 deployment authority.
+
+The coherence gate is implemented, merged, validated, and guarded. No
+successor phase is selected.
