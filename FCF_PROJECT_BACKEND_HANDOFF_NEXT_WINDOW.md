@@ -15519,3 +15519,22 @@ price, balance, position, PnL, ADL, order, or execution state, close GAP-098
 through GAP-101, start a product phase, create P48, tag, release, or deploy.
 
 <!-- FCP 0070 BTC PERPETUAL PAPER STRESS DETERMINISTIC TRIGGER EVALUATION APP 1 APPROVAL END -->
+
+<!-- FCP 0070 BTC PERPETUAL PAPER STRESS DETERMINISTIC TRIGGER EVALUATION APP 1 LOCK START -->
+
+## FCP 0070 BTC Perpetual Paper Stress Deterministic Trigger Evaluation App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar delivery consumes exact typed FCP-0069, FCP-0068, FCP-0064, and
+FCP-0056 lineage, executes only eight closed Decimal measure formulas, applies
+registered parameter transforms and trigger boundaries, and emits immutable
+reviewed local Paper results. It rejects type, hash, schema, operand, parameter,
+contract, denominator, boundary, and UTC substitution.
+
+This evaluator cannot calculate or mutate account, margin, leverage,
+liquidation price, balance, position, PnL, insurance fund, ADL, order, or
+execution state, close GAP-098 through GAP-101, start a product phase, create
+P48, tag, release, or deploy.
+
+<!-- FCP 0070 BTC PERPETUAL PAPER STRESS DETERMINISTIC TRIGGER EVALUATION APP 1 LOCK END -->
