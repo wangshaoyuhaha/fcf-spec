@@ -677,3 +677,13 @@ It cannot ingest account identifiers or secrets, invoke MiniQMT or xtquant,
 use a network, establish entitlement or Registered Evidence authority,
 activate realtime data, select a provider, promote data, close Gap
 V2-FR-GAP-104, start product work, create P48, or enable trading or execution.
+## FCP-0083 MiniQMT Local Evidence Runner Change Rule
+
+Proposal `FCF-FCP-0083` may add one read-only local runner, canonical output,
+tests, guard, and closeout evidence over the exact FCP-0082 contract. Source
+bytes remain outside Git and are neither copied nor changed.
+
+The phase cannot invoke MiniQMT or xtquant, use a network, accept accounts or
+credentials, establish entitlement or Registered Evidence authority, activate
+realtime data, select a provider, promote data, close GAP-104, start product
+work, create P48, or enable trading or execution.

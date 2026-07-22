@@ -223,6 +223,12 @@ GAP-104. The Gap remains RESEARCH_REQUIRED. Sanitized review
 eligibility cannot establish external entitlement, invoke MiniQMT or xtquant,
 activate realtime data, select a provider, promote rows, or close the Gap.
 
+FCP-0083 is approved to add a deterministic read-only local validation runner
+over the FCP-0082 sanitized evidence contract. GAP-104 remains
+RESEARCH_REQUIRED. Local validation cannot invoke MiniQMT or xtquant,
+establish entitlement, activate realtime data, select a provider, promote rows,
+or close the Gap.
+
 ## External Research Intake Observation
 
 The 2026-07-22 external indicator package and A-share CSV collection review is

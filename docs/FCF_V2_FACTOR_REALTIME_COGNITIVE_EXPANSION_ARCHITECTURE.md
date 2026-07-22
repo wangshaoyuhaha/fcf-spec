@@ -2529,3 +2529,16 @@ selection, Registered Evidence authority, realtime activation, data
 promotion, or Gap closure. It creates no product, P48, broker, exchange,
 account, balance, position, order, execution, tag, release, or deployment
 authority.
+## 116. MiniQMT Sanitized Evidence Local Validation Runner
+
+FCP-0083 operationalizes FCP-0082 through one read-only local runner. Inputs
+are an existing regular non-symlink path, a safe artifact identity, exact
+SHA-256, exact byte length, and an as-of UTC timestamp. The runner performs one
+bounded local read and delegates the closed evidence contract and deterministic
+review evaluation to FCP-0082.
+
+Output is canonical ASCII JSON containing only the non-authorizing review
+packet. The runner performs no source mutation and cannot import or invoke
+MiniQMT or xtquant, use a network, accept accounts or credentials, activate
+realtime data, select a provider, promote rows, close GAP-104, create product
+authority, or enable order or execution paths.

@@ -359,3 +359,7 @@ FCP-0082 preserves Guojin MiniQMT Python market-data entitlement and local
 sidecar compatibility as exact sanitized registered-local evidence. Review
 eligibility is not entitlement, provider selection, activation, data
 authority, promotion, Gap closure, product authority, or execution authority.
+FCP-0083 preserves the MiniQMT sanitized evidence runner as a deterministic
+read-only local adapter over FCP-0082. It reads bounded registered bytes once,
+emits canonical review JSON, and grants no entitlement, data, product, or
+execution authority.

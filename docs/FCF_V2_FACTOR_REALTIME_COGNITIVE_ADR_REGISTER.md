@@ -1593,3 +1593,20 @@ activation, data promotion, Gap closure, product readiness, or profitability.
 Consequences: FCP-0082 may implement the immutable local contract, evaluator,
 review packet, guard, and tests. Gap V2-FR-GAP-104 remains RESEARCH_REQUIRED
 until separate external evidence and authority are accepted.
+## FCF-V2-ADR-083 Provide A Read-Only Local MiniQMT Evidence Validator
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: FCP-0082 sanitized MiniQMT entitlement evidence may be evaluated by
+one deterministic local validation runner. The runner accepts only a local
+path and exact registered artifact metadata, reads bounded bytes once, and
+delegates all parsing and evaluation to the frozen FCP-0082 contract.
+
+The runner emits canonical ASCII JSON to standard output and never rewrites,
+copies, caches, registers, promotes, or deletes the source. It rejects symlinks,
+directories, missing files, oversized bytes, secrets, account identifiers,
+invalid hashes, and malformed evidence without disclosing source bytes.
+
+The runner cannot invoke MiniQMT or xtquant, use a network, establish
+entitlement or Registered Evidence authority, activate realtime data, select a
+provider, promote rows, close a Gap, authorize product work, or enable trading.

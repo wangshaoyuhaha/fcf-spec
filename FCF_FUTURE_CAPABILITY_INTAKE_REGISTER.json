@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 83,
+  "next_proposal_sequence": 84,
   "proposals": [
     {
       "adr_refs": [],
@@ -2365,6 +2365,32 @@
       "summary": "Define one deterministic local-only contract for sanitized Guojin MiniQMT Python market-data entitlement and compatible local-sidecar evidence. The contract binds exact terminal, module, version, entitlement declaration, read-only probe, market, clock, capability, rights, retention, and evidence-digest facts while rejecting account identifiers, credentials, authorization codes, tokens, passwords, raw market values, executable requests, and inferred facts. The bounded phase cannot invoke MiniQMT or xtquant, use a network, establish entitlement or Registered Evidence authority, activate realtime data, select a provider, promote rows, close GAP-104, calculate factors, create labels, start product work, create P48, or authorize broker, exchange, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share Guojin MiniQMT Python market-data entitlement evidence contract"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-083"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0083_A_SHARE_GUOJIN_MINIQMT_SANITIZED_EVIDENCE_LOCAL_VALIDATION_RUNNER_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0083_A_SHARE_GUOJIN_MINIQMT_SANITIZED_EVIDENCE_LOCAL_VALIDATION_RUNNER_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0083_A_SHARE_GUOJIN_MINIQMT_SANITIZED_EVIDENCE_LOCAL_VALIDATION_RUNNER_APP_1_FINAL.md",
+        "docs/FCF_FCP_0083_A_SHARE_GUOJIN_MINIQMT_SANITIZED_EVIDENCE_LOCAL_VALIDATION_RUNNER_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-104"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0083",
+      "source": "operator-authorized-continuous-a-share-guojin-miniqmt-sanitized-evidence-local-validation-runner",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-23T10:00:00Z",
+      "summary": "Implement one deterministic read-only local validation runner over the exact FCP-0082 Guojin MiniQMT sanitized entitlement evidence contract. The runner accepts an Operator-supplied local path plus exact registered artifact identity, SHA-256, byte length, and as-of UTC; reads bounded bytes once; delegates all parsing and evaluation to FCP-0082; and emits canonical ASCII JSON without writing artifacts. It cannot invoke MiniQMT or xtquant, use a network, accept or expose account identifiers or credentials, establish entitlement or Registered Evidence authority, activate realtime data, select a provider, promote rows, close GAP-104, calculate factors, create labels, start product work, create P48, or authorize broker, exchange, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share Guojin MiniQMT sanitized evidence local validation runner"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

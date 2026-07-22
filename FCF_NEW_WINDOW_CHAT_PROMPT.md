@@ -16321,3 +16321,27 @@ exchange, account, balance, position, order, execution, tag, release, or
 deployment authority was created.
 
 <!-- FCP 0082 A SHARE GUOJIN MINIQMT PYTHON MARKET DATA ENTITLEMENT EVIDENCE CONTRACT APP 1 FINAL END -->
+
+
+<!-- FCP 0083 A SHARE GUOJIN MINIQMT SANITIZED EVIDENCE LOCAL VALIDATION RUNNER APP 1 APPROVAL START -->
+
+## FCP 0083 A-Share Guojin MiniQMT Sanitized Evidence Local Validation Runner App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+`sidecar-fcp-0083-a-share-guojin-miniqmt-sanitized-evidence-local-validation-runner-app-1`
+
+Approved scope implements one deterministic read-only local runner over the
+exact FCP-0082 contract. It accepts a local file path, safe artifact identity,
+exact SHA-256, exact byte length, and as-of UTC; reads bounded bytes once; and
+emits canonical ASCII review JSON without source mutation.
+
+The phase cannot invoke MiniQMT or xtquant, use a network, accept account
+identifiers or credentials, establish entitlement or Registered Evidence
+authority, activate realtime data, select a provider, promote rows, close Gap
+V2-FR-GAP-104, calculate factors, create labels, start product work, create
+P48, or authorize broker, exchange, account, balance, position, order,
+execution, tag, release, or deployment.
+
+<!-- FCP 0083 A SHARE GUOJIN MINIQMT SANITIZED EVIDENCE LOCAL VALIDATION RUNNER APP 1 APPROVAL END -->
