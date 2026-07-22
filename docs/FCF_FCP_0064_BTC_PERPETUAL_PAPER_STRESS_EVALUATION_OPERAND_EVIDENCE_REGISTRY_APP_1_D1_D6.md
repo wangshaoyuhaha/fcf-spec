@@ -1,6 +1,6 @@
 # FCF FCP 0064 BTC Perpetual Paper Stress Evaluation Operand Evidence Registry App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Typed Input
 
@@ -42,3 +42,16 @@ Validation evidence before merge:
 - full pytest: 6501 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC perpetual rule, stress, and governance suite: 358 passed
+- full pytest: 6501 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `198b7f7a5586360443283f1c74d07fe87e64dfed`
+- sidecar delivery: `c9dc86227d0768e0cf15652c83ba910047eed040`
+- main delivery merge: `58d0d54feb2478405fef234f451e0c22f9652d3a`

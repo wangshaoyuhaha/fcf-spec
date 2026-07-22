@@ -16539,3 +16539,23 @@ credential, wallet, account, balance, position, order, execution, tag, release,
 or deployment path.
 
 <!-- FCP 0064 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND EVIDENCE REGISTRY APP 1 LOCK END -->
+
+<!-- FCP 0064 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND EVIDENCE REGISTRY APP 1 FINAL START -->
+
+## FCP 0064 BTC Perpetual Paper Stress Evaluation Operand Evidence Registry App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact FCP-0063-bound operand-evidence registry is merged and validated.
+Isolated FCP-0064 tests passed 29, affected BTC and governance tests passed
+358 before and after merge, all FCP tests passed 1164, full pytest passed 6501
+before and after merge, and `scripts/run_all_checks.py` reported ALL CHECKS PASSED
+before and after merge. Generated runtime outputs were restored.
+
+Approval `198b7f7a5586360443283f1c74d07fe87e64dfed`; delivery
+`c9dc86227d0768e0cf15652c83ba910047eed040`; merge
+`58d0d54feb2478405fef234f451e0c22f9652d3a`. GAP-098 through GAP-101 remain
+open. No product phase, P48, account, execution, tag, release, or deployment
+path was created.
+
+<!-- FCP 0064 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND EVIDENCE REGISTRY APP 1 FINAL END -->
