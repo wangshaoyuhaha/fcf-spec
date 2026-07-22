@@ -355,3 +355,7 @@ mandatory.
 
 No broker, exchange, credential, account, balance, position, wallet, order,
 real execution, tag, release, or deployment path is authorized.
+FCP-0082 preserves Guojin MiniQMT Python market-data entitlement and local
+sidecar compatibility as exact sanitized registered-local evidence. Review
+eligibility is not entitlement, provider selection, activation, data
+authority, promotion, Gap closure, product authority, or execution authority.

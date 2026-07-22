@@ -2511,3 +2511,21 @@ provider selection, purchase, renewal, cancellation, raw repository retention,
 realtime activation, data authority, Gap closure, candidate promotion, broker,
 exchange, account, order, execution, product phase, P48, tag, release, or
 deployment.
+## 115. Guojin MiniQMT Python Entitlement Evidence Contract
+
+FCP-0082 defines a registered-local evidence boundary for Guojin MiniQMT
+Python market-data entitlement and sidecar compatibility. Inputs contain only
+sanitized metadata: exact terminal and module versions, module identity,
+declared read-only market-data capabilities, market and clock semantics,
+bounded probe facts, rights, retention, artifact byte length, and SHA-256.
+
+The deterministic evaluator rejects secret-bearing keys, account identifiers,
+raw market values, executable requests, unknown vocabulary, conflicts,
+expired facts, and incomplete lineage. It emits only INSUFFICIENT_EVIDENCE or
+OPERATOR_REVIEW_ELIGIBLE for mandatory Operator review.
+
+This is not MiniQMT or xtquant invocation, entitlement approval, provider
+selection, Registered Evidence authority, realtime activation, data
+promotion, or Gap closure. It creates no product, P48, broker, exchange,
+account, balance, position, order, execution, tag, release, or deployment
+authority.

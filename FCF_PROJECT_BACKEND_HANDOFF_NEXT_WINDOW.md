@@ -16280,3 +16280,28 @@ broker, exchange, account, order, execution, tag, release, or deployment
 authority was created.
 
 <!-- FCP 0081 A SHARE CANDIDATE PROVIDER AFTER COST DATA VALUE EXPERIMENT CONTRACT APP 1 FINAL END -->
+
+
+<!-- FCP 0082 A SHARE GUOJIN MINIQMT PYTHON MARKET DATA ENTITLEMENT EVIDENCE CONTRACT APP 1 APPROVAL START -->
+
+## FCP 0082 A-Share Guojin MiniQMT Python Market-Data Entitlement Evidence Contract App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch:
+`sidecar-fcp-0082-a-share-guojin-miniqmt-python-market-data-entitlement-evidence-contract-app-1`
+
+Approved scope defines one deterministic local-only contract for exact
+sanitized Guojin MiniQMT Python market-data entitlement and local-sidecar
+compatibility evidence. It binds terminal, module, version, read-only probe,
+market, clock, capability, rights, retention, byte-length, and digest facts.
+
+The phase cannot accept account identifiers, credentials, authorization codes,
+tokens, passwords, raw market values, or executable requests; invoke MiniQMT
+or xtquant; use a network; establish entitlement or Registered Evidence
+authority; activate realtime data; select a provider; promote rows; close Gap
+V2-FR-GAP-104; calculate factors; create labels; start product work; create
+P48; or authorize broker, exchange, account, balance, position, order,
+execution, tag, release, or deployment.
+
+<!-- FCP 0082 A SHARE GUOJIN MINIQMT PYTHON MARKET DATA ENTITLEMENT EVIDENCE CONTRACT APP 1 APPROVAL END -->

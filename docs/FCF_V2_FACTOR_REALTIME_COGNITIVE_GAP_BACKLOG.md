@@ -217,6 +217,12 @@ authorized spend remains zero. The Gap remains RESEARCH_REQUIRED; experiment
 results cannot select, purchase, renew, cancel, or endorse a provider, prove
 profitability or authority, promote rows, or close the gap.
 
+FCP-0082 is approved to add a deterministic local-only Guojin MiniQMT Python
+market-data entitlement and local-sidecar compatibility evidence contract for
+GAP-104. The Gap remains RESEARCH_REQUIRED. Sanitized review
+eligibility cannot establish external entitlement, invoke MiniQMT or xtquant,
+activate realtime data, select a provider, promote rows, or close the Gap.
+
 ## External Research Intake Observation
 
 The 2026-07-22 external indicator package and A-share CSV collection review is

@@ -1573,3 +1573,23 @@ phase, P48, tag, release, or deployment.
 - Detailed implementation remains subject to the Readiness Gate.
 - External reports and model recommendations remain advisory.
 - P1-P47 remain frozen and no P48 is created.
+## FCF-V2-ADR-082 Require Sanitized MiniQMT Entitlement Compatibility Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Guojin MiniQMT Python market-data entitlement and local-sidecar
+compatibility may be evaluated only from exact Operator-registered sanitized
+local evidence. Evidence must bind terminal and module versions, module
+identity, declared market-data capabilities, markets, clocks, a bounded
+read-only probe summary, rights, retention, byte length, and SHA-256.
+
+Account identifiers, credentials, authorization codes, tokens, passwords, raw
+market values, executable requests, SDK invocation, and inferred facts are
+forbidden. Missing or conflicting evidence fails closed. An
+OPERATOR_REVIEW_ELIGIBLE result remains non-authorizing and cannot establish
+entitlement, Registered Evidence authority, provider selection, realtime
+activation, data promotion, Gap closure, product readiness, or profitability.
+
+Consequences: FCP-0082 may implement the immutable local contract, evaluator,
+review packet, guard, and tests. Gap V2-FR-GAP-104 remains RESEARCH_REQUIRED
+until separate external evidence and authority are accepted.

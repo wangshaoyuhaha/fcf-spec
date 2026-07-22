@@ -665,3 +665,15 @@ a provider, infer missing observations, claim alpha or profitability, close
 GAP-094, establish data authority, promote rows, calculate production factors,
 create labels, or authorize product work, P48, broker, exchange, account,
 order, execution, release, or deployment.
+## FCP-0082 MiniQMT Entitlement Evidence Change Rule
+
+Proposal `FCF-FCP-0082` is limited to deterministic local validation of exact
+sanitized Guojin MiniQMT Python market-data entitlement and sidecar
+compatibility evidence. The approved implementation may add immutable
+contracts, a fail-closed evaluator, non-authorizing Operator review packets,
+guards, tests, and closeout evidence.
+
+It cannot ingest account identifiers or secrets, invoke MiniQMT or xtquant,
+use a network, establish entitlement or Registered Evidence authority,
+activate realtime data, select a provider, promote data, close Gap
+V2-FR-GAP-104, start product work, create P48, or enable trading or execution.
