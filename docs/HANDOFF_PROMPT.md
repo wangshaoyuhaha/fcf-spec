@@ -14715,3 +14715,20 @@ exchange, credential, wallet, account, margin, leverage, liquidation, balance,
 position, PnL, insurance, ADL, order, execution, tag, release, or deployment.
 
 <!-- FCP 0071 BTC PERPETUAL PAPER STRESS TRIGGER RESULT REVIEW REGISTRY APP 1 APPROVAL END -->
+
+<!-- FCP 0071 BTC PERPETUAL PAPER STRESS TRIGGER RESULT REVIEW REGISTRY APP 1 LOCK START -->
+
+## FCP 0071 BTC Perpetual Paper Stress Trigger Result Review Registry App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar delivery binds one exact typed FCP-0070 evaluation and its exact
+FCP-0056 scenario registry into eight immutable complete review records. It
+rejects type, hash, scenario, definition, result, kind, order, contract, UTC,
+review-state, and authority substitution.
+
+This registry cannot recalculate, recommend, or perform account, margin,
+leverage, liquidation, balance, position, PnL, insurance, ADL, order, or
+execution actions, close GAP-098 through GAP-101, create P48, release, or deploy.
+
+<!-- FCP 0071 BTC PERPETUAL PAPER STRESS TRIGGER RESULT REVIEW REGISTRY APP 1 LOCK END -->
