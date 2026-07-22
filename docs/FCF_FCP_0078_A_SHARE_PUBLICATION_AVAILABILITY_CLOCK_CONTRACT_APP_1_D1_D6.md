@@ -1,6 +1,6 @@
 # FCF FCP 0078 A-Share Publication Availability Clock Contract App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Clock Vocabulary
 
@@ -35,3 +35,22 @@ synchronization.
 
 Current augmented coverage matrix hash:
 `c888687a23536ade9059e16e126d9dba4fa70e14253de772cc04d3ff3613cc9a`
+
+Validation evidence:
+
+- isolated FCP-0078 suite: 31 passed
+- affected suite: 119 passed
+- all FCP suites: 1535 passed after merge
+- full pytest: 6872 passed before and after merge
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED before and after merge
+- generated runtime outputs: no tracked generated delta
+- Windows checkout retained LF and exact matrix hash
+- exact changed files and ASCII scope verified
+- `git diff --check`: passed
+
+Evidence commits:
+
+- governance approval: `5ad70d1fef720b820b19c5608ec11729e5d568d2`
+- sidecar delivery: `3e85e30ed39cc3ee65c392c70b545057546c8c03`
+- main delivery merge: `21367595d22859f4b6e2dbe2566235c8ca3cbd4a`
+- Windows hash stabilization: `fd2ec78f3d96ee7a9fbf15d478e217b8c0f13354`
