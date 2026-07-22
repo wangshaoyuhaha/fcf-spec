@@ -1271,6 +1271,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-069 Bind Registered Stress Inputs Before Evaluation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind one exact typed FCP-0068 predicate registry, FCP-0064 operand
+evidence registry, and FCP-0056 scenario registry into one closed ordered input
+binding for each BTC perpetual Paper stress kind before an evaluator is
+introduced.
+
+Consequence: A later deterministic evaluator cannot substitute evidence,
+reorder operand roles, select an unrelated parameter, cross venue or contract
+lineage, or read observations that were unavailable at the registered cutoff.
+
+Rejected shortcut: let an evaluator search arbitrary registries, bind raw
+values by name, omit parameter hashes, ignore evidence order, or treat an input
+binding as a calculated stress result.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

@@ -525,3 +525,13 @@ positions, PnL, ADL actions, orders, execution, or source preference, acquire
 data, invoke an SDK, retrieve network data, accept credentials, activate
 realtime, authorize an exchange, wallet, account, order, or execution path, or
 close GAP-098, GAP-099, GAP-100, or GAP-101.
+
+Proposal `FCF-FCP-0069` creates a deterministic local-only BTC perpetual Paper
+stress-evaluation input-binding registry bound to exact typed FCP-0068,
+FCP-0064, and FCP-0056 lineage. It registers ordered predicate, operand
+observation, and scenario-parameter hashes per kind before evaluation.
+
+FCP-0069 cannot evaluate observations or calculate measures, triggers,
+thresholds, magnitudes, severities, account state, or execution results. It
+does not close GAP-098 through GAP-101 or authorize acquisition, credentials,
+realtime activation, product work, P48, account, execution, release, or deploy.

@@ -2212,3 +2212,26 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
+
+## 102. BTC Perpetual Paper Stress Evaluation Input Binding Registry
+
+The registry consumes one exact typed FCP-0068 trigger-predicate registry, one
+exact typed FCP-0064 operand-evidence registry, and one exact typed FCP-0056
+scenario registry. For every ordered stress kind it binds the predicate
+semantics hash, ordered operand observation hashes, exact scenario parameter
+identity and parameter hash, venue, contract, and UTC lineage.
+
+Bindings contain registered evidence identities only. They do not copy an
+unregistered value, execute a formula, compare a measure with a parameter, or
+emit a trigger result. This separates complete evaluator inputs from the later
+deterministic evaluator and prevents evidence, parameter, or role substitution.
+
+Validation is fail-closed on untyped lineage, registry-hash disagreement,
+missing, duplicate, reordered, or extra kinds, observation-role mismatch,
+parameter substitution, venue or contract mismatch, future availability, or
+authority escalation. The registry cannot close GAP-098 through GAP-101.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.

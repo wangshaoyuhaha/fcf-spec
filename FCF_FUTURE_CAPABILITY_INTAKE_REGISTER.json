@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 69,
+  "next_proposal_sequence": 70,
   "proposals": [
     {
       "adr_refs": [],
@@ -1968,6 +1968,35 @@
       "summary": "Register deterministic local-only BTC perpetual Paper stress trigger-predicate semantics against one exact typed FCP-0067 measure-formula registry. Bind one closed comparison operator, left and right role order, parameter transform, and strict or inclusive boundary policy to every scenario kind before any evaluator is introduced. Produce immutable predicate-semantics-only evidence without evaluating observations or calculating a trigger, threshold, magnitude, severity, price, margin, leverage, liquidation, balance, position, PnL, ADL, order, or execution result. The registry does not close GAP-098, GAP-099, GAP-100, or GAP-101 and authorizes no acquisition, SDK, network, credentials, realtime, product, P48, exchange, wallet, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC perpetual Paper stress evaluation trigger predicate semantics registry"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-069"
+      ],
+      "architecture_refs": [
+        "FCF-V2-BTC-PERPETUAL-LEVERAGE-PAPER-RESEARCH"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0069_BTC_PERPETUAL_PAPER_STRESS_EVALUATION_INPUT_BINDING_REGISTRY_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0069_BTC_PERPETUAL_PAPER_STRESS_EVALUATION_INPUT_BINDING_REGISTRY_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0069_BTC_PERPETUAL_PAPER_STRESS_EVALUATION_INPUT_BINDING_REGISTRY_APP_1_FINAL.md",
+        "docs/FCF_FCP_0069_BTC_PERPETUAL_PAPER_STRESS_EVALUATION_INPUT_BINDING_REGISTRY_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-098",
+        "V2-FR-GAP-099",
+        "V2-FR-GAP-100",
+        "V2-FR-GAP-101"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0069",
+      "source": "operator-authorized-continuous-btc-paper-stress-evaluation-input-binding-registry",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T10:48:29Z",
+      "summary": "Register deterministic local-only BTC perpetual Paper stress evaluation input bindings against one exact typed FCP-0068 predicate registry, FCP-0064 operand-evidence registry, and FCP-0056 scenario registry. Bind each scenario kind to exact predicate semantics, ordered observation hashes, and the registered scenario parameter hash before any evaluator is introduced. Produce immutable input-binding-only evidence without evaluating observations or calculating a measure, trigger, threshold, magnitude, severity, price, margin, leverage, liquidation, balance, position, PnL, ADL, order, or execution result. The registry does not close GAP-098, GAP-099, GAP-100, or GAP-101 and authorizes no acquisition, SDK, network, credentials, realtime, product, P48, exchange, wallet, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC perpetual Paper stress evaluation input binding registry"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

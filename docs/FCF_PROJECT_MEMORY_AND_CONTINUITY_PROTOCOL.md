@@ -299,6 +299,9 @@ not-implemented capability groups:
 - BTC perpetual Paper stress-evaluation trigger-predicate semantics registries
   with exact typed FCP-0067 lineage, closed comparison, role-order, transform,
   and strict or inclusive boundary policies, and no evaluation authority
+- BTC perpetual Paper stress-evaluation input-binding registries with exact
+  typed FCP-0068, FCP-0064, and FCP-0056 lineage, ordered predicate, operand,
+  and parameter hashes, and no evaluation or calculation authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
