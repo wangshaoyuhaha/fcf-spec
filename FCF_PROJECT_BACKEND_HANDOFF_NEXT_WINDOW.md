@@ -16455,3 +16455,28 @@ status, promote data, close GAP-105, start product work, create P48, or enable
 accounts, orders, execution, tag, release, or deployment.
 
 <!-- FCP 0084 A SHARE GUOJIN QMT LOCAL EXPORT BATCH COVERAGE EVIDENCE APP 1 APPROVAL END -->
+
+<!-- FCP 0084 A SHARE GUOJIN QMT LOCAL EXPORT BATCH COVERAGE EVIDENCE APP 1 LOCK START -->
+
+## FCP 0084 A-Share Guojin QMT Local Export Batch Coverage Evidence App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar delegates registered-byte parsing and normalization to FCP-0035
+and emits a path-free, row-free coverage probe. It does not duplicate or run
+FCP-0036 without registered expected trading dates.
+
+Contract SHA-256:
+`3c5ba7da999a2d256373bee73ddee26b0132f2321dbe140a28df1165ef354ff5`.
+Runner SHA-256:
+`af2c6c9ccbc4c619a4cb87824cb8e991c46a08f83ac3fb33602d95fa67325dae`.
+Reference evidence hash:
+`a4d0f5164c98db1d03c6fdc6d87bb8b3c9ccae8f8ef5b3a8c854370629abbf8a`.
+Reference output SHA-256:
+`35e30a784912f65189544882f4062fb9dcbc0522e31c8657ad985536f2cd6c72`.
+
+GAP-105 remains open. No raw rows, normalized rows, local paths, provider
+invocation, data promotion, product, account, order, execution, tag, release,
+or deployment authority is created.
+
+<!-- FCP 0084 A SHARE GUOJIN QMT LOCAL EXPORT BATCH COVERAGE EVIDENCE APP 1 LOCK END -->

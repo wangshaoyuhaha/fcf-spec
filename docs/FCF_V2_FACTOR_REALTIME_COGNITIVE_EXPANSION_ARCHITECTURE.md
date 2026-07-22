@@ -2556,3 +2556,7 @@ adjustment authority, or trading status may be inferred.
 Raw rows and paths remain outside Git. Outputs are quarantined and cannot
 promote data, select a provider, close GAP-105, authorize product work, or
 enable accounts, orders, or execution.
+
+The implementation delegates all registered-byte parsing and normalization to
+FCP-0035. FCP-0036 remains the only batch reconciliation authority and is not
+run without a registered expected trading-date artifact.

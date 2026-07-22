@@ -1627,3 +1627,8 @@ closed. Equal row counts support only an observed-bound finding.
 Consequences: FCP-0084 may implement contracts, scanner, aggregate packet,
 guard, and tests. GAP-105 remains RESEARCH_REQUIRED and raw rows remain outside
 Git. No data promotion, provider selection, product, or execution is enabled.
+
+Implementation clarification: FCP-0035 remains the QMT parsing and
+normalization authority and FCP-0036 remains the expected-date batch
+reconciliation authority. FCP-0084 may only project their results into a
+path-free non-authorizing coverage probe; it cannot duplicate either engine.
