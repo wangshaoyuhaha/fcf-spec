@@ -318,6 +318,9 @@ not-implemented capability groups:
 - BTC perpetual Paper signal-evidence separation contracts with one closed
   ordered domain vocabulary, immutable artifact references, reusable-signal
   isolation, and no signal, strategy, profitability, account, or action authority
+- A-share external candidate daily-corpus quality quarantine evidence with a
+  path-free manifest, closed quality findings, explicit provenance and rights
+  gaps, raw data outside Git, and no evidence-promotion authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

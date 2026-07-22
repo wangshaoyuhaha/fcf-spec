@@ -1402,6 +1402,30 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, margin, leverage, liquidation, balance, position, PnL, order,
 execution, product phase, P48, tag, release, or deployment.
 
+## FCF-V2-ADR-075 Quarantine Unverified External Daily Data Before Promotion
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Register path-free deterministic quality findings for an external
+candidate A-share daily corpus while keeping every raw row outside Git and
+outside Registered Evidence authority. Structural validity, value quality,
+coverage, adjustment ambiguity, provenance, and rights risk remain separate
+closed evidence domains.
+
+Consequence: The same fail-closed quality contract can later compare MiniQMT,
+RQData, Tushare, or another approved provider without allowing a large or
+well-formed downloaded corpus to become authoritative by appearance alone.
+
+Rejected shortcut: copy third-party raw rows into Git, infer provider identity
+or license, treat adjusted prices as official factors, infer suspension from a
+missing row, equate schema consistency with accuracy, or promote quarantined
+candidate observations to calculations or labels.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, broker,
+exchange, account, balance, position, order, execution, product phase, P48,
+tag, release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

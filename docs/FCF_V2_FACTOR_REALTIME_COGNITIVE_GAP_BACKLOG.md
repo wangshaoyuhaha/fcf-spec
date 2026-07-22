@@ -194,6 +194,17 @@ factor is activated.
 | V2-FR-GAP-108 | complete multi-batch QMT export evidence spanning the requested range with observed row-cap, pagination, and deterministic batch-order behavior | RESEARCH_REQUIRED |
 | V2-FR-GAP-109 | QMT versus independent provider coverage reconciliation across the same registered expected trading-date set | RESEARCH_REQUIRED |
 
+## External Research Intake Observation
+
+The 2026-07-22 external indicator package and A-share CSV collection review is
+recorded in
+`docs/FCF_EXTERNAL_INDICATOR_AND_STOCK_DATA_RESEARCH_INTAKE_2026_07_22.md`.
+The linked intake maps its observations to existing indicator, validation,
+rights, lineage, storage, quality, and provider-compatibility gaps without
+creating a new gap. The external material remains unverified,
+non-authoritative, outside Git data storage, and blocked from implementation or
+promotion until its documented adoption gates pass.
+
 ## Roadmap Backlog
 
 | Phase | Scope | Status |

@@ -587,3 +587,15 @@ profitability, or close GAP-103. It authorizes no acquisition, SDK, network,
 credentials, realtime, product work, P48, exchange, wallet, account, margin,
 leverage, liquidation, balance, position, PnL, order, execution, release, or
 deployment.
+
+Proposal `FCF-FCP-0075` registers deterministic local-only quality and
+quarantine evidence for one external candidate A-share daily CSV corpus. It
+preserves a path-free manifest fingerprint, schema, coverage, structural and
+value-quality findings, adjustment ambiguity, provenance gaps, and rights risk
+without retaining raw rows in Git.
+
+FCP-0075 cannot establish provider authority, accuracy, completeness, official
+adjustment factors, corporate actions, trading status, point-in-time
+availability, or Registered Evidence authority. It authorizes no acquisition,
+SDK, network, credentials, realtime, product work, P48, broker, exchange,
+account, order, execution, release, or deployment.

@@ -2350,3 +2350,27 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, margin, leverage, liquidation, balance, position, PnL, order,
 execution, product phase, P48, tag, release, or deployment.
+
+## 108. A-Share External Candidate Daily Corpus Quality Quarantine Evidence
+
+The evidence contract accepts only explicit local Operator-supplied candidate
+corpus metadata and deterministic read-only scan findings. It preserves a
+path-free manifest fingerprint, file and market counts, one closed normalized
+schema profile, date boundaries, structural failures, value-level invariant
+failures, stale or terminal-date findings, adjustment ambiguity, and explicit
+provenance and rights gaps.
+
+Raw candidate rows remain outside Git. A corpus with consistent headers and
+parseable rows remains quarantined until provider, license, revision,
+corporate-action, adjustment-factor, trading-status, calendar, and
+point-in-time evidence is independently registered and reconciled.
+
+The contract can support later MiniQMT, RQData, Tushare, AkShare, or BaoStock
+compatibility research. It cannot select a provider, declare completeness,
+promote a row, calculate a factor, create a training label, or make a
+performance claim.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, repository retention of raw data, realtime activation,
+broker, exchange, account, balance, position, order, execution, product phase,
+P48, tag, release, or deployment.

@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 75,
+  "next_proposal_sequence": 76,
   "proposals": [
     {
       "adr_refs": [],
@@ -2139,6 +2139,37 @@
       "summary": "Register one deterministic local-only BTC perpetual Paper signal-evidence separation contract. Define a closed ordered domain vocabulary that isolates reusable market signal evidence from contract semantics, leverage and margin, cost and funding, liquidation risk, and outcome accounting. Preserve immutable registered artifact references and fail closed on missing, duplicate, reordered, or cross-domain evidence. This bounded contract does not calculate a signal, promote a factor, select a strategy, claim profitability, close GAP-103, or authorize acquisition, SDK, network, credentials, realtime, product, P48, exchange, wallet, account, margin, leverage, liquidation, balance, position, PnL, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC perpetual Paper signal evidence separation contract"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-075"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0075_A_SHARE_EXTERNAL_CANDIDATE_DAILY_CORPUS_QUALITY_QUARANTINE_EVIDENCE_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0075_A_SHARE_EXTERNAL_CANDIDATE_DAILY_CORPUS_QUALITY_QUARANTINE_EVIDENCE_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0075_A_SHARE_EXTERNAL_CANDIDATE_DAILY_CORPUS_QUALITY_QUARANTINE_EVIDENCE_APP_1_FINAL.md",
+        "docs/FCF_FCP_0075_A_SHARE_EXTERNAL_CANDIDATE_DAILY_CORPUS_QUALITY_QUARANTINE_EVIDENCE_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-023",
+        "V2-FR-GAP-089",
+        "V2-FR-GAP-090",
+        "V2-FR-GAP-091",
+        "V2-FR-GAP-092",
+        "V2-FR-GAP-093"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0075",
+      "source": "operator-authorized-continuous-a-share-external-candidate-daily-corpus-quality-quarantine-evidence",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T16:17:45Z",
+      "summary": "Register deterministic local-only quality and quarantine evidence for one external candidate A-share daily CSV corpus. Preserve a path-free manifest fingerprint, closed schema profile, structural and value-quality findings, coverage boundaries, stale or terminal-date observations, adjustment ambiguity, provenance and rights gaps, and fail-closed promotion status without copying raw rows into Git. The bounded evidence cannot establish provider authority, data accuracy, completeness, official adjustment factors, corporate actions, trading status, point-in-time availability, or Registered Evidence authority. It authorizes no acquisition, SDK, network, credentials, realtime, product, P48, broker, exchange, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share external candidate daily corpus quality quarantine evidence"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
