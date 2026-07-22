@@ -576,3 +576,14 @@ FCP-0073 cannot approve or reject evidence, resolve a result, recommend, or
 perform account, margin, leverage, liquidation, balance, position, PnL,
 insurance, ADL, order, or execution actions. It does not close GAP-098 through
 GAP-101 or authorize product work, P48, release, or deployment.
+
+Proposal `FCF-FCP-0074` registers one deterministic local-only BTC perpetual
+Paper signal-evidence separation contract. It separates reusable market signal
+evidence from contract semantics, leverage and margin, cost and funding,
+liquidation risk, and outcome accounting through one closed ordered domain set.
+
+FCP-0074 cannot calculate a signal, promote a factor, select a strategy, infer
+profitability, or close GAP-103. It authorizes no acquisition, SDK, network,
+credentials, realtime, product work, P48, exchange, wallet, account, margin,
+leverage, liquidation, balance, position, PnL, order, execution, release, or
+deployment.

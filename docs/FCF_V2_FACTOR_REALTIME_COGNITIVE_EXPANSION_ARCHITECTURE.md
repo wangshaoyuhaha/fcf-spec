@@ -2327,3 +2327,26 @@ Not authorized: acquisition, SDK invocation, network retrieval, credential,
 provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
+
+## 107. BTC Perpetual Paper Signal Evidence Separation Contract
+
+The contract registers one closed ordered domain vocabulary:
+`REUSABLE_MARKET_SIGNAL`, `CONTRACT_SEMANTICS`, `LEVERAGE_MARGIN`,
+`COST_FUNDING_EXECUTION`, `LIQUIDATION_RISK`, and `OUTCOME_ACCOUNTING`.
+Every domain binds one or more immutable registered artifact references with
+explicit artifact identity, digest, observation UTC, and domain identity.
+
+Only `REUSABLE_MARKET_SIGNAL` is eligible for later cross-market signal
+research. Every other domain remains derivative-specific and cannot be folded
+into a signal definition. Complete domain coverage, closed ordering, unique
+artifact identity, digest integrity, and explicit UTC lineage fail closed.
+
+This bounded contract does not calculate a signal, evaluate performance,
+promote a factor, choose a strategy, rank a venue, calculate account state, or
+claim profitability. It does not close GAP-103; later deterministic evaluation
+and explicit Operator review remain required.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, margin, leverage, liquidation, balance, position, PnL, order,
+execution, product phase, P48, tag, release, or deployment.

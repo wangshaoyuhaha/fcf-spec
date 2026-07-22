@@ -1380,6 +1380,28 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-074 Separate Reusable Signal Evidence From Derivative Mechanics
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Register one closed ordered BTC perpetual Paper evidence-domain
+contract. Only `REUSABLE_MARKET_SIGNAL` may identify evidence eligible for
+later cross-market signal research. Contract, leverage-margin, cost-funding,
+liquidation-risk, and outcome-accounting evidence remain derivative-specific.
+
+Consequence: Later research can prove which registered facts are reusable
+without mixing leverage, liquidation, funding, execution-cost, or outcome
+accounting into the signal definition.
+
+Rejected shortcut: infer a domain from an artifact name, omit a closed domain,
+reuse derivative-specific evidence as a signal, aggregate the domains into one
+score, promote a factor, select a strategy, or claim profitability.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, margin, leverage, liquidation, balance, position, PnL, order,
+execution, product phase, P48, tag, release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

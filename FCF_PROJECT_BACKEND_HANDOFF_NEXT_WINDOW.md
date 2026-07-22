@@ -15731,3 +15731,22 @@ open. No product phase, P48, account, execution, tag, release, or deployment
 path was created.
 
 <!-- FCP 0073 BTC PERPETUAL PAPER STRESS TRIGGER RESULT OPERATOR REVIEW RECEIPT APP 1 FINAL END -->
+
+<!-- FCP 0074 BTC PERPETUAL PAPER SIGNAL EVIDENCE SEPARATION CONTRACT APP 1 APPROVAL START -->
+
+## FCP 0074 BTC Perpetual Paper Signal Evidence Separation Contract App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0074-btc-perpetual-paper-signal-evidence-separation-contract-app-1`
+
+Approved scope registers one immutable local Paper contract with a closed
+ordered vocabulary separating reusable market signal evidence from contract,
+leverage-margin, cost-funding, liquidation-risk, and outcome-accounting facts.
+
+The phase cannot calculate a signal, promote a factor, select a strategy, claim
+profitability, close GAP-103, start a product phase, create P48, or authorize
+broker, exchange, credential, wallet, account, balance, position, PnL, order,
+execution, tag, release, or deployment.
+
+<!-- FCP 0074 BTC PERPETUAL PAPER SIGNAL EVIDENCE SEPARATION CONTRACT APP 1 APPROVAL END -->

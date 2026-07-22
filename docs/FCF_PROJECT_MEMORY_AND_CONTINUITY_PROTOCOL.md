@@ -315,6 +315,9 @@ not-implemented capability groups:
 - BTC perpetual Paper stress trigger-result Operator review receipts with
   exact typed FCP-0072 packet lineage, complete record-hash evidence, reviewer
   reference, reviewed UTC time, and no approval, resolution, or action authority
+- BTC perpetual Paper signal-evidence separation contracts with one closed
+  ordered domain vocabulary, immutable artifact references, reusable-signal
+  isolation, and no signal, strategy, profitability, account, or action authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

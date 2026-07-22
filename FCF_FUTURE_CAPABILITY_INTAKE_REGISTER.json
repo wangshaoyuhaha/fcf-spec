@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 74,
+  "next_proposal_sequence": 75,
   "proposals": [
     {
       "adr_refs": [],
@@ -2113,6 +2113,32 @@
       "summary": "Register one deterministic local-only explicit Operator review receipt against one exact typed FCP-0072 BTC perpetual Paper stress trigger-result review packet. Preserve packet identity, all ordered record hashes, triggered and non-triggered evidence groups, reviewer reference, reviewed UTC time, and one closed non-authorizing review disposition. The receipt records review occurrence only; it cannot approve or reject evidence, resolve a result, recommend an action, or close GAP-098, GAP-099, GAP-100, or GAP-101. It authorizes no acquisition, SDK, network, credentials, realtime, product, P48, exchange, wallet, account, margin, leverage, liquidation, balance, position, PnL, insurance, ADL, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC perpetual Paper stress trigger result Operator review receipt"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-074"
+      ],
+      "architecture_refs": [
+        "FCF-V2-BTC-PERPETUAL-LEVERAGE-PAPER-RESEARCH"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0074_BTC_PERPETUAL_PAPER_SIGNAL_EVIDENCE_SEPARATION_CONTRACT_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0074_BTC_PERPETUAL_PAPER_SIGNAL_EVIDENCE_SEPARATION_CONTRACT_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0074_BTC_PERPETUAL_PAPER_SIGNAL_EVIDENCE_SEPARATION_CONTRACT_APP_1_FINAL.md",
+        "docs/FCF_FCP_0074_BTC_PERPETUAL_PAPER_SIGNAL_EVIDENCE_SEPARATION_CONTRACT_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-103"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0074",
+      "source": "operator-authorized-continuous-btc-paper-signal-evidence-separation-contract",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T13:33:04Z",
+      "summary": "Register one deterministic local-only BTC perpetual Paper signal-evidence separation contract. Define a closed ordered domain vocabulary that isolates reusable market signal evidence from contract semantics, leverage and margin, cost and funding, liquidation risk, and outcome accounting. Preserve immutable registered artifact references and fail closed on missing, duplicate, reordered, or cross-domain evidence. This bounded contract does not calculate a signal, promote a factor, select a strategy, claim profitability, close GAP-103, or authorize acquisition, SDK, network, credentials, realtime, product, P48, exchange, wallet, account, margin, leverage, liquidation, balance, position, PnL, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC perpetual Paper signal evidence separation contract"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
