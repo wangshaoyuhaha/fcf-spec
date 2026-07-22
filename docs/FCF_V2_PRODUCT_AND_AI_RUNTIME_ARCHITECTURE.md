@@ -16559,3 +16559,23 @@ open. No product phase, P48, account, execution, tag, release, or deployment
 path was created.
 
 <!-- FCP 0064 BTC PERPETUAL PAPER STRESS EVALUATION OPERAND EVIDENCE REGISTRY APP 1 FINAL END -->
+
+<!-- FCP 0065 BTC PERPETUAL PAPER STRESS EVALUATION CONTEXT COHERENCE GATE APP 1 APPROVAL START -->
+
+## FCP 0065 BTC Perpetual Paper Stress Evaluation Context Coherence Gate App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved branch: `sidecar-fcp-0065-btc-perpetual-paper-stress-evaluation-context-coherence-gate-app-1`
+
+Approved scope binds exact typed FCP-0056 scenario definitions, FCP-0062
+extended-readiness evidence, and FCP-0064 operand evidence into one immutable
+context. Definition hashes, complete-rule bundle, venue, contract, ancestry,
+and monotonic UTC lineage must agree exactly.
+
+The phase cannot define direction, register formulas, evaluate stress,
+calculate account or execution state, close GAP-098 through GAP-101, start a
+product phase, create P48, or authorize broker, exchange, credential, wallet,
+account, balance, position, order, execution, tag, release, or deployment.
+
+<!-- FCP 0065 BTC PERPETUAL PAPER STRESS EVALUATION CONTEXT COHERENCE GATE APP 1 APPROVAL END -->

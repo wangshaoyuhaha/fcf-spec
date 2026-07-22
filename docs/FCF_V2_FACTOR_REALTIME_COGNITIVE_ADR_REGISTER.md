@@ -1026,6 +1026,29 @@ Not authorized: acquisition, SDK, network, credential, realtime, product, P48,
 exchange, wallet, account, balance, position, order, execution, tag, release,
 or deployment.
 
+## FCF-V2-ADR-065 Bind Complete Typed Context Before Stress Formulas
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind one exact typed FCP-0056 scenario registry, one exact typed
+FCP-0062 extended-readiness snapshot, and one exact typed FCP-0064 operand-
+evidence registry before any direction or formula semantics are registered.
+Require definition hashes, complete-rule bundle, venue, contract, operand-
+schema ancestry, and monotonic UTC lineage to agree exactly.
+
+Consequence: A later deterministic Paper formula registry cannot consume
+orphan operands, stale definitions, cross-contract context, or substituted
+scenario parameters.
+
+Rejected shortcut: trust hash labels without typed upstream objects, infer
+definitions from scenario names, join different as-of times, or treat context
+coherence as a stress result.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 ## FCF-V2-ADR-060 Require Coherent Stress Evaluation Readiness Evidence
 
 Status: ACCEPTED_ARCHITECTURE

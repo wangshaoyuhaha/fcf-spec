@@ -2129,3 +2129,16 @@ Validation is fail-closed on missing, duplicate, extra, future, cross-kind,
 untyped, or time-reversed evidence. It cannot define direction, evaluate
 stress, calculate account or execution state, or close GAP-098, GAP-099,
 GAP-100, or GAP-101.
+
+## 98. BTC Perpetual Paper Stress Evaluation Context Coherence Gate
+
+The gate consumes exact typed FCP-0056 scenario definitions, FCP-0062
+extended-readiness evidence, and FCP-0064 operand evidence. It binds exact
+definition hashes, complete-rule bundle, venue, contract, operand-schema
+ancestry, and monotonic UTC lineage into one immutable evaluation context.
+
+Validation is fail-closed on untyped evidence, substituted hashes, missing or
+reordered definitions, cross-contract identities, stale context, or time
+reversal. It cannot define direction, register formulas, evaluate stress,
+calculate account or execution state, or close GAP-098, GAP-099, GAP-100, or
+GAP-101.

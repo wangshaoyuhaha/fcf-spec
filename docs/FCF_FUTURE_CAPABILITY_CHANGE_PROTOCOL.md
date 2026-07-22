@@ -475,3 +475,14 @@ execution, or source preference, acquire data, invoke an SDK, retrieve network
 data, accept credentials, activate realtime, authorize an exchange, wallet,
 account, order, or execution path, or close GAP-098, GAP-099, GAP-100, or
 GAP-101.
+
+Proposal `FCF-FCP-0065` creates a deterministic local-only BTC perpetual Paper
+stress-evaluation context coherence gate. It binds exact typed FCP-0056,
+FCP-0062, and FCP-0064 evidence before any formula or evaluator is introduced.
+
+FCP-0065 cannot define direction, register formulas, evaluate stress,
+calculate prices, margin, leverage, liquidation, balances, positions, PnL,
+ADL actions, orders, execution, or source preference, acquire data, invoke an
+SDK, retrieve network data, accept credentials, activate realtime, authorize
+an exchange, wallet, account, order, or execution path, or close GAP-098,
+GAP-099, GAP-100, or GAP-101.

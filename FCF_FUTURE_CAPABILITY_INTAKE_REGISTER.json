@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 65,
+  "next_proposal_sequence": 66,
   "proposals": [
     {
       "adr_refs": [],
@@ -1852,6 +1852,32 @@
       "summary": "Register deterministic local-only BTC perpetual Paper stress-evaluation operand observations against one exact typed FCP-0063 operand-schema snapshot. Require one typed observation for every closed operand role with exact metric, unit, venue, contract, event, availability, source-artifact, digest, and rights lineage, and require paired baselines to precede current observations. Produce immutable registration-only evidence without defining direction, evaluating stress, or calculating prices, margin, leverage, liquidation, balances, positions, PnL, ADL, orders, or execution. The registry does not close GAP-098, GAP-099, GAP-100, or GAP-101 and authorizes no acquisition, SDK, network, credentials, realtime, product, P48, exchange, wallet, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC perpetual Paper stress evaluation operand evidence registry"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-065"
+      ],
+      "architecture_refs": [
+        "FCF-V2-BTC-PERPETUAL-LEVERAGE-PAPER-RESEARCH"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0065_BTC_PERPETUAL_PAPER_STRESS_EVALUATION_CONTEXT_COHERENCE_GATE_APP_1_APPROVED.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-098",
+        "V2-FR-GAP-099",
+        "V2-FR-GAP-100",
+        "V2-FR-GAP-101"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0065",
+      "source": "operator-authorized-continuous-btc-paper-stress-evaluation-context-coherence-gate",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T08:55:57Z",
+      "summary": "Bind exact typed FCP-0056 scenario definitions, FCP-0062 extended-readiness evidence, and FCP-0064 operand evidence into one deterministic local-only BTC perpetual Paper stress-evaluation context. Require exact definition hashes, complete-rule bundle, venue, contract, operand-schema ancestry, and monotonic UTC coherence before any later formula or evaluator can consume the context. Produce immutable context-only evidence without defining direction, evaluating stress, or calculating prices, margin, leverage, liquidation, balances, positions, PnL, ADL, orders, or execution. The gate does not close GAP-098, GAP-099, GAP-100, or GAP-101 and authorizes no acquisition, SDK, network, credentials, realtime, product, P48, exchange, wallet, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC perpetual Paper stress evaluation context coherence gate"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

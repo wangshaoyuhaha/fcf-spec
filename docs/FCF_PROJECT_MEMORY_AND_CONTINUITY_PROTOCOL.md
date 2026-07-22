@@ -286,6 +286,9 @@ not-implemented capability groups:
 - BTC perpetual Paper stress-evaluation operand-evidence registries with exact
   FCP-0063 lineage, one registered local observation per operand role,
   baseline-before-current time order, and no evaluation authority
+- BTC perpetual Paper stress-evaluation context coherence gates with exact
+  typed FCP-0056, FCP-0062, and FCP-0064 lineage, definition and contract
+  coherence, monotonic UTC order, and no direction or evaluation authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot
