@@ -1553,9 +1553,9 @@ adjustment, trading status, rights, retention, fixed cost, measured benefit,
 renewal, and stop evidence remain independently explicit.
 
 Consequence: A candidate can become eligible for mandatory Operator review
-only after complete comparable evidence exists. Current authorized spend is
-zero, and review eligibility is neither provider selection nor purchase or
-renewal authority.
+only after complete comparable evidence exists.
+Current authorized spend is zero, and review eligibility is neither provider
+selection nor purchase or renewal authority.
 
 Rejected shortcut: infer a price from a sales quote; use unmatched windows;
 claim value from compatibility alone; hide missing rights or clocks; treat a

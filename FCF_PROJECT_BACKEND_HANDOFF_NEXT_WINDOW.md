@@ -16224,3 +16224,27 @@ create labels, start product work, create P48, or authorize broker, exchange,
 account, order, execution, tag, release, or deployment.
 
 <!-- FCP 0081 A SHARE CANDIDATE PROVIDER AFTER COST DATA VALUE EXPERIMENT CONTRACT APP 1 APPROVAL END -->
+
+
+<!-- FCP 0081 A SHARE CANDIDATE PROVIDER AFTER COST DATA VALUE EXPERIMENT CONTRACT APP 1 LOCK START -->
+
+## FCP 0081 A-Share Candidate Provider After-Cost Data-Value Experiment Contract App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar implements immutable registered-local experiment specifications,
+comparable metric observations, exact cost and benefit evidence, and
+deterministic review packets. Current authorized spend remains zero.
+
+Contract SHA-256:
+`3c22ac10ccbd3e8d27db97bdf2a9f851679e01f2ec336a2433b0a458f408bd1a`.
+Reference packet hash:
+`e54b2033f4eca1773d3a3544fe98aba77653cd1ac393f2b6c4e9f2f3e7263baf`.
+
+Gap V2-FR-GAP-094 remains open. No outcome can select, endorse, purchase,
+renew, cancel, or activate a provider; claim profitability or authority;
+promote rows; or authorize acquisition, SDK, network, credential, realtime,
+product, P48, broker, exchange, account, order, execution, tag, release, or
+deployment.
+
+<!-- FCP 0081 A SHARE CANDIDATE PROVIDER AFTER COST DATA VALUE EXPERIMENT CONTRACT APP 1 LOCK END -->
