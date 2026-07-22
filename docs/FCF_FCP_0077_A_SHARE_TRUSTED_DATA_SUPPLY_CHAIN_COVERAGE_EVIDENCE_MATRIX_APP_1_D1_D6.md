@@ -1,6 +1,6 @@
 # FCF FCP 0077 A-Share Trusted Data Supply Chain Coverage Evidence Matrix App 1 D1-D6
 
-Status: VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Gap Coverage Contract
 
@@ -43,3 +43,20 @@ Current result:
 Run isolated, affected-governance, all-FCP, full-pytest, all-checks,
 generated-output, exact-file, ASCII, and diff validation before merge and final
 synchronization.
+
+Validation evidence:
+
+- isolated FCP-0077 suite: 24 passed
+- affected governance suite: 177 passed
+- all FCP suites: 1504 passed after merge
+- full pytest: 6841 passed before and after merge
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED before and after merge
+- generated runtime outputs: no tracked generated delta
+- exact changed files and ASCII scope verified
+- `git diff --check`: passed
+
+Evidence commits:
+
+- governance approval: `461019dd1e9a94a6fddce84c5bf8685a53344d8d`
+- sidecar delivery: `55a30cee36b8afb38f458d036d5164520f18f3dd`
+- main delivery merge: `1bbc9011cbfc5db376fb9ed462ccdf33baa3b65e`
