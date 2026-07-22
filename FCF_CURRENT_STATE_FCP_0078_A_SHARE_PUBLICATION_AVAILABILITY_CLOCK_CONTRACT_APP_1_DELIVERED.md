@@ -10,7 +10,7 @@ rejects inferred exact time and blocks date-only or unknown publication.
 
 Verified implementation adds PUBLICATION_CLOCK foundation evidence to the
 augmented FCP-0077 matrix. The current augmented matrix hash is:
-`345ab6bc9d01293226ade1c4b50b647ed85cd133f295d9620a983339379e3397`
+`c888687a23536ade9059e16e126d9dba4fa70e14253de772cc04d3ff3613cc9a`
 
 Every Gap remains open. No provider or data authority is established, no
 candidate row is promoted, and no SDK, network, credential, realtime,
