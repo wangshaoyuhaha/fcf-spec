@@ -1,6 +1,6 @@
 # FCF FCP 0054 BTC Perpetual Mark Index Liquidation Mechanics Evidence Registry App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Registered Rule Evidence
 
@@ -41,6 +41,19 @@ Validation evidence before merge:
 - full pytest: 6297 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC liquidation-registry and governance suite: 532 passed
+- full pytest: 6297 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `fce1b40ecebb5b50670a6e8315b95088b7befcd7`
+- sidecar delivery: `746b81708457f79bf7973bd4f95ccf04c690adf2`
+- main delivery merge: `ee94dc1973eb2dbd6c8db3cb8fa94b41e7c922d9`
 
 Synthetic fixtures do not close GAP-098, GAP-100, GAP-101, or GAP-102 and
 grant no acquisition, SDK, network, credential, realtime, exchange, wallet,
