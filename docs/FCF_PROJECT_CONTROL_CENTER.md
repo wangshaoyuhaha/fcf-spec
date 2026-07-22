@@ -22283,3 +22283,23 @@ or severities, close GAP-098 through GAP-101, start a product phase, create
 P48, or authorize any account or execution path.
 
 <!-- FCP 0067 BTC PERPETUAL PAPER STRESS EVALUATION MEASURE FORMULA SEMANTICS REGISTRY APP 1 LOCK END -->
+
+<!-- FCP 0067 BTC PERPETUAL PAPER STRESS EVALUATION MEASURE FORMULA SEMANTICS REGISTRY APP 1 FINAL START -->
+
+## FCP 0067 BTC Perpetual Paper Stress Evaluation Measure Formula Semantics Registry App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact FCP-0066-bound measure-formula semantics registry is merged and
+validated. Isolated FCP-0067 tests passed 24, affected BTC and governance tests
+passed 419 before and after merge, all FCP tests passed 1225, full pytest passed
+6562 before and after merge, and `scripts/run_all_checks.py` reported
+ALL CHECKS PASSED before and after merge. Generated runtime outputs were restored.
+
+Approval `94031b87437b5bb51c2698c2180b5c43d44710ff`; delivery
+`8761f0a4bcc019915f5d32c57d49ea1b06eb7a37`; merge
+`12931b414a36c9956b76237721d93656fa915879`. GAP-098 through GAP-101 remain
+open. No product phase, P48, account, execution, tag, release, or deployment
+path was created.
+
+<!-- FCP 0067 BTC PERPETUAL PAPER STRESS EVALUATION MEASURE FORMULA SEMANTICS REGISTRY APP 1 FINAL END -->
