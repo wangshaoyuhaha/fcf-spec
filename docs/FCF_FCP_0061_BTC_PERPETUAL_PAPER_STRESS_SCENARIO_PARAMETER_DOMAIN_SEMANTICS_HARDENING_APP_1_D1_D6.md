@@ -1,6 +1,6 @@
 # FCF FCP 0061 BTC Perpetual Paper Stress Scenario Parameter Domain Semantics Hardening App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Typed Inputs
 
@@ -41,6 +41,19 @@ Validation evidence before merge:
 - full pytest: 6441 passed
 - `scripts/run_all_checks.py`: ALL CHECKS PASSED
 - generated output restoration: no tracked generated delta
+
+Post-merge validation evidence:
+
+- affected BTC stress-parameter and governance suite: 584 passed
+- full pytest: 6441 passed
+- `scripts/run_all_checks.py`: ALL CHECKS PASSED
+- generated runtime outputs: restored; no tracked generated changes remained
+
+Evidence commits:
+
+- governance approval: `ab30fb0e1ea5c0547803e60da13a2d7da9d5268a`
+- sidecar delivery: `ccbaddb69613e6cabe2974f98a5776709e86303d`
+- main delivery merge: `17381e941c6c933bcbd314c04bbde0955a559735`
 
 The hardening does not close GAP-098, GAP-099, GAP-100, or GAP-101 and grants
 no acquisition, SDK, network, credential, realtime, exchange, wallet, account,
