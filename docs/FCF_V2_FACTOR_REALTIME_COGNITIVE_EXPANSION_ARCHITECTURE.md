@@ -2158,3 +2158,31 @@ directions, or authority escalation. It registers semantics only and cannot
 calculate a threshold, magnitude, severity, price, margin, leverage,
 liquidation, balance, position, PnL, ADL, order, or execution result, or close
 GAP-098, GAP-099, GAP-100, or GAP-101.
+
+## 100. BTC Perpetual Paper Stress Evaluation Measure Formula Semantics Registry
+
+The registry consumes one exact typed FCP-0066 direction-semantics registry.
+It binds one closed symbolic measure formula to every scenario kind: positive
+relative decrease for collateral drawdown, absolute difference for funding
+shock, direct lower-bound observation for liquidation distance, direct
+upper-bound observation for loss streak, absolute relative difference for
+price gap, direct upper-bound observation for resync and venue outage, and
+current-to-baseline retention ratio for thin book.
+
+Every formula binds exact operand roles, the exact scenario parameter and unit,
+an output unit, a parameter transform, and a denominator policy. Relative
+formulas reject a nonpositive baseline; funding shock binds absolute parameter
+magnitude; direct formulas do not invent denominators. Formula identifiers are
+closed symbolic data, not executable expressions.
+
+Validation is fail-closed on untyped FCP-0066 lineage, hash substitution,
+missing, duplicate, reordered, or extra kinds, incompatible direction or
+operand roles, unknown formulas, parameter substitution, unsafe denominator
+policy, or authority escalation. The registry cannot evaluate observations or
+calculate a threshold, magnitude, severity, account state, or execution result,
+or close GAP-098, GAP-099, GAP-100, or GAP-101.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.

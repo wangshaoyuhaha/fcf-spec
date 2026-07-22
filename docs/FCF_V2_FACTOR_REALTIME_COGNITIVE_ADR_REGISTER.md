@@ -1226,6 +1226,29 @@ provider selection, raw repository retention, realtime activation, exchange,
 wallet, account, balance, position, order, execution, product phase, P48, tag,
 release, or deployment.
 
+## FCF-V2-ADR-067 Register Closed Stress Measure Formulas Before Evaluation
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: Bind one exact typed FCP-0066 direction registry and register one
+closed symbolic measure formula family, operand and scenario-parameter roles,
+output unit, parameter transform, and denominator policy for each of the eight
+BTC perpetual Paper stress kinds before any evaluator is introduced.
+
+Consequence: A later deterministic evaluator cannot substitute executable
+expressions, reverse operands, change relative versus absolute measurement,
+silently admit a zero denominator, or detach a formula from its registered
+direction and scenario parameter.
+
+Rejected shortcut: store arbitrary expression strings, calculate a result in
+the registry, infer parameter units, divide by an unchecked baseline, collapse
+absolute and relative change, or treat formula registration as stress evidence.
+
+Not authorized: acquisition, SDK invocation, network retrieval, credential,
+provider selection, raw repository retention, realtime activation, exchange,
+wallet, account, balance, position, order, execution, product phase, P48, tag,
+release, or deployment.
+
 - An ADR change requires explicit Operator approval and impact analysis.
 - An accepted ADR is not evidence of implementation.
 - Detailed implementation remains subject to the Readiness Gate.

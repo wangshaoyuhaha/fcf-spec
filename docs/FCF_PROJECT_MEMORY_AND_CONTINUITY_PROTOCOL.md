@@ -292,6 +292,10 @@ not-implemented capability groups:
 - BTC perpetual Paper stress-evaluation direction-semantics registries with
   exact typed FCP-0065 lineage, closed direction, comparison, operand-order,
   and equality policies, and no formula or evaluation authority
+- BTC perpetual Paper stress-evaluation measure-formula semantics registries
+  with exact typed FCP-0066 lineage, closed symbolic formula, operand,
+  parameter, output-unit, transform, and denominator policies, and no
+  evaluation or calculation authority
 
 These groups remain future structure until their Gap entries are closed by
 implementation evidence. A new chat, handoff, or historical record cannot

@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 67,
+  "next_proposal_sequence": 68,
   "proposals": [
     {
       "adr_refs": [],
@@ -1910,6 +1910,35 @@
       "summary": "Register deterministic local-only BTC perpetual Paper stress direction semantics against one exact typed FCP-0065 evaluation context. Require one closed direction, comparison family, operand-role ordering, and equality policy for every scenario kind before any formula or evaluator is introduced. Produce immutable semantics-only evidence without calculating a threshold, magnitude, severity, price, margin, leverage, liquidation, balance, position, PnL, ADL, order, or execution result. The registry does not close GAP-098, GAP-099, GAP-100, or GAP-101 and authorizes no acquisition, SDK, network, credentials, realtime, product, P48, exchange, wallet, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "BTC perpetual Paper stress evaluation direction semantics registry"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-067"
+      ],
+      "architecture_refs": [
+        "FCF-V2-BTC-PERPETUAL-LEVERAGE-PAPER-RESEARCH"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0067_BTC_PERPETUAL_PAPER_STRESS_EVALUATION_MEASURE_FORMULA_SEMANTICS_REGISTRY_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0067_BTC_PERPETUAL_PAPER_STRESS_EVALUATION_MEASURE_FORMULA_SEMANTICS_REGISTRY_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0067_BTC_PERPETUAL_PAPER_STRESS_EVALUATION_MEASURE_FORMULA_SEMANTICS_REGISTRY_APP_1_FINAL.md",
+        "docs/FCF_FCP_0067_BTC_PERPETUAL_PAPER_STRESS_EVALUATION_MEASURE_FORMULA_SEMANTICS_REGISTRY_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-098",
+        "V2-FR-GAP-099",
+        "V2-FR-GAP-100",
+        "V2-FR-GAP-101"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0067",
+      "source": "operator-authorized-continuous-btc-paper-stress-evaluation-measure-formula-semantics-registry",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-22T09:53:28Z",
+      "summary": "Register deterministic local-only BTC perpetual Paper stress measure-formula semantics against one exact typed FCP-0066 direction registry. Bind one closed symbolic formula family, exact operand and scenario-parameter roles, output unit, denominator policy, and parameter transform to every scenario kind before any evaluator is introduced. Produce immutable formula-semantics-only evidence without evaluating observations or calculating a threshold, magnitude, severity, price, margin, leverage, liquidation, balance, position, PnL, ADL, order, or execution result. The registry does not close GAP-098, GAP-099, GAP-100, or GAP-101 and authorizes no acquisition, SDK, network, credentials, realtime, product, P48, exchange, wallet, account, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "BTC perpetual Paper stress evaluation measure formula semantics registry"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
