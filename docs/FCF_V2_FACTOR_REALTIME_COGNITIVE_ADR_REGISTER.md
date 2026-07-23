@@ -1746,3 +1746,20 @@ Consequences: FCP-0091 may implement contracts, an injected probe evaluator,
 a gated runtime adapter, renderer, guard, tests, and closeout evidence. It
 cannot establish entitlement, rights, retention, provider or product authority,
 activate realtime, promote data, close GAP-104, or enable execution.
+## FCF-V2-ADR-092 Require Operator Review Of Blocked QMT Probe Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: the exact registered FCP-0091 NOT_RUN evidence may be bound to one
+immutable mandatory Operator review packet. The packet preserves only hashes,
+bounded states, registered blocker IDs, an ordered checklist, a deterministic
+blocked acceptance gate, and closed next-action IDs.
+
+Packet construction does not assign an Operator disposition. A new probe may
+occur only through the exact FCP-0091 gate after registered terminal liveness.
+
+Consequences: FCP-0092 may implement contracts, a deterministic builder,
+canonical renderer, guard, tests, and closeout evidence. It cannot invoke an
+SDK or network, use credentials or account APIs, accept or promote data, select
+a provider, activate realtime, close GAP-104, authorize product work, or
+enable execution.

@@ -398,3 +398,8 @@ FCP-0091 permits one FCP-0090-gated, value-free Guojin QMT local-cache loopback
 probe. It forbids server retrieval, subscriptions, downloads, account or
 trading APIs, returned market values, provider selection, promotion, product,
 or execution authority.
+FCP-0092 preserves the exact FCP-0091 NOT_RUN evidence as an immutable
+mandatory Operator review packet. It keeps acceptance blocked, assigns no
+Operator disposition, permits only closed next-action identifiers, and grants
+no provider, realtime, promotion, product, account, trading, order, or
+execution authority.

@@ -772,6 +772,16 @@ download, enable server retrieval, retry, use account or trading APIs, use
 credentials, establish entitlement or rights, select a provider, activate
 realtime, promote data, close GAP-104, start product work, create P48, tag,
 release, or deploy.
+## FCP-0092 QMT Probe Operator Review Packet Change Rule
+
+Proposal `FCF-FCP-0092` may add immutable registered-evidence reference,
+review-item, review-packet, deterministic builder, canonical renderer, tests,
+guard, and closeout evidence over the exact FCP-0091 NOT_RUN evidence.
+
+The phase cannot assign an Operator disposition, invoke an SDK or network,
+use credentials, account or trading APIs, retain paths or market values,
+accept or promote data, select a provider, activate realtime, close GAP-104,
+start product work, create P48, tag, release, or deploy.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

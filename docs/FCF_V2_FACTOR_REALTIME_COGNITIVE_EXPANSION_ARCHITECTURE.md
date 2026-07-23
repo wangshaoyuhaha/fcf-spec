@@ -2654,3 +2654,19 @@ lineage, blockers, and canonical hashes only. It discards returned timestamps
 and all market values. Probe success is not entitlement, rights, retention,
 provider selection, realtime activation, promotion, Gap closure, product
 authority, or execution authority.
+## 125. Guojin QMT Local-Cache Probe Operator Review Packet
+
+FCP-0092 consumes the exact registered FCP-0091 NOT_RUN evidence and projects
+only its hashes, bounded states, and blocker identifiers into a mandatory
+Operator review packet.
+
+The closed checklist covers terminal liveness, SDK lineage, call state,
+entitlement, rights and retention, and market-data availability. Its
+deterministic acceptance gate remains blocked pending a new exact registered
+terminal probe. Closed next actions identify out-of-band terminal start,
+FCP-0091 rerun, and review of new registered evidence.
+
+The packet cannot assign Operator approval or rejection, invoke an SDK or
+network, use credentials, retain paths or values, promote data, select a
+provider, activate realtime, close GAP-104, authorize product work, or enable
+accounts, trading, orders, or execution.

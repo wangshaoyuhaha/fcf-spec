@@ -24073,3 +24073,25 @@ balance, position, order, execution, tag, release, or deployment authority was
 created.
 
 <!-- FCP 0091 A SHARE GUOJIN QMT REGISTERED LOCAL CACHE LOOPBACK READ ONLY PROBE APP 1 FINAL END -->
+
+<!-- FCP 0092 A SHARE GUOJIN QMT LOCAL CACHE PROBE OPERATOR REVIEW PACKET APP 1 APPROVAL START -->
+
+## FCP 0092 A-Share Guojin QMT Local Cache Probe Operator Review Packet App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved sidecar branch:
+`sidecar-fcp-0092-a-share-guojin-qmt-local-cache-probe-operator-review-packet-app-1`
+
+Approved scope may bind the exact registered FCP-0091 NOT_RUN evidence to one
+immutable mandatory Operator review packet. It may preserve registered hashes,
+bounded call and schema states, blocker identifiers, ordered review items, a
+deterministic blocked acceptance gate, and closed next-action identifiers.
+
+Packet construction cannot assign an Operator disposition, invoke an SDK or
+network, use credentials, account or trading APIs, retain paths or market
+values, accept or promote data, select a provider, activate realtime, close
+GAP-104, start product work, create P48, or enable broker, exchange, account,
+balance, position, order, execution, tag, release, or deployment.
+
+<!-- FCP 0092 A SHARE GUOJIN QMT LOCAL CACHE PROBE OPERATOR REVIEW PACKET APP 1 APPROVAL END -->

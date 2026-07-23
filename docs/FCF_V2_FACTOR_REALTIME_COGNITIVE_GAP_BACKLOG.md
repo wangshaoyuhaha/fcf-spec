@@ -372,3 +372,11 @@ registered and reviewed.
 FCP-0091 may preserve value-free single-call local-cache loopback compatibility
 facts for GAP-104. The Gap remains RESEARCH_REQUIRED until exact entitlement,
 rights, retention, and Operator-reviewed probe evidence are registered.
+
+## FCP-0092 Review Boundary
+
+FCP-0092 may preserve a mandatory Operator review packet for the exact
+FCP-0091 NOT_RUN evidence. Packet construction assigns no disposition and
+keeps acceptance blocked. GAP-104 remains RESEARCH_REQUIRED until a new exact
+registered terminal probe plus entitlement, rights, retention, and explicit
+Operator review evidence are accepted.
