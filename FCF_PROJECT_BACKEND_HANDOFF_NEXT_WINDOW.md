@@ -17549,3 +17549,25 @@ outcome calculation, scoring, promotion, account, order, or execution
 authority is created.
 
 <!-- FCP 0097 REGISTERED TARGET LABEL REGISTRY RUNTIME APP 1 LOCK END -->
+
+<!-- FCP 0097 REGISTERED TARGET LABEL REGISTRY RUNTIME APP 1 FINAL START -->
+
+## FCP 0097 Registered Target Label Registry Runtime App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Delivery commit:
+`5043df945874ae305081ca1f853f57449d275c63`.
+Merge commit:
+`167d8cfe4bdf376691dde59385dcc7ecd92f1c46`.
+
+Validation completed with 8 isolated tests, 58 affected-chain tests, 1856
+all-FCP tests, 7193 full-pytest tests, and `run_all_checks.py` passing.
+
+The read-only runtime verifies exact registered bytes and exposes immutable
+target-label definition and lineage evidence. GAP-002 remains open and
+GAP-012 remains RESEARCH_REQUIRED. No target selection, label materialization,
+outcome calculation, scoring, promotion, account, order, or execution
+authority was created. No tag, release, or deployment was run.
+
+<!-- FCP 0097 REGISTERED TARGET LABEL REGISTRY RUNTIME APP 1 FINAL END -->

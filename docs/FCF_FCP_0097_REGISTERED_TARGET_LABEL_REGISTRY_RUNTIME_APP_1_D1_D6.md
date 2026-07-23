@@ -1,6 +1,6 @@
 # FCF FCP 0097 Registered Target Label Registry Runtime App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Registered Artifact Boundary
 
@@ -43,3 +43,8 @@ Delivery validation:
 - all-FCP tests: 1856 passed
 - full pytest: 7193 passed
 - `run_all_checks.py`: passed
+
+Completed evidence:
+
+- delivery commit: `5043df945874ae305081ca1f853f57449d275c63`
+- merge commit: `167d8cfe4bdf376691dde59385dcc7ecd92f1c46`
