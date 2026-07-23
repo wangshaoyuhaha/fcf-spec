@@ -1763,3 +1763,16 @@ canonical renderer, guard, tests, and closeout evidence. It cannot invoke an
 SDK or network, use credentials or account APIs, accept or promote data, select
 a provider, activate realtime, close GAP-104, authorize product work, or
 enable execution.
+## FCF-V2-ADR-093 Preserve Coin Metrics BTC Reference Rate As Neutral Evidence
+
+Status: ACCEPTED
+
+Decision: validate one exact registered local Coin Metrics Community BTC
+reference-rate CSV through a bounded sidecar and preserve only path-free,
+value-free aggregate evidence. Treat `ReferenceRateUSD` as neutral reference
+evidence, never as venue mark or index authority.
+
+Consequences: the adapter must remain local-only, use no SDK or network,
+require explicit rights metadata and Operator review, keep GAP-095
+RESEARCH_REQUIRED, and create no provider, venue, realtime, promotion, signal,
+product, account, order, or execution authority.

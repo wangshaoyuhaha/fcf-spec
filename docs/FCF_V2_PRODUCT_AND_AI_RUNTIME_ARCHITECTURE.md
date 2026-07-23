@@ -18582,3 +18582,57 @@ account, balance, position, order, execution, tag, release, or deployment
 authority was created.
 
 <!-- FCP 0092 A SHARE GUOJIN QMT LOCAL CACHE PROBE OPERATOR REVIEW PACKET APP 1 FINAL END -->
+
+<!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION APP 1 APPROVAL START -->
+
+## FCP 0093 BTC Coin Metrics Reference Rate Local CSV Validation App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved scope may validate one exact Operator-registered bounded local Coin
+Metrics Community CSV with the closed `asset,time,ReferenceRateUSD` schema.
+Exact bytes, UTF-8, BTC identity, decimal fidelity, unique ordered UTC clocks,
+future isolation, and hourly cadence may be checked. Durable output must be
+path-free, value-free, and subject to mandatory Operator review.
+
+The neutral reference rate is not venue mark or index evidence. SDK, network,
+credentials, provider or venue activation, data promotion, signal or trade
+calculation, GAP-095 closure, product work, P48, wallet, broker, exchange,
+account, balance, margin, leverage, position, PnL, liquidation, order,
+execution, tag, release, and deployment authority are forbidden.
+
+<!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION APP 1 APPROVAL END -->
+
+<!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION APP 1 LOCK START -->
+
+## FCP 0093 BTC Coin Metrics Reference Rate Local CSV Validation App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The phase implements one bounded read-only validator for the registered Coin
+Metrics Community `asset,time,ReferenceRateUSD` CSV schema. It emits only
+artifact identity, hashes, byte and row counts, UTC bounds, hourly cadence,
+quality, and mandatory-review metadata.
+
+Source rows, values, and paths are not retained. Neutral reference evidence is
+not venue mark, index, trade, order-book, funding, contract, or cross-venue
+evidence. GAP-095 remains RESEARCH_REQUIRED and no provider, venue, realtime,
+promotion, signal, product, wallet, account, trading, order, or execution
+authority is created.
+
+<!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION APP 1 LOCK END -->
+
+## 126. Coin Metrics BTC Reference-Rate Local CSV Validation
+
+Architecture ID: `FCF-V2-BTC-COIN-METRICS-REFERENCE-RATE-LOCAL-CSV-VALIDATION`
+
+One exact Operator-registered Coin Metrics Community CSV may be validated
+locally when it has the closed `asset,time,ReferenceRateUSD` schema. The
+adapter verifies exact bytes, UTF-8, BTC identity, positive decimal fidelity,
+unique ordered UTC observations, future isolation, and one-hour cadence.
+
+Durable evidence contains only artifact identity, hashes, byte and row counts,
+UTC bounds, cadence, quality state, and mandatory-review metadata. It contains
+no source values or local path. The observation remains a neutral reference
+rate and cannot act as venue mark, index, trade, order-book, funding, contract,
+cross-venue, signal, product, wallet, account, or execution evidence.
