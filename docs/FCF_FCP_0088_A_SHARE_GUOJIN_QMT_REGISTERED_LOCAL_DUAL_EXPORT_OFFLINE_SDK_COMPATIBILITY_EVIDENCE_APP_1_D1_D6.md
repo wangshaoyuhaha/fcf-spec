@@ -1,6 +1,6 @@
 # FCF FCP 0088 A-Share Guojin QMT Registered Local Dual Export Offline SDK Compatibility Evidence App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Registered Inputs
 
