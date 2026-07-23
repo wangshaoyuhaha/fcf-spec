@@ -17625,3 +17625,16 @@ GAP-006 remains open. Operator review is mandatory and no mixed score,
 consensus collapse, calculation, recommendation, account, order, or execution
 authority is created.
 <!-- FCP 0100 REGISTERED MULTI HORIZON CONFLICT RESOLVER RUNTIME APP 1 LOCK END -->
+
+<!-- FCP 0100 REGISTERED MULTI HORIZON CONFLICT RESOLVER RUNTIME APP 1 FINAL START -->
+## FCP 0100 Registered Multi Horizon Conflict Resolver Runtime App 1 Final
+Status: COMPLETED_MERGED_VALIDATED
+Delivery commit: `ce16d435f0a25f25e22373f84bb6c662a02c8069`.
+Merge commit: `b2cd6621c9c13266fa8db987319f57cbcbbd42db`.
+Validation completed with 8 isolated tests, 82 affected-chain tests, 1880
+all-FCP tests, 7217 full-pytest tests, and `run_all_checks.py` passing.
+The runtime preserves each horizon and exposes immutable deterministic
+conflict groups and read-only presentation rows. GAP-006 remains open. No
+mixed score, consensus collapse, calculation, recommendation, account, order,
+or execution authority was created. No tag, release, or deployment was run.
+<!-- FCP 0100 REGISTERED MULTI HORIZON CONFLICT RESOLVER RUNTIME APP 1 FINAL END -->
