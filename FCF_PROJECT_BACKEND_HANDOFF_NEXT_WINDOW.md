@@ -17699,3 +17699,18 @@ GAP-008 and GAP-009 remain open. Deterministic Engine is calculation
 authority, Operator review is mandatory, and no scoring, ranking,
 recommendation, account, order, or execution authority is created.
 <!-- FCP 0101 REGISTERED TECHNICAL INDICATOR CORE RUNTIME APP 1 LOCK END -->
+
+<!-- FCP 0101 REGISTERED TECHNICAL INDICATOR CORE RUNTIME APP 1 FINAL START -->
+## FCP 0101 Registered Technical Indicator Core Runtime App 1 Final
+Status: COMPLETED_MERGED_VALIDATED
+Delivery commit: `e8c197667cd7e5636435f1c8af00ee01f13308b5`.
+Merge commit: `492ab650d0cac94602ca47d5c65aa59fc122bb1f`.
+Validation completed with 8 isolated tests, 100 affected-chain tests, 1888
+all-FCP tests, 7225 full-pytest tests, and `run_all_checks.py` passing.
+The runtime verifies exact registered OHLCV and amount bars and exposes
+immutable deterministic SMA, EMA, Bollinger, RSI, ATR, and VWAP evidence.
+GAP-008 and GAP-009 remain open. Deterministic Engine remains calculation
+authority and Operator review remains mandatory. No scoring, ranking,
+recommendation, account, order, or execution authority was created. No tag,
+release, or deployment was run.
+<!-- FCP 0101 REGISTERED TECHNICAL INDICATOR CORE RUNTIME APP 1 FINAL END -->

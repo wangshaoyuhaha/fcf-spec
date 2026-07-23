@@ -2863,17 +2863,18 @@
       "evidence_refs": [
         "FCF_CURRENT_STATE_FCP_0101_REGISTERED_TECHNICAL_INDICATOR_CORE_RUNTIME_APP_1_APPROVED.md",
         "FCF_CURRENT_STATE_FCP_0101_REGISTERED_TECHNICAL_INDICATOR_CORE_RUNTIME_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0101_REGISTERED_TECHNICAL_INDICATOR_CORE_RUNTIME_APP_1_FINAL.md",
         "docs/FCF_FCP_0101_REGISTERED_TECHNICAL_INDICATOR_CORE_RUNTIME_APP_1_D1_D6.md"
       ],
       "gap_refs": [
         "V2-FR-GAP-008",
         "V2-FR-GAP-009"
       ],
-      "operator_decision": "APPROVED",
-      "phase_id": "FCF-FCP-0101-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME-APP-1",
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
       "proposal_id": "FCF-FCP-0101",
       "source": "operator-authorized-continuous-fcp-delivery",
-      "status": "APPROVED_FOR_PHASE",
+      "status": "ACCEPTED_ARCHITECTURE",
       "submitted_at_utc": "2026-07-24T02:20:00Z",
       "summary": "Add one registered-artifact-only deterministic technical indicator core over exact local OHLCV and amount bars. Calculate SMA, EMA, Bollinger, RSI, ATR, and VWAP with Decimal arithmetic, strict point-in-time ordering, explicit suspension exclusion, and immutable result hashes without scoring, ranking, recommendation, external data, account, order, execution, P48, tag, release, or deployment authority.",
       "supersedes": [],

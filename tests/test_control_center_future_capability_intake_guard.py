@@ -63,11 +63,7 @@ def test_registered_proposals_are_durable_and_non_authorizing():
     assert {
         item["proposal_id"]: item["status"] for item in data["proposals"]
     } == REQUIRED_SEEDED_PROPOSALS
-    assert all(
-        item["phase_id"] == "NONE"
-        for item in data["proposals"]
-        if item["proposal_id"] != "FCF-FCP-0101"
-    )
+    assert all(item["phase_id"] == "NONE" for item in data["proposals"])
     decisions = {
         item["proposal_id"]: item["operator_decision"]
         for item in data["proposals"]
@@ -173,7 +169,7 @@ def test_registered_proposals_are_durable_and_non_authorizing():
     assert decisions["FCF-FCP-0098"] == "ACCEPTED_ARCHITECTURE"
     assert decisions["FCF-FCP-0099"] == "ACCEPTED_ARCHITECTURE"
     assert decisions["FCF-FCP-0100"] == "ACCEPTED_ARCHITECTURE"
-    assert decisions["FCF-FCP-0101"] == "APPROVED"
+    assert decisions["FCF-FCP-0101"] == "ACCEPTED_ARCHITECTURE"
     assert all(validate_intake_register(data).values())
 
 
