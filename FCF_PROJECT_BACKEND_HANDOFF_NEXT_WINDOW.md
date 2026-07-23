@@ -16991,3 +16991,33 @@ create P48; or enable broker, exchange, account, balance, position, order,
 execution, tag, release, or deployment.
 
 <!-- FCP 0090 A SHARE GUOJIN QMT LOCAL TERMINAL LIVENESS EVIDENCE APP 1 APPROVAL END -->
+
+<!-- FCP 0090 A SHARE GUOJIN QMT LOCAL TERMINAL LIVENESS EVIDENCE APP 1 LOCK START -->
+
+## FCP 0090 A-Share Guojin QMT Local Terminal Liveness Evidence App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar observes local process names in memory, reduces them immediately to
+five registered Guojin QMT process families, and emits bounded path-free
+presence, counts, observation time, readiness, blockers, and canonical hashes.
+
+Contract SHA-256:
+`c82466c987b415d5d78db0dba161fc1653b651d8caa642860ba5dda6772c097a`.
+Reference evidence hash:
+`73683bffb99cbb428c275ea8e07c85e0edf8e41177c9dcf949e6fca1afd2af17`.
+Reference output SHA-256:
+`366c02360c7192505a3d651e20c84d21b238e1188203a4a3443e9f2681c0ab6a`.
+Observed snapshot SHA-256:
+`072f841a38aa778b2646cdc0123a8a9f2c71d4c6c902e519d5ed8a756eeb02ba`.
+Observed evidence hash:
+`ce66a717ca3cf83795111d506b7817f829f749b6caba44cf59b793e9110bee07`.
+
+The observation found no registered terminal family and therefore emitted
+TERMINAL_NOT_OBSERVED. GAP-104 remains RESEARCH_REQUIRED. No arbitrary process
+name, identifier, owner, session, command line, executable path, window,
+account, credential, market value, SDK invocation, network, entitlement,
+rights, provider, realtime, promotion, product, P48, broker, exchange, balance,
+position, order, execution, tag, release, or deployment authority is created.
+
+<!-- FCP 0090 A SHARE GUOJIN QMT LOCAL TERMINAL LIVENESS EVIDENCE APP 1 LOCK END -->
