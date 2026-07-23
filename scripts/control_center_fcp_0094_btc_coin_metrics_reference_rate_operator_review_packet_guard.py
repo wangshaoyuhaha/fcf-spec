@@ -44,6 +44,10 @@ DELIVERED_STATE = Path(
     "FCF_CURRENT_STATE_FCP_0094_BTC_COIN_METRICS_REFERENCE_RATE_OPERATOR_"
     "REVIEW_PACKET_APP_1_DELIVERED.md"
 )
+FINAL_STATE = Path(
+    "FCF_CURRENT_STATE_FCP_0094_BTC_COIN_METRICS_REFERENCE_RATE_OPERATOR_"
+    "REVIEW_PACKET_APP_1_FINAL.md"
+)
 D1_D6 = Path(
     "docs/FCF_FCP_0094_BTC_COIN_METRICS_REFERENCE_RATE_OPERATOR_REVIEW_"
     "PACKET_APP_1_D1_D6.md"
@@ -85,9 +89,10 @@ def build_fcp_0094_guard_report(root: Path = ROOT) -> dict[str, object]:
         ).read_text(encoding="ascii")
         approved = (root / APPROVED_STATE).read_text(encoding="ascii")
         delivered = (root / DELIVERED_STATE).read_text(encoding="ascii")
+        final = (root / FINAL_STATE).read_text(encoding="ascii")
         d1_d6 = (root / D1_D6).read_text(encoding="ascii")
-        contracts = (root / CONTRACT_PATH).read_bytes()
-        builder = (root / BUILDER_PATH).read_bytes()
+        contracts = (root / CONTRACT_PATH).read_text(encoding="ascii").encode("ascii")
+        builder = (root / BUILDER_PATH).read_text(encoding="ascii").encode("ascii")
         run_all = (root / "scripts/run_all_checks.py").read_text(encoding="ascii")
         register = json.loads(
             (root / "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json").read_text(
@@ -107,13 +112,14 @@ def build_fcp_0094_guard_report(root: Path = ROOT) -> dict[str, object]:
     except (OSError, UnicodeError, ValueError, TypeError, json.JSONDecodeError):
         authority_texts = ()
         architecture = adr = gap = protocol = memory = ""
-        approved = delivered = d1_d6 = run_all = ""
+        approved = delivered = final = d1_d6 = run_all = ""
         contracts = builder = output = b""
         register = manifest = {}
         packet = None
         readable = False
     approvals = tuple(_block(text, "APPROVAL") for text in authority_texts)
     locks = tuple(_block(text, "LOCK") for text in authority_texts)
+    finals = tuple(_block(text, "FINAL") for text in authority_texts)
     proposal = next(
         (
             item
@@ -129,6 +135,9 @@ def build_fcp_0094_guard_report(root: Path = ROOT) -> dict[str, object]:
         and all(approvals)
         and len(set(approvals)) == 1,
         "lock_exact": len(locks) == 5 and all(locks) and len(set(locks)) == 1,
+        "final_exact": len(finals) == 5
+        and all(finals)
+        and len(set(finals)) == 1,
         "architecture_registered": (
             "FCF-V2-BTC-COIN-METRICS-REFERENCE-RATE-OPERATOR-REVIEW-PACKET"
             in architecture
@@ -137,21 +146,25 @@ def build_fcp_0094_guard_report(root: Path = ROOT) -> dict[str, object]:
         "gap_registered": "## FCP-0094 Review Boundary" in gap,
         "protocol_registered": "Proposal `FCF-FCP-0094`" in protocol,
         "memory_registered": "FCP-0094 preserves the exact typed FCP-0093" in memory,
-        "proposal_active_exact": proposal.get("status") == "APPROVED_FOR_PHASE"
-        and proposal.get("operator_decision") == "APPROVED"
-        and proposal.get("phase_id") == PHASE_ID
+        "proposal_final_exact": proposal.get("status") == "ACCEPTED_ARCHITECTURE"
+        and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"
+        and proposal.get("phase_id") == "NONE"
+        and str(FINAL_STATE) in proposal.get("evidence_refs", [])
         and register.get("next_proposal_sequence") == 95,
-        "manifest_active_exact": (
-            truth.get("current_governance_phase_id") == PHASE_ID
-            and truth.get("current_governance_phase_status")
-            == "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE"
+        "manifest_final_exact": (
+            truth.get("current_governance_phase_id") == "NONE"
+            and truth.get("current_governance_phase_status") == "NONE"
+            and truth.get("latest_completed_governance_delivery") == PHASE_ID
         ),
         "state_evidence_registered": (
             "APPROVED_GOVERNANCE_ONLY_NOT_STARTED" in approved
-            and "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE" in delivered
+            and "COMPLETED_MERGED_VALIDATED" in delivered
+            and "COMPLETED_MERGED_VALIDATED" in final
             and VALIDATION_HASH in delivered
             and PACKET_HASH in delivered
             and OUTPUT_SHA in delivered
+            and "cef7e8ff80849862aa7d835d923ad417fededa77" in final
+            and "ffb5a4b0ff327cd4958ea9cecc9ee62ad9926581" in final
         ),
         "d1_d6_registered": all(
             f"## D{number} " in d1_d6 for number in range(1, 7)

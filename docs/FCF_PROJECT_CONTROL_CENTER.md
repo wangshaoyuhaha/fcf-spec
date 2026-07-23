@@ -24265,3 +24265,32 @@ index, signal, product, account, order, or execution authority is created.
 GAP-095 remains RESEARCH_REQUIRED.
 
 <!-- FCP 0094 BTC COIN METRICS REFERENCE RATE OPERATOR REVIEW PACKET APP 1 LOCK END -->
+
+<!-- FCP 0094 BTC COIN METRICS REFERENCE RATE OPERATOR REVIEW PACKET APP 1 FINAL START -->
+
+## FCP 0094 BTC Coin Metrics Reference Rate Operator Review Packet App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact typed FCP-0093 result was bound to six ordered undecided review
+items. Isolated and affected tests: 130 passed. All FCP tests: 1828 passed.
+Full pytest: 7165 passed. `scripts/run_all_checks.py`: ALL CHECKS PASSED before
+merge and during final closeout. Generated outputs were restored.
+
+Validation result hash:
+`689317437eec53117d195c39803d1f759102682aaf416aa4aae2afbbfb3f0e27`.
+Packet hash:
+`9c4263ddd8e9102e4b32607bf1da659f4101a196fe03aa4ad4945586c52352f1`.
+Rendered output SHA-256:
+`d315473e75341ca6d96da813c710e8277510308f70f1fe83f26d0e5ec48298ca`.
+Evidence commits: sidecar delivery
+`cef7e8ff80849862aa7d835d923ad417fededa77`; main merge
+`ffb5a4b0ff327cd4958ea9cecc9ee62ad9926581`.
+
+The packet remains `OPERATOR_REVIEW_REQUIRED` with acceptance blocked pending
+explicit Operator disposition. GAP-095 remains RESEARCH_REQUIRED. No data
+promotion, provider, venue, realtime, mark or index, signal, product, wallet,
+account, order, or execution authority was created. No tag, release, or
+deployment was run.
+
+<!-- FCP 0094 BTC COIN METRICS REFERENCE RATE OPERATOR REVIEW PACKET APP 1 FINAL END -->

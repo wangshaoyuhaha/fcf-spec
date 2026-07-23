@@ -1,6 +1,6 @@
 # FCF FCP 0094 BTC Coin Metrics Reference Rate Operator Review Packet App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact FCP-0093 Lineage
 

@@ -1,6 +1,6 @@
 # FCF Current State FCP 0094 BTC Coin Metrics Reference Rate Operator Review Packet App 1 Delivered
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 Phase: FCF-FCP-0094-BTC-COIN-METRICS-REFERENCE-RATE-OPERATOR-REVIEW-PACKET-APP-1
 
@@ -22,3 +22,7 @@ Rendered output SHA-256:
 The canonical packet is ASCII, path-free, and value-free. No disposition,
 promotion, provider, venue, realtime, mark or index, signal, product, account,
 order, or execution authority is created. GAP-095 remains RESEARCH_REQUIRED.
+
+Evidence commits: sidecar delivery
+`cef7e8ff80849862aa7d835d923ad417fededa77`; main merge
+`ffb5a4b0ff327cd4958ea9cecc9ee62ad9926581`.
