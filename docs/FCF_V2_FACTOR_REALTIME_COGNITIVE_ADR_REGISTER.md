@@ -1801,3 +1801,18 @@ RQData trial and Tushare remain candidate supplements, not selected providers.
 Consequences: the route cannot retry the probe, select or endorse a provider,
 promote data, claim completeness, activate realtime, close GAP-093 through
 GAP-109, start product work, or create account, order, or execution authority.
+
+## FCF-V2-ADR-096 Use Registered Artifacts For Factor Registry Runtime
+
+Status: ACCEPTED
+
+Decision: add one read-only sidecar that verifies an exact
+Operator-registered ASCII JSON factor registry artifact and reuses the frozen
+V2-R11 validation foundation. The sidecar builds immutable dependency,
+topological, retirement, replacement, and transitive invalidation evidence.
+
+Consequences: the runtime may advance implementation coverage for GAP-001,
+GAP-005, and GAP-007, but their authoritative statuses remain unchanged until
+the complete production acceptance boundary is separately evidenced. The
+runtime cannot calculate, score, promote, self-modify, use external data, or
+create product, account, order, or execution authority.

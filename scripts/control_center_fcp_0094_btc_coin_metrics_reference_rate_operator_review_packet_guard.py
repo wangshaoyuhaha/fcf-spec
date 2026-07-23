@@ -158,12 +158,14 @@ def build_fcp_0094_guard_report(root: Path = ROOT) -> dict[str, object]:
                 PHASE_ID,
                 "FCF-FCP-0095-A-SHARE-QMT-LOCAL-EXPORT-CONTINUITY-"
                 "ROUTING-APP-1",
+                "FCF-FCP-0096-REGISTERED-FACTOR-REGISTRY-RUNTIME-APP-1",
             )
             and truth.get("current_governance_phase_id")
             in (
                 "NONE",
                 "FCF-FCP-0095-A-SHARE-QMT-LOCAL-EXPORT-CONTINUITY-"
                 "ROUTING-APP-1",
+                "FCF-FCP-0096-REGISTERED-FACTOR-REGISTRY-RUNTIME-APP-1",
             )
         ),
         "state_evidence_registered": (

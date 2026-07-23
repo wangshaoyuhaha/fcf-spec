@@ -18832,3 +18832,58 @@ execution authority was created. No tag, release, or deployment was run.
 No next phase was selected or started.
 
 <!-- FCP 0095 A SHARE QMT LOCAL EXPORT CONTINUITY ROUTING APP 1 FINAL END -->
+
+<!-- FCP 0096 REGISTERED FACTOR REGISTRY RUNTIME APP 1 APPROVAL START -->
+
+## FCP 0096 Registered Factor Registry Runtime App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved scope may add one registered-artifact-only, read-only factor registry
+runtime over the completed V2-R11 foundation. Exact ASCII JSON bytes, closed
+schema, versioned records, dependencies, topological order, retirement
+replacements, and transitive invalidation may be validated deterministically.
+
+No factor calculation, scoring, promotion, automatic lifecycle decision,
+provider, realtime, product mutation, P48, credential, account, balance,
+position, wallet, order, execution, tag, release, or deployment is authorized.
+
+<!-- FCP 0096 REGISTERED FACTOR REGISTRY RUNTIME APP 1 APPROVAL END -->
+
+<!-- FCP 0096 REGISTERED FACTOR REGISTRY RUNTIME APP 1 LOCK START -->
+
+## FCP 0096 Registered Factor Registry Runtime App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar verifies exact registered bytes and builds immutable record,
+dependency, reverse-dependency, topological, retirement, replacement, and
+transitive invalidation views.
+
+Reference artifact SHA-256:
+`be3e9b4edd3ab38b74459546a73aed8809907f2dfe1c27aee173fd924f8a95f9`.
+Runtime snapshot hash:
+`c576022a450c15ec3185e6756d2b48998c3ab761eaa95ce657945e0c2be61a40`.
+Rendered output SHA-256:
+`574c8467beaf5a70a76b5c27a4d5b7a04a8bdda45b483a6785347ca09eb6cc3d`.
+
+GAP-001, GAP-005, and GAP-007 remain open pending complete production
+acceptance evidence. No calculation, scoring, promotion, account, order, or
+execution authority is created.
+
+<!-- FCP 0096 REGISTERED FACTOR REGISTRY RUNTIME APP 1 LOCK END -->
+
+## 129. Registered Factor Registry Runtime
+
+Architecture ID:
+`FCF-V2-REGISTERED-FACTOR-REGISTRY-RUNTIME`.
+
+The runtime consumes only an exact Operator-registered ASCII JSON artifact.
+It reuses the V2-R11 factor-definition foundation and exposes immutable
+record hashes, dependency and reverse-dependency views, deterministic
+topological order, explicit retirement replacements, and transitive
+invalidation evidence.
+
+The runtime is registry-only. It cannot calculate or score a factor, promote a
+candidate, choose a lifecycle state, mutate P1-P47, create P48, access an
+account, or authorize an order or execution.

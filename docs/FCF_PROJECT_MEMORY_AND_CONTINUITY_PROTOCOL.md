@@ -419,3 +419,9 @@ single-call-failed evidence and makes MiniQMT non-blocking. Registered QMT
 local export remains the available research workflow; RQData trial and
 Tushare remain unselected candidates. No provider, promotion, realtime,
 product, account, order, or execution authority is created.
+FCP-0096 upgrades the completed V2-R11 factor-definition foundation with one
+registered-artifact-only read-only runtime snapshot. Exact bytes, closed
+schema, dependency order, retirement replacement, and transitive invalidation
+are deterministic. Operator review remains mandatory; factor calculation,
+scoring, promotion, self-modification, account, order, and execution remain
+forbidden.
