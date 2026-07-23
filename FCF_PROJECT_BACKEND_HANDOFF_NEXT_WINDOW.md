@@ -17676,3 +17676,26 @@ conflict groups and read-only presentation rows. GAP-006 remains open. No
 mixed score, consensus collapse, calculation, recommendation, account, order,
 or execution authority was created. No tag, release, or deployment was run.
 <!-- FCP 0100 REGISTERED MULTI HORIZON CONFLICT RESOLVER RUNTIME APP 1 FINAL END -->
+
+## 134. Registered Technical Indicator Core Runtime
+Architecture ID: `FCF-V2-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME`.
+Exact registered OHLCV and amount bars produce deterministic SMA, EMA,
+Bollinger, RSI, ATR, and VWAP evidence with point-in-time and suspension
+controls.
+<!-- FCP 0101 REGISTERED TECHNICAL INDICATOR CORE RUNTIME APP 1 APPROVAL START -->
+## FCP 0101 Registered Technical Indicator Core Runtime App 1 Approval
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+Exact Operator-registered ASCII JSON bars may produce deterministic core
+indicator evidence. No scoring, ranking, recommendation, account, order, or
+execution authority is authorized.
+<!-- FCP 0101 REGISTERED TECHNICAL INDICATOR CORE RUNTIME APP 1 APPROVAL END -->
+<!-- FCP 0101 REGISTERED TECHNICAL INDICATOR CORE RUNTIME APP 1 LOCK START -->
+## FCP 0101 Registered Technical Indicator Core Runtime App 1 Lock
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Artifact SHA-256: `4c537b0e80db53fe2f7e4faf38355f3f5f36e63871b8087514a8b3fc0e48d852`.
+Snapshot hash: `261a2044b12634905e8b94fd54bacaa2aaf4cce2134c246c439418960dfab6dc`.
+Output SHA-256: `8834b0b8d1bac8dfbd2bbbd1f264f8932c85a3c55e5daaa7112e4a348aea3c26`.
+GAP-008 and GAP-009 remain open. Deterministic Engine is calculation
+authority, Operator review is mandatory, and no scoring, ranking,
+recommendation, account, order, or execution authority is created.
+<!-- FCP 0101 REGISTERED TECHNICAL INDICATOR CORE RUNTIME APP 1 LOCK END -->

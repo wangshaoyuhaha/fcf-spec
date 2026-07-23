@@ -450,3 +450,9 @@ isolation, supporting, opposing, neutral, missing, stale, and blocked groups
 are deterministic. Operator review remains mandatory; mixed scores, consensus
 collapse, calculation, recommendation, account, order, and execution remain
 forbidden.
+FCP-0101 adds the first registered deterministic technical-indicator core.
+Exact ASCII JSON bars, Decimal values, strict time order, no-future checks,
+explicit units, and suspension exclusion produce reproducible SMA, EMA,
+Bollinger, RSI, ATR, and VWAP evidence. Deterministic Engine is calculation
+authority and Operator review remains mandatory; scoring, ranking,
+recommendation, account, order, and execution remain forbidden.

@@ -1875,3 +1875,18 @@ remains unchanged pending complete production and browser acceptance. The
 runtime cannot average horizons, collapse conflict into consensus, calculate
 signals, recommend, mutate state, use external data, or create product,
 account, order, or execution authority.
+
+## FCF-V2-ADR-101 Use Exact Registered Bars For Core Technical Indicators
+
+Status: ACCEPTED
+
+Decision: add one deterministic sidecar that verifies exact
+Operator-registered ASCII JSON OHLCV and amount bars and calculates SMA, EMA,
+Bollinger, RSI, ATR, and VWAP with Decimal arithmetic, point-in-time ordering,
+and explicit suspension exclusion.
+
+Consequences: implementation coverage for GAP-008 and GAP-009 advances, but
+the complete library and production missing-state statuses remain unchanged.
+Deterministic Engine is calculation authority; the runtime cannot score,
+rank, recommend, use external data, or create product, account, order, or
+execution authority.

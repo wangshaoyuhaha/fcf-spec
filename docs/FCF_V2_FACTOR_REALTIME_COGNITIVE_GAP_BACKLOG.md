@@ -206,6 +206,17 @@ GAP-006 remains `NOT_IMPLEMENTED` pending complete production and browser UI
 acceptance evidence. This bounded sidecar creates no calculation,
 recommendation, account, order, or execution authority.
 
+## FCP-0101 Technical Indicator Core Runtime Boundary
+
+FCP-0101 adds the first registered-artifact-only deterministic calculation
+runtime for SMA, EMA, Bollinger, RSI, ATR, and VWAP. It requires exact Decimal
+bars, strict point-in-time order, explicit units, and suspension exclusion.
+
+GAP-008 remains `BACKLOG` until the complete technical catalog and production
+acceptance are delivered. GAP-009 remains `BACKLOG` pending complete
+normalization and missing-state policies. This phase creates no scoring,
+ranking, recommendation, account, order, or execution authority.
+
 FCP-0078 is approved to add a deterministic local-only publication and
 availability clock foundation for the publication-clock gap. Its registered
 status remains unchanged until all required implementation and authority
