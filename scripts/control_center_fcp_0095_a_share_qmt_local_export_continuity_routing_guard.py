@@ -144,6 +144,7 @@ def build_fcp_0095_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0096-REGISTERED-FACTOR-REGISTRY-RUNTIME-APP-1",
             "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1",
             "FCF-FCP-0098-REGISTERED-STATE-SYNC-LOCK-RUNTIME-APP-1",
+            "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
         )
         and truth.get("current_governance_phase_id")
         in (
@@ -151,6 +152,7 @@ def build_fcp_0095_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0096-REGISTERED-FACTOR-REGISTRY-RUNTIME-APP-1",
             "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1",
             "FCF-FCP-0098-REGISTERED-STATE-SYNC-LOCK-RUNTIME-APP-1",
+            "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
         )
         and truth.get("current_governance_phase_status")
         in (

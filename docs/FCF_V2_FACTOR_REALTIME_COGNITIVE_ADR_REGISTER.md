@@ -1845,3 +1845,18 @@ Consequences: implementation coverage for GAP-003 advances, but its status
 remains unchanged pending complete production acceptance. The runtime cannot
 mutate state, ingest external data, calculate, score, promote, or create
 product, account, order, or execution authority.
+
+## FCF-V2-ADR-099 Use Registered Artifacts For Macro-to-Micro Transmission
+
+Status: ACCEPTED
+
+Decision: add one read-only sidecar that verifies exact Operator-registered
+ASCII JSON macro-to-micro transmission records and extends the completed
+V2-R25 causal transmission graph foundation. Each record must preserve the
+official six-level chain, source, supporting and contradicting evidence,
+regime, uncertainty, expiry, and invalidation metadata.
+
+Consequences: implementation coverage for GAP-004 advances, but its status
+remains unchanged pending complete production acceptance. The runtime cannot
+calculate, claim causal truth, score, recommend, mutate state, use external
+data, or create product, account, order, or execution authority.

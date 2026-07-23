@@ -858,6 +858,18 @@ The phase cannot mutate state, ingest external data, calculate or score,
 change a Gap status, mutate P1-P47, create P48, use credentials, or authorize
 account, balance, position, wallet, order, execution, tag, release, or
 deployment.
+
+## FCP-0099 Registered Macro-to-Micro Transmission Runtime Change Rule
+
+Proposal `FCF-FCP-0099` may add immutable artifact, transmission-record, and
+snapshot contracts, one bounded ASCII JSON loader, official-chain and
+evidence-lineage validation, lifecycle resolution, canonical rendering,
+tests, guard, and closeout evidence.
+
+The phase cannot calculate factors, claim causal truth, score, recommend,
+change a Gap status, mutate P1-P47, create P48, use credentials, or authorize
+account, balance, position, wallet, order, execution, tag, release, or
+deployment.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

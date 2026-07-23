@@ -436,3 +436,10 @@ registered-artifact-only read-only multi-anchor lock snapshot. Exact bytes,
 hashes, sequence, expiry, supersession, and current lock views are
 deterministic. Operator review remains mandatory; state mutation, calculation,
 scoring, account, order, and execution remain forbidden.
+FCP-0099 upgrades the completed V2-R25 causal transmission graph foundation
+with one registered-artifact-only read-only macro-to-micro transmission
+snapshot. Exact bytes, the official six-level chain, evidence lineage,
+support, contradiction, regime, uncertainty, expiry, and invalidation are
+deterministic. Operator review remains mandatory; calculation, causal-truth
+claim, scoring, recommendation, account, order, and execution remain
+forbidden.

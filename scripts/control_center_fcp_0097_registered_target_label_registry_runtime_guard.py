@@ -133,16 +133,18 @@ def build_fcp_0097_guard_report(root: Path = ROOT) -> dict[str, object]:
         proposal.get("operator_decision")
         == ("ACCEPTED_ARCHITECTURE" if phase_complete else "APPROVED")
         and proposal.get("phase_id") == ("NONE" if phase_complete else PHASE_ID)
-        and register.get("next_proposal_sequence") == 99
+        and register.get("next_proposal_sequence") in (99, 100)
     )
     expected_manifest = (
         truth.get("latest_completed_governance_delivery") in (
             PHASE_ID,
             "FCF-FCP-0098-REGISTERED-STATE-SYNC-LOCK-RUNTIME-APP-1",
+            "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
         )
         and truth.get("current_governance_phase_id") in (
             "NONE",
             "FCF-FCP-0098-REGISTERED-STATE-SYNC-LOCK-RUNTIME-APP-1",
+            "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
         )
         and truth.get("current_governance_phase_status") in (
             "NONE",

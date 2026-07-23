@@ -96,8 +96,21 @@ def build_fcp_0098_guard_report(root: Path = ROOT) -> dict[str, object]:
         "gap_registered": "## FCP-0098 State Sync Lock Runtime Boundary" in texts.get("gap", ""),
         "protocol_registered": "Proposal `FCF-FCP-0098`" in texts.get("protocol", ""),
         "memory_registered": "FCP-0098 upgrades the completed V2-R1" in texts.get("memory", ""),
-        "proposal_state_exact": proposal.get("operator_decision") == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED") and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID) and register.get("next_proposal_sequence") == 99,
-        "manifest_state_exact": truth.get("latest_completed_governance_delivery") == (PHASE_ID if complete else "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1") and truth.get("current_governance_phase_id") == ("NONE" if complete else PHASE_ID),
+        "proposal_state_exact": proposal.get("operator_decision") == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED") and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID) and register.get("next_proposal_sequence") in ((99, 100) if complete else (99,)),
+        "manifest_state_exact": (
+            truth.get("latest_completed_governance_delivery") in (
+                PHASE_ID,
+                "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
+            )
+            and truth.get("current_governance_phase_id") in (
+                "NONE",
+                "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
+            )
+            if complete
+            else truth.get("latest_completed_governance_delivery")
+            == "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1"
+            and truth.get("current_governance_phase_id") == PHASE_ID
+        ),
         "state_evidence_registered": "APPROVED_GOVERNANCE_ONLY_NOT_STARTED" in texts.get("approved", "") and ("GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE" in texts.get("delivered", "") or "COMPLETED_MERGED_VALIDATED" in texts.get("delivered", "")) and (not complete or "COMPLETED_MERGED_VALIDATED" in final and str(FINAL) in proposal.get("evidence_refs", [])),
         "d1_d6_registered": all(f"## D{number} " in texts.get("d1_d6", "") for number in range(1, 7)),
         "source_hashes_exact": source_hashes == SOURCE_HASHES,
