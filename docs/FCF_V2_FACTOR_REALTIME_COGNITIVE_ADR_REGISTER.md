@@ -1832,3 +1832,16 @@ but target, horizon, benchmark, and metric selection in GAP-012 remains
 RESEARCH_REQUIRED. The runtime cannot materialize labels, calculate outcomes,
 score, promote, self-modify, use external data, or create product, account,
 order, or execution authority.
+
+## FCF-V2-ADR-098 Use Registered Artifacts For State-Sync Lock Runtime
+
+Status: ACCEPTED
+
+Decision: add one read-only sidecar that verifies exact Operator-registered
+ASCII JSON State-Sync anchors and reuses the frozen V2-R1 anchor validation.
+It builds immutable current-lock, expiry, supersession, and anchor-hash views.
+
+Consequences: implementation coverage for GAP-003 advances, but its status
+remains unchanged pending complete production acceptance. The runtime cannot
+mutate state, ingest external data, calculate, score, promote, or create
+product, account, order, or execution authority.

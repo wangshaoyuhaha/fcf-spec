@@ -436,3 +436,14 @@ prove the complete production acceptance boundary or change its authoritative
 `NOT_IMPLEMENTED` status. GAP-012 remains `RESEARCH_REQUIRED`; no target is
 selected and no label value, outcome, score, promotion, account, order, or
 execution authority is created.
+
+## FCP-0098 State Sync Lock Runtime Boundary
+
+FCP-0098 may add a registered-artifact-only read-only multi-anchor State-Sync
+Lock runtime over V2-R1. It verifies exact bytes, anchor hashes, sequences,
+expiry, supersession, and current lock views.
+
+This advances GAP-003 implementation coverage but does not change its
+authoritative `NOT_IMPLEMENTED` status. No state mutation, external data,
+calculation, scoring, promotion, account, order, or execution authority is
+created.

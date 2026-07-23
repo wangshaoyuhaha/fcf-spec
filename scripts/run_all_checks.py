@@ -390,6 +390,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0097_registered_target_label_registry_runtime_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0098_registered_state_sync_lock_runtime_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],
