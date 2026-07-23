@@ -10,12 +10,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from apps.fcp_0099_registered_macro_micro_transmission_runtime_app_1 import (  # noqa: E402
-    CHAIN_LEVELS,
+from apps.fcp_0100_registered_multi_horizon_conflict_resolver_runtime_app_1 import (  # noqa: E402
     PHASE_ID,
+    RESULT_GROUPS,
     build_reference_artifact_bytes,
-    build_reference_transmission_snapshot,
-    render_transmission_snapshot_json,
+    build_reference_conflict_snapshot,
+    render_conflict_snapshot_json,
 )
 
 
@@ -26,27 +26,27 @@ AUTHORITY_PATHS = (
     Path("FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md"),
     Path("FCF_NEW_WINDOW_CHAT_PROMPT.md"),
 )
-MARKER = "FCP 0099 REGISTERED MACRO MICRO TRANSMISSION RUNTIME APP 1"
+MARKER = "FCP 0100 REGISTERED MULTI HORIZON CONFLICT RESOLVER RUNTIME APP 1"
 APPROVED = Path(
-    "FCF_CURRENT_STATE_FCP_0099_REGISTERED_MACRO_MICRO_TRANSMISSION_RUNTIME_APP_1_APPROVED.md"
+    "FCF_CURRENT_STATE_FCP_0100_REGISTERED_MULTI_HORIZON_CONFLICT_RESOLVER_RUNTIME_APP_1_APPROVED.md"
 )
 DELIVERED = Path(
-    "FCF_CURRENT_STATE_FCP_0099_REGISTERED_MACRO_MICRO_TRANSMISSION_RUNTIME_APP_1_DELIVERED.md"
+    "FCF_CURRENT_STATE_FCP_0100_REGISTERED_MULTI_HORIZON_CONFLICT_RESOLVER_RUNTIME_APP_1_DELIVERED.md"
 )
 FINAL = Path(
-    "FCF_CURRENT_STATE_FCP_0099_REGISTERED_MACRO_MICRO_TRANSMISSION_RUNTIME_APP_1_FINAL.md"
+    "FCF_CURRENT_STATE_FCP_0100_REGISTERED_MULTI_HORIZON_CONFLICT_RESOLVER_RUNTIME_APP_1_FINAL.md"
 )
 D1_D6 = Path(
-    "docs/FCF_FCP_0099_REGISTERED_MACRO_MICRO_TRANSMISSION_RUNTIME_APP_1_D1_D6.md"
+    "docs/FCF_FCP_0100_REGISTERED_MULTI_HORIZON_CONFLICT_RESOLVER_RUNTIME_APP_1_D1_D6.md"
 )
 SOURCE_HASHES = {
-    "contracts.py": "98d66b5b5dc60c11e62b2844f97b8553be17ff06cf1bb9fd90b38c3bca843096",
-    "runtime.py": "67289d8f59b153cb684d7340f9df0ccb75ac8fffe428b2a48231262dbd4275dd",
-    "builder.py": "89e754cb1a87893c79f19871ce00adb33df2e4909559eacc24320c204d0846eb",
+    "contracts.py": "5c73474150b482f2becabd4ae996179ab1fa97b40907e0861cf91ec8102920d9",
+    "runtime.py": "3be2c6df1749f747902b8da27dfb667252c494bee77894af36ece7cb8995c523",
+    "builder.py": "988214f00f4140c1b1c6b14d9f0b30b22197bbcd250ca98ca4233c7d3c351e98",
 }
-ARTIFACT_SHA = "d6443cca9fa39913a6fc5847f5656679faf439e2c2dbb273a01eca8f8c96e4ea"
-SNAPSHOT_HASH = "a423220725fc7c2c9874d979b408f3bb5b2b2a2573e9781e3d441e5bb7227c85"
-OUTPUT_SHA = "32ec1db88c5db178594c92a3c6665879f5f555f1a0babfec6fe21e8af6903425"
+ARTIFACT_SHA = "7abd5878f74e416c3bd6f02228d566a9d9c9e08170f20a3ac3ef5051ac0adc82"
+SNAPSHOT_HASH = "29d0f4836e7637c2009d25c5d70b5e98999df15fc8b03b8c04a9ff00b90f98d4"
+OUTPUT_SHA = "8539898f1dc10c494330576af4ecf2ebb3aeb3be52fbab418807dfde10b9cd08"
 
 
 def _block(text: str, kind: str) -> str:
@@ -57,7 +57,7 @@ def _block(text: str, kind: str) -> str:
     return start + text.split(start, 1)[1].split(end, 1)[0] + end
 
 
-def build_fcp_0099_guard_report(root: Path = ROOT) -> dict[str, object]:
+def build_fcp_0100_guard_report(root: Path = ROOT) -> dict[str, object]:
     try:
         authorities = tuple(
             (root / path).read_text(encoding="ascii") for path in AUTHORITY_PATHS
@@ -98,7 +98,10 @@ def build_fcp_0099_guard_report(root: Path = ROOT) -> dict[str, object]:
             if (root / FINAL).is_file()
             else ""
         )
-        source = root / "apps/fcp_0099_registered_macro_micro_transmission_runtime_app_1"
+        source = (
+            root
+            / "apps/fcp_0100_registered_multi_horizon_conflict_resolver_runtime_app_1"
+        )
         source_hashes = {
             name: hashlib.sha256(
                 (source / name).read_text(encoding="ascii").encode("ascii")
@@ -106,8 +109,8 @@ def build_fcp_0099_guard_report(root: Path = ROOT) -> dict[str, object]:
             for name in SOURCE_HASHES
         }
         artifact = build_reference_artifact_bytes()
-        snapshot = build_reference_transmission_snapshot()
-        output = render_transmission_snapshot_json(snapshot).encode("ascii")
+        snapshot = build_reference_conflict_snapshot()
+        output = render_conflict_snapshot_json(snapshot).encode("ascii")
         readable = True
     except (OSError, UnicodeError, ValueError, TypeError, json.JSONDecodeError):
         authorities = ()
@@ -122,7 +125,7 @@ def build_fcp_0099_guard_report(root: Path = ROOT) -> dict[str, object]:
         (
             item
             for item in register.get("proposals", [])
-            if item.get("proposal_id") == "FCF-FCP-0099"
+            if item.get("proposal_id") == "FCF-FCP-0100"
         ),
         {},
     )
@@ -139,32 +142,30 @@ def build_fcp_0099_guard_report(root: Path = ROOT) -> dict[str, object]:
         or len({_block(text, "FINAL") for text in authorities}) == 1
         and all(_block(text, "FINAL") for text in authorities),
         "architecture_registered": (
-            "FCF-V2-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME"
+            "FCF-V2-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME"
             in texts.get("architecture", "")
         ),
-        "adr_registered": "FCF-V2-ADR-099" in texts.get("adr", ""),
+        "adr_registered": "FCF-V2-ADR-100" in texts.get("adr", ""),
         "gap_registered": (
-            "## FCP-0099 Macro-to-Micro Transmission Runtime Boundary"
+            "## FCP-0100 Multi-Horizon Conflict Resolver Runtime Boundary"
             in texts.get("gap", "")
         ),
-        "protocol_registered": "Proposal `FCF-FCP-0099`"
+        "protocol_registered": "Proposal `FCF-FCP-0100`"
         in texts.get("protocol", ""),
-        "memory_registered": "FCP-0099 upgrades the completed V2-R25"
+        "memory_registered": "FCP-0100 upgrades the accepted research-horizon"
         in texts.get("memory", ""),
         "proposal_state_exact": proposal.get("operator_decision")
         == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED")
         and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID)
-        and register.get("next_proposal_sequence") in (100, 101),
+        and register.get("next_proposal_sequence") == 101,
         "manifest_state_exact": truth.get("latest_completed_governance_delivery")
-        in (
-            PHASE_ID,
-            "FCF-FCP-0100-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME-APP-1",
+        == (
+            PHASE_ID
+            if complete
+            else "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1"
         )
         and truth.get("current_governance_phase_id")
-        in (
-            "NONE",
-            "FCF-FCP-0100-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME-APP-1",
-        ),
+        == ("NONE" if complete else PHASE_ID),
         "state_evidence_registered": (
             "APPROVED_GOVERNANCE_ONLY_NOT_STARTED" in texts.get("approved", "")
             and (
@@ -187,25 +188,32 @@ def build_fcp_0099_guard_report(root: Path = ROOT) -> dict[str, object]:
         "reference_snapshot_exact": snapshot is not None
         and snapshot.snapshot_hash == SNAPSHOT_HASH,
         "reference_output_exact": hashlib.sha256(output).hexdigest() == OUTPUT_SHA,
-        "official_chain_exact": snapshot is not None
+        "closed_groups_exact": snapshot is not None
         and all(
-            len(subjects) == len(CHAIN_LEVELS)
-            for subjects in snapshot.chain_subjects.values()
+            tuple(groups) == RESULT_GROUPS
+            for groups in snapshot.grouped_result_ids.values()
+        ),
+        "horizons_preserved": snapshot is not None
+        and snapshot.presentation_rows["conflict-set.ashare.600000.v1"]
+        == (
+            ("EQUITY_MEDIUM", "SUPPORTING", "result.ashare.medium"),
+            ("EQUITY_SHORT", "OPPOSING", "result.ashare.short"),
+            ("ASHARE_INTRADAY", "BLOCKED", "result.ashare.intraday"),
         ),
         "reference_non_authorizing": snapshot is not None
         and snapshot.operator_review_required
         and snapshot.read_only
         and not any(
             (
-                snapshot.calculation_allowed,
-                snapshot.scoring_allowed,
-                snapshot.causal_truth_authority,
+                snapshot.mixed_score_allowed,
+                snapshot.consensus_collapse_allowed,
+                snapshot.calculation_authority,
                 snapshot.account_authority,
                 snapshot.execution_authority,
             )
         ),
         "run_all_wired": (
-            "control_center_fcp_0099_registered_macro_micro_transmission_runtime_guard.py"
+            "control_center_fcp_0100_registered_multi_horizon_conflict_resolver_runtime_guard.py"
             in texts.get("run_all", "")
         ),
     }
@@ -213,7 +221,7 @@ def build_fcp_0099_guard_report(root: Path = ROOT) -> dict[str, object]:
 
 
 def main() -> int:
-    report = build_fcp_0099_guard_report()
+    report = build_fcp_0100_guard_report()
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if report["ok"] else 1
 

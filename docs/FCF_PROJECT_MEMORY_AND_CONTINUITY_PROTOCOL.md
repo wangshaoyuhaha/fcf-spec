@@ -443,3 +443,10 @@ support, contradiction, regime, uncertainty, expiry, and invalidation are
 deterministic. Operator review remains mandatory; calculation, causal-truth
 claim, scoring, recommendation, account, order, and execution remain
 forbidden.
+FCP-0100 upgrades the accepted research-horizon isolation architecture with
+one registered-artifact-only deterministic conflict resolver and immutable
+read-only presentation snapshot. Exact bytes, one-result-per-horizon
+isolation, supporting, opposing, neutral, missing, stale, and blocked groups
+are deterministic. Operator review remains mandatory; mixed scores, consensus
+collapse, calculation, recommendation, account, order, and execution remain
+forbidden.
