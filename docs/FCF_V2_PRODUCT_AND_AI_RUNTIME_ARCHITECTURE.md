@@ -18521,3 +18521,29 @@ GAP-104, start product work, create P48, or enable broker, exchange, account,
 balance, position, order, execution, tag, release, or deployment.
 
 <!-- FCP 0092 A SHARE GUOJIN QMT LOCAL CACHE PROBE OPERATOR REVIEW PACKET APP 1 APPROVAL END -->
+
+<!-- FCP 0092 A SHARE GUOJIN QMT LOCAL CACHE PROBE OPERATOR REVIEW PACKET APP 1 LOCK START -->
+
+## FCP 0092 A-Share Guojin QMT Local Cache Probe Operator Review Packet App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar binds the exact registered FCP-0091 NOT_RUN evidence to six
+ordered review items, a deterministic blocked acceptance gate, and three
+closed next-action IDs. Packet construction assigns no Operator disposition.
+
+Evidence reference hash:
+`3c866b54a9aec1b00c203430ba76e74271106d6642be4b7c8eb2646e7c1df1dc`.
+Packet hash:
+`5dd514d530d33c8256f160141ca3c0e6ee81a0b0f253f65917b7bdfd8f9225a0`.
+Rendered output SHA-256:
+`3cd0f9d2006774e02011698543d47dddbe45a707e54e0339b3695e4794b6196e`.
+
+The review state is OPERATOR_ACTION_REQUIRED and the acceptance gate is
+BLOCKED_PENDING_REGISTERED_TERMINAL_PROBE. GAP-104 remains RESEARCH_REQUIRED.
+No SDK, network, credential, account or trading API, path, market value,
+provider, realtime, promotion, product, P48, broker, exchange, account,
+balance, position, order, execution, tag, release, or deployment authority is
+created.
+
+<!-- FCP 0092 A SHARE GUOJIN QMT LOCAL CACHE PROBE OPERATOR REVIEW PACKET APP 1 LOCK END -->
