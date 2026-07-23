@@ -1,6 +1,6 @@
 # FCF FCP 0098 Registered State Sync Lock Runtime App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Registered Artifact Boundary
 
@@ -40,3 +40,8 @@ Delivery validation:
 - all-FCP tests: 1864 passed
 - full pytest: 7201 passed
 - `run_all_checks.py`: passed
+
+Completed evidence:
+
+- delivery commit: `1fba0f8816cd7f2e2ed8ac07959531db7c963bbe`
+- merge commit: `a33d2c99e9a4b47df4cc0149882f51c47c84f2d2`
