@@ -734,6 +734,19 @@ approve or reject evidence, resolve findings, invoke an SDK or network, use
 credentials, select a venue or provider, activate realtime or replay, promote
 evidence, calculate a signal or trade, close GAP-095, start product work,
 create P48, tag, release, or deploy.
+## FCP-0089 QMT Local Runtime Footprint Readiness Change Rule
+
+Proposal `FCF-FCP-0089` may add immutable path-free filesystem-footprint
+contracts, a bounded non-recursive metadata scanner, canonical renderer,
+tests, guard, and closeout evidence over one Operator-designated local Guojin
+QMT `userdata_mini` directory.
+
+The phase cannot read file contents, recurse into data, log, user, or account
+directories, disclose paths or arbitrary entry names, invoke MiniQMT or
+xtquant, inspect processes or accounts, use a network or credentials,
+establish entitlement or availability, promote data, select a provider,
+activate realtime, close GAP-104, start product work, create P48, tag, release,
+or deploy.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

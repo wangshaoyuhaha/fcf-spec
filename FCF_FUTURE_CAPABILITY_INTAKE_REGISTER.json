@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 89,
+  "next_proposal_sequence": 90,
   "proposals": [
     {
       "adr_refs": [],
@@ -2526,6 +2526,32 @@
       "summary": "Combine exact registered-local Guojin QMT raw and front-adjusted daily export observations with one explicit offline xtquant SDK ABI load observation. Preserve only path-free hashes, byte lengths, row and date bounds, FCP-0084 coverage findings, FCP-0035 adjustment-reference lineage, Python ABI, native-module identity, and load capability facts. The phase cannot connect to MiniQMT, use a network or credentials, infer entitlement, rights, retention, expected sessions, pagination, completeness, adjustment-factor authority, trading status, or point-in-time supplements, promote evidence, select a provider, activate realtime data, close GAP-104 through GAP-106, calculate factors or labels, start product work, create P48, or authorize broker, exchange, account, balance, position, order, execution, tag, release, or deployment.",
       "supersedes": [],
       "title": "A-share Guojin QMT registered local dual export offline SDK compatibility evidence"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-089"
+      ],
+      "architecture_refs": [
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0089_A_SHARE_GUOJIN_QMT_LOCAL_RUNTIME_FOOTPRINT_READINESS_EVIDENCE_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0089_A_SHARE_GUOJIN_QMT_LOCAL_RUNTIME_FOOTPRINT_READINESS_EVIDENCE_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0089_A_SHARE_GUOJIN_QMT_LOCAL_RUNTIME_FOOTPRINT_READINESS_EVIDENCE_APP_1_FINAL.md",
+        "docs/FCF_FCP_0089_A_SHARE_GUOJIN_QMT_LOCAL_RUNTIME_FOOTPRINT_READINESS_EVIDENCE_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-104"
+      ],
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
+      "proposal_id": "FCF-FCP-0089",
+      "source": "operator-authorized-continuous-a-share-guojin-qmt-local-runtime-footprint-readiness-evidence",
+      "status": "ACCEPTED_ARCHITECTURE",
+      "submitted_at_utc": "2026-07-23T00:18:30Z",
+      "summary": "Scan one Operator-designated local Guojin QMT userdata_mini directory using bounded non-recursive filesystem metadata only. Preserve path-free top-level counts, aggregate regular-file bytes, latest metadata time, required-directory presence, required cache-family presence, and one canonical footprint manifest hash. The phase cannot read file contents, recurse into data or account directories, disclose paths or arbitrary names, invoke MiniQMT or xtquant, inspect or connect to an account, use a network or credentials, establish entitlement, rights, retention, process liveness, market-data availability, expected sessions, pagination, completeness, adjustment-factor authority, trading status, or point-in-time supplements, promote evidence, select a provider, activate realtime, close GAP-104, calculate factors or labels, start product work, create P48, or authorize broker, exchange, balance, position, order, execution, tag, release, or deployment.",
+      "supersedes": [],
+      "title": "A-share Guojin QMT local runtime footprint readiness evidence"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

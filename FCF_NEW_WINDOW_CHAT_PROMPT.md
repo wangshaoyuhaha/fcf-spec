@@ -16832,3 +16832,30 @@ promotion, product, P48, broker, exchange, account, balance, position, order,
 execution, tag, release, or deployment authority was not created.
 
 <!-- FCP 0088 A SHARE GUOJIN QMT REGISTERED LOCAL DUAL EXPORT OFFLINE SDK COMPATIBILITY EVIDENCE APP 1 FINAL END -->
+
+<!-- FCP 0089 A SHARE GUOJIN QMT LOCAL RUNTIME FOOTPRINT READINESS EVIDENCE APP 1 APPROVAL START -->
+
+## FCP 0089 A-Share Guojin QMT Local Runtime Footprint Readiness Evidence App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved sidecar branch:
+`sidecar-fcp-0089-a-share-guojin-qmt-local-runtime-footprint-readiness-evidence-app-1`
+
+Approved scope scans one Operator-designated local Guojin QMT `userdata_mini`
+directory using bounded, non-recursive filesystem metadata only. It may
+preserve path-free top-level counts, aggregate regular-file bytes, latest
+metadata time, required-directory presence, required cache-family presence,
+and one canonical footprint manifest hash.
+
+The phase cannot read file contents, recurse into data, log, user, or account
+directories, disclose local paths or arbitrary entry names, invoke MiniQMT or
+xtquant, inspect or connect to an account, use a network or credentials,
+establish entitlement, rights, retention, process liveness, market-data
+availability, expected sessions, pagination, completeness, adjustment-factor
+authority, trading status, or point-in-time supplements, promote evidence,
+select a provider, activate realtime, close GAP-104, start product work,
+create P48, or enable broker, exchange, balance, position, order, execution,
+tag, release, or deployment.
+
+<!-- FCP 0089 A SHARE GUOJIN QMT LOCAL RUNTIME FOOTPRINT READINESS EVIDENCE APP 1 APPROVAL END -->

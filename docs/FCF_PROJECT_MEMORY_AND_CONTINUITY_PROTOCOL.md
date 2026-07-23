@@ -386,3 +386,7 @@ FCP-0088 preserves exact Guojin QMT dual-export and offline xtquant ABI
 compatibility as path-free non-authorizing evidence. It delegates parsing and
 coverage to FCP-0035 and FCP-0084 and grants no entitlement, rights, provider,
 realtime, data-promotion, product, account, or execution authority.
+FCP-0089 preserves a bounded path-free Guojin QMT `userdata_mini` filesystem
+footprint as non-authorizing readiness evidence. It reads metadata only and
+grants no process-liveness, entitlement, rights, provider, realtime,
+data-promotion, product, account, or execution authority.

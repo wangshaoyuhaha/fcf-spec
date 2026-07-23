@@ -352,3 +352,10 @@ compatibility facts for GAP-104, GAP-105, and GAP-106. These gaps remain
 RESEARCH_REQUIRED until exact entitlement, rights, retention, expected-date,
 pagination, adjustment-factor, trading-status, and point-in-time evidence is
 registered and reviewed.
+
+## FCP-0089 Evidence Boundary
+
+FCP-0089 may preserve bounded path-free Guojin QMT local runtime filesystem
+footprint facts for GAP-104. The Gap remains RESEARCH_REQUIRED until exact
+entitlement, rights, retention, terminal liveness, and read-only market-data
+probe evidence is registered and reviewed.

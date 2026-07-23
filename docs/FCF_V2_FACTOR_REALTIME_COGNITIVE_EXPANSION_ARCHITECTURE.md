@@ -2615,3 +2615,18 @@ Offline load compatibility is not entitlement, rights, retention, expected
 session coverage, pagination, completeness, adjustment-factor authority,
 trading status, provider selection, realtime activation, data promotion, Gap
 closure, product authority, or execution authority.
+## 122. Guojin QMT Local Runtime Footprint Readiness Evidence
+
+FCP-0089 scans exactly one Operator-designated local `userdata_mini`
+directory. The scanner is top-level only, metadata-only, bounded, and
+fail-closed for symlinks and reparse points.
+
+The result preserves required-directory presence, required cache-family
+presence, top-level counts, aggregate regular-file bytes, latest metadata time,
+and one canonical path-free manifest hash. It never emits arbitrary names or
+local paths and never reads file contents.
+
+Filesystem readiness is not terminal liveness, entitlement, rights, retention,
+market-data availability, requested-range coverage, pagination, completeness,
+provider selection, realtime activation, data promotion, Gap closure, product
+authority, or execution authority.

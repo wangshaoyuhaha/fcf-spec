@@ -1694,3 +1694,20 @@ builder, canonical renderer, guard, tests, and closeout evidence. It cannot
 connect to MiniQMT, establish entitlement or rights, infer expected sessions or
 pagination, promote data, select a provider, activate realtime, close GAP-104
 through GAP-106, authorize product work, or enable execution.
+## FCF-V2-ADR-089 Preserve QMT Local Runtime Footprint As Readiness Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: one Operator-designated Guojin QMT `userdata_mini` directory may be
+observed through bounded, non-recursive filesystem metadata. Only registered
+required-directory and cache-family presence, counts, aggregate regular-file
+bytes, latest metadata time, and one canonical manifest hash may be preserved.
+
+No file contents, local paths, arbitrary entry names, account identifiers, or
+market values enter Git. Symlinks and reparse points fail closed.
+
+Consequences: FCP-0089 may implement immutable contracts, a metadata-only
+scanner, canonical renderer, guard, tests, and closeout evidence. It cannot
+invoke MiniQMT or xtquant, inspect processes or accounts, establish
+entitlement, rights, retention, availability, completeness, provider or
+product authority, activate realtime, close GAP-104, or enable execution.
