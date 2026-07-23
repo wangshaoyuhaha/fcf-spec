@@ -870,6 +870,18 @@ The phase cannot calculate factors, claim causal truth, score, recommend,
 change a Gap status, mutate P1-P47, create P48, use credentials, or authorize
 account, balance, position, wallet, order, execution, tag, release, or
 deployment.
+
+## FCP-0100 Registered Multi-Horizon Conflict Resolver Runtime Change Rule
+
+Proposal `FCF-FCP-0100` may add immutable artifact, horizon-result,
+conflict-set, grouped-result, and presentation snapshot contracts, one bounded
+ASCII JSON loader, deterministic conflict grouping, canonical rendering,
+tests, guard, and closeout evidence.
+
+The phase cannot mix horizons into one score, collapse conflict into
+consensus, calculate signals, recommend, change a Gap status, mutate P1-P47,
+create P48, use credentials, or authorize account, balance, position, wallet,
+order, execution, tag, release, or deployment.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

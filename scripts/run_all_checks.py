@@ -398,6 +398,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0099_registered_macro_micro_transmission_runtime_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0100_registered_multi_horizon_conflict_resolver_runtime_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],

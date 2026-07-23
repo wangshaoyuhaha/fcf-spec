@@ -19060,3 +19060,28 @@ GAP-004 remains open. No calculation, causal-truth claim, scoring,
 recommendation, account, order, or execution authority was created. No tag,
 release, or deployment was run.
 <!-- FCP 0099 REGISTERED MACRO MICRO TRANSMISSION RUNTIME APP 1 FINAL END -->
+
+## 133. Registered Multi-Horizon Conflict Resolver Runtime
+Architecture ID:
+`FCF-V2-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME`.
+Exact registered results remain isolated by market and horizon. Deterministic
+groups preserve supporting, opposing, neutral, missing, stale, and blocked
+states through immutable read-only presentation rows.
+<!-- FCP 0100 REGISTERED MULTI HORIZON CONFLICT RESOLVER RUNTIME APP 1 APPROVAL START -->
+## FCP 0100 Registered Multi Horizon Conflict Resolver Runtime App 1 Approval
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+Exact Operator-registered ASCII JSON horizon results may produce immutable
+conflict groups and presentation rows. No mixed score, consensus collapse,
+calculation, recommendation, account, order, or execution authority is
+authorized.
+<!-- FCP 0100 REGISTERED MULTI HORIZON CONFLICT RESOLVER RUNTIME APP 1 APPROVAL END -->
+<!-- FCP 0100 REGISTERED MULTI HORIZON CONFLICT RESOLVER RUNTIME APP 1 LOCK START -->
+## FCP 0100 Registered Multi Horizon Conflict Resolver Runtime App 1 Lock
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Artifact SHA-256: `7abd5878f74e416c3bd6f02228d566a9d9c9e08170f20a3ac3ef5051ac0adc82`.
+Snapshot hash: `29d0f4836e7637c2009d25c5d70b5e98999df15fc8b03b8c04a9ff00b90f98d4`.
+Output SHA-256: `8539898f1dc10c494330576af4ecf2ebb3aeb3be52fbab418807dfde10b9cd08`.
+GAP-006 remains open. Operator review is mandatory and no mixed score,
+consensus collapse, calculation, recommendation, account, order, or execution
+authority is created.
+<!-- FCP 0100 REGISTERED MULTI HORIZON CONFLICT RESOLVER RUNTIME APP 1 LOCK END -->

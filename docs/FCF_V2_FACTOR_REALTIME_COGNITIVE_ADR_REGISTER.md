@@ -1860,3 +1860,18 @@ Consequences: implementation coverage for GAP-004 advances, but its status
 remains unchanged pending complete production acceptance. The runtime cannot
 calculate, claim causal truth, score, recommend, mutate state, use external
 data, or create product, account, order, or execution authority.
+
+## FCF-V2-ADR-100 Preserve Multi-Horizon Conflict Without Mixed Scores
+
+Status: ACCEPTED
+
+Decision: add one read-only sidecar that verifies exact Operator-registered
+ASCII JSON horizon results and deterministically groups supporting, opposing,
+neutral, missing, stale, and blocked evidence. Every market and horizon result
+remains separately visible through immutable presentation rows.
+
+Consequences: implementation coverage for GAP-006 advances, but its status
+remains unchanged pending complete production and browser acceptance. The
+runtime cannot average horizons, collapse conflict into consensus, calculate
+signals, recommend, mutate state, use external data, or create product,
+account, order, or execution authority.

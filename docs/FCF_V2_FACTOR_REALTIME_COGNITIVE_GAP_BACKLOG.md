@@ -195,6 +195,17 @@ factor is activated.
 | V2-FR-GAP-108 | complete multi-batch QMT export evidence spanning the requested range with observed row-cap, pagination, and deterministic batch-order behavior | RESEARCH_REQUIRED |
 | V2-FR-GAP-109 | QMT versus independent provider coverage reconciliation across the same registered expected trading-date set | RESEARCH_REQUIRED |
 
+## FCP-0100 Multi-Horizon Conflict Resolver Runtime Boundary
+
+FCP-0100 adds one registered-artifact-only deterministic resolver and
+immutable read-only presentation snapshot. It preserves every registered
+market and horizon result and groups supporting, opposing, neutral, missing,
+stale, and blocked evidence without a mixed total score or false consensus.
+
+GAP-006 remains `NOT_IMPLEMENTED` pending complete production and browser UI
+acceptance evidence. This bounded sidecar creates no calculation,
+recommendation, account, order, or execution authority.
+
 FCP-0078 is approved to add a deterministic local-only publication and
 availability clock foundation for the publication-clock gap. Its registered
 status remains unchanged until all required implementation and authority
