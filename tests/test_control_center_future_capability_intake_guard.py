@@ -59,11 +59,18 @@ def test_registered_proposals_are_durable_and_non_authorizing():
     path = ROOT / "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json"
     data = json.loads(path.read_text(encoding="ascii"))
 
-    assert data["next_proposal_sequence"] == 96
+    assert data["next_proposal_sequence"] == 97
     assert {
         item["proposal_id"]: item["status"] for item in data["proposals"]
     } == REQUIRED_SEEDED_PROPOSALS
-    assert all(item["phase_id"] == "NONE" for item in data["proposals"])
+    assert all(
+        item["phase_id"] == (
+            "FCF-FCP-0096-REGISTERED-FACTOR-REGISTRY-RUNTIME-APP-1"
+            if item["proposal_id"] == "FCF-FCP-0096"
+            else "NONE"
+        )
+        for item in data["proposals"]
+    )
     decisions = {
         item["proposal_id"]: item["operator_decision"]
         for item in data["proposals"]
@@ -164,6 +171,7 @@ def test_registered_proposals_are_durable_and_non_authorizing():
     assert decisions["FCF-FCP-0093"] == "ACCEPTED_ARCHITECTURE"
     assert decisions["FCF-FCP-0094"] == "ACCEPTED_ARCHITECTURE"
     assert decisions["FCF-FCP-0095"] == "ACCEPTED_ARCHITECTURE"
+    assert decisions["FCF-FCP-0096"] == "APPROVED"
     assert all(validate_intake_register(data).values())
 
 
@@ -174,11 +182,11 @@ def test_proposed_item_does_not_require_or_imply_phase_approval():
         )
     )
     proposal = _proposal(
-        proposal_id="FCF-FCP-0096",
+        proposal_id="FCF-FCP-0097",
         submitted_at_utc="2026-07-23T06:01:00Z",
     )
     register["proposals"].append(proposal)
-    register["next_proposal_sequence"] = 97
+    register["next_proposal_sequence"] = 98
     checks = validate_intake_register(register)
 
     assert all(checks.values())

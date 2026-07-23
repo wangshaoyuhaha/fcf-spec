@@ -410,3 +410,16 @@ GAP-093 through GAP-109 retain their registered statuses. Continuity routing
 cannot establish entitlement, rights, completeness, provider authority,
 promotion, realtime activation, product authority, account access, or
 execution authority.
+
+## FCP-0096 Factor Registry Runtime Boundary
+
+FCP-0096 may add a registered-artifact-only read-only factor registry runtime
+over the completed V2-R11 foundation. It verifies exact ASCII JSON bytes and
+produces immutable dependency, topological, retirement, replacement, and
+transitive invalidation evidence.
+
+This advances implementation coverage for GAP-001, GAP-005, and GAP-007 but
+does not by itself prove the complete production acceptance boundary or change
+their authoritative `NOT_IMPLEMENTED` status. No calculation, scoring,
+promotion, self-modification, external provider, account, order, or execution
+authority is created.

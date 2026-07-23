@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 96,
+  "next_proposal_sequence": 97,
   "proposals": [
     {
       "adr_refs": [],
@@ -2719,6 +2719,33 @@
       "summary": "Preserve exact registered Guojin QMT terminal-observed and local-cache single-call-failed evidence, defer MiniQMT as non-blocking, and continue A-share research through the existing registered QMT local-export workflow. Keep RQData trial and Tushare as unselected candidate supplements, require batch registration, coverage validation, and independent reconciliation, preserve GAP-093 through GAP-109, perform no retry or network access, and create no provider selection, promotion, realtime, product, account, order, execution, P48, tag, release, or deployment authority.",
       "supersedes": [],
       "title": "A-share QMT local-export non-blocking continuity routing"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-096"
+      ],
+      "architecture_refs": [
+        "FCF-V2-REGISTERED-FACTOR-REGISTRY-RUNTIME"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_DELIVERED.md",
+        "docs/FCF_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-001",
+        "V2-FR-GAP-005",
+        "V2-FR-GAP-007"
+      ],
+      "operator_decision": "APPROVED",
+      "phase_id": "FCF-FCP-0096-REGISTERED-FACTOR-REGISTRY-RUNTIME-APP-1",
+      "proposal_id": "FCF-FCP-0096",
+      "source": "operator-authorized-continuous-fcp-delivery",
+      "status": "APPROVED_FOR_PHASE",
+      "submitted_at_utc": "2026-07-23T12:00:00Z",
+      "summary": "Add one registered-artifact-only read-only factor registry runtime over the completed V2-R11 foundation. Verify exact ASCII JSON bytes and closed schema, expose immutable record and dependency views, resolve deterministic topological order, and propagate retirement invalidation without calculation, scoring, promotion, external data, account, order, execution, P48, tag, release, or deployment authority.",
+      "supersedes": [],
+      "title": "Registered factor registry read-only runtime"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
