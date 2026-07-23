@@ -2730,6 +2730,7 @@
       "evidence_refs": [
         "FCF_CURRENT_STATE_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_APPROVED.md",
         "FCF_CURRENT_STATE_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_FINAL.md",
         "docs/FCF_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_D1_D6.md"
       ],
       "gap_refs": [
@@ -2737,11 +2738,11 @@
         "V2-FR-GAP-005",
         "V2-FR-GAP-007"
       ],
-      "operator_decision": "APPROVED",
-      "phase_id": "FCF-FCP-0096-REGISTERED-FACTOR-REGISTRY-RUNTIME-APP-1",
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
       "proposal_id": "FCF-FCP-0096",
       "source": "operator-authorized-continuous-fcp-delivery",
-      "status": "APPROVED_FOR_PHASE",
+      "status": "ACCEPTED_ARCHITECTURE",
       "submitted_at_utc": "2026-07-23T12:00:00Z",
       "summary": "Add one registered-artifact-only read-only factor registry runtime over the completed V2-R11 foundation. Verify exact ASCII JSON bytes and closed schema, expose immutable record and dependency views, resolve deterministic topological order, and propagate retirement invalidation without calculation, scoring, promotion, external data, account, order, execution, P48, tag, release, or deployment authority.",
       "supersedes": [],

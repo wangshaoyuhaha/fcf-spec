@@ -1,6 +1,6 @@
 # FCF FCP 0096 Registered Factor Registry Runtime App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Registered Artifact Boundary
 
@@ -32,3 +32,13 @@ hash mismatches, schema drift, and authority escalation.
 Run isolated, affected, all-FCP, full pytest, and all-checks suites; restore
 generated outputs; audit exact files and `git diff --check`; then commit, push,
 merge, revalidate, and synchronize final authority state.
+
+Completed evidence:
+
+- delivery commit: `a089b27e0d93576f4c92d4385c7ab6cd7cbe92df`
+- merge commit: `21f28b91223a8b7aec4459201de32292ac3071f9`
+- isolated tests: 8 passed
+- affected-chain tests: 53 passed
+- all-FCP tests: 1848 passed
+- full pytest: 7185 passed
+- `run_all_checks.py`: passed

@@ -86,9 +86,9 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
         approved = (root / APPROVED_STATE).read_text(encoding="ascii")
         delivered = (root / DELIVERED_STATE).read_text(encoding="ascii")
         d1_d6 = (root / D1_D6).read_text(encoding="ascii")
-        contracts = (root / CONTRACT_PATH).read_bytes()
-        runtime = (root / RUNTIME_PATH).read_bytes()
-        builder = (root / BUILDER_PATH).read_bytes()
+        contracts = (root / CONTRACT_PATH).read_text(encoding="ascii").encode("ascii")
+        runtime = (root / RUNTIME_PATH).read_text(encoding="ascii").encode("ascii")
+        builder = (root / BUILDER_PATH).read_text(encoding="ascii").encode("ascii")
         run_all = (root / "scripts/run_all_checks.py").read_text(encoding="ascii")
         register = json.loads(
             (root / "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json").read_text(

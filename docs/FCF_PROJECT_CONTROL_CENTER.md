@@ -24399,3 +24399,24 @@ acceptance evidence. No calculation, scoring, promotion, account, order, or
 execution authority is created.
 
 <!-- FCP 0096 REGISTERED FACTOR REGISTRY RUNTIME APP 1 LOCK END -->
+
+<!-- FCP 0096 REGISTERED FACTOR REGISTRY RUNTIME APP 1 FINAL START -->
+
+## FCP 0096 Registered Factor Registry Runtime App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Delivery commit:
+`a089b27e0d93576f4c92d4385c7ab6cd7cbe92df`.
+Merge commit:
+`21f28b91223a8b7aec4459201de32292ac3071f9`.
+
+Validation completed with 8 isolated tests, 53 affected-chain tests, 1848
+all-FCP tests, 7185 full-pytest tests, and `run_all_checks.py` passing.
+
+The read-only runtime verifies exact registered bytes and exposes immutable
+dependency, lifecycle, and invalidation evidence. GAP-001, GAP-005, and
+GAP-007 remain open. No calculation, scoring, promotion, account, order, or
+execution authority was created. No tag, release, or deployment was run.
+
+<!-- FCP 0096 REGISTERED FACTOR REGISTRY RUNTIME APP 1 FINAL END -->
