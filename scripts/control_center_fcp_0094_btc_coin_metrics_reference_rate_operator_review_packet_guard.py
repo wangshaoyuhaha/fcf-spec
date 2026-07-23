@@ -164,6 +164,7 @@ def build_fcp_0094_guard_report(root: Path = ROOT) -> dict[str, object]:
                 "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
                 "FCF-FCP-0100-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME-APP-1",
                 "FCF-FCP-0101-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME-APP-1",
+                "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
             )
             and truth.get("current_governance_phase_id")
             in (
@@ -176,6 +177,7 @@ def build_fcp_0094_guard_report(root: Path = ROOT) -> dict[str, object]:
                 "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
                 "FCF-FCP-0100-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME-APP-1",
                 "FCF-FCP-0101-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME-APP-1",
+                "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
             )
         ),
         "state_evidence_registered": (

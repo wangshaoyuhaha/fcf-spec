@@ -156,7 +156,7 @@ def build_fcp_0101_guard_report(root: Path = ROOT) -> dict[str, object]:
         "proposal_state_exact": proposal.get("operator_decision")
         == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED")
         and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID)
-        and register.get("next_proposal_sequence") == 102,
+        and register.get("next_proposal_sequence") in (102, 103),
         "manifest_state_exact": truth.get("latest_completed_governance_delivery")
         == (
             PHASE_ID
@@ -164,7 +164,12 @@ def build_fcp_0101_guard_report(root: Path = ROOT) -> dict[str, object]:
             else "FCF-FCP-0100-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME-APP-1"
         )
         and truth.get("current_governance_phase_id")
-        == ("NONE" if complete else PHASE_ID),
+        in (
+            "NONE",
+            "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
+        )
+        if complete
+        else truth.get("current_governance_phase_id") == PHASE_ID,
         "state_evidence_registered": (
             "APPROVED_GOVERNANCE_ONLY_NOT_STARTED" in texts.get("approved", "")
             and (

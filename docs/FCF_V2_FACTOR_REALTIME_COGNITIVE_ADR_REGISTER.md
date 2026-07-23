@@ -1890,3 +1890,18 @@ the complete library and production missing-state statuses remain unchanged.
 Deterministic Engine is calculation authority; the runtime cannot score,
 rank, recommend, use external data, or create product, account, order, or
 execution authority.
+
+## FCF-V2-ADR-102 Compose Existing Robust Normalization Foundations
+
+Status: ACCEPTED
+
+Decision: add one registered-artifact-only sidecar that composes the completed
+V2-R21 robust normalization and V2-R22 integrity contracts with the FCP-0096
+runtime registry. Do not duplicate or change the median, MAD, winsorization,
+robust Z-score, half-even rounding, or missing-state formulas.
+
+Consequences: implementation coverage for GAP-009 advances, but its status
+remains unchanged pending complete production and browser acceptance.
+Deterministic Engine remains calculation authority; the runtime cannot score,
+rank, recommend, use external data, or create product, account, order, or
+execution authority.

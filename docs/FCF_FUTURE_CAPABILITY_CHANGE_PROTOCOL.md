@@ -894,6 +894,18 @@ The phase cannot score, rank, recommend, change a Gap status, mutate P1-P47,
 create P48, invoke a provider or network, use credentials, or authorize
 account, balance, position, wallet, order, execution, tag, release, or
 deployment.
+
+## FCP-0102 Registered Factor Normalization Runtime Change Rule
+
+Proposal `FCF-FCP-0102` may add immutable artifact and normalization snapshot
+contracts, an exact ASCII JSON loader, FCP-0096 registry composition, V2-R21
+and V2-R22 foundation delegation, canonical rendering, tests, guard, and
+closeout evidence.
+
+The phase cannot create or alter a normalization formula, score, rank,
+recommend, change a Gap status, mutate P1-P47, create P48, invoke a provider
+or network, use credentials, or authorize account, balance, position, wallet,
+order, execution, tag, release, or deployment.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a
