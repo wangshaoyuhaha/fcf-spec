@@ -16034,3 +16034,31 @@ create P48, or enable broker, exchange, balance, position, order, execution,
 tag, release, or deployment.
 
 <!-- FCP 0089 A SHARE GUOJIN QMT LOCAL RUNTIME FOOTPRINT READINESS EVIDENCE APP 1 APPROVAL END -->
+
+<!-- FCP 0089 A SHARE GUOJIN QMT LOCAL RUNTIME FOOTPRINT READINESS EVIDENCE APP 1 LOCK START -->
+
+## FCP 0089 A-Share Guojin QMT Local Runtime Footprint Readiness Evidence App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar scans one Operator-designated `userdata_mini` directory using
+bounded top-level filesystem metadata only. It exposes registered footprint
+classes, counts, aggregate bytes, latest metadata time, manifest hash,
+readiness, and blockers without paths, arbitrary names, or file contents.
+
+Contract SHA-256:
+`8e711a0463613aa1f60eded5b798378c246aaa981c88ffa5ddeefba1fd6f7e17`.
+Reference evidence hash:
+`e1a4de03cd08c483dcda80032cdec8d5a031da72bb3e5ef310aae3563a676887`.
+Reference output SHA-256:
+`b2575598a635c43069b92ef8886d0de8d9fcceb62659f8dc1a488280ed2ff74e`.
+Observed footprint evidence hash:
+`09d6c3f8555ec9f50366a51c0a388702d13b565db93db5d2240bb5d82a701511`.
+
+GAP-104 remains RESEARCH_REQUIRED. Filesystem readiness does not establish
+terminal liveness, entitlement, rights, retention, market-data availability,
+provider selection, realtime activation, promotion, product, P48, broker,
+exchange, account, balance, position, order, execution, tag, release, or
+deployment authority.
+
+<!-- FCP 0089 A SHARE GUOJIN QMT LOCAL RUNTIME FOOTPRINT READINESS EVIDENCE APP 1 LOCK END -->
