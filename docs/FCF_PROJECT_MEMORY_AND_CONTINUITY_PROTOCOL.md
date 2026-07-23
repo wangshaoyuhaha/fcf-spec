@@ -431,3 +431,8 @@ runtime snapshot. Exact bytes, closed schema, record hashes, and bidirectional
 target-label lineage are deterministic. Operator review remains mandatory;
 target selection, label materialization, outcome calculation, scoring,
 promotion, account, order, and execution remain forbidden.
+FCP-0098 upgrades the completed V2-R1 State-Sync anchor foundation with one
+registered-artifact-only read-only multi-anchor lock snapshot. Exact bytes,
+hashes, sequence, expiry, supersession, and current lock views are
+deterministic. Operator review remains mandatory; state mutation, calculation,
+scoring, account, order, and execution remain forbidden.

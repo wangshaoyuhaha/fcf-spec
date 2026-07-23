@@ -847,6 +847,17 @@ outcomes, score or promote candidates, assign an Operator decision, change an
 authoritative Gap status, mutate P1-P47, create P48, invoke a provider or
 network, use credentials, or authorize account, balance, position, wallet,
 order, execution, tag, release, or deployment.
+
+## FCP-0098 Registered State-Sync Lock Runtime Change Rule
+
+Proposal `FCF-FCP-0098` may add immutable artifact and lock snapshot
+contracts, one bounded ASCII JSON loader, sequence, expiry and supersession
+resolution, canonical rendering, tests, guard, and closeout evidence.
+
+The phase cannot mutate state, ingest external data, calculate or score,
+change a Gap status, mutate P1-P47, create P48, use credentials, or authorize
+account, balance, position, wallet, order, execution, tag, release, or
+deployment.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a
