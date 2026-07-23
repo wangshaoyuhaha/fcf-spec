@@ -353,8 +353,18 @@ COMMANDS = [
     [
         "python",
         "scripts/control_center_fcp_0088_a_share_guojin_qmt_registered_local_dual_export_offline_sdk_compatibility_evidence_guard.py",
-    "scripts/control_center_fcp_0089_a_share_guojin_qmt_local_runtime_footprint_readiness_evidence_guard.py",
-    "scripts/control_center_fcp_0090_a_share_guojin_qmt_local_terminal_liveness_evidence_guard.py",
+    ],
+    [
+        "python",
+        "scripts/control_center_fcp_0089_a_share_guojin_qmt_local_runtime_footprint_readiness_evidence_guard.py",
+    ],
+    [
+        "python",
+        "scripts/control_center_fcp_0090_a_share_guojin_qmt_local_terminal_liveness_evidence_guard.py",
+    ],
+    [
+        "python",
+        "scripts/control_center_fcp_0091_a_share_guojin_qmt_registered_local_cache_loopback_read_only_probe_guard.py",
     ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
