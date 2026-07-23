@@ -882,6 +882,18 @@ The phase cannot mix horizons into one score, collapse conflict into
 consensus, calculate signals, recommend, change a Gap status, mutate P1-P47,
 create P48, use credentials, or authorize account, balance, position, wallet,
 order, execution, tag, release, or deployment.
+
+## FCP-0101 Registered Technical Indicator Core Runtime Change Rule
+
+Proposal `FCF-FCP-0101` may add immutable artifact, bar, indicator-request,
+result, and snapshot contracts, one bounded ASCII JSON loader, deterministic
+SMA, EMA, Bollinger, RSI, ATR, and VWAP calculations, canonical rendering,
+tests, guard, and closeout evidence.
+
+The phase cannot score, rank, recommend, change a Gap status, mutate P1-P47,
+create P48, invoke a provider or network, use credentials, or authorize
+account, balance, position, wallet, order, execution, tag, release, or
+deployment.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

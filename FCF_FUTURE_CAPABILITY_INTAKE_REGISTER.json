@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 101,
+  "next_proposal_sequence": 102,
   "proposals": [
     {
       "adr_refs": [],
@@ -2852,6 +2852,32 @@
       "summary": "Add one registered-artifact-only read-only multi-horizon conflict resolver and presentation runtime. Verify exact ASCII JSON bytes, preserve one result per registered market and horizon, and deterministically group supporting, opposing, neutral, missing, stale, and blocked evidence without mixed scoring, consensus collapse, calculation, recommendation, account, order, execution, P48, tag, release, or deployment authority.",
       "supersedes": [],
       "title": "Registered multi-horizon conflict resolver read-only runtime"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-101"
+      ],
+      "architecture_refs": [
+        "FCF-V2-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0101_REGISTERED_TECHNICAL_INDICATOR_CORE_RUNTIME_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0101_REGISTERED_TECHNICAL_INDICATOR_CORE_RUNTIME_APP_1_DELIVERED.md",
+        "docs/FCF_FCP_0101_REGISTERED_TECHNICAL_INDICATOR_CORE_RUNTIME_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-008",
+        "V2-FR-GAP-009"
+      ],
+      "operator_decision": "APPROVED",
+      "phase_id": "FCF-FCP-0101-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME-APP-1",
+      "proposal_id": "FCF-FCP-0101",
+      "source": "operator-authorized-continuous-fcp-delivery",
+      "status": "APPROVED_FOR_PHASE",
+      "submitted_at_utc": "2026-07-24T02:20:00Z",
+      "summary": "Add one registered-artifact-only deterministic technical indicator core over exact local OHLCV and amount bars. Calculate SMA, EMA, Bollinger, RSI, ATR, and VWAP with Decimal arithmetic, strict point-in-time ordering, explicit suspension exclusion, and immutable result hashes without scoring, ranking, recommendation, external data, account, order, execution, P48, tag, release, or deployment authority.",
+      "supersedes": [],
+      "title": "Registered deterministic technical indicator core runtime"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",
