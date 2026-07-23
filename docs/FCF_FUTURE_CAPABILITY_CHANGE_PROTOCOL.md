@@ -796,6 +796,19 @@ convert the neutral reference rate into mark or index authority, calculate a
 signal or trade, close GAP-095, start product work, create P48, or authorize a
 wallet, account, balance, margin, leverage, position, PnL, liquidation, order,
 execution, tag, release, or deployment.
+
+## FCP-0094 BTC Coin Metrics Reference-Rate Review Packet Change Rule
+
+Proposal `FCF-FCP-0094` may add immutable review-item and review-packet
+contracts, a deterministic builder, canonical renderer, tests, guard, and
+closeout evidence over one exact typed FCP-0093 validation result.
+
+The phase cannot assign an Operator disposition, approve or reject evidence,
+invoke an SDK or network, use credentials, retain source values or paths,
+select a provider or venue, activate realtime, promote data, grant mark or
+index authority, calculate a signal or trade, close GAP-095, start product
+work, create P48, or authorize a wallet, account, balance, margin, leverage,
+position, PnL, liquidation, order, execution, tag, release, or deployment.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

@@ -389,3 +389,12 @@ evidence only. The neutral reference rate is not venue mark, index, trade,
 order-book, funding, contract, or cross-venue evidence. GAP-095 remains
 RESEARCH_REQUIRED until independent registered venue and methodology evidence
 is reviewed.
+
+## FCP-0094 Review Boundary
+
+FCP-0094 may preserve one immutable mandatory Operator review packet over the
+exact typed FCP-0093 validation result. Packet construction assigns no
+disposition and keeps acceptance blocked pending explicit Operator review.
+GAP-095 remains RESEARCH_REQUIRED and the packet creates no data-promotion,
+provider, venue, realtime, mark or index, signal, product, account, order, or
+execution authority.

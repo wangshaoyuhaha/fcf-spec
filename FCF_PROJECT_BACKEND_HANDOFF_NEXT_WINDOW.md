@@ -17309,3 +17309,45 @@ or index, signal, product, wallet, account, order, or execution authority was
 created. No tag, release, or deployment was run.
 
 <!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION APP 1 FINAL END -->
+
+<!-- FCP 0094 BTC COIN METRICS REFERENCE RATE OPERATOR REVIEW PACKET APP 1 APPROVAL START -->
+
+## FCP 0094 BTC Coin Metrics Reference Rate Operator Review Packet App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved scope may bind the exact typed FCP-0093 validation result to one
+immutable, path-free, value-free mandatory Operator review packet. Six closed
+review items may cover source registration, rights boundary, schema integrity,
+temporal coverage, neutral-rate semantics, and non-authority boundary.
+
+The packet must remain undecided and blocked pending explicit Operator
+disposition. SDK, network, credentials, provider or venue selection, realtime,
+promotion, mark or index authority, signal, product, GAP-095 closure, P48,
+wallet, account, balance, margin, leverage, position, PnL, liquidation, order,
+execution, tag, release, and deployment authority are forbidden.
+
+<!-- FCP 0094 BTC COIN METRICS REFERENCE RATE OPERATOR REVIEW PACKET APP 1 APPROVAL END -->
+
+<!-- FCP 0094 BTC COIN METRICS REFERENCE RATE OPERATOR REVIEW PACKET APP 1 LOCK START -->
+
+## FCP 0094 BTC Coin Metrics Reference Rate Operator Review Packet App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar binds the exact FCP-0093 result hash to six ordered undecided
+review items and a deterministic `BLOCKED_PENDING_OPERATOR_DISPOSITION` gate.
+The canonical packet is ASCII, path-free, and excludes source market values.
+
+Validation result hash:
+`689317437eec53117d195c39803d1f759102682aaf416aa4aae2afbbfb3f0e27`.
+Packet hash:
+`9c4263ddd8e9102e4b32607bf1da659f4101a196fe03aa4ad4945586c52352f1`.
+Rendered output SHA-256:
+`d315473e75341ca6d96da813c710e8277510308f70f1fe83f26d0e5ec48298ca`.
+
+No Operator disposition, data promotion, provider, venue, realtime, mark or
+index, signal, product, account, order, or execution authority is created.
+GAP-095 remains RESEARCH_REQUIRED.
+
+<!-- FCP 0094 BTC COIN METRICS REFERENCE RATE OPERATOR REVIEW PACKET APP 1 LOCK END -->
