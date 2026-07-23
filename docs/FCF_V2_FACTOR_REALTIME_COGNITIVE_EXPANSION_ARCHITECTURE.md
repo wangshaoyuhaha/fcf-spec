@@ -2642,3 +2642,15 @@ executable paths, windows, account identifiers, credentials, and market values
 are never retained. Terminal liveness is not entitlement, rights, retention,
 market-data availability, provider selection, realtime activation, data
 promotion, Gap closure, product authority, or execution authority.
+## 124. Guojin QMT Registered Local-Cache Loopback Read-Only Probe
+
+FCP-0091 gates dynamic SDK import and one local-cache call on exact FCP-0090
+terminal-liveness evidence. The only permitted function is
+`xtquant.xtdata.get_local_data` with a registered daily, time-only, one-row,
+no-fill request. Its server retrieval path remains disabled.
+
+The probe retains call state, row count, schema presence, timing class, module
+lineage, blockers, and canonical hashes only. It discards returned timestamps
+and all market values. Probe success is not entitlement, rights, retention,
+provider selection, realtime activation, promotion, Gap closure, product
+authority, or execution authority.

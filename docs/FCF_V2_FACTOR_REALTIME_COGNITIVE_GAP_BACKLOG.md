@@ -366,3 +366,9 @@ FCP-0090 may preserve bounded path-free allowlisted Guojin QMT local terminal
 liveness facts for GAP-104. The Gap remains RESEARCH_REQUIRED until exact
 entitlement, rights, retention, and read-only market-data probe evidence is
 registered and reviewed.
+
+## FCP-0091 Evidence Boundary
+
+FCP-0091 may preserve value-free single-call local-cache loopback compatibility
+facts for GAP-104. The Gap remains RESEARCH_REQUIRED until exact entitlement,
+rights, retention, and Operator-reviewed probe evidence are registered.

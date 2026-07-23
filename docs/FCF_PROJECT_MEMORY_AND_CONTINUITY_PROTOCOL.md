@@ -394,3 +394,7 @@ FCP-0090 preserves bounded path-free allowlisted Guojin QMT local terminal
 liveness as non-authorizing evidence. It discards unregistered process names
 and grants no entitlement, rights, provider, realtime, data-promotion,
 product, account, or execution authority.
+FCP-0091 permits one FCP-0090-gated, value-free Guojin QMT local-cache loopback
+probe. It forbids server retrieval, subscriptions, downloads, account or
+trading APIs, returned market values, provider selection, promotion, product,
+or execution authority.

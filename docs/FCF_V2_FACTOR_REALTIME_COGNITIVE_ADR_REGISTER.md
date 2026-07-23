@@ -1729,3 +1729,20 @@ process observer, canonical renderer, guard, tests, and closeout evidence. It
 cannot invoke MiniQMT or xtquant, establish entitlement, rights, retention,
 market-data availability, provider or product authority, activate realtime,
 promote data, close GAP-104, or enable execution.
+## FCF-V2-ADR-091 Permit One Value-Free QMT Local-Cache Loopback Probe
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: after exact FCP-0090 terminal liveness, one bounded sidecar may call
+only `xtquant.xtdata.get_local_data` once with a closed daily, time-only,
+one-row, no-fill, local-cache-only request. The sidecar may retain call state,
+row count, schema presence, timing class, module lineage, blockers, and hashes.
+
+Returned timestamps and market values are discarded. Subscriptions, downloads,
+server retrieval, account APIs, trading APIs, retries, and credentials are
+forbidden. A successful call is compatibility evidence only.
+
+Consequences: FCP-0091 may implement contracts, an injected probe evaluator,
+a gated runtime adapter, renderer, guard, tests, and closeout evidence. It
+cannot establish entitlement, rights, retention, provider or product authority,
+activate realtime, promote data, close GAP-104, or enable execution.

@@ -760,6 +760,18 @@ credentials, or market values; invoke MiniQMT or xtquant; use a network;
 establish entitlement, rights, retention, or market-data availability; promote
 data; select a provider; activate realtime; close GAP-104; start product work;
 create P48; tag, release, or deploy.
+## FCP-0091 QMT Local-Cache Loopback Probe Change Rule
+
+Proposal `FCF-FCP-0091` may add immutable value-free probe contracts, an
+injected evaluator, one FCP-0090-gated runtime adapter, canonical renderer,
+tests, guard, and closeout evidence. Only `xtquant.xtdata.get_local_data` may be
+called, once, with the exact registered local-cache request.
+
+The phase cannot retain returned timestamps or market values, subscribe,
+download, enable server retrieval, retry, use account or trading APIs, use
+credentials, establish entitlement or rights, select a provider, activate
+realtime, promote data, close GAP-104, start product work, create P48, tag,
+release, or deploy.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

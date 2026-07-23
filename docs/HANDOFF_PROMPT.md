@@ -16200,3 +16200,27 @@ exchange, balance, position, order, execution, tag, release, or deployment
 authority was created.
 
 <!-- FCP 0090 A SHARE GUOJIN QMT LOCAL TERMINAL LIVENESS EVIDENCE APP 1 FINAL END -->
+
+<!-- FCP 0091 A SHARE GUOJIN QMT REGISTERED LOCAL CACHE LOOPBACK READ ONLY PROBE APP 1 APPROVAL START -->
+
+## FCP 0091 A-Share Guojin QMT Registered Local Cache Loopback Read-Only Probe App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved sidecar branch:
+`sidecar-fcp-0091-a-share-guojin-qmt-registered-local-cache-loopback-read-only-probe-app-1`
+
+Approved scope may prepare one FCP-0090-gated, bounded, single-call local-cache
+probe using only `xtquant.xtdata.get_local_data`. The exact request uses one
+registered symbol, one date, daily period, time-only field, one-row limit, no
+fill, and no server retrieval.
+
+Only call state, row count, schema presence, timing class, module lineage,
+blockers, and canonical hashes may be retained. Returned timestamps and market
+values, subscriptions, downloads, server retrieval, retries, account or
+trading APIs, credentials, entitlement or rights claims, provider selection,
+realtime activation, data promotion, Gap closure, product, P48, broker,
+exchange, account, balance, position, order, execution, tag, release, and
+deployment are forbidden.
+
+<!-- FCP 0091 A SHARE GUOJIN QMT REGISTERED LOCAL CACHE LOOPBACK READ ONLY PROBE APP 1 APPROVAL END -->
