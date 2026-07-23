@@ -1,6 +1,6 @@
 # FCF FCP 0099 Registered Macro Micro Transmission Runtime App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Registered Artifact Boundary
 
@@ -41,3 +41,8 @@ Delivery validation:
 - all-FCP tests: 1872 passed
 - full pytest: 7209 passed
 - `run_all_checks.py`: passed
+
+Completed evidence:
+
+- delivery commit: `cf54e2f3adda756041893cd206ae6af1db8504f3`
+- merge commit: `0e9f2b9cdabf629868b0e5bc70c8703367188d29`
