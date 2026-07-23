@@ -142,11 +142,13 @@ def build_fcp_0095_guard_report(root: Path = ROOT) -> dict[str, object]:
         in (
             PHASE_ID,
             "FCF-FCP-0096-REGISTERED-FACTOR-REGISTRY-RUNTIME-APP-1",
+            "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1",
         )
         and truth.get("current_governance_phase_id")
         in (
             "NONE",
             "FCF-FCP-0096-REGISTERED-FACTOR-REGISTRY-RUNTIME-APP-1",
+            "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1",
         )
         and truth.get("current_governance_phase_status")
         in (
