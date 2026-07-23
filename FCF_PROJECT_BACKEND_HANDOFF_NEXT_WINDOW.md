@@ -17601,3 +17601,26 @@ anchor-hash, current-lock, expiry, and supersession evidence. GAP-003 remains
 open. No state mutation, calculation, scoring, promotion, account, order, or
 execution authority was created. No tag, release, or deployment was run.
 <!-- FCP 0098 REGISTERED STATE SYNC LOCK RUNTIME APP 1 FINAL END -->
+
+## 132. Registered Macro-to-Micro Transmission Runtime
+Architecture ID: `FCF-V2-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME`.
+Exact registered records preserve the official six-level chain, evidence
+lineage, uncertainty, expiry, and invalidation without causal-truth authority.
+<!-- FCP 0099 REGISTERED MACRO MICRO TRANSMISSION RUNTIME APP 1 APPROVAL START -->
+## FCP 0099 Registered Macro Micro Transmission Runtime App 1 Approval
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+Exact Operator-registered ASCII JSON transmission records may produce
+immutable chain, evidence-lineage, lifecycle, and uncertainty views. No
+calculation, causal-truth, scoring, recommendation, account, order, or
+execution authority is authorized.
+<!-- FCP 0099 REGISTERED MACRO MICRO TRANSMISSION RUNTIME APP 1 APPROVAL END -->
+<!-- FCP 0099 REGISTERED MACRO MICRO TRANSMISSION RUNTIME APP 1 LOCK START -->
+## FCP 0099 Registered Macro Micro Transmission Runtime App 1 Lock
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Artifact SHA-256: `d6443cca9fa39913a6fc5847f5656679faf439e2c2dbb273a01eca8f8c96e4ea`.
+Snapshot hash: `a423220725fc7c2c9874d979b408f3bb5b2b2a2573e9781e3d441e5bb7227c85`.
+Output SHA-256: `32ec1db88c5db178594c92a3c6665879f5f555f1a0babfec6fe21e8af6903425`.
+GAP-004 remains open. Operator review is mandatory and no calculation,
+causal-truth, scoring, recommendation, account, order, or execution authority
+is created.
+<!-- FCP 0099 REGISTERED MACRO MICRO TRANSMISSION RUNTIME APP 1 LOCK END -->

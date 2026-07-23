@@ -447,3 +447,15 @@ This advances GAP-003 implementation coverage but does not change its
 authoritative `NOT_IMPLEMENTED` status. No state mutation, external data,
 calculation, scoring, promotion, account, order, or execution authority is
 created.
+
+## FCP-0099 Macro-to-Micro Transmission Runtime Boundary
+
+FCP-0099 may add a registered-artifact-only read-only macro-to-micro
+transmission runtime over V2-R25. It verifies exact bytes, the official
+six-level chain, evidence lineage, hypothesis direction, regime, uncertainty,
+decay, expiry, and invalidation views.
+
+This advances GAP-004 implementation coverage but does not change its
+authoritative `NOT_IMPLEMENTED` status. No calculation, causal-truth claim,
+scoring, recommendation, external data, account, order, or execution
+authority is created.
