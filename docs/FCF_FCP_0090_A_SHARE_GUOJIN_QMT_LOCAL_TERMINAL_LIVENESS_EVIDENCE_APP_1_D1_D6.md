@@ -1,6 +1,6 @@
 # FCF FCP 0090 A-Share Guojin QMT Local Terminal Liveness Evidence App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Closed Process-Family Registry
 
