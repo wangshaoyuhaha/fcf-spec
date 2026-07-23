@@ -425,3 +425,9 @@ schema, dependency order, retirement replacement, and transitive invalidation
 are deterministic. Operator review remains mandatory; factor calculation,
 scoring, promotion, self-modification, account, order, and execution remain
 forbidden.
+FCP-0097 upgrades the completed V2-R1 forecast-target contract foundation
+with one registered-artifact-only read-only target and label definition
+runtime snapshot. Exact bytes, closed schema, record hashes, and bidirectional
+target-label lineage are deterministic. Operator review remains mandatory;
+target selection, label materialization, outcome calculation, scoring,
+promotion, account, order, and execution remain forbidden.

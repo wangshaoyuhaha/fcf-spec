@@ -423,3 +423,16 @@ does not by itself prove the complete production acceptance boundary or change
 their authoritative `NOT_IMPLEMENTED` status. No calculation, scoring,
 promotion, self-modification, external provider, account, order, or execution
 authority is created.
+
+## FCP-0097 Target Label Registry Runtime Boundary
+
+FCP-0097 may add a registered-artifact-only read-only forecast-target and
+outcome-label definition registry runtime over the completed V2-R1
+foundation. It verifies exact ASCII JSON bytes and produces immutable target
+and label hashes plus bidirectional lineage evidence.
+
+This advances implementation coverage for GAP-002 but does not by itself
+prove the complete production acceptance boundary or change its authoritative
+`NOT_IMPLEMENTED` status. GAP-012 remains `RESEARCH_REQUIRED`; no target is
+selected and no label value, outcome, score, promotion, account, order, or
+execution authority is created.

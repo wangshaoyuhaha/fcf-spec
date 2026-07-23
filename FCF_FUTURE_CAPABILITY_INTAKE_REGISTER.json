@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 97,
+  "next_proposal_sequence": 98,
   "proposals": [
     {
       "adr_refs": [],
@@ -2747,6 +2747,32 @@
       "summary": "Add one registered-artifact-only read-only factor registry runtime over the completed V2-R11 foundation. Verify exact ASCII JSON bytes and closed schema, expose immutable record and dependency views, resolve deterministic topological order, and propagate retirement invalidation without calculation, scoring, promotion, external data, account, order, execution, P48, tag, release, or deployment authority.",
       "supersedes": [],
       "title": "Registered factor registry read-only runtime"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-097"
+      ],
+      "architecture_refs": [
+        "FCF-V2-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0097_REGISTERED_TARGET_LABEL_REGISTRY_RUNTIME_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0097_REGISTERED_TARGET_LABEL_REGISTRY_RUNTIME_APP_1_DELIVERED.md",
+        "docs/FCF_FCP_0097_REGISTERED_TARGET_LABEL_REGISTRY_RUNTIME_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-002",
+        "V2-FR-GAP-012"
+      ],
+      "operator_decision": "APPROVED",
+      "phase_id": "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1",
+      "proposal_id": "FCF-FCP-0097",
+      "source": "operator-authorized-continuous-fcp-delivery",
+      "status": "APPROVED_FOR_PHASE",
+      "submitted_at_utc": "2026-07-23T15:00:00Z",
+      "summary": "Add one registered-artifact-only read-only forecast-target and outcome-label definition registry runtime over the completed V2-R1 foundation. Verify exact ASCII JSON bytes and closed schema, expose immutable target and label record hashes plus bidirectional lineage, and preserve target selection, label materialization, outcome calculation, scoring, promotion, external data, account, order, execution, P48, tag, release, and deployment as forbidden.",
+      "supersedes": [],
+      "title": "Registered forecast-target and label definition runtime"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

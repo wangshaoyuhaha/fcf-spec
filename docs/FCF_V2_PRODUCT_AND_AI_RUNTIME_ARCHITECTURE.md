@@ -18894,6 +18894,22 @@ execution authority was created. No tag, release, or deployment was run.
 
 <!-- FCP 0096 REGISTERED FACTOR REGISTRY RUNTIME APP 1 FINAL END -->
 
+## 130. Registered Target And Label Definition Runtime
+
+Architecture ID:
+`FCF-V2-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME`.
+
+The runtime accepts only exact Operator-registered ASCII JSON bytes after
+byte-length and SHA-256 verification. It reuses the V2-R1 forecast-target
+definition foundation and adds immutable label-definition records with
+explicit maturity, availability clocks, evidence, missing, censoring, and
+revision semantics.
+
+The runtime exposes deterministic target and label hashes plus bidirectional
+lineage. It cannot select targets, materialize label values, calculate
+outcomes, score, promote, self-modify, invoke external data, or create product,
+account, order, or execution authority.
+
 ## 129. Registered Factor Registry Runtime
 
 Architecture ID:
@@ -18908,3 +18924,46 @@ invalidation evidence.
 The runtime is registry-only. It cannot calculate or score a factor, promote a
 candidate, choose a lifecycle state, mutate P1-P47, create P48, access an
 account, or authorize an order or execution.
+
+<!-- FCP 0097 REGISTERED TARGET LABEL REGISTRY RUNTIME APP 1 APPROVAL START -->
+
+## FCP 0097 Registered Target Label Registry Runtime App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved scope may add one registered-artifact-only, read-only forecast-target
+and outcome-label definition registry runtime over the completed V2-R1
+foundation. Exact ASCII JSON bytes, closed schema, versioned records, maturity
+and availability semantics, and bidirectional lineage may be validated
+deterministically.
+
+No target selection, label materialization, outcome calculation, scoring,
+promotion, provider, realtime, product mutation, P48, credential, account,
+balance, position, wallet, order, execution, tag, release, or deployment is
+authorized.
+
+<!-- FCP 0097 REGISTERED TARGET LABEL REGISTRY RUNTIME APP 1 APPROVAL END -->
+
+<!-- FCP 0097 REGISTERED TARGET LABEL REGISTRY RUNTIME APP 1 LOCK START -->
+
+## FCP 0097 Registered Target Label Registry Runtime App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar verifies exact registered bytes and builds immutable target and
+label record hashes plus deterministic target-to-label and label-to-target
+lineage indexes.
+
+Reference artifact SHA-256:
+`50f86d2230ebf52e538a89bd778df50e0e874b875ca68b86f043ee6774d23587`.
+Runtime snapshot hash:
+`bdf661bfc1d97cf9a1076f13b9fc5388e9ec37e721d1d93c7d1ee159086dc974`.
+Rendered output SHA-256:
+`8a83cb4426adeae8d416bd3daddb6a8c821007a01f91cad0df091ebaeb524f60`.
+
+GAP-002 remains open pending complete production acceptance evidence, and
+GAP-012 remains RESEARCH_REQUIRED. No target selection, label materialization,
+outcome calculation, scoring, promotion, account, order, or execution
+authority is created.
+
+<!-- FCP 0097 REGISTERED TARGET LABEL REGISTRY RUNTIME APP 1 LOCK END -->

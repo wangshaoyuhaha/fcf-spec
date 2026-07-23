@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from apps.fcp_0096_registered_factor_registry_runtime_app_1 import (  # noqa: E402
+from apps.fcp_0097_registered_target_label_registry_runtime_app_1 import (  # noqa: E402
     PHASE_ID,
     build_reference_artifact_bytes,
     build_reference_runtime_snapshot,
@@ -25,34 +25,34 @@ AUTHORITY_PATHS = (
     Path("FCF_PROJECT_BACKEND_HANDOFF_NEXT_WINDOW.md"),
     Path("FCF_NEW_WINDOW_CHAT_PROMPT.md"),
 )
-MARKER = "FCP 0096 REGISTERED FACTOR REGISTRY RUNTIME APP 1"
+MARKER = "FCP 0097 REGISTERED TARGET LABEL REGISTRY RUNTIME APP 1"
 CONTRACT_PATH = Path(
-    "apps/fcp_0096_registered_factor_registry_runtime_app_1/contracts.py"
+    "apps/fcp_0097_registered_target_label_registry_runtime_app_1/contracts.py"
 )
 RUNTIME_PATH = Path(
-    "apps/fcp_0096_registered_factor_registry_runtime_app_1/runtime.py"
+    "apps/fcp_0097_registered_target_label_registry_runtime_app_1/runtime.py"
 )
 BUILDER_PATH = Path(
-    "apps/fcp_0096_registered_factor_registry_runtime_app_1/builder.py"
+    "apps/fcp_0097_registered_target_label_registry_runtime_app_1/builder.py"
 )
 APPROVED_STATE = Path(
-    "FCF_CURRENT_STATE_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_APPROVED.md"
+    "FCF_CURRENT_STATE_FCP_0097_REGISTERED_TARGET_LABEL_REGISTRY_RUNTIME_APP_1_APPROVED.md"
 )
 DELIVERED_STATE = Path(
-    "FCF_CURRENT_STATE_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_DELIVERED.md"
+    "FCF_CURRENT_STATE_FCP_0097_REGISTERED_TARGET_LABEL_REGISTRY_RUNTIME_APP_1_DELIVERED.md"
 )
 FINAL_STATE = Path(
-    "FCF_CURRENT_STATE_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_FINAL.md"
+    "FCF_CURRENT_STATE_FCP_0097_REGISTERED_TARGET_LABEL_REGISTRY_RUNTIME_APP_1_FINAL.md"
 )
 D1_D6 = Path(
-    "docs/FCF_FCP_0096_REGISTERED_FACTOR_REGISTRY_RUNTIME_APP_1_D1_D6.md"
+    "docs/FCF_FCP_0097_REGISTERED_TARGET_LABEL_REGISTRY_RUNTIME_APP_1_D1_D6.md"
 )
-CONTRACT_SHA = "214a006032bb6e8fca1adf6c33a5e33afb6b2333457884fba99abcc4d41cfb07"
-RUNTIME_SHA = "436009a6edabec2f0b2ef13c9bb3b4a570df64c80d5e711ed3af624b840cd5da"
-BUILDER_SHA = "7eff0f53dbff31fa5f2c7026831ed0bb0fdd96d8f16e4c766a5f24cfa291b031"
-ARTIFACT_SHA = "be3e9b4edd3ab38b74459546a73aed8809907f2dfe1c27aee173fd924f8a95f9"
-SNAPSHOT_HASH = "c576022a450c15ec3185e6756d2b48998c3ab761eaa95ce657945e0c2be61a40"
-OUTPUT_SHA = "574c8467beaf5a70a76b5c27a4d5b7a04a8bdda45b483a6785347ca09eb6cc3d"
+CONTRACT_SHA = "3d505af3135aa5774e76f746ad8fd9ad195bfeed73386f679c6c8955c3346102"
+RUNTIME_SHA = "fde770d404a5509de12f33b45ec979d3411bdfb932e6679d87cc9744a524f854"
+BUILDER_SHA = "5b729da30e53ce735bd88f005eef4234628c0217dcdc8fd3d0345ec4a5edaf30"
+ARTIFACT_SHA = "50f86d2230ebf52e538a89bd778df50e0e874b875ca68b86f043ee6774d23587"
+SNAPSHOT_HASH = "bdf661bfc1d97cf9a1076f13b9fc5388e9ec37e721d1d93c7d1ee159086dc974"
+OUTPUT_SHA = "8a83cb4426adeae8d416bd3daddb6a8c821007a01f91cad0df091ebaeb524f60"
 
 
 def _block(text: str, kind: str) -> str:
@@ -63,7 +63,7 @@ def _block(text: str, kind: str) -> str:
     return start + text.split(start, 1)[1].split(end, 1)[0] + end
 
 
-def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
+def build_fcp_0097_guard_report(root: Path = ROOT) -> dict[str, object]:
     try:
         authority_texts = tuple(
             (root / path).read_text(encoding="ascii") for path in AUTHORITY_PATHS
@@ -123,14 +123,6 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
         (
             item
             for item in register.get("proposals", [])
-            if item.get("proposal_id") == "FCF-FCP-0096"
-        ),
-        {},
-    )
-    successor = next(
-        (
-            item
-            for item in register.get("proposals", [])
             if item.get("proposal_id") == "FCF-FCP-0097"
         ),
         {},
@@ -142,25 +134,11 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
         == ("ACCEPTED_ARCHITECTURE" if phase_complete else "APPROVED")
         and proposal.get("phase_id") == ("NONE" if phase_complete else PHASE_ID)
         and register.get("next_proposal_sequence") == 98
-        and successor.get("phase_id")
-        in (
-            "NONE",
-            "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1",
-        )
     )
     expected_manifest = (
-        truth.get("latest_completed_governance_delivery")
-        in (
-            PHASE_ID,
-            "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1",
-        )
-        and truth.get("current_governance_phase_id")
-        in (
-            "NONE",
-            "FCF-FCP-0097-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME-APP-1",
-        )
-        and truth.get("current_governance_phase_status")
-        in ("NONE", "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE")
+        truth.get("latest_completed_governance_delivery") == PHASE_ID
+        and truth.get("current_governance_phase_id") == "NONE"
+        and truth.get("current_governance_phase_status") == "NONE"
         if phase_complete
         else truth.get("current_governance_phase_id") == PHASE_ID
         and truth.get("current_governance_phase_status")
@@ -178,12 +156,13 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
             and all(finals)
             and len(set(finals)) == 1
         ),
-        "architecture_registered": "FCF-V2-REGISTERED-FACTOR-REGISTRY-RUNTIME"
+        "architecture_registered": "FCF-V2-REGISTERED-TARGET-LABEL-REGISTRY-RUNTIME"
         in architecture,
-        "adr_registered": "FCF-V2-ADR-096" in adr,
-        "gap_registered": "## FCP-0096 Factor Registry Runtime Boundary" in gap,
-        "protocol_registered": "Proposal `FCF-FCP-0096`" in protocol,
-        "memory_registered": "FCP-0096 upgrades the completed V2-R11" in memory,
+        "adr_registered": "FCF-V2-ADR-097" in adr,
+        "gap_registered": "## FCP-0097 Target Label Registry Runtime Boundary"
+        in gap,
+        "protocol_registered": "Proposal `FCF-FCP-0097`" in protocol,
+        "memory_registered": "FCP-0097 upgrades the completed V2-R1" in memory,
         "proposal_state_exact": expected_proposal,
         "manifest_state_exact": expected_manifest,
         "state_evidence_registered": (
@@ -215,7 +194,8 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
         and snapshot.read_only
         and not any(
             (
-                snapshot.calculation_activation_allowed,
+                snapshot.target_selection_allowed,
+                snapshot.label_materialization_allowed,
                 snapshot.scoring_allowed,
                 snapshot.promotion_allowed,
                 snapshot.account_authority,
@@ -223,7 +203,7 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
             )
         ),
         "run_all_wired": (
-            "control_center_fcp_0096_registered_factor_registry_runtime_guard.py"
+            "control_center_fcp_0097_registered_target_label_registry_runtime_guard.py"
             in run_all
         ),
     }
@@ -231,7 +211,7 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
 
 
 def main() -> int:
-    report = build_fcp_0096_guard_report(ROOT)
+    report = build_fcp_0097_guard_report(ROOT)
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if report["ok"] else 1
 

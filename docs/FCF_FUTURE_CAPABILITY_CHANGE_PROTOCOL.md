@@ -834,6 +834,19 @@ The phase cannot calculate or score factors, promote candidates, assign an
 Operator decision, change an authoritative Gap status, mutate P1-P47, create
 P48, invoke a provider or network, use credentials, or authorize account,
 balance, position, wallet, order, execution, tag, release, or deployment.
+
+## FCP-0097 Registered Target Label Registry Runtime Change Rule
+
+Proposal `FCF-FCP-0097` may add immutable artifact, label-definition, and
+runtime snapshot contracts, one bounded ASCII JSON loader, deterministic
+bidirectional target-label lineage, canonical reference rendering, tests,
+guard, and closeout evidence.
+
+The phase cannot select a target or benchmark, materialize labels, calculate
+outcomes, score or promote candidates, assign an Operator decision, change an
+authoritative Gap status, mutate P1-P47, create P48, invoke a provider or
+network, use credentials, or authorize account, balance, position, wallet,
+order, execution, tag, release, or deployment.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

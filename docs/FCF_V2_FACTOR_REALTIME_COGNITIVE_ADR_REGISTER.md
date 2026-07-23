@@ -1816,3 +1816,19 @@ GAP-005, and GAP-007, but their authoritative statuses remain unchanged until
 the complete production acceptance boundary is separately evidenced. The
 runtime cannot calculate, score, promote, self-modify, use external data, or
 create product, account, order, or execution authority.
+
+## FCF-V2-ADR-097 Use Registered Artifacts For Target And Label Definitions
+
+Status: ACCEPTED
+
+Decision: add one read-only sidecar that verifies an exact
+Operator-registered ASCII JSON forecast-target and outcome-label definition
+artifact and reuses the frozen V2-R1 target validation foundation. The
+sidecar builds immutable target and label record hashes plus bidirectional
+lineage indexes.
+
+Consequences: the runtime may advance implementation coverage for GAP-002,
+but target, horizon, benchmark, and metric selection in GAP-012 remains
+RESEARCH_REQUIRED. The runtime cannot materialize labels, calculate outcomes,
+score, promote, self-modify, use external data, or create product, account,
+order, or execution authority.
