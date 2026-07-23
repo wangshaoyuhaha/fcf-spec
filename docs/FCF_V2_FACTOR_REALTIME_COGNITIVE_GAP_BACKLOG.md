@@ -398,3 +398,15 @@ disposition and keeps acceptance blocked pending explicit Operator review.
 GAP-095 remains RESEARCH_REQUIRED and the packet creates no data-promotion,
 provider, venue, realtime, mark or index, signal, product, account, order, or
 execution authority.
+
+## FCP-0095 Continuity Boundary
+
+FCP-0095 may preserve exact registered QMT terminal-observed and local-cache
+single-call-failed evidence and route research continuity to the existing
+registered QMT local-export workflow. MiniQMT remains deferred and
+non-blocking; RQData trial and Tushare remain unselected candidates.
+
+GAP-093 through GAP-109 retain their registered statuses. Continuity routing
+cannot establish entitlement, rights, completeness, provider authority,
+promotion, realtime activation, product authority, account access, or
+execution authority.

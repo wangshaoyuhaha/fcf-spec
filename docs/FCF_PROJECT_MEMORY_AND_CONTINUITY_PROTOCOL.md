@@ -414,3 +414,8 @@ Operator review packet. Six closed review items remain undecided, acceptance
 remains blocked pending explicit Operator disposition, GAP-095 remains
 RESEARCH_REQUIRED, and no promotion, provider, venue, realtime, mark or index,
 signal, product, account, order, or execution authority is created.
+FCP-0095 preserves exact QMT terminal-observed and local-cache
+single-call-failed evidence and makes MiniQMT non-blocking. Registered QMT
+local export remains the available research workflow; RQData trial and
+Tushare remain unselected candidates. No provider, promotion, realtime,
+product, account, order, or execution authority is created.

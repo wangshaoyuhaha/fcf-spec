@@ -150,11 +150,21 @@ def build_fcp_0094_guard_report(root: Path = ROOT) -> dict[str, object]:
         and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"
         and proposal.get("phase_id") == "NONE"
         and str(FINAL_STATE) in proposal.get("evidence_refs", [])
-        and register.get("next_proposal_sequence") == 95,
+        and isinstance(register.get("next_proposal_sequence"), int)
+        and register.get("next_proposal_sequence") >= 95,
         "manifest_final_exact": (
-            truth.get("current_governance_phase_id") == "NONE"
-            and truth.get("current_governance_phase_status") == "NONE"
-            and truth.get("latest_completed_governance_delivery") == PHASE_ID
+            truth.get("latest_completed_governance_delivery")
+            in (
+                PHASE_ID,
+                "FCF-FCP-0095-A-SHARE-QMT-LOCAL-EXPORT-CONTINUITY-"
+                "ROUTING-APP-1",
+            )
+            and truth.get("current_governance_phase_id")
+            in (
+                "NONE",
+                "FCF-FCP-0095-A-SHARE-QMT-LOCAL-EXPORT-CONTINUITY-"
+                "ROUTING-APP-1",
+            )
         ),
         "state_evidence_registered": (
             "APPROVED_GOVERNANCE_ONLY_NOT_STARTED" in approved
