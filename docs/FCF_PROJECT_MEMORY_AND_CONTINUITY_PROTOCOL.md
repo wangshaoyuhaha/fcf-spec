@@ -390,3 +390,7 @@ FCP-0089 preserves a bounded path-free Guojin QMT `userdata_mini` filesystem
 footprint as non-authorizing readiness evidence. It reads metadata only and
 grants no process-liveness, entitlement, rights, provider, realtime,
 data-promotion, product, account, or execution authority.
+FCP-0090 preserves bounded path-free allowlisted Guojin QMT local terminal
+liveness as non-authorizing evidence. It discards unregistered process names
+and grants no entitlement, rights, provider, realtime, data-promotion,
+product, account, or execution authority.

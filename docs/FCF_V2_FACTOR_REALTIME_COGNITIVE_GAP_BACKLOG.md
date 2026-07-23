@@ -359,3 +359,10 @@ FCP-0089 may preserve bounded path-free Guojin QMT local runtime filesystem
 footprint facts for GAP-104. The Gap remains RESEARCH_REQUIRED until exact
 entitlement, rights, retention, terminal liveness, and read-only market-data
 probe evidence is registered and reviewed.
+
+## FCP-0090 Evidence Boundary
+
+FCP-0090 may preserve bounded path-free allowlisted Guojin QMT local terminal
+liveness facts for GAP-104. The Gap remains RESEARCH_REQUIRED until exact
+entitlement, rights, retention, and read-only market-data probe evidence is
+registered and reviewed.

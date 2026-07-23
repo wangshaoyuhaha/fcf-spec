@@ -747,6 +747,19 @@ xtquant, inspect processes or accounts, use a network or credentials,
 establish entitlement or availability, promote data, select a provider,
 activate realtime, close GAP-104, start product work, create P48, tag, release,
 or deploy.
+## FCP-0090 QMT Local Terminal Liveness Change Rule
+
+Proposal `FCF-FCP-0090` may add immutable path-free liveness contracts, a
+local allowlisted process observer, canonical renderer, tests, guard, and
+closeout evidence. It may inspect process names in memory only and must
+discard every unregistered name immediately.
+
+The phase cannot retain arbitrary process names, identifiers, owners,
+sessions, command lines, executable paths, windows, account identifiers,
+credentials, or market values; invoke MiniQMT or xtquant; use a network;
+establish entitlement, rights, retention, or market-data availability; promote
+data; select a provider; activate realtime; close GAP-104; start product work;
+create P48; tag, release, or deploy.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

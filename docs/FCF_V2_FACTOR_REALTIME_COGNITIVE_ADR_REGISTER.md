@@ -1711,3 +1711,21 @@ scanner, canonical renderer, guard, tests, and closeout evidence. It cannot
 invoke MiniQMT or xtquant, inspect processes or accounts, establish
 entitlement, rights, retention, availability, completeness, provider or
 product authority, activate realtime, close GAP-104, or enable execution.
+## FCF-V2-ADR-090 Preserve Allowlisted QMT Terminal Liveness As Evidence
+
+Status: ACCEPTED_ARCHITECTURE
+
+Decision: local process names may be observed in memory and reduced
+immediately to a closed registry of Guojin QMT process families. Only
+registered-family presence, bounded counts, observation time, readiness,
+blockers, and one canonical path-free snapshot hash may be preserved.
+
+Arbitrary process names, identifiers, owners, sessions, command lines,
+executable paths, windows, account identifiers, credentials, and market values
+must not be retained. Missing registered processes fail closed.
+
+Consequences: FCP-0090 may implement immutable contracts, a local allowlisted
+process observer, canonical renderer, guard, tests, and closeout evidence. It
+cannot invoke MiniQMT or xtquant, establish entitlement, rights, retention,
+market-data availability, provider or product authority, activate realtime,
+promote data, close GAP-104, or enable execution.

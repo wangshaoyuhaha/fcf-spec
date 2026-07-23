@@ -2630,3 +2630,15 @@ Filesystem readiness is not terminal liveness, entitlement, rights, retention,
 market-data availability, requested-range coverage, pagination, completeness,
 provider selection, realtime activation, data promotion, Gap closure, product
 authority, or execution authority.
+## 123. Guojin QMT Local Terminal Liveness Evidence
+
+FCP-0090 observes local process names in memory and immediately reduces them
+to a closed Guojin QMT process-family registry. The result preserves only
+registered-family presence, bounded counts, observation time, readiness,
+blockers, and one canonical path-free snapshot hash.
+
+Arbitrary process names, identifiers, owners, sessions, command lines,
+executable paths, windows, account identifiers, credentials, and market values
+are never retained. Terminal liveness is not entitlement, rights, retention,
+market-data availability, provider selection, realtime activation, data
+promotion, Gap closure, product authority, or execution authority.
