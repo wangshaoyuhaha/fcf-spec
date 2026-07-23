@@ -1,6 +1,6 @@
 # FCF FCP 0093 BTC Coin Metrics Reference Rate Local CSV Validation App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 ## D1 Exact Local Registration
 

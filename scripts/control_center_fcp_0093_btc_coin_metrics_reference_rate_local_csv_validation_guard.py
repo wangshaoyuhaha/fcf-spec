@@ -40,6 +40,14 @@ LOCK_END = (
     "<!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION "
     "APP 1 LOCK END -->"
 )
+FINAL_START = (
+    "<!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION "
+    "APP 1 FINAL START -->"
+)
+FINAL_END = (
+    "<!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION "
+    "APP 1 FINAL END -->"
+)
 APPROVED_STATE = Path(
     "FCF_CURRENT_STATE_FCP_0093_BTC_COIN_METRICS_REFERENCE_RATE_LOCAL_CSV_"
     "VALIDATION_APP_1_APPROVED.md"
@@ -47,6 +55,10 @@ APPROVED_STATE = Path(
 DELIVERED_STATE = Path(
     "FCF_CURRENT_STATE_FCP_0093_BTC_COIN_METRICS_REFERENCE_RATE_LOCAL_CSV_"
     "VALIDATION_APP_1_DELIVERED.md"
+)
+FINAL_STATE = Path(
+    "FCF_CURRENT_STATE_FCP_0093_BTC_COIN_METRICS_REFERENCE_RATE_LOCAL_CSV_"
+    "VALIDATION_APP_1_FINAL.md"
 )
 D1_D6 = Path(
     "docs/FCF_FCP_0093_BTC_COIN_METRICS_REFERENCE_RATE_LOCAL_CSV_"
@@ -88,6 +100,7 @@ def build_fcp_0093_guard_report(root: Path = ROOT) -> dict[str, object]:
         ).read_text(encoding="ascii")
         approved = (root / APPROVED_STATE).read_text(encoding="ascii")
         delivered = (root / DELIVERED_STATE).read_text(encoding="ascii")
+        final = (root / FINAL_STATE).read_text(encoding="ascii")
         d1_d6 = (root / D1_D6).read_text(encoding="ascii")
         contracts = (
             root
@@ -112,7 +125,7 @@ def build_fcp_0093_guard_report(root: Path = ROOT) -> dict[str, object]:
     except (FileNotFoundError, UnicodeDecodeError, json.JSONDecodeError):
         authority_texts = ()
         architecture = adr = gap = protocol = memory = ""
-        approved = delivered = d1_d6 = contracts = validator = run_all = ""
+        approved = delivered = final = d1_d6 = contracts = validator = run_all = ""
         register = manifest = {}
         files_ascii = False
 
@@ -122,6 +135,9 @@ def build_fcp_0093_guard_report(root: Path = ROOT) -> dict[str, object]:
     )
     lock_blocks = tuple(
         _single_block(text, LOCK_START, LOCK_END) for text in authority_texts
+    )
+    final_blocks = tuple(
+        _single_block(text, FINAL_START, FINAL_END) for text in authority_texts
     )
     proposals = {
         item.get("proposal_id"): item
@@ -140,6 +156,9 @@ def build_fcp_0093_guard_report(root: Path = ROOT) -> dict[str, object]:
         "authority_lock_exact": len(lock_blocks) == len(AUTHORITY_PATHS)
         and bool(lock_blocks[0])
         and len(set(lock_blocks)) == 1,
+        "authority_final_exact": len(final_blocks) == len(AUTHORITY_PATHS)
+        and bool(final_blocks[0])
+        and len(set(final_blocks)) == 1,
         "architecture_registered": (
             "FCF-V2-BTC-COIN-METRICS-REFERENCE-RATE-LOCAL-CSV-VALIDATION"
             in architecture
@@ -151,22 +170,26 @@ def build_fcp_0093_guard_report(root: Path = ROOT) -> dict[str, object]:
         "memory_registered": (
             "FCP-0093 validates one exact registered local" in memory
         ),
-        "proposal_active_exact": proposal.get("status") == "APPROVED_FOR_PHASE"
-        and proposal.get("operator_decision") == "APPROVED"
-        and proposal.get("phase_id") == PHASE_ID
+        "proposal_final_exact": proposal.get("status") == "ACCEPTED_ARCHITECTURE"
+        and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"
+        and proposal.get("phase_id") == "NONE"
+        and str(FINAL_STATE) in proposal.get("evidence_refs", [])
         and register.get("next_proposal_sequence") == 94,
-        "manifest_active_exact": (
-            current_truth.get("current_governance_phase_id") == PHASE_ID
-            and current_truth.get("current_governance_phase_status")
-            == "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE"
+        "manifest_final_exact": (
+            current_truth.get("current_governance_phase_id") == "NONE"
+            and current_truth.get("current_governance_phase_status") == "NONE"
+            and current_truth.get("latest_completed_governance_delivery") == PHASE_ID
         ),
         "state_evidence_registered": (
             "APPROVED_GOVERNANCE_ONLY_NOT_STARTED" in approved
-            and "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE" in delivered
+            and "COMPLETED_MERGED_VALIDATED" in delivered
+            and "COMPLETED_MERGED_VALIDATED" in final
             and "50cc52664679f88209aba3d7f9989ec5a0957002a1d23003f59088736fd3d19a"
             in delivered
             and "689317437eec53117d195c39803d1f759102682aaf416aa4aae2afbbfb3f0e27"
             in delivered
+            and "865ceb4338e339e703294a51d2dd81f7affc3d70" in final
+            and "9efe550fc93cf2de7fce20f5ca2f369ba0e78bdb" in final
         ),
         "d1_d6_registered": all(
             f"## D{number} " in d1_d6 for number in range(1, 7)

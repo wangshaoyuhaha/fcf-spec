@@ -17281,3 +17281,31 @@ promotion, signal, product, wallet, account, trading, order, or execution
 authority is created.
 
 <!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION APP 1 LOCK END -->
+
+<!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION APP 1 FINAL START -->
+
+## FCP 0093 BTC Coin Metrics Reference Rate Local CSV Validation App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+The exact 391-byte registered local Coin Metrics Community BTC reference-rate
+CSV was validated as seven ordered hourly observations. Isolated tests: 10
+passed. Affected BTC and governance tests: 121 passed. All FCP tests: 1819
+passed. Full pytest: 7156 passed. `scripts/run_all_checks.py`: ALL CHECKS
+PASSED before and after merge. Generated outputs were restored.
+
+Registered source SHA-256:
+`50cc52664679f88209aba3d7f9989ec5a0957002a1d23003f59088736fd3d19a`.
+Result hash:
+`689317437eec53117d195c39803d1f759102682aaf416aa4aae2afbbfb3f0e27`.
+Evidence commits: sidecar delivery
+`865ceb4338e339e703294a51d2dd81f7affc3d70`; main merge
+`9efe550fc93cf2de7fce20f5ca2f369ba0e78bdb`.
+
+The output remains path-free, value-free, neutral reference evidence subject
+to mandatory Operator review. GAP-095 remains RESEARCH_REQUIRED. No SDK,
+network, credentials, provider or venue selection, realtime, promotion, mark
+or index, signal, product, wallet, account, order, or execution authority was
+created. No tag, release, or deployment was run.
+
+<!-- FCP 0093 BTC COIN METRICS REFERENCE RATE LOCAL CSV VALIDATION APP 1 FINAL END -->
