@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 102,
+  "next_proposal_sequence": 103,
   "proposals": [
     {
       "adr_refs": [],
@@ -2879,6 +2879,31 @@
       "summary": "Add one registered-artifact-only deterministic technical indicator core over exact local OHLCV and amount bars. Calculate SMA, EMA, Bollinger, RSI, ATR, and VWAP with Decimal arithmetic, strict point-in-time ordering, explicit suspension exclusion, and immutable result hashes without scoring, ranking, recommendation, external data, account, order, execution, P48, tag, release, or deployment authority.",
       "supersedes": [],
       "title": "Registered deterministic technical indicator core runtime"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-102"
+      ],
+      "architecture_refs": [
+        "FCF-V2-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0102_REGISTERED_FACTOR_NORMALIZATION_MISSING_STATE_RUNTIME_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0102_REGISTERED_FACTOR_NORMALIZATION_MISSING_STATE_RUNTIME_APP_1_DELIVERED.md",
+        "docs/FCF_FCP_0102_REGISTERED_FACTOR_NORMALIZATION_MISSING_STATE_RUNTIME_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-009"
+      ],
+      "operator_decision": "APPROVED",
+      "phase_id": "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
+      "proposal_id": "FCF-FCP-0102",
+      "source": "operator-authorized-continuous-fcp-delivery",
+      "status": "APPROVED_FOR_PHASE",
+      "submitted_at_utc": "2026-07-24T03:40:00Z",
+      "summary": "Compose the completed V2-R21 and V2-R22 robust-normalization foundations with exact registered factor-series bytes and the FCP-0096 runtime registry. Preserve median, MAD, winsorization, robust Z-score, future blocking, and explicit missing states without zero fill, formula duplication, scoring, ranking, recommendation, external data, account, order, execution, P48, tag, release, or deployment authority.",
+      "supersedes": [],
+      "title": "Registered factor normalization and missing-state runtime"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

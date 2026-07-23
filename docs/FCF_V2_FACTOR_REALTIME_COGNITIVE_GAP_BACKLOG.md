@@ -481,3 +481,15 @@ This advances GAP-004 implementation coverage but does not change its
 authoritative `NOT_IMPLEMENTED` status. No calculation, causal-truth claim,
 scoring, recommendation, external data, account, order, or execution
 authority is created.
+
+## FCP-0102 Registered Normalization Runtime Boundary
+
+FCP-0102 may compose exact registered factor-series bytes, the FCP-0096
+runtime registry, and the completed V2-R21 and V2-R22 normalization
+foundations. It preserves robust-normalization evidence, blocked states, and
+explicit missing states without zero fill.
+
+This advances GAP-009 implementation coverage but does not change its
+authoritative `BACKLOG` status pending complete production and browser
+acceptance. No new formula, score, rank, recommendation, external provider,
+account, order, or execution authority is created.

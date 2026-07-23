@@ -141,7 +141,7 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
         proposal.get("operator_decision")
         == ("ACCEPTED_ARCHITECTURE" if phase_complete else "APPROVED")
         and proposal.get("phase_id") == ("NONE" if phase_complete else PHASE_ID)
-        and register.get("next_proposal_sequence") in (99, 100, 101, 102)
+        and register.get("next_proposal_sequence") in (99, 100, 101, 102, 103)
         and successor.get("phase_id")
         in (
             "NONE",
@@ -150,6 +150,7 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
             "FCF-FCP-0100-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME-APP-1",
             "FCF-FCP-0101-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME-APP-1",
+            "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
         )
     )
     expected_manifest = (
@@ -161,6 +162,7 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
             "FCF-FCP-0100-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME-APP-1",
             "FCF-FCP-0101-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME-APP-1",
+            "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
         )
         and truth.get("current_governance_phase_id")
         in (
@@ -170,6 +172,7 @@ def build_fcp_0096_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0099-REGISTERED-MACRO-MICRO-TRANSMISSION-RUNTIME-APP-1",
             "FCF-FCP-0100-REGISTERED-MULTI-HORIZON-CONFLICT-RESOLVER-RUNTIME-APP-1",
             "FCF-FCP-0101-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME-APP-1",
+            "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
         )
         and truth.get("current_governance_phase_status")
         in ("NONE", "GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE")

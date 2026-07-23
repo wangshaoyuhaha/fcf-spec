@@ -456,3 +456,9 @@ explicit units, and suspension exclusion produce reproducible SMA, EMA,
 Bollinger, RSI, ATR, and VWAP evidence. Deterministic Engine is calculation
 authority and Operator review remains mandatory; scoring, ranking,
 recommendation, account, order, and execution remain forbidden.
+FCP-0102 composes the completed V2-R21 and V2-R22 robust-normalization
+foundations with exact registered factor-series bytes and the FCP-0096
+runtime registry. It does not rewrite formulas. Missing states remain
+explicit and zero fill remains forbidden. Deterministic Engine is calculation
+authority and Operator review remains mandatory; scoring, ranking,
+recommendation, account, order, and execution remain forbidden.

@@ -19136,3 +19136,26 @@ authority and Operator review remains mandatory. No scoring, ranking,
 recommendation, account, order, or execution authority was created. No tag,
 release, or deployment was run.
 <!-- FCP 0101 REGISTERED TECHNICAL INDICATOR CORE RUNTIME APP 1 FINAL END -->
+
+## 135. Registered Factor Normalization And Missing-State Runtime
+Architecture ID:
+`FCF-V2-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME`.
+Exact registered factor series compose the completed V2-R21 and V2-R22
+foundations with the FCP-0096 runtime registry.
+<!-- FCP 0102 REGISTERED FACTOR NORMALIZATION MISSING STATE RUNTIME APP 1 APPROVAL START -->
+## FCP 0102 Registered Factor Normalization Missing State Runtime App 1 Approval
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+The phase may expose immutable robust-normalization and explicit missing-state
+evidence. It may not create a new formula, score, rank, recommendation,
+account, order, or execution authority.
+<!-- FCP 0102 REGISTERED FACTOR NORMALIZATION MISSING STATE RUNTIME APP 1 APPROVAL END -->
+<!-- FCP 0102 REGISTERED FACTOR NORMALIZATION MISSING STATE RUNTIME APP 1 LOCK START -->
+## FCP 0102 Registered Factor Normalization Missing State Runtime App 1 Lock
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Artifact SHA-256: `069ec690d0fcd0d2603f76af13a3579a3f6dc1bc7d8cf24ccdb56c23add9912c`.
+Snapshot hash: `f5e42e9e6673e56f042bde77fd7cd183a8ce8a7644d32eee76b6c631d1970822`.
+Output SHA-256: `e39e3a15d546dfb92b54886c35c758097e7881e47f6a045a6206724b149d028b`.
+GAP-009 remains open. Deterministic Engine remains calculation authority,
+Operator review is mandatory, and no scoring, ranking, recommendation,
+account, order, or execution authority is created.
+<!-- FCP 0102 REGISTERED FACTOR NORMALIZATION MISSING STATE RUNTIME APP 1 LOCK END -->
