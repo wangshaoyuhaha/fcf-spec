@@ -24335,3 +24335,27 @@ GAP-093 through GAP-109 remain open. No provider selection, promotion,
 realtime, product, account, or execution authority is created.
 
 <!-- FCP 0095 A SHARE QMT LOCAL EXPORT CONTINUITY ROUTING APP 1 LOCK END -->
+
+<!-- FCP 0095 A SHARE QMT LOCAL EXPORT CONTINUITY ROUTING APP 1 FINAL START -->
+
+## FCP 0095 A-Share QMT Local Export Continuity Routing App 1 Final
+
+Status: COMPLETED_MERGED_VALIDATED
+
+Delivery commit:
+`628ccae826840b760fdf3303308874914835f75a`.
+Merge commit:
+`f9e0ebcf47b9a55e0857ff1c9ac3631012c174c1`.
+
+Validation completed with 33 isolated tests, 102 affected-chain tests, 1840
+all-FCP tests, 7177 full-pytest tests, and `run_all_checks.py` passing.
+
+MiniQMT remains `DEFERRED_NON_BLOCKING`. The available research workflow is
+`REGISTERED_QMT_LOCAL_EXPORT`; RQData trial and Tushare remain unselected
+candidates. GAP-093 through GAP-109 remain open.
+
+No provider selection, promotion, realtime, product, account, order, or
+execution authority was created. No tag, release, or deployment was run.
+No next phase was selected or started.
+
+<!-- FCP 0095 A SHARE QMT LOCAL EXPORT CONTINUITY ROUTING APP 1 FINAL END -->

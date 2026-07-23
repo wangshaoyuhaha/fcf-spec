@@ -1,6 +1,6 @@
 # FCF Current State FCP 0095 A-Share QMT Local Export Continuity Routing App 1 Delivered
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 Phase: FCF-FCP-0095-A-SHARE-QMT-LOCAL-EXPORT-CONTINUITY-ROUTING-APP-1
 
@@ -21,3 +21,11 @@ Rendered output SHA-256:
 
 All candidate providers remain unselected and all related gaps remain open.
 No promotion, realtime, product, account, or execution authority is created.
+
+Delivery commit:
+`628ccae826840b760fdf3303308874914835f75a`.
+Merge commit:
+`f9e0ebcf47b9a55e0857ff1c9ac3631012c174c1`.
+
+Validation: 33 isolated tests, 102 affected-chain tests, 1840 all-FCP tests,
+7177 full-pytest tests, and `run_all_checks.py` passed.

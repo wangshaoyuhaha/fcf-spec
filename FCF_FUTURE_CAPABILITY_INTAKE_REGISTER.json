@@ -2697,6 +2697,7 @@
       "evidence_refs": [
         "FCF_CURRENT_STATE_FCP_0095_A_SHARE_QMT_LOCAL_EXPORT_CONTINUITY_ROUTING_APP_1_APPROVED.md",
         "FCF_CURRENT_STATE_FCP_0095_A_SHARE_QMT_LOCAL_EXPORT_CONTINUITY_ROUTING_APP_1_DELIVERED.md",
+        "FCF_CURRENT_STATE_FCP_0095_A_SHARE_QMT_LOCAL_EXPORT_CONTINUITY_ROUTING_APP_1_FINAL.md",
         "docs/FCF_FCP_0095_A_SHARE_QMT_LOCAL_EXPORT_CONTINUITY_ROUTING_APP_1_D1_D6.md"
       ],
       "gap_refs": [
@@ -2709,11 +2710,11 @@
         "V2-FR-GAP-108",
         "V2-FR-GAP-109"
       ],
-      "operator_decision": "APPROVED",
-      "phase_id": "FCF-FCP-0095-A-SHARE-QMT-LOCAL-EXPORT-CONTINUITY-ROUTING-APP-1",
+      "operator_decision": "ACCEPTED_ARCHITECTURE",
+      "phase_id": "NONE",
       "proposal_id": "FCF-FCP-0095",
       "source": "operator-authorized-miniqmt-non-blocking-local-export-continuity",
-      "status": "APPROVED_FOR_PHASE",
+      "status": "ACCEPTED_ARCHITECTURE",
       "submitted_at_utc": "2026-07-23T09:45:00Z",
       "summary": "Preserve exact registered Guojin QMT terminal-observed and local-cache single-call-failed evidence, defer MiniQMT as non-blocking, and continue A-share research through the existing registered QMT local-export workflow. Keep RQData trial and Tushare as unselected candidate supplements, require batch registration, coverage validation, and independent reconciliation, preserve GAP-093 through GAP-109, perform no retry or network access, and create no provider selection, promotion, realtime, product, account, order, execution, P48, tag, release, or deployment authority.",
       "supersedes": [],
