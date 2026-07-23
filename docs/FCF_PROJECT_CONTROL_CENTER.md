@@ -23718,3 +23718,33 @@ P48, or enable broker, exchange, account, balance, position, order, execution,
 tag, release, or deployment.
 
 <!-- FCP 0088 A SHARE GUOJIN QMT REGISTERED LOCAL DUAL EXPORT OFFLINE SDK COMPATIBILITY EVIDENCE APP 1 APPROVAL END -->
+
+
+<!-- FCP 0088 A SHARE GUOJIN QMT REGISTERED LOCAL DUAL EXPORT OFFLINE SDK COMPATIBILITY EVIDENCE APP 1 LOCK START -->
+
+## FCP 0088 A-Share Guojin QMT Registered Local Dual Export Offline SDK Compatibility Evidence App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The sidecar combines exact typed FCP-0035 front-adjustment reference and
+FCP-0084 path-free coverage evidence with one explicit offline SDK ABI load
+observation. It exposes hashes, counts, date bounds, findings, and capability
+facts only.
+
+Contract SHA-256:
+`bb15419efd3b45ee37fc05b9e5ee8507f363670fe78b5db451bf79a1d895b1f1`.
+Reference evidence hash:
+`fd0760c7f04012d0ba3db0b2af43233579b111fafdd04be14fe2e9b4e8ee8509`.
+Reference output SHA-256:
+`2f86c7b4b7c63f538ee6cebdf5ff463e05600792911a27517dfa378875abda64`.
+Observed compatibility evidence hash:
+`4d6f4924326be8ffa9e72d055196a242488ab46e6b239030becea4cd17f0ada5`.
+
+GAP-104, GAP-105, and GAP-106 remain RESEARCH_REQUIRED. No entitlement,
+rights, retention, expected dates, pagination, completeness, adjustment-factor
+authority, trading status, point-in-time supplements, rows, values, paths, SDK
+connection, network, credentials, provider selection, realtime activation,
+promotion, product, P48, broker, exchange, account, balance, position, order,
+execution, tag, release, or deployment authority is created.
+
+<!-- FCP 0088 A SHARE GUOJIN QMT REGISTERED LOCAL DUAL EXPORT OFFLINE SDK COMPATIBILITY EVIDENCE APP 1 LOCK END -->
