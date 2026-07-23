@@ -1,6 +1,6 @@
 # FCF FCP 0091 A-Share Guojin QMT Registered Local Cache Loopback Read-Only Probe App 1 D1-D6
 
-Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
 
 ## D1 Closed Probe Registration
 
