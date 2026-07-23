@@ -1776,3 +1776,15 @@ Consequences: the adapter must remain local-only, use no SDK or network,
 require explicit rights metadata and Operator review, keep GAP-095
 RESEARCH_REQUIRED, and create no provider, venue, realtime, promotion, signal,
 product, account, order, or execution authority.
+## FCF-V2-ADR-094 Require An Undecided Coin Metrics Reference-Rate Review Packet
+
+Status: ACCEPTED
+
+Decision: bind one exact typed FCP-0093 validation result to an immutable,
+path-free, value-free mandatory Operator review packet with six closed ordered
+items and a deterministic blocked acceptance gate.
+
+Consequences: packet construction cannot assign a disposition, promote data,
+select a provider or venue, activate realtime, grant mark or index authority,
+close GAP-095, calculate a signal, or create product, account, order, or
+execution authority.

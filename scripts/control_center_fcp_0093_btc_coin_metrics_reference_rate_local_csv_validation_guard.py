@@ -78,6 +78,15 @@ def _single_block(text: str, start: str, end: str) -> str:
     return text.split(start, 1)[1].split(end, 1)[0].strip()
 
 
+def _phase_sequence(value: object) -> int:
+    if not isinstance(value, str):
+        return -1
+    for part in value.split("-"):
+        if part.isdigit():
+            return int(part)
+    return -1
+
+
 def build_fcp_0093_guard_report(root: Path = ROOT) -> dict[str, object]:
     try:
         authority_texts = tuple(
@@ -174,11 +183,19 @@ def build_fcp_0093_guard_report(root: Path = ROOT) -> dict[str, object]:
         and proposal.get("operator_decision") == "ACCEPTED_ARCHITECTURE"
         and proposal.get("phase_id") == "NONE"
         and str(FINAL_STATE) in proposal.get("evidence_refs", [])
-        and register.get("next_proposal_sequence") == 94,
+        and int(register.get("next_proposal_sequence", -1)) >= 94,
         "manifest_final_exact": (
-            current_truth.get("current_governance_phase_id") == "NONE"
-            and current_truth.get("current_governance_phase_status") == "NONE"
-            and current_truth.get("latest_completed_governance_delivery") == PHASE_ID
+            _phase_sequence(
+                current_truth.get("latest_completed_governance_delivery")
+            )
+            >= 93
+            and (
+                current_truth.get("current_governance_phase_id") == "NONE"
+                or _phase_sequence(
+                    current_truth.get("current_governance_phase_id")
+                )
+                > 93
+            )
         ),
         "state_evidence_registered": (
             "APPROVED_GOVERNANCE_ONLY_NOT_STARTED" in approved

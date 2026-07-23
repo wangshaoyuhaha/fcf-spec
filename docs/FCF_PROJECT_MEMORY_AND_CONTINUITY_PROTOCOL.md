@@ -409,3 +409,8 @@ only. The reference rate remains neutral, GAP-095 remains RESEARCH_REQUIRED,
 Operator review remains mandatory, and no provider, venue, realtime,
 promotion, signal, product, wallet, account, order, or execution authority is
 created.
+FCP-0094 preserves the exact typed FCP-0093 result as one immutable mandatory
+Operator review packet. Six closed review items remain undecided, acceptance
+remains blocked pending explicit Operator disposition, GAP-095 remains
+RESEARCH_REQUIRED, and no promotion, provider, venue, realtime, mark or index,
+signal, product, account, order, or execution authority is created.
