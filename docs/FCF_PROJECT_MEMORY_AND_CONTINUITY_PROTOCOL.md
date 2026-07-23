@@ -462,3 +462,10 @@ runtime registry. It does not rewrite formulas. Missing states remain
 explicit and zero fill remains forbidden. Deterministic Engine is calculation
 authority and Operator review remains mandatory; scoring, ranking,
 recommendation, account, order, and execution remain forbidden.
+FCP-0103 composes the completed V2-R12 through V2-R20 deterministic indicator
+foundations, FCP-0101 VWAP support, and exact FCP-0096 factor registry
+identity into one immutable read-only catalog coverage snapshot. Fourteen
+implemented kinds are registered and 39 accepted candidates remain explicit
+missing coverage. GAP-008 remains BACKLOG. Operator review remains mandatory;
+formula creation, calculation activation, scoring, ranking, recommendation,
+account, order, and execution remain forbidden.
