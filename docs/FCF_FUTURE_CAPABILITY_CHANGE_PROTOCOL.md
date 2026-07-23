@@ -809,6 +809,19 @@ select a provider or venue, activate realtime, promote data, grant mark or
 index authority, calculate a signal or trade, close GAP-095, start product
 work, create P48, or authorize a wallet, account, balance, margin, leverage,
 position, PnL, liquidation, order, execution, tag, release, or deployment.
+
+## FCP-0095 A-Share QMT Local Export Continuity Routing Change Rule
+
+Proposal `FCF-FCP-0095` may add immutable runtime-evidence and continuity-route
+contracts, a deterministic builder, canonical renderer, tests, guard, and
+closeout evidence over the exact registered FCP-0090 and FCP-0091 runtime
+observations.
+
+The phase cannot repeat the SDK call, use a network or credentials, select or
+endorse a provider, promote data, claim completeness, activate realtime,
+change gap status, start product work, create P48, or authorize broker,
+exchange, account, balance, position, order, execution, tag, release, or
+deployment.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

@@ -16517,3 +16517,44 @@ account, order, or execution authority was created. No tag, release, or
 deployment was run.
 
 <!-- FCP 0094 BTC COIN METRICS REFERENCE RATE OPERATOR REVIEW PACKET APP 1 FINAL END -->
+
+<!-- FCP 0095 A SHARE QMT LOCAL EXPORT CONTINUITY ROUTING APP 1 APPROVAL START -->
+
+## FCP 0095 A-Share QMT Local Export Continuity Routing App 1 Approval
+
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+
+Approved scope may bind the exact registered FCP-0090 terminal-observed and
+FCP-0091 single-call-failed evidence to one immutable non-blocking research
+continuity route. The route may defer MiniQMT, preserve registered QMT local
+export as the available research path, and retain RQData trial and Tushare as
+unselected candidate supplements.
+
+The phase cannot retry the SDK call, use a network or credentials, select or
+endorse a provider, promote data, claim completeness, activate realtime,
+start product work, create P48, or authorize broker, exchange, account,
+balance, position, order, execution, tag, release, or deployment.
+
+<!-- FCP 0095 A SHARE QMT LOCAL EXPORT CONTINUITY ROUTING APP 1 APPROVAL END -->
+
+<!-- FCP 0095 A SHARE QMT LOCAL EXPORT CONTINUITY ROUTING APP 1 LOCK START -->
+
+## FCP 0095 A-Share QMT Local Export Continuity Routing App 1 Lock
+
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+
+The route records `TERMINAL_OBSERVED`, one exact `CALL_FAILED`, and
+`DEFERRED_NON_BLOCKING` MiniQMT state. Research continuity uses only
+`REGISTERED_QMT_LOCAL_EXPORT`; RQData trial and Tushare remain candidates.
+
+Runtime evidence hash:
+`b185df88a3c293c5b32629227c25faac78a897a4f0248c84fdea28f41935a3cc`.
+Continuity route hash:
+`6e36886f8c953252fffa0f0dd20b1d6ae12fee8ddf817681a2f3e3eba5a3a6f4`.
+Rendered output SHA-256:
+`f3d2d4e57f570ed3a0cced83101fc6c99233e5358ed46fce745e9724d458de74`.
+
+GAP-093 through GAP-109 remain open. No provider selection, promotion,
+realtime, product, account, or execution authority is created.
+
+<!-- FCP 0095 A SHARE QMT LOCAL EXPORT CONTINUITY ROUTING APP 1 LOCK END -->

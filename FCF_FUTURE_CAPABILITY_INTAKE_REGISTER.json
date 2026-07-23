@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 95,
+  "next_proposal_sequence": 96,
   "proposals": [
     {
       "adr_refs": [],
@@ -2684,6 +2684,40 @@
       "summary": "Bind one exact typed FCP-0093 Coin Metrics BTC reference-rate validation result to an immutable path-free value-free mandatory Operator review packet. Preserve six closed ordered items for source registration, rights boundary, schema integrity, temporal coverage, neutral-rate semantics, and non-authority boundary. Keep review undecided and acceptance blocked pending explicit Operator disposition; use no SDK, network, credentials, account or trading API; leave GAP-095 open; and create no provider selection, venue selection, realtime activation, data promotion, mark or index authority, signal, product, P48, wallet, account, balance, position, order, execution, tag, release, or deployment authority.",
       "supersedes": [],
       "title": "BTC Coin Metrics reference-rate mandatory Operator review packet"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-095"
+      ],
+      "architecture_refs": [
+        "FCF-V2-A-SHARE-LOCAL-EXPORT-CANONICALIZATION-BRIDGE",
+        "FCF-V2-A-SHARE-QMT-LOCAL-EXPORT-CONTINUITY-ROUTING",
+        "FCF-V2-TRUSTED-DATA-SUPPLY-CHAIN-COST-AWARE-ROUTING"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0095_A_SHARE_QMT_LOCAL_EXPORT_CONTINUITY_ROUTING_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0095_A_SHARE_QMT_LOCAL_EXPORT_CONTINUITY_ROUTING_APP_1_DELIVERED.md",
+        "docs/FCF_FCP_0095_A_SHARE_QMT_LOCAL_EXPORT_CONTINUITY_ROUTING_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-093",
+        "V2-FR-GAP-094",
+        "V2-FR-GAP-104",
+        "V2-FR-GAP-105",
+        "V2-FR-GAP-106",
+        "V2-FR-GAP-107",
+        "V2-FR-GAP-108",
+        "V2-FR-GAP-109"
+      ],
+      "operator_decision": "APPROVED",
+      "phase_id": "FCF-FCP-0095-A-SHARE-QMT-LOCAL-EXPORT-CONTINUITY-ROUTING-APP-1",
+      "proposal_id": "FCF-FCP-0095",
+      "source": "operator-authorized-miniqmt-non-blocking-local-export-continuity",
+      "status": "APPROVED_FOR_PHASE",
+      "submitted_at_utc": "2026-07-23T09:45:00Z",
+      "summary": "Preserve exact registered Guojin QMT terminal-observed and local-cache single-call-failed evidence, defer MiniQMT as non-blocking, and continue A-share research through the existing registered QMT local-export workflow. Keep RQData trial and Tushare as unselected candidate supplements, require batch registration, coverage validation, and independent reconciliation, preserve GAP-093 through GAP-109, perform no retry or network access, and create no provider selection, promotion, realtime, product, account, order, execution, P48, tag, release, or deployment authority.",
+      "supersedes": [],
+      "title": "A-share QMT local-export non-blocking continuity routing"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

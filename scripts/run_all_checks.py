@@ -378,6 +378,10 @@ COMMANDS = [
         "python",
         "scripts/control_center_fcp_0094_btc_coin_metrics_reference_rate_operator_review_packet_guard.py",
     ],
+    [
+        "python",
+        "scripts/control_center_fcp_0095_a_share_qmt_local_export_continuity_routing_guard.py",
+    ],
     ["python", "scripts/control_center_v2_r1_factor_contract_guard.py"],
     ["python", "scripts/control_center_v2_r2_historical_baseline_guard.py"],
     ["python", "scripts/control_center_v2_r3_local_event_ingress_guard.py"],

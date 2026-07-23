@@ -1788,3 +1788,16 @@ Consequences: packet construction cannot assign a disposition, promote data,
 select a provider or venue, activate realtime, grant mark or index authority,
 close GAP-095, calculate a signal, or create product, account, order, or
 execution authority.
+
+## FCF-V2-ADR-095 Defer MiniQMT Without Blocking Local Export Research
+
+Status: ACCEPTED
+
+Decision: preserve exact registered terminal-observed and single-call-failed
+evidence, mark MiniQMT loopback `DEFERRED_NON_BLOCKING`, and continue
+registered-local A-share research through the existing QMT local-export path.
+RQData trial and Tushare remain candidate supplements, not selected providers.
+
+Consequences: the route cannot retry the probe, select or endorse a provider,
+promote data, claim completeness, activate realtime, close GAP-093 through
+GAP-109, start product work, or create account, order, or execution authority.
