@@ -403,3 +403,9 @@ mandatory Operator review packet. It keeps acceptance blocked, assigns no
 Operator disposition, permits only closed next-action identifiers, and grants
 no provider, realtime, promotion, product, account, trading, order, or
 execution authority.
+FCP-0093 validates one exact registered local Coin Metrics Community BTC
+reference-rate CSV and preserves path-free, value-free aggregate evidence
+only. The reference rate remains neutral, GAP-095 remains RESEARCH_REQUIRED,
+Operator review remains mandatory, and no provider, venue, realtime,
+promotion, signal, product, wallet, account, order, or execution authority is
+created.

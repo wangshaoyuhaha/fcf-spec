@@ -380,3 +380,12 @@ FCP-0091 NOT_RUN evidence. Packet construction assigns no disposition and
 keeps acceptance blocked. GAP-104 remains RESEARCH_REQUIRED until a new exact
 registered terminal probe plus entitlement, rights, retention, and explicit
 Operator review evidence are accepted.
+
+## FCP-0093 Evidence Boundary
+
+FCP-0093 may validate one exact Operator-registered local Coin Metrics
+Community BTC reference-rate CSV and preserve path-free, value-free aggregate
+evidence only. The neutral reference rate is not venue mark, index, trade,
+order-book, funding, contract, or cross-venue evidence. GAP-095 remains
+RESEARCH_REQUIRED until independent registered venue and methodology evidence
+is reviewed.
