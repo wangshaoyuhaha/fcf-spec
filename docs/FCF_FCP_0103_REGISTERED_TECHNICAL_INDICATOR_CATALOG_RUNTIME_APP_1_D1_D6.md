@@ -1,6 +1,6 @@
 # FCF FCP 0103 Registered Technical Indicator Catalog Runtime App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 Phase: FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1
 
@@ -37,3 +37,10 @@ Deterministic Engine remains calculation authority and Operator review
 remains mandatory. The catalog cannot activate calculation, score, rank,
 recommend, connect accounts, place orders, or execute. P48, tag, release, and
 deployment remain forbidden.
+
+## Validation
+
+Completed with 10 isolated tests, 136 affected-chain tests, 1908 all-FCP
+tests, 7245 full-pytest tests, and `run_all_checks.py` passing. Delivery
+commit: `14d5692e8208e248a54056ff636840315620d6ad`. Merge commit:
+`5a4d323ad0893c7036b13b3e5be2ddf05a9616a6`.
