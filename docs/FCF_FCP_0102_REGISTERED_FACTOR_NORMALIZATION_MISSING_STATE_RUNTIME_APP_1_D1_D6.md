@@ -1,6 +1,6 @@
 # FCF FCP 0102 Registered Factor Normalization Missing State Runtime App 1 D1-D6
 
-Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Status: COMPLETED_MERGED_VALIDATED
 
 Phase: FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1
 
@@ -35,3 +35,10 @@ codes, foundation evidence hash, and runtime snapshot hash.
 Deterministic Engine remains calculation authority and Operator review remains
 mandatory. No score, rank, recommendation, account, order, execution, P48,
 tag, release, or deployment authority is created.
+
+## Validation
+
+Completed with 10 isolated tests, 64 affected-chain tests, 1898 all-FCP
+tests, 7235 full-pytest tests, and `run_all_checks.py` passing. Delivery
+commit: `ca3548bbec0dfa2a482be3ba8f061e68bdab1a11`. Merge commit:
+`9926376aa5228ca8e40b7ee7812be12a8998c01b`.

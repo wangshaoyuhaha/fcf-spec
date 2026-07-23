@@ -66,7 +66,12 @@ def build_fcp_0102_guard_report(root: Path = ROOT) -> dict[str, object]:
             / "apps/fcp_0102_registered_factor_normalization_missing_state_runtime_app_1"
         )
         source_hashes = {
-            name: hashlib.sha256((source / name).read_bytes()).hexdigest()
+            name: hashlib.sha256(
+                (source / name)
+                .read_text(encoding="ascii")
+                .replace("\r\n", "\n")
+                .encode("ascii")
+            ).hexdigest()
             for name in SOURCE_HASHES
         }
         artifact = build_reference_artifact_bytes()
