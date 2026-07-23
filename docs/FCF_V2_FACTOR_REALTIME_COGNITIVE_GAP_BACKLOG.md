@@ -493,3 +493,13 @@ This advances GAP-009 implementation coverage but does not change its
 authoritative `BACKLOG` status pending complete production and browser
 acceptance. No new formula, score, rank, recommendation, external provider,
 account, order, or execution authority is created.
+## FCP-0103 Registered Technical Indicator Catalog Runtime Boundary
+
+FCP-0103 registers exact machine-readable coverage for 14 already implemented
+deterministic indicator kinds and exposes 39 accepted candidates as missing.
+It does not implement the missing formulas and does not close GAP-008.
+
+GAP-008 remains BACKLOG pending deterministic implementations for the
+complete accepted catalog, validation evidence, and browser acceptance.
+Unsupported candidates must remain explicit and cannot be scored, ranked,
+recommended, or silently promoted.

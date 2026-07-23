@@ -1905,3 +1905,18 @@ remains unchanged pending complete production and browser acceptance.
 Deterministic Engine remains calculation authority; the runtime cannot score,
 rank, recommend, use external data, or create product, account, order, or
 execution authority.
+## FCF-V2-ADR-103 Registered Technical Indicator Catalog Runtime
+
+Status: ACCEPTED
+
+FCP-0103 composes, rather than reimplements, the completed V2-R12 through
+V2-R20 deterministic indicator foundations, FCP-0101 VWAP support, and the
+FCP-0096 registered factor runtime. Exact Operator-registered ASCII JSON
+catalog bytes bind indicator kinds to versioned factor refs and registered
+foundation refs.
+
+The runtime must display both supported and accepted-but-missing kinds.
+`CATALOG_PARTIAL` is required while any accepted candidate is absent.
+GAP-008 therefore remains BACKLOG. Operator review remains mandatory and no
+formula, calculation activation, scoring, ranking, recommendation, account,
+order, or execution authority is created.

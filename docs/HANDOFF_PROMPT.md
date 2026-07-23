@@ -16890,3 +16890,29 @@ review remains mandatory. No scoring, ranking, recommendation, account,
 order, or execution authority was created. No tag, release, or deployment was
 run.
 <!-- FCP 0102 REGISTERED FACTOR NORMALIZATION MISSING STATE RUNTIME APP 1 FINAL END -->
+
+## 136. Registered Technical Indicator Catalog Runtime
+
+Architecture ID:
+`FCF-V2-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME`.
+Exact registered catalog bytes compose the existing V2-R12 through V2-R20
+foundations, FCP-0101 VWAP support, and FCP-0096 factor registry identity.
+Supported and missing accepted candidates remain explicit.
+<!-- FCP 0103 REGISTERED TECHNICAL INDICATOR CATALOG RUNTIME APP 1 APPROVAL START -->
+## FCP 0103 Registered Technical Indicator Catalog Runtime App 1 Approval
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+The phase may expose immutable registered indicator coverage and explicit
+missing candidates. It may not create formulas, activate calculations, score,
+rank, recommend, connect accounts, place orders, or execute.
+<!-- FCP 0103 REGISTERED TECHNICAL INDICATOR CATALOG RUNTIME APP 1 APPROVAL END -->
+<!-- FCP 0103 REGISTERED TECHNICAL INDICATOR CATALOG RUNTIME APP 1 LOCK START -->
+## FCP 0103 Registered Technical Indicator Catalog Runtime App 1 Lock
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Artifact SHA-256: `cd0a89fe335adc3253f67b0d5d70531b852730b007a833505481a4346f4c975e`.
+Snapshot hash: `0b4bd7ea4906af1ab32bf0a9c606d976796caf27ca6c689efb4e406c6fa79d39`.
+Output SHA-256: `e6e925114ff02aef52cca86ff25cf99fca24e5660be85ef52afc34f16915c7cb`.
+Fourteen kinds are registered and 39 accepted candidates remain explicit
+missing coverage. GAP-008 remains BACKLOG. Operator review is mandatory and
+no formula, calculation activation, scoring, ranking, recommendation,
+account, order, or execution authority is created.
+<!-- FCP 0103 REGISTERED TECHNICAL INDICATOR CATALOG RUNTIME APP 1 LOCK END -->
