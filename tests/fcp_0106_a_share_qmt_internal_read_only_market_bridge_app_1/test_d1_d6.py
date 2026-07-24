@@ -167,6 +167,21 @@ def test_live_operator_review_evidence_is_value_free_and_non_authorizing():
     )
 
 
+def test_live_operator_review_evidence_rejects_unapproved_registration():
+    registration = replace(DEFAULT_REGISTRATION, max_event_age_ms=11_000)
+    snapshot = ingest_registered_events(
+        (build_reference_event_bytes(),),
+        now_ms=NOW_MS,
+        registration=registration,
+    )
+
+    with pytest.raises(ValueError, match="not approved"):
+        build_live_operator_review_evidence(
+            snapshot,
+            observed_at_ms=NOW_MS,
+        )
+
+
 def test_live_operator_review_probe_succeeds_without_market_values(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
