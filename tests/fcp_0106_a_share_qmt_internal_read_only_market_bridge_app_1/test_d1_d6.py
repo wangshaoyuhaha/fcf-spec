@@ -471,6 +471,22 @@ def test_spool_reader_binds_filename_to_event_identity(tmp_path: Path):
         read_registered_spool(spool, now_ms=NOW_MS)
 
 
+def test_spool_reader_rejects_link_root(tmp_path: Path):
+    target = tmp_path / "target"
+    target.mkdir()
+    (
+        target / "quote-600000-SH-1775000000500-000000000001.json"
+    ).write_bytes(build_reference_event_bytes())
+    link = tmp_path / "incoming-link"
+    try:
+        link.symlink_to(target, target_is_directory=True)
+    except OSError as exc:
+        pytest.skip(f"directory symlink creation is unavailable: {exc}")
+
+    with pytest.raises(ValueError, match="regular local directory"):
+        read_registered_spool(link, now_ms=NOW_MS)
+
+
 def test_production_bridge_source_uses_only_read_only_qmt_calls():
     path = (
         Path(__file__).resolve().parents[2]
