@@ -59,4 +59,3 @@ def build_reference_snapshot():
 
 def render_reference_snapshot_json() -> str:
     return canonical_bytes(build_reference_snapshot().payload()).decode("ascii")
-
