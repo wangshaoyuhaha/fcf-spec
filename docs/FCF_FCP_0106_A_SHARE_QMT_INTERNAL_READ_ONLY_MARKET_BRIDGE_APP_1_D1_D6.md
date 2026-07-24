@@ -10,7 +10,9 @@ and one initial symbol. All configuration remains local and value-free.
 
 Use only QMT `ContextInfo.set_universe` and
 `ContextInfo.subscribe_quote`. Write bounded atomic ASCII JSON events without
-network modules, credentials, account APIs, trading APIs, or SDK RPC.
+network modules, credentials, account APIs, trading APIs, or SDK RPC. Preserve
+Python 3.6 syntax and use only a closed local config candidate set because the
+ordinary QMT embedded runtime does not define `__file__`.
 
 ## D3 Registered Local Spool Receiver
 
@@ -21,8 +23,9 @@ file counts, non-ASCII bytes, and non-canonical JSON.
 ## D4 Integrity And Realtime Gates
 
 Validate exact event hashes, positive sequences, strict per-symbol ordering,
-deduplication, event and receive clocks, maximum age, future skew, price
-coherence, and registered symbols.
+deduplication, independent event-clock and receive-clock maximum age, future
+skew, price coherence, and registered symbols. A freshly received simulation
+replay with an old market clock is not realtime evidence.
 
 ## D5 Candidate Observation Snapshot
 

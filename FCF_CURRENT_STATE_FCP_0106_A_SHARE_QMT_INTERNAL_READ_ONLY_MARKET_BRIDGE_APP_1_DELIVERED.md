@@ -13,3 +13,14 @@ The bridge is candidate realtime observation only. Volume units remain
 `QMT_NATIVE_UNCALIBRATED`, data promotion requires separate evidence and
 Operator review, and no credential, account, balance, position, order, or
 execution path exists.
+
+Local ordinary QMT compatibility was observed on 2026-07-24. The embedded
+runtime is Python 3.6 and does not define `__file__`, so the producer uses a
+closed local config candidate set. QMT successfully registered the read-only
+`600000.SH` tick subscription and produced exact-schema local events.
+
+The observed run was after market close in QMT simulation mode. Its market
+event clocks were about 2.35 to 2.87 hours behind receipt, so the receiver now
+checks receive-clock and market-clock freshness independently and rejects the
+replay as realtime evidence. Live-session acceptance and volume calibration
+remain pending; no data authority was promoted.

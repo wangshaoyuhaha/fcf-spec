@@ -17847,7 +17847,10 @@ execution authority is authorized.
 <!-- FCP 0106 A SHARE QMT INTERNAL READ ONLY MARKET BRIDGE APP 1 LOCK START -->
 ## FCP 0106 A Share QMT Internal Read Only Market Bridge App 1 Lock
 Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
-Bridge source SHA-256: `9b0881c83696544acdcad658ac9b2eecffecd0dc1c0e6c8e98bdbd8541c7ad10`.
+Bridge source SHA-256: `b2eac57691f9603e96a76345318c11d4deaf2a71c817f86c88c65e877614e6f9`.
+QMT producer syntax is pinned to embedded Python 3.6 compatibility.
+When `__file__` is unavailable, config resolution uses only a closed local
+candidate set. Receive time and market event time must each pass freshness.
 Registration hash: `09483f25573c6cee6ece40aa4ce1af7daf2d47278cf403f7e66aaa64f71867b5`.
 Snapshot hash: `be09c874260b69192f158390ccad2b0cb4dad27746312e851c4078558aae3a92`.
 The producer may call only `set_universe` and `subscribe_quote`; the receiver

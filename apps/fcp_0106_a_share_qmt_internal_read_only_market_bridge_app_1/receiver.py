@@ -79,7 +79,9 @@ def ingest_registered_events(
         if event.event_time_ms > event.received_at_ms + registration.max_future_skew_ms:
             raise ValueError("market event time is in the future")
         if now_ms - event.received_at_ms > registration.max_event_age_ms:
-            raise ValueError("event is stale")
+            raise ValueError("event receive time is stale")
+        if now_ms - event.event_time_ms > registration.max_event_age_ms:
+            raise ValueError("market event time is stale")
         previous = sequences.get(event.symbol, 0)
         if event.sequence <= previous:
             raise ValueError("event sequence is duplicate or out of order")
@@ -156,4 +158,3 @@ def read_registered_spool(
         prior_state=prior_state,
         registration=registration,
     )
-

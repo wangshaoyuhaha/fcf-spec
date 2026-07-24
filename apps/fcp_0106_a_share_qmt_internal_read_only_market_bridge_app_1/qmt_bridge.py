@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import hashlib
 import json
 import os
@@ -31,6 +29,29 @@ _STATE = {
 }
 
 
+def _config_candidates():
+    candidates = []
+    script_path = globals().get("__file__")
+    if isinstance(script_path, str) and script_path:
+        candidates.append(
+            os.path.join(os.path.dirname(os.path.abspath(script_path)), CONFIG_NAME)
+        )
+    working_dir = os.path.abspath(os.getcwd())
+    candidates.extend(
+        (
+            os.path.join(working_dir, CONFIG_NAME),
+            os.path.join(working_dir, "python", CONFIG_NAME),
+            os.path.join(os.path.dirname(working_dir), "python", CONFIG_NAME),
+        )
+    )
+    unique = []
+    for candidate in candidates:
+        normalized = os.path.abspath(candidate)
+        if normalized not in unique:
+            unique.append(normalized)
+    return tuple(unique)
+
+
 def _canonical(payload):
     return json.dumps(
         payload,
@@ -60,8 +81,18 @@ def _decimal_text(value, name, positive):
 
 
 def _load_config():
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    config_path = os.path.join(script_dir, CONFIG_NAME)
+    config_path = next(
+        (
+            candidate
+            for candidate in _config_candidates()
+            if os.path.isfile(candidate)
+            and not os.path.islink(candidate)
+            and not candidate.startswith("\\\\")
+        ),
+        None,
+    )
+    if config_path is None:
+        raise ValueError("bridge config is not in a registered local path")
     with open(config_path, "r", encoding="ascii") as stream:
         config = json.load(stream)
     if tuple(sorted(config)) != (
@@ -157,8 +188,8 @@ def _on_quote(datas):
     config = _STATE["config"]
     if config is None or not isinstance(datas, dict):
         return
-    now_ns = time.time_ns()
-    received_at_ms = now_ns // 1_000_000
+    now_ns = int(time.monotonic() * 1_000_000_000)
+    received_at_ms = int(time.time() * 1000)
     minimum_ns = 1_000_000_000 // config["max_events_per_second"]
     for symbol in config["symbols"]:
         quote = datas.get(symbol)

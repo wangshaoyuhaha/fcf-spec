@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 from dataclasses import replace
 import json
 from pathlib import Path
@@ -145,6 +146,16 @@ def test_decimal_ohlc_future_and_stale_values_fail_closed():
             ),
             now_ms=NOW_MS,
         )
+    with pytest.raises(ValueError, match="market event time is stale"):
+        ingest_registered_events(
+            (
+                _raw(
+                    event_time_ms=NOW_MS - 10001,
+                    received_at_ms=NOW_MS,
+                ),
+            ),
+            now_ms=NOW_MS,
+        )
 
 
 def test_duplicate_out_of_order_and_noncanonical_batches_fail_closed():
@@ -248,6 +259,24 @@ def test_qmt_init_registers_one_read_only_tick_subscription(
     assert subscription["callback"] is qmt_bridge._on_quote
 
 
+def test_qmt_bridge_finds_config_without_dunder_file(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    _reset_bridge()
+    python_dir = tmp_path / "python"
+    python_dir.mkdir()
+    _write_config(python_dir)
+    monkeypatch.delitem(qmt_bridge.__dict__, "__file__", raising=False)
+    monkeypatch.chdir(tmp_path)
+    context = FakeContext()
+
+    qmt_bridge.init(context)
+
+    assert context.universe == ["600000.SH"]
+    assert len(context.subscriptions) == 1
+
+
 def test_quote_callback_writes_one_atomic_ascii_event_and_rate_limits(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -255,8 +284,9 @@ def test_quote_callback_writes_one_atomic_ascii_event_and_rate_limits(
     _reset_bridge()
     _write_config(tmp_path)
     monkeypatch.setattr(qmt_bridge, "__file__", str(tmp_path / "qmt_bridge.py"))
-    ticks = iter((1_775_000_000_500_000_000, 1_775_000_000_600_000_000))
-    monkeypatch.setattr(qmt_bridge.time, "time_ns", lambda: next(ticks))
+    monotonic_ticks = iter((1000.5, 1000.6))
+    monkeypatch.setattr(qmt_bridge.time, "monotonic", lambda: next(monotonic_ticks))
+    monkeypatch.setattr(qmt_bridge.time, "time", lambda: 1_775_000_000.5)
     context = FakeContext()
     qmt_bridge.init(context)
 
@@ -271,6 +301,13 @@ def test_quote_callback_writes_one_atomic_ascii_event_and_rate_limits(
     assert event.last == "10.1"
     assert event.volume_native == "120000"
     assert event.sequence == 1
+
+
+def test_qmt_bridge_source_is_python_36_syntax_compatible():
+    source = Path(qmt_bridge.__file__).read_text(encoding="ascii")
+
+    ast.parse(source, feature_version=(3, 6))
+    assert "time.time_ns" not in source
 
 
 def test_config_and_subscription_failure_are_fail_closed(
