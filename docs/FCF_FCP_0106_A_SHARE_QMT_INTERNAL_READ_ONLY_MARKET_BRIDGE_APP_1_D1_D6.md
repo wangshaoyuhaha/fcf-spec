@@ -18,7 +18,8 @@ ordinary QMT embedded runtime does not define `__file__`.
 
 Read only regular local files from one registered directory. Reject symlinks,
 reparse points, network paths, unexpected names, oversized events, excessive
-file counts, non-ASCII bytes, and non-canonical JSON.
+file counts, non-ASCII bytes, and non-canonical JSON. Bind the exact symbol,
+receive clock, and sequence encoded in each filename to the event payload.
 
 ## D4 Integrity And Realtime Gates
 

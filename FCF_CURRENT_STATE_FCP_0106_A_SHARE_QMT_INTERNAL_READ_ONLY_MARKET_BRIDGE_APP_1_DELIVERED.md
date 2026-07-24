@@ -7,7 +7,8 @@ Phase: FCF-FCP-0106-A-SHARE-QMT-INTERNAL-READ-ONLY-MARKET-BRIDGE-APP-1
 The ordinary QMT internal script subscribes only to registered quote symbols
 and writes bounded atomic ASCII JSON events to a local spool. The FCF
 registered receiver validates exact schema, hashes, symbols, freshness,
-ordering, duplicates, path safety, file size, and batch size.
+ordering, duplicates, filename-to-payload identity, path safety, file size,
+and batch size.
 
 The bridge is candidate realtime observation only. Volume units remain
 `QMT_NATIVE_UNCALIBRATED`, data promotion requires separate evidence and

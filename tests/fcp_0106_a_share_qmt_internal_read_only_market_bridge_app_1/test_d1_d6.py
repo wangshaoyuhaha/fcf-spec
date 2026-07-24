@@ -208,6 +208,23 @@ def test_spool_reader_accepts_closed_files_and_rejects_unregistered_entries(
         read_registered_spool(spool, now_ms=NOW_MS)
 
 
+def test_spool_reader_binds_filename_to_event_identity(tmp_path: Path):
+    spool = tmp_path / "incoming"
+    spool.mkdir()
+    raw = build_reference_event_bytes()
+
+    malformed = spool / "quote-unregistered.json"
+    malformed.write_bytes(raw)
+    with pytest.raises(ValueError, match="unregistered entry"):
+        read_registered_spool(spool, now_ms=NOW_MS)
+
+    malformed.unlink()
+    mismatched = spool / "quote-600000-SH-1775000000501-000000000001.json"
+    mismatched.write_bytes(raw)
+    with pytest.raises(ValueError, match="filename does not match"):
+        read_registered_spool(spool, now_ms=NOW_MS)
+
+
 def test_production_bridge_source_uses_only_read_only_qmt_calls():
     path = (
         Path(__file__).resolve().parents[2]

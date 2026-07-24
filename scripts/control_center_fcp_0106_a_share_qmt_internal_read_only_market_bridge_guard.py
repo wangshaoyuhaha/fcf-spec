@@ -43,7 +43,7 @@ SOURCE_HASHES = {
     "builder.py": "4f36e43210a75ca6b5fea3f4487756d58a74f4b019350d8be6c77e75143dffe1",
     "contracts.py": "b69a6db3e3650724e289532ee5d914b5a2f897d4544c9cdf0c9772f644bf4b0e",
     "qmt_bridge.py": "b2eac57691f9603e96a76345318c11d4deaf2a71c817f86c88c65e877614e6f9",
-    "receiver.py": "c813a5bcd2cf85d4fa43d8c7d2534fc8f9d7b0bf3d1e783b8c2cbcc1dcffcd89",
+    "receiver.py": "f28dca6827453d90ca5cd38090d6402818f3787d9c2172c04291b7fda0ce7ec4",
 }
 CONFIG_SHA = "eb762b4b883cf1745047a7ff6666a1676c8ff746c4563a5d41807f82eeed38a6"
 EVENT_SHA = "4e1d4eebfbbd8df624edcf67c1ce530e8ec94c899a6cee70ea4fa67973d46026"

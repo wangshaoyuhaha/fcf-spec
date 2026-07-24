@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import re
 import stat
 
 from .contracts import (
@@ -13,6 +14,11 @@ from .contracts import (
     QmtInternalBridgeRegistration,
     QmtQuoteEvent,
     digest,
+)
+
+SPOOL_FILE = re.compile(
+    r"^quote-(?P<code>[0-9]{6})-(?P<market>SH|SZ|BJ)-"
+    r"(?P<received_at_ms>[0-9]{13})-(?P<sequence>[0-9]{12})\.json$"
 )
 
 
@@ -141,9 +147,9 @@ def read_registered_spool(
         raise ValueError("spool_root exceeds the registered file limit")
     raw_events: list[bytes] = []
     for path in entries:
+        name_match = SPOOL_FILE.fullmatch(path.name)
         if (
-            not path.name.startswith("quote-")
-            or path.suffix != ".json"
+            name_match is None
             or path.is_symlink()
             or _is_reparse_point(path)
             or not path.is_file()
@@ -151,7 +157,21 @@ def read_registered_spool(
             raise ValueError("spool_root contains an unregistered entry")
         if path.stat().st_size > registration.max_event_bytes:
             raise ValueError("spool event exceeds the registered size")
-        raw_events.append(path.read_bytes())
+        raw = path.read_bytes()
+        event = parse_registered_event(raw, registration)
+        filename_identity = (
+            f"{name_match.group('code')}.{name_match.group('market')}",
+            int(name_match.group("received_at_ms")),
+            int(name_match.group("sequence")),
+        )
+        event_identity = (
+            event.symbol,
+            event.received_at_ms,
+            event.sequence,
+        )
+        if filename_identity != event_identity:
+            raise ValueError("spool filename does not match the event identity")
+        raw_events.append(raw)
     return ingest_registered_events(
         tuple(raw_events),
         now_ms=now_ms,
