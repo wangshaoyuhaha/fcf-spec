@@ -203,6 +203,8 @@ class QmtBridgeIngestState:
 
     def __post_init__(self) -> None:
         sequences = dict(self.last_sequences)
+        if type(self.event_hashes) is not tuple:
+            raise ValueError("event_hashes must be an exact tuple")
         if tuple(sequences) != tuple(sorted(sequences)):
             raise ValueError("last_sequences must be sorted")
         if any(
@@ -244,14 +246,32 @@ class QmtBridgeBatchSnapshot:
     def __post_init__(self) -> None:
         if not SHA256.fullmatch(self.registration_hash):
             raise ValueError("registration_hash must be SHA-256")
+        if type(self.accepted_events) is not tuple or any(
+            type(item) is not QmtQuoteEvent for item in self.accepted_events
+        ):
+            raise ValueError("accepted_events must be an exact event tuple")
         if not self.accepted_events:
             raise ValueError("accepted_events cannot be empty")
+        if type(self.state) is not QmtBridgeIngestState:
+            raise ValueError("state must be an exact ingest state")
+        if type(self.latest_received_at_ms) is not int:
+            raise ValueError("latest_received_at_ms must be an exact integer")
         if self.latest_received_at_ms != max(
             item.received_at_ms for item in self.accepted_events
         ):
             raise ValueError("latest_received_at_ms does not match the batch")
         if self.bridge_state != "CANDIDATE_REALTIME_OBSERVED":
             raise ValueError("bridge_state is not registered")
+        authority_flags = (
+            self.operator_review_required,
+            self.read_only,
+            self.market_data_authority,
+            self.data_promotion_authority,
+            self.account_authority,
+            self.execution_authority,
+        )
+        if any(type(value) is not bool for value in authority_flags):
+            raise ValueError("snapshot authority flags must be exact booleans")
         if not self.operator_review_required or not self.read_only:
             raise ValueError("Operator review and read-only state are mandatory")
         if any(
@@ -288,4 +308,3 @@ class QmtBridgeBatchSnapshot:
 
     def payload(self) -> dict[str, object]:
         return {**self.payload_without_hash(), "snapshot_hash": self.snapshot_hash}
-
