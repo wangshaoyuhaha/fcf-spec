@@ -4,6 +4,7 @@ import ast
 from dataclasses import dataclass
 import hashlib
 from pathlib import Path
+import stat
 
 
 ALLOWED_IMPORT_ROOTS = frozenset(
@@ -35,6 +36,11 @@ FORBIDDEN_IMPORT_ROOTS = frozenset(
         "xtquant",
     }
 )
+
+
+def _is_reparse_point(path: Path) -> bool:
+    attributes = getattr(path.lstat(), "st_file_attributes", 0)
+    return bool(attributes & stat.FILE_ATTRIBUTE_REPARSE_POINT)
 
 
 @dataclass(frozen=True)
@@ -107,8 +113,20 @@ def inspect_bridge_source(source: str) -> BridgeSourcePolicyReport:
 
 
 def inspect_bridge_file(path: Path) -> BridgeSourcePolicyReport:
-    target = path.resolve(strict=True)
-    if not target.is_file() or target.is_symlink():
+    candidate = path.absolute()
+    if str(candidate).startswith("\\\\"):
+        raise ValueError("bridge source must not use a network path")
+    for component in (candidate, *candidate.parents):
+        if str(component) == component.anchor:
+            continue
+        if component.is_symlink() or _is_reparse_point(component):
+            raise ValueError("bridge source must be a regular local file")
+    target = candidate.resolve(strict=True)
+    if (
+        not target.is_file()
+        or target.is_symlink()
+        or _is_reparse_point(target)
+    ):
         raise ValueError("bridge source must be a regular local file")
     if str(target).startswith("\\\\"):
         raise ValueError("bridge source must not use a network path")

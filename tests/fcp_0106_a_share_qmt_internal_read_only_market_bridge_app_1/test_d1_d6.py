@@ -519,6 +519,31 @@ def test_production_bridge_source_uses_only_read_only_qmt_calls():
     assert not report.forbidden_imports
 
 
+def test_bridge_source_policy_rejects_link_paths(tmp_path: Path):
+    source = (
+        Path(__file__).resolve().parents[2]
+        / "apps"
+        / "fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1"
+        / "qmt_bridge.py"
+    )
+    direct_link = tmp_path / "linked-source.py"
+    try:
+        direct_link.symlink_to(source)
+    except OSError as exc:
+        pytest.skip(f"file symlink creation is unavailable: {exc}")
+    with pytest.raises(ValueError, match="regular local file"):
+        inspect_bridge_file(direct_link)
+
+    target_parent = tmp_path / "target-parent"
+    target_parent.mkdir()
+    target = target_parent / "qmt_bridge.py"
+    target.write_bytes(source.read_bytes())
+    parent_link = tmp_path / "parent-link"
+    parent_link.symlink_to(target_parent, target_is_directory=True)
+    with pytest.raises(ValueError, match="regular local file"):
+        inspect_bridge_file(parent_link / "qmt_bridge.py")
+
+
 def test_policy_rejects_network_account_and_order_capability():
     unsafe = """
 import socket

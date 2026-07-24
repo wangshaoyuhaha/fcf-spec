@@ -41,7 +41,7 @@ AUTHORITY = (
 SOURCE_HASHES = {
     "__init__.py": "b556637b393a86b51d4a4310fb7c370d2a25d9f74c3acbb723ff1674d64ae6a6",
     "acceptance.py": "fdb09e149b7ef308aa12ba0f22812d6c95909d085d486246a6be4317caa9117a",
-    "bridge_policy.py": "f4e4e60f7c36918e0cb0db699c54a62dcbf256e854f1bf22984cf26ffc1b5bbf",
+    "bridge_policy.py": "30931d19ccc46e08401bcf89f8da099fa0c7457cd21c869faa570c37d34ac4fb",
     "builder.py": "4f36e43210a75ca6b5fea3f4487756d58a74f4b019350d8be6c77e75143dffe1",
     "contracts.py": "b69a6db3e3650724e289532ee5d914b5a2f897d4544c9cdf0c9772f644bf4b0e",
     "qmt_bridge.py": "b2eac57691f9603e96a76345318c11d4deaf2a71c817f86c88c65e877614e6f9",
