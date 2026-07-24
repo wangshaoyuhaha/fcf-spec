@@ -124,7 +124,13 @@ def test_live_operator_review_evidence_is_value_free_and_non_authorizing():
     assert evidence["candidate_status"] == "OPERATOR_REVIEW_REQUIRED"
     assert evidence["realtime_gate_passed"] is True
     assert evidence["receive_age_ms"] == 500
+    assert evidence["receive_age_min_ms"] == 500
+    assert evidence["receive_age_max_ms"] == 500
     assert evidence["event_age_ms"] == 1000
+    assert evidence["event_age_min_ms"] == 1000
+    assert evidence["event_age_max_ms"] == 1000
+    assert evidence["event_to_receive_lag_min_ms"] == 500
+    assert evidence["event_to_receive_lag_max_ms"] == 500
     assert evidence["sequence_first"] == 1
     assert evidence["sequence_last"] == 1
     assert evidence["sequence_gap_count"] == 0
@@ -200,6 +206,12 @@ def test_live_operator_review_probe_succeeds_without_market_values(
     assert output["sequence_first"] == 1
     assert output["sequence_last"] == 5
     assert output["sequence_gap_count"] == 0
+    assert output["receive_age_min_ms"] == 100
+    assert output["receive_age_max_ms"] == 500
+    assert output["event_age_min_ms"] == 600
+    assert output["event_age_max_ms"] == 1000
+    assert output["event_to_receive_lag_min_ms"] == 500
+    assert output["event_to_receive_lag_max_ms"] == 500
     assert not {
         "amount_cny",
         "high",
@@ -232,6 +244,33 @@ def test_live_operator_review_evidence_rejects_sequence_gap():
         build_live_operator_review_evidence(
             snapshot,
             observed_at_ms=NOW_MS,
+            minimum_event_count=2,
+        )
+
+
+def test_live_operator_review_evidence_checks_all_event_clocks():
+    first_time_ms = 1_775_000_000_000
+    second_time_ms = first_time_ms + 9000
+    snapshot = ingest_registered_events(
+        (
+            _raw(
+                sequence=1,
+                event_time_ms=first_time_ms,
+                received_at_ms=first_time_ms,
+            ),
+            _raw(
+                sequence=2,
+                event_time_ms=second_time_ms,
+                received_at_ms=second_time_ms,
+            ),
+        ),
+        now_ms=second_time_ms,
+    )
+
+    with pytest.raises(ValueError, match="receive clock"):
+        build_live_operator_review_evidence(
+            snapshot,
+            observed_at_ms=first_time_ms + 10001,
             minimum_event_count=2,
         )
 

@@ -59,6 +59,7 @@ The successful JSON must contain:
 - `operator_review_required` equal to `true`;
 - `receive_age_ms` between `-2000` and `10000`;
 - `event_age_ms` between `-2000` and `10000`;
+- receive-age, event-age, and event-to-receive-lag minimum and maximum metadata;
 - `accepted_event_count` at least `5`;
 - `sequence_gap_count` equal to `0`;
 - all authority fields equal to `false`;

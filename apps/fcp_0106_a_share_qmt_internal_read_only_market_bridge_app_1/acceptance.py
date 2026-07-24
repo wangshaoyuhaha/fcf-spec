@@ -54,16 +54,23 @@ def build_live_operator_review_evidence(
     )
     receive_age_ms = observed_at_ms - latest.received_at_ms
     event_age_ms = observed_at_ms - latest.event_time_ms
-    if not (
-        -DEFAULT_REGISTRATION.max_future_skew_ms
-        <= receive_age_ms
-        <= DEFAULT_REGISTRATION.max_event_age_ms
+    receive_ages_ms = tuple(
+        observed_at_ms - item.received_at_ms for item in ordered
+    )
+    event_ages_ms = tuple(
+        observed_at_ms - item.event_time_ms for item in ordered
+    )
+    event_to_receive_lags_ms = tuple(
+        item.received_at_ms - item.event_time_ms for item in ordered
+    )
+    if (
+        min(receive_ages_ms) < -DEFAULT_REGISTRATION.max_future_skew_ms
+        or max(receive_ages_ms) > DEFAULT_REGISTRATION.max_event_age_ms
     ):
         raise ValueError("receive clock is outside the live acceptance gate")
-    if not (
-        -DEFAULT_REGISTRATION.max_future_skew_ms
-        <= event_age_ms
-        <= DEFAULT_REGISTRATION.max_event_age_ms
+    if (
+        min(event_ages_ms) < -DEFAULT_REGISTRATION.max_future_skew_ms
+        or max(event_ages_ms) > DEFAULT_REGISTRATION.max_event_age_ms
     ):
         raise ValueError("market clock is outside the live acceptance gate")
     payload: dict[str, object] = {
@@ -73,6 +80,10 @@ def build_live_operator_review_evidence(
         "candidate_status": "OPERATOR_REVIEW_REQUIRED",
         "data_promotion_authority": False,
         "event_age_ms": event_age_ms,
+        "event_age_max_ms": max(event_ages_ms),
+        "event_age_min_ms": min(event_ages_ms),
+        "event_to_receive_lag_max_ms": max(event_to_receive_lags_ms),
+        "event_to_receive_lag_min_ms": min(event_to_receive_lags_ms),
         "execution_authority": False,
         "latest_event_hash": latest.event_hash,
         "latest_received_at_ms": latest.received_at_ms,
@@ -83,6 +94,8 @@ def build_live_operator_review_evidence(
         "read_only": True,
         "realtime_gate_passed": True,
         "receive_age_ms": receive_age_ms,
+        "receive_age_max_ms": max(receive_ages_ms),
+        "receive_age_min_ms": min(receive_ages_ms),
         "registration_hash": snapshot.registration_hash,
         "sequence_first": sequences[0],
         "sequence_gap_count": 0,
