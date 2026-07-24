@@ -32,7 +32,9 @@ replay with an old market clock is not realtime evidence.
 
 Publish an immutable read-only `CANDIDATE_REALTIME_OBSERVED` snapshot. Preserve
 native QMT volume as `QMT_NATIVE_UNCALIBRATED` until an observed callback is
-calibrated against registered local daily export evidence.
+calibrated against registered local daily export evidence. A bounded local
+probe may render a value-free evidence packet only after both freshness clocks
+pass, and the packet remains pending explicit Operator review.
 
 ## D6 Authority Boundary
 

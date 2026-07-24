@@ -24,4 +24,7 @@ The observed run was after market close in QMT simulation mode. Its market
 event clocks were about 2.35 to 2.87 hours behind receipt, so the receiver now
 checks receive-clock and market-clock freshness independently and rejects the
 replay as realtime evidence. Live-session acceptance and volume calibration
-remain pending; no data authority was promoted.
+remain pending; no data authority was promoted. A bounded local probe now
+prepares only value-free, non-authorizing evidence after both clocks pass.
+The exact live-session sequence and exit meanings are fixed in
+`docs/FCF_FCP_0106_QMT_LIVE_OPERATOR_REVIEW_RUNBOOK.md`.

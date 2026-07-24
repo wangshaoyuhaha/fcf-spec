@@ -1,3 +1,7 @@
+from .acceptance import (
+    build_live_operator_review_evidence,
+    render_live_operator_review_evidence_json,
+)
 from .bridge_policy import (
     BridgeSourcePolicyReport,
     inspect_bridge_file,
@@ -46,10 +50,12 @@ __all__ = (
     "build_reference_event_bytes",
     "build_reference_event_payload",
     "build_reference_snapshot",
+    "build_live_operator_review_evidence",
     "ingest_registered_events",
     "inspect_bridge_file",
     "inspect_bridge_source",
     "parse_registered_event",
     "read_registered_spool",
+    "render_live_operator_review_evidence_json",
     "render_reference_snapshot_json",
 )

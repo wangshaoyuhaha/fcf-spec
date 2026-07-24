@@ -11,6 +11,7 @@ from apps.fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1 import (
     DEFAULT_REGISTRATION,
     EMPTY_INGEST_STATE,
     QmtBridgeIngestState,
+    build_live_operator_review_evidence,
     build_reference_event_bytes,
     build_reference_event_payload,
     build_reference_snapshot,
@@ -19,6 +20,7 @@ from apps.fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1 import (
     inspect_bridge_source,
     parse_registered_event,
     read_registered_spool,
+    render_live_operator_review_evidence_json,
     render_reference_snapshot_json,
 )
 from apps.fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1 import (
@@ -28,6 +30,7 @@ from apps.fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1.contracts 
     canonical_bytes,
     digest,
 )
+from scripts import run_fcp_0106_qmt_live_operator_review_probe as live_probe
 
 
 NOW_MS = 1_775_000_001_000
@@ -109,6 +112,118 @@ def test_reference_event_and_snapshot_are_exact_and_non_authorizing():
         render_reference_snapshot_json()
         == render_reference_snapshot_json().encode("ascii").decode("ascii")
     )
+
+
+def test_live_operator_review_evidence_is_value_free_and_non_authorizing():
+    snapshot = build_reference_snapshot()
+    evidence = build_live_operator_review_evidence(
+        snapshot,
+        observed_at_ms=NOW_MS,
+    )
+
+    assert evidence["candidate_status"] == "OPERATOR_REVIEW_REQUIRED"
+    assert evidence["realtime_gate_passed"] is True
+    assert evidence["receive_age_ms"] == 500
+    assert evidence["event_age_ms"] == 1000
+    assert evidence["operator_review_required"] is True
+    assert evidence["read_only"] is True
+    assert not any(
+        evidence[key]
+        for key in (
+            "account_authority",
+            "data_promotion_authority",
+            "execution_authority",
+            "market_data_authority",
+        )
+    )
+    assert not {
+        "amount_cny",
+        "high",
+        "last",
+        "low",
+        "open",
+        "previous_close",
+        "volume_native",
+    }.intersection(evidence)
+    assert (
+        render_live_operator_review_evidence_json(
+            snapshot,
+            observed_at_ms=NOW_MS,
+        )
+        == render_live_operator_review_evidence_json(
+            snapshot,
+            observed_at_ms=NOW_MS,
+        )
+    )
+
+
+def test_live_operator_review_probe_succeeds_without_market_values(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+):
+    spool = tmp_path / "incoming"
+    spool.mkdir()
+    raw = _raw(
+        event_time_ms=NOW_MS - 1000,
+        received_at_ms=NOW_MS - 500,
+    )
+    (
+        spool / "quote-600000-SH-1775000000500-000000000001.json"
+    ).write_bytes(raw)
+    monkeypatch.setattr(live_probe.time, "time", lambda: NOW_MS / 1000)
+
+    result = live_probe.main(
+        [
+            "--spool-root",
+            str(spool),
+            "--timeout-seconds",
+            "1",
+        ]
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert result == 0
+    assert output["candidate_status"] == "OPERATOR_REVIEW_REQUIRED"
+    assert output["realtime_gate_passed"] is True
+    assert not {
+        "amount_cny",
+        "high",
+        "last",
+        "low",
+        "open",
+        "previous_close",
+        "volume_native",
+    }.intersection(output)
+
+
+def test_live_operator_review_probe_times_out_without_event(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+):
+    spool = tmp_path / "incoming"
+    spool.mkdir()
+    ticks = iter((100.0, 102.0))
+    monkeypatch.setattr(live_probe.time, "monotonic", lambda: next(ticks))
+    monkeypatch.setattr(live_probe.time, "sleep", lambda _: None)
+
+    result = live_probe.main(
+        [
+            "--spool-root",
+            str(spool),
+            "--timeout-seconds",
+            "1",
+        ]
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert result == 2
+    assert output == {
+        "ok": False,
+        "operator_review_required": True,
+        "status": "WAITING_FOR_FRESH_QMT_EVENT",
+    }
 
 
 def test_event_schema_identity_hash_and_symbol_fail_closed():

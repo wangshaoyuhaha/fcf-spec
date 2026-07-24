@@ -39,12 +39,16 @@ AUTHORITY = (
     ROOT / "FCF_NEW_WINDOW_CHAT_PROMPT.md",
 )
 SOURCE_HASHES = {
+    "__init__.py": "b556637b393a86b51d4a4310fb7c370d2a25d9f74c3acbb723ff1674d64ae6a6",
+    "acceptance.py": "0d2c35f02e1ec4752807a6f9e1bc5dae3f2133a58a67c57f60f885a1caea594c",
     "bridge_policy.py": "f4e4e60f7c36918e0cb0db699c54a62dcbf256e854f1bf22984cf26ffc1b5bbf",
     "builder.py": "4f36e43210a75ca6b5fea3f4487756d58a74f4b019350d8be6c77e75143dffe1",
     "contracts.py": "b69a6db3e3650724e289532ee5d914b5a2f897d4544c9cdf0c9772f644bf4b0e",
     "qmt_bridge.py": "b2eac57691f9603e96a76345318c11d4deaf2a71c817f86c88c65e877614e6f9",
     "receiver.py": "f28dca6827453d90ca5cd38090d6402818f3787d9c2172c04291b7fda0ce7ec4",
 }
+PROBE_SHA = "bfe18caabd5b30a51fe2a34a241313d824b5b3f9b8d5badcb9a6ecf141f726ba"
+RUNBOOK_SHA = "73f0e9a7cb336d98cbb54b4214378cbc6e1f62280204b30c94c91dfdf6aedf1f"
 CONFIG_SHA = "eb762b4b883cf1745047a7ff6666a1676c8ff746c4563a5d41807f82eeed38a6"
 EVENT_SHA = "4e1d4eebfbbd8df624edcf67c1ce530e8ec94c899a6cee70ea4fa67973d46026"
 SNAPSHOT_SHA = "be09c874260b69192f158390ccad2b0cb4dad27746312e851c4078558aae3a92"
@@ -149,6 +153,14 @@ def build_fcp_0106_guard_report(root: Path = ROOT) -> dict[str, object]:
         and truth.get("current_governance_phase_id")
         == ("NONE" if complete else PHASE_ID),
         "source_hashes_exact": source_hashes == SOURCE_HASHES,
+        "operator_probe_hash_exact": _sha(
+            root / "scripts/run_fcp_0106_qmt_live_operator_review_probe.py"
+        )
+        == PROBE_SHA,
+        "operator_runbook_hash_exact": _sha(
+            root / "docs/FCF_FCP_0106_QMT_LIVE_OPERATOR_REVIEW_RUNBOOK.md"
+        )
+        == RUNBOOK_SHA,
         "config_hash_exact": _sha(
             root / "integrations/guojin_qmt/fcf_qmt_bridge_config.example.json"
         )
