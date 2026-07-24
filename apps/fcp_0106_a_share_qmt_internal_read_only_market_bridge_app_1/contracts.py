@@ -202,13 +202,16 @@ class QmtBridgeIngestState:
     event_hashes: tuple[str, ...]
 
     def __post_init__(self) -> None:
+        if not isinstance(self.last_sequences, Mapping):
+            raise ValueError("last_sequences must be an exact mapping")
         sequences = dict(self.last_sequences)
         if type(self.event_hashes) is not tuple:
             raise ValueError("event_hashes must be an exact tuple")
         if tuple(sequences) != tuple(sorted(sequences)):
             raise ValueError("last_sequences must be sorted")
         if any(
-            not SYMBOL.fullmatch(symbol)
+            not isinstance(symbol, str)
+            or not SYMBOL.fullmatch(symbol)
             or type(sequence) is not int
             or sequence <= 0
             for symbol, sequence in sequences.items()
@@ -216,7 +219,10 @@ class QmtBridgeIngestState:
             raise ValueError("last_sequences is invalid")
         if (
             len(set(self.event_hashes)) != len(self.event_hashes)
-            or any(not SHA256.fullmatch(item) for item in self.event_hashes)
+            or any(
+                not isinstance(item, str) or not SHA256.fullmatch(item)
+                for item in self.event_hashes
+            )
         ):
             raise ValueError("event_hashes must be unique SHA-256 values")
         object.__setattr__(self, "last_sequences", MappingProxyType(sequences))
@@ -244,7 +250,9 @@ class QmtBridgeBatchSnapshot:
     snapshot_hash: str
 
     def __post_init__(self) -> None:
-        if not SHA256.fullmatch(self.registration_hash):
+        if not isinstance(self.registration_hash, str) or not SHA256.fullmatch(
+            self.registration_hash
+        ):
             raise ValueError("registration_hash must be SHA-256")
         if type(self.accepted_events) is not tuple or any(
             type(item) is not QmtQuoteEvent for item in self.accepted_events
@@ -283,7 +291,9 @@ class QmtBridgeBatchSnapshot:
             )
         ):
             raise ValueError("bridge snapshot cannot grant authority")
-        if not SHA256.fullmatch(self.snapshot_hash):
+        if not isinstance(self.snapshot_hash, str) or not SHA256.fullmatch(
+            self.snapshot_hash
+        ):
             raise ValueError("snapshot_hash must be SHA-256")
         if self.snapshot_hash != digest(self.payload_without_hash()):
             raise ValueError("snapshot_hash does not match the snapshot")

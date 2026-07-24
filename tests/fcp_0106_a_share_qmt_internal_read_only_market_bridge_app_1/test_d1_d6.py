@@ -661,11 +661,22 @@ def test_registration_rejects_authority_expansion_and_unbounded_limits():
 
 
 def test_snapshot_state_rejects_mutable_or_coerced_primitive_containers():
+    with pytest.raises(ValueError, match="exact mapping"):
+        QmtBridgeIngestState(
+            last_sequences=[("600000.SH", 1)],
+            event_hashes=(),
+        )
     with pytest.raises(ValueError, match="exact tuple"):
         QmtBridgeIngestState(last_sequences={}, event_hashes=[])
+    with pytest.raises(ValueError, match="SHA-256"):
+        QmtBridgeIngestState(last_sequences={}, event_hashes=(1,))
 
     snapshot = build_reference_snapshot()
     with pytest.raises(ValueError, match="exact event tuple"):
         replace(snapshot, accepted_events=list(snapshot.accepted_events))
     with pytest.raises(ValueError, match="exact booleans"):
         replace(snapshot, read_only=1)
+    with pytest.raises(ValueError, match="registration_hash"):
+        replace(snapshot, registration_hash=1)
+    with pytest.raises(ValueError, match="snapshot_hash"):
+        replace(snapshot, snapshot_hash=1)
