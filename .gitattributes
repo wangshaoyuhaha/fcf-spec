@@ -27,6 +27,12 @@ apps/fcp_0089_a_share_guojin_qmt_local_runtime_footprint_readiness_evidence_app_
 apps/fcp_0090_a_share_guojin_qmt_local_terminal_liveness_evidence_app_1/contracts.py text eol=lf
 apps/fcp_0090_a_share_guojin_qmt_local_terminal_liveness_evidence_app_1/observer.py text eol=lf
 apps/fcp_0090_a_share_guojin_qmt_local_terminal_liveness_evidence_app_1/runner.py text eol=lf
+apps/fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1/*.py text eol=lf
+docs/FCF_FCP_0106_QMT_LIVE_OPERATOR_REVIEW_RUNBOOK.md text eol=lf
+integrations/guojin_qmt/fcf_qmt_bridge_config.example.json text eol=lf
+scripts/control_center_fcp_0106_a_share_qmt_internal_read_only_market_bridge_guard.py text eol=lf
+scripts/run_fcp_0106_qmt_live_operator_review_probe.py text eol=lf
+tests/fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1/*.py text eol=lf
 examples/browser_product_console_starter/*.json text eol=lf
 examples/browser_product_console_starter/registered/*.json text eol=lf
 FCF_LOCAL_ARTIFACT_FCP_0012_RQDATA_TRIAL_SESSION.json -text
