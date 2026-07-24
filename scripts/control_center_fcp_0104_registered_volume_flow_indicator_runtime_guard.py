@@ -120,15 +120,23 @@ def build_fcp_0104_guard_report(root: Path = ROOT) -> dict[str, object]:
         "proposal_state_exact": proposal.get("operator_decision")
         == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED")
         and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID)
-        and register.get("next_proposal_sequence") == 105,
-        "manifest_state_exact": truth.get("latest_completed_governance_delivery")
-        == (
-            PHASE_ID
+        and register.get("next_proposal_sequence") in (105, 106),
+        "manifest_state_exact": (
+            truth.get("latest_completed_governance_delivery")
+            in (
+                PHASE_ID,
+                "FCF-FCP-0105-REGISTERED-PRICE-SHAPE-INDICATOR-RUNTIME-APP-1",
+            )
+            and truth.get("current_governance_phase_id")
+            in (
+                "NONE",
+                "FCF-FCP-0105-REGISTERED-PRICE-SHAPE-INDICATOR-RUNTIME-APP-1",
+            )
             if complete
-            else "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1"
-        )
-        and truth.get("current_governance_phase_id")
-        == ("NONE" if complete else PHASE_ID),
+            else truth.get("latest_completed_governance_delivery")
+            == "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1"
+            and truth.get("current_governance_phase_id") == PHASE_ID
+        ),
         "source_hashes_exact": source_hashes == SOURCE_HASHES,
         "reference_artifact_exact": hashlib.sha256(artifact).hexdigest()
         == ARTIFACT_SHA,

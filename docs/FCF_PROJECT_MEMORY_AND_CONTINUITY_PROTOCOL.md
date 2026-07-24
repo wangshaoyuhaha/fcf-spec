@@ -476,3 +476,10 @@ factor registry identity, and Operator review are mandatory. Seventeen kinds
 are supported and 36 candidates remain explicit missing coverage. GAP-008
 remains BACKLOG; scoring, ranking, recommendation, account, order, and
 execution remain forbidden.
+FCP-0105 composes the completed FCP-0104 volume-flow runtime with eight
+deterministic price-shape kinds and catalog v3 coverage. It uses exact
+Operator-registered local close bars, strict PIT ordering, Decimal arithmetic,
+suspension exclusion, and explicit zero-dispersion failure. Twenty-five kinds
+are registered and 28 accepted candidates remain explicit missing coverage.
+GAP-008 remains BACKLOG. Operator review remains mandatory and no score, rank,
+recommendation, account, order, or execution authority is created.

@@ -941,3 +941,11 @@ or rights, infer expected sessions, pagination, completeness, adjustment-factor
 authority, trading status, or point-in-time supplements, promote data, select a
 provider, activate realtime, close GAP-104 through GAP-106, start product work,
 create P48, tag, release, or deploy.
+## FCP-0105 Registered Price Shape Indicator Rule
+
+Proposal `FCF-FCP-0105` may calculate only its eight registered deterministic
+price-shape kinds from exact Operator-registered local close bars. It must use
+the exact FCP-0096 registry, strict PIT ordering, Decimal arithmetic, EXCLUDE
+suspension policy, and explicit zero-dispersion failure. Unsupported catalog
+candidates remain visible. Scoring, ranking, recommendation, external data,
+account, order, execution, P48, tag, release, and deployment are forbidden.

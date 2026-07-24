@@ -96,7 +96,7 @@ def build_fcp_0098_guard_report(root: Path = ROOT) -> dict[str, object]:
         "gap_registered": "## FCP-0098 State Sync Lock Runtime Boundary" in texts.get("gap", ""),
         "protocol_registered": "Proposal `FCF-FCP-0098`" in texts.get("protocol", ""),
         "memory_registered": "FCP-0098 upgrades the completed V2-R1" in texts.get("memory", ""),
-        "proposal_state_exact": proposal.get("operator_decision") == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED") and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID) and register.get("next_proposal_sequence") in ((99, 100, 101, 102, 103, 104, 105) if complete else (99,)),
+        "proposal_state_exact": proposal.get("operator_decision") == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED") and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID) and register.get("next_proposal_sequence") in ((99, 100, 101, 102, 103, 104, 105, 106) if complete else (99,)),
         "manifest_state_exact": (
             truth.get("latest_completed_governance_delivery") in (
                 PHASE_ID,
@@ -106,6 +106,7 @@ def build_fcp_0098_guard_report(root: Path = ROOT) -> dict[str, object]:
                 "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
                 "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1",
                 "FCF-FCP-0104-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME-APP-1",
+                "FCF-FCP-0105-REGISTERED-PRICE-SHAPE-INDICATOR-RUNTIME-APP-1",
             )
             and truth.get("current_governance_phase_id") in (
                 "NONE",
@@ -115,6 +116,7 @@ def build_fcp_0098_guard_report(root: Path = ROOT) -> dict[str, object]:
                 "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
                 "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1",
                 "FCF-FCP-0104-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME-APP-1",
+                "FCF-FCP-0105-REGISTERED-PRICE-SHAPE-INDICATOR-RUNTIME-APP-1",
             )
             if complete
             else truth.get("latest_completed_governance_delivery")

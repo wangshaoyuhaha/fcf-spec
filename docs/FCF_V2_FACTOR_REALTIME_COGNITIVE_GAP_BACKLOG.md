@@ -513,3 +513,16 @@ GAP-008 remains BACKLOG pending the remaining deterministic indicator packs,
 validation evidence, and browser acceptance. This phase does not authorize
 scoring, ranking, recommendation, external data, account, order, or
 execution.
+
+## FCP-0105 Registered Price Shape Indicator Runtime Boundary
+
+FCP-0105 implements deterministic Bollinger Band Width, Bollinger Breakout,
+Bollinger Z Score, Momentum, Moving Average Slope, Price Distance From Moving
+Average, Prior High Breakout, and Range Breakout. It advances catalog coverage
+from 17 to 25 supported kinds. Twenty-eight accepted candidates remain
+explicit missing coverage.
+
+GAP-008 remains BACKLOG pending the remaining deterministic indicator packs,
+validation evidence, and browser acceptance. This phase does not authorize
+scoring, ranking, recommendation, external data, account, order, or
+execution.
