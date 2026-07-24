@@ -32,7 +32,7 @@ eb762b4b883cf1745047a7ff6666a1676c8ff746c4563a5d41807f82eeed38a6
 Run this command from the repository root:
 
 ```text
-python scripts/run_fcp_0106_qmt_live_operator_review_probe.py --spool-root C:\FCF_QMT_BRIDGE\incoming --timeout-seconds 600 --poll-milliseconds 250
+python scripts/run_fcp_0106_qmt_live_operator_review_probe.py --spool-root C:\FCF_QMT_BRIDGE\incoming --timeout-seconds 600 --poll-milliseconds 250 --minimum-events 5
 ```
 
 After the probe is waiting, run `FCF_READ_ONLY_QUOTE_BRIDGE` in QMT. Stop the
@@ -40,8 +40,9 @@ QMT strategy immediately after the probe exits.
 
 ## Exit Meanings
 
-- Exit `0`: one registered fresh event passed schema, integrity, identity,
-  ordering, receive-clock, and market-clock gates. The JSON output is a
+- Exit `0`: at least five registered fresh events passed schema, integrity,
+  identity, ordering, continuity, receive-clock, and market-clock gates. The
+  JSON output is a
   value-free candidate evidence packet pending Operator review.
 - Exit `1`: the probe failed closed. Do not treat any file as realtime
   evidence. Preserve the error text for diagnosis.
@@ -58,6 +59,8 @@ The successful JSON must contain:
 - `operator_review_required` equal to `true`;
 - `receive_age_ms` between `-2000` and `10000`;
 - `event_age_ms` between `-2000` and `10000`;
+- `accepted_event_count` at least `5`;
+- `sequence_gap_count` equal to `0`;
 - all authority fields equal to `false`;
 - exact registration, event, snapshot, and evidence hashes.
 

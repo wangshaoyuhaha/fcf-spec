@@ -24,11 +24,14 @@ def _arguments(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--spool-root", type=Path, required=True)
     parser.add_argument("--timeout-seconds", type=int, default=120)
     parser.add_argument("--poll-milliseconds", type=int, default=250)
+    parser.add_argument("--minimum-events", type=int, default=5)
     values = parser.parse_args(argv)
     if not 1 <= values.timeout_seconds <= 600:
         parser.error("--timeout-seconds must be between 1 and 600")
     if not 50 <= values.poll_milliseconds <= 5000:
         parser.error("--poll-milliseconds must be between 50 and 5000")
+    if not 1 <= values.minimum_events <= 100:
+        parser.error("--minimum-events must be between 1 and 100")
     return values
 
 
@@ -58,19 +61,21 @@ def main(argv: list[str] | None = None) -> int:
                 )
                 return 1
         else:
-            evidence = build_live_operator_review_evidence(
-                snapshot,
-                observed_at_ms=observed_at_ms,
-            )
-            print(
-                json.dumps(
-                    dict(evidence),
-                    ensure_ascii=True,
-                    separators=(",", ":"),
-                    sort_keys=True,
+            if len(snapshot.accepted_events) >= values.minimum_events:
+                evidence = build_live_operator_review_evidence(
+                    snapshot,
+                    observed_at_ms=observed_at_ms,
+                    minimum_event_count=values.minimum_events,
                 )
-            )
-            return 0
+                print(
+                    json.dumps(
+                        dict(evidence),
+                        ensure_ascii=True,
+                        separators=(",", ":"),
+                        sort_keys=True,
+                    )
+                )
+                return 0
         if time.monotonic() >= deadline:
             print(
                 json.dumps(

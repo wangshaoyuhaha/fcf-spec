@@ -16,13 +16,35 @@ def build_live_operator_review_evidence(
     snapshot: QmtBridgeBatchSnapshot,
     *,
     observed_at_ms: int,
+    minimum_event_count: int = 1,
 ) -> Mapping[str, object]:
     if not isinstance(snapshot, QmtBridgeBatchSnapshot):
         raise TypeError("snapshot must be exact QMT bridge snapshot")
     if type(observed_at_ms) is not int or observed_at_ms <= 0:
         raise ValueError("observed_at_ms must be a positive integer")
+    if type(minimum_event_count) is not int or not 1 <= minimum_event_count <= 100:
+        raise ValueError("minimum_event_count is outside the safe range")
+    if len(snapshot.accepted_events) < minimum_event_count:
+        raise ValueError("snapshot does not meet the minimum event count")
+    ordered = tuple(
+        sorted(
+            snapshot.accepted_events,
+            key=lambda item: (
+                item.received_at_ms,
+                item.symbol,
+                item.sequence,
+            ),
+        )
+    )
+    symbols = {item.symbol for item in ordered}
+    if len(symbols) != 1:
+        raise ValueError("live acceptance requires one registered symbol")
+    sequences = tuple(item.sequence for item in ordered)
+    expected_sequences = tuple(range(sequences[0], sequences[0] + len(sequences)))
+    if sequences != expected_sequences:
+        raise ValueError("event sequence continuity is incomplete")
     latest = max(
-        snapshot.accepted_events,
+        ordered,
         key=lambda item: (
             item.received_at_ms,
             item.event_time_ms,
@@ -62,6 +84,10 @@ def build_live_operator_review_evidence(
         "realtime_gate_passed": True,
         "receive_age_ms": receive_age_ms,
         "registration_hash": snapshot.registration_hash,
+        "sequence_first": sequences[0],
+        "sequence_gap_count": 0,
+        "sequence_last": sequences[-1],
+        "session_span_ms": ordered[-1].received_at_ms - ordered[0].received_at_ms,
         "snapshot_hash": snapshot.snapshot_hash,
         "source_kind": latest.source_kind,
         "symbol": latest.symbol,
@@ -75,9 +101,11 @@ def render_live_operator_review_evidence_json(
     snapshot: QmtBridgeBatchSnapshot,
     *,
     observed_at_ms: int,
+    minimum_event_count: int = 1,
 ) -> str:
     evidence = build_live_operator_review_evidence(
         snapshot,
         observed_at_ms=observed_at_ms,
+        minimum_event_count=minimum_event_count,
     )
     return canonical_bytes(evidence).decode("ascii")

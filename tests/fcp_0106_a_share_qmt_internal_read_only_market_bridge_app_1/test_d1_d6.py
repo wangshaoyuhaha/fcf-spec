@@ -125,6 +125,10 @@ def test_live_operator_review_evidence_is_value_free_and_non_authorizing():
     assert evidence["realtime_gate_passed"] is True
     assert evidence["receive_age_ms"] == 500
     assert evidence["event_age_ms"] == 1000
+    assert evidence["sequence_first"] == 1
+    assert evidence["sequence_last"] == 1
+    assert evidence["sequence_gap_count"] == 0
+    assert evidence["session_span_ms"] == 0
     assert evidence["operator_review_required"] is True
     assert evidence["read_only"] is True
     assert not any(
@@ -164,13 +168,19 @@ def test_live_operator_review_probe_succeeds_without_market_values(
 ):
     spool = tmp_path / "incoming"
     spool.mkdir()
-    raw = _raw(
-        event_time_ms=NOW_MS - 1000,
-        received_at_ms=NOW_MS - 500,
-    )
-    (
-        spool / "quote-600000-SH-1775000000500-000000000001.json"
-    ).write_bytes(raw)
+    for sequence in range(1, 6):
+        received_at_ms = NOW_MS - 600 + (sequence * 100)
+        event_time_ms = received_at_ms - 500
+        raw = _raw(
+            event_time_ms=event_time_ms,
+            received_at_ms=received_at_ms,
+            sequence=sequence,
+        )
+        name = (
+            "quote-600000-SH-"
+            f"{received_at_ms:013d}-{sequence:012d}.json"
+        )
+        (spool / name).write_bytes(raw)
     monkeypatch.setattr(live_probe.time, "time", lambda: NOW_MS / 1000)
 
     result = live_probe.main(
@@ -184,8 +194,12 @@ def test_live_operator_review_probe_succeeds_without_market_values(
 
     output = json.loads(capsys.readouterr().out)
     assert result == 0
+    assert output["accepted_event_count"] == 5
     assert output["candidate_status"] == "OPERATOR_REVIEW_REQUIRED"
     assert output["realtime_gate_passed"] is True
+    assert output["sequence_first"] == 1
+    assert output["sequence_last"] == 5
+    assert output["sequence_gap_count"] == 0
     assert not {
         "amount_cny",
         "high",
@@ -195,6 +209,31 @@ def test_live_operator_review_probe_succeeds_without_market_values(
         "previous_close",
         "volume_native",
     }.intersection(output)
+
+
+def test_live_operator_review_evidence_rejects_sequence_gap():
+    snapshot = ingest_registered_events(
+        (
+            _raw(
+                sequence=1,
+                event_time_ms=NOW_MS - 1000,
+                received_at_ms=NOW_MS - 500,
+            ),
+            _raw(
+                sequence=3,
+                event_time_ms=NOW_MS - 900,
+                received_at_ms=NOW_MS - 400,
+            ),
+        ),
+        now_ms=NOW_MS,
+    )
+
+    with pytest.raises(ValueError, match="continuity"):
+        build_live_operator_review_evidence(
+            snapshot,
+            observed_at_ms=NOW_MS,
+            minimum_event_count=2,
+        )
 
 
 def test_live_operator_review_probe_times_out_without_event(
@@ -213,6 +252,8 @@ def test_live_operator_review_probe_times_out_without_event(
             "--spool-root",
             str(spool),
             "--timeout-seconds",
+            "1",
+            "--minimum-events",
             "1",
         ]
     )
