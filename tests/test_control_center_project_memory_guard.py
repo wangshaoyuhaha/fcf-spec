@@ -1089,6 +1089,11 @@ from scripts.control_center_project_memory_guard import (
     FCP_0104_FINAL_ROADMAP,
     FCP_0104_FINAL_STATE,
     FCP_0104_VALIDATED_STATE,
+    FCP_0105_APPROVAL_STATE,
+    FCP_0105_DELIVERY_STATE,
+    FCP_0105_FINAL_ROADMAP,
+    FCP_0105_FINAL_STATE,
+    FCP_0105_VALIDATED_STATE,
     blocks_are_exact,
     build_project_memory_guard_report,
     extract_single_block,
@@ -1253,8 +1258,12 @@ def test_current_state_manifest_records_exact_latest_fcp_delivery_state():
         "fcp_0104_delivery": FCP_0104_DELIVERY_STATE,
         "fcp_0104_validated": FCP_0104_VALIDATED_STATE,
         "fcp_0104_final": FCP_0104_FINAL_STATE,
+        "fcp_0105_approval": FCP_0105_APPROVAL_STATE,
+        "fcp_0105_delivery": FCP_0105_DELIVERY_STATE,
+        "fcp_0105_validated": FCP_0105_VALIDATED_STATE,
+        "fcp_0105_final": FCP_0105_FINAL_STATE,
     }.values()
-    assert manifest["roadmap"] == FCP_0104_FINAL_ROADMAP
+    assert manifest["roadmap"] == FCP_0105_FINAL_ROADMAP
 
 
 def test_future_status_vocabulary_is_closed_and_excluded_gaps_are_preserved():

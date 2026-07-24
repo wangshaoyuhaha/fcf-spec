@@ -10,7 +10,7 @@
     "IMPLEMENTED",
     "SUPERSEDED"
   ],
-  "next_proposal_sequence": 105,
+  "next_proposal_sequence": 106,
   "proposals": [
     {
       "adr_refs": [],
@@ -2957,6 +2957,31 @@
       "summary": "Add deterministic rolling OBV, MFI, and Volume Price Trend over exact Operator-registered local bars and publish catalog v2 coverage over the exact FCP-0096 factor registry. Preserve Decimal arithmetic, strict PIT ordering, explicit units, suspension exclusion, 36 visible missing candidates, and mandatory Operator review without scoring, ranking, recommendation, external data, account, order, execution, P48, tag, release, or deployment authority.",
       "supersedes": [],
       "title": "Registered deterministic volume flow indicator runtime"
+    },
+    {
+      "adr_refs": [
+        "FCF-V2-ADR-105"
+      ],
+      "architecture_refs": [
+        "FCF-V2-REGISTERED-PRICE-SHAPE-INDICATOR-RUNTIME"
+      ],
+      "evidence_refs": [
+        "FCF_CURRENT_STATE_FCP_0105_REGISTERED_PRICE_SHAPE_INDICATOR_RUNTIME_APP_1_APPROVED.md",
+        "FCF_CURRENT_STATE_FCP_0105_REGISTERED_PRICE_SHAPE_INDICATOR_RUNTIME_APP_1_DELIVERED.md",
+        "docs/FCF_FCP_0105_REGISTERED_PRICE_SHAPE_INDICATOR_RUNTIME_APP_1_D1_D6.md"
+      ],
+      "gap_refs": [
+        "V2-FR-GAP-008"
+      ],
+      "operator_decision": "APPROVED",
+      "phase_id": "FCF-FCP-0105-REGISTERED-PRICE-SHAPE-INDICATOR-RUNTIME-APP-1",
+      "proposal_id": "FCF-FCP-0105",
+      "source": "operator-authorized-continuous-fcp-delivery",
+      "status": "APPROVED_FOR_PHASE",
+      "submitted_at_utc": "2026-07-24T05:20:00Z",
+      "summary": "Add eight deterministic price-shape indicators over exact Operator-registered local close bars and publish catalog v3 coverage over the exact FCP-0096 factor registry. Preserve Decimal arithmetic, strict PIT ordering, suspension exclusion, explicit zero-dispersion failure, 28 visible missing candidates, and mandatory Operator review without scoring, ranking, recommendation, external data, account, order, execution, P48, tag, release, or deployment authority.",
+      "supersedes": [],
+      "title": "Registered deterministic price shape indicator runtime"
     }
   ],
   "register_id": "FCF-FUTURE-CAPABILITY-INTAKE",

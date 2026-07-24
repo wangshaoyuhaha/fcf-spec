@@ -1934,3 +1934,15 @@ Catalog v2 composes FCP-0103 coverage and registers 17 supported kinds while
 Deterministic Engine remains calculation authority and Operator review
 remains mandatory. No scoring, ranking, recommendation, account, order, or
 execution authority is created.
+## FCF-V2-ADR-105 Registered Price Shape Indicator Runtime
+
+Status: ACCEPTED
+
+FCP-0105 composes exact registered local close bars, the exact FCP-0096
+registry, and FCP-0104 catalog v2 coverage into deterministic Bollinger shape,
+momentum, moving-average, and breakout results plus catalog v3 coverage.
+Decimal arithmetic, prior-window baselines, strict PIT ordering, suspension
+exclusion, and explicit zero-dispersion failure are mandatory. The runtime is
+read-only, registered-artifact-only, and Operator-review-required. It creates
+no scoring, ranking, recommendation, external data, account, order, or
+execution authority.

@@ -19255,3 +19255,27 @@ Deterministic Engine remains calculation authority and Operator review
 remains mandatory. No scoring, ranking, recommendation, account, order, or
 execution authority was created. No tag, release, or deployment was run.
 <!-- FCP 0104 REGISTERED VOLUME FLOW INDICATOR RUNTIME APP 1 FINAL END -->
+
+## 138. Registered Price Shape Indicator Runtime
+
+Architecture ID: `FCF-V2-REGISTERED-PRICE-SHAPE-INDICATOR-RUNTIME`.
+Exact registered local close bars and factor refs produce eight deterministic
+price-shape results plus catalog v3 coverage.
+<!-- FCP 0105 REGISTERED PRICE SHAPE INDICATOR RUNTIME APP 1 APPROVAL START -->
+## FCP 0105 Registered Price Shape Indicator Runtime App 1 Approval
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+The phase may calculate eight deterministic price-shape indicators and publish
+immutable catalog v3 coverage. No scoring, ranking, recommendation, external
+data, account, order, or execution authority is authorized.
+<!-- FCP 0105 REGISTERED PRICE SHAPE INDICATOR RUNTIME APP 1 APPROVAL END -->
+<!-- FCP 0105 REGISTERED PRICE SHAPE INDICATOR RUNTIME APP 1 LOCK START -->
+## FCP 0105 Registered Price Shape Indicator Runtime App 1 Lock
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Artifact SHA-256: `802e8d8a3416727144617aecbfd5b4d1d361bacf815586ab3139eca6c3f344dd`.
+Snapshot hash: `4b58c8342b5068c554be074a24153c3c2745b3f5c1bd17c650b47c76ec4d706f`.
+Output SHA-256: `27efe200d219ebe43a8875c48da3c1698b2effe9fb0f13eb5b31d36a34ceac83`.
+Catalog v3 registers 25 kinds and leaves 28 candidates explicit missing
+coverage. GAP-008 remains BACKLOG. Deterministic Engine remains calculation
+authority and Operator review is mandatory. No scoring, ranking,
+recommendation, account, order, or execution authority is created.
+<!-- FCP 0105 REGISTERED PRICE SHAPE INDICATOR RUNTIME APP 1 LOCK END -->
