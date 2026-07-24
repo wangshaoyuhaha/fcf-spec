@@ -19,6 +19,17 @@ The repository `qmt_bridge.py` source and its governance hash remain source
 authority. In QMT, confirm the exact strategy name, successful compilation,
 and successful read-only subscription registration.
 
+If a plain helper copy named `fcf_qmt_read_only_market_bridge.py` exists in
+the QMT Python directory, treat it only as a convenience copy. Before using
+or pasting it, its SHA-256 must equal the registered bridge source SHA-256:
+
+```text
+b2eac57691f9603e96a76345318c11d4deaf2a71c817f86c88c65e877614e6f9
+```
+
+Do not use a mismatched helper copy. On 2026-07-24 the local helper was
+refreshed from the registered repository source and this hash was observed.
+
 The local `fcf_qmt_bridge_config.json` remains plain ASCII JSON and may be
 compared with the registered repository example. On 2026-07-24 its SHA-256 was
 observed as:
