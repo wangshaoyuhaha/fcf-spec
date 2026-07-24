@@ -62,11 +62,26 @@ def main(argv: list[str] | None = None) -> int:
                 return 1
         else:
             if len(snapshot.accepted_events) >= values.minimum_events:
-                evidence = build_live_operator_review_evidence(
-                    snapshot,
-                    observed_at_ms=observed_at_ms,
-                    minimum_event_count=values.minimum_events,
-                )
+                try:
+                    evidence = build_live_operator_review_evidence(
+                        snapshot,
+                        observed_at_ms=observed_at_ms,
+                        minimum_event_count=values.minimum_events,
+                    )
+                except ValueError as exc:
+                    print(
+                        json.dumps(
+                            {
+                                "error": str(exc),
+                                "ok": False,
+                                "operator_review_required": True,
+                                "status": "FAILED_CLOSED",
+                            },
+                            ensure_ascii=True,
+                            sort_keys=True,
+                        )
+                    )
+                    return 1
                 print(
                     json.dumps(
                         dict(evidence),

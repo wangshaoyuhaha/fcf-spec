@@ -306,6 +306,54 @@ def test_live_operator_review_probe_times_out_without_event(
     }
 
 
+def test_live_operator_review_probe_reports_acceptance_failure_as_json(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+):
+    snapshot = ingest_registered_events(
+        (
+            _raw(
+                sequence=1,
+                event_time_ms=NOW_MS - 1000,
+                received_at_ms=NOW_MS - 500,
+            ),
+            _raw(
+                sequence=3,
+                event_time_ms=NOW_MS - 900,
+                received_at_ms=NOW_MS - 400,
+            ),
+        ),
+        now_ms=NOW_MS,
+    )
+    monkeypatch.setattr(
+        live_probe,
+        "read_registered_spool",
+        lambda *args, **kwargs: snapshot,
+    )
+    monkeypatch.setattr(live_probe.time, "time", lambda: NOW_MS / 1000)
+
+    result = live_probe.main(
+        [
+            "--spool-root",
+            str(tmp_path),
+            "--timeout-seconds",
+            "1",
+            "--minimum-events",
+            "2",
+        ]
+    )
+
+    output = json.loads(capsys.readouterr().out)
+    assert result == 1
+    assert output == {
+        "error": "event sequence continuity is incomplete",
+        "ok": False,
+        "operator_review_required": True,
+        "status": "FAILED_CLOSED",
+    }
+
+
 def test_event_schema_identity_hash_and_symbol_fail_closed():
     payload = build_reference_event_payload()
     payload["unexpected"] = "unsafe"
