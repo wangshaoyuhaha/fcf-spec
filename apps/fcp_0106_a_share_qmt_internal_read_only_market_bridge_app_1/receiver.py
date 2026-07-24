@@ -28,12 +28,20 @@ def _is_reparse_point(path: Path) -> bool:
     return bool(attributes & stat.FILE_ATTRIBUTE_REPARSE_POINT)
 
 
+def _require_exact_registration(
+    registration: QmtInternalBridgeRegistration,
+) -> None:
+    if type(registration) is not QmtInternalBridgeRegistration:
+        raise TypeError("registration must be an exact QMT bridge registration")
+
+
 def parse_registered_event(
     raw: bytes,
     registration: QmtInternalBridgeRegistration = DEFAULT_REGISTRATION,
 ) -> QmtQuoteEvent:
     if type(raw) is not bytes:
         raise TypeError("raw event must be exact bytes")
+    _require_exact_registration(registration)
     if not raw or len(raw) > registration.max_event_bytes:
         raise ValueError("raw event size is outside the registered limit")
     try:
@@ -63,13 +71,14 @@ def ingest_registered_events(
     prior_state: QmtBridgeIngestState = EMPTY_INGEST_STATE,
     registration: QmtInternalBridgeRegistration = DEFAULT_REGISTRATION,
 ) -> QmtBridgeBatchSnapshot:
+    _require_exact_registration(registration)
     if not isinstance(raw_events, tuple) or not raw_events:
         raise ValueError("raw_events must be a non-empty tuple")
     if len(raw_events) > registration.max_batch_files:
         raise ValueError("raw event batch exceeds the registered limit")
     if type(now_ms) is not int or now_ms <= 0:
         raise ValueError("now_ms must be a positive integer")
-    if not isinstance(prior_state, QmtBridgeIngestState):
+    if type(prior_state) is not QmtBridgeIngestState:
         raise TypeError("prior_state must be exact ingest state")
     events = tuple(parse_registered_event(raw, registration) for raw in raw_events)
     ordered = tuple(
@@ -138,6 +147,7 @@ def read_registered_spool(
     prior_state: QmtBridgeIngestState = EMPTY_INGEST_STATE,
     registration: QmtInternalBridgeRegistration = DEFAULT_REGISTRATION,
 ) -> QmtBridgeBatchSnapshot:
+    _require_exact_registration(registration)
     candidate = spool_root.absolute()
     if str(candidate).startswith("\\\\"):
         raise ValueError("spool_root must not be a network path")

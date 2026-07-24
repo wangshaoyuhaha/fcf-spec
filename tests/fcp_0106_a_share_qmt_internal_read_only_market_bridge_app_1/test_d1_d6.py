@@ -387,6 +387,59 @@ def test_event_schema_identity_hash_and_symbol_fail_closed():
         parse_registered_event(_raw(symbol="000001.SZ"))
 
 
+def test_runtime_requires_exact_registration_state_and_snapshot_types(
+    tmp_path: Path,
+):
+    class FakeRegistration:
+        bridge_id = DEFAULT_REGISTRATION.bridge_id
+        schema_version = DEFAULT_REGISTRATION.schema_version
+        source_kind = DEFAULT_REGISTRATION.source_kind
+        allowed_symbols = ("000001.SZ",)
+        max_event_bytes = 999_999
+
+    fake_registration = FakeRegistration()
+    with pytest.raises(TypeError, match="exact QMT bridge registration"):
+        parse_registered_event(
+            _raw(symbol="000001.SZ"),
+            fake_registration,
+        )
+    with pytest.raises(TypeError, match="exact QMT bridge registration"):
+        ingest_registered_events(
+            (build_reference_event_bytes(),),
+            now_ms=NOW_MS,
+            registration=fake_registration,
+        )
+    with pytest.raises(TypeError, match="exact QMT bridge registration"):
+        read_registered_spool(
+            tmp_path,
+            now_ms=NOW_MS,
+            registration=fake_registration,
+        )
+
+    class DerivedState(QmtBridgeIngestState):
+        pass
+
+    derived_state = DerivedState(last_sequences={}, event_hashes=())
+    with pytest.raises(TypeError, match="exact ingest state"):
+        ingest_registered_events(
+            (build_reference_event_bytes(),),
+            now_ms=NOW_MS,
+            prior_state=derived_state,
+        )
+
+    snapshot = build_reference_snapshot()
+
+    class DerivedSnapshot(type(snapshot)):
+        pass
+
+    derived_snapshot = DerivedSnapshot(**snapshot.__dict__)
+    with pytest.raises(TypeError, match="exact QMT bridge snapshot"):
+        build_live_operator_review_evidence(
+            derived_snapshot,
+            observed_at_ms=NOW_MS,
+        )
+
+
 def test_decimal_ohlc_future_and_stale_values_fail_closed():
     with pytest.raises(ValueError, match="canonical"):
         parse_registered_event(_raw(last="NaN"))

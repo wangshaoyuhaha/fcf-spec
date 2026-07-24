@@ -18,7 +18,7 @@ def build_live_operator_review_evidence(
     observed_at_ms: int,
     minimum_event_count: int = 1,
 ) -> Mapping[str, object]:
-    if not isinstance(snapshot, QmtBridgeBatchSnapshot):
+    if type(snapshot) is not QmtBridgeBatchSnapshot:
         raise TypeError("snapshot must be exact QMT bridge snapshot")
     if snapshot.registration_hash != DEFAULT_REGISTRATION.registration_hash:
         raise ValueError("snapshot registration is not approved for live acceptance")
