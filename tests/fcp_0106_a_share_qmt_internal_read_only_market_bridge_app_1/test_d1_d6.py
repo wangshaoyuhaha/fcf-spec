@@ -677,6 +677,14 @@ def test_registration_rejects_authority_expansion_and_unbounded_limits():
         replace(DEFAULT_REGISTRATION, allowed_symbols=["600000.SH"])
     with pytest.raises(ValueError, match="closed contract"):
         replace(DEFAULT_REGISTRATION, allowed_symbols=("600000.SH", 1))
+    for field in (
+        "max_event_age_ms",
+        "max_future_skew_ms",
+        "max_event_bytes",
+        "max_batch_files",
+    ):
+        with pytest.raises(ValueError, match="exact integers"):
+            replace(DEFAULT_REGISTRATION, **{field: "1000"})
 
 
 def test_snapshot_state_rejects_mutable_or_coerced_primitive_containers():

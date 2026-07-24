@@ -90,18 +90,22 @@ class QmtInternalBridgeRegistration:
             )
         ):
             raise ValueError("allowed_symbols is outside the closed contract registry")
+        numeric_limits = (
+            self.max_event_age_ms,
+            self.max_future_skew_ms,
+            self.max_event_bytes,
+            self.max_batch_files,
+        )
+        if any(type(value) is not int for value in numeric_limits):
+            raise ValueError("bridge registration limits must be exact integers")
         exact = (
             self.bridge_id == BRIDGE_ID,
             self.schema_version == SCHEMA_VERSION,
             self.source_kind == SOURCE_KIND,
             self.allowed_symbols == tuple(sorted(set(self.allowed_symbols))),
-            type(self.max_event_age_ms) is int,
             1_000 <= self.max_event_age_ms <= 60_000,
-            type(self.max_future_skew_ms) is int,
             0 <= self.max_future_skew_ms <= 5_000,
-            type(self.max_event_bytes) is int,
             512 <= self.max_event_bytes <= 16_384,
-            type(self.max_batch_files) is int,
             1 <= self.max_batch_files <= 4096,
         )
         if not all(exact):

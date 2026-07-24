@@ -43,7 +43,7 @@ SOURCE_HASHES = {
     "acceptance.py": "27d04cb7220c45515693876813eae2d3c8007ddab8a41dac6c8dfb202e17019c",
     "bridge_policy.py": "30931d19ccc46e08401bcf89f8da099fa0c7457cd21c869faa570c37d34ac4fb",
     "builder.py": "f25d05c507976757fc0955be897993f9343f9afa2cdd7b2ff5493f07e8820033",
-    "contracts.py": "508a941ee607c90d7cea06ec2155da32d138ffb87cc3f45fa3c59d736f62f14b",
+    "contracts.py": "a1d8bd301c5b0af7031467a0d8f6f249cef7413ae93d4e0a84d3fce59b63d35e",
     "qmt_bridge.py": "b2eac57691f9603e96a76345318c11d4deaf2a71c817f86c88c65e877614e6f9",
     "receiver.py": "3746dd07ddc5a1108b4448899af620d82edd324b96c3856df2eb9e3600c08fa8",
 }
