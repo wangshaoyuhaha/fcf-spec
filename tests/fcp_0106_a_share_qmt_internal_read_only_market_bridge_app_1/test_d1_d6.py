@@ -355,6 +355,9 @@ def test_live_operator_review_probe_reports_acceptance_failure_as_json(
 
 
 def test_event_schema_identity_hash_and_symbol_fail_closed():
+    with pytest.raises(ValueError, match="canonical ASCII JSON"):
+        parse_registered_event(build_reference_event_bytes() + b"\n")
+
     payload = build_reference_event_payload()
     payload["unexpected"] = "unsafe"
     with pytest.raises(ValueError, match="closed schema"):

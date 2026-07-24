@@ -13,6 +13,7 @@ from .contracts import (
     QmtBridgeIngestState,
     QmtInternalBridgeRegistration,
     QmtQuoteEvent,
+    canonical_bytes,
     digest,
 )
 
@@ -41,6 +42,8 @@ def parse_registered_event(
         raise ValueError("raw event must be ASCII JSON") from exc
     if not isinstance(payload, dict) or tuple(sorted(payload)) != EVENT_FIELDS:
         raise ValueError("raw event does not match the closed schema")
+    if raw != canonical_bytes(payload):
+        raise ValueError("raw event must use canonical ASCII JSON")
     event = QmtQuoteEvent(**payload)
     if event.bridge_id != registration.bridge_id:
         raise ValueError("bridge_id is not registered")
