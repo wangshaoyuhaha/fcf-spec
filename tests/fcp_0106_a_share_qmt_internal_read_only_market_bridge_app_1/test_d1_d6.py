@@ -487,6 +487,23 @@ def test_spool_reader_rejects_link_root(tmp_path: Path):
         read_registered_spool(link, now_ms=NOW_MS)
 
 
+def test_spool_reader_rejects_link_ancestor(tmp_path: Path):
+    target_parent = tmp_path / "target-parent"
+    target = target_parent / "incoming"
+    target.mkdir(parents=True)
+    (
+        target / "quote-600000-SH-1775000000500-000000000001.json"
+    ).write_bytes(build_reference_event_bytes())
+    parent_link = tmp_path / "parent-link"
+    try:
+        parent_link.symlink_to(target_parent, target_is_directory=True)
+    except OSError as exc:
+        pytest.skip(f"directory symlink creation is unavailable: {exc}")
+
+    with pytest.raises(ValueError, match="regular local directory"):
+        read_registered_spool(parent_link / "incoming", now_ms=NOW_MS)
+
+
 def test_production_bridge_source_uses_only_read_only_qmt_calls():
     path = (
         Path(__file__).resolve().parents[2]

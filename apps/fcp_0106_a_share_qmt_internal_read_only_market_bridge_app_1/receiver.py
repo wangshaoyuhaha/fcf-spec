@@ -138,9 +138,15 @@ def read_registered_spool(
     prior_state: QmtBridgeIngestState = EMPTY_INGEST_STATE,
     registration: QmtInternalBridgeRegistration = DEFAULT_REGISTRATION,
 ) -> QmtBridgeBatchSnapshot:
-    if spool_root.is_symlink() or _is_reparse_point(spool_root):
-        raise ValueError("spool_root must be a regular local directory")
-    root = spool_root.resolve(strict=True)
+    candidate = spool_root.absolute()
+    if str(candidate).startswith("\\\\"):
+        raise ValueError("spool_root must not be a network path")
+    for component in (candidate, *candidate.parents):
+        if str(component) == component.anchor:
+            continue
+        if component.is_symlink() or _is_reparse_point(component):
+            raise ValueError("spool_root must be a regular local directory")
+    root = candidate.resolve(strict=True)
     if not root.is_dir() or root.is_symlink() or _is_reparse_point(root):
         raise ValueError("spool_root must be a regular local directory")
     if str(root).startswith("\\\\"):
