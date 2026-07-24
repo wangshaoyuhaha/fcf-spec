@@ -8,22 +8,16 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from apps.fcp_0103_registered_technical_indicator_catalog_runtime_app_1 import (  # noqa: E402
-    ACCEPTED_CANDIDATE_KINDS,
-    FOUNDATION_KIND_SOURCES,
+from apps.fcp_0104_registered_volume_flow_indicator_runtime_app_1 import (  # noqa: E402
+    INDICATOR_KINDS,
     build_reference_artifact_bytes,
-    build_reference_catalog_snapshot,
-    render_catalog_snapshot_json,
+    build_reference_volume_flow_snapshot,
+    render_volume_flow_snapshot_json,
 )
 
 
-PHASE_ID = (
-    "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1"
-)
-FINAL = (
-    "FCF_CURRENT_STATE_FCP_0103_REGISTERED_TECHNICAL_INDICATOR_"
-    "CATALOG_RUNTIME_APP_1_FINAL.md"
-)
+PHASE_ID = "FCF-FCP-0104-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME-APP-1"
+FINAL = "FCF_CURRENT_STATE_FCP_0104_REGISTERED_VOLUME_FLOW_INDICATOR_RUNTIME_APP_1_FINAL.md"
 AUTHORITIES = (
     Path("docs/FCF_PROJECT_CONTROL_CENTER.md"),
     Path("docs/FCF_V2_PRODUCT_AND_AI_RUNTIME_ARCHITECTURE.md"),
@@ -32,17 +26,17 @@ AUTHORITIES = (
     Path("FCF_NEW_WINDOW_CHAT_PROMPT.md"),
 )
 SOURCE_HASHES = {
-    "builder.py": "7345e63a463bb967f9ba2b0fa49f2558771503f1b903d2412bec78d7e76f896c",
-    "contracts.py": "d09608ad1c150ef0fdef81e22a10cb5811bf6387d0bb0050f3f0572cecd79cd1",
-    "runtime.py": "6d6281ee204f2fd557df48a5502ffaec5d0e2813bdcef7282de911b5115a88f9",
+    "builder.py": "f1b4558e686c6ec7bc7bdf0c53a804cd9be99fdda0bb036e1a666faf3a34d01d",
+    "contracts.py": "07e21c6b93c03b8078579ab6f79026eafbfb062c2d2c87ab642630f5c2518d2b",
+    "runtime.py": "147dcf7ca69bfed482e81f1160d7078f69a42ec1c0720777700d6dd7f5b3db92",
 }
-ARTIFACT_SHA = "cd0a89fe335adc3253f67b0d5d70531b852730b007a833505481a4346f4c975e"
-SNAPSHOT_SHA = "0b4bd7ea4906af1ab32bf0a9c606d976796caf27ca6c689efb4e406c6fa79d39"
-OUTPUT_SHA = "e6e925114ff02aef52cca86ff25cf99fca24e5660be85ef52afc34f16915c7cb"
+ARTIFACT_SHA = "77a7eaa1bcceea4ad6e2522bb592831bc82598fc861f520cce6259e7bad9aa24"
+SNAPSHOT_SHA = "98f89c359415b97e38629a4d774a36d5b004eb9d2b3d168648fee5136b8959f4"
+OUTPUT_SHA = "99b8bcf75df1f7073704d673ce64643c94859f78effb74f059753cea06da655f"
 
 
 def _block(text: str, kind: str) -> str:
-    prefix = "FCP 0103 REGISTERED TECHNICAL INDICATOR CATALOG RUNTIME APP 1"
+    prefix = "FCP 0104 REGISTERED VOLUME FLOW INDICATOR RUNTIME APP 1"
     start = f"<!-- {prefix} {kind} START -->"
     end = f"<!-- {prefix} {kind} END -->"
     if text.count(start) != 1 or text.count(end) != 1:
@@ -50,7 +44,7 @@ def _block(text: str, kind: str) -> str:
     return text[text.index(start) : text.index(end) + len(end)]
 
 
-def build_fcp_0103_guard_report(root: Path = ROOT) -> dict[str, object]:
+def build_fcp_0104_guard_report(root: Path = ROOT) -> dict[str, object]:
     try:
         authorities = tuple(
             (root / path).read_text(encoding="ascii") for path in AUTHORITIES
@@ -64,8 +58,7 @@ def build_fcp_0103_guard_report(root: Path = ROOT) -> dict[str, object]:
             (root / "FCF_CURRENT_STATE_MANIFEST.json").read_text(encoding="ascii")
         )
         source = (
-            root
-            / "apps/fcp_0103_registered_technical_indicator_catalog_runtime_app_1"
+            root / "apps/fcp_0104_registered_volume_flow_indicator_runtime_app_1"
         )
         source_hashes = {
             name: hashlib.sha256(
@@ -77,12 +70,10 @@ def build_fcp_0103_guard_report(root: Path = ROOT) -> dict[str, object]:
             for name in SOURCE_HASHES
         }
         artifact = build_reference_artifact_bytes()
-        snapshot = build_reference_catalog_snapshot()
-        output = render_catalog_snapshot_json(snapshot).encode("ascii")
+        snapshot = build_reference_volume_flow_snapshot()
+        output = render_volume_flow_snapshot_json(snapshot).encode("ascii")
         final_path = root / FINAL
-        final = (
-            final_path.read_text(encoding="ascii") if final_path.is_file() else ""
-        )
+        final = final_path.read_text(encoding="ascii") if final_path.is_file() else ""
         governance = {
             "adr": (root / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_ADR_REGISTER.md").read_text(encoding="ascii"),
             "gap": (root / "docs/FCF_V2_FACTOR_REALTIME_COGNITIVE_GAP_BACKLOG.md").read_text(encoding="ascii"),
@@ -103,7 +94,7 @@ def build_fcp_0103_guard_report(root: Path = ROOT) -> dict[str, object]:
         (
             item
             for item in register.get("proposals", [])
-            if item.get("proposal_id") == "FCF-FCP-0103"
+            if item.get("proposal_id") == "FCF-FCP-0104"
         ),
         {},
     )
@@ -119,58 +110,50 @@ def build_fcp_0103_guard_report(root: Path = ROOT) -> dict[str, object]:
         "final_exact_when_complete": not complete
         or len({_block(text, "FINAL") for text in authorities}) == 1
         and all(_block(text, "FINAL") for text in authorities),
-        "adr_registered": "FCF-V2-ADR-103" in governance.get("adr", ""),
-        "gap_registered": (
-            "## FCP-0103 Registered Technical Indicator Catalog Runtime Boundary"
-            in governance.get("gap", "")
-        ),
-        "protocol_registered": "Proposal `FCF-FCP-0103`"
+        "adr_registered": "FCF-V2-ADR-104" in governance.get("adr", ""),
+        "gap_registered": "## FCP-0104 Registered Volume Flow Indicator Runtime Boundary"
+        in governance.get("gap", ""),
+        "protocol_registered": "Proposal `FCF-FCP-0104`"
         in governance.get("protocol", ""),
-        "memory_registered": "FCP-0103 composes the completed V2-R12"
+        "memory_registered": "FCP-0104 adds deterministic rolling OBV"
         in governance.get("memory", ""),
         "proposal_state_exact": proposal.get("operator_decision")
         == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED")
         and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID)
-        and register.get("next_proposal_sequence") in (104, 105),
-        "manifest_state_exact": (
-            truth.get("latest_completed_governance_delivery")
-            in (
-                PHASE_ID,
-                "FCF-FCP-0104-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME-APP-1",
-            )
-            and truth.get("current_governance_phase_id")
-            in (
-                "NONE",
-                "FCF-FCP-0104-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME-APP-1",
-            )
+        and register.get("next_proposal_sequence") == 105,
+        "manifest_state_exact": truth.get("latest_completed_governance_delivery")
+        == (
+            PHASE_ID
             if complete
-            else truth.get("latest_completed_governance_delivery")
-            == "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1"
-            and truth.get("current_governance_phase_id") == PHASE_ID
-        ),
+            else "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1"
+        )
+        and truth.get("current_governance_phase_id")
+        == ("NONE" if complete else PHASE_ID),
         "source_hashes_exact": source_hashes == SOURCE_HASHES,
         "reference_artifact_exact": hashlib.sha256(artifact).hexdigest()
         == ARTIFACT_SHA,
         "reference_snapshot_exact": snapshot is not None
         and snapshot.snapshot_hash == SNAPSHOT_SHA,
         "reference_output_exact": hashlib.sha256(output).hexdigest() == OUTPUT_SHA,
-        "coverage_exact": snapshot is not None
-        and snapshot.state == "CATALOG_PARTIAL"
-        and dict(snapshot.supported_kind_sources)
-        == dict(sorted(FOUNDATION_KIND_SOURCES.items()))
-        and snapshot.missing_candidate_kinds
-        == tuple(
-            sorted(set(ACCEPTED_CANDIDATE_KINDS) - set(FOUNDATION_KIND_SOURCES))
-        ),
+        "volume_flow_pack_exact": snapshot is not None
+        and set(snapshot.result_values)
+        == {
+            "registered-mfi-3",
+            "registered-obv-3",
+            "registered-volume-price-trend-3",
+        }
+        and len(snapshot.supported_kind_sources) == 17
+        and len(snapshot.missing_candidate_kinds) == 36
+        and set(INDICATOR_KINDS).isdisjoint(snapshot.missing_candidate_kinds),
         "reference_non_authorizing": snapshot is not None
         and snapshot.operator_review_required
         and snapshot.read_only
+        and snapshot.deterministic_engine_authority
         and not any(
             (
-                snapshot.calculation_activation_allowed,
-                snapshot.scoring_allowed,
-                snapshot.ranking_allowed,
-                snapshot.recommendation_allowed,
+                snapshot.scoring_authority,
+                snapshot.ranking_authority,
+                snapshot.recommendation_authority,
                 snapshot.account_authority,
                 snapshot.execution_authority,
             )
@@ -179,7 +162,7 @@ def build_fcp_0103_guard_report(root: Path = ROOT) -> dict[str, object]:
             "COMPLETED_MERGED_VALIDATED" in final if complete else True
         ),
         "run_all_wired": (
-            "control_center_fcp_0103_registered_technical_indicator_catalog_runtime_guard.py"
+            "control_center_fcp_0104_registered_volume_flow_indicator_runtime_guard.py"
             in governance.get("run_all", "")
         ),
     }
@@ -187,7 +170,7 @@ def build_fcp_0103_guard_report(root: Path = ROOT) -> dict[str, object]:
 
 
 def main() -> int:
-    report = build_fcp_0103_guard_report()
+    report = build_fcp_0104_guard_report()
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if report["ok"] else 1
 
