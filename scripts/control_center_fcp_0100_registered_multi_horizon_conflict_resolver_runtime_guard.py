@@ -157,13 +157,14 @@ def build_fcp_0100_guard_report(root: Path = ROOT) -> dict[str, object]:
         "proposal_state_exact": proposal.get("operator_decision")
         == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED")
         and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID)
-        and register.get("next_proposal_sequence") in (101, 102, 103, 104),
+        and register.get("next_proposal_sequence") in (101, 102, 103, 104, 105),
         "manifest_state_exact": truth.get("latest_completed_governance_delivery")
         in (
             PHASE_ID,
             "FCF-FCP-0101-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME-APP-1",
             "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
             "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1",
+            "FCF-FCP-0104-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME-APP-1",
         )
         and truth.get("current_governance_phase_id")
         in (
@@ -171,6 +172,7 @@ def build_fcp_0100_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0101-REGISTERED-TECHNICAL-INDICATOR-CORE-RUNTIME-APP-1",
             "FCF-FCP-0102-REGISTERED-FACTOR-NORMALIZATION-MISSING-STATE-RUNTIME-APP-1",
             "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1",
+            "FCF-FCP-0104-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME-APP-1",
         ),
         "state_evidence_registered": (
             "APPROVED_GOVERNANCE_ONLY_NOT_STARTED" in texts.get("approved", "")

@@ -503,3 +503,13 @@ GAP-008 remains BACKLOG pending deterministic implementations for the
 complete accepted catalog, validation evidence, and browser acceptance.
 Unsupported candidates must remain explicit and cannot be scored, ranked,
 recommended, or silently promoted.
+## FCP-0104 Registered Volume Flow Indicator Runtime Boundary
+
+FCP-0104 implements deterministic rolling OBV, MFI, and Volume Price Trend
+and advances catalog coverage from 14 to 17 supported kinds. Thirty-six
+accepted candidates remain explicit missing coverage.
+
+GAP-008 remains BACKLOG pending the remaining deterministic indicator packs,
+validation evidence, and browser acceptance. This phase does not authorize
+scoring, ranking, recommendation, external data, account, order, or
+execution.

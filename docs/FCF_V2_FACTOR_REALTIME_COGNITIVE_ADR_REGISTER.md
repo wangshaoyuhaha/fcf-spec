@@ -1920,3 +1920,17 @@ The runtime must display both supported and accepted-but-missing kinds.
 GAP-008 therefore remains BACKLOG. Operator review remains mandatory and no
 formula, calculation activation, scoring, ranking, recommendation, account,
 order, or execution authority is created.
+## FCF-V2-ADR-104 Registered Volume Flow Indicator Runtime
+
+Status: ACCEPTED
+
+FCP-0104 adds deterministic rolling OBV, MFI, and Volume Price Trend over
+exact registered local bars. Decimal arithmetic, strict point-in-time order,
+explicit SHARES and CNY units, suspension exclusion, exact factor registry
+identity, and half-even rendering are mandatory.
+
+Catalog v2 composes FCP-0103 coverage and registers 17 supported kinds while
+36 candidates remain explicit missing coverage. GAP-008 remains BACKLOG.
+Deterministic Engine remains calculation authority and Operator review
+remains mandatory. No scoring, ranking, recommendation, account, order, or
+execution authority is created.

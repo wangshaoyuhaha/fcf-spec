@@ -918,6 +918,16 @@ The phase cannot add or alter an indicator formula, activate calculation,
 score, rank, recommend, close GAP-008, mutate P1-P47, create P48, invoke a
 provider or network, use credentials, or authorize account, balance,
 position, wallet, order, execution, tag, release, or deployment.
+
+## FCP-0104 Registered Volume Flow Indicator Runtime Change Rule
+
+Proposal `FCF-FCP-0104` may add exact registered local-bar contracts,
+deterministic rolling OBV, MFI, and Volume Price Trend calculations, catalog
+v2 coverage, canonical rendering, tests, guard, and closeout evidence.
+
+The phase cannot close GAP-008, score, rank, recommend, mutate P1-P47, create
+P48, invoke a provider or network, use credentials, or authorize account,
+balance, position, wallet, order, execution, tag, release, or deployment.
 ## FCP-0088 QMT Dual Export And Offline SDK Compatibility Change Rule
 
 Proposal `FCF-FCP-0088` may add immutable path-free compatibility contracts, a

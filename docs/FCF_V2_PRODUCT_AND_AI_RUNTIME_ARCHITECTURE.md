@@ -19216,3 +19216,27 @@ BACKLOG. Operator review remains mandatory. No formula, calculation
 activation, scoring, ranking, recommendation, account, order, or execution
 authority was created. No tag, release, or deployment was run.
 <!-- FCP 0103 REGISTERED TECHNICAL INDICATOR CATALOG RUNTIME APP 1 FINAL END -->
+
+## 137. Registered Volume Flow Indicator Runtime
+
+Architecture ID: `FCF-V2-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME`.
+Exact registered local bars and factor refs produce rolling OBV, MFI, and
+Volume Price Trend plus catalog v2 coverage.
+<!-- FCP 0104 REGISTERED VOLUME FLOW INDICATOR RUNTIME APP 1 APPROVAL START -->
+## FCP 0104 Registered Volume Flow Indicator Runtime App 1 Approval
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+The phase may calculate deterministic OBV, MFI, and Volume Price Trend and
+publish immutable catalog v2 coverage. No scoring, ranking, recommendation,
+external data, account, order, or execution authority is authorized.
+<!-- FCP 0104 REGISTERED VOLUME FLOW INDICATOR RUNTIME APP 1 APPROVAL END -->
+<!-- FCP 0104 REGISTERED VOLUME FLOW INDICATOR RUNTIME APP 1 LOCK START -->
+## FCP 0104 Registered Volume Flow Indicator Runtime App 1 Lock
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Artifact SHA-256: `77a7eaa1bcceea4ad6e2522bb592831bc82598fc861f520cce6259e7bad9aa24`.
+Snapshot hash: `98f89c359415b97e38629a4d774a36d5b004eb9d2b3d168648fee5136b8959f4`.
+Output SHA-256: `99b8bcf75df1f7073704d673ce64643c94859f78effb74f059753cea06da655f`.
+Catalog v2 registers 17 kinds and leaves 36 candidates explicit missing
+coverage. GAP-008 remains BACKLOG. Deterministic Engine remains calculation
+authority and Operator review is mandatory. No scoring, ranking,
+recommendation, account, order, or execution authority is created.
+<!-- FCP 0104 REGISTERED VOLUME FLOW INDICATOR RUNTIME APP 1 LOCK END -->

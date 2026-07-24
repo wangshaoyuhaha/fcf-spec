@@ -469,3 +469,10 @@ implemented kinds are registered and 39 accepted candidates remain explicit
 missing coverage. GAP-008 remains BACKLOG. Operator review remains mandatory;
 formula creation, calculation activation, scoring, ranking, recommendation,
 account, order, and execution remain forbidden.
+FCP-0104 adds deterministic rolling OBV, MFI, and Volume Price Trend over
+exact registered local bars and publishes catalog v2 coverage. Decimal
+arithmetic, strict PIT order, explicit units, suspension exclusion, exact
+factor registry identity, and Operator review are mandatory. Seventeen kinds
+are supported and 36 candidates remain explicit missing coverage. GAP-008
+remains BACKLOG; scoring, ranking, recommendation, account, order, and
+execution remain forbidden.
