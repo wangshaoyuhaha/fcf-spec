@@ -225,13 +225,12 @@ class QmtBridgeIngestState:
             raise ValueError("last_sequences is invalid")
         if tuple(sequences) != tuple(sorted(sequences)):
             raise ValueError("last_sequences must be sorted")
-        if (
-            len(set(self.event_hashes)) != len(self.event_hashes)
-            or any(
-                not isinstance(item, str) or not SHA256.fullmatch(item)
-                for item in self.event_hashes
-            )
+        if any(
+            not isinstance(item, str) or not SHA256.fullmatch(item)
+            for item in self.event_hashes
         ):
+            raise ValueError("event_hashes must be unique SHA-256 values")
+        if len(set(self.event_hashes)) != len(self.event_hashes):
             raise ValueError("event_hashes must be unique SHA-256 values")
         object.__setattr__(self, "last_sequences", MappingProxyType(sequences))
 

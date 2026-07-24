@@ -689,6 +689,8 @@ def test_snapshot_state_rejects_mutable_or_coerced_primitive_containers():
         QmtBridgeIngestState(last_sequences={}, event_hashes=[])
     with pytest.raises(ValueError, match="SHA-256"):
         QmtBridgeIngestState(last_sequences={}, event_hashes=(1,))
+    with pytest.raises(ValueError, match="SHA-256"):
+        QmtBridgeIngestState(last_sequences={}, event_hashes=([],))
     with pytest.raises(ValueError, match="last_sequences is invalid"):
         QmtBridgeIngestState(
             last_sequences={"600000.SH": 1, 2: 1},
