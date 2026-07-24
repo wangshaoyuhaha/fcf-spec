@@ -28,3 +28,6 @@ remain pending; no data authority was promoted. A bounded local probe now
 prepares only value-free, non-authorizing evidence after both clocks pass.
 The exact live-session sequence and exit meanings are fixed in
 `docs/FCF_FCP_0106_QMT_LIVE_OPERATOR_REVIEW_RUNBOOK.md`.
+The saved QMT strategy file was also observed to use a terminal-managed opaque
+representation, while the plain local config matched the registered repository
+hash exactly. The repository source remains source authority.

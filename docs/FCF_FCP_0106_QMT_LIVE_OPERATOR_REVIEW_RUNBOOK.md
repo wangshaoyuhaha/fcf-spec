@@ -10,6 +10,23 @@
 5. Confirm the repository is on the registered FCP-0106 branch with a clean
    worktree.
 
+## Terminal-Managed Strategy Artifact
+
+Ordinary QMT stores the saved strategy file in a terminal-managed opaque
+single-line representation. Its filesystem bytes are not the registered
+source and must not be compared with or overwritten by the repository source.
+The repository `qmt_bridge.py` source and its governance hash remain source
+authority. In QMT, confirm the exact strategy name, successful compilation,
+and successful read-only subscription registration.
+
+The local `fcf_qmt_bridge_config.json` remains plain ASCII JSON and may be
+compared with the registered repository example. On 2026-07-24 its SHA-256 was
+observed as:
+
+```text
+eb762b4b883cf1745047a7ff6666a1676c8ff746c4563a5d41807f82eeed38a6
+```
+
 ## Start The Local Probe
 
 Run this command from the repository root:
