@@ -102,7 +102,9 @@ def build_fcp_0105_guard_report(root: Path = ROOT) -> dict[str, object]:
     truth = manifest.get("current_truth", {})
     source_dir = root / "apps/fcp_0105_registered_price_shape_indicator_runtime_app_1"
     source_hashes = {
-        name: hashlib.sha256((source_dir / name).read_bytes()).hexdigest()
+        name: hashlib.sha256(
+            (source_dir / name).read_text(encoding="ascii").encode("ascii")
+        ).hexdigest()
         for name in SOURCE_HASHES
     }
     artifact = build_reference_artifact_bytes()

@@ -32,3 +32,12 @@ supported kinds and expose 28 accepted candidates as missing.
 Deterministic Engine remains calculation authority and Operator review
 remains mandatory. Scoring, ranking, recommendation, external data, account,
 order, execution, P48, tag, release, and deployment remain forbidden.
+
+## Validation Closeout
+
+Delivery commit: `4c4ee3ffa22355260970038668a9730b85e0ab9c`.
+
+Merge commit: `9d127667683828041078a363162c1cd1130a2d4a`.
+
+Validation completed with 11 isolated tests, 68 affected-chain tests, 1929
+all-FCP tests, 7266 full-pytest tests, and `run_all_checks.py` passing.
