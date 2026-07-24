@@ -1946,3 +1946,19 @@ exclusion, and explicit zero-dispersion failure are mandatory. The runtime is
 read-only, registered-artifact-only, and Operator-review-required. It creates
 no scoring, ranking, recommendation, external data, account, order, or
 execution authority.
+
+## FCF-V2-ADR-106 Ordinary QMT Internal Read-Only Market Bridge
+
+Status: ACCEPTED
+
+FCP-0106 uses the ordinary Guojin QMT embedded strategy context as a narrow
+read-only market quote producer because the external local RPC surface is not
+available and MiniQMT is discontinued. The embedded script may call only
+`ContextInfo.set_universe` and `ContextInfo.subscribe_quote` for registered
+symbols and must write bounded atomic ASCII JSON events to a local spool.
+
+The FCF receiver verifies exact schema, hashes, symbols, ordering, freshness,
+deduplication, price coherence, path safety, and resource bounds. Native QMT
+volume remains uncalibrated until observed evidence is reviewed. The bridge
+does not use credentials, accounts, balances, positions, orders, execution,
+network libraries, or data-promotion authority. Operator review is mandatory.

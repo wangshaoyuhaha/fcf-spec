@@ -483,3 +483,10 @@ suspension exclusion, and explicit zero-dispersion failure. Twenty-five kinds
 are registered and 28 accepted candidates remain explicit missing coverage.
 GAP-008 remains BACKLOG. Operator review remains mandatory and no score, rank,
 recommendation, account, order, or execution authority is created.
+FCP-0106 adds one ordinary Guojin QMT internal read-only quote bridge and one
+registered local spool receiver. The embedded producer is limited to
+registered symbols, `set_universe`, and `subscribe_quote`; the receiver
+enforces exact schema, hashes, ordering, freshness, deduplication, path
+safety, and resource bounds. Native QMT volume remains uncalibrated until
+observed evidence is reviewed. No credential, account, balance, position,
+order, execution, or data-promotion authority is created.

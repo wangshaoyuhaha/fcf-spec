@@ -59,11 +59,15 @@ def test_registered_proposals_are_durable_and_non_authorizing():
     path = ROOT / "FCF_FUTURE_CAPABILITY_INTAKE_REGISTER.json"
     data = json.loads(path.read_text(encoding="ascii"))
 
-    assert data["next_proposal_sequence"] == 106
+    assert data["next_proposal_sequence"] == 107
     assert {
         item["proposal_id"]: item["status"] for item in data["proposals"]
     } == REQUIRED_SEEDED_PROPOSALS
-    assert all(item["phase_id"] == "NONE" for item in data["proposals"])
+    assert all(
+        item["phase_id"] == "NONE"
+        for item in data["proposals"]
+        if item["proposal_id"] != "FCF-FCP-0106"
+    )
     decisions = {
         item["proposal_id"]: item["operator_decision"]
         for item in data["proposals"]
@@ -174,10 +178,17 @@ def test_registered_proposals_are_durable_and_non_authorizing():
     assert decisions["FCF-FCP-0103"] == "ACCEPTED_ARCHITECTURE"
     assert decisions["FCF-FCP-0104"] == "ACCEPTED_ARCHITECTURE"
     assert decisions["FCF-FCP-0105"] == "ACCEPTED_ARCHITECTURE"
+    assert decisions["FCF-FCP-0106"] == "APPROVED"
     fcp_0105 = next(
         item for item in data["proposals"] if item["proposal_id"] == "FCF-FCP-0105"
     )
     assert fcp_0105["phase_id"] == "NONE"
+    fcp_0106 = next(
+        item for item in data["proposals"] if item["proposal_id"] == "FCF-FCP-0106"
+    )
+    assert fcp_0106["phase_id"] == (
+        "FCF-FCP-0106-A-SHARE-QMT-INTERNAL-READ-ONLY-MARKET-BRIDGE-APP-1"
+    )
     assert all(validate_intake_register(data).values())
 
 
@@ -188,11 +199,11 @@ def test_proposed_item_does_not_require_or_imply_phase_approval():
         )
     )
     proposal = _proposal(
-        proposal_id="FCF-FCP-0106",
+        proposal_id="FCF-FCP-0107",
         submitted_at_utc="2026-07-23T06:01:00Z",
     )
     register["proposals"].append(proposal)
-    register["next_proposal_sequence"] = 107
+    register["next_proposal_sequence"] = 108
     checks = validate_intake_register(register)
 
     assert all(checks.values())

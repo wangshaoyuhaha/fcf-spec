@@ -19295,3 +19295,24 @@ review remains mandatory. No scoring, ranking, recommendation, account,
 order, or execution authority was created. No tag, release, or deployment
 was run.
 <!-- FCP 0105 REGISTERED PRICE SHAPE INDICATOR RUNTIME APP 1 FINAL END -->
+
+<!-- FCP 0106 A SHARE QMT INTERNAL READ ONLY MARKET BRIDGE APP 1 APPROVAL START -->
+## FCP 0106 A Share QMT Internal Read Only Market Bridge App 1 Approval
+Status: APPROVED_GOVERNANCE_ONLY_NOT_STARTED
+The phase may add one ordinary QMT internal read-only quote bridge and one
+registered local spool receiver. Only registered symbols and market quote
+fields are allowed. No credential, account, balance, position, order, or
+execution authority is authorized.
+<!-- FCP 0106 A SHARE QMT INTERNAL READ ONLY MARKET BRIDGE APP 1 APPROVAL END -->
+<!-- FCP 0106 A SHARE QMT INTERNAL READ ONLY MARKET BRIDGE APP 1 LOCK START -->
+## FCP 0106 A Share QMT Internal Read Only Market Bridge App 1 Lock
+Status: GOVERNANCE_DELIVERY_VALIDATED_PENDING_MERGE
+Bridge source SHA-256: `9b0881c83696544acdcad658ac9b2eecffecd0dc1c0e6c8e98bdbd8541c7ad10`.
+Registration hash: `09483f25573c6cee6ece40aa4ce1af7daf2d47278cf403f7e66aaa64f71867b5`.
+Snapshot hash: `be09c874260b69192f158390ccad2b0cb4dad27746312e851c4078558aae3a92`.
+The producer may call only `set_universe` and `subscribe_quote`; the receiver
+fails closed on invalid schema, hash, symbol, time, ordering, duplicate, path,
+or resource bounds. Native volume remains uncalibrated. Operator review is
+mandatory and no data-promotion, account, order, or execution authority is
+created.
+<!-- FCP 0106 A SHARE QMT INTERNAL READ ONLY MARKET BRIDGE APP 1 LOCK END -->

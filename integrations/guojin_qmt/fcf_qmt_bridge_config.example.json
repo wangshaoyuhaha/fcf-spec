@@ -1,0 +1,8 @@
+{
+  "bridge_root": "C:\\FCF_QMT_BRIDGE",
+  "max_events_per_second": 5,
+  "period": "tick",
+  "symbols": [
+    "600000.SH"
+  ]
+}

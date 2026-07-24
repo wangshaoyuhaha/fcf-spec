@@ -158,7 +158,7 @@ def build_fcp_0100_guard_report(root: Path = ROOT) -> dict[str, object]:
         == ("ACCEPTED_ARCHITECTURE" if complete else "APPROVED")
         and proposal.get("phase_id") == ("NONE" if complete else PHASE_ID)
         and register.get("next_proposal_sequence")
-        in (101, 102, 103, 104, 105, 106),
+        in (101, 102, 103, 104, 105, 106, 107),
         "manifest_state_exact": truth.get("latest_completed_governance_delivery")
         in (
             PHASE_ID,
@@ -167,6 +167,7 @@ def build_fcp_0100_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1",
             "FCF-FCP-0104-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME-APP-1",
             "FCF-FCP-0105-REGISTERED-PRICE-SHAPE-INDICATOR-RUNTIME-APP-1",
+            "FCF-FCP-0106-A-SHARE-QMT-INTERNAL-READ-ONLY-MARKET-BRIDGE-APP-1",
         )
         and truth.get("current_governance_phase_id")
         in (
@@ -176,6 +177,7 @@ def build_fcp_0100_guard_report(root: Path = ROOT) -> dict[str, object]:
             "FCF-FCP-0103-REGISTERED-TECHNICAL-INDICATOR-CATALOG-RUNTIME-APP-1",
             "FCF-FCP-0104-REGISTERED-VOLUME-FLOW-INDICATOR-RUNTIME-APP-1",
             "FCF-FCP-0105-REGISTERED-PRICE-SHAPE-INDICATOR-RUNTIME-APP-1",
+            "FCF-FCP-0106-A-SHARE-QMT-INTERNAL-READ-ONLY-MARKET-BRIDGE-APP-1",
         ),
         "state_evidence_registered": (
             "APPROVED_GOVERNANCE_ONLY_NOT_STARTED" in texts.get("approved", "")

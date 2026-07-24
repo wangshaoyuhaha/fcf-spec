@@ -949,3 +949,16 @@ the exact FCP-0096 registry, strict PIT ordering, Decimal arithmetic, EXCLUDE
 suspension policy, and explicit zero-dispersion failure. Unsupported catalog
 candidates remain visible. Scoring, ranking, recommendation, external data,
 account, order, execution, P48, tag, release, and deployment are forbidden.
+
+## FCP-0106 Ordinary QMT Internal Read-Only Market Bridge Rule
+
+Proposal `FCF-FCP-0106` may add one embedded ordinary QMT quote producer, one
+local configuration example, one registered local spool receiver, exact
+schema and integrity contracts, static source-policy inspection, tests,
+guard, and closeout evidence.
+
+The producer may call only `ContextInfo.set_universe` and
+`ContextInfo.subscribe_quote`. It cannot import network or external SDK
+modules, use credentials, read account, balance, or position state, place or
+cancel orders, execute trades, promote data, mutate P1-P47, create P48, tag,
+release, or deploy.

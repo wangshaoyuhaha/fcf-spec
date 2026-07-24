@@ -514,6 +514,19 @@ validation evidence, and browser acceptance. This phase does not authorize
 scoring, ranking, recommendation, external data, account, order, or
 execution.
 
+## FCP-0106 A-Share QMT Internal Read-Only Market Bridge Boundary
+
+FCP-0106 adds one ordinary Guojin QMT embedded quote bridge and one
+registered local spool receiver. It permits only registered quote symbols,
+bounded local atomic ASCII JSON events, exact integrity checks, and
+non-authorizing candidate realtime observation.
+
+Observed field mapping, native volume-unit calibration, latency evidence,
+session continuity, provider rights, and promotion readiness remain open
+evidence obligations. This phase does not close any trusted-data or realtime
+product gap and does not authorize credentials, accounts, balances,
+positions, orders, or execution.
+
 ## FCP-0105 Registered Price Shape Indicator Runtime Boundary
 
 FCP-0105 implements deterministic Bollinger Band Width, Bollinger Breakout,

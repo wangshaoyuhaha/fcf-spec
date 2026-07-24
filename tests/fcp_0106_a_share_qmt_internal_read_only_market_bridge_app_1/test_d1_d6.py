@@ -1,0 +1,302 @@
+from __future__ import annotations
+
+from dataclasses import replace
+import json
+from pathlib import Path
+
+import pytest
+
+from apps.fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1 import (
+    DEFAULT_REGISTRATION,
+    EMPTY_INGEST_STATE,
+    QmtBridgeIngestState,
+    build_reference_event_bytes,
+    build_reference_event_payload,
+    build_reference_snapshot,
+    ingest_registered_events,
+    inspect_bridge_file,
+    inspect_bridge_source,
+    parse_registered_event,
+    read_registered_spool,
+    render_reference_snapshot_json,
+)
+from apps.fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1 import (
+    qmt_bridge,
+)
+from apps.fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1.contracts import (
+    canonical_bytes,
+    digest,
+)
+
+
+NOW_MS = 1_775_000_001_000
+
+
+def _raw(**updates: object) -> bytes:
+    payload = build_reference_event_payload()
+    payload.update(updates)
+    payload.pop("event_hash", None)
+    payload["event_hash"] = digest(payload)
+    return canonical_bytes(payload)
+
+
+def _write_config(tmp_path: Path, **updates: object) -> None:
+    payload: dict[str, object] = {
+        "bridge_root": str(tmp_path / "bridge"),
+        "max_events_per_second": 5,
+        "period": "tick",
+        "symbols": ["600000.SH"],
+    }
+    payload.update(updates)
+    (tmp_path / qmt_bridge.CONFIG_NAME).write_text(
+        json.dumps(payload, ensure_ascii=True, sort_keys=True),
+        encoding="ascii",
+    )
+
+
+def _quote() -> dict[str, object]:
+    return {
+        "amount": 120000000,
+        "high": 10.2,
+        "lastClose": 9.95,
+        "lastPrice": 10.1,
+        "low": 9.9,
+        "open": 10,
+        "time": 1_775_000_000_000,
+        "volume": 120000,
+    }
+
+
+def _reset_bridge() -> None:
+    qmt_bridge._STATE["config"] = None
+    qmt_bridge._STATE["last_emit_ns"] = {}
+    qmt_bridge._STATE["sequences"] = {}
+    qmt_bridge._STATE["subscriptions"] = []
+
+
+class FakeContext:
+    def __init__(self) -> None:
+        self.universe: list[str] = []
+        self.subscriptions: list[dict[str, object]] = []
+
+    def set_universe(self, symbols: list[str]) -> None:
+        self.universe = symbols
+
+    def subscribe_quote(self, symbol: str, **kwargs: object) -> int:
+        self.subscriptions.append({"symbol": symbol, **kwargs})
+        return len(self.subscriptions)
+
+
+def test_reference_event_and_snapshot_are_exact_and_non_authorizing():
+    event = parse_registered_event(build_reference_event_bytes())
+    snapshot = build_reference_snapshot()
+
+    assert event.symbol == "600000.SH"
+    assert event.sequence == 1
+    assert snapshot.bridge_state == "CANDIDATE_REALTIME_OBSERVED"
+    assert snapshot.operator_review_required and snapshot.read_only
+    assert not any(
+        (
+            snapshot.market_data_authority,
+            snapshot.data_promotion_authority,
+            snapshot.account_authority,
+            snapshot.execution_authority,
+        )
+    )
+    assert snapshot.snapshot_hash == build_reference_snapshot().snapshot_hash
+    assert (
+        render_reference_snapshot_json()
+        == render_reference_snapshot_json().encode("ascii").decode("ascii")
+    )
+
+
+def test_event_schema_identity_hash_and_symbol_fail_closed():
+    payload = build_reference_event_payload()
+    payload["unexpected"] = "unsafe"
+    with pytest.raises(ValueError, match="closed schema"):
+        parse_registered_event(canonical_bytes(payload))
+
+    payload = build_reference_event_payload()
+    payload["last"] = "10.11"
+    with pytest.raises(ValueError, match="event_hash"):
+        parse_registered_event(canonical_bytes(payload))
+
+    with pytest.raises(ValueError, match="symbol is not registered"):
+        parse_registered_event(_raw(symbol="000001.SZ"))
+
+
+def test_decimal_ohlc_future_and_stale_values_fail_closed():
+    with pytest.raises(ValueError, match="canonical"):
+        parse_registered_event(_raw(last="NaN"))
+    with pytest.raises(ValueError, match="low exceeds"):
+        parse_registered_event(_raw(low="10.15"))
+    with pytest.raises(ValueError, match="received time is in the future"):
+        ingest_registered_events(
+            (_raw(received_at_ms=NOW_MS + 3000),),
+            now_ms=NOW_MS,
+        )
+    with pytest.raises(ValueError, match="stale"):
+        ingest_registered_events(
+            (
+                _raw(
+                    event_time_ms=NOW_MS - 10002,
+                    received_at_ms=NOW_MS - 10001,
+                ),
+            ),
+            now_ms=NOW_MS,
+        )
+
+
+def test_duplicate_out_of_order_and_noncanonical_batches_fail_closed():
+    first = ingest_registered_events(
+        (build_reference_event_bytes(),),
+        now_ms=NOW_MS,
+    )
+    with pytest.raises(ValueError, match="duplicate event hash"):
+        ingest_registered_events(
+            (build_reference_event_bytes(),),
+            now_ms=NOW_MS,
+            prior_state=first.state,
+        )
+    with pytest.raises(ValueError, match="sequence"):
+        ingest_registered_events(
+            (_raw(sequence=1, received_at_ms=1_775_000_000_600),),
+            now_ms=NOW_MS,
+            prior_state=QmtBridgeIngestState(
+                last_sequences={"600000.SH": 2},
+                event_hashes=(),
+            ),
+        )
+    with pytest.raises(ValueError, match="chronological"):
+        ingest_registered_events(
+            (
+                _raw(sequence=2, received_at_ms=1_775_000_000_700),
+                _raw(sequence=1, received_at_ms=1_775_000_000_600),
+            ),
+            now_ms=NOW_MS,
+        )
+
+
+def test_spool_reader_accepts_closed_files_and_rejects_unregistered_entries(
+    tmp_path: Path,
+):
+    spool = tmp_path / "incoming"
+    spool.mkdir()
+    (spool / "quote-600000-SH-1775000000500-000000000001.json").write_bytes(
+        build_reference_event_bytes()
+    )
+    snapshot = read_registered_spool(
+        spool,
+        now_ms=NOW_MS,
+        prior_state=EMPTY_INGEST_STATE,
+    )
+    assert len(snapshot.accepted_events) == 1
+
+    (spool / "notes.txt").write_text("unsafe", encoding="ascii")
+    with pytest.raises(ValueError, match="unregistered entry"):
+        read_registered_spool(spool, now_ms=NOW_MS)
+
+
+def test_production_bridge_source_uses_only_read_only_qmt_calls():
+    path = (
+        Path(__file__).resolve().parents[2]
+        / "apps"
+        / "fcp_0106_a_share_qmt_internal_read_only_market_bridge_app_1"
+        / "qmt_bridge.py"
+    )
+    report = inspect_bridge_file(path)
+
+    assert report.ok
+    assert report.context_calls == ("set_universe", "subscribe_quote")
+    assert not report.forbidden_calls
+    assert not report.forbidden_imports
+
+
+def test_policy_rejects_network_account_and_order_capability():
+    unsafe = """
+import socket
+def _on_quote(data):
+    return data
+def init(ContextInfo):
+    ContextInfo.set_account("unsafe")
+    ContextInfo.passorder("unsafe")
+"""
+    report = inspect_bridge_source(unsafe)
+    assert not report.ok
+    assert report.forbidden_imports == ("socket",)
+    assert report.forbidden_calls == ("passorder", "set_account")
+
+
+def test_qmt_init_registers_one_read_only_tick_subscription(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    _reset_bridge()
+    _write_config(tmp_path)
+    monkeypatch.setattr(qmt_bridge, "__file__", str(tmp_path / "qmt_bridge.py"))
+    context = FakeContext()
+
+    qmt_bridge.init(context)
+
+    assert context.universe == ["600000.SH"]
+    assert len(context.subscriptions) == 1
+    subscription = context.subscriptions[0]
+    assert subscription["symbol"] == "600000.SH"
+    assert subscription["period"] == "tick"
+    assert subscription["dividend_type"] == "none"
+    assert subscription["result_type"] == "dict"
+    assert subscription["callback"] is qmt_bridge._on_quote
+
+
+def test_quote_callback_writes_one_atomic_ascii_event_and_rate_limits(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    _reset_bridge()
+    _write_config(tmp_path)
+    monkeypatch.setattr(qmt_bridge, "__file__", str(tmp_path / "qmt_bridge.py"))
+    ticks = iter((1_775_000_000_500_000_000, 1_775_000_000_600_000_000))
+    monkeypatch.setattr(qmt_bridge.time, "time_ns", lambda: next(ticks))
+    context = FakeContext()
+    qmt_bridge.init(context)
+
+    callback = context.subscriptions[0]["callback"]
+    callback({"600000.SH": _quote()})
+    callback({"600000.SH": _quote()})
+
+    files = tuple((tmp_path / "bridge" / "incoming").glob("*.json"))
+    assert len(files) == 1
+    assert not tuple((tmp_path / "bridge" / "incoming").glob("*.tmp-*"))
+    event = parse_registered_event(files[0].read_bytes())
+    assert event.last == "10.1"
+    assert event.volume_native == "120000"
+    assert event.sequence == 1
+
+
+def test_config_and_subscription_failure_are_fail_closed(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    _reset_bridge()
+    _write_config(tmp_path, period="1m")
+    monkeypatch.setattr(qmt_bridge, "__file__", str(tmp_path / "qmt_bridge.py"))
+    with pytest.raises(ValueError, match="period must be tick"):
+        qmt_bridge.init(FakeContext())
+
+    _write_config(tmp_path)
+
+    class RejectedContext(FakeContext):
+        def subscribe_quote(self, symbol: str, **kwargs: object) -> int:
+            return 0
+
+    with pytest.raises(RuntimeError, match="subscription failed"):
+        qmt_bridge.init(RejectedContext())
+
+
+def test_registration_rejects_authority_expansion_and_unbounded_limits():
+    with pytest.raises(ValueError, match="closed contract"):
+        replace(DEFAULT_REGISTRATION, max_event_age_ms=120_000)
+    with pytest.raises(ValueError, match="closed contract"):
+        replace(DEFAULT_REGISTRATION, max_batch_files=5000)
+    with pytest.raises(ValueError, match="closed contract"):
+        replace(DEFAULT_REGISTRATION, allowed_symbols=("unsafe",))
