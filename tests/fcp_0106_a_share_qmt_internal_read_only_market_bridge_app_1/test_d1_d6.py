@@ -673,6 +673,10 @@ def test_registration_rejects_authority_expansion_and_unbounded_limits():
         replace(DEFAULT_REGISTRATION, max_batch_files=5000)
     with pytest.raises(ValueError, match="closed contract"):
         replace(DEFAULT_REGISTRATION, allowed_symbols=("unsafe",))
+    with pytest.raises(ValueError, match="exact tuple"):
+        replace(DEFAULT_REGISTRATION, allowed_symbols=["600000.SH"])
+    with pytest.raises(ValueError, match="closed contract"):
+        replace(DEFAULT_REGISTRATION, allowed_symbols=("600000.SH", 1))
 
 
 def test_snapshot_state_rejects_mutable_or_coerced_primitive_containers():
@@ -685,6 +689,11 @@ def test_snapshot_state_rejects_mutable_or_coerced_primitive_containers():
         QmtBridgeIngestState(last_sequences={}, event_hashes=[])
     with pytest.raises(ValueError, match="SHA-256"):
         QmtBridgeIngestState(last_sequences={}, event_hashes=(1,))
+    with pytest.raises(ValueError, match="last_sequences is invalid"):
+        QmtBridgeIngestState(
+            last_sequences={"600000.SH": 1, 2: 1},
+            event_hashes=(),
+        )
 
     snapshot = build_reference_snapshot()
     with pytest.raises(ValueError, match="exact event tuple"):

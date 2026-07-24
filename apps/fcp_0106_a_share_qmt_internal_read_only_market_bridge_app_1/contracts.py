@@ -80,13 +80,21 @@ class QmtInternalBridgeRegistration:
     max_batch_files: int = 1024
 
     def __post_init__(self) -> None:
+        if type(self.allowed_symbols) is not tuple:
+            raise ValueError("allowed_symbols must be an exact tuple")
+        if (
+            not 1 <= len(self.allowed_symbols) <= 64
+            or any(
+                not isinstance(item, str) or not SYMBOL.fullmatch(item)
+                for item in self.allowed_symbols
+            )
+        ):
+            raise ValueError("allowed_symbols is outside the closed contract registry")
         exact = (
             self.bridge_id == BRIDGE_ID,
             self.schema_version == SCHEMA_VERSION,
             self.source_kind == SOURCE_KIND,
             self.allowed_symbols == tuple(sorted(set(self.allowed_symbols))),
-            1 <= len(self.allowed_symbols) <= 64,
-            all(SYMBOL.fullmatch(item) for item in self.allowed_symbols),
             type(self.max_event_age_ms) is int,
             1_000 <= self.max_event_age_ms <= 60_000,
             type(self.max_future_skew_ms) is int,
@@ -207,8 +215,6 @@ class QmtBridgeIngestState:
         sequences = dict(self.last_sequences)
         if type(self.event_hashes) is not tuple:
             raise ValueError("event_hashes must be an exact tuple")
-        if tuple(sequences) != tuple(sorted(sequences)):
-            raise ValueError("last_sequences must be sorted")
         if any(
             not isinstance(symbol, str)
             or not SYMBOL.fullmatch(symbol)
@@ -217,6 +223,8 @@ class QmtBridgeIngestState:
             for symbol, sequence in sequences.items()
         ):
             raise ValueError("last_sequences is invalid")
+        if tuple(sequences) != tuple(sorted(sequences)):
+            raise ValueError("last_sequences must be sorted")
         if (
             len(set(self.event_hashes)) != len(self.event_hashes)
             or any(
